@@ -47,8 +47,10 @@ main.ix-wrap{margin-top:-104px;position:relative}
 .ix-meta span{font:700 12px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-050);padding:6px 9px;border-radius:999px}
 .ix-body h3{margin:4px 0 8px;font:800 26px/1.15 var(--f-display);color:var(--ink);letter-spacing:-.02em}
 .ix-body p{margin:0;font-size:16px}
-.ix-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:20px}
-.ix-btn{display:inline-flex;align-items:center;padding:11px 15px;border-radius:11px;border:1px solid var(--line);background:#fff;text-decoration:none;font:700 15px/1 var(--f-display);color:var(--ink);transition:border-color .3s,background .3s,transform .3s var(--ease)}
+/* the card's actions: one row that never wraps; on tight cards the link icons go, then "loop", then some padding */
+.ix-body{container-type:inline-size}
+.ix-acts{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;margin-top:auto;padding-top:18px}
+.ix-btn{display:inline-flex;align-items:center;flex:none;padding:9px 12px;border-radius:9px;border:1px solid var(--line);background:#fff;text-decoration:none;font:700 13px/1 var(--f-display);color:var(--ink);white-space:nowrap;transition:border-color .3s,background .3s,transform .3s var(--ease)}
 .ix-btn:hover{border-color:var(--blue-300)}
 .ix-btn--p{background:var(--blue);border-color:var(--blue);color:#fff}
 .ix-btn--p:hover{background:var(--blue-700);border-color:var(--blue-700)}
@@ -77,9 +79,12 @@ main.ix-wrap{margin-top:-104px;position:relative}
 
 /* Share: a link to one presentation on its own */
 button.ix-btn{cursor:pointer}
-.ix-more{display:inline-flex;gap:2px}
-.ix-more .ix-btn{padding:11px 12px}
-.ix-btn--t .ic{width:16px;height:16px;margin-right:7px}
+.ix-more{display:inline-flex;flex:none}
+.ix-more .ix-btn{padding:9px 7px}
+.ix-btn--t .ic{width:14px;height:14px;margin-right:5px;flex:none}
+@container (max-width:315px){.ix-acts .ix-btn--t .ic{display:none}}
+@container (max-width:281px){.ix-kl{display:none}}
+@container (max-width:254px){.ix-acts{gap:4px}.ix-acts .ix-btn{padding:9px 9px}.ix-acts .ix-more .ix-btn{padding:9px 5px}}
 .ix-share[aria-expanded=true]{border-color:var(--blue-100);background:var(--blue-050)}
 .ix-pop{position:absolute;z-index:40;width:min(410px,calc(100vw - 24px));padding:16px 18px 14px;border-radius:16px;background:#fff;border:1px solid var(--line);
   box-shadow:0 2px 6px rgba(31,31,61,.06),0 30px 60px -24px rgba(31,31,61,.45);animation:ixPop .2s var(--ease)}

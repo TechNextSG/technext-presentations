@@ -23,7 +23,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "4"
+ASSET_V = "5"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -130,7 +130,7 @@ def launcher():
             pdf = (f'<a class="ix-btn ix-btn--t" href="pdf/{d["pdf"]}">{{{{icon:file}}}}PDF</a>' if (ROOT / "pdf" / d["pdf"]).exists() else "")
             share = (f'<button type="button" class="ix-btn ix-btn--t ix-share" data-share="{BASE}s-{share_tokens()[d["slug"]]}.html" data-title="{d["title"]}"'
                      f' aria-haspopup="dialog" aria-expanded="false">{{{{icon:link}}}}Share</button>')
-            # PDF and Share stay side by side, wrapping together under Present and Kiosk loop
+            # PDF and Share sit beside Present and Kiosk loop, all on one row
             more = f'\n          <span class="ix-more">{pdf}{share}</span>'
             cards.append(f"""    <article class="ix-card">
       <a class="ix-thumb" href="{d['slug']}.html" aria-label="Open {d['title']}">
@@ -142,7 +142,7 @@ def launcher():
         <p>{d['desc']}</p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="{d['slug']}.html">Present</a>
-          <a class="ix-btn" href="{d['slug']}.html?kiosk">Kiosk loop</a>{more}
+          <a class="ix-btn" href="{d['slug']}.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>{more}
         </div>
       </div>
     </article>""")
