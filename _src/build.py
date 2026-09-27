@@ -12,7 +12,7 @@ Sources live in _src/decks/*.html and are written to the repo root with these to
   {{include:name}}              the contents of _src/partials/name.html
 Run: python -B _src/build.py
 """
-import json, pathlib, re, sys, io
+import json, pathlib, re, sys, io, secrets
 
 import segno
 
@@ -81,6 +81,38 @@ DECKS = [
              desc="Starter, Launch, Growth and Brand for websites, social and brand, eight add-ons, a which-tier-fits finder and a plan that turns into a quotation request."),
     ]),
 ]
+# ---------------------------------------------------------------- share links
+# Each deck also builds as s-<token>.html: the same deck with no Home button and no links to the other decks,
+# for sending one presentation on its own. Tokens live in _src/share.json; change one to retire its link.
+SHARE_FILE = SRC / "share.json"
+_share = {}
+
+
+def share_tokens():
+    if not _share:
+        tok = json.loads(SHARE_FILE.read_text(encoding="utf-8")) if SHARE_FILE.exists() else {}
+        new = [d["slug"] for _, ds in DECKS for d in ds if d["slug"] not in tok]
+        for slug in new:
+            tok[slug] = "".join(secrets.choice("abcdefghijkmnpqrstuvwxyz23456789") for _ in range(7))
+        if new:
+            SHARE_FILE.write_text(json.dumps(tok, indent=1) + "\n", encoding="utf-8")
+        _share.update(tok)
+    return _share
+
+
+def share_copy(html, slug):
+    """The shared copy of a built deck: no way back to the launcher, links to other decks (data-internal) removed."""
+    name = f"s-{share_tokens()[slug]}.html"
+    s = html.replace(' data-home="./"', " data-shared", 1)
+    s = re.sub(r"<(p|a|div|li)\b[^>]*\bdata-internal\b[^>]*>.*?</\1>", "", s, flags=re.S)
+    s = s.replace(f'<meta property="og:url" content="{BASE}{slug}.html">', f'<meta property="og:url" content="{BASE}{name}">')
+    decks = "|".join(re.escape(d["slug"]) for _, ds in DECKS for d in ds)
+    leak = re.findall(r'href="((?:\./|index\.html|(?:%s)\.html)[^"]*)"' % decks, s)
+    if leak or "data-shared" not in s:
+        sys.exit(f"{slug}: the shared copy still leads to {leak or 'the launcher'}: mark those links data-internal")
+    return name, s
+
+
 WORDS = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten"}
 
 
@@ -95,7 +127,11 @@ def launcher():
             slides = len(re.findall(r'<section class="slide[ "]', html.read_text(encoding="utf-8")))
             th = f"assets/img/thumbs/{d['slug']}"
             second = (f'\n        <img class="ix-thumb-2" src="{th}-2.jpg" alt="" width="960" height="540" loading="lazy">' if (ROOT / f"{th}-2.jpg").exists() else "")
-            pdf = (f'\n          <a class="ix-btn ix-btn--t" href="pdf/{d["pdf"]}">PDF</a>' if (ROOT / "pdf" / d["pdf"]).exists() else "")
+            pdf = (f'<a class="ix-btn ix-btn--t" href="pdf/{d["pdf"]}">{{{{icon:file}}}}PDF</a>' if (ROOT / "pdf" / d["pdf"]).exists() else "")
+            share = (f'<button type="button" class="ix-btn ix-btn--t ix-share" data-share="{BASE}s-{share_tokens()[d["slug"]]}.html" data-title="{d["title"]}"'
+                     f' aria-haspopup="dialog" aria-expanded="false">{{{{icon:link}}}}Share</button>')
+            # PDF and Share stay side by side, wrapping together under Present and Kiosk loop
+            more = f'\n          <span class="ix-more">{pdf}{share}</span>'
             cards.append(f"""    <article class="ix-card">
       <a class="ix-thumb" href="{d['slug']}.html" aria-label="Open {d['title']}">
         <img src="{th}.jpg" alt="{d['alt']}" width="960" height="540">{second}
@@ -106,7 +142,7 @@ def launcher():
         <p>{d['desc']}</p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="{d['slug']}.html">Present</a>
-          <a class="ix-btn" href="{d['slug']}.html?kiosk">Kiosk loop</a>{pdf}
+          <a class="ix-btn" href="{d['slug']}.html?kiosk">Kiosk loop</a>{more}
         </div>
       </div>
     </article>""")
@@ -390,6 +426,13 @@ def main():
         html = expand(src, p.name)
         (ROOT / p.name).write_text(html, encoding="utf-8", newline="\n")
         out.append((p.name, len(html)))
+        if p.stem in share_tokens():
+            name, shared = share_copy(html, p.stem)
+            (ROOT / name).write_text(shared, encoding="utf-8", newline="\n")
+    live = {f"s-{t}.html" for t in share_tokens().values()}
+    for old in ROOT.glob("s-*.html"):
+        if old.name not in live:
+            old.unlink(); print("  retired share link", old.name)
     for name, n in out:
         print(f"  {name:28s} {n/1024:7.1f} KB")
     sites_check("--prune" in sys.argv)

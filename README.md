@@ -29,6 +29,8 @@ Live (unlisted, `noindex`): https://technextsg.github.io/technext-presentations/
 
 Click empty space to advance; swipe on touch screens. Add `?kiosk` (or `?kiosk=12` for 12 s a slide) to loop on its own. `#5` in the address opens slide 5.
 
+**Share links.** Each card on the launcher has a Share button: it copies a link to that presentation on its own (on a phone it opens the share sheet), with Email, WhatsApp and Preview beside it. The link opens `s-<token>.html`, a copy of the deck with no Home button and none of the links to the other decks, so the person you send it to has no way from it to the rest. The site is public, though: it hides the way, it doesn't lock the door.
+
 **Phones.** Held upright, the deck turns 90° so the slides fill the screen: turn the phone sideways to read them. With auto-rotate on, the browser switches to landscape and the deck turns back upright; with rotation locked, it stays turned and reads correctly. Swipes follow the slides' own direction. On Android, full screen also holds the screen in landscape. Short screens get a smaller control bar.
 
 ## Building
@@ -45,6 +47,8 @@ python -B _src/build.py
 - `assets/deck.css`, `assets/deck.js`: the engine (1600 × 900 stage scaled to the window, builds, overview, notes, kiosk, print, the phone turn). Slide scripts read positions through `Deck.rect(el)` and `Deck.point(event)`, which stay correct when the deck is turned.
 - `assets/<deck>.css|js`: each deck's own slides. `assets/ai-demos.*`, `assets/fx.js`: shared demos and motion helpers.
 - `_src/icons.json` is the technext.asia icon set; `_src/land-50m.json` is Natural Earth land (world-atlas, ISC) for the dot maps.
+
+**Shared copies** are written by the build: one `s-<token>.html` per deck, tokens in `_src/share.json` (made on first build, kept after). Mark any link to another deck `data-internal` and the shared copy drops it; the build stops if a shared copy still links to another deck or the launcher. To retire a link, change that deck's token and rebuild: the old file is deleted.
 
 **Site pictures** (Marketing showcase, Portfolio): full-page captures (`<slug>-d.jpg` at 1440 wide, `<slug>-m.jpg` at 390 wide) become deck images with `python -B _src/sites_images.py <capture folder>`, which writes every size to `assets/img/sites/` and `_src/sites_meta.json`. Then `python -B _src/build.py --prune` deletes the sizes no deck uses. A normal build fails if a deck points at a picture that isn't there. Capture with the viewport at its normal height and `captureBeyondViewport`; stretching the viewport to the page height blows up 100vh heroes.
 

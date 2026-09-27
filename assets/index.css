@@ -74,3 +74,27 @@ main.ix-wrap{margin-top:-104px;position:relative}
   .ix-tips ul{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Share: a link to one presentation on its own */
+button.ix-btn{cursor:pointer}
+.ix-more{display:inline-flex;gap:2px}
+.ix-more .ix-btn{padding:11px 12px}
+.ix-btn--t .ic{width:16px;height:16px;margin-right:7px}
+.ix-share[aria-expanded=true]{border-color:var(--blue-100);background:var(--blue-050)}
+.ix-pop{position:absolute;z-index:40;width:min(410px,calc(100vw - 24px));padding:16px 18px 14px;border-radius:16px;background:#fff;border:1px solid var(--line);
+  box-shadow:0 2px 6px rgba(31,31,61,.06),0 30px 60px -24px rgba(31,31,61,.45);animation:ixPop .2s var(--ease)}
+@keyframes ixPop{from{opacity:0;transform:translateY(4px)}}
+.ix-pop-h{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ix-pop-h b{font:800 17px/1.2 var(--f-display);color:var(--ink)}
+.ix-pop-x{width:30px;height:30px;flex:none;border:0;border-radius:8px;background:none;color:var(--muted);font-size:22px;line-height:1;cursor:pointer}
+.ix-pop-x:hover,.ix-pop-x:focus-visible{background:var(--alt);color:var(--ink);outline:none}
+.ix-pop-t{margin:6px 0 12px;font-size:14px;line-height:1.45}
+.ix-pop-f{display:flex;gap:8px}
+.ix-pop-f input{flex:1;min-width:0;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--alt);font:500 13.5px/1.2 var(--f-body);color:var(--ink)}
+.ix-pop-f input:focus{outline:2px solid var(--blue-300);outline-offset:0;background:#fff}
+.ix-pop-f .ix-btn{white-space:nowrap}
+.ix-pop-a{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin:12px 0 0;font:700 14px/1 var(--f-display)}
+.ix-pop-a a{color:var(--blue);text-decoration:none}
+.ix-pop-a a:hover,.ix-pop-a a:focus-visible{text-decoration:underline}
+.ix-pop-s{margin-left:auto;font:600 13px/1 var(--f-body);color:#137A4A}
+@media (prefers-reduced-motion:reduce){.ix-pop{animation:none}}
