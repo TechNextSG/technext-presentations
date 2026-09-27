@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>TechNext Marketing Showcase</title>
+<meta name="description" content="TechNext marketing showcase: the live websites we have built, the concepts we have mocked up, and the pitch microsites we make for clients, each shown full page.">
+{{og:marketing-showcase}}
+<link rel="stylesheet" href="assets/showcase.css?v={{v}}">
+</head>
+<body data-label="Marketing showcase" data-home="./">
+<main class="deck" aria-label="TechNext marketing showcase">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="Marketing showcase">
+  <div class="cv-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">marketing showcase</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Websites we've built, <span class="hl">live and in concept.</span></h1>
+    <p class="lead" data-in style="--d:320ms">Live client sites, the redesign concepts we mock up, and the pitch microsites that show a client what their marketing could look like.</p>
+    <div class="cv-tags" data-in style="--d:440ms"><span class="tag">{{icon:globe}}Live sites</span><span class="tag">{{icon:layout}}Concepts</span><span class="tag">{{icon:megaphone}}Pitch microsites</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="sw" aria-hidden="true" data-in data-fx="fade" style="--d:100ms">{{sc:wall}}</div>
+  <aside class="notes"><p>Three kinds of work: sites clients run today, concepts we design to show what a redesign could be, and pitch microsites for a specific proposal.</p></aside>
+</section>
+
+<!-- 2 · the wall -->
+<section class="slide" id="gallery" data-title="Every site, on one wall">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the wall of work</span>
+      <h2 class="h-m" data-in style="--d:80ms">Every site we've built, <span class="hl">on one wall.</span></h2>
+    </div>
+    <div class="seg mz-seg" role="group" aria-label="Show" data-in style="--d:160ms">
+      <button type="button" aria-pressed="true" data-f="all">All</button><button type="button" aria-pressed="false" data-f="live">Live sites</button><button type="button" aria-pressed="false" data-f="concept">Concepts</button><button type="button" aria-pressed="false" data-f="pitch">Pitch microsites</button>
+    </div>
+  </div>
+  <div class="mz" data-i data-in data-fx="fade" style="--d:200ms">{{sc:tiles}}</div>
+  <div class="mz-foot" data-in style="--d:300ms">
+    <button type="button" class="mz-n" data-f="live"><b>{{sc:n:live}}</b><small>live client sites</small></button>
+    <button type="button" class="mz-n" data-f="concept"><b>{{sc:n:concept}}</b><small>redesigns and concepts</small></button>
+    <button type="button" class="mz-n" data-f="pitch"><b>{{sc:n:pitch}}</b><small>pitch microsites</small></button>
+    <p class="mz-legend"><i></i>Live today <span>·</span> hover a tile for its name, click to open it</p>
+  </div>
+  <aside class="notes"><p>Filter by kind. Live sites and the featured concepts jump to their own slide; the rest open in a new tab.</p></aside>
+</section>
+
+{{sc:live}}
+
+{{sc:concepts}}
+
+<!-- more concepts -->
+<section class="slide" id="more" data-title="More concepts">
+  <div class="sec-head">
+    <span class="kicker" data-in>more concepts</span>
+    <h2 class="h-m" data-in style="--d:80ms">Redesigns and demos, <span class="hl">ready to show.</span></h2>
+  </div>
+  <div class="cw cw--5" data-i data-in data-fx="fade" style="--d:160ms">{{sc:more}}</div>
+  <p class="mz-legend" data-in style="--d:260ms">Hover a card to scroll the page · click to open it</p>
+  <aside class="notes"><p>Concepts for prospects and our own experiments. Move with Ease and the others are redesigns the clients have not adopted yet, so present them as concepts.</p></aside>
+</section>
+
+<!-- pitch microsites -->
+<section class="slide" id="pitch" data-title="Pitch microsites">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>pitch microsites</span>
+      <h2 class="h-m" data-in style="--d:80ms">Proposals you can click through, <span class="hl">not just read.</span></h2>
+    </div>
+    <div class="seg pc-seg" role="group" aria-label="Show" data-in style="--d:160ms">
+      <button type="button" aria-pressed="true" data-f="all">All</button><button type="button" aria-pressed="false" data-f="show">Marketing showcases</button><button type="button" aria-pressed="false" data-f="prop">Odoo proposals</button>
+    </div>
+  </div>
+  <div class="cw cw--6" data-i data-in data-fx="fade" style="--d:200ms">{{sc:pitch}}</div>
+  <p class="mz-legend" data-in style="--d:300ms">Each client gets its own microsite: the marketing we'd run, or the Odoo screens they'd use</p>
+  <aside class="notes"><p>Marketing showcases show social content, the website and AI video for one client; Odoo proposals walk through the screens they would use. Some are for prospects, so check before showing them outside TechNext.</p></aside>
+</section>
+
+<!-- contact -->
+<section class="slide dark" id="contact" data-title="Let's build yours" data-chrome="foot">
+  <div class="split split--narrow">
+    <div>
+      <img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40" data-in>
+      <span class="kicker" data-in style="--d:80ms">next step</span>
+      <h2 class="h-xl ct-h" data-in style="--d:140ms">Let's build <span class="hl">yours next.</span></h2>
+      <p class="lead" data-in style="--d:220ms">Tell us what your site needs to do, and we'll map the pages, the content and the enquiries it should bring in.</p>
+      <div class="cv-tags" data-in style="--d:280ms"><span class="tag">{{icon:zap}}Fast on every phone</span><span class="tag">{{icon:target}}Clear on what you do</span><span class="tag">{{icon:search}}Built to be found</span><span class="tag">{{icon:usercheck}}Leads to the right place</span></div>
+      <div class="ct-actions" data-in style="--d:340ms">
+        <a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener">{{icon:calendar}}Book a discovery call</a>
+        <a class="btn btn-ghost" href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      </div>
+      <div class="ct-links" data-in style="--d:400ms"><a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a><a href="marketing-tiers.html">{{icon:layers}}See the marketing tiers</a></div>
+    </div>
+    <div class="ct-qr" data-in data-fx="scale" style="--d:300ms">
+      <div class="ct-qr-card">{{qr:meet}}<b>Scan to book a call</b><small>Discovery Call with TechNext · 30 min online</small></div>
+    </div>
+  </div>
+  <aside class="notes"><p>Close with the booking link, or jump to the marketing tier list.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/showcase.js?v={{v}}"></script>
+</body>
+</html>

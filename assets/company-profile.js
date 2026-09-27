@@ -156,16 +156,21 @@
       s.addEventListener('click', function (e) { var b = e.target.closest('.en-node'); if (b) Deck.go(idx(s), +b.dataset.n); });
     },
     step: function (n, ctx, s, first) {
-      var base = $('#enBase', s), plane = $('.en-plane', s), svg = $('.en-svg', s), from = s._p, to = s._f[n];
-      $$('.en-node', s).forEach(function (el, k) { el.classList.toggle('is-past', k < n); el.classList.toggle('is-cur', k === n); });
-      $$('.en-card', s).forEach(function (el, k) { el.classList.toggle('is-on', k === n); });
-      $$('.en-offs span', s).forEach(function (el) { el.classList.toggle('is-on', WHO[n].indexOf(el.dataset.o) >= 0); });
-      $('[data-who]', s).textContent = WHO_S[n];
-      function at(p) { s._p = p; FX.along(base, plane, p, false, 1.25); svg.style.setProperty('--p', p.toFixed(4)); }
-      if (first && from === to) { at(to); return; }
-      ctx.tween(first ? 900 : 1100, function (e) { at(from + (to - from) * e); }, 'io');
-    }
+      var from = s._p, to = s._f[n];
+      enPaint(s, n);
+      if (first && from === to) { enAt(s, to); return; }
+      ctx.tween(first ? 900 : 1100, function (e) { enAt(s, from + (to - from) * e); }, 'io');
+    },
+    // print and the overview: the last step, with the plane arrived
+    settle: function (s) { var n = s._f.length - 1; enPaint(s, n); enAt(s, s._f[n]); }
   });
+  function enPaint(s, n) {
+    $$('.en-node', s).forEach(function (el, k) { el.classList.toggle('is-past', k < n); el.classList.toggle('is-cur', k === n); });
+    $$('.en-card', s).forEach(function (el, k) { el.classList.toggle('is-on', k === n); });
+    $$('.en-offs span', s).forEach(function (el) { el.classList.toggle('is-on', WHO[n].indexOf(el.dataset.o) >= 0); });
+    $('[data-who]', s).textContent = WHO_S[n];
+  }
+  function enAt(s, p) { s._p = p; FX.along($('#enBase', s), $('.en-plane', s), p, false, 1.25); $('.en-svg', s).style.setProperty('--p', p.toFixed(4)); }
 
   /* ---------------------------------------------------------------- 7 · AI: the four disciplines take turns */
   Deck.on('ai', {

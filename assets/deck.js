@@ -3,7 +3,9 @@
    O overview · F fullscreen · N speaker notes · ? help. Click empty space to advance, swipe on touch.
    [data-in] animates when a slide opens; [data-step="n"] builds on the n-th press ([data-until="m"] hides it again).
    Slides register behaviour with Deck.on(id, {init, enter(ctx, slide), step(n, ctx, slide), leave(slide), settle(slide)});
-   settle runs once the slide has faded out, to leave it in its finished state for the overview and for print.
+   settle runs once the slide has faded out, to leave it in its finished state for the overview; ?print and printing
+   settle every slide (enter never runs there), so the PDF shows each one finished.
+   Phones held upright: the whole deck turns 90° to fill the screen; Deck.rect/Deck.point give positions in the deck's axes.
    every timer, loop and listener made through ctx is cleaned up when the slide closes. */
 (function () {
   'use strict';
@@ -13,6 +15,10 @@
   var hooks = {}, cur = -1, step = 0, ctx = null, scale = 1, overview = false, oCursor = 0;
   var params = new URLSearchParams(location.search);
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PRINT = params.has('print');
+  // a phone (coarse pointer, short side up to 600 px) held upright gets the deck turned 90°, filling the screen
+  var rotated = false, rotW = 0;
+  function isPhone() { return !!(window.matchMedia && matchMedia('(pointer: coarse)').matches) && Math.min(screen.width, screen.height) <= 600; }
 
   /* ---------------------------------------------------------------- helpers */
   function $(s, r) { return (r || document).querySelector(s); }
@@ -31,9 +37,17 @@
     var w = el.offsetWidth, h = el.offsetHeight;
     return { x: a[0], y: a[1], w: w, h: h, cx: a[0] + w / 2, cy: a[1] + h / 2, r: a[0] + w, b: a[1] + h };
   }
+  // an element's box and a pointer's position in the deck's own axes: the screen's, unless the deck is turned for a phone
+  function rect(el) {
+    var a = el.getBoundingClientRect();
+    if (!rotated) return a;
+    var l = a.top, t = rotW - a.right;
+    return { left: l, top: t, right: l + a.height, bottom: t + a.width, width: a.height, height: a.width, x: l, y: t };
+  }
+  function point(e) { return rotated ? { x: e.clientY, y: rotW - e.clientX } : { x: e.clientX, y: e.clientY }; }
   // visual box (includes transforms) in stage pixels
   function vbox(el, ref) {
-    var a = el.getBoundingClientRect(), b = (ref || stage).getBoundingClientRect();
+    var a = rect(el), b = rect(ref || stage);
     return { x: (a.left - b.left) / scale, y: (a.top - b.top) / scale, w: a.width / scale, h: a.height / scale,
       cx: (a.left - b.left + a.width / 2) / scale, cy: (a.top - b.top + a.height / 2) / scale };
   }
@@ -121,9 +135,12 @@
     '<button type="button" data-ui="notes" title="Speaker notes (N)" aria-label="Speaker notes" aria-pressed="false">' + I.notes + '</button>' +
     '<button type="button" data-ui="full" title="Full screen (F)" aria-label="Full screen">' + I.full + '</button>' +
     '<button type="button" data-ui="help" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">' + I.help + '</button>';
-  document.body.appendChild(ui);
+  root.appendChild(ui);
+  // no full screen for pages on iPhone Safari, and no keyboard on a phone: those two buttons go
+  if (!document.documentElement.requestFullscreen) $('[data-ui=full]', ui).hidden = true;
+  if (isPhone()) $('[data-ui=help]', ui).hidden = true;
   var countEl = $('.count', ui);
-  var notesEl = document.createElement('div'); notesEl.className = 'notes-panel'; notesEl.setAttribute('aria-live', 'polite'); document.body.appendChild(notesEl);
+  var notesEl = document.createElement('div'); notesEl.className = 'notes-panel'; notesEl.setAttribute('aria-live', 'polite'); root.appendChild(notesEl);
   var helpEl = document.createElement('div'); helpEl.className = 'help'; helpEl.setAttribute('role', 'dialog'); helpEl.setAttribute('aria-label', 'Keyboard shortcuts');
   helpEl.innerHTML = '<div class="help-card"><h2>Keyboard shortcuts</h2><dl>' +
     '<dt><kbd>→</kbd><kbd>Space</kbd><kbd>PgDn</kbd></dt><dd>Next build or slide</dd>' +
@@ -134,13 +151,27 @@
     '<dt><kbd>N</kbd></dt><dd>Speaker notes</dd>' +
     '<dt><kbd>1</kbd>–<kbd>9</kbd> then <kbd>Enter</kbd></dt><dd>Jump to a slide</dd>' +
     '</dl><p class="small muted" style="margin:18px 0 0">Click empty space to advance · swipe on touch screens · add <b>?kiosk</b> to the address to loop on its own.</p></div>';
-  document.body.appendChild(helpEl);
-  var rot = document.createElement('div'); rot.className = 'rotate-hint'; rot.textContent = 'Turn your phone sideways for a bigger view'; document.body.appendChild(rot);
+  root.appendChild(helpEl);
+  // shown upright for a few seconds when the deck turns for a phone
+  var rot = document.createElement('div'); rot.className = 'rotate-hint'; rot.setAttribute('aria-hidden', 'true');
+  rot.innerHTML = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2.5"/><path d="M1.5 9.5a8 8 0 0 1 3-4.8M22.5 14.5a8 8 0 0 1-3 4.8"/><path d="M4.4 2.4v2.4H2M19.6 21.6v-2.4H22"/></svg>Turn your phone sideways';
+  document.body.appendChild(rot);
 
   /* ---------------------------------------------------------------- fit */
+  var hintT = 0, hinted = false;
   function fit() {
-    scale = Math.min(innerWidth / W, innerHeight / H);
+    var vw = innerWidth, vh = innerHeight;
+    rotated = !PRINT && vh > vw && isPhone();
+    root.classList.toggle('is-rotated', rotated);
+    if (rotated) { rotW = vw; root.style.left = vw + 'px'; root.style.width = vh + 'px'; root.style.height = vw + 'px'; var t = vw; vw = vh; vh = t; }
+    else { root.style.left = root.style.width = root.style.height = ''; }
+    root.style.setProperty('--vw', vw + 'px'); root.style.setProperty('--vh', vh + 'px');
+    // phones: a smaller control bar, so it covers less of the slide
+    root.classList.toggle('is-compact', vh < 520);
+    scale = Math.min(vw / W, vh / H);
     root.style.setProperty('--s', scale);
+    if (!rotated) { hinted = false; rot.classList.remove('is-on'); }
+    else if (!hinted) { hinted = true; rot.classList.add('is-on'); clearTimeout(hintT); hintT = setTimeout(function () { rot.classList.remove('is-on'); }, 4200); }
   }
 
   /* ---------------------------------------------------------------- steps */
@@ -186,11 +217,14 @@
     var c = ctx;
     requestAnimationFrame(function () { requestAnimationFrame(function () { if (c.alive) sl.classList.add('is-in'); }); });
     var h = hooks[sl.id];
-    if (h && h.enter) try { h.enter(c, sl); } catch (e) { console.error(e); }
-    if (h && h.step) try { h.step(s, c, sl, true); } catch (e) { console.error(e); }
+    // print never plays a slide: settleAll leaves every one finished instead
+    if (h && h.enter && !PRINT) try { h.enter(c, sl); } catch (e) { console.error(e); }
+    if (h && h.step && !PRINT) try { h.step(s, c, sl, true); } catch (e) { console.error(e); }
     ui_update();
     try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
     kiosk_reset();
+    // other scripts (lazy images) follow along
+    try { root.dispatchEvent(new CustomEvent('deck:slide', { detail: { index: i } })); } catch (e) {}
   }
   function setStep(s) {
     var sl = slides[cur]; s = clamp(s, 0, stepsOf(cur));
@@ -231,8 +265,11 @@
     root.classList.add('is-fading');
     setTimeout(function () {
       root.classList.add('no-anim');
+      // every other slide shows finished in the grid, visited or not (the current one keeps playing)
+      if (on) slides.forEach(function (sl, i) { if (i !== cur) settleOne(sl); });
       overview = on; oCols = layoutOverview();
       root.classList.toggle('is-overview', on);
+      if (on) try { root.dispatchEvent(new CustomEvent('deck:overview')); } catch (e) {}
       $('[data-ui=overview]', ui).setAttribute('aria-pressed', on);
       oCursor = cur; slides.forEach(function (s, i) { s.classList.toggle('is-cursor', on && i === oCursor); });
       if (then) then();
@@ -259,8 +296,12 @@
   function toggleHelp(on) { helpEl.classList.toggle('is-open', on == null ? !helpEl.classList.contains('is-open') : on); }
   function toggleFull() {
     try {
-      if (document.fullscreenElement) document.exitFullscreen();
-      else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+      if (document.fullscreenElement) { document.exitFullscreen(); if (screen.orientation && screen.orientation.unlock) try { screen.orientation.unlock(); } catch (e) {} }
+      else if (document.documentElement.requestFullscreen) {
+        var p = document.documentElement.requestFullscreen();
+        // on a phone, full screen also holds the screen in landscape where the browser allows it (Android)
+        if (p && p.then && isPhone() && screen.orientation && screen.orientation.lock) p.then(function () { return screen.orientation.lock('landscape'); }).catch(function () {});
+      }
     } catch (e) {}
   }
 
@@ -323,11 +364,11 @@
     if (e.touches.length !== 1) { tOk = false; return; }
     // swipes work over the demos too; only elements that drag ([data-drag], sliders) keep the gesture
     tOk = !e.target.closest('[data-drag],[role=slider],input,textarea');
-    tx = e.touches[0].clientX; ty = e.touches[0].clientY;
+    var p = point(e.touches[0]); tx = p.x; ty = p.y;
   }, { passive: true });
   stage.addEventListener('touchend', function (e) {
     if (!tOk || overview) return;
-    var t = e.changedTouches[0], dx = t.clientX - tx, dy = t.clientY - ty;
+    var p = point(e.changedTouches[0]), dx = p.x - tx, dy = p.y - ty;
     if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) { if (dx < 0) next(); else prev(); }
   }, { passive: true });
 
@@ -349,6 +390,8 @@
   addEventListener('mousemove', wake, { passive: true }); addEventListener('touchstart', wake, { passive: true }); addEventListener('keydown', function (e) { if (e.key === 'Tab') wake(); });
 
   addEventListener('resize', function () { fit(); if (overview) layoutOverview(); });
+  // some phones report the new size only after the turn has finished
+  addEventListener('orientationchange', function () { setTimeout(function () { fit(); if (overview) layoutOverview(); }, 250); });
   addEventListener('hashchange', function () { var n = parseInt(location.hash.slice(1), 10); if (n && n - 1 !== cur) go(n - 1, 0); });
 
   /* ---------------------------------------------------------------- kiosk: ?kiosk (or ?kiosk=8 seconds) loops on its own */
@@ -361,7 +404,10 @@
   }
 
   /* ---------------------------------------------------------------- print: every build shown, then back */
-  addEventListener('beforeprint', function () { slides.forEach(function (s, i) { paint(s, stepsOf(i)); s.classList.add('is-in'); }); });
+  // every build shown and every slide's settle hook run, so each prints in its finished state
+  function settleOne(s) { var h = hooks[s.id]; if (h && h.settle) try { h.settle(s); } catch (e) { console.error(e); } }
+  function settleAll() { slides.forEach(function (s, i) { paint(s, stepsOf(i)); s.classList.add('is-in'); settleOne(s); }); }
+  addEventListener('beforeprint', settleAll);
   addEventListener('afterprint', function () { slides.forEach(function (s, i) { if (i !== cur) { paint(s, 0); s.classList.remove('is-in'); } else paint(s, step); }); });
 
   /* ---------------------------------------------------------------- public API */
@@ -371,7 +417,8 @@
     goId: function (id, s) { var i = slides.findIndex(function (x) { return x.id === id; }); if (i >= 0) Deck.go(i, s); },
     next: next, prev: prev,
     get index() { return cur; }, get step() { return step; }, get scale() { return scale; },
-    slides: slides, $: $, $$: $$, lbox: lbox, vbox: vbox, clamp: clamp, ease: ease, money: money, reduce: reduce
+    get rotated() { return rotated; }, print: PRINT,
+    slides: slides, $: $, $$: $$, lbox: lbox, vbox: vbox, rect: rect, point: point, clamp: clamp, ease: ease, money: money, reduce: reduce
   };
 
   function start() {
@@ -379,7 +426,7 @@
     Object.keys(hooks).forEach(function (id) { var s = document.getElementById(id); if (s && hooks[id].init) try { hooks[id].init(s); } catch (e) { console.error(e); } });
     var n = parseInt(location.hash.slice(1), 10);
     go(n && n <= total ? n - 1 : 0, 0);
-    if (params.has('print')) slides.forEach(function (s, i) { paint(s, stepsOf(i)); s.classList.add('is-in'); });
+    if (PRINT) settleAll();
     wake();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else setTimeout(start, 0);

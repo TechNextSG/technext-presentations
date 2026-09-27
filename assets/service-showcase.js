@@ -8,12 +8,12 @@
 
   // FLIP: record where els are, change the DOM, then glide each from its old place to its new one
   function flip(els, mutate, dur) {
-    var first = els.map(function (e) { return e.getBoundingClientRect(); });
+    var first = els.map(function (e) { return Deck.rect(e); });
     mutate();
     var s = Deck.scale;
     els.forEach(function (e, i) {
       if (!e.isConnected) return;
-      var l = e.getBoundingClientRect(), dx = (first[i].left - l.left) / s, dy = (first[i].top - l.top) / s;
+      var l = Deck.rect(e), dx = (first[i].left - l.left) / s, dy = (first[i].top - l.top) / s;
       if (Math.abs(dx) + Math.abs(dy) < .5) return;
       e.animate([{ transform: 'translate(' + dx + 'px,' + dy + 'px)' }, { transform: 'none' }], { duration: dur || 720, easing: EASE });
     });
@@ -127,7 +127,7 @@
       var body = $('.gt-body', s), play = $('.gt-play', s), lane = $('.gt-lane', s), user = false, drag = false;
       gtPaint(s, 0);
       ctx.after(700, function () { if (!user) ctx.tween(14000, function (e) { if (!user) gtPaint(s, 12 * e); }, 'lin'); });
-      function fromX(e) { var r = lane.getBoundingClientRect(); return clamp((e.clientX - r.left) / r.width * 12, 0, 12); }
+      function fromX(e) { var r = Deck.rect(lane), q = Deck.point(e); return clamp((q.x - r.left) / r.width * 12, 0, 12); }
       ctx.on(body, 'pointerdown', function (e) { user = true; drag = true; body.setPointerCapture(e.pointerId); gtPaint(s, fromX(e)); e.preventDefault(); });
       ctx.on(body, 'pointermove', function (e) { if (drag) gtPaint(s, fromX(e)); });
       ctx.on(body, 'pointerup', function () { drag = false; });
@@ -167,19 +167,26 @@
       '<div class="cr-f"><em>' + Deck.money(l.v).replace('.00', '') + '</em><span class="cr-av" style="--c:' + o[1] + '">' + o[0] + '</span></div><span class="cr-so">Quotation → sales order</span>';
     return el;
   }
+  // the board as it opens: a pipeline already in motion
+  function crmStart(s) {
+    var lists = $$('.crm-list', s);
+    lists.forEach(function (l) { l.innerHTML = ''; });
+    [[0, 0], [1, 0], [2, 1], [3, 1], [4, 2], [5, 3]].forEach(function (p) { var c = crmCard(LEADS[p[0]], s); if (p[1] === 3) c.classList.add('is-won'); lists[p[1]].appendChild(c); });
+    return lists;
+  }
+  function crmTotal(lists) {
+    var total = 0;
+    lists.forEach(function (l) { $('[data-cnt]', l.parentNode).textContent = l.children.length; $$('.crm-card', l).forEach(function (c) { total += c._v; }); });
+    return total;
+  }
   Deck.on('crm', {
     init: function (s) {
       $$('.crm-chans span', s).forEach(function (c) { CH_ICON[c.dataset.ch] = c.querySelector('svg').outerHTML; });
     },
     enter: function (ctx, s) {
-      var lists = $$('.crm-list', s), board = $('.crm-board', s), rev = $('[data-crm-rev]', s), n = 0, shown = 0;
-      lists.forEach(function (l) { l.innerHTML = ''; });
-      // a board already in motion
-      [[0, 0], [1, 0], [2, 1], [3, 1], [4, 2], [5, 3]].forEach(function (p) { var c = crmCard(LEADS[p[0]], s); if (p[1] === 3) c.classList.add('is-won'); lists[p[1]].appendChild(c); });
-      n = 6;
+      var lists = crmStart(s), board = $('.crm-board', s), rev = $('[data-crm-rev]', s), n = 6, shown = 0;
       function counts() {
-        var total = 0;
-        lists.forEach(function (l) { $('[data-cnt]', l.parentNode).textContent = l.children.length; $$('.crm-card', l).forEach(function (c) { total += c._v; }); });
+        var total = crmTotal(lists);
         var from = shown; shown = total;
         ctx.count(rev, total, { from: from, dur: 900, pre: 'S$' });
       }
@@ -231,6 +238,12 @@
       });
       ctx.on($('.crm-add', s), 'click', function () { arrive(nextLead()); });
       ctx.after(900, function () { arrive(nextLead()); });
+    },
+    // print and the overview: the opening board with its counts and revenue, nothing in flight
+    settle: function (s) {
+      $$('.crm-fly', s).forEach(function (f) { f.remove(); });
+      $$('.is-hot,.is-hit', s).forEach(function (e) { e.classList.remove('is-hot', 'is-hit'); });
+      $('[data-crm-rev]', s).textContent = 'S$' + crmTotal(crmStart(s)).toLocaleString('en-US');
     }
   });
 
@@ -284,21 +297,31 @@
   });
 
   /* ---------------------------------------------------------------- 6 · customization */
+  // one request picked: it lights the level of change it earns
+  function cuShow(s, k) {
+    var reqs = $$('.cu-req', s), r = reqs[k];
+    reqs.forEach(function (x) { x.classList.toggle('is-on', x === r); }); r.classList.add('is-seen');
+    $$('.cu-lv', s).forEach(function (l) { l.classList.toggle('is-hit', l.dataset.lv === r.dataset.to); });
+    $('.cu-ans', s).classList.toggle('is-no', r.dataset.to === 'none');
+    return r;
+  }
   Deck.on('custom', {
     enter: function (ctx, s) {
       var reqs = $$('.cu-req', s), lvs = $$('.cu-lv', s), ans = $('.cu-ans', s), p = $('[data-cu-a]', s), cur = -1, auto = true;
       reqs.forEach(function (r) { r.classList.remove('is-on', 'is-seen'); }); lvs.forEach(function (l) { l.classList.remove('is-hit'); });
       ans.classList.remove('is-no'); p.textContent = 'Pick a request to see which level of change it earns.';
       function pick(k) {
-        cur = k; var r = reqs[k];
-        reqs.forEach(function (x) { x.classList.toggle('is-on', x === r); }); r.classList.add('is-seen');
-        lvs.forEach(function (l) { l.classList.toggle('is-hit', l.dataset.lv === r.dataset.to); });
-        ans.classList.toggle('is-no', r.dataset.to === 'none');
+        cur = k; var r = cuShow(s, k);
         p.style.opacity = 0; ctx.after(230, function () { p.textContent = r.dataset.a; p.style.opacity = 1; });
       }
       ctx.after(1000, function () { pick(0); });
       ctx.every(4300, function () { if (auto) pick((cur + 1) % reqs.length); });
       ctx.on($('.cu-reqs', s), 'click', function (e) { var r = e.target.closest('.cu-req'); if (r) { auto = false; pick(reqs.indexOf(r)); } });
+    },
+    // print and the overview: the request that earns a custom module, answered
+    settle: function (s) {
+      var reqs = $$('.cu-req', s), k = Math.max(0, reqs.findIndex(function (r) { return r.dataset.to === 'code'; }));
+      var r = cuShow(s, k), p = $('[data-cu-a]', s); p.textContent = r.dataset.a; p.style.opacity = 1;
     }
   });
 
@@ -386,6 +409,17 @@
         down = b.dataset.down; backoff = 1;
         if (down) { var n = s._nodes[down]; n.el.classList.add('is-down'); n.line.classList.add('is-down'); n.em.textContent = 'Retry in 1 s · 0 queued'; }
       });
+    },
+    // print and the overview: the sync running with no outage, a few messages on their way
+    settle: function (s) {
+      var dotsG = $('.ig-dots', s); dotsG.innerHTML = '';
+      Object.keys(s._nodes).forEach(function (k) { var n = s._nodes[k]; n.q = []; n.el.classList.remove('is-down'); n.line.classList.remove('is-down'); });
+      $$('[data-down]', s).forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.down === '' ? 'true' : 'false'); });
+      [['bank', .38, 1], ['pay', .62, 1], ['market', .45, 0], ['courier', .7, 1], ['peppol', .32, 0], ['mail', .56, 0]].forEach(function (d) {
+        var n = s._nodes[d[0]], f = d[1];
+        FX.svg('circle', { r: 6, 'class': 'ig-dot' + (d[2] ? ' in' : ''), cx: (n.a[0] + (n.b[0] - n.a[0]) * f).toFixed(1), cy: (n.a[1] + (n.b[1] - n.a[1]) * f).toFixed(1) }, dotsG);
+      });
+      $('[data-ig="ok"]', s).textContent = 24; $('[data-ig="retry"]', s).textContent = 0; $('[data-ig="dup"]', s).textContent = 1;
     }
   });
 

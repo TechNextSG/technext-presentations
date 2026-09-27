@@ -39,7 +39,7 @@
   FX.pointer = function (ctx, area) {
     var p = { x: 0, y: 0, tx: 0, ty: 0 };
     ctx.on(area, 'pointermove', function (e) {
-      var r = area.getBoundingClientRect(); p.tx = (e.clientX - r.left) / r.width - .5; p.ty = (e.clientY - r.top) / r.height - .5;
+      var r = Deck.rect(area), q = Deck.point(e); p.tx = (q.x - r.left) / r.width - .5; p.ty = (q.y - r.top) / r.height - .5;
     });
     ctx.on(area, 'pointerleave', function () { p.tx = 0; p.ty = 0; });
     p.step = function () { p.x += (p.tx - p.x) * .05; p.y += (p.ty - p.y) * .05; return p; };

@@ -6,12 +6,12 @@
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
   var EASE = 'cubic-bezier(.2,.8,.2,1)';
   function flip(els, mutate, dur) {
-    var first = els.map(function (e) { return e.getBoundingClientRect(); });
+    var first = els.map(function (e) { return Deck.rect(e); });
     mutate();
     var s = Deck.scale;
     els.forEach(function (e, i) {
       if (!e.isConnected) return;
-      var l = e.getBoundingClientRect(), dx = (first[i].left - l.left) / s, dy = (first[i].top - l.top) / s;
+      var l = Deck.rect(e), dx = (first[i].left - l.left) / s, dy = (first[i].top - l.top) / s;
       if (Math.abs(dx) + Math.abs(dy) < .5) return;
       e.animate([{ transform: 'translate(' + dx + 'px,' + dy + 'px)' }, { transform: 'none' }], { duration: dur || 800, easing: EASE });
     });

@@ -147,20 +147,23 @@
     },
     enter: function (ctx, s) {
       var demo = T.finderDemo, d = 0, auto = true;
-      function set(ans) {
-        s._ans = ans.slice();
-        $$('.ff-q .seg button', s).forEach(function (b) { b.setAttribute('aria-pressed', +b.dataset.o === s._ans[+b.dataset.q] ? 'true' : 'false'); });
-        ffResult(s, s._ans, ctx);
-      }
+      function set(ans) { ffSet(s, ans, ctx); }
       set(demo[0]);
       ctx.every(4600, function () { if (auto) { d = (d + 1) % demo.length; set(demo[d]); } });
       ctx.on($('.ff-qs', s), 'click', function (e) {
         var b = e.target.closest('button[data-q]'); if (!b) return;
-        auto = false; var a = s._ans.slice(); a[+b.dataset.q] = +b.dataset.o; set(a);
+        auto = false; s._user = true; var a = s._ans.slice(); a[+b.dataset.q] = +b.dataset.o; set(a);
       });
       ctx.on($('[data-ff-use]', s), 'click', function () { pickTier(s._rec); });
-    }
+    },
+    // print and the overview: a worked example (the second demo), or the answers someone picked
+    settle: function (s) { ffSet(s, s._user ? s._ans : (T.finderDemo[1] || T.finderDemo[0])); }
   });
+  function ffSet(s, ans, ctx) {
+    s._ans = ans.slice();
+    $$('.ff-q .seg button', s).forEach(function (b) { b.setAttribute('aria-pressed', +b.dataset.o === s._ans[+b.dataset.q] ? 'true' : 'false'); });
+    ffResult(s, s._ans, ctx);
+  }
 
   /* ---------------------------------------------------------------- add-ons */
   Deck.on('addons', {
@@ -185,8 +188,14 @@
     },
     enter: function (ctx, s) {
       // an empty plan starts from the popular tier so the page is never blank
-      if (plan.tier == null) pickTier($$('#tiers .tr').findIndex(function (c) { return c.classList.contains('is-pop'); }), true);
+      if (plan.tier == null) pickTier(popTier(), true);
       paintPlan();
+    },
+    // print and the overview: the plan as it opens, from the popular tier, without choosing it on the tier cards
+    settle: function () {
+      if (plan.tier != null) { paintPlan(); return; }
+      plan.tier = popTier(); paintPlan(); plan.tier = null;
     }
   });
+  function popTier() { return Math.max(0, $$('#tiers .tr').findIndex(function (c) { return c.classList.contains('is-pop'); })); }
 })();

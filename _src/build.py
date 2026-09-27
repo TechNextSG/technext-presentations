@@ -23,7 +23,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "2"
+ASSET_V = "3"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -153,6 +153,188 @@ def odoo(mod, size="40"):
     return f'<img class="oi" src="assets/img/odoo/{mod}.svg" alt="" width="{size}" height="{size}" style="width:{size}px;height:{size}px" loading="lazy" decoding="async">'
 
 
+
+# ---------------------------------------------------------------- Marketing Showcase: slides generated from showcase_data + sites_meta
+import html as _html
+import showcase_data as SC
+
+
+def _sm():
+    p = SRC / "sites_meta.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+
+def _psrc(slug, kind):
+    """The print crop of a page picture (assets/showcase.js swaps it in for ?print), when there is one."""
+    return f' data-psrc="assets/img/sites/{slug}-{kind}p.jpg"' if kind + "p" in _sm().get(slug, {}) else ""
+
+
+def _e(s):
+    return _html.escape(s, quote=True)
+
+
+PH_BAR = 28  # the phone's status bar (assets/showcase.css .ph-view::before): the page scrolls below it
+
+
+def sc_feature(e, kind):
+    M = _sm().get(e["slug"])
+    if not M or "d" not in M:
+        return ""
+    slug = e["slug"]
+    dw, dh = M["d"]; travel = max(0, dh - 560); dur = max(16, round(travel / 170 / .38))
+    phone = ""
+    if "m" in M:
+        mw, mh = M["m"]; disp = mh * 238 / mw; tm = max(0, round(disp - (516 - PH_BAR))); durm = max(16, round(tm / 120 / .38))
+        phone = ('<div class="ph"><div class="ph-view"><img class="scroller" data-src="assets/img/sites/' + slug + '-m.jpg"' + _psrc(slug, "m") + ' alt="" width="238" height="' + str(round(disp)) +
+                 '" style="--travel:' + str(tm) + 'px;--dur:' + str(durm) + 's"></div></div>')
+    chips = "".join('<span>{{icon:' + i + '}}' + _e(t) + '</span>' for i, t in e["chips"])
+    meta = "".join('<li><span>' + _e(a) + '</span><b>' + _e(b) + '</b></li>' for a, b in e["meta"])
+    label = "Visit the live site" if kind == "live" else "Open the concept"
+    return f"""
+<section class="slide" id="site-{slug}" data-title="{_e(e['name'])}">
+  <div class="sf">
+    <div class="sf-copy">
+      <span class="kicker" data-in>{_e(e['kicker'])}</span>
+      <h2 data-in style="--d:80ms">{_e(e['name'])}</h2>
+      <a class="sf-dom" href="{e['url']}" target="_blank" rel="noopener" data-in style="--d:120ms">{{{{icon:globe}}}}{_e(e['dom'])}</a>
+      <p data-in style="--d:160ms">{_e(e['what'])}</p>
+      <div class="sf-chips" data-in style="--d:220ms">{chips}</div>
+      <ul class="sf-meta" data-in style="--d:280ms">{meta}</ul>
+      <div class="sf-acts" data-in style="--d:340ms"><a class="btn btn-primary" href="{e['url']}" target="_blank" rel="noopener">{label} {{{{icon:arrow}}}}</a></div>
+    </div>
+    <div class="sf-stage" data-i data-in data-fx="fade" style="--d:150ms">
+      <div class="bw"><div class="bw-bar"><i></i><i></i><i></i><span class="bw-url">{{{{icon:lock}}}}{_e(e['dom'])}</span></div>
+        <div class="bw-view"><img class="scroller" data-src="assets/img/sites/{slug}-d.jpg"{_psrc(slug, "d")} alt="{_e(e['name'])}: the full page" width="900" height="{dh}" style="--travel:{travel}px;--dur:{dur}s"></div></div>
+      {phone}
+      <p class="sf-hint">{{{{icon:search}}}}Each page scrolls on its own · hover to pause</p>
+    </div>
+  </div>
+  <aside class="notes"><p>{_e(e['what'])}</p></aside>
+</section>"""
+
+
+def _tile_rows():
+    M = _sm()
+    rows = [(e["slug"], e["name"], "live", "Live site", "site-" + e["slug"], e["url"]) for e in SC.LIVE] + \
+           [(e["slug"], e["name"], "concept", "Concept", "site-" + e["slug"], e["url"]) for e in SC.CONCEPTS] + \
+           [(s, n, "concept", "Concept", "", u) for s, n, _, u in SC.MORE] + \
+           [(s, n, "pitch", "Showcase" if k == "show" else "Proposal", "", u) for s, n, _, k, u in SC.PITCH]
+    return [r for r in rows if r[0] in M]
+
+
+def sc_tiles():
+    rows = _tile_rows(); out = []
+    for i, (slug, name, k, lab, go, url) in enumerate(rows):
+        attr = f'data-go="{go}"' if go else f'data-url="{url}"'
+        # 9 columns: the first tile at 2x2 makes 33 tiles fill four rows exactly
+        big = " is-big" if i == 0 and (len(rows) + 3) % 9 == 0 else ""
+        out.append(f'<button type="button" class="mz-t{big}" data-k="{k}" {attr} title="{_e(name)}"><img data-src="assets/img/sites/{slug}-top.jpg" alt="" width="480" height="270">'
+                   f'<span class="mz-cap"><b>{_e(name)}</b><small>{lab}</small></span></button>')
+    return "\n".join(out)
+
+
+def sc_wall():
+    M = _sm(); slugs = [e["slug"] for e in SC.LIVE + SC.CONCEPTS] + [s for s, *_ in SC.MORE] + [p[0] for p in SC.PITCH]
+    slugs = [s for s in slugs if s in M]
+    cols = [slugs[i::3] for i in range(3)]
+    html = []
+    for i, c in enumerate(cols):
+        imgs = "".join(f'<img src="assets/img/sites/{s}-top.jpg" alt="" width="480" height="270" decoding="async">' for s in c)
+        html.append(f'<div class="sw-col" style="--t:{64 + i * 9}s">{imgs}{imgs}</div>')
+    return "".join(html)
+
+
+def sc_cards(rows, view_h):
+    M = _sm(); out = []
+    for slug, name, sub, url in rows:
+        if slug not in M or "w" not in M[slug]:
+            continue
+        ww, wh = M[slug]["w"]; card_w = 1; pan = 0
+        out.append(f'<a class="cw-c" href="{url}" target="_blank" rel="noopener" data-h="{wh}"><div class="bw-bar"><i></i><i></i><i></i></div>'
+                   f'<div class="cw-view" style="height:{view_h}px"><img data-src="assets/img/sites/{slug}-w.jpg"{_psrc(slug, "w")} alt="" width="480" height="{wh}"></div>'
+                   f'<div class="cw-t"><b>{_e(name)}</b><small>{_e(sub)}</small></div></a>')
+    return "\n".join(out)
+
+
+def sc_expand(s):
+    s = s.replace("{{sc:wall}}", sc_wall()).replace("{{sc:tiles}}", sc_tiles())
+    kinds = [r[2] for r in _tile_rows()]
+    for k in ("live", "concept", "pitch"):
+        s = s.replace("{{sc:n:" + k + "}}", str(kinds.count(k)))
+    s = s.replace("{{sc:live}}", "".join(sc_feature(e, "live") for e in SC.LIVE))
+    s = s.replace("{{sc:concepts}}", "".join(sc_feature(e, "concept") for e in SC.CONCEPTS))
+    s = s.replace("{{sc:more}}", sc_cards(SC.MORE, 150))
+    s = s.replace("{{sc:pitch}}", sc_cards([(p[0], p[1], p[2], p[4]) for p in SC.PITCH], 120))
+    return s
+
+
+# ---------------------------------------------------------------- Portfolio: generated from portfolio_data (+ sites_meta for pictures)
+import portfolio_data as PF
+
+
+def _scroll(slug, W, H, kind="d"):
+    """A page picture that scrolls inside a W x H window: the whole page, down and back up."""
+    M = _sm().get(slug)
+    if not M or kind not in M:
+        return ""
+    iw, ih = M[kind]; disp = ih * W / iw; travel = max(0, round(disp - (H - PH_BAR if kind == "m" else H))); dur = max(16, round(travel / (170 if kind == "d" else 120) / .38))
+    return (f'<img class="scroller" data-src="assets/img/sites/{slug}-{kind}.jpg"{_psrc(slug, kind)} alt="" width="{W}" height="{round(disp)}" style="--travel:{travel}px;--dur:{dur}s">')
+
+
+def _thumb(slug):
+    return f'<img data-src="assets/img/sites/{slug}-top.jpg" alt="" width="480" height="270">' if slug in _sm() else ""
+
+
+def pf_expand(s):
+    import re as _re
+    C = PF.CLIENTS
+    # cover: rows of client names drifting past, between fainter rows of the work itself
+    icon = dict(web="globe", leads="calendar", seo="search", social="play", odoo="layers", ai="bot", pitch="layout", brand="sparkle")
+
+    def crow(r, t):
+        spans = "".join(f'<span><i style="background:#fff;color:{c["c"]}">{c["mono"]}</i>{_e(c["name"])}</span>' for c in r)
+        return f'<div class="mq-row" style="--t:{t}s">{spans * 4}</div>'
+
+    def srow(order, t):
+        spans = "".join('<span><i>{{icon:' + icon[k] + '}}</i>' + _e(lab) + '</span>' for k, lab in order)
+        return f'<div class="mq-row is-svc" style="--t:{t}s">{spans * 4}</div>'
+    S = PF.SERVICES
+    mq = [crow(C[0::3], 58), srow(S, 84), crow(C[1::3], 66), srow(S[4:] + S[:4], 92), crow(C[2::3], 74)]
+    s = s.replace("{{pf:marquee}}", "".join(mq))
+    # the map
+    _, project, _ = worldmap(1000, 600)
+    pins = []
+    for key, lon, lat, country, names, solid, side in PF.PINS:
+        x, y = project(lon, lat)
+        cls = "pm-pin" + ("" if solid else " is-hollow") + {"l": " is-l", "t": " is-t", "b": " is-b"}.get(side, "")
+        pins.append(f'<div class="{cls}" style="--px:{x:.1f}px;--py:{y:.1f}px;--d:{len(pins) * .4:.1f}s"><i></i><b>{_e(country)}<small>{_e(names)}</small></b></div>')
+    s = s.replace("{{pf:pins}}", "".join(pins))
+    # directory cards + data for the detail panel
+    cards = []
+    for c in C:
+        tags = " ".join(k for k, v in c["svc"].items() if v)
+        cards.append(f'<button type="button" class="pf-c" data-slug="{c["slug"]}" data-svc="{tags}" data-status="{c["status"]}" aria-pressed="false">'
+                     f'<span class="pf-mono" style="--c:{c["c"]}">{c["mono"]}</span><span><b>{_e(c["name"])}</b><small>{_e(c["ind"])} · {_e(c["where"])}</small></span></button>')
+    s = s.replace("{{pf:cards}}", "\n".join(cards))
+    data = [dict(slug=c["slug"], name=c["name"], mono=c["mono"], c=c["c"], ind=c["ind"], where=c["where"], status=PF.STATUS[c["status"]],
+                 svc=[lab for k, lab in PF.SERVICES if c["svc"].get(k)], did=c["did"], links=c["links"]) for c in C]
+    s = s.replace("{{pf:data}}", json.dumps(data, ensure_ascii=False))
+    # clients x services
+    head = "<tr><th></th>" + "".join(f'<th data-col="{k}">{_e(lab)}</th>' for k, lab in PF.SERVICES) + "</tr>"
+    body = []
+    for c in C:
+        cells = "".join(f'<td data-col="{k}">' + ('<i></i>' if c["svc"].get(k) == 2 else '<i class="o"></i>' if c["svc"].get(k) == 1 else '') + '</td>' for k, _ in PF.SERVICES)
+        body.append(f'<tr><th>{_e(c["name"])}<small>{_e(c["where"])}</small></th>{cells}</tr>')
+    s = s.replace("{{pf:matrix}}", f"<thead>{head}</thead><tbody>{''.join(body)}</tbody>")
+    # proposals, concepts and paused work
+    other = "".join(f'<div class="po-c" data-in style="--d:{160 + i * 45}ms"><span class="po-k po-k--{st}">{PF.STATUS[st]}</span><b>{_e(n)}</b><small>{_e(w)}</small><p>{_e(t)}</p></div>'
+                    for i, (n, w, t, st) in enumerate(PF.OTHER))
+    s = s.replace("{{pf:other}}", other)
+    s = _re.sub(r"\{\{scroll:([a-z0-9-]+):(\d+):(\d+)(?::([dm]))?\}\}", lambda m: _scroll(m.group(1), int(m.group(2)), int(m.group(3)), m.group(4) or "d"), s)
+    s = _re.sub(r"\{\{thumb:([a-z0-9-]+)\}\}", lambda m: _thumb(m.group(1)), s)
+    return s
+
+
 def og(s, name, page):
     """Open Graph tags from the page's own <title> and description, with the deck's cover as the image."""
     t = re.search(r"<title>(.*?)</title>", s).group(1)
@@ -166,6 +348,10 @@ def og(s, name, page):
 
 def expand(s, page=""):
     s = re.sub(r"\{\{og:([a-z-]+)\}\}", lambda m: og(s, m.group(1), page), s)
+    if "{{sc:" in s:
+        s = sc_expand(s)
+    if "{{pf:" in s or "{{scroll:" in s or "{{thumb:" in s:
+        s = pf_expand(s)
     for _ in range(3):   # partials may include partials
         s = re.sub(r"\{\{include:([a-z0-9_-]+)\}\}", lambda m: (SRC / "partials" / (m.group(1) + ".html")).read_text(encoding="utf-8"), s)
     s = s.replace("{{head}}", HEAD).replace("{{v}}", ASSET_V)
@@ -206,6 +392,26 @@ def main():
         out.append((p.name, len(html)))
     for name, n in out:
         print(f"  {name:28s} {n/1024:7.1f} KB")
+    sites_check("--prune" in sys.argv)
+
+
+def sites_check(prune):
+    """Site pictures: fail on a missing one; with --prune, delete the variants no deck uses
+       (_src/sites_images.py writes every variant for every site)."""
+    ref = set()
+    for f in list(ROOT.glob("*.html")) + list((ROOT / "assets").glob("*.js")):
+        ref |= set(re.findall(r"assets/img/sites/([a-z0-9-]+\.jpg)", f.read_text(encoding="utf-8")))
+    have = {p.name: p for p in (ROOT / "assets/img/sites").glob("*.jpg")}
+    missing = sorted(ref - set(have))
+    if missing:
+        sys.exit("missing site pictures (re-run _src/sites_images.py): " + ", ".join(missing))
+    unused = sorted(set(have) - ref)
+    if prune:
+        for n in unused:
+            have[n].unlink()
+        print(f"  site pictures: {len(ref)} used, {len(unused)} unused deleted")
+    elif unused:
+        print(f"  site pictures: {len(ref)} used, {len(unused)} unused (build.py --prune deletes them)")
 
 
 if __name__ == "__main__":
