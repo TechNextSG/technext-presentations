@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>What Is Odoo</title>
+<meta name="description" content="What is Odoo? One suite of business apps on one database, explained, with a walkthrough of one order from lead to cash. By TechNext, an Odoo Ready Partner in Singapore.">
+{{og:what-is-odoo}}
+<link rel="stylesheet" href="assets/what-is-odoo.css?v={{v}}">
+</head>
+<body data-label="What is Odoo" data-home="./">
+<main class="deck" aria-label="What is Odoo: a walkthrough">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="What is Odoo?">
+  <div class="cv-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">a walkthrough</span>
+    <h1 class="h-xl wo-h1" data-in style="--d:200ms">What is <span class="hl">Odoo?</span></h1>
+    <p class="lead" data-in style="--d:320ms">One suite of business apps on one database. What it is, how it fits together, and one order followed from lead to cash.</p>
+    <div class="cv-tags" data-in style="--d:440ms">
+      <span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Presented by an Odoo Ready Partner</span>
+    </div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="cn" aria-hidden="true">
+    <svg class="cn-svg" viewBox="0 0 740 740"><g class="cn-links"></g></svg>
+    <div class="cn-core"><span>{{icon:database}}</span><b>One database</b></div>
+    <div class="cn-apps">
+      <i data-m="crm">{{odoo:crm:40}}</i><i data-m="sale">{{odoo:sale:40}}</i><i data-m="stock">{{odoo:stock:40}}</i><i data-m="accountant">{{odoo:accountant:40}}</i>
+      <i data-m="purchase">{{odoo:purchase:40}}</i><i data-m="mrp">{{odoo:mrp:40}}</i><i data-m="point_of_sale">{{odoo:point_of_sale:40}}</i><i data-m="website_sale">{{odoo:website_sale:40}}</i>
+      <i data-m="hr">{{odoo:hr:40}}</i><i data-m="project">{{odoo:project:40}}</i><i data-m="helpdesk">{{odoo:helpdesk:40}}</i><i data-m="mass_mailing">{{odoo:mass_mailing:40}}</i>
+      <i data-m="hr_expense">{{odoo:hr_expense:40}}</i><i data-m="documents">{{odoo:documents:40}}</i><i data-m="sign">{{odoo:sign:40}}</i><i data-m="planning">{{odoo:planning:40}}</i>
+      <i data-m="appointment">{{odoo:appointment:40}}</i><i data-m="knowledge">{{odoo:knowledge:40}}</i><i data-m="spreadsheet_dashboard">{{odoo:spreadsheet_dashboard:40}}</i><i data-m="ai_app">{{odoo:ai_app:40}}</i>
+    </div>
+  </div>
+  <aside class="notes"><p>Odoo in one line: a suite of business apps that all share one database. The rest of the deck shows what that means, then walks one order through it.</p></aside>
+</section>
+
+<!-- 2 · the problem -->
+<section class="slide" id="problem" data-title="The problem it solves" data-steps="1">
+  <div class="sec-head">
+    <span class="kicker" data-in>the problem it solves</span>
+    <h2 class="h-m" data-in style="--d:80ms">Five tools and a spreadsheet, <span class="hl">or one order typed once.</span></h2>
+  </div>
+  <div class="pb">
+    <div class="card pb-side pb-before" data-in style="--d:160ms">
+      <p class="pb-h"><span class="tag">Today</span><b>Five tools, joined by people</b></p>
+      <div class="pb-tools">
+        <div class="pb-t" data-k="0">{{icon:usercheck}}<span><b>Standalone CRM</b><small>no stock view</small></span><em>typed</em></div>
+        <div class="pb-t" data-k="1">{{icon:file}}<span><b>Spreadsheets</b><small>re-keyed every week</small></span><em>typed</em></div>
+        <div class="pb-t" data-k="2">{{icon:box}}<span><b>Stock app</b><small>manual counts</small></span><em>typed</em></div>
+        <div class="pb-t" data-k="3">{{icon:calculator}}<span><b>Accounting software</b><small>month-end lag</small></span><em>typed</em></div>
+        <div class="pb-t" data-k="4">{{icon:mail}}<span><b>Email and chat</b><small>orders get lost</small></span><em>typed</em></div>
+      </div>
+      <div class="pb-meter"><span>Times one order is typed</span><b data-pb="before">0</b></div>
+    </div>
+    <div class="card pb-side pb-after" data-step="1" data-fx="right">
+      <p class="pb-h"><span class="tag tag--odoo">With Odoo</span><b>One database, every team</b></p>
+      <div class="pb-flow">
+        <div class="pb-f" data-k="0">{{odoo:sale:32}}<span><b>Sales</b><small>quotation becomes the order</small></span></div>
+        <div class="pb-f" data-k="1">{{odoo:stock:32}}<span><b>Warehouse</b><small>stock reserved, delivery ready</small></span></div>
+        <div class="pb-f" data-k="2">{{odoo:account:32}}<span><b>Invoicing</b><small>invoice from the order</small></span></div>
+        <div class="pb-f" data-k="3">{{odoo:accountant:32}}<span><b>Accounting</b><small>entries post, payment matches</small></span></div>
+      </div>
+      <div class="pb-core">{{icon:database}}<span>one customer · one product list · one set of books</span></div>
+      <div class="pb-meter pb-meter--ok"><span>Times one order is typed</span><b data-pb="after">1</b></div>
+    </div>
+  </div>
+  <p class="illus pb-illus">{{icon:check}}Illustrative sample order</p>
+  <aside class="notes"><p>Left: the same order re-typed at every tool. Press → to bring in the Odoo side: typed once, then every team works from the same record.</p></aside>
+</section>
+
+<!-- 3 · what Odoo is -->
+<section class="slide" id="what" data-title="What Odoo is">
+  <div class="sec-head">
+    <span class="kicker" data-in>what it is</span>
+    <h2 class="h-m" data-in style="--d:80ms">Business apps that <span class="hl">share one database.</span></h2>
+  </div>
+  <div class="wh-grid">
+    <div class="card wh" data-in style="--d:160ms"><span class="ibadge">{{icon:grid}}</span><h3>A suite of business apps</h3><p>CRM, Sales, Inventory, Accounting, Manufacturing, HR, Website and more. Each is an app you switch on when you need it.</p></div>
+    <div class="card wh" data-in style="--d:230ms"><span class="ibadge">{{icon:database}}</span><h3>On one database</h3><p>Every app reads and writes the same customers, products and accounts, so nothing is typed twice.</p></div>
+    <div class="card wh" data-in style="--d:300ms"><span class="ibadge">{{icon:code}}</span><h3>Open source at the core</h3><p>Odoo Community is open source. Odoo Enterprise adds apps, hosting options, upgrades and Odoo's support.</p></div>
+    <div class="card wh" data-in style="--d:370ms"><span class="ibadge">{{icon:refresh}}</span><h3>A new version every year</h3><p>Odoo ships one major version a year and presents it at Odoo Experience in Brussels.</p></div>
+  </div>
+  <div class="tl" data-in style="--d:440ms">
+    <svg class="tl-svg" viewBox="0 0 1360 60" aria-hidden="true"><path class="tl-base" d="M20,30 L1340,30"/><path class="tl-prog draw" d="M20,30 L1340,30" style="--len:1320;--d:700ms"/></svg>
+    <div class="tl-p" style="--x:4%;--d:800ms"><b>2005</b><small>Starts as TinyERP</small></div>
+    <div class="tl-p" style="--x:30%;--d:1100ms"><b>Then</b><small>Renamed OpenERP</small></div>
+    <div class="tl-p" style="--x:56%;--d:1400ms"><b>2014</b><small>Becomes Odoo</small></div>
+    <div class="tl-p tl-p--now" style="--x:92%;--d:1700ms"><b>2026</b><small>Odoo 20, at Odoo Experience</small></div>
+  </div>
+  <p class="wh-by" data-in style="--d:520ms">{{icon:globe}}Built by Odoo S.A., a software company from Belgium. Implemented in Singapore, the Philippines and Vietnam by partners such as TechNext.</p>
+  <aside class="notes"><p>Four ideas: modular apps, one database, an open-source core with a paid Enterprise edition, and a yearly release cycle. Odoo 20 was presented at Odoo Experience in September 2026.</p></aside>
+</section>
+
+<!-- 4 · the apps -->
+<section class="slide" id="apps" data-title="The apps">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the apps</span>
+      <h2 class="h-m" data-in style="--d:80ms">Start with three, <span class="hl">add the rest later.</span></h2>
+    </div>
+    <p class="ap-count" data-in style="--d:160ms"><b data-ap-n>50</b> apps shown, in <b>8</b> areas</p>
+  </div>
+  <div class="ap" data-i>
+    <div class="ap-cats" role="tablist" aria-label="App areas" data-in style="--d:160ms"></div>
+    <div class="ap-right" data-in data-fx="fade" style="--d:220ms">
+      <div class="ap-grid"></div>
+      <p class="ap-tip">{{icon:star}}<span><b>Where most of our clients start:</b> Accounting, Sales and Inventory. Every other app joins the same database when a team is ready.</span></p>
+    </div>
+  </div>
+  <aside class="notes"><p>The catalogue by area; it cycles on its own, or click an area. Most TechNext clients start with Accounting, Sales and Inventory and switch on more apps as each team is ready.</p></aside>
+</section>
+
+<!-- 5 · one database -->
+<section class="slide dark" id="onedb" data-title="One database">
+  <div class="od-left">
+    <span class="kicker" data-in>one database</span>
+    <h2 class="h-l" data-in style="--d:80ms">One change, <span class="hl">every app sees it.</span></h2>
+    <p class="lead od-lead" data-in style="--d:160ms">Click an app to see what it records and which apps react. Nobody exports, imports or re-types.</p>
+    <div class="od-card" data-in style="--d:240ms" aria-live="polite">
+      <p class="od-card-h"><span data-od-ic></span><b data-od-app>Sales</b></p>
+      <p class="od-card-w"><small>Records</small><span data-od-w></span></p>
+      <p class="od-card-r"><small>Then</small><span data-od-r></span></p>
+    </div>
+  </div>
+  <div class="od" data-i data-in data-fx="fade" style="--d:160ms">
+    <svg class="od-svg" viewBox="0 0 760 700" aria-hidden="true"><g class="od-links"></g><g class="od-pulses"></g></svg>
+    <div class="od-core"><span>{{icon:database}}</span><b>One Odoo database</b><small>customers · products · accounts</small></div>
+    <button type="button" class="od-app" data-k="crm">{{odoo:crm:36}}<b>CRM</b></button>
+    <button type="button" class="od-app" data-k="sale">{{odoo:sale:36}}<b>Sales</b></button>
+    <button type="button" class="od-app" data-k="stock">{{odoo:stock:36}}<b>Inventory</b></button>
+    <button type="button" class="od-app" data-k="purchase">{{odoo:purchase:36}}<b>Purchase</b></button>
+    <button type="button" class="od-app" data-k="mrp">{{odoo:mrp:36}}<b>Manufacturing</b></button>
+    <button type="button" class="od-app" data-k="accountant">{{odoo:accountant:36}}<b>Accounting</b></button>
+    <button type="button" class="od-app" data-k="website_sale">{{odoo:website_sale:36}}<b>eCommerce</b></button>
+    <button type="button" class="od-app" data-k="hr">{{odoo:hr:36}}<b>Employees</b></button>
+  </div>
+  <aside class="notes"><p>Each app writes to the same database, so a confirmed order is instantly a delivery for the warehouse and an invoice for finance. Click through the apps; it cycles on its own.</p></aside>
+</section>
+
+<!-- 6 · walkthrough intro -->
+<section class="slide" id="walk" data-title="The walkthrough">
+  <div class="sec-head">
+    <span class="kicker" data-in>the walkthrough</span>
+    <h2 class="h-m" data-in style="--d:80ms">Follow one order <span class="hl">from lead to cash.</span></h2>
+  </div>
+  <div class="wk-order card" data-in style="--d:150ms">
+    <span class="wk-o-ic">{{icon:cart}}</span>
+    <span><small>The order</small><b>Lumen Trading Pte Ltd wants 20 ergonomic office chairs</b></span>
+    <span class="wk-o-v"><small>At S$312.00 each, plus 9% GST</small><b>S$6,801.60</b></span>
+  </div>
+  <ol class="wk-steps">
+    <li data-in style="--d:240ms"><button type="button" data-go="w1"><span class="wk-n">1</span>{{odoo:crm:40}}<b>CRM</b><small>The lead comes in and moves through the pipeline</small></button></li>
+    <li data-in style="--d:300ms"><button type="button" data-go="w2"><span class="wk-n">2</span>{{odoo:sale:40}}<b>Sales</b><small>A quotation is sent and confirmed</small></button></li>
+    <li data-in style="--d:360ms"><button type="button" data-go="w3"><span class="wk-n">3</span>{{odoo:stock:40}}<b>Inventory</b><small>The warehouse ships the chairs</small></button></li>
+    <li data-in style="--d:420ms"><button type="button" data-go="w4"><span class="wk-n">4</span>{{odoo:account:40}}<b>Invoicing</b><small>The invoice is created from the order</small></button></li>
+    <li data-in style="--d:480ms"><button type="button" data-go="w5"><span class="wk-n">5</span>{{odoo:accountant:40}}<b>Accounting</b><small>The payment lands and reconciles</small></button></li>
+    <li data-in style="--d:540ms"><button type="button" data-go="w6"><span class="wk-n">6</span>{{odoo:spreadsheet_dashboard:40}}<b>Reporting</b><small>Every number is already up to date</small></button></li>
+  </ol>
+  <p class="wk-hint hint" data-in style="--d:700ms">Press <kbd>→</kbd> to run each step; click the highlighted button in each screen to do it yourself.</p>
+  <aside class="notes"><p>Six screens, one order. On each screen, the first press sets the scene and the next press (or a click on the highlighted Odoo button) performs the action.</p></aside>
+</section>
+
+{{include:walkthrough}}
+
+<!-- 13 · editions -->
+<section class="slide" id="editions" data-title="Community and Enterprise">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>editions</span>
+      <h2 class="h-m" data-in style="--d:80ms">Community and Enterprise, <span class="hl">side by side.</span></h2>
+    </div>
+    <div class="seg ed-seg" role="group" aria-label="Show" data-in style="--d:160ms"><button type="button" aria-pressed="true" data-ed="both">Both</button><button type="button" aria-pressed="false" data-ed="diff">Only the differences</button></div>
+  </div>
+  <div class="ed">
+    <div class="card ed-col" data-in style="--d:160ms">
+      <p class="ed-h"><b>Odoo Community</b><span class="tag tag--line">{{icon:code}}Open source</span></p>
+      <ul>
+        <li data-same>{{icon:check}}<span><b>Core business apps</b><small>CRM, Sales, Inventory, Invoicing, Purchase, Manufacturing, Website, eCommerce, Point of Sale, Project</small></span></li>
+        <li>{{icon:receipt}}<span><b>Free to use</b><small>under the LGPLv3 licence</small></span></li>
+        <li>{{icon:database}}<span><b>You host it</b><small>on your own servers or cloud account</small></span></li>
+        <li>{{icon:refresh}}<span><b>Upgrades are yours to run</b><small>with your partner or your IT team</small></span></li>
+        <li data-same>{{icon:grid}}<span><b>Community modules</b><small>from the Odoo Apps Store</small></span></li>
+      </ul>
+    </div>
+    <div class="card ed-col ed-col--ent" data-in style="--d:240ms">
+      <p class="ed-h"><b>Odoo Enterprise</b><span class="tag tag--odoo">{{icon:star}}Subscription</span></p>
+      <ul>
+        <li data-same>{{icon:check}}<span><b>Everything in Community</b><small>the same core apps, on the same database</small></span></li>
+        <li>{{icon:layers}}<span><b>Plus Enterprise apps</b><small>such as Accounting, Studio, Helpdesk and Sign</small></span></li>
+        <li>{{icon:globe}}<span><b>Hosting options</b><small>Odoo Online, Odoo.sh or your own servers</small></span></li>
+        <li>{{icon:refresh}}<span><b>Odoo's upgrade service and support</b><small>included in the subscription</small></span></li>
+        <li>{{icon:users}}<span><b>Priced per user per month</b><small>One App Free, Standard and Custom plans</small></span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="ed-note" data-in style="--d:320ms">{{icon:globe}}Plan names and prices change from time to time and differ by country: check odoo.com/pricing for current terms.</p>
+  <aside class="notes"><p>Toggle "Only the differences" to fade what the two editions share. TechNext implements both; most growing companies choose Enterprise for Accounting, Studio and the upgrade service.</p></aside>
+</section>
+
+<!-- 14 · hosting -->
+<section class="slide" id="hosting" data-title="Where Odoo runs">
+  <div class="sec-head">
+    <span class="kicker" data-in>where it runs</span>
+    <h2 class="h-m" data-in style="--d:80ms">Odoo Online, Odoo.sh <span class="hl">or your own servers.</span></h2>
+  </div>
+  <div class="ho">
+    <div class="ho-q" data-i data-in style="--d:160ms">
+      <p class="ho-q-h">Two questions</p>
+      <div class="ho-qq"><span>Do you need custom Python modules?</span><div class="seg" role="group" aria-label="Custom modules"><button type="button" aria-pressed="true" data-q="code" data-v="0">No</button><button type="button" aria-pressed="false" data-q="code" data-v="1">Yes</button></div></div>
+      <div class="ho-qq"><span>Must it run on your own servers, for IT policy or data rules?</span><div class="seg" role="group" aria-label="Own servers"><button type="button" aria-pressed="true" data-q="own" data-v="0">No</button><button type="button" aria-pressed="false" data-q="own" data-v="1">Yes</button></div></div>
+      <div class="ho-rec"><small>Our rule of thumb</small><b data-ho-rec>Start on Odoo Online</b><span data-ho-why>Standard apps and configuration cover most first phases, and it is the simplest to run.</span></div>
+    </div>
+    <div class="ho-tbl card" data-in style="--d:220ms">
+      <table>
+        <thead><tr><th></th><th data-c="online">{{icon:globe}}Odoo Online</th><th data-c="sh">{{icon:code}}Odoo.sh</th><th data-c="prem">{{icon:database}}On-premise</th></tr></thead>
+        <tbody>
+          <tr><th>Who runs the servers</th><td data-c="online">Odoo</td><td data-c="sh">Odoo</td><td data-c="prem">You</td></tr>
+          <tr><th>Custom Python modules</th><td data-c="online">No</td><td data-c="sh">Yes</td><td data-c="prem">Yes</td></tr>
+          <tr><th>Studio, no-code changes</th><td data-c="online">Custom plan</td><td data-c="sh">Yes</td><td data-c="prem">Yes</td></tr>
+          <tr><th>Staging copies for testing</th><td data-c="online">Database duplicates</td><td data-c="sh">Built in, as branches</td><td data-c="prem">You set them up</td></tr>
+          <tr><th>Version upgrades</th><td data-c="online">Odoo's upgrade service</td><td data-c="sh">Planned, with your code</td><td data-c="prem">Planned, fully yours</td></tr>
+          <tr><th>Best for</th><td data-c="online">Most first phases</td><td data-c="sh">Custom modules, integrations</td><td data-c="prem">Strict IT or data rules</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <aside class="notes"><p>Answer the two questions and the matching column lights up. A database can move from Odoo Online to Odoo.sh or on-premise later; we plan and test that move on a copy first.</p></aside>
+</section>
+
+<!-- 15 · how TechNext implements -->
+<section class="slide" id="implement" data-title="How TechNext implements Odoo">
+  <div class="sec-head">
+    <span class="kicker" data-in>with technext</span>
+    <h2 class="h-m" data-in style="--d:80ms">Accounting, Sales and Inventory first, <span class="hl">then the rest.</span></h2>
+  </div>
+  <div class="im-track" data-in style="--d:160ms">
+    <div class="im-p" data-k="0"><span class="im-w">Weeks 1–2</span>{{icon:search}}<b>Discover</b><small>processes mapped to Odoo apps; the scope written down</small></div>
+    <div class="im-p" data-k="1"><span class="im-w">Weeks 3–6</span>{{icon:gear}}<b>Build</b><small>three sprints on a staging copy; your data loaded twice</small></div>
+    <div class="im-p" data-k="2"><span class="im-w">Weeks 7–9</span>{{icon:graduation}}<b>Test &amp; train</b><small>key users test real scenarios; each team trained on its screens</small></div>
+    <div class="im-p" data-k="3"><span class="im-w">Week 10</span>{{icon:zap}}<b>Go live</b><small>final balances, a planned cut-over, the whole team on hand</small></div>
+    <div class="im-p" data-k="4"><span class="im-w">After</span>{{icon:lifebuoy}}<b>Run</b><small>hypercare, then support and upgrades from the same team</small></div>
+  </div>
+  <div class="im-rules">
+    <div class="card im-r" data-in style="--d:300ms"><span class="im-trio">{{odoo:accountant:34}}{{odoo:sale:34}}{{odoo:stock:34}}</span><b>Three apps first</b><small>where most of the value is; the rest follow on the same database</small></div>
+    <div class="card im-r" data-in style="--d:360ms"><span class="ibadge">{{icon:check}}</span><b>Standard before custom</b><small>configuration over code; modules only where the process genuinely differs</small></div>
+    <div class="card im-r" data-in style="--d:420ms"><span class="ibadge">{{icon:users}}</span><b>One team, three offices</b><small>Singapore HQ, Taguig City and Ho Chi Minh City, from discovery to support</small></div>
+  </div>
+  <p class="illus im-illus">{{icon:check}}Illustrative plan · your dates are set in discovery</p>
+  <aside class="notes"><p>A typical first phase. The five phases light up in turn; the three rules underneath are how we keep the system easy to run and to upgrade.</p></aside>
+</section>
+
+<!-- 16 · contact -->
+<section class="slide dark" id="contact" data-title="See your process in Odoo" data-chrome="foot">
+  <div class="split split--narrow">
+    <div>
+      <img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40" data-in>
+      <span class="kicker" data-in style="--d:80ms">next step</span>
+      <h2 class="h-xl ct-h" data-in style="--d:140ms">See your own process <span class="hl">in Odoo.</span></h2>
+      <p class="lead" data-in style="--d:220ms">Book a 30-minute online discovery call. We'll walk through how your orders, stock and money move, and show you the same flow in Odoo.</p>
+      <div class="ct-actions" data-in style="--d:320ms">
+        <a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener">{{icon:calendar}}Book a discovery call</a>
+        <a class="btn btn-ghost" href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      </div>
+      <div class="ct-links" data-in style="--d:400ms">
+        <a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a>
+        <a href="https://technext.asia/solutions/odoo-erp" target="_blank" rel="noopener">{{icon:globe}}technext.asia/solutions/odoo-erp</a>
+      </div>
+    </div>
+    <div class="ct-qr" data-in data-fx="scale" style="--d:300ms">
+      <div class="ct-qr-card">
+        {{qr:meet}}
+        <b>Scan to book a call</b>
+        <small>Discovery Call with TechNext · 30 min online</small>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><p>Offer to map the client's own lead-to-cash flow, the same way this walkthrough did.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/fx.js?v={{v}}"></script>
+<script>window.APPS = {{apps_json}};</script>
+<script src="assets/what-is-odoo.js?v={{v}}"></script>
+</body>
+</html>

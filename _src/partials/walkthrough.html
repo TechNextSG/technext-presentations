@@ -1,0 +1,263 @@
+<!-- 7-12 · the walkthrough: one order, six Odoo screens (simplified, illustrative) -->
+<section class="slide wt" id="w1" data-w="0" data-title="Walkthrough 1 · CRM" data-steps="1" data-transition="fade">
+  <div class="wt-left">
+    <span class="wt-step">Step 1 of 6</span>
+    <p class="wt-app">{{odoo:crm:30}}<b>CRM</b></p>
+    <h2 class="h-m wt-h">The lead comes in <span class="hl">and moves to proposal.</span></h2>
+    <p class="wt-p">A request from the website form becomes a lead, assigned to a salesperson by rule, with the next call already planned.</p>
+    <ul class="wt-did" data-step="1" data-fx="fade">
+      <li>{{icon:check}}Created the lead from the website form</li>
+      <li>{{icon:check}}Assigned it to a salesperson by rule</li>
+      <li>{{icon:check}}Opened a quotation with the customer filled in</li>
+    </ul>
+  </div>
+  <div class="ow" data-i>
+    <div class="ow-nav"><span class="ow-menu">{{icon:grid}}</span>{{odoo:crm:22}}<b>CRM</b><span class="ow-m">Sales</span><span class="ow-m">Leads</span><span class="ow-m">Reporting</span><span class="ow-m">Configuration</span><span class="ow-sp"></span><span class="ow-av">MR</span></div>
+    <div class="ow-cp"><div class="ow-bc"><button type="button" class="ow-btn ow-btn--p">New</button><b>Pipeline</b></div><div class="ow-search">{{icon:search}}<span>My pipeline</span></div></div>
+    <div class="ow-body ow-kb">
+      <div class="kb-col" data-st="0"><p class="kb-h"><b>New</b><span data-kb-sum></span></p><div class="kb-list">
+        <div class="kb-card"><b>Harbourlight Bistro</b><small>POS for three outlets</small><p class="kb-f"><span class="kb-stars">★★☆</span><em>S$18,400</em><i class="kb-av" style="--c:#137A4A">MR</i></p></div>
+      </div></div>
+      <div class="kb-col" data-st="1"><p class="kb-h"><b>Qualified</b><span data-kb-sum></span></p><div class="kb-list">
+        <div class="kb-card"><b>Sunbird Clinics</b><small>Inventory and billing</small><p class="kb-f"><span class="kb-stars">★★★</span><em>S$24,800</em><i class="kb-av" style="--c:#714B67">AK</i></p></div>
+      </div></div>
+      <div class="kb-col" data-st="2"><p class="kb-h"><b>Proposition</b><span data-kb-sum></span></p><div class="kb-list">
+        <div class="kb-card"><b>Riverton Logistics</b><small>Fleet and maintenance</small><p class="kb-f"><span class="kb-stars">★☆☆</span><em>S$12,900</em><i class="kb-av" style="--c:#3167CA">JT</i></p></div>
+      </div></div>
+      <div class="kb-col" data-st="3"><p class="kb-h"><b>Won</b><span data-kb-sum></span></p><div class="kb-list">
+        <div class="kb-card kb-card--won"><b>Maple &amp; Moss Crafts</b><small>Online store</small><p class="kb-f"><span class="kb-stars">★★☆</span><em>S$7,600</em><i class="kb-av" style="--c:#3167CA">JT</i></p></div>
+      </div></div>
+      <div class="kb-card kb-card--me" data-me>
+        <b>Lumen Trading Pte Ltd</b><small>20 ergonomic office chairs</small>
+        <span class="kb-src">{{icon:globe}}Website form · <span data-me-when>just now</span></span>
+        <p class="kb-f"><span class="kb-stars">★★☆</span><em>S$6,240</em><i class="kb-av" style="--c:#3167CA">JT</i></p>
+        <span class="kb-act">{{icon:clock}}Call · today</span>
+        <button type="button" class="ow-btn ow-btn--p kb-quote" data-act>{{icon:file}}New Quotation</button>
+      </div>
+    </div>
+    <div class="ow-toast">{{icon:check}}<span>Quotation <b>S00042</b> created for Lumen Trading Pte Ltd</span></div>
+  </div>
+  <aside class="notes"><p>The Lumen Trading lead arrives from the website form and moves from New to Proposition. Press → (or click New Quotation) to create the quotation.</p></aside>
+</section>
+
+<section class="slide wt" id="w2" data-w="1" data-title="Walkthrough 2 · Sales" data-steps="1" data-transition="fade">
+  <div class="wt-left">
+    <span class="wt-step">Step 2 of 6</span>
+    <p class="wt-app">{{odoo:sale:30}}<b>Sales</b></p>
+    <h2 class="h-m wt-h">A quotation is sent, <span class="hl">then confirmed.</span></h2>
+    <p class="wt-p">Prices come from the pricelist and GST from the tax settings. The customer accepts online, and one click confirms the order.</p>
+    <ul class="wt-did" data-step="1" data-fx="fade">
+      <li>{{icon:check}}Priced it from the pricelist, with 9% GST</li>
+      <li>{{icon:check}}Reserved 20 chairs in the warehouse</li>
+      <li>{{icon:check}}Created the delivery order, WH/OUT/00017</li>
+    </ul>
+  </div>
+  <div class="ow" data-i>
+    <div class="ow-nav"><span class="ow-menu">{{icon:grid}}</span>{{odoo:sale:22}}<b>Sales</b><span class="ow-m">Orders</span><span class="ow-m">To Invoice</span><span class="ow-m">Products</span><span class="ow-m">Reporting</span><span class="ow-sp"></span><span class="ow-av">JT</span></div>
+    <div class="ow-cp">
+      <div class="ow-bc"><span class="ow-bc-l">Quotations /</span><b>S00042</b></div>
+      <div class="ow-sb"><i data-sb="0">Quotation</i><i data-sb="1">Quotation Sent</i><i data-sb="2">Sales Order</i></div>
+    </div>
+    <div class="ow-acts"><button type="button" class="ow-btn ow-btn--s" data-send>Send by Email</button><button type="button" class="ow-btn ow-btn--p" data-act>Confirm</button><button type="button" class="ow-btn ow-btn--s">Preview</button>
+      <span class="ow-smart" data-smart>{{icon:truck}}<b>1</b> Delivery</span></div>
+    <div class="ow-body ow-sheet">
+      <p class="sh-title">S00042</p>
+      <div class="sh-fields">
+        <div><label>Customer</label><span>Lumen Trading Pte Ltd</span></div>
+        <div><label>Quotation date</label><span>28/09/2026</span></div>
+        <div><label>Pricelist</label><span>Standard (SGD)</span></div>
+        <div><label>Payment terms</label><span>30 days</span></div>
+      </div>
+      <div class="sh-tabs"><b>Order Lines</b><span>Other Info</span></div>
+      <table class="sh-lines">
+        <thead><tr><th>Product</th><th>Quantity</th><th>Unit Price</th><th>Taxes</th><th>Amount</th></tr></thead>
+        <tbody><tr data-line><td><span data-l-p>[CHR-ERG] Ergonomic office chair</span></td><td data-l-q>20.00</td><td>312.00</td><td><span class="sh-tax">9% GST</span></td><td data-l-a>S$6,240.00</td></tr></tbody>
+      </table>
+      <div class="sh-tot">
+        <p><span>Untaxed Amount</span><b data-t-u>S$6,240.00</b></p>
+        <p><span>GST 9%</span><b data-t-g>S$561.60</b></p>
+        <p class="sh-tot-t"><span>Total</span><b data-t-t>S$6,801.60</b></p>
+      </div>
+    </div>
+    <div class="ow-toast">{{icon:check}}<span>Order confirmed · delivery <b>WH/OUT/00017</b> created</span></div>
+  </div>
+  <aside class="notes"><p>The line fills in and the totals calculate: 20 × S$312.00 = S$6,240.00, plus 9% GST, S$6,801.60. It is sent by email; press → (or click Confirm) to turn it into a sales order.</p></aside>
+</section>
+
+<section class="slide wt" id="w3" data-w="2" data-title="Walkthrough 3 · Inventory" data-steps="1" data-transition="fade">
+  <div class="wt-left">
+    <span class="wt-step">Step 3 of 6</span>
+    <p class="wt-app">{{odoo:stock:30}}<b>Inventory</b></p>
+    <h2 class="h-m wt-h">The warehouse picks, <span class="hl">packs and ships.</span></h2>
+    <p class="wt-p">The delivery was waiting before anyone asked. The picker scans the chairs, validates, and stock updates on the spot.</p>
+    <ul class="wt-did" data-step="1" data-fx="fade">
+      <li>{{icon:check}}Took 20 chairs off stock the moment they shipped</li>
+      <li>{{icon:check}}Updated the order's delivery status</li>
+      <li>{{icon:check}}Made the order ready to invoice</li>
+    </ul>
+  </div>
+  <div class="ow" data-i>
+    <div class="ow-nav"><span class="ow-menu">{{icon:grid}}</span>{{odoo:stock:22}}<b>Inventory</b><span class="ow-m">Overview</span><span class="ow-m">Operations</span><span class="ow-m">Products</span><span class="ow-m">Reporting</span><span class="ow-sp"></span><span class="ow-av">WH</span></div>
+    <div class="ow-cp">
+      <div class="ow-bc"><span class="ow-bc-l">Deliveries /</span><b>WH/OUT/00017</b></div>
+      <div class="ow-sb"><i data-sb="0">Draft</i><i data-sb="1">Waiting</i><i data-sb="2">Ready</i><i data-sb="3">Done</i></div>
+    </div>
+    <div class="ow-acts"><button type="button" class="ow-btn ow-btn--p" data-act>Validate</button><button type="button" class="ow-btn ow-btn--s">Print</button></div>
+    <div class="ow-body ow-sheet ow-sheet--split">
+      <div>
+        <p class="sh-title">WH/OUT/00017</p>
+        <div class="sh-fields">
+          <div><label>Delivery address</label><span>Lumen Trading Pte Ltd</span></div>
+          <div><label>Scheduled date</label><span>29/09/2026</span></div>
+          <div><label>Source document</label><span class="sh-link">S00042</span></div>
+          <div><label>Operation type</label><span>Delivery orders</span></div>
+        </div>
+        <div class="sh-tabs"><b>Operations</b><span>Additional Info</span></div>
+        <table class="sh-lines">
+          <thead><tr><th>Product</th><th>Demand</th><th>Quantity</th><th>Unit</th></tr></thead>
+          <tbody><tr><td>[CHR-ERG] Ergonomic office chair</td><td>20.00</td><td><b data-picked>0.00</b></td><td>Units</td></tr></tbody>
+        </table>
+        <div class="sh-scan"><span class="sh-scan-bar"><i data-scan></i></span><small data-scan-l>Scanning…</small></div>
+      </div>
+      <div class="st-card">
+        <p class="st-h">{{icon:box}}Ergonomic office chair</p>
+        <div class="st-n"><small>On hand</small><b data-onhand>120</b><span>units</span></div>
+        <div class="st-bars" aria-hidden="true"><i style="--h:.55"></i><i style="--h:.7"></i><i style="--h:.62"></i><i style="--h:.8"></i><i style="--h:1" data-bar></i></div>
+        <p class="st-f"><small>Reorder rule</small><b>min 40 · max 160</b></p>
+      </div>
+    </div>
+    <div class="ow-toast">{{icon:check}}<span>Delivery done · <b>20</b> chairs shipped to Lumen Trading</span></div>
+  </div>
+  <aside class="notes"><p>The picker scans 20 of 20. Press → (or click Validate): the delivery is done and on-hand stock drops from 120 to 100, with no stock sheet to update.</p></aside>
+</section>
+
+<section class="slide wt" id="w4" data-w="3" data-title="Walkthrough 4 · Invoicing" data-steps="1" data-transition="fade">
+  <div class="wt-left">
+    <span class="wt-step">Step 4 of 6</span>
+    <p class="wt-app">{{odoo:account:30}}<b>Invoicing</b></p>
+    <h2 class="h-m wt-h">The invoice writes itself <span class="hl">from the order.</span></h2>
+    <p class="wt-p">Every line, price and tax comes from the sales order. Confirming it posts the accounting entries at the same moment.</p>
+    <ul class="wt-did" data-step="1" data-fx="fade">
+      <li>{{icon:check}}Copied every line from S00042</li>
+      <li>{{icon:check}}Posted receivable, sales and GST entries</li>
+      <li>{{icon:check}}Sent it to the customer's portal and email</li>
+    </ul>
+  </div>
+  <div class="ow" data-i>
+    <div class="ow-nav"><span class="ow-menu">{{icon:grid}}</span>{{odoo:account:22}}<b>Invoicing</b><span class="ow-m">Customers</span><span class="ow-m">Vendors</span><span class="ow-m">Reporting</span><span class="ow-m">Configuration</span><span class="ow-sp"></span><span class="ow-av">FN</span></div>
+    <div class="ow-cp">
+      <div class="ow-bc"><span class="ow-bc-l">Invoices /</span><b data-inv-no>Draft</b></div>
+      <div class="ow-sb"><i data-sb="0">Draft</i><i data-sb="1">Posted</i></div>
+    </div>
+    <div class="ow-acts"><button type="button" class="ow-btn ow-btn--p" data-act>Confirm</button><button type="button" class="ow-btn ow-btn--s" data-sendprint>Send &amp; Print</button><button type="button" class="ow-btn ow-btn--s">Preview</button></div>
+    <div class="ow-body ow-sheet">
+      <p class="sh-title" data-inv-t>Draft</p>
+      <div class="sh-fields">
+        <div><label>Customer</label><span>Lumen Trading Pte Ltd</span></div>
+        <div><label>Invoice date</label><span>29/09/2026</span></div>
+        <div><label>Source</label><span class="sh-link">S00042</span></div>
+        <div><label>Due date</label><span>29/10/2026 · 30 days</span></div>
+      </div>
+      <div class="sh-tabs"><b data-tab="lines">Invoice Lines</b><span data-tab="je">Journal Items</span></div>
+      <div class="sh-pane" data-pane="lines">
+        <table class="sh-lines">
+          <thead><tr><th>Product</th><th>Quantity</th><th>Price</th><th>Taxes</th><th>Amount</th></tr></thead>
+          <tbody><tr><td>[CHR-ERG] Ergonomic office chair</td><td>20.00</td><td>312.00</td><td><span class="sh-tax">9% GST</span></td><td>S$6,240.00</td></tr></tbody>
+        </table>
+        <div class="sh-tot"><p><span>Untaxed Amount</span><b>S$6,240.00</b></p><p><span>GST 9%</span><b>S$561.60</b></p><p class="sh-tot-t"><span>Total</span><b>S$6,801.60</b></p></div>
+      </div>
+      <div class="sh-pane" data-pane="je">
+        <table class="sh-lines sh-je">
+          <thead><tr><th>Account</th><th>Label</th><th>Debit</th><th>Credit</th></tr></thead>
+          <tbody>
+            <tr><td>Accounts receivable</td><td>INV/2026/00042</td><td>6,801.60</td><td></td></tr>
+            <tr><td>Sales</td><td>Ergonomic office chair</td><td></td><td>6,240.00</td></tr>
+            <tr><td>GST output tax</td><td>9% GST</td><td></td><td>561.60</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="ow-toast">{{icon:check}}<span>Invoice <b>INV/2026/00042</b> posted and sent</span></div>
+  </div>
+  <aside class="notes"><p>The draft invoice already has every line from the order. Press → (or click Confirm): it gets its number, the journal entries post, and it goes to the customer.</p></aside>
+</section>
+
+<section class="slide wt" id="w5" data-w="4" data-title="Walkthrough 5 · Accounting" data-steps="1" data-transition="fade">
+  <div class="wt-left">
+    <span class="wt-step">Step 5 of 6</span>
+    <p class="wt-app">{{odoo:accountant:30}}<b>Accounting</b></p>
+    <h2 class="h-m wt-h">The payment lands <span class="hl">and matches itself.</span></h2>
+    <p class="wt-p">The bank line comes in with the statement. Odoo suggests the invoice it pays, by amount and reference, and one click reconciles it.</p>
+    <ul class="wt-did" data-step="1" data-fx="fade">
+      <li>{{icon:check}}Matched the bank line to INV/2026/00042</li>
+      <li>{{icon:check}}Marked the invoice paid</li>
+      <li>{{icon:check}}Closed the receivable, no spreadsheet needed</li>
+    </ul>
+  </div>
+  <div class="ow" data-i>
+    <div class="ow-nav"><span class="ow-menu">{{icon:grid}}</span>{{odoo:accountant:22}}<b>Accounting</b><span class="ow-m">Dashboard</span><span class="ow-m">Customers</span><span class="ow-m">Vendors</span><span class="ow-m">Accounting</span><span class="ow-sp"></span><span class="ow-av">FN</span></div>
+    <div class="ow-cp"><div class="ow-bc"><span class="ow-bc-l">Bank /</span><b>Reconcile</b></div><div class="ow-search">{{icon:search}}<span>Not reconciled</span></div></div>
+    <div class="ow-body rc">
+      <div class="rc-lines">
+        <p class="rc-h">Bank statement · SGD current account</p>
+        <div class="rc-l is-sel" data-rc-me><span><b>LUMEN TRADING PTE LTD</b><small>06/10/2026 · INV/2026/00042</small></span><em class="in">+S$6,801.60</em><i class="rc-ok">{{icon:check}}</i></div>
+        <div class="rc-l"><span><b>SUNBIRD CLINICS</b><small>06/10/2026 · INV/2026/00039</small></span><em class="in">+S$4,280.00</em></div>
+        <div class="rc-l"><span><b>OFFICE RENT OCT</b><small>05/10/2026 · standing order</small></span><em>−S$3,200.00</em></div>
+        <div class="rc-l"><span><b>TAXI FARE</b><small>04/10/2026 · card 4412</small></span><em>−S$38.40</em></div>
+      </div>
+      <div class="rc-match">
+        <p class="rc-h">Suggested match</p>
+        <div class="rc-inv">
+          <span class="rc-paid">Paid</span>
+          <p class="rc-inv-h">{{odoo:account:26}}<b>INV/2026/00042</b></p>
+          <p class="rc-row"><span>Customer</span><b>Lumen Trading Pte Ltd</b></p>
+          <p class="rc-row"><span>Amount due</span><b data-due>S$6,801.60</b></p>
+          <p class="rc-row"><span>Match</span><b class="rc-pct">Amount and reference · 100%</b></p>
+        </div>
+        <button type="button" class="ow-btn ow-btn--p rc-go" data-act>{{icon:check}}Validate</button>
+      </div>
+    </div>
+    <div class="ow-toast">{{icon:check}}<span>Reconciled · <b>INV/2026/00042</b> is paid</span></div>
+  </div>
+  <aside class="notes"><p>Odoo proposes the match between the bank line and the invoice. Press → (or click Validate) to reconcile: the invoice shows Paid and the receivable closes.</p></aside>
+</section>
+
+<section class="slide wt" id="w6" data-w="5" data-title="Walkthrough 6 · Reporting" data-steps="1" data-transition="fade">
+  <div class="wt-left">
+    <span class="wt-step">Step 6 of 6</span>
+    <p class="wt-app">{{odoo:spreadsheet_dashboard:30}}<b>Reporting</b></p>
+    <h2 class="h-m wt-h">Every number, <span class="hl">already up to date.</span></h2>
+    <p class="wt-p">Sales, stock and cash moved as the order did. The dashboard reads the same records, so there is nothing to export or rebuild.</p>
+    <ul class="wt-did" data-step="1" data-fx="fade">
+      <li>{{icon:check}}One order, typed once</li>
+      <li>{{icon:check}}Five linked documents, one record trail</li>
+      <li>{{icon:check}}Reports without exports or re-typing</li>
+    </ul>
+  </div>
+  <div class="ow" data-i>
+    <div class="ow-nav"><span class="ow-menu">{{icon:grid}}</span>{{odoo:spreadsheet_dashboard:22}}<b>Dashboards</b><span class="ow-m">Sales</span><span class="ow-m">Inventory</span><span class="ow-m">Accounting</span><span class="ow-sp"></span><span class="ow-av">MD</span></div>
+    <div class="ow-body db">
+      <div class="db-kpis">
+        <div><small>Sales this month</small><b data-kpi="sales">S$84,300</b><em>+S$6,240 today</em></div>
+        <div><small>Cash received</small><b data-kpi="cash">S$61,420</b><em>+S$6,801.60 today</em></div>
+        <div><small>Chairs on hand</small><b data-kpi="stock">100</b><em>reorder at 40</em></div>
+        <div><small>Overdue invoices</small><b data-kpi="od">0</b><em>all paid on time</em></div>
+      </div>
+      <div class="db-chart">
+        <p class="db-h">Sales by week</p>
+        <div class="db-bars"><span style="--h:.42"><i></i><small>W36</small></span><span style="--h:.58"><i></i><small>W37</small></span><span style="--h:.5"><i></i><small>W38</small></span><span style="--h:.66"><i></i><small>W39</small></span><span class="is-now" style="--h:.82"><i></i><small>W40</small></span></div>
+      </div>
+      <div class="db-trail">
+        <p class="db-h db-h--row">The record trail <button type="button" class="ow-btn ow-btn--p" data-act>{{icon:arrow}}Follow the trail</button></p>
+        <div class="tr">
+          <span data-k="0">{{odoo:crm:22}}<b>Lead</b><small>Lumen Trading</small></span>
+          <span data-k="1">{{odoo:sale:22}}<b>S00042</b><small>sales order</small></span>
+          <span data-k="2">{{odoo:stock:22}}<b>WH/OUT/00017</b><small>delivery</small></span>
+          <span data-k="3">{{odoo:account:22}}<b>INV/2026/00042</b><small>invoice</small></span>
+          <span data-k="4">{{odoo:accountant:22}}<b>BNK1/2026/00093</b><small>payment</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><p>Close the walkthrough on the record trail: lead, order, delivery, invoice and payment, all linked, the order typed once. Press → to light up the trail.</p></aside>
+</section>

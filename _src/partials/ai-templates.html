@@ -1,0 +1,68 @@
+<!-- AI vignettes (assets/ai-demos.js animates them). Sample data, labelled as illustrative wherever shown. -->
+<template id="aiv-rag">
+  <div class="aiv aiv-rag">
+    <div class="aiv-head"><span class="aiv-av">{{icon:database}}</span><span><b>Knowledge assistant</b><small>Answers only from your approved documents</small></span><span class="aiv-chan">Web · WhatsApp · in-app · Odoo</span></div>
+    <div class="aiv-body">
+      <div class="aiv-msg aiv-me"><span data-q></span></div>
+      <div class="aiv-search"><span class="aiv-search-l">{{icon:search}}<span>Searching approved sources</span></span><div class="aiv-docs" data-docs></div></div>
+      <div class="aiv-msg aiv-bot"><p data-a></p><div class="aiv-cites" data-cites></div></div>
+    </div>
+    <div class="aiv-foot">{{icon:check}}<span>Every answer cites its source, so people can check it</span></div>
+  </div>
+</template>
+
+<template id="aiv-odoo">
+  <div class="aiv aiv-odoo">
+    <div class="aiv-head aiv-head--odoo">{{odoo:accountant:30}}<span><b>Accounting</b><small>Vendor Bills / <span data-ref>Draft</span></small></span>
+      <span class="ob-status"><i data-s="draft" class="is-on">Draft</i><i data-s="posted">Posted</i></span></div>
+    <div class="aiv-body ob-body">
+      <div class="ob-pdf" aria-hidden="true">
+        <div class="ob-pdf-top"><b>KESTREL</b><span>TAX INVOICE<br>INV-58213</span></div>
+        <i></i><i></i><i class="w6"></i>
+        <div class="ob-pdf-tbl"><i></i><i></i><i></i><i class="w5"></i></div>
+        <div class="ob-pdf-sum"><i></i><i></i><b></b></div>
+        <span class="ob-scan"></span>
+      </div>
+      <div class="ob-form">
+        <div class="ob-f" data-f="vendor"><label>Vendor</label><span data-v="Kestrel Supplies Pte Ltd"></span></div>
+        <div class="ob-f" data-f="date"><label>Bill date</label><span data-v="21/09/2026"></span></div>
+        <div class="ob-f" data-f="ref"><label>Bill reference</label><span data-v="INV-58213"></span></div>
+        <div class="ob-f" data-f="untaxed"><label>Untaxed</label><span data-v="S$1,177.98"></span></div>
+        <div class="ob-f" data-f="gst"><label>GST 9%</label><span data-v="S$106.02"></span></div>
+        <div class="ob-f ob-f--total" data-f="total"><label>Total</label><span data-v="S$1,284.00"></span></div>
+        <div class="ob-match">{{icon:check}}<span>Matched to <b>PO P00087</b> and receipt <b>WH/IN/00042</b></span></div>
+        <div class="ob-gate">
+          <span class="ob-wait">{{icon:lock}}<span>Waiting for approval</span></span>
+          <button type="button" class="ob-approve" data-approve>{{icon:check}}<span>Approve</span></button>
+        </div>
+        <p class="ob-log">{{icon:check}}<span>Read and matched by AI · approved by Finance · posted</span></p>
+      </div>
+    </div>
+    <div class="aiv-foot">{{icon:lock}}<span>The AI prepares; a person approves before anything is posted</span></div>
+  </div>
+</template>
+
+<template id="aiv-auto">
+  <div class="aiv aiv-auto">
+    <div class="aiv-head"><span class="aiv-av">{{icon:zap}}</span><span><b>Workflow agent</b><small>Runs when an event arrives</small></span><span class="aiv-chan">Logged for audit</span></div>
+    <div class="aiv-body">
+      <div class="au-trig">{{icon:mail}}<span><small>New email · Lumen Trading Pte Ltd</small><b>"Please move order S00123 to 3 October"</b></span></div>
+      <ol class="au-steps">
+        <li data-k="classify"><i>{{icon:layers}}</i><span><b>Classify</b><small data-r="Order change request"></small></span></li>
+        <li data-k="lookup"><i>{{icon:search}}</i><span><b>Look up</b><small data-r="S00123 · 20 office chairs · due 26 Sep"></small></span></li>
+        <li data-k="prepare"><i>{{icon:file}}</i><span><b>Prepare</b><small data-r="New delivery date 3 Oct · reply drafted"></small></span></li>
+        <li data-k="approve" class="au-gate"><i>{{icon:usercheck}}</i><span><b>Approval</b><small data-r="Approved by Sales" data-wait="Waiting for Sales"></small></span></li>
+        <li data-k="send"><i>{{icon:send}}</i><span><b>Send and log</b><small data-r="Reply sent · date changed on S00123"></small></span></li>
+      </ol>
+    </div>
+    <div class="aiv-foot">{{icon:check}}<span>Approval steps where it matters, and every step on the audit log</span></div>
+  </div>
+</template>
+
+<template id="aiv-chat">
+  <div class="aiv aiv-chat">
+    <div class="aiv-head aiv-head--chat"><span class="aiv-av">{{icon:bot}}</span><span><b>TechNext Assistant</b><small>online · answers from your knowledge base</small></span><span class="aiv-chan">{{icon:whatsapp}} WhatsApp · web</span></div>
+    <div class="aiv-body ch-body" data-log></div>
+    <div class="aiv-foot">{{icon:users}}<span>Hands off to a person, with the whole conversation</span></div>
+  </div>
+</template>
