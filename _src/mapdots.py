@@ -9,7 +9,7 @@ HERE = pathlib.Path(__file__).parent
 BOX = (92.0, 128.0, -9.0, 23.5)          # lon0, lon1, lat0, lat1
 
 
-def _rings():
+def _rings(BOX=BOX):
     t = json.loads((HERE / "land-50m.json").read_text(encoding="utf-8"))
     sx, sy = t["transform"]["scale"]; tx, ty = t["transform"]["translate"]
     arcs = []
@@ -53,8 +53,9 @@ def _inside(x, y, rings):
     return c
 
 
-def map_svg(w, h, step=0.5, r=2.3):
-    lon0, lon1, lat0, lat1 = BOX
+def map_svg(w, h, step=0.5, r=2.3, box=None):
+    BOX_ = box or BOX
+    lon0, lon1, lat0, lat1 = BOX_
     kx = w / (lon1 - lon0); ky = h / (lat1 - lat0)
     k = min(kx, ky)
     ox = (w - (lon1 - lon0) * k) / 2; oy = (h - (lat1 - lat0) * k) / 2
@@ -62,7 +63,7 @@ def map_svg(w, h, step=0.5, r=2.3):
     def project(lon, lat):
         return (ox + (lon - lon0) * k, oy + (lat1 - lat) * k)
 
-    rings = _rings()
+    rings = _rings(BOX_)
     dots = []
     lat = lat1
     while lat >= lat0:

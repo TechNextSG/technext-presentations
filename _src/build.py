@@ -48,11 +48,88 @@ HEAD = """<meta charset="utf-8">
 
 _maps = {}
 
+# The launcher (index.html) is generated from this list: a deck appears once its HTML is built.
+# Slide counts come from the built file; the PDF button shows only when pdf/<name> exists.
+DECKS = [
+    ("About TechNext", [
+        dict(slug="company-profile", title="Company profile", mins=10, pdf="TechNext-Company-Profile.pdf",
+             alt="Company profile cover: We automate what slows you down.",
+             desc="Who TechNext is: three offices on a live map, the three practices, the Odoo partnership, how an engagement runs, the four AI disciplines and the company details."),
+        dict(slug="portfolio", title="Portfolio", mins=10, pdf="TechNext-Portfolio.pdf",
+             alt="Portfolio cover: the clients TechNext has served.",
+             desc="The clients we have served and what we built for each: websites, Odoo proposals and rollouts, social, video and brand work, on a map and client by client."),
+    ]),
+    ("What we build", [
+        dict(slug="service-showcase", title="Service showcase", mins=15, pdf="TechNext-Service-Showcase.pdf",
+             alt="Service showcase cover: What we build, and how it works.",
+             desc="All fourteen services, each shown working: the implementation plan, a live CRM pipeline, multi-company Odoo, integrations with outages, and four AI demos."),
+        dict(slug="marketing-showcase", title="Marketing showcase", mins=10, pdf="TechNext-Marketing-Showcase.pdf",
+             alt="Marketing showcase cover: websites TechNext has built.",
+             desc="Every live website we have built, and the concepts we have mocked up, with each full page scrolling in a browser and on a phone."),
+    ]),
+    ("Odoo", [
+        dict(slug="what-is-odoo", title="What is Odoo?", mins=15, pdf="What-Is-Odoo.pdf",
+             alt="What is Odoo cover: one suite of business apps on one database.",
+             desc="Odoo explained from scratch, then one order walked from lead to cash across six Odoo screens: CRM, Sales, Inventory, Invoicing, Accounting and Reporting."),
+    ]),
+    ("Pricing", [
+        dict(slug="erp-tiers", title="ERP tier list", mins=8, pdf="TechNext-ERP-Tier-List.pdf",
+             alt="ERP tier list cover: four tiers, then add exactly what you need.",
+             desc="Starter, Essentials, Growth and Enterprise for an Odoo rollout, eight add-ons, a which-tier-fits finder and a plan that turns into a quotation request."),
+        dict(slug="marketing-tiers", title="Marketing tier list", mins=8, pdf="TechNext-Marketing-Tier-List.pdf",
+             alt="Marketing tier list cover: four tiers to get you seen and booked.",
+             desc="Starter, Launch, Growth and Brand for websites, social and brand, eight add-ons, a which-tier-fits finder and a plan that turns into a quotation request."),
+    ]),
+]
+WORDS = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten"}
+
+
+def launcher():
+    groups, n = [], 0
+    for gname, decks in DECKS:
+        cards = []
+        for d in decks:
+            html = ROOT / (d["slug"] + ".html")
+            if not html.exists():
+                continue
+            slides = len(re.findall(r'<section class="slide[ "]', html.read_text(encoding="utf-8")))
+            th = f"assets/img/thumbs/{d['slug']}"
+            second = (f'\n        <img class="ix-thumb-2" src="{th}-2.jpg" alt="" width="960" height="540" loading="lazy">' if (ROOT / f"{th}-2.jpg").exists() else "")
+            pdf = (f'\n          <a class="ix-btn ix-btn--t" href="pdf/{d["pdf"]}">PDF</a>' if (ROOT / "pdf" / d["pdf"]).exists() else "")
+            cards.append(f"""    <article class="ix-card">
+      <a class="ix-thumb" href="{d['slug']}.html" aria-label="Open {d['title']}">
+        <img src="{th}.jpg" alt="{d['alt']}" width="960" height="540">{second}
+      </a>
+      <div class="ix-body">
+        <p class="ix-meta"><span>{slides} slides</span><span>about {d['mins']} minutes</span></p>
+        <h3>{d['title']}</h3>
+        <p>{d['desc']}</p>
+        <div class="ix-acts">
+          <a class="ix-btn ix-btn--p" href="{d['slug']}.html">Present</a>
+          <a class="ix-btn" href="{d['slug']}.html?kiosk">Kiosk loop</a>{pdf}
+        </div>
+      </div>
+    </article>""")
+            n += 1
+        if cards:
+            groups.append(f'  <section class="ix-group" aria-label="{gname}">\n    <h2 class="ix-gh">{gname}</h2>\n    <div class="ix-grid">\n' + "\n".join(cards) + "\n    </div>\n  </section>")
+    return "\n".join(groups), n
+
 
 def seamap(w, h):
     key = (w, h)
     if key not in _maps:
         _maps[key] = map_svg(w, h, step=0.42, r=2.1)
+    return _maps[key]
+
+
+WORLD_BOX = (-25.0, 155.0, -42.0, 66.0)   # Europe to Japan and Australia: where TechNext's clients are
+
+
+def worldmap(w, h):
+    key = ("w", w, h)
+    if key not in _maps:
+        _maps[key] = map_svg(w, h, step=1.6, r=2.6, box=WORLD_BOX)
     return _maps[key]
 
 
@@ -97,6 +174,13 @@ def expand(s, page=""):
     s = re.sub(r"\{\{odoo:([a-z0-9_]+)(?::(\d+))?\}\}", lambda m: odoo(m.group(1), m.group(2) or "40"), s)
     s = re.sub(r"\{\{qr:([a-z]+)\}\}", lambda m: qr_svg(m.group(1)), s)
     s = re.sub(r"\{\{seamap:(\d+):(\d+)\}\}", lambda m: seamap(int(m.group(1)), int(m.group(2)))[0], s)
+    s = re.sub(r"\{\{worldmap:(\d+):(\d+)\}\}", lambda m: worldmap(int(m.group(1)), int(m.group(2)))[0], s)
+
+    def worldxy(m):
+        _, project, _ = worldmap(int(m.group(3)), int(m.group(4)))
+        x, y = project(float(m.group(1)), float(m.group(2)))
+        return f"{x:.1f},{y:.1f}"
+    s = re.sub(r"\{\{worldxy:(-?[\d.]+),(-?[\d.]+):(\d+):(\d+)\}\}", worldxy, s)
 
     def mapxy(m):
         _, project, _ = seamap(int(m.group(2)), int(m.group(3)))
@@ -111,8 +195,13 @@ def expand(s, page=""):
 
 def main():
     out = []
-    for p in sorted((SRC / "decks").glob("*.html")):
-        html = expand(p.read_text(encoding="utf-8"), p.name)
+    # decks first, the launcher last (it reads the built decks)
+    for p in sorted((SRC / "decks").glob("*.html"), key=lambda p: p.name == "index.html"):
+        src = p.read_text(encoding="utf-8")
+        if "{{launcher}}" in src:
+            cards, n = launcher()
+            src = src.replace("{{launcher}}", cards).replace("{{deck_count}}", WORDS.get(n, str(n)))
+        html = expand(src, p.name)
         (ROOT / p.name).write_text(html, encoding="utf-8", newline="\n")
         out.append((p.name, len(html)))
     for name, n in out:
