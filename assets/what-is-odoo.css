@@ -126,7 +126,7 @@
 .wk-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;counter-reset:w}
 .wk-steps button{width:100%;height:100%;display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left;padding:20px 18px;border-radius:18px;border:1px solid var(--line);background:#fff;cursor:pointer;box-shadow:var(--sh-1);
   font:inherit;transition:transform .5s var(--ease),border-color .35s,box-shadow .5s}
-.wk-steps button:hover{transform:translateY(-4px);border-color:var(--blue-200);box-shadow:var(--sh-2)}
+.wk-steps button:hover{border-color:var(--blue-200);box-shadow:var(--sh-2)}
 .wk-steps .oi{width:44px!important;height:44px!important}
 .wk-n{font:800 13px/1 var(--f-display);color:var(--blue);letter-spacing:.1em}
 .wk-steps b{font:750 20px/1.2 var(--f-display);color:var(--ink)}

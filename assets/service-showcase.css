@@ -297,7 +297,7 @@
 /* ---------------------------------------------------------------- 9 · AI overview */
 .ai4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 .ai4-c{text-align:left;cursor:pointer;display:flex;flex-direction:column;padding:26px 24px 22px;min-height:300px;font:inherit;color:inherit;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .4s}
-.ai4-c:hover{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:var(--blue-200)}
+.ai4-c:hover{box-shadow:var(--sh-2);border-color:var(--blue-200)}
 .ai4-c h3{font-size:22px}
 .ai4-c p{font-size:16.5px}
 .ai4-go{margin-top:auto;padding-top:14px;display:inline-flex;gap:8px;align-items:center;font:700 15.5px/1 var(--f-display);color:var(--blue)}

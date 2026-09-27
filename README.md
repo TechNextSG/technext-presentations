@@ -17,7 +17,7 @@ Live (unlisted, `noindex`): https://technextsg.github.io/technext-presentations/
 | `→` `Space` `PgDn` | next build or slide |
 | `←` `PgUp` | back |
 | `Home` / `End` | first / last slide |
-| `O` or `Esc` | all slides (arrows + `Enter` to pick) |
+| `O` | all slides (arrows + `Enter` to pick; `O` or `Esc` closes) |
 | `F` | full screen |
 | `N` | speaker notes |
 | number, then `Enter` | jump to a slide |

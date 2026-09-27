@@ -33,7 +33,7 @@ main.ix-wrap{margin-top:-104px;position:relative}
 .ix-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .ix-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 2px 6px rgba(31,31,61,.05),0 30px 60px -30px rgba(31,31,61,.35);display:flex;flex-direction:column;
   transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
-.ix-card:hover{transform:translateY(-4px);box-shadow:0 2px 6px rgba(31,31,61,.05),0 40px 70px -30px rgba(31,31,61,.45)}
+.ix-card:hover{box-shadow:0 2px 6px rgba(31,31,61,.05),0 40px 70px -30px rgba(31,31,61,.45)}
 .ix-thumb{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:#0F2350}
 .ix-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s var(--ease),transform 1.2s var(--ease)}
 .ix-thumb-2{opacity:0}
@@ -46,7 +46,7 @@ main.ix-wrap{margin-top:-104px;position:relative}
 .ix-body p{margin:0;font-size:16px}
 .ix-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:20px}
 .ix-btn{display:inline-flex;align-items:center;padding:11px 15px;border-radius:11px;border:1px solid var(--line);background:#fff;text-decoration:none;font:700 15px/1 var(--f-display);color:var(--ink);transition:border-color .3s,background .3s,transform .3s var(--ease)}
-.ix-btn:hover{border-color:var(--blue-300);transform:translateY(-1px)}
+.ix-btn:hover{border-color:var(--blue-300)}
 .ix-btn--p{background:var(--blue);border-color:var(--blue);color:#fff}
 .ix-btn--p:hover{background:var(--blue-700);border-color:var(--blue-700)}
 .ix-btn--t{border-color:transparent;color:var(--blue)}

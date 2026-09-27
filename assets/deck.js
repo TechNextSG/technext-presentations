@@ -129,7 +129,7 @@
     '<dt><kbd>→</kbd><kbd>Space</kbd><kbd>PgDn</kbd></dt><dd>Next build or slide</dd>' +
     '<dt><kbd>←</kbd><kbd>PgUp</kbd></dt><dd>Back</dd>' +
     '<dt><kbd>Home</kbd><kbd>End</kbd></dt><dd>First or last slide</dd>' +
-    '<dt><kbd>O</kbd></dt><dd>All slides (arrows + Enter to pick)</dd>' +
+    '<dt><kbd>O</kbd></dt><dd>All slides (arrows + Enter to pick, O or Esc to close)</dd>' +
     '<dt><kbd>F</kbd></dt><dd>Full screen</dd>' +
     '<dt><kbd>N</kbd></dt><dd>Speaker notes</dd>' +
     '<dt><kbd>1</kbd>–<kbd>9</kbd> then <kbd>Enter</kbd></dt><dd>Jump to a slide</dd>' +
@@ -222,13 +222,32 @@
     });
     return cols;
   }
-  var oCols = 4;
-  function setOverview(on) {
-    overview = on; oCols = layoutOverview();
-    root.classList.toggle('is-overview', on);
-    $('[data-ui=overview]', ui).setAttribute('aria-pressed', on);
-    oCursor = cur; slides.forEach(function (s, i) { s.classList.toggle('is-cursor', on && i === oCursor); });
+  var oCols = 4, switching = false;
+  // The overview swaps in while the stage is faded out: no transitions run, so nothing flies across the screen.
+  function setOverview(on, then) {
+    if (switching) return;
+    if (on === overview) { if (then) then(); return; }
+    switching = true;
+    root.classList.add('is-fading');
+    setTimeout(function () {
+      root.classList.add('no-anim');
+      overview = on; oCols = layoutOverview();
+      root.classList.toggle('is-overview', on);
+      $('[data-ui=overview]', ui).setAttribute('aria-pressed', on);
+      oCursor = cur; slides.forEach(function (s, i) { s.classList.toggle('is-cursor', on && i === oCursor); });
+      if (then) then();
+      void stage.offsetWidth;
+      root.classList.remove('no-anim');
+      root.classList.remove('is-fading');
+      setTimeout(function () { switching = false; kiosk_reset(); }, 200);
+    }, reduce ? 0 : 180);
   }
+  function leaveTo(url) {
+    root.classList.add('is-fading');
+    setTimeout(function () { location.href = url; }, reduce ? 0 : 190);
+  }
+  // coming back with the browser's back button restores the page as it was left: make it visible again
+  addEventListener('pageshow', function (e) { if (e.persisted) root.classList.remove('is-fading'); });
   function moveCursor(d) { oCursor = clamp(oCursor + d, 0, total - 1); slides.forEach(function (s, i) { s.classList.toggle('is-cursor', i === oCursor); }); }
 
   /* ---------------------------------------------------------------- notes, help, fullscreen */
@@ -256,7 +275,7 @@
     if (overview) {
       if (k === 'ArrowRight') moveCursor(1); else if (k === 'ArrowLeft') moveCursor(-1);
       else if (k === 'ArrowDown') moveCursor(oCols); else if (k === 'ArrowUp') moveCursor(-oCols);
-      else if (k === 'Enter' || k === ' ') { setOverview(false); go(oCursor, 0); }
+      else if (k === 'Enter' || k === ' ') { var to = oCursor; setOverview(false, function () { go(to, 0); }); }
       else if (k === 'Escape' || k === 'o' || k === 'O') setOverview(false);
       else return;
       e.preventDefault(); return;
@@ -271,7 +290,9 @@
       case 'ArrowLeft': case 'ArrowUp': case 'PageUp': case 'Backspace': prev(); break;
       case 'Home': go(0, 0); break;
       case 'End': go(total - 1, -1); break;
-      case 'o': case 'O': case 'Escape': if (k === 'Escape' && !overview) { if (notesEl.classList.contains('is-open')) { toggleNotes(); break; } } setOverview(!overview); break;
+      case 'o': case 'O': setOverview(!overview); break;
+      // Esc closes the notes; it never opens the overview (in full screen the browser also uses it to exit)
+      case 'Escape': if (notesEl.classList.contains('is-open')) toggleNotes(); else return; break;
       case 'f': case 'F': toggleFull(); break;
       case 'n': case 'N': toggleNotes(); break;
       case '?': toggleHelp(); break;
@@ -283,7 +304,7 @@
   var INTERACTIVE = 'a,button,input,select,textarea,label,summary,[role=button],[role=slider],[role=tab],[tabindex],[data-i]';
   stage.addEventListener('click', function (e) {
     if (overview) {
-      var s = e.target.closest('.slide'); if (s) { setOverview(false); go(slides.indexOf(s), 0); }
+      var s = e.target.closest('.slide'); if (s) { var to = slides.indexOf(s); setOverview(false, function () { go(to, 0); }); }
       return;
     }
     if (e.defaultPrevented || e.button !== 0) return;
@@ -318,7 +339,7 @@
     else if (a === 'notes') toggleNotes();
     else if (a === 'full') toggleFull();
     else if (a === 'help') toggleHelp();
-    else if (a === 'home') location.href = document.body.dataset.home;
+    else if (a === 'home') leaveTo(document.body.dataset.home);
   });
   helpEl.addEventListener('click', function (e) { if (e.target === helpEl) toggleHelp(false); });
 
@@ -334,6 +355,7 @@
   var kiosk = params.has('kiosk') ? (+params.get('kiosk') || 9) * 1000 : 0, kT = 0;
   function kiosk_reset() {
     if (!kiosk) return; clearTimeout(kT);
+    if (overview) return;
     var sl = slides[cur], dur = (+sl.dataset.dur || kiosk) / (stepsOf(cur) + 1);
     kT = setTimeout(function () { if (step < stepsOf(cur)) next(); else go(cur < total - 1 ? cur + 1 : 0, 0); }, dur);
   }
@@ -345,7 +367,7 @@
   /* ---------------------------------------------------------------- public API */
   window.Deck = {
     on: function (id, h) { hooks[id] = h; },
-    go: function (i, s) { if (overview) setOverview(false); go(i, s); },
+    go: function (i, s) { if (overview) setOverview(false, function () { go(i, s); }); else go(i, s); },
     goId: function (id, s) { var i = slides.findIndex(function (x) { return x.id === id; }); if (i >= 0) Deck.go(i, s); },
     next: next, prev: prev,
     get index() { return cur; }, get step() { return step; }, get scale() { return scale; },
