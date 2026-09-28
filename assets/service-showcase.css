@@ -340,6 +340,8 @@
 .ao-list li>.ic{width:46px;height:46px;padding:12px;border-radius:13px;background:var(--blue-050);color:var(--blue);flex:none}
 .ao-list b{display:block;font:750 19px/1.25 var(--f-display);color:var(--ink)}
 .ao-list small{display:block;font-size:15.5px;color:var(--body);margin-top:2px}
+.ao-o20{display:flex;gap:10px;align-items:flex-start;margin:18px 0 0;padding:14px 16px;border-radius:14px;background:var(--blue-050);font-size:15px;line-height:1.45;color:var(--body)}
+.ao-o20 .ic{flex:none;margin-top:2px;font-size:18px;color:var(--blue)}
 .ao-hint{margin-top:28px}
 .ao-hint .ic{color:var(--ok)}
 .ao-hint b{color:var(--odoo);margin:0 3px}

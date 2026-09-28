@@ -90,10 +90,10 @@
     form: ['Website form.', 'The form files a ticket directly, so a request never waits in an inbox.'],
     portal: ['Customer portal.', 'Building owners follow their tickets, visit reports and contracts on the Odoo portal.'],
     wa: ['WhatsApp.', 'Messages can open tickets too, through Odoo\'s WhatsApp app.'],
-    odoo: ['Odoo.', 'One database for the service side: tickets, jobs, contracts, stock, customers and installations, shared by Makati, Cebu and Cagayan de Oro.'],
+    odoo: ['Odoo 20.', 'One database for the service side: tickets, jobs, documents, customers and installations, shared by Makati, Cebu and Cagayan de Oro. In Odoo 20, field service runs inside Planning. Contracts, sales and buying join in phase 2 where GERP does not already cover them.'],
     gerp: ['GERP.', 'It keeps the ledger. Odoo hands over the invoice lines for contracts and chargeable visits, and reads the payment status back. The interface is agreed with group IT.'],
     mon: ['Remote monitoring.', 'If Hitachi\'s monitoring runs in the Philippines, its alarms can open tickets before anyone calls. One of our questions for discovery.'],
-    app: ['Technician app.', 'Technicians get their jobs on the Odoo app, fill the worksheet, record the parts and collect the signature on site.'],
+    app: ['Technician app.', 'Technicians get their jobs on the Odoo app, fill the worksheet, record the parts and collect the signature on site. Odoo 20 keeps working offline and syncs when the signal is back.'],
     cam: ['Body cameras.', 'The programme stays as it is. Each visit record keeps its clip ID, so footage and paperwork point at each other.']
   };
   Deck.on('arch', {
@@ -164,7 +164,7 @@
     p1: { pri: 'P1 · Passenger trapped', ch: 'Phone', what: 'Car stopped between floors 8 and 9, two passengers inside.', target: 30, tl: 'of 30 min',
       part: 'Door roller kit', stamp: 'On site in 17 min',
       ev: [[0, 0, '09:02', 'Lobby phone call logged in Helpdesk'], [1, 1, '09:03', 'P1 entrapment: 30-minute response clock started'],
-        [2, 2, '09:04', '{tech} assigned: nearest, free, driving {van}'], [2, 3, '09:04', 'Door roller kit reserved from {stock} stock'],
+        [2, 2, '09:04', '{tech} assigned: nearest, free, driving {van}'], [2, 3, '09:04', 'Door roller kit added to the job'],
         [17, 4, '09:19', 'QR check-in at {unit} · camera clip linked', 'arrive'], [19, -1, '09:21', 'Passengers released, car parked', 'ok'],
         [44, 5, '09:46', 'Worksheet signed by the building admin'], [45, 5, '09:47', 'Report e-mailed · billable line to GERP']] },
     p2: { pri: 'P2 · Lift stopped', ch: 'Email', what: 'Lift out of service since this morning, no one inside.', target: 120, tl: 'of 2 hours',
@@ -176,7 +176,7 @@
     p3: { pri: 'P3 · Noisy escalator', ch: 'Portal', what: 'Escalator E2 noisy at the top landing, still running.', target: 1460, tl: 'next business day',
       part: 'Step chain roller kit', stamp: 'Visited next morning',
       ev: [[0, 0, '16:40', 'Portal request from the building admin, with a video'], [1, 1, '16:41', 'P3 noise report: visit within one business day'],
-        [3, 2, '16:43', 'Planned for tomorrow 08:00 with {tech}'], [4, 3, '16:44', 'Step chain roller kit reserved in {stock} stock'],
+        [3, 2, '16:43', 'Planned for tomorrow 08:00 with {tech}'], [4, 3, '16:44', 'Step chain roller kit added to the job'],
         [924, 4, '08:04', 'Next morning: QR check-in at Escalator E2', 'arrive'], [990, -1, '09:10', 'Rollers replaced, noise gone', 'ok'],
         [995, 5, '09:15', 'Worksheet signed · report e-mailed']] }
   };
@@ -203,7 +203,7 @@
     $('[data-bk-st]', s).textContent = !k ? 'Clock not started' : k < 2 ? 'Ticket opened' : arrived ? E.stamp : 'Within target, running';
     sla.classList.toggle('is-ok', arrived);
     $('[data-bk-tech]', s).textContent = k > 2 ? B.tech + ' · ' + B.van : 'Waiting for dispatch';
-    $('[data-bk-part]', s).textContent = k > 3 ? E.part + ' · ' + B.stock + ' stock' : 'Parts not checked yet';
+    $('[data-bk-part]', s).textContent = k > 3 ? E.part + ' · on the job' : 'No parts on the job yet';
     var ol = $('[data-bk-log]', s);
     $$('li', ol).forEach(function (li, j) { li.classList.toggle('is-in', j < k); });
     var st = $('[data-bk-stamp]', s); st.classList.toggle('is-on', k >= n);
@@ -613,7 +613,7 @@
         var h = document.createElement('div'); h.className = 'pj-g'; h.textContent = p.g + ' · ' + p.who + ' '; var sm = document.createElement('small'); sm.textContent = p.units; h.appendChild(sm); box.appendChild(h);
         p.st.forEach(function (st) {
           var r = document.createElement('div'); r.className = 'pj-r'; r.tabIndex = 0; r.dataset.n = st[0]; r.dataset.g = p.g; r.dataset.who = p.who;
-          r.innerHTML = '<b></b><span class="pj-t"></span>'; $('b', r).textContent = st[0];
+          r.innerHTML = '<b></b><span class="pj-t"><span class="px-gl px-gl--start" style="--n:8" aria-hidden="true">' + [0, 1, 2, 3, 4, 5, 6, 7].map(function (k) { return '<u style="--k:' + k + '"></u>'; }).join('') + '</span></span>'; $('b', r).textContent = st[0];
           PH.forEach(function (ph) { var i = document.createElement('i'); i.className = ph[2]; i.style.setProperty('--a', st[1] + ph[0]); i.style.setProperty('--b', st[1] + ph[1]); $('.pj-t', r).appendChild(i); });
           box.appendChild(r);
         });

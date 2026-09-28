@@ -99,6 +99,8 @@
   /* ---------------------------------------------------------------- chrome */
   var label = document.body.dataset.label || '';
   var logo = document.body.dataset.logo || 'assets/img/logo-horizontal.png', logoW = document.body.dataset.logoWhite || 'assets/img/logo-horizontal-white.png';
+  // a client proposal shows the client's logo beside TechNext's: body data-cobrand (light slides), data-cobrand-white (dark)
+  var co = document.body.dataset.cobrand, coW = document.body.dataset.cobrandWhite || co;
   var total = slides.length;
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   slides.forEach(function (s, i) {
@@ -106,7 +108,9 @@
     if (!s.id) s.id = 's' + (i + 1);
     if (!s.dataset.title) { var h = s.querySelector('h1,h2'); s.dataset.title = h ? h.textContent.trim().replace(/\s+/g, ' ') : ''; }
     var c = document.createElement('div'); c.className = 's-chrome'; c.setAttribute('aria-hidden', 'true');
-    c.innerHTML = '<img class="s-logo" src="' + (s.classList.contains('dark') ? logoW : logo) + '" alt="" width="150" height="30"><span class="s-label">' + label + '</span>';
+    var dk = s.classList.contains('dark');
+    c.innerHTML = '<span class="s-brand"><img class="s-logo" src="' + (dk ? logoW : logo) + '" alt="" width="150" height="30">' +
+      (co ? '<i class="s-x"></i><img class="s-co" src="' + (dk ? coW : co) + '" alt="">' : '') + '</span><span class="s-label">' + label + '</span>';
     var f = document.createElement('div'); f.className = 's-foot'; f.setAttribute('aria-hidden', 'true');
     f.innerHTML = '<b>technext.asia</b><span>' + pad(i + 1) + ' / ' + pad(total) + '</span>';
     s.insertBefore(c, s.firstChild); s.appendChild(f);

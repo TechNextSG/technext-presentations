@@ -102,6 +102,23 @@
     if (!animate) { ts.forEach(function (t) { t.classList.add('is-on'); }); return; }
     ts.forEach(function (t, i) { ctx.after(40 + i * 70, function () { t.classList.add('is-on'); }); });
   }
+  /* ---------------------------------------------------------------- 4 · new in Odoo 20: all six, the new ones, or what to check */
+  Deck.on('new20', {
+    init: function (s) {
+      var box = $('.n20', s), btns = $$('[data-n20="f"] button', s);
+      s._f = function (v) {
+        if (v === 'all') delete box.dataset.f; else box.dataset.f = v;
+        btns.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.v === v ? 'true' : 'false'); });
+      };
+      $('[data-n20="f"]', s).addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) { s._user = true; s._f(b.dataset.v); } });
+    },
+    enter: function (ctx, s) {
+      var order = ['all', 'new', 'chk'], k = 0; s._user = false; s._f('all');
+      ctx.after(3600, function () { ctx.every(3600, function () { if (s._user) return; k = (k + 1) % 3; s._f(order[k]); }); });
+    },
+    settle: function (s) { s._f('all'); }
+  });
+
   Deck.on('apps', {
     init: function (s) {
       var cats = $('.ap-cats', s);

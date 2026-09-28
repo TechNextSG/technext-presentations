@@ -236,7 +236,7 @@
    },
    {
     "n": "Field Service",
-    "d": "On-site jobs with worksheets.",
+    "d": "On-site jobs, run in Planning from Odoo 20.",
     "m": "industry_fsm"
    },
    {
@@ -246,7 +246,7 @@
    },
    {
     "n": "Planning",
-    "d": "Shift and resource scheduling.",
+    "d": "Shifts, resources and field service.",
     "m": "planning"
    },
    {
@@ -276,8 +276,8 @@
     "m": "iot"
    },
    {
-    "n": "VoIP",
-    "d": "Calls from inside Odoo.",
+    "n": "Phone",
+    "d": "Calls over VoIP from inside Odoo.",
     "m": "voip"
    },
    {

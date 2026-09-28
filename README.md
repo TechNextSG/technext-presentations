@@ -8,7 +8,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Portfolio: clients and what we built | `portfolio.html` | 12 |
 | Service showcase | `service-showcase.html` | 15 |
 | Marketing showcase: live sites, concepts, pitch microsites | `marketing-showcase.html` | 17 |
-| What is Odoo (with a lead-to-cash walkthrough) | `what-is-odoo.html` | 16 |
+| What is Odoo (what's new in Odoo 20, then a lead-to-cash walkthrough) | `what-is-odoo.html` | 17 |
 | ERP tier list | `erp-tiers.html` | 7 |
 | Marketing tier list | `marketing-tiers.html` | 7 |
 | Proposal: Hitachi Elevator Philippines | `hitachi-elevator-ph.html` | 16 |
@@ -55,8 +55,8 @@ python -B _src/build.py
 
 **Site pictures** (Marketing showcase, Portfolio): full-page captures (`<slug>-d.jpg` at 1440 wide, `<slug>-m.jpg` at 390 wide) become deck images with `python -B _src/sites_images.py <capture folder>`, which writes every size to `assets/img/sites/` and `_src/sites_meta.json`. Then `python -B _src/build.py --prune` deletes the sizes no deck uses. A normal build fails if a deck points at a picture that isn't there. Capture with the viewport at its normal height and `captureBeyondViewport`; stretching the viewport to the page height blows up 100vh heroes.
 
-**PDFs** in `pdf/` are printed from `<deck>.html?print` in headless Chrome (`Page.printToPDF`, `preferCSSPageSize`), one slide per page. In print mode no slide is played: every build is shown and every slide's `settle` hook runs, so each page shows the slide finished. A slide whose finished state comes from its script needs a `settle` hook (the overview uses the same hooks). Page pictures print from small top-only crops (`data-psrc`).
+**PDFs** in `pdf/` are printed from `<deck>.html?print` in headless Chrome (`Page.printToPDF`, `preferCSSPageSize`), one slide per page. In print mode no slide is played: every build is shown and every slide's `settle` hook runs, so each page shows the slide finished. A slide whose finished state comes from its script needs a `settle` hook (the overview uses the same hooks). Page pictures print from small top-only crops (`data-psrc`). Chart gridlines are real 1px elements (`.px-gl` in `assets/proposal.css`), not `repeating-linear-gradient` backgrounds, which Chrome's PDF output turns into striped bars.
 
 ## Content rules
 
-Approved figures only: clients in 10+ countries, 11+ enterprise clients, 4 core AI disciplines, 3 offices. "Odoo Ready Partner" (never "certified"). Demos use sample companies and data and are labelled illustrative. No prices beyond Odoo's own published structure; tiers are "On quotation". Enterprise work under NDA is never named, only counted. In client proposals, internal research (job ads, employee reviews, headcount guesses) stays out of the deck, notes included. In the portfolio, clients with delivered work are listed apart from proposals, concepts and paused work.
+Odoo facts follow the current release (Odoo 20 release notes): Field Service runs inside Planning, VoIP is called Phone. Approved figures only: clients in 10+ countries, 11+ enterprise clients, 4 core AI disciplines, 3 offices. "Odoo Ready Partner" (never "certified"). Demos use sample companies and data and are labelled illustrative. No prices beyond Odoo's own published structure; tiers are "On quotation". Enterprise work under NDA is never named, only counted. In client proposals, internal research (job ads, employee reviews, headcount guesses) stays out of the deck, notes included. In the portfolio, clients with delivered work are listed apart from proposals, concepts and paused work.

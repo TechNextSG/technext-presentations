@@ -25,7 +25,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "5"
+ASSET_V = "6"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -72,12 +72,12 @@ DECKS = [
     ("Odoo", [
         dict(slug="what-is-odoo", title="What is Odoo?", mins=15, pdf="What-Is-Odoo.pdf",
              alt="What is Odoo cover: one suite of business apps on one database.",
-             desc="Odoo explained from scratch, then one order walked from lead to cash across six Odoo screens: CRM, Sales, Inventory, Invoicing, Accounting and Reporting."),
+             desc="Odoo explained from scratch, what's new in Odoo 20, then one order walked from lead to cash across six Odoo screens: CRM, Sales, Inventory, Invoicing, Accounting and Reporting."),
     ]),
     ("Sales proposals", [
         dict(slug="hitachi-elevator-ph", title="Hitachi Elevator Philippines", mins=25, pdf="TechNext-Proposal-Hitachi-Elevator-PH.pdf",
              alt="Proposal cover: keep every lift moving, and prove it.",
-             desc="An Odoo service layer for breakdown calls, field visits, maintenance contracts and parts, beside GERP, for Makati, Cebu and Cagayan de Oro. A discussion draft."),
+             desc="An Odoo 20 service core beside GERP: breakdown calls, field visits, documents and installations for Makati, Cebu and Cagayan de Oro. A discussion draft."),
     ]),
     ("Pricing", [
         dict(slug="erp-tiers", title="ERP tier list", mins=8, pdf="TechNext-ERP-Tier-List.pdf",

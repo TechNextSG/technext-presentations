@@ -64,6 +64,10 @@ button{font:inherit;color:inherit}
 /* per-slide chrome (added by deck.js): logo, deck label, page number */
 .s-chrome{position:absolute;left:0;right:0;top:0;height:92px;padding:0 120px;display:flex;align-items:center;justify-content:space-between;pointer-events:none;z-index:5}
 .s-logo{height:30px;width:auto}
+.s-brand{display:flex;align-items:center;gap:18px}
+.s-x{width:1px;height:28px;background:var(--line)}
+.dark .s-x{background:rgba(255,255,255,.3)}
+.s-co{height:19px;width:auto}
 .s-label{font:600 15px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .dark .s-label{color:rgba(255,255,255,.6)}
 .s-foot{position:absolute;left:120px;right:120px;bottom:34px;display:flex;justify-content:space-between;align-items:center;font:500 15px/1 var(--f-body);color:var(--muted);pointer-events:none;z-index:5}
