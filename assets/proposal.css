@@ -41,7 +41,7 @@
 
 /* ---------------------------------------------------------------- 1 · cover: three towers, lifts running */
 .hc-copy{width:700px}
-.hc{position:absolute;left:900px;top:58px;width:620px;height:800px}
+.hc{position:absolute;left:900px;top:98px;width:620px;height:800px}
 .hc-tw{position:absolute;bottom:280px;width:150px;display:flex;flex-direction:column;align-items:center}
 .hc-tw:nth-child(1){left:10px}.hc-tw:nth-child(2){left:235px}.hc-tw:nth-child(3){left:460px}
 .hc-body{position:relative;width:150px;height:calc(var(--fl) * 34px);border-radius:12px 12px 2px 2px;border:1px solid rgba(255,255,255,.2);
@@ -61,14 +61,14 @@
 .hc-lbl{margin-top:12px;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center}
 .hc-lbl b{font:750 17px/1 var(--f-display);color:#fff}
 .hc-lbl small{font-size:13px;color:rgba(255,255,255,.6)}
-.hc-net{position:absolute;left:0;top:584px;width:620px;height:120px;overflow:visible}
+.hc-net{position:absolute;left:0;top:528px;width:620px;height:120px;overflow:visible}
 .hc-net path{fill:none;stroke:rgba(169,196,245,.45);stroke-width:2}
-.hc-dot{position:absolute;left:0;top:584px;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:#fff;box-shadow:0 0 12px #A9C8FF;
+.hc-dot{position:absolute;left:0;top:528px;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:#fff;box-shadow:0 0 12px #A9C8FF;
   offset-path:path("M85,6 C85,60 150,74 310,74 L310,112");offset-rotate:0deg;offset-distance:calc(var(--o) * 100%);animation:hcFlow 4.2s linear infinite;animation-delay:calc(var(--o) * -4.2s)}
 .hc-dot:nth-of-type(2){offset-path:path("M310,6 L310,112")}
 .hc-dot:nth-of-type(3){offset-path:path("M535,6 C535,60 470,74 310,74 L310,112")}
 @keyframes hcFlow{from{offset-distance:0%;opacity:0}12%{opacity:1}88%{opacity:1}to{offset-distance:100%;opacity:0}}
-.hc-desk{position:absolute;left:310px;top:708px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:16px;
+.hc-desk{position:absolute;left:310px;top:652px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:16px;
   background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);backdrop-filter:blur(8px);white-space:nowrap}
 .hc-desk i{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#fff}
 .hc-desk b{display:block;font:750 17px/1.1 var(--f-display);color:#fff}
