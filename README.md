@@ -1,6 +1,6 @@
 # TechNext presentations
 
-Seven interactive HTML decks in TechNext branding, plus a launcher page.
+Interactive HTML decks in TechNext branding, plus a launcher page, including client sales proposals.
 
 | Deck | File | Slides |
 |---|---|---|
@@ -11,6 +11,7 @@ Seven interactive HTML decks in TechNext branding, plus a launcher page.
 | What is Odoo (with a lead-to-cash walkthrough) | `what-is-odoo.html` | 16 |
 | ERP tier list | `erp-tiers.html` | 7 |
 | Marketing tier list | `marketing-tiers.html` | 7 |
+| Proposal: Hitachi Elevator Philippines | `hitachi-elevator-ph.html` | 16 |
 
 Live (unlisted, `noindex`): https://technextsg.github.io/technext-presentations/
 
@@ -48,6 +49,8 @@ python -B _src/build.py
 - `assets/<deck>.css|js`: each deck's own slides. `assets/ai-demos.*`, `assets/fx.js`: shared demos and motion helpers.
 - `_src/icons.json` is the technext.asia icon set; `_src/land-50m.json` is Natural Earth land (world-atlas, ISC) for the dot maps.
 
+**Sales proposals** (the launcher's last group) are built from a client's requirements: for Hitachi Elevator Philippines, the pre-discovery analysis in Drive. Only the client's own public facts appear, the pain points are framed as hypotheses to confirm, and every demo is labelled as sample data. `assets/proposal.css` and `assets/proposal.js` hold the shared pieces (workflow panels, charts with validated colours, tooltips that stay right when the deck is turned); each proposal adds its own slide script (`assets/hitachi.js`). `{{phmap:W:H}}` draws a Philippines dot map; `{{phxy:lon,lat:W:H}}` and `{{phpx:lon,lat:W:H}}` place pins on it. Send a proposal to the client with its Share link.
+
 **Shared copies** are written by the build: one `s-<token>.html` per deck, tokens in `_src/share.json` (made on first build, kept after). Mark any link to another deck `data-internal` and the shared copy drops it; the build stops if a shared copy still links to another deck or the launcher. To retire a link, change that deck's token and rebuild: the old file is deleted.
 
 **Site pictures** (Marketing showcase, Portfolio): full-page captures (`<slug>-d.jpg` at 1440 wide, `<slug>-m.jpg` at 390 wide) become deck images with `python -B _src/sites_images.py <capture folder>`, which writes every size to `assets/img/sites/` and `_src/sites_meta.json`. Then `python -B _src/build.py --prune` deletes the sizes no deck uses. A normal build fails if a deck points at a picture that isn't there. Capture with the viewport at its normal height and `captureBeyondViewport`; stretching the viewport to the page height blows up 100vh heroes.
@@ -56,4 +59,4 @@ python -B _src/build.py
 
 ## Content rules
 
-Approved figures only: clients in 10+ countries, 11+ enterprise clients, 4 core AI disciplines, 3 offices. "Odoo Ready Partner" (never "certified"). Demos use sample companies and data and are labelled illustrative. No prices beyond Odoo's own published structure; tiers are "On quotation". Enterprise work under NDA is never named, only counted. In the portfolio, clients with delivered work are listed apart from proposals, concepts and paused work.
+Approved figures only: clients in 10+ countries, 11+ enterprise clients, 4 core AI disciplines, 3 offices. "Odoo Ready Partner" (never "certified"). Demos use sample companies and data and are labelled illustrative. No prices beyond Odoo's own published structure; tiers are "On quotation". Enterprise work under NDA is never named, only counted. In client proposals, internal research (job ads, employee reviews, headcount guesses) stays out of the deck, notes included. In the portfolio, clients with delivered work are listed apart from proposals, concepts and paused work.

@@ -8,6 +8,8 @@ Sources live in _src/decks/*.html and are written to the repo root with these to
   {{qr:key}}                    inline SVG QR code for a known link (see QR below)
   {{seamap:W:H}}                dot-matrix land map of Southeast Asia, W x H, as SVG circles
   {{mapxy:key:W:H}}             x,y of an office on that map (sg, ph, vn), e.g. for an SVG transform
+  {{phmap:W:H}}                 dot-matrix map of the Philippines (client proposals), W x H
+  {{phxy:lon,lat:W:H}}          x,y of a place on that map; {{phpx:lon,lat:W:H}} gives --x/--y for HTML pins
   {{apps_json}}                 the Odoo app catalogue (assets/apps.json) inline, for scripts
   {{include:name}}              the contents of _src/partials/name.html
 Run: python -B _src/build.py
@@ -71,6 +73,11 @@ DECKS = [
         dict(slug="what-is-odoo", title="What is Odoo?", mins=15, pdf="What-Is-Odoo.pdf",
              alt="What is Odoo cover: one suite of business apps on one database.",
              desc="Odoo explained from scratch, then one order walked from lead to cash across six Odoo screens: CRM, Sales, Inventory, Invoicing, Accounting and Reporting."),
+    ]),
+    ("Sales proposals", [
+        dict(slug="hitachi-elevator-ph", title="Hitachi Elevator Philippines", mins=25, pdf="TechNext-Proposal-Hitachi-Elevator-PH.pdf",
+             alt="Proposal cover: keep every lift moving, and prove it.",
+             desc="An Odoo service layer for breakdown calls, field visits, maintenance contracts and parts, beside GERP, for Makati, Cebu and Cagayan de Oro. A discussion draft."),
     ]),
     ("Pricing", [
         dict(slug="erp-tiers", title="ERP tier list", mins=8, pdf="TechNext-ERP-Tier-List.pdf",
@@ -160,6 +167,16 @@ def seamap(w, h):
 
 
 WORLD_BOX = (-25.0, 155.0, -42.0, 66.0)   # Europe to Japan and Australia: where TechNext's clients are
+
+
+PH_BOX = (116.6, 127.0, 4.5, 19.6)   # the Philippine archipelago, for client proposals
+
+
+def phmap(w, h):
+    key = ("ph", w, h)
+    if key not in _maps:
+        _maps[key] = map_svg(w, h, step=0.14, r=2.1, box=PH_BOX)
+    return _maps[key]
 
 
 def worldmap(w, h):
@@ -397,6 +414,14 @@ def expand(s, page=""):
     s = re.sub(r"\{\{qr:([a-z]+)\}\}", lambda m: qr_svg(m.group(1)), s)
     s = re.sub(r"\{\{seamap:(\d+):(\d+)\}\}", lambda m: seamap(int(m.group(1)), int(m.group(2)))[0], s)
     s = re.sub(r"\{\{worldmap:(\d+):(\d+)\}\}", lambda m: worldmap(int(m.group(1)), int(m.group(2)))[0], s)
+    s = re.sub(r"\{\{phmap:(\d+):(\d+)\}\}", lambda m: phmap(int(m.group(1)), int(m.group(2)))[0], s)
+
+    def phxy(m, css=False):
+        _, project, _ = phmap(int(m.group(3)), int(m.group(4)))
+        x, y = project(float(m.group(1)), float(m.group(2)))
+        return f"--x:{x:.1f}px;--y:{y:.1f}px" if css else f"{x:.1f},{y:.1f}"
+    s = re.sub(r"\{\{phxy:(-?[\d.]+),(-?[\d.]+):(\d+):(\d+)\}\}", phxy, s)
+    s = re.sub(r"\{\{phpx:(-?[\d.]+),(-?[\d.]+):(\d+):(\d+)\}\}", lambda m: phxy(m, True), s)
 
     def worldxy(m):
         _, project, _ = worldmap(int(m.group(3)), int(m.group(4)))

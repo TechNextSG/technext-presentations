@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>Proposal for Hitachi Elevator Philippines · TechNext</title>
+<meta name="description" content="A TechNext proposal for Hitachi Elevator Philippines: an Odoo service layer for breakdown calls, field visits, maintenance contracts and parts, working beside GERP across Makati, Cebu and Cagayan de Oro.">
+{{og:hitachi-elevator-ph}}
+<link rel="stylesheet" href="assets/proposal.css?v={{v}}">
+</head>
+<body data-label="Proposal · Hitachi Elevator Philippines" data-home="./">
+<main class="deck" aria-label="TechNext proposal for Hitachi Elevator Philippines">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="Proposal for Hitachi Elevator Philippines">
+  <div class="cv-copy hc-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">a proposal for hitachi elevator philippines</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Keep every lift moving, <span class="hl">and prove it.</span></h1>
+    <p class="lead" data-in style="--d:320ms">An Odoo service layer for breakdown calls, field visits, contracts and parts, working beside GERP in Makati, Cebu and Cagayan de Oro.</p>
+    <div class="cv-tags" data-in style="--d:440ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag">{{icon:file}}Discussion draft · September 2026</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="hc" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <div class="hc-tw" style="--fl:15;--t:19s;--td:0s" data-name="Makati">
+      <div class="hc-body"><i class="hc-shaft"><b class="hc-car" style="animation-name:hcRideA"></b></i><i class="hc-shaft hc-shaft--2"><b class="hc-car" style="animation-name:hcRideB;animation-duration:23s"></b></i></div>
+      <span class="hc-lbl"><b>Makati</b><small>head office</small></span>
+    </div>
+    <div class="hc-tw" style="--fl:11;--t:17s;--td:-6s" data-name="Cebu">
+      <div class="hc-body"><i class="hc-shaft"><b class="hc-car" style="animation-name:hcRideC"></b></i></div>
+      <span class="hc-lbl"><b>Cebu</b><small>Mandaue branch</small></span>
+    </div>
+    <div class="hc-tw" style="--fl:8;--t:14s;--td:-3s" data-name="Cagayan de Oro">
+      <div class="hc-body"><i class="hc-shaft"><b class="hc-car" style="animation-name:hcRideD"></b></i></div>
+      <span class="hc-lbl"><b>Cagayan de Oro</b><small>branch</small></span>
+    </div>
+    <svg class="hc-net" viewBox="0 0 620 120" preserveAspectRatio="none">
+      <path id="hcLine" d="M85,6 C85,60 150,74 310,74 C470,74 535,60 535,6 M310,6 L310,74 M310,74 L310,112"/>
+    </svg>
+    <i class="hc-dot" style="--o:.08"></i><i class="hc-dot" style="--o:.38"></i><i class="hc-dot" style="--o:.68"></i>
+    <div class="hc-desk"><i>{{odoo:helpdesk:30}}</i><span><b>One service desk</b><small>every call, visit and contract</small></span></div>
+  </div>
+  <aside class="notes"><p>We start from what is public about Hitachi Elevator Philippines and what we would like to confirm with you, then show the workflows running with sample data.</p></aside>
+</section>
+
+<!-- 2 · what we understand -->
+<section class="slide" id="understand" data-title="What we understand">
+  <div class="hu-copy">
+    <div class="sec-head">
+      <span class="kicker" data-in>what we understand</span>
+      <h2 class="h-m" data-in style="--d:80ms">Fifty-five years of keeping <span class="hl">the Philippines moving.</span></h2>
+    </div>
+    <ol class="hu-facts">
+      <li data-in style="--d:160ms"><b class="hu-n">1971</b><span><strong>Founded as Hi-Eles Industrial; a Hitachi subsidiary since 2011</strong><small>{{icon:globe}}Your About Us page</small></span></li>
+      <li data-in style="--d:230ms"><b class="hu-n" data-count="3">3</b><span><strong>Offices in Makati, Cebu and Cagayan de Oro, each with its own line</strong><small>{{icon:globe}}Contact Us</small></span></li>
+      <li data-in style="--d:300ms"><b class="hu-n">24/7</b><span><strong>Maintenance, backed by <q>readily available maintenance parts</q></strong><small>{{icon:globe}}Services</small></span></li>
+      <li data-in style="--d:370ms"><b class="hu-n" data-count="67">67</b><span><strong>Units for NSCR Phase 1: 21 elevators, 46 escalators, 7 stations</strong><small>{{icon:globe}}Hitachi news, 8 September 2021</small></span></li>
+      <li data-in style="--d:440ms"><b class="hu-n">2025</b><span><strong>Body cameras with QR worksite scanning for your field teams</strong><small>{{icon:globe}}Your news release, 22 November 2025</small></span></li>
+    </ol>
+    <p class="hu-note" data-in style="--d:520ms">{{icon:search}}From your public pages only. Everything else in this deck is ours to confirm with you.</p>
+  </div>
+  <div class="hu-map" data-in data-fx="fade" style="--d:120ms">
+    <svg class="hu-svg" viewBox="0 0 500 690" aria-hidden="true">
+      <g class="hu-dots">{{phmap:500:690}}</g>
+      <g class="hu-arcs"></g>
+      <g class="hu-pin" data-k="mk" transform="translate({{phxy:121.02,14.555:500:690}})"><circle class="hu-ring" r="16"/><circle class="hu-core" r="7"/></g>
+      <g class="hu-pin" data-k="cb" transform="translate({{phxy:123.93,10.33:500:690}})"><circle class="hu-ring" r="16" style="animation-delay:-1s"/><circle class="hu-core" r="7"/></g>
+      <g class="hu-pin" data-k="cd" transform="translate({{phxy:124.63,8.48:500:690}})"><circle class="hu-ring" r="16" style="animation-delay:-2s"/><circle class="hu-core" r="7"/></g>
+    </svg>
+    <span class="hu-lbl" style="{{phpx:121.02,14.555:500:690}}"><b>Makati</b><small>head office</small></span>
+    <span class="hu-lbl" style="{{phpx:123.93,10.33:500:690}}"><b>Cebu</b><small>Mandaue</small></span>
+    <span class="hu-lbl" style="{{phpx:124.63,8.48:500:690}}"><b>Cagayan de Oro</b><small>Northern Mindanao</small></span>
+    <div class="hu-nscr" data-in style="--d:600ms">
+      <b>NSCR Phase 1</b><small>67 units · 7 stations</small>
+      <svg viewBox="0 0 176 188" aria-hidden="true">
+        <path class="hu-rail hu-rail--1" d="M14,14 V96"/><path class="hu-rail hu-rail--2" d="M14,96 V174"/>
+        <g class="hu-st"><circle cx="14" cy="14" r="5"/><circle cx="14" cy="41" r="5"/><circle cx="14" cy="68" r="5"/><circle cx="14" cy="95" r="5"/><circle cx="14" cy="122" r="5"/><circle cx="14" cy="148" r="5"/><circle cx="14" cy="174" r="5"/></g>
+        <g class="hu-stn"><text x="28" y="18">Valenzuela</text><text x="28" y="45">Meycauayan</text><text x="28" y="72">Marilao</text><text x="28" y="99">Bocaue</text><text x="28" y="126">Balagtas</text><text x="28" y="152">Guiguinto</text><text x="28" y="178">Malolos</text></g>
+      </svg>
+      <p><i class="k1"></i>CP01 · 13 elevators, 26 escalators<br><i class="k2"></i>CP02 · 8 elevators, 20 escalators</p>
+    </div>
+  </div>
+  <aside class="notes"><p>Only public facts: your website, your November 2025 news release and Hitachi's 2021 announcement of the NSCR order. We ask you to correct anything we have wrong.</p></aside>
+</section>
+
+<!-- 3 · pressure points -->
+<section class="slide" id="pressure" data-title="Six places where Odoo takes the load">
+  <div class="sec-head">
+    <span class="kicker" data-in>what we'd like to confirm</span>
+    <h2 class="h-m" data-in style="--d:80ms">Six places where Odoo <span class="hl">takes the load.</span></h2>
+  </div>
+  <div class="pp" data-i>
+    <ol class="pp-list">
+      <li class="pp-c" tabindex="0" data-apps="helpdesk" data-in style="--d:140ms"><i>01</i><span><b>Three lines for every breakdown call</b><small>Each office takes calls on its own line, with no shared clock on the 24/7 promise.</small></span></li>
+      <li class="pp-c" tabindex="0" data-apps="subscription sign" data-in style="--d:200ms"><i>02</i><span><b>Renewals watched by hand</b><small>Contract end dates are followed up by a person, three months ahead.</small></span></li>
+      <li class="pp-c" tabindex="0" data-apps="fsm planning" data-in style="--d:260ms"><i>03</i><span><b>Dispatch without the full picture</b><small>Who is free, what they carry and which van is out, in one view.</small></span></li>
+      <li class="pp-c" tabindex="0" data-apps="fsm" data-in style="--d:320ms"><i>04</i><span><b>Proof of visit in two places</b><small>Body cameras record the site; checklist, parts and signature can sit with the clip.</small></span></li>
+      <li class="pp-c" tabindex="0" data-apps="stock purchase" data-in style="--d:380ms"><i>05</i><span><b>Parts found out on site</b><small>Branch stock checked when the job is booked, not when the van arrives.</small></span></li>
+      <li class="pp-c" tabindex="0" data-apps="project subscription" data-in style="--d:440ms"><i>06</i><span><b>Handover to maintenance plan</b><small>Each new unit needs its preventive plan and contract from day one: 67 on NSCR.</small></span></li>
+    </ol>
+    <svg class="pp-svg" aria-hidden="true"></svg>
+    <ul class="pp-apps">
+      <li class="pp-a" data-app="helpdesk" data-in data-fx="right" style="--d:520ms">{{odoo:helpdesk:34}}<span><b>Helpdesk</b><small>one queue, response clocks</small></span></li>
+      <li class="pp-a" data-app="fsm" data-in data-fx="right" style="--d:570ms">{{odoo:industry_fsm:34}}<span><b>Field Service</b><small>jobs, worksheets, mobile app</small></span></li>
+      <li class="pp-a" data-app="planning" data-in data-fx="right" style="--d:620ms">{{odoo:planning:34}}<span><b>Planning</b><small>who works where, and when</small></span></li>
+      <li class="pp-a" data-app="subscription" data-in data-fx="right" style="--d:670ms">{{odoo:sale_subscription:34}}<span><b>Subscriptions</b><small>contracts, renewals, recurring invoices</small></span></li>
+      <li class="pp-a" data-app="sign" data-in data-fx="right" style="--d:720ms">{{odoo:sign:34}}<span><b>Sign</b><small>renewals signed online</small></span></li>
+      <li class="pp-a" data-app="stock" data-in data-fx="right" style="--d:770ms">{{odoo:stock:34}}<span><b>Inventory</b><small>stock per branch, reserved per job</small></span></li>
+      <li class="pp-a" data-app="purchase" data-in data-fx="right" style="--d:820ms">{{odoo:purchase:34}}<span><b>Purchase</b><small>reorders from your suppliers</small></span></li>
+      <li class="pp-a" data-app="project" data-in data-fx="right" style="--d:870ms">{{odoo:project:34}}<span><b>Project</b><small>installations, station by station</small></span></li>
+    </ul>
+  </div>
+  <p class="pp-note" data-in style="--d:900ms">{{icon:search}}Hypotheses from public information, to test with you in discovery. Point at one to follow its line.</p>
+  <aside class="notes"><p>Each of these is a question, not a finding. The strongest signal we saw is renewals: the watch on contract end dates is a named manual duty. Point at a card to see which Odoo app answers it.</p></aside>
+</section>
+
+<!-- 4 · architecture -->
+<section class="slide dark" id="arch" data-title="A service layer beside GERP">
+  <div class="sec-head">
+    <span class="kicker" data-in>how it fits</span>
+    <h2 class="h-m" data-in style="--d:80ms">A service layer beside GERP, <span class="hl">not another ERP.</span></h2>
+  </div>
+  <div class="ar" data-i data-in data-fx="fade" style="--d:140ms">
+    <svg class="ar-svg" aria-hidden="true"><g class="ar-paths"></g><g class="ar-dots"></g></svg>
+    <div class="ar-col ar-in">
+      <span class="ar-h">ways in</span>
+      <button type="button" class="ar-n ar-ch" data-k="phone">{{icon:phone}}Phone</button>
+      <button type="button" class="ar-n ar-ch" data-k="mail">{{icon:mail}}Email</button>
+      <button type="button" class="ar-n ar-ch" data-k="form">{{icon:globe}}Website form</button>
+      <button type="button" class="ar-n ar-ch" data-k="portal">{{icon:users}}Customer portal</button>
+      <button type="button" class="ar-n ar-ch" data-k="wa">{{icon:whatsapp}}WhatsApp</button>
+    </div>
+    <div class="ar-core ar-n" data-k="odoo" tabindex="0">
+      <span class="ar-core-h">{{icon:database}}Odoo · one database for the service side</span>
+      <div class="ar-apps">
+        <span data-k="helpdesk">{{odoo:helpdesk:36}}<b>Helpdesk</b></span>
+        <span data-k="fsm">{{odoo:industry_fsm:36}}<b>Field Service</b></span>
+        <span data-k="subscription">{{odoo:sale_subscription:36}}<b>Subscriptions</b></span>
+        <span data-k="stock">{{odoo:stock:36}}<b>Inventory &amp; Purchase</b></span>
+        <span data-k="crm">{{odoo:crm:36}}<b>CRM &amp; Sales</b></span>
+        <span data-k="project">{{odoo:project:36}}<b>Project</b></span>
+      </div>
+    </div>
+    <div class="ar-col ar-out">
+      <button type="button" class="ar-n ar-gerp" data-k="gerp"><span class="ar-h">group finance</span><b>GERP</b><small>keeps the ledger, invoices and collections</small></button>
+      <button type="button" class="ar-n ar-mon" data-k="mon"><span class="ar-h">hitachi group</span><b>Remote monitoring</b><small>if it runs in the Philippines, alarms can open tickets</small><em>to confirm</em></button>
+    </div>
+    <div class="ar-field">
+      <button type="button" class="ar-n" data-k="app">{{icon:wrench}}Technician app<small>jobs, worksheets, parts, signatures</small></button>
+      <button type="button" class="ar-n" data-k="cam">{{icon:camera}}Body camera + QR<small>clip ID saved with the visit</small></button>
+    </div>
+  </div>
+  <p class="ar-say" data-in style="--d:400ms" aria-live="polite"><b>Click any box.</b> <span>Odoo runs the service work; GERP keeps the books.</span></p>
+  <aside class="notes"><p>The important message for group IT: we do not propose to replace GERP. Odoo hands over invoice lines and reads payment status back; the interface is agreed with group IT in discovery.</p></aside>
+</section>
+
+<!-- 5 · workflow: breakdown -->
+<section class="slide" id="breakdown" data-title="A breakdown call, from ring to report">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow · a breakdown call</span>
+      <h2 class="h-m" data-in style="--d:80ms">From the first ring <span class="hl">to the signed report.</span></h2>
+    </div>
+    <div class="bk-ctl" data-in style="--d:160ms">
+      <div class="seg" role="group" aria-label="Scenario" data-bk="sc"><button type="button" aria-pressed="true" data-v="p1">Passenger trapped</button><button type="button" aria-pressed="false" data-v="p2">Lift stopped</button><button type="button" aria-pressed="false" data-v="p3">Noisy escalator</button></div>
+      <div class="seg" role="group" aria-label="Branch" data-bk="br"><button type="button" aria-pressed="true" data-v="mk">Makati</button><button type="button" aria-pressed="false" data-v="cb">Cebu</button><button type="button" aria-pressed="false" data-v="cd">Cagayan de Oro</button></div>
+    </div>
+  </div>
+  <div class="bk-pipe" data-in style="--d:200ms">
+    <i class="bk-rail"><b></b></i>
+    <span class="bk-st">{{icon:phone}}<b>Call logged</b><small>Helpdesk</small></span>
+    <span class="bk-st">{{icon:clock}}<b>Clock starts</b><small>SLA policy</small></span>
+    <span class="bk-st">{{icon:usercheck}}<b>Technician assigned</b><small>Field Service</small></span>
+    <span class="bk-st">{{icon:box}}<b>Parts reserved</b><small>Inventory</small></span>
+    <span class="bk-st">{{icon:qr}}<b>On site</b><small>QR check-in</small></span>
+    <span class="bk-st">{{icon:file}}<b>Signed report</b><small>to the owner, and GERP</small></span>
+  </div>
+  <div class="bk-panels" data-in style="--d:260ms">
+    <div class="bk-tk">
+      <div class="bk-tk-top"><span class="bk-pri" data-bk-pri>P1 · Passenger trapped</span><span class="bk-ch">via phone</span></div>
+      <b class="bk-tk-id" data-bk-id>#HD-2417</b>
+      <p class="bk-tk-where" data-bk-where>Tower A, Makati CBD · Car 2</p>
+      <p class="bk-tk-what" data-bk-what>Car stopped between floors 8 and 9, two passengers inside.</p>
+      <div class="bk-sla">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bk-sla-bg" cx="60" cy="60" r="50"/><circle class="bk-sla-fg" cx="60" cy="60" r="50" pathLength="100"/></svg>
+        <span class="bk-sla-t"><b data-bk-el>0:00</b><small data-bk-tg>of 30 min</small></span>
+        <span class="bk-sla-s"><small>response target</small><b data-bk-st>Clock not started</b></span>
+      </div>
+      <div class="bk-tk-rows">
+        <span>{{icon:usercheck}}<em data-bk-tech>Waiting for dispatch</em></span>
+        <span>{{icon:box}}<em data-bk-part>Parts not checked yet</em></span>
+      </div>
+      <div class="bk-stamp" data-bk-stamp>{{icon:check}}<b>Target met</b></div>
+    </div>
+    <div class="bk-map">
+      <span class="bk-map-h" data-bk-city>Makati CBD</span>
+      <svg viewBox="0 0 440 330" aria-hidden="true">
+        <g class="bk-streets"><path d="M0,58 H440 M0,142 H440 M0,236 H440 M0,300 H440 M62,0 V330 M168,0 V330 M268,0 V330 M372,0 V330"/><path class="bk-ave" d="M0,190 C120,176 250,210 440,120 M120,0 C140,110 214,210 236,330"/></g>
+        <path class="bk-route" d=""/>
+        <g class="bk-bld"><rect x="-12" y="-16" width="24" height="32" rx="4"/><path d="M-6,-8 H6 M-6,0 H6 M-6,8 H6"/></g>
+        <g class="bk-tech bk-tech--a"><circle r="11"/><text y="4">A</text></g>
+        <g class="bk-tech bk-tech--b"><circle r="11"/><text y="4">B</text></g>
+        <g class="bk-tech bk-tech--c"><circle r="11"/><text y="4">C</text></g>
+      </svg>
+      <span class="bk-eta" data-bk-eta>Nearest free technician: 3 in range</span>
+    </div>
+    <div class="bk-log">
+      <span class="bk-log-h">Ticket history</span>
+      <ol data-bk-log></ol>
+    </div>
+  </div>
+  <p class="bk-note" data-in style="--d:320ms">{{icon:search}}Sample building, names and times. Response targets come from your contracts. <button type="button" class="bk-again" data-bk-again>{{icon:refresh}}Play again</button></p>
+  <aside class="notes"><p>Pick a scenario and a branch. One call becomes one ticket with a clock on it; the nearest free technician with the right part is sent; the QR check-in stops the clock; the signed worksheet becomes the report and the billable line for GERP.</p></aside>
+</section>
+
+<!-- 6 · dispatch board -->
+<section class="slide" id="dispatch" data-title="Who's where, carrying what">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>field service · planning</span>
+      <h2 class="h-m" data-in style="--d:80ms">Who's where, <span class="hl">carrying what.</span></h2>
+    </div>
+    <div class="dp-ctl" data-in style="--d:160ms">
+      <p class="dp-legend"><span><i class="t-pm"></i>Preventive visit</span><span><i class="t-bd"></i>Breakdown</span><span><i class="t-in"></i>Installation</span></p>
+      <button type="button" class="btn btn-primary dp-add">{{icon:plus}}Add a breakdown call</button>
+    </div>
+  </div>
+  <div class="dp" data-i data-in style="--d:200ms">
+    <div class="dp-hours"><span></span><i>08:00</i><i>10:00</i><i>12:00</i><i>14:00</i><i>16:00</i><i>18:00</i></div>
+    <div class="dp-grid">
+      <div class="dp-now" style="--h:3.6"><b>11:36</b></div>
+    </div>
+  </div>
+  <div class="dp-foot" data-in style="--d:260ms">
+    <span>{{icon:truck}}<b data-dp="vans">4 of 6</b> vans out</span>
+    <span>{{icon:box}}<b data-dp="parts">2</b> jobs waiting on a part</span>
+    <span>{{icon:clock}}<b data-dp="free">Reyes, 13:30</b> next free in Makati</span>
+    <span class="dp-say" data-dp="say" aria-live="polite">A new call goes to the technician who is free, nearest and has the part.</span>
+  </div>
+  <aside class="notes"><p>Planning shows every technician's day across the three branches. A new breakdown lands with the technician who is free, closest and carrying the part; the visit it bumps moves later, and the building is told.</p></aside>
+</section>
+
+<!-- 7 · on-site worksheet -->
+<section class="slide" id="worksheet" data-title="Every visit, on the record">
+  <div class="sec-head">
+    <span class="kicker" data-in>on site</span>
+    <h2 class="h-m" data-in style="--d:80ms">Every visit, <span class="hl">on the record.</span></h2>
+  </div>
+  <div class="ws" data-i>
+    <ol class="ws-log" data-in data-fx="left" style="--d:140ms">
+      <li>{{icon:qr}}<span><b>09:19 · QR check-in at Car 2</b><small>camera clip BC-0417 linked to the visit</small></span></li>
+      <li>{{icon:check}}<span><b>09:34 · Checklist 6 of 6</b><small>monthly preventive visit</small></span></li>
+      <li>{{icon:camera}}<span><b>09:36 · Three photos</b><small>machine room, car top, landing door</small></span></li>
+      <li>{{icon:box}}<span><b>09:41 · One door roller kit used</b><small>Makati stock updated</small></span></li>
+      <li>{{icon:pen}}<span><b>09:46 · Signed by the building admin</b><small>on the technician's phone</small></span></li>
+      <li>{{icon:mail}}<span><b>09:47 · Report e-mailed as a PDF</b><small>billable line to GERP, if chargeable</small></span></li>
+    </ol>
+    <div class="ws-phone" data-in data-fx="scale" style="--d:200ms">
+      <div class="ws-scr">
+        <div class="ws-bar">{{odoo:industry_fsm:22}}<span><b>Car 2 · Tower A</b><small>Preventive visit · monthly</small></span><em>In progress</em></div>
+        <div class="ws-tabs"><span class="is-on">Worksheet</span><span>Parts</span><span>Photos</span></div>
+        <ul class="ws-chk">
+          <li>Car and landing doors</li><li>Brake and machine</li><li>Ropes and sheaves</li><li>Safety gear test</li><li>Pit and car top</li><li>Alarm and intercom</li>
+        </ul>
+        <div class="ws-photos"><i>{{icon:camera}}</i><i>{{icon:camera}}</i><i>{{icon:camera}}</i></div>
+        <div class="ws-part">{{icon:box}}<span>1 × door roller kit</span><em>from Van 03</em></div>
+        <div class="ws-sign"><small>Customer signature</small><svg viewBox="0 0 240 70" aria-hidden="true"><path pathLength="100" d="M10,50 C24,20 34,18 40,40 C46,62 56,26 70,30 C82,34 76,52 90,48 C106,44 110,20 124,24 C136,28 128,54 146,50 C164,46 170,30 184,34 C194,37 196,46 206,44 C214,42 222,36 230,34"/></svg></div>
+        <div class="ws-send">{{icon:send}}Report sent to the building admin</div>
+      </div>
+    </div>
+    <div class="ws-side">
+      <div class="card ws-card" data-in style="--d:260ms">{{icon:shield}}<b>Your cameras stay</b><p>The body-camera programme keeps running. Each visit record keeps the clip ID, so footage and paperwork point at each other.</p></div>
+      <div class="card ws-card" data-in style="--d:320ms">{{icon:file}}<b>One report per visit</b><p>Checklist, photos, parts and the signature become a PDF for the building owner, on the day.</p></div>
+      <div class="card ws-card" data-in style="--d:380ms">{{icon:search}}<b>Searchable history</b><p>Every unit keeps its visits, parts and faults: the record to show at renewal time.</p></div>
+    </div>
+  </div>
+  <aside class="notes"><p>The worksheet complements the body cameras rather than replacing them. The technician ticks the checklist on the Odoo app, adds photos and parts, and the building admin signs on the phone.</p></aside>
+</section>
+
+<!-- 8 · contract lifecycle -->
+<section class="slide" id="contract" data-title="From handover to renewal">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>maintenance contracts</span>
+      <h2 class="h-m" data-in style="--d:80ms">Renewals that raise their hand, <span class="hl" data-cl-hl>90 days out.</span></h2>
+    </div>
+    <div class="seg" role="group" aria-label="Remind" data-cl="lead" data-in style="--d:160ms"><button type="button" aria-pressed="true" data-v="90">90 days</button><button type="button" aria-pressed="false" data-v="60">60 days</button><button type="button" aria-pressed="false" data-v="30">30 days</button></div>
+  </div>
+  <div class="cl" data-i data-in style="--d:200ms">
+    <div class="cl-months"></div>
+    <div class="cl-lane cl-lane--c"><span class="cl-free"><b>Free maintenance</b><small>12 months from handover (example)</small></span><span class="cl-paid"><b>Paid contract</b><small>renews every year</small></span></div>
+    <div class="cl-lane cl-lane--v"><span class="cl-lh">preventive visits, generated</span></div>
+    <div class="cl-evs">
+      <div class="cl-ev cl-ev--start" data-m="0">{{icon:lift}}<b>Handover</b><small>unit, contract and 12 visits created</small></div>
+      <div class="cl-ev cl-ev--rule cl-ev--end" data-m="9">{{icon:refresh}}<b data-cl-rule>90 days before the end</b><small>quotation sent, salesperson reminded</small></div>
+      <div class="cl-ev cl-ev--sign is-row2" data-m="9.7">{{icon:pen}}<b>Signed online</b><small>on the customer portal</small></div>
+      <div class="cl-ev cl-ev--start" data-m="12">{{icon:receipt}}<b>Paid contract starts</b><small>its invoices go to GERP</small></div>
+    </div>
+    <i class="cl-today"><b>Today</b></i>
+  </div>
+  <div class="cl-cards">
+    <div class="card cl-card" data-in style="--d:300ms">{{odoo:industry_fsm:30}}<b>At handover</b><p>The unit, its site and serial number become an equipment record, with the free-maintenance contract and its preventive visits.</p></div>
+    <div class="card cl-card" data-in style="--d:360ms">{{odoo:sale_subscription:30}}<b>Before the end</b><p>An automation on the end date sends the renewal quotation and gives the salesperson a dated follow-up. Nobody has to watch the calendar.</p></div>
+    <div class="card cl-card" data-in style="--d:420ms">{{odoo:sign:30}}<b>Once it's signed</b><p>The paid contract starts on the day the free period ends, and its invoices go to GERP on schedule.</p></div>
+  </div>
+  <aside class="notes"><p>This is the documented manual duty, watching contract expiry three months ahead, done by the system. The reminder window is a setting; switch it to 60 or 30 days to show that.</p></aside>
+</section>
+
+<!-- 9 · renewal radar -->
+<section class="slide" id="radar" data-title="Every contract ending this year">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the renewal radar</span>
+      <h2 class="h-m" data-in style="--d:80ms">Every contract ending this year, <span class="hl">in one view.</span></h2>
+    </div>
+    <div class="seg" role="group" aria-label="Renewal rule" data-rr="mode" data-in style="--d:160ms"><button type="button" aria-pressed="false" data-v="off">Watched by hand</button><button type="button" aria-pressed="true" data-v="on">With the 90-day rule</button></div>
+  </div>
+  <div class="rr" data-i>
+    <div class="rr-chart" data-in style="--d:200ms">
+      <p class="cx-legend"><span><i class="s-good"></i>Renewed</span><span><i class="s-warn"></i>Quotation sent</span><span><i class="s-crit"></i>Due, not contacted</span><span><i class="s-none"></i>Not due yet</span></p>
+      <svg class="rr-svg" viewBox="0 0 900 430" role="img" aria-label="Maintenance contracts ending each month, by renewal status"></svg>
+    </div>
+    <div class="rr-side">
+      <div class="rr-tile" data-in style="--d:260ms"><small>Ending in the next 90 days</small><b data-rr="due">112</b><span>contracts</span></div>
+      <div class="rr-tile" data-in style="--d:320ms"><small>Quoted or renewed</small><b data-rr="ok">112</b><span data-rr="okd">every one of them</span></div>
+      <div class="rr-tile rr-tile--crit" data-in style="--d:380ms"><small>Due and not contacted</small><b data-rr="bad">0</b><span data-rr="badd">nothing waiting on a person</span></div>
+    </div>
+  </div>
+  <p class="rr-note" data-in style="--d:420ms">{{icon:search}}Sample data for twelve months of contract end dates. Point at a month for its numbers.</p>
+  <aside class="notes"><p>Switch between the two modes. By hand, the next three months fill with contracts nobody has contacted yet; with the rule, every contract due in 90 days already has a quotation or is renewed.</p></aside>
+</section>
+
+<!-- 10 · parts -->
+<section class="slide" id="parts" data-title="Parts confirmed before the van leaves">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>parts and stock</span>
+      <h2 class="h-m" data-in style="--d:80ms">Parts confirmed <span class="hl">before the van leaves.</span></h2>
+    </div>
+    <div class="seg" role="group" aria-label="Reordering rule" data-sk="mode" data-in style="--d:160ms"><button type="button" aria-pressed="false" data-v="off">No reordering rule</button><button type="button" aria-pressed="true" data-v="on">Reordering rule on</button></div>
+  </div>
+  <div class="sk" data-i>
+    <div class="sk-left">
+      <div class="sk-job" data-in style="--d:180ms">{{odoo:helpdesk:26}}<span><b>#HD-2431 · Cebu</b><small>lift stopped · needs 2 brake linings</small></span><em data-sk="verdict">checking stock…</em></div>
+      <div class="sk-whs">
+        <div class="sk-wh" data-wh="mk" data-in style="--d:220ms"><b>Makati</b><ul></ul></div>
+        <div class="sk-wh" data-wh="cb" data-in style="--d:280ms"><b>Cebu</b><ul></ul></div>
+        <div class="sk-wh" data-wh="cd" data-in style="--d:340ms"><b>Cagayan de Oro</b><ul></ul></div>
+      </div>
+      <div class="sk-move" aria-hidden="true"><span>{{icon:truck}}2</span></div>
+      <p class="sk-say" data-sk="say">Odoo proposes a transfer of 2 from Makati, arriving tomorrow, instead of a 6-week order.</p>
+    </div>
+    <div class="sk-right" data-in style="--d:240ms">
+      <div class="sk-ch-h"><b>Door roller kits in Makati stock</b><small>26 weeks · reorder at 8, order up to 14, three weeks' lead time</small></div>
+      <svg class="sk-svg" viewBox="0 0 700 330" role="img" aria-label="Weekly stock of door roller kits"></svg>
+      <div class="sk-stats"><span><b data-sk="out">0</b><small>weeks out of stock</small></span><span><b data-sk="rush">0</b><small>rush orders</small></span><span><b data-sk="po">4</b><small>planned orders</small></span></div>
+    </div>
+  </div>
+  <p class="sk-note" data-in style="--d:400ms">{{icon:search}}Sample stock, lead times and quantities.</p>
+  <aside class="notes"><p>Stock is visible per branch when the job is booked. A reordering rule with the supplier's lead time keeps each part between its minimum and maximum; switch it off to show the stockouts it prevents.</p></aside>
+</section>
+
+<!-- 11 · installation projects -->
+<section class="slide" id="projects" data-title="NSCR-scale installations">
+  <div class="sec-head">
+    <span class="kicker" data-in>installation projects</span>
+    <h2 class="h-m" data-in style="--d:80ms">NSCR-scale installs, <span class="hl">one plan to handover.</span></h2>
+  </div>
+  <div class="pj" data-i>
+    <div class="pj-gantt" data-in style="--d:200ms">
+      <p class="cx-legend pj-legend"><span><i class="ph1"></i>Delivery</span><span><i class="ph2"></i>Installation</span><span><i class="ph3"></i>Testing and commissioning</span><span><i class="ph4"></i>Handover</span></p>
+      <div class="pj-q"><span></span><i>Q1</i><i>Q2</i><i>Q3</i><i>Q4</i><i>Q5</i><i>Q6</i><i>Q7</i><i>Q8</i></div>
+      <div class="pj-rows"></div>
+    </div>
+    <div class="pj-side">
+      <div class="pj-tot" data-in style="--d:260ms"><span><b data-pj="el">21</b><small>elevators</small></span><span><b data-pj="es">46</b><small>escalators</small></span><span><b>7</b><small>stations</small></span></div>
+      <div class="pj-flow" data-in style="--d:320ms">
+        <span>{{odoo:project:26}}<b data-pj="done">0</b><small>units handed over</small></span>
+        <i>{{icon:arrow}}</i>
+        <span>{{odoo:industry_fsm:26}}<b data-pj="eq">0</b><small>equipment records</small></span>
+        <i>{{icon:arrow}}</i>
+        <span>{{odoo:sale_subscription:26}}<b data-pj="ct">0</b><small>maintenance contracts</small></span>
+      </div>
+      <div class="card pj-det" data-in style="--d:380ms" aria-live="polite"><small data-pj="pk">CP01 · Taisei-DMCI JV</small><b data-pj="stn">Valenzuela</b><p data-pj="txt">Point at a station. Each one is a project stage with its tasks, drawings, test certificates and handover forms.</p></div>
+    </div>
+  </div>
+  <p class="pj-note" data-in style="--d:420ms">{{icon:search}}Stations, packages and unit counts from Hitachi's 2021 release; the schedule is an illustration.</p>
+  <aside class="notes"><p>Big projects run as Odoo projects, one stage per station. At handover each unit becomes an equipment record with its maintenance contract, which is where the renewal slide starts.</p></aside>
+</section>
+
+<!-- 12 · dashboard -->
+<section class="slide" id="dashboard" data-title="The 24/7 promise, with a number on it">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>what you could show every building owner</span>
+      <h2 class="h-m" data-in style="--d:80ms">The 24/7 promise, <span class="hl">with a number on it.</span></h2>
+    </div>
+    <div class="seg" role="group" aria-label="Branch" data-db="br" data-in style="--d:160ms"><button type="button" aria-pressed="true" data-v="all">All branches</button><button type="button" aria-pressed="false" data-v="mk">Makati</button><button type="button" aria-pressed="false" data-v="cb">Cebu</button><button type="button" aria-pressed="false" data-v="cd">Cagayan de Oro</button></div>
+  </div>
+  <div class="db" data-i>
+    <div class="db-tiles">
+      <div class="db-tile db-tile--hero" data-in style="--d:200ms"><small>Response target met</small><b data-db="sla">96.4%</b><span data-db="slad">of 612 calls, last 90 days</span></div>
+      <div class="db-tile" data-in style="--d:250ms"><small>Median time to site</small><b data-db="resp">24 min</b><span>P1 and P2 calls</span></div>
+      <div class="db-tile" data-in style="--d:300ms"><small>Fixed on the first visit</small><b data-db="ftf">87%</b><span>no second trip</span></div>
+      <div class="db-tile" data-in style="--d:350ms"><small>Open tickets now</small><b data-db="open">14</b><span data-db="opend">3 P1 · 5 P2 · 6 P3</span></div>
+    </div>
+    <div class="db-charts">
+      <div class="card db-card" data-in style="--d:400ms"><div class="db-ch-h"><b>Median time to site, by branch</b><small>minutes · target 30</small></div><svg class="db-bars" viewBox="0 0 600 300" role="img" aria-label="Median minutes to site by branch"></svg></div>
+      <div class="card db-card" data-in style="--d:460ms"><div class="db-ch-h"><b>Calls per week</b><small>last 12 weeks</small></div><p class="cx-legend db-leg"><span><i class="b-mk"></i>Makati</span><span><i class="b-cb"></i>Cebu</span><span><i class="b-cd"></i>Cagayan de Oro</span></p><svg class="db-line" viewBox="0 0 600 270" role="img" aria-label="Calls per week by branch"></svg></div>
+    </div>
+  </div>
+  <p class="db-note" data-in style="--d:500ms">{{icon:search}}Sample figures, to show the view. The real ones come from your first months on Odoo.</p>
+  <aside class="notes"><p>The dashboard is an Odoo spreadsheet on live data: response times against the SLA per branch, first-time fix and open tickets. Filter by branch; the same view can go to a building owner each month.</p></aside>
+</section>
+
+<!-- 13 · scope -->
+<section class="slide" id="scope" data-title="The Odoo apps in this proposal">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the scope</span>
+      <h2 class="h-m" data-in style="--d:80ms">Twelve apps in <span class="hl">three phases.</span></h2>
+    </div>
+    <div class="seg" role="group" aria-label="Phase" data-sp="ph" data-in style="--d:160ms"><button type="button" aria-pressed="true" data-v="1">1 · Service core</button><button type="button" aria-pressed="false" data-v="2">2 · Sales and buying</button><button type="button" aria-pressed="false" data-v="3">3 · Projects and links</button></div>
+  </div>
+  <div class="sp" data-i>
+    <div class="sp-grid">
+      <div class="sp-a" data-ph="1" data-in style="--d:180ms">{{odoo:helpdesk:40}}<b>Helpdesk</b><small>one queue for the three branches, SLA policies, customer portal</small></div>
+      <div class="sp-a" data-ph="1" data-in style="--d:210ms">{{odoo:industry_fsm:40}}<b>Field Service</b><small>jobs, worksheets, the technician app, signatures</small></div>
+      <div class="sp-a" data-ph="1" data-in style="--d:240ms">{{odoo:planning:40}}<b>Planning</b><small>technicians' days across branches</small></div>
+      <div class="sp-a" data-ph="1" data-in style="--d:270ms">{{odoo:sale_subscription:40}}<b>Subscriptions</b><small>maintenance contracts, renewals, recurring invoices</small></div>
+      <div class="sp-a" data-ph="1" data-in style="--d:300ms">{{odoo:sign:40}}<b>Sign</b><small>renewals and reports signed online</small></div>
+      <div class="sp-a" data-ph="1" data-in style="--d:330ms">{{odoo:stock:40}}<b>Inventory</b><small>stock per branch and per van</small></div>
+      <div class="sp-a" data-ph="2" data-in style="--d:360ms">{{odoo:crm:40}}<b>CRM</b><small>one pipeline for developers, owners and contractors</small></div>
+      <div class="sp-a" data-ph="2" data-in style="--d:390ms">{{odoo:sale:40}}<b>Sales</b><small>multi-unit quotations, section by section</small></div>
+      <div class="sp-a" data-ph="2" data-in style="--d:420ms">{{odoo:purchase:40}}<b>Purchase</b><small>planned orders with supplier lead times</small></div>
+      <div class="sp-a" data-ph="3" data-in style="--d:450ms">{{odoo:project:40}}<b>Project</b><small>installations, stage by stage</small></div>
+      <div class="sp-a" data-ph="3" data-in style="--d:480ms">{{odoo:documents:40}}<b>Documents</b><small>drawings, test certificates, handover forms</small></div>
+      <div class="sp-a" data-ph="3" data-in style="--d:510ms">{{odoo:spreadsheet_dashboard:40}}<b>Dashboards</b><small>SLA and renewal views for owners</small></div>
+    </div>
+    <div class="sp-side">
+      <div class="card sp-stay" data-in style="--d:300ms"><span class="ar-h">stays where it is</span><ul><li>{{icon:bank}}<span><b>GERP</b>the ledger, invoices and collections</span></li><li>{{icon:camera}}<span><b>Body cameras</b>footage stays in your programme</span></li><li>{{icon:globe}}<span><b>Group systems</b>governed by Hitachi</span></li></ul></div>
+      <div class="card sp-links" data-in style="--d:360ms"><span class="ar-h">links we build</span><ul><li>{{icon:plug}}<span><b>GERP interface</b>invoice lines out, payment status back</span></li><li>{{icon:link}}<span><b>Camera clip IDs</b>saved with each visit</span></li></ul></div>
+      <p class="sp-note" data-in style="--d:420ms">Odoo licences are billed by Odoo per user. Our work is quoted after discovery.</p>
+    </div>
+  </div>
+  <aside class="notes"><p>Phase 1 is the service core: calls, visits, contracts and stock. Phase 2 brings sales and buying onto the same data; phase 3 the installation projects and the links to GERP and the cameras.</p></aside>
+</section>
+
+<!-- 14 · roadmap -->
+<section class="slide" id="roadmap" data-title="How we'd roll it out">
+  <div class="sec-head">
+    <span class="kicker" data-in>how we'd roll it out</span>
+    <h2 class="h-m" data-in style="--d:80ms">A pilot in Makati, <span class="hl">then Cebu and Cagayan de Oro.</span></h2>
+  </div>
+  <div class="rm" data-i>
+    <div class="rm-plan" data-in style="--d:160ms">
+      <div class="rm-weeks"></div>
+      <div class="rm-rows">
+        <div class="rm-r" data-a="0" data-b="3"><span>Discovery</span><i><b>workshops in Makati, Cebu and Cagayan de Oro</b></i></div>
+        <div class="rm-r" data-a="3" data-b="9"><span>Build and configure</span><i><b>Helpdesk, Field Service, Subscriptions, Inventory</b></i></div>
+        <div class="rm-r" data-a="9" data-b="13"><span>Pilot · Makati</span><i><b>real calls, real contracts</b></i></div>
+        <div class="rm-r" data-a="13" data-b="16"><span>Go live · Cebu</span><i><b>trained on site</b></i></div>
+        <div class="rm-r" data-a="16" data-b="19"><span>Go live · Cagayan de Oro</span><i><b>trained on site</b></i></div>
+        <div class="rm-r rm-r--run" data-a="19" data-b="22"><span>Run and improve</span><i><b>support, then phase 2</b></i></div>
+      </div>
+      <i class="rm-now"></i>
+    </div>
+    <div class="rm-map" data-in data-fx="fade" style="--d:220ms">
+      <svg viewBox="0 0 500 690" aria-hidden="true">
+        <g class="hu-dots">{{phmap:500:690}}</g>
+        <g class="rm-pin" data-k="mk" transform="translate({{phxy:121.02,14.555:500:690}})"><circle class="rm-ring" r="20"/><circle class="rm-core" r="9"/></g>
+        <g class="rm-pin" data-k="cb" transform="translate({{phxy:123.93,10.33:500:690}})"><circle class="rm-ring" r="20"/><circle class="rm-core" r="9"/></g>
+        <g class="rm-pin" data-k="cd" transform="translate({{phxy:124.63,8.48:500:690}})"><circle class="rm-ring" r="20"/><circle class="rm-core" r="9"/></g>
+      </svg>
+      <span class="rm-lbl" data-k="mk" style="{{phpx:121.02,14.555:500:690}}"><b>Makati</b><small>pilot, week 10</small></span>
+      <span class="rm-lbl" data-k="cb" style="{{phpx:123.93,10.33:500:690}}"><b>Cebu</b><small>live, week 14</small></span>
+      <span class="rm-lbl" data-k="cd" style="{{phpx:124.63,8.48:500:690}}"><b>Cagayan de Oro</b><small>live, week 17</small></span>
+    </div>
+  </div>
+  <p class="rm-note" data-in style="--d:400ms">{{icon:search}}An illustration in weeks. The plan and dates come out of discovery.</p>
+  <aside class="notes"><p>One branch first, on real calls and real contracts, before the other two. The same team configures, trains and supports; the go-live dates are set with you after discovery.</p></aside>
+</section>
+
+<!-- 15 · questions -->
+<section class="slide" id="questions" data-title="Five questions that shape the scope">
+  <div class="sec-head">
+    <span class="kicker" data-in>for the discovery workshop</span>
+    <h2 class="h-m" data-in style="--d:80ms">Five questions <span class="hl">that shape the scope.</span></h2>
+  </div>
+  <div class="qs" data-i>
+    <div class="qs-list">
+      <details class="qs-q" data-in style="--d:140ms" open><summary><i>1</i>What does GERP hold today: finance only, or service contracts and orders too?</summary><p>It decides whether Odoo takes over a manual process or sits beside an existing one, and how much the interface carries.</p></details>
+      <details class="qs-q" data-in style="--d:190ms"><summary><i>2</i>Where do maintenance contracts and equipment records live now?</summary><p>That is where the data migration starts: units, sites, contract dates and visit history.</p></details>
+      <details class="qs-q" data-in style="--d:240ms"><summary><i>3</i>Does Hitachi's remote monitoring run in the Philippines?</summary><p>If alarms exist here, they can open tickets on their own, before anyone calls.</p></details>
+      <details class="qs-q" data-in style="--d:290ms"><summary><i>4</i>What response times do your contracts promise, by priority?</summary><p>They become the SLA policies the clock runs against, per customer and per contract.</p></details>
+      <details class="qs-q" data-in style="--d:340ms"><summary><i>5</i>Where does body-camera footage go, and who reviews it?</summary><p>So each visit record can point to its clip, and the review happens in one place.</p></details>
+    </div>
+    <div class="card qs-after" data-in data-fx="right" style="--d:300ms">
+      <span class="ar-h">after discovery</span>
+      <ul>
+        <li>{{icon:check}}A fixed scope for phase 1, in writing</li>
+        <li>{{icon:check}}A quotation for our work</li>
+        <li>{{icon:check}}A pilot plan for Makati, with dates</li>
+        <li>{{icon:check}}The GERP interface, agreed with group IT</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes"><p>These are the answers that change the scope. The first one matters most: what GERP already covers decides whether Odoo replaces a manual process or sits beside a system.</p></aside>
+</section>
+
+<!-- 16 · next step -->
+<section class="slide dark" id="contact" data-title="Next step" data-chrome="foot">
+  <div class="split split--narrow">
+    <div>
+      <img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40" data-in>
+      <span class="kicker" data-in style="--d:80ms">next step</span>
+      <h2 class="h-xl ct-h" data-in style="--d:140ms">Let's follow one breakdown, <span class="hl">end to end.</span></h2>
+      <p class="lead" data-in style="--d:220ms">A half-day workshop in Makati: we map one breakdown call and one contract renewal on your real process, then show both running in Odoo.</p>
+      <div class="ct-actions" data-in style="--d:320ms">
+        <a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener">{{icon:calendar}}Book the workshop</a>
+        <a class="btn btn-ghost" href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      </div>
+      <div class="ct-links" data-in style="--d:400ms"><a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a><a href="https://technext.asia/" target="_blank" rel="noopener">{{icon:globe}}technext.asia</a><span class="hx-team">{{icon:pin}}Taguig City, Metro Manila</span></div>
+    </div>
+    <div class="ct-qr" data-in data-fx="scale" style="--d:300ms"><div class="ct-qr-card">{{qr:meet}}<b>Scan to book a time</b><small>Discovery call with TechNext · 30 min online</small></div></div>
+  </div>
+  <aside class="notes"><p>Close by proposing the workshop: one breakdown and one renewal, mapped on their real process and shown running in Odoo.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/fx.js?v={{v}}"></script>
+<script src="assets/proposal.js?v={{v}}"></script>
+<script src="assets/hitachi.js?v={{v}}"></script>
+</body>
+</html>
