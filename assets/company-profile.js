@@ -143,9 +143,9 @@
   });
 
   /* ---------------------------------------------------------------- 6 · engagement: a plane moves step to step */
-  var WHO = [['sg', 'ph', 'you'], ['ph', 'vn'], ['vn', 'ph'], ['ph', 'sg', 'you'], ['sg', 'ph', 'vn']];
-  var WHO_S = ['On-site with you in Singapore, with consultants from Taguig City.', 'Consultants in Taguig City, with the development hub in Ho Chi Minh City.',
-    'The development hub, with the consultants who know your process.', 'The consultants who configured it, in person in Singapore or online.', 'All three offices, one support channel.'];
+  var WHO = [['sg', 'ph', 'you'], ['ph'], ['ph', 'vn'], ['ph', 'sg', 'you'], ['sg', 'ph', 'vn']];
+  var WHO_S = ['On-site with you in Singapore, with consultants from Taguig City.', 'Consultants and developers at our main hub in Taguig City.',
+    'Developers in Taguig City, with AI engineers in Ho Chi Minh City when AI is in scope.', 'The consultants who configured it, in person in Singapore or online.', 'All three offices, one support channel.'];
   Deck.on('engagement', {
     init: function (s) {
       var base = $('#enBase', s), plane = $('.en-plane', s);

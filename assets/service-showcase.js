@@ -64,7 +64,7 @@
   var PH = [
     { n: 'Discover', s: 0, d: 'Weeks 1–2. We map how orders, stock and money move today, match each step to an Odoo app and write the scope down.', w: 'TechNext SG · PH with your process owners',
       t: [['Kick-off', 0, 1.1], ['Fit-gap', 1.1, 2.1], ['Scope signed', 2.2]] },
-    { n: 'Build', s: 2.35, d: 'Weeks 3–6. Three configuration sprints on a staging copy, your data mapped and loaded twice, and the connectors to the systems you keep.', w: 'TechNext PH consultants · VN development hub',
+    { n: 'Build', s: 2.35, d: 'Weeks 3–6. Three configuration sprints on a staging copy, your data mapped and loaded twice, and the connectors to the systems you keep.', w: 'TechNext PH developers and consultants',
       t: [['Sprints 1–3', 2.4, 5.9], ['Data loads', 2.8, 6], ['Connectors & APIs', 3.2, 6.2], ['Build done', 6.35]] },
     { n: 'Test & train', s: 6.5, d: 'Weeks 7–9. Your key users test real scenarios on staging, and each team is trained on its own screens and data.', w: 'Your key users with TechNext PH · SG trainers',
       t: [['Testing', 6.6, 8], ['Training', 7.6, 9], ['UAT signed', 9.4]] },
