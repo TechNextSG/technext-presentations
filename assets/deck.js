@@ -1,6 +1,6 @@
 /* TechNext HTML decks: shared engine.
    Slides are <section class="slide" id="..."> inside .stage. Keys: → Space PgDn next · ← PgUp prev · Home End ·
-   O overview · F fullscreen · N speaker notes · ? help. Click empty space to advance, swipe on touch.
+   O overview · F fullscreen · N speaker notes · T TV mode · ? help. Click empty space to advance, swipe on touch.
    [data-in] animates when a slide opens; [data-step="n"] builds on the n-th press ([data-until="m"] hides it again).
    Slides register behaviour with Deck.on(id, {init, enter(ctx, slide), step(n, ctx, slide), leave(slide), settle(slide)});
    settle runs once the slide has faded out, to leave it in its finished state for the overview; ?print and printing
@@ -16,6 +16,16 @@
   var params = new URLSearchParams(location.search);
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var PRINT = params.has('print');
+  // TV mode: lighter drawing for big screens (see deck.css). On by itself for TV browsers, 4K outputs, low-core machines
+  // and ?kiosk; T or ?tv / ?tv=0 switches it, and a choice made that way is remembered on this browser.
+  var TVKEY = 'tn-deck-tv';
+  function tvAuto() {
+    if (params.has('kiosk')) return true;
+    if (/SMART-TV|SmartTV|Tizen|Web0S|webOS|BRAVIA|Android TV|GoogleTV|AFT[A-Z]|CrKey|HbbTV|NetCast|Roku|VIDAA|Viera/i.test(navigator.userAgent || '')) return true;
+    return Math.max(screen.width, screen.height) * (window.devicePixelRatio || 1) >= 3000 || (navigator.hardwareConcurrency || 8) <= 4;
+  }
+  function tvSaved() { try { return localStorage.getItem(TVKEY); } catch (e) { return null; } }
+  var tv = params.has('tv') ? params.get('tv') !== '0' : tvSaved() != null ? tvSaved() === '1' : tvAuto();
   // a phone (coarse pointer, short side up to 600 px) held upright gets the deck turned 90°, filling the screen
   var rotated = false, rotW = 0;
   function isPhone() { return !!(window.matchMedia && matchMedia('(pointer: coarse)').matches) && Math.min(screen.width, screen.height) <= 600; }
@@ -117,6 +127,15 @@
     s.setAttribute('aria-roledescription', 'slide');
     s.setAttribute('aria-label', (i + 1) + ' of ' + total + ': ' + s.dataset.title);
   });
+  root.classList.toggle('is-tv', tv && !PRINT);
+  var tvToast = document.createElement('div'); tvToast.className = 'tv-toast'; tvToast.setAttribute('role', 'status'); root.appendChild(tvToast);
+  var tvT = 0;
+  function setTV(on) {
+    tv = on; root.classList.toggle('is-tv', on);
+    try { localStorage.setItem(TVKEY, on ? '1' : '0'); } catch (e) {}
+    tvToast.textContent = on ? 'TV mode on: lighter effects for big screens' : 'TV mode off: full effects';
+    tvToast.classList.add('is-on'); clearTimeout(tvT); tvT = setTimeout(function () { tvToast.classList.remove('is-on'); }, 1800);
+  }
   var bg = document.createElement('div'); bg.className = 'stage-bg'; bg.innerHTML = '<i></i><i></i>'; stage.insertBefore(bg, stage.firstChild);
   var prog = document.createElement('div'); prog.className = 'progress'; prog.innerHTML = '<i></i>'; stage.appendChild(prog);
 
@@ -153,6 +172,7 @@
     '<dt><kbd>O</kbd></dt><dd>All slides (arrows + Enter to pick, O or Esc to close)</dd>' +
     '<dt><kbd>F</kbd></dt><dd>Full screen</dd>' +
     '<dt><kbd>N</kbd></dt><dd>Speaker notes</dd>' +
+    '<dt><kbd>T</kbd></dt><dd>TV mode: lighter effects for big screens and casting</dd>' +
     '<dt><kbd>1</kbd>–<kbd>9</kbd> then <kbd>Enter</kbd></dt><dd>Jump to a slide</dd>' +
     '</dl><p class="small muted" style="margin:18px 0 0">Click empty space to advance · swipe on touch screens · add <b>?kiosk</b> to the address to loop on its own.</p></div>';
   root.appendChild(helpEl);
@@ -340,6 +360,7 @@
       case 'Escape': if (notesEl.classList.contains('is-open')) toggleNotes(); else return; break;
       case 'f': case 'F': toggleFull(); break;
       case 'n': case 'N': toggleNotes(); break;
+      case 't': case 'T': setTV(!tv); break;
       case '?': toggleHelp(); break;
       default: return;
     }
@@ -421,7 +442,7 @@
     goId: function (id, s) { var i = slides.findIndex(function (x) { return x.id === id; }); if (i >= 0) Deck.go(i, s); },
     next: next, prev: prev,
     get index() { return cur; }, get step() { return step; }, get scale() { return scale; },
-    get rotated() { return rotated; }, print: PRINT,
+    get rotated() { return rotated; }, get tv() { return tv; }, print: PRINT,
     slides: slides, $: $, $$: $$, lbox: lbox, vbox: vbox, rect: rect, point: point, clamp: clamp, ease: ease, money: money, reduce: reduce
   };
 

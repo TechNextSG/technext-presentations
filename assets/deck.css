@@ -39,12 +39,17 @@ button{font:inherit;color:inherit}
 .deck.is-fading .stage{opacity:0}
 .deck.no-anim .slide,.deck.no-anim .slide *{transition:none!important}
 /* the ambient layer every light slide sits on: a faint dot grid and two slow brand-blue glows */
-.stage-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.stage-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden;transition:opacity .6s var(--ease)}
+/* under a dark slide the glows cannot be seen: fade them out and stop them, so the GPU skips them */
+.deck[data-theme=dark] .stage-bg{opacity:0}
+.deck[data-theme=dark] .stage-bg i{animation-play-state:paused}
 .stage-bg::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(49,103,202,.13) 1.4px,transparent 1.6px);background-size:34px 34px;
   -webkit-mask-image:radial-gradient(ellipse 90% 80% at 70% 30%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 90% 80% at 70% 30%,#000 20%,transparent 75%)}
-.stage-bg i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:bgDrift 26s var(--ease-io) infinite alternate}
-.stage-bg i:nth-child(1){width:720px;height:620px;left:-180px;top:-260px;background:#D8E5FB}
-.stage-bg i:nth-child(2){width:680px;height:560px;right:-220px;bottom:-240px;background:#E4ECFB;animation-duration:32s;animation-delay:-9s}
+/* the glows are soft radial gradients, not blurred circles: a filter:blur(90px) layer is re-blurred every frame it moves,
+   and at 4K (2.4x the pixels) that alone made a TV stutter. Same size and softness as the old 720x620 and 680x560 blurs. */
+.stage-bg i{position:absolute;opacity:.55;animation:bgDrift 26s var(--ease-io) infinite alternate}
+.stage-bg i:nth-child(1){width:1080px;height:980px;left:-360px;top:-440px;background:radial-gradient(closest-side,#D8E5FB 33%,rgba(216,229,251,.5) 66%,rgba(216,229,251,0))}
+.stage-bg i:nth-child(2){width:1040px;height:920px;right:-400px;bottom:-420px;background:radial-gradient(closest-side,#E4ECFB 33%,rgba(228,236,251,.5) 66%,rgba(228,236,251,0));animation-duration:32s;animation-delay:-9s}
 @keyframes bgDrift{to{transform:translate(90px,60px) scale(1.08)}}
 
 /* ------------------------------------------------------------------ slides */
@@ -52,6 +57,8 @@ button{font:inherit;color:inherit}
   transition:opacity .55s var(--ease),transform .8s var(--ease),visibility 0s linear .8s;overflow:hidden}
 .slide.is-before{transform:translateX(-56px)}
 .slide.is-active{opacity:1;visibility:visible;transform:none;transition:opacity .6s var(--ease) .08s,transform .8s var(--ease),visibility 0s}
+/* only the slide on screen animates: hidden slides would otherwise keep every loop ticking, frame after frame */
+.slide:not(.is-active) *,.slide:not(.is-active) *::before,.slide:not(.is-active) *::after{animation-play-state:paused!important}
 .slide[data-transition=fade],.slide[data-transition=fade].is-before{transform:none}
 .slide.dark{color:rgba(255,255,255,.82);background:
   radial-gradient(ellipse 70% 90% at 85% 10%,rgba(111,160,245,.38),transparent 60%),
@@ -141,7 +148,7 @@ button{font:inherit;color:inherit}
 
 /* ------------------------------------------------------------------ components */
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-1);padding:30px 32px;position:relative}
-.dark .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);box-shadow:none;backdrop-filter:blur(6px)}
+.dark .card{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.14);box-shadow:none}
 /* :where keeps these defaults easy to override from a component's own class */
 :where(.card) h3{font:750 27px/1.2 var(--f-display);color:var(--ink);margin:0 0 10px;letter-spacing:-.015em}
 :where(.dark .card) h3{color:#fff}
@@ -225,7 +232,7 @@ button{font:inherit;color:inherit}
 .ct-qr-card small{font-size:15px;color:var(--muted);margin-top:6px}
 
 /* ------------------------------------------------------------------ viewport UI */
-.ui{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;align-items:center;gap:4px;padding:6px;border-radius:16px;background:rgba(14,22,48,.78);backdrop-filter:blur(10px);
+.ui{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;align-items:center;gap:4px;padding:6px;border-radius:16px;background:rgba(14,22,48,.9);
   color:#fff;box-shadow:0 12px 30px -12px rgba(0,0,0,.6);transition:opacity .4s var(--ease),transform .4s var(--ease)}
 .ui.is-idle{opacity:0;transform:translateY(8px);pointer-events:none}
 .ui button{width:40px;height:40px;border:0;border-radius:11px;background:none;color:#fff;cursor:pointer;display:grid;place-items:center;font-size:19px;transition:background .2s}
@@ -279,6 +286,20 @@ button{font:inherit;color:inherit}
 .deck.is-overview .slide *,.deck.is-overview .slide::before{animation-play-state:paused!important}
 .deck.is-overview [data-in],.deck.is-overview [data-step]{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
 .deck.is-overview .draw{stroke-dashoffset:0;transition:none}
+
+/* ------------------------------------------------------------------ TV mode */
+/* .deck.is-tv: the same slides, lighter to draw. A big screen repaints up to 4x the pixels, casting re-encodes every
+   frame and TV browsers have little GPU, so decorative loops stop and entrances fade in place. deck.js turns it on. */
+.deck.is-tv .slide,.deck.is-tv .slide.is-before{transform:none}
+.deck.is-tv [data-in],.deck.is-tv [data-step]{transform:none!important;filter:none!important}
+/* decorative loops that repaint or re-lay out every frame; the demos themselves keep moving */
+.deck.is-tv .stage-bg i,.deck.is-tv .flow,.deck.is-tv .pr-l--flow,.deck.is-tv .nw-svg path,.deck.is-tv .iso-net path,.deck.is-tv .iso-beam,
+.deck.is-tv .cv-halo,.deck.is-tv .of-pin i::before,.deck.is-tv .pm-pin i::before,.deck.is-tv .hu-ring,.deck.is-tv .rm-ring,.deck.is-tv .hc-dot,
+.deck.is-tv .rt-crew,.deck.is-tv .ow-btn.is-ready{animation:none!important}
+.deck.is-tv *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.tv-toast{position:fixed;left:50%;top:22px;z-index:70;transform:translate(-50%,-8px);padding:10px 16px;border-radius:12px;background:rgba(14,22,48,.92);
+  color:#fff;font:600 14px/1.2 var(--f-display);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s var(--ease)}
+.tv-toast.is-on{opacity:1;transform:translate(-50%,0)}
 
 /* ------------------------------------------------------------------ motion + print */
 @media (prefers-reduced-motion:reduce){

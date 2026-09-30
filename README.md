@@ -25,6 +25,7 @@ Live (unlisted, `noindex`): https://technextsg.github.io/technext-presentations/
 | `O` | all slides (arrows + `Enter` to pick; `O` or `Esc` closes) |
 | `F` | full screen |
 | `N` | speaker notes |
+| `T` | TV mode: lighter effects for big screens and casting (on by itself for TV browsers, 4K screens, 4-core machines and `?kiosk`; `?tv` / `?tv=0` in the address too) |
 | number, then `Enter` | jump to a slide |
 | `?` | shortcuts |
 

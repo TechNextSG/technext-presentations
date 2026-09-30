@@ -1,6 +1,5 @@
 /* Service showcase deck */
 @property --gap{syntax:'<length>';inherits:true;initial-value:118px}
-@property --bob{syntax:'<length>';inherits:false;initial-value:0px}
 
 /* ---------------------------------------------------------------- 1 · cover: three layers, stacked */
 .cv-counts{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
@@ -9,10 +8,11 @@
 .iso{position:absolute;left:760px;top:30px;width:820px;height:840px}
 .iso-scene{position:absolute;left:150px;top:300px;width:360px;height:360px;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(-42deg);transition:--gap 1.2s var(--ease)}
 .iso:hover .iso-scene{--gap:146px}
-.iso-plate{position:absolute;inset:0;border-radius:44px;transform-style:preserve-3d;transform:translateZ(calc(var(--z) * var(--gap) + var(--bob)));
+/* the bob animates the translate property, which the compositor runs; a CSS variable would need a style pass every frame */
+.iso-plate{position:absolute;inset:0;border-radius:44px;transform-style:preserve-3d;transform:translateZ(calc(var(--z) * var(--gap)));
   animation:isoBob 7s var(--ease-io) infinite alternate;animation-delay:calc(var(--z) * -2.2s)}
 .iso-plate::before{content:"";position:absolute;inset:0;border-radius:inherit;transform:translateZ(-16px);background:rgba(10,26,70,.55)}
-@keyframes isoBob{from{--bob:-7px}to{--bob:9px}}
+@keyframes isoBob{from{translate:0 0 -7px}to{translate:0 0 9px}}
 .iso-p1{background:linear-gradient(135deg,#fff,#DCE7FB)}
 .iso-p1::before{background:#7F9FDB}
 .iso-p2{background:linear-gradient(135deg,rgba(169,200,255,.5),rgba(111,160,245,.22));box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)}
