@@ -5,13 +5,13 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Deck | File | Slides |
 |---|---|---|
 | Company profile | `company-profile.html` | 11 |
-| Portfolio: clients and what we built | `portfolio.html` | 11 |
+| Portfolio: clients and what we built | `portfolio.html` | 10 |
 | Service showcase | `service-showcase.html` | 15 |
 | Marketing showcase: live sites, concepts, pitch microsites | `marketing-showcase.html` | 17 |
 | What is Odoo (what's new in Odoo 20, then a lead-to-cash walkthrough) | `what-is-odoo.html` | 17 |
 | ERP tier list | `erp-tiers.html` | 7 |
 | Marketing tier list | `marketing-tiers.html` | 7 |
-| Proposal: Hitachi Elevator Philippines | `hitachi-elevator-ph.html` | 16 |
+| Proposal: Hitachi Elevator Philippines | `hitachi-elevator-ph.html` | 14 |
 
 Live (unlisted, `noindex`): https://technextsg.github.io/technext-presentations/
 
@@ -59,4 +59,4 @@ python -B _src/build.py
 
 ## Content rules
 
-Odoo facts follow the current release (Odoo 20 release notes): Field Service runs inside Planning, VoIP is called Phone. Approved figures only: clients in 10+ countries, 11+ enterprise clients, 4 core AI disciplines, 3 offices. Office roles: Singapore is headquarters (sales, discovery, on-site work), the Philippines office in Taguig City is the main development and consulting hub, and the Vietnam office in Ho Chi Minh City is mainly AI engineering; never call Vietnam "the development hub". "Odoo Ready Partner" (never "certified"). Demos use sample companies and data and are labelled illustrative. No prices beyond Odoo's own published structure; tiers are "On quotation". Enterprise work under NDA is never named, only counted. In client proposals, internal research (job ads, employee reviews, headcount guesses) stays out of the deck, notes included. In the portfolio, clients with delivered work are listed apart from proposals, concepts and paused work.
+Odoo facts follow the current release (Odoo 20 release notes): Field Service runs inside Planning, VoIP is called Phone. Approved figures only: clients in 10+ countries, 11+ enterprise clients, 4 core AI disciplines, 3 offices. Office roles: Singapore is headquarters (sales, discovery, on-site work), the Philippines office in Taguig City is the main development and consulting hub, and the Vietnam office in Ho Chi Minh City is mainly AI engineering; never call Vietnam "the development hub". "Odoo Ready Partner" (never "certified"). Demos use sample companies and data and are labelled illustrative. No prices beyond Odoo's own published structure; tiers are "On quotation". Enterprise work under NDA is never named, only counted. In client proposals, internal research (job ads, employee reviews, headcount guesses) stays out of the deck, notes included. The portfolio covers clients with delivered work; the slide of proposals, concepts and paused work was removed on request (30 Sep 2026).

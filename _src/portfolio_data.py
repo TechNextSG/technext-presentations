@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Portfolio content, from the client inventory (memory notes, Drive client folders, repos, session history).
    Facts only: no prices, no staff names, no results or metrics, nothing under NDA. Status is stated honestly:
-   'clients' have delivered work; proposals, concepts and paused work are listed separately."""
+   'clients' have delivered work or work under way."""
 
 # services: key -> label (the cover marquee, the directory filters and the detail chips)
 SERVICES = [("web", "Website"), ("leads", "Leads & booking"), ("seo", "SEO & analytics"), ("social", "Social & video"),
@@ -100,19 +100,6 @@ CLIENTS = [
               "An inquiry-to-payment flowchart deck and an implementation proposal",
               "An admin dashboard mockup for packages, departures and transport"],
          links=[("Redesign", "https://technextmarketing.github.io/immaculateconnectionsph/")]),
-]
-
-OTHER = [
-    ("Auntie Gaik Lean's Old School Eatery", "Restaurant · Penang, Malaysia", "Website concept, marketing showcase and an Odoo proposal", "proposal"),
-    ("Tri-Comp Solutions", "IT managed services · Singapore", "Marketing showcase, an Odoo proposal and a website concept", "proposal"),
-    ("SmartSpace", "Co-working & corporate services · Singapore", "A 17-section marketing proposal and an AI image library", "proposal"),
-    ("Move with Ease", "Wellbeing therapy · Kent, UK", "A website rebuild concept and a showcase deck", "proposal"),
-    ("Asociația TRE® România", "Association · Romania", "A Romanian-language redesign concept", "concept"),
-    ("Antech-Enviro Philippines", "Semiconductor & PCB services · Metro Manila", "Official website v1 and v2", "paused"),
-    ("Deluxcious", "Restaurant & bar · Penang, Malaysia", "A six-page website", "paused"),
-    ("Blue Moon Secret's Chamber", "Beauty & wellness e-commerce · Singapore", "An e-commerce rebuild demo", "concept"),
-    ("Convotherm", "Commercial combi ovens", "A marketing showcase and an Odoo field-service page", "proposal"),
-    ("Travelpreneur", "B2B travel portal · Philippines", "Discovery questions and a partner-portal flow deck", "proposal"),
 ]
 
 STATUS = {"live": "Live", "progress": "In progress", "proposal": "Proposal", "concept": "Concept", "paused": "Paused"}

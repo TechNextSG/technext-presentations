@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
-<link rel="stylesheet" href="assets/deck.css?v=9">
+<link rel="stylesheet" href="assets/deck.css?v=10">
 <title>Proposal for Hitachi Elevator Philippines · TechNext</title>
 <meta name="description" content="A TechNext proposal for Hitachi Elevator Philippines: an Odoo service layer for breakdown calls, field visits, maintenance contracts and parts, working beside GERP across Makati, Cebu and Cagayan de Oro.">
 <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/proposal.css?v=9">
+<link rel="stylesheet" href="assets/proposal.css?v=10">
 </head>
 <body data-label="Proposal · Hitachi Elevator Philippines" data-shared data-cobrand="assets/img/clients/hitachi.png" data-cobrand-white="assets/img/clients/hitachi-white.png">
 <main class="deck" aria-label="TechNext proposal for Hitachi Elevator Philippines">
@@ -346,37 +346,7 @@
   <aside class="notes"><p>Switch between the two modes. By hand, the next three months fill with contracts nobody has contacted yet; with the rule, every contract due in 90 days already has a quotation or is renewed.</p></aside>
 </section>
 
-<!-- 10 · parts -->
-<section class="slide" id="parts" data-title="Parts confirmed before the van leaves">
-  <div class="sec-head sec-head--row">
-    <div>
-      <span class="kicker" data-in>parts and stock · to confirm</span>
-      <h2 class="h-m" data-in style="--d:80ms">Parts confirmed <span class="hl">before the van leaves.</span></h2>
-    </div>
-    <div class="seg" role="group" aria-label="Reordering rule" data-sk="mode" data-in style="--d:160ms"><button type="button" aria-pressed="false" data-v="off">No reordering rule</button><button type="button" aria-pressed="true" data-v="on">Reordering rule on</button></div>
-  </div>
-  <div class="sk" data-i>
-    <div class="sk-left">
-      <div class="sk-job" data-in style="--d:180ms"><img class="oi" src="assets/img/odoo/helpdesk.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span><b>#HD-2431 · Cebu</b><small>lift stopped · needs 2 brake linings</small></span><em data-sk="verdict">checking stock…</em></div>
-      <div class="sk-whs">
-        <div class="sk-wh" data-wh="mk" data-in style="--d:220ms"><b>Makati</b><ul></ul></div>
-        <div class="sk-wh" data-wh="cb" data-in style="--d:280ms"><b>Cebu</b><ul></ul></div>
-        <div class="sk-wh" data-wh="cd" data-in style="--d:340ms"><b>Cagayan de Oro</b><ul></ul></div>
-      </div>
-      <div class="sk-move" aria-hidden="true"><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>2</span></div>
-      <p class="sk-say" data-sk="say">Odoo proposes a transfer of 2 from Makati, arriving tomorrow, instead of a 6-week order.</p>
-    </div>
-    <div class="sk-right" data-in style="--d:240ms">
-      <div class="sk-ch-h"><b>Door roller kits in Makati stock</b><small>26 weeks · reorder at 8, order up to 14, three weeks' lead time</small></div>
-      <svg class="sk-svg" viewBox="0 0 700 330" role="img" aria-label="Weekly stock of door roller kits"></svg>
-      <div class="sk-stats"><span><b data-sk="out">0</b><small>weeks out of stock</small></span><span><b data-sk="rush">0</b><small>rush orders</small></span><span><b data-sk="po">4</b><small>planned orders</small></span></div>
-    </div>
-  </div>
-  <p class="sk-note" data-in style="--d:400ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>To confirm in discovery: branch stock may already live in GERP. Sample stock, lead times and quantities.</p>
-  <aside class="notes"><p>Shown as an option: whether stock moves to Odoo depends on what GERP holds today. Stock is visible per branch when the job is booked. A reordering rule with the supplier's lead time keeps each part between its minimum and maximum; switch it off to show the stockouts it prevents.</p></aside>
-</section>
-
-<!-- 11 · installation projects -->
+<!-- 10 · installation projects -->
 <section class="slide" id="projects" data-title="NSCR-scale installations">
   <div class="sec-head">
     <span class="kicker" data-in>installation projects</span>
@@ -404,7 +374,7 @@
   <aside class="notes"><p>Big projects run as Odoo projects, one stage per station. At handover each unit becomes an equipment record with its maintenance contract, which is where the renewal slide starts.</p></aside>
 </section>
 
-<!-- 12 · dashboard -->
+<!-- 11 · dashboard -->
 <section class="slide" id="dashboard" data-title="The 24/7 promise, with a number on it">
   <div class="sec-head sec-head--row">
     <div>
@@ -429,7 +399,7 @@
   <aside class="notes"><p>The dashboard is an Odoo spreadsheet on live data: response times against the SLA per branch, first-time fix and open tickets. Filter by branch; the same view can go to a building owner each month.</p></aside>
 </section>
 
-<!-- 13 · scope -->
+<!-- 12 · scope -->
 <section class="slide" id="scope" data-title="The Odoo apps in this proposal">
   <div class="sec-head sec-head--row">
     <div>
@@ -470,7 +440,7 @@
   <aside class="notes"><p>Phase 1 is the service core on Odoo 20: calls, visits (in Odoo 20, Planning runs field service), signatures, documents and the installation projects. Phase 2, contracts, sales, CRM and buying, depends on how much GERP already covers, so we confirm it in discovery before we quote it. Phase 3 puts the dashboards on top.</p></aside>
 </section>
 
-<!-- 14 · roadmap -->
+<!-- 13 · roadmap -->
 <section class="slide" id="roadmap" data-title="How we'd roll it out">
   <div class="sec-head">
     <span class="kicker" data-in>how we'd roll it out</span>
@@ -506,34 +476,7 @@
   <aside class="notes"><p>This is phase 1, the service core. One branch first, on real calls and real contracts, before the other two. The same team configures, trains and supports; the go-live dates are set with you after discovery.</p></aside>
 </section>
 
-<!-- 15 · questions -->
-<section class="slide" id="questions" data-title="Five questions that shape the scope">
-  <div class="sec-head">
-    <span class="kicker" data-in>for the discovery workshop</span>
-    <h2 class="h-m" data-in style="--d:80ms">Five questions <span class="hl">that shape the scope.</span></h2>
-  </div>
-  <div class="qs" data-i>
-    <div class="qs-list">
-      <details class="qs-q" data-in style="--d:140ms" open><summary><i>1</i>What does GERP hold today: finance only, or contracts, orders, purchasing and stock too?</summary><p>It decides phase 2: whether Odoo takes over a manual process or sits beside an existing one, and how much the interface carries.</p></details>
-      <details class="qs-q" data-in style="--d:190ms"><summary><i>2</i>Where do maintenance contracts and equipment records live now?</summary><p>That is where the data migration starts: units, sites, contract dates and visit history.</p></details>
-      <details class="qs-q" data-in style="--d:240ms"><summary><i>3</i>Does Hitachi's remote monitoring run in the Philippines?</summary><p>If alarms exist here, they can open tickets on their own, before anyone calls.</p></details>
-      <details class="qs-q" data-in style="--d:290ms"><summary><i>4</i>What response times do your contracts promise, by priority?</summary><p>They become the SLA policies the clock runs against, per customer and per contract.</p></details>
-      <details class="qs-q" data-in style="--d:340ms"><summary><i>5</i>Where does body-camera footage go, and who reviews it?</summary><p>So each visit record can point to its clip, and the review happens in one place.</p></details>
-    </div>
-    <div class="card qs-after" data-in data-fx="right" style="--d:300ms">
-      <span class="ar-h">after discovery</span>
-      <ul>
-        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A fixed scope for phase 1, and a decision on phase 2</li>
-        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A quotation for our work</li>
-        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A pilot plan for Makati, with dates</li>
-        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>The GERP interface, agreed with group IT</li>
-      </ul>
-    </div>
-  </div>
-  <aside class="notes"><p>These are the answers that change the scope. The first one matters most: what GERP already covers decides whether Odoo replaces a manual process or sits beside a system, and so whether phase 2 goes ahead.</p></aside>
-</section>
-
-<!-- 16 · next step -->
+<!-- 14 · next step -->
 <section class="slide dark" id="contact" data-title="Next step" data-chrome="foot">
   <div class="split split--narrow">
     <div>
@@ -554,9 +497,9 @@
 
 </div>
 </main>
-<script src="assets/deck.js?v=9"></script>
-<script src="assets/fx.js?v=9"></script>
-<script src="assets/proposal.js?v=9"></script>
-<script src="assets/hitachi.js?v=9"></script>
+<script src="assets/deck.js?v=10"></script>
+<script src="assets/fx.js?v=10"></script>
+<script src="assets/proposal.js?v=10"></script>
+<script src="assets/hitachi.js?v=10"></script>
 </body>
 </html>

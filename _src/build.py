@@ -25,7 +25,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "9"
+ASSET_V = "10"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -372,10 +372,6 @@ def pf_expand(s):
     data = [dict(slug=c["slug"], name=c["name"], mono=c["mono"], c=c["c"], ind=c["ind"], where=c["where"], status=PF.STATUS[c["status"]],
                  svc=[lab for k, lab in PF.SERVICES if c["svc"].get(k)], did=c["did"], links=c["links"]) for c in C]
     s = s.replace("{{pf:data}}", json.dumps(data, ensure_ascii=False))
-    # proposals, concepts and paused work
-    other = "".join(f'<div class="po-c" data-in style="--d:{160 + i * 45}ms"><span class="po-k po-k--{st}">{PF.STATUS[st]}</span><b>{_e(n)}</b><small>{_e(w)}</small><p>{_e(t)}</p></div>'
-                    for i, (n, w, t, st) in enumerate(PF.OTHER))
-    s = s.replace("{{pf:other}}", other)
     s = _re.sub(r"\{\{scroll:([a-z0-9-]+):(\d+):(\d+)(?::([dm]))?\}\}", lambda m: _scroll(m.group(1), int(m.group(2)), int(m.group(3)), m.group(4) or "d"), s)
     s = _re.sub(r"\{\{thumb:([a-z0-9-]+)\}\}", lambda m: _thumb(m.group(1)), s)
     return s

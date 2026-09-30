@@ -479,109 +479,7 @@
     settle: function (s) { s._setMode('on', true); rrPaint(s, rrData('on')); }
   });
 
-  /* ---------------------------------------------------------------- 10 · parts: branch stock, a transfer, a reordering rule */
-  var PARTS = ['Door rollers', 'Brake linings', 'Handrails', 'Control boards'];
-  var WH = { mk: [9, 6, 2, 3], cb: [4, 0, 1, 1], cd: [3, 2, 0, 1] };
-  function skWh(s, q) {
-    ['mk', 'cb', 'cd'].forEach(function (k) {
-      var ul = $('[data-wh="' + k + '"] ul', s);
-      if (!ul.children.length) PARTS.forEach(function () { var li = document.createElement('li'); li.innerHTML = '<b></b><i></i>'; ul.appendChild(li); });
-      $$('li', ul).forEach(function (li, j) { $('b', li).textContent = q[k][j]; li.style.setProperty('--q', q[k][j]); li.classList.toggle('is-low', q[k][j] === 0); });
-    });
-  }
-  // 26 weeks of door roller kits: with a reordering rule (reorder at 8, up to 14, 3-week lead time) or ordered only when out
-  function skSim(rule) {
-    var use = [1, 2, 1, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 2, 1], lead = 3, st = 12, pipe = [], out = [], arrivals = [], orders = 0, rush = 0, weeksOut = 0;
-    for (var w = 0; w < 26; w++) {
-      pipe = pipe.filter(function (o) { if (o.at === w) { st += o.q; arrivals.push(w); return false; } return true; });
-      st = Math.max(0, st - use[w]);
-      var onOrder = pipe.reduce(function (a, o) { return a + o.q; }, 0);
-      if (rule && st + onOrder <= 8) { pipe.push({ at: w + lead, q: 14 - st - onOrder }); orders++; }
-      if (!rule && st === 0 && !pipe.length) { pipe.push({ at: w + lead + 1, q: 12 }); rush++; }
-      if (st === 0) weeksOut++;
-      out.push(st);
-    }
-    return { v: out, arrivals: arrivals, orders: orders, rush: rush, weeksOut: weeksOut };
-  }
-  function skChart(s) {
-    var svg = $('.sk-svg', s); PX.clear(svg);
-    var W = 700, H = 330, L = 40, R = 64, T = 14, B = 34, x = PX.lin(0, 25, L, W - R), y = PX.lin(0, 16, H - B, T);
-    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-    PX.gridY(svg, L, W - R, y, [0, 4, 8, 12, 16]);
-    var gOut = PX.svg('g', {}, svg);
-    [8, 14].forEach(function (v, i) {
-      PX.svg('line', { x1: L, x2: W - R, y1: y(v), y2: y(v), 'class': 'cx-ref' }, svg);
-      PX.svg('text', { x: W - R + 8, y: y(v) + 4, 'class': 'cx-reft' }, svg).textContent = i ? 'up to 14' : 'reorder 8';
-    });
-    PX.svg('line', { x1: L, x2: W - R, y1: y(0), y2: y(0), 'class': 'cx-base' }, svg);
-    [0, 5, 10, 15, 20, 25].forEach(function (w) { PX.svg('text', { x: x(w), y: H - B + 20, 'text-anchor': 'middle', 'class': 'cx-tick' }, svg).textContent = 'wk ' + (w + 1); });
-    var area = PX.svg('path', { 'class': 'sk-area' }, svg), line = PX.svg('path', { 'class': 'sk-line' }, svg), gM = PX.svg('g', {}, svg);
-    var cross = PX.svg('line', { y1: T, y2: H - B, 'class': 'cx-cross' }, svg), dot = PX.svg('circle', { r: 5, 'class': 'sk-mark', style: 'opacity:0' }, svg);
-    var hit = PX.svg('rect', { x: L, y: T, width: W - R - L, height: H - B - T, 'class': 'cx-hit' }, svg);
-    s._sk = { x: x, y: y, area: area, line: line, gOut: gOut, gM: gM, H: H, B: B, T: T };
-    hit.addEventListener('pointermove', function (e) {
-      var p = PX.at(e, s), lx = PX.svgAt(e, svg).x, w = clamp(Math.round((lx - L) / (W - R - L) * 25), 0, 25), v = s._skv[w];
-      cross.setAttribute('x1', x(w)); cross.setAttribute('x2', x(w)); cross.classList.add('is-on');
-      dot.setAttribute('cx', x(w)); dot.setAttribute('cy', y(v)); dot.style.opacity = 1;
-      s._tip.show('Week ' + (w + 1), [{ c: '#3167CA', v: Math.round(v) + ' kits', l: 'in stock' }].concat(v < .5 ? [{ c: ST.crit, v: 'Out', l: 'of stock' }] : []), p.x, p.y);
-    });
-    hit.addEventListener('pointerleave', function () { cross.classList.remove('is-on'); dot.style.opacity = 0; s._tip.hide(); });
-  }
-  function skPaint(s, vals, sim) {
-    var K = s._sk, pts = vals.map(function (v, i) { return [K.x(i), K.y(v)]; });
-    s._skv = vals;
-    K.line.setAttribute('d', PX.line(pts)); K.area.setAttribute('d', PX.area(pts, K.y(0)));
-    PX.clear(K.gOut); PX.clear(K.gM);
-    vals.forEach(function (v, i) { if (v < .5) PX.svg('rect', { x: K.x(i) - 12, y: K.T, width: 24, height: K.H - K.B - K.T, 'class': 'sk-out' }, K.gOut); });
-    if (sim) sim.arrivals.forEach(function (w) { PX.svg('circle', { cx: K.x(w), cy: K.y(vals[w]), r: 5, 'class': 'sk-mark' }, K.gM); });
-  }
-  function skMode(ctx, s, rule) {
-    var sim = skSim(rule), from = (s._skv || sim.v).slice();
-    $('[data-sk="out"]', s).textContent = sim.weeksOut;
-    $('[data-sk="rush"]', s).textContent = sim.rush;
-    $('[data-sk="po"]', s).textContent = sim.orders;
-    if (!ctx) { skPaint(s, sim.v, sim); return; }
-    ctx.tween(800, function (e) { skPaint(s, sim.v.map(function (v, i) { return PX.lerp(from[i], v, e); }), e >= 1 ? sim : null); }, 'io');
-  }
-  function skStep(s, k) {
-    var q = { mk: WH.mk.slice(), cb: WH.cb.slice(), cd: WH.cd.slice() }, v = $('[data-sk="verdict"]', s);
-    if (k >= 4) { q.mk[1] -= 2; q.cb[1] += 2; }
-    skWh(s, q);
-    $('[data-wh="cb"]', s).classList.toggle('is-need', k >= 1 && k < 4);
-    $$('.sk-wh li', s).forEach(function (li) { li.classList.remove('is-hot'); });
-    if (k >= 1 && k < 4) $$('[data-wh="cb"] li', s)[1].classList.add('is-hot');
-    if (k >= 2 && k < 4) $$('[data-wh="mk"] li', s)[1].classList.add('is-hot');
-    v.className = k >= 4 ? 'is-ok' : k >= 1 ? 'is-bad' : '';
-    v.textContent = k >= 4 ? 'Transfer 2 from Makati' : k >= 2 ? 'Makati has 6' : k >= 1 ? 'Cebu: none in stock' : 'checking stock…';
-    $('.sk-say', s).classList.toggle('is-on', k >= 4);
-  }
-  Deck.on('parts', {
-    init: function (s) {
-      var hd = document.createElement('div'); hd.className = 'sk-hd'; hd.innerHTML = '<span></span>' + PARTS.map(function (p) { return '<span>' + p + '</span>'; }).join('');
-      $('.sk-whs', s).insertBefore(hd, $('.sk-whs', s).firstChild);
-      s._tip = PX.tip(s); skChart(s); skStep(s, 4); skMode(null, s, true);
-      s._setMode = seg($('[data-sk="mode"]', s), function (v) { skMode(s._ctx, s, v === 'on'); });
-    },
-    enter: function (ctx, s) {
-      s._ctx = ctx; skStep(s, 0); s._setMode('on', true); skMode(null, s, true);
-      var line = s._sk.line, L = line.getTotalLength();
-      line.style.transition = 'none'; line.style.strokeDasharray = L; line.style.strokeDashoffset = L;
-      ctx.after(300, function () { line.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(.65,0,.35,1)'; line.style.strokeDashoffset = 0; });
-      ctx.after(2000, function () { line.style.strokeDasharray = 'none'; });
-      ctx.after(900, function () { skStep(s, 1); });
-      ctx.after(1900, function () { skStep(s, 2); });
-      ctx.after(2700, function () {
-        var mv = $('.sk-move', s), left = $('.sk-left', s), a = Deck.lbox($$('[data-wh="mk"] li', s)[1], left), b = Deck.lbox($$('[data-wh="cb"] li', s)[1], left);
-        mv.style.opacity = 1;
-        ctx.tween(1200, function (e) { mv.style.transform = 'translate(' + PX.lerp(a.x, b.x, e).toFixed(1) + 'px,' + PX.lerp(a.y - 30, b.y - 30, e).toFixed(1) + 'px)'; }, 'io')
-          .then(function () { mv.style.opacity = 0; skStep(s, 4); });
-      });
-    },
-    leave: function (s) { s._ctx = null; s._tip.hide(); $('.sk-move', s).style.opacity = 0; },
-    settle: function (s) { var l = s._sk.line; l.style.transition = 'none'; l.style.strokeDasharray = 'none'; l.style.strokeDashoffset = 0; s._setMode('on', true); skMode(null, s, true); skStep(s, 4); }
-  });
-
-  /* ---------------------------------------------------------------- 11 · installation projects, station by station */
+  /* ---------------------------------------------------------------- 10 · installation projects, station by station */
   var PJ = [
     { g: 'CP01', who: 'Taisei-DMCI JV', units: '13 elevators, 26 escalators', st: [['Valenzuela', 0], ['Meycauayan', .5], ['Marilao', 1], ['Bocaue', 1.5]] },
     { g: 'CP02', who: 'Sumitomo Mitsui Construction', units: '8 elevators, 20 escalators', st: [['Balagtas', 2], ['Guiguinto', 2.5], ['Malolos', 3]] }
@@ -627,7 +525,7 @@
     settle: function (s) { pjProgress(s, 1); pjPick(s, $('.pj-r', s)); }
   });
 
-  /* ---------------------------------------------------------------- 12 · dashboard */
+  /* ---------------------------------------------------------------- 11 · dashboard */
   var DB = {
     all: { sla: 96.4, calls: 612, resp: 24, ftf: 87, open: 14, mix: '3 P1 · 5 P2 · 6 P3' },
     mk: { sla: 97.1, calls: 348, resp: 22, ftf: 89, open: 7, mix: '1 P1 · 3 P2 · 3 P3' },
@@ -715,7 +613,7 @@
     settle: function (s) { dbPaint(s, s._br, 1); Object.keys(s._lines).forEach(function (k) { var p = s._lines[k].p; p.style.transition = 'none'; p.style.strokeDashoffset = 0; }); }
   });
 
-  /* ---------------------------------------------------------------- 13 · scope by phase */
+  /* ---------------------------------------------------------------- 12 · scope by phase */
   Deck.on('scope', {
     init: function (s) {
       var sp = $('.sp', s);
@@ -728,7 +626,7 @@
     settle: function (s) { delete $('.sp', s).dataset.on; $$('[data-sp="ph"] button', s).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); }); }
   });
 
-  /* ---------------------------------------------------------------- 14 · roadmap */
+  /* ---------------------------------------------------------------- 13 · roadmap */
   function rmPaint(s, w) {
     $('.rm-plan', s).style.setProperty('--w', w.toFixed(2));
     $$('.rm-r', s).forEach(function (r) {
@@ -750,18 +648,5 @@
     },
     enter: function (ctx, s) { rmPaint(s, 0); ctx.after(500, function () { ctx.tween(7600, function (e) { rmPaint(s, e * 22); }, 'lin'); }); },
     settle: function (s) { rmPaint(s, 22); }
-  });
-
-  /* ---------------------------------------------------------------- 15 · questions: one open at a time */
-  Deck.on('questions', {
-    init: function (s) {
-      var qs = $$('.qs-q', s);
-      qs.forEach(function (d) {
-        $('summary', d).tabIndex = 0;
-        d.addEventListener('toggle', function () { if (d.open && !s._all) qs.forEach(function (o) { if (o !== d) o.open = false; }); });
-      });
-    },
-    enter: function (ctx, s) { s._all = false; $$('.qs-q', s).forEach(function (d, i) { d.open = i === 0; }); },
-    settle: function (s) { s._all = true; $$('.qs-q', s).forEach(function (d) { d.open = true; }); }
   });
 })();
