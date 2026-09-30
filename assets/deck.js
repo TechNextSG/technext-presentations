@@ -1,6 +1,6 @@
 /* TechNext HTML decks: shared engine.
    Slides are <section class="slide" id="..."> inside .stage. Keys: → Space PgDn next · ← PgUp prev · Home End ·
-   O overview · F fullscreen · N speaker notes · T TV mode · ? help. Click empty space to advance, swipe on touch.
+   O overview · F fullscreen · N speaker notes · T display (HDMI / Wi-Fi) · ? help. Click empty space to advance, swipe on touch.
    [data-in] animates when a slide opens; [data-step="n"] builds on the n-th press ([data-until="m"] hides it again).
    Slides register behaviour with Deck.on(id, {init, enter(ctx, slide), step(n, ctx, slide), leave(slide), settle(slide)});
    settle runs once the slide has faded out, to leave it in its finished state for the overview; ?print and printing
@@ -16,16 +16,22 @@
   var params = new URLSearchParams(location.search);
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var PRINT = params.has('print');
-  // TV mode: lighter drawing for big screens (see deck.css). On by itself for TV browsers, 4K outputs, low-core machines
-  // and ?kiosk; T or ?tv / ?tv=0 switches it, and a choice made that way is remembered on this browser.
-  var TVKEY = 'tn-deck-tv';
+  // Display: 'full' (HDMI cable: every animation), 'cast' (Wi-Fi casting and TV browsers: less motion, so the video stream
+  // stays sharp; deck.css .is-tv) or 'auto' (lighter on its own for TV browsers, 4K outputs, low-core machines and ?kiosk).
+  // Picked from the screen button in the control bar or with T, remembered on this browser; ?display=full|cast|auto, ?tv, ?tv=0.
+  var DKEY = 'tn-deck-display', MODES = ['auto', 'full', 'cast'];
   function tvAuto() {
     if (params.has('kiosk')) return true;
     if (/SMART-TV|SmartTV|Tizen|Web0S|webOS|BRAVIA|Android TV|GoogleTV|AFT[A-Z]|CrKey|HbbTV|NetCast|Roku|VIDAA|Viera/i.test(navigator.userAgent || '')) return true;
     return Math.max(screen.width, screen.height) * (window.devicePixelRatio || 1) >= 3000 || (navigator.hardwareConcurrency || 8) <= 4;
   }
-  function tvSaved() { try { return localStorage.getItem(TVKEY); } catch (e) { return null; } }
-  var tv = params.has('tv') ? params.get('tv') !== '0' : tvSaved() != null ? tvSaved() === '1' : tvAuto();
+  function modeSaved() {
+    try { var v = localStorage.getItem(DKEY), old = localStorage.getItem('tn-deck-tv'); return MODES.indexOf(v) >= 0 ? v : old === '1' ? 'cast' : old === '0' ? 'full' : null; }
+    catch (e) { return null; }
+  }
+  var mode = MODES.indexOf(params.get('display')) >= 0 ? params.get('display') : params.has('tv') ? (params.get('tv') !== '0' ? 'cast' : 'full') : modeSaved() || 'auto';
+  function lightFor(m) { return m === 'cast' || (m === 'auto' && tvAuto()); }
+  var tv = lightFor(mode);
   // a phone (coarse pointer, short side up to 600 px) held upright gets the deck turned 90°, filling the screen
   var rotated = false, rotW = 0;
   function isPhone() { return !!(window.matchMedia && matchMedia('(pointer: coarse)').matches) && Math.min(screen.width, screen.height) <= 600; }
@@ -130,12 +136,27 @@
   root.classList.toggle('is-tv', tv && !PRINT);
   var tvToast = document.createElement('div'); tvToast.className = 'tv-toast'; tvToast.setAttribute('role', 'status'); root.appendChild(tvToast);
   var tvT = 0;
-  function setTV(on) {
-    tv = on; root.classList.toggle('is-tv', on);
-    try { localStorage.setItem(TVKEY, on ? '1' : '0'); } catch (e) {}
-    tvToast.textContent = on ? 'TV mode on: lighter effects for big screens' : 'TV mode off: full effects';
+  // the Display menu, opened from the screen button in the control bar
+  var disp = document.createElement('div'); disp.className = 'disp'; disp.setAttribute('role', 'menu'); disp.setAttribute('aria-label', 'Display');
+  disp.innerHTML = '<p class="disp-h">Display</p>' +
+    '<button type="button" role="menuitemradio" data-mode="full"><b>HDMI cable</b><small>Full quality, every animation. A cable sends the picture to the TV untouched.</small></button>' +
+    '<button type="button" role="menuitemradio" data-mode="cast"><b>Wi-Fi / casting</b><small>Less motion, so the picture stays sharp and smooth over Wi-Fi. Also for a TV\'s own browser.</small></button>' +
+    '<button type="button" role="menuitemradio" data-mode="auto"><b>Auto</b><small>Less motion on 4K and TV screens and slower laptops, full quality elsewhere.</small></button>' +
+    '<p class="disp-now"></p>';
+  root.appendChild(disp);
+  function paintDisp() {
+    $$('[data-mode]', disp).forEach(function (b) { b.setAttribute('aria-checked', b.dataset.mode === mode ? 'true' : 'false'); });
+    $('.disp-now', disp).textContent = 'Now: ' + (tv ? 'less motion' : 'full quality') + (mode === 'auto' ? ', picked for this screen' : '');
+  }
+  function setMode(m, quiet) {
+    mode = m; tv = lightFor(m); root.classList.toggle('is-tv', tv && !PRINT);
+    try { localStorage.setItem(DKEY, m); } catch (e) {}
+    paintDisp();
+    if (quiet) return;
+    tvToast.textContent = m === 'full' ? 'HDMI cable: full quality' : m === 'cast' ? 'Wi-Fi / casting: less motion, sharper picture' : 'Auto: ' + (tv ? 'less motion on this screen' : 'full quality on this screen');
     tvToast.classList.add('is-on'); clearTimeout(tvT); tvT = setTimeout(function () { tvToast.classList.remove('is-on'); }, 1800);
   }
+  paintDisp();
   var bg = document.createElement('div'); bg.className = 'stage-bg'; bg.innerHTML = '<i></i><i></i>'; stage.insertBefore(bg, stage.firstChild);
   var prog = document.createElement('div'); prog.className = 'progress'; prog.innerHTML = '<i></i>'; stage.appendChild(prog);
 
@@ -146,6 +167,7 @@
     full: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>',
     notes: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>',
     help: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.3a2.6 2.6 0 0 1 5 .9c0 1.7-2.5 2.3-2.5 3.8"/><path d="M12 17.2h.01"/></svg>',
+    screen: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>',
     home: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>'
   };
   var ui = document.createElement('div'); ui.className = 'ui'; ui.setAttribute('role', 'toolbar'); ui.setAttribute('aria-label', 'Presentation controls');
@@ -157,6 +179,7 @@
     '<button type="button" data-ui="overview" title="All slides (O)" aria-label="All slides" aria-pressed="false">' + I.grid + '</button>' +
     '<button type="button" data-ui="notes" title="Speaker notes (N)" aria-label="Speaker notes" aria-pressed="false">' + I.notes + '</button>' +
     '<button type="button" data-ui="full" title="Full screen (F)" aria-label="Full screen">' + I.full + '</button>' +
+    '<button type="button" data-ui="display" title="Display: HDMI cable or Wi-Fi (T)" aria-label="Display" aria-haspopup="menu" aria-expanded="false">' + I.screen + '</button>' +
     '<button type="button" data-ui="help" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">' + I.help + '</button>';
   root.appendChild(ui);
   // no full screen for pages on iPhone Safari, and no keyboard on a phone: those two buttons go
@@ -172,7 +195,7 @@
     '<dt><kbd>O</kbd></dt><dd>All slides (arrows + Enter to pick, O or Esc to close)</dd>' +
     '<dt><kbd>F</kbd></dt><dd>Full screen</dd>' +
     '<dt><kbd>N</kbd></dt><dd>Speaker notes</dd>' +
-    '<dt><kbd>T</kbd></dt><dd>TV mode: lighter effects for big screens and casting</dd>' +
+    '<dt><kbd>T</kbd></dt><dd>Display: Auto, HDMI cable (full quality) or Wi-Fi casting (less motion)</dd>' +
     '<dt><kbd>1</kbd>–<kbd>9</kbd> then <kbd>Enter</kbd></dt><dd>Jump to a slide</dd>' +
     '</dl><p class="small muted" style="margin:18px 0 0">Click empty space to advance · swipe on touch screens · add <b>?kiosk</b> to the address to loop on its own.</p></div>';
   root.appendChild(helpEl);
@@ -360,7 +383,7 @@
       case 'Escape': if (notesEl.classList.contains('is-open')) toggleNotes(); else return; break;
       case 'f': case 'F': toggleFull(); break;
       case 'n': case 'N': toggleNotes(); break;
-      case 't': case 'T': setTV(!tv); break;
+      case 't': case 'T': setMode(MODES[(MODES.indexOf(mode) + 1) % MODES.length]); break;
       case '?': toggleHelp(); break;
       default: return;
     }
@@ -405,13 +428,28 @@
     else if (a === 'notes') toggleNotes();
     else if (a === 'full') toggleFull();
     else if (a === 'help') toggleHelp();
+    else if (a === 'display') toggleDisp();
     else if (a === 'home') leaveTo(document.body.dataset.home);
   });
+  function toggleDisp(on) {
+    on = on == null ? !disp.classList.contains('is-open') : on;
+    disp.classList.toggle('is-open', on); $('[data-ui=display]', ui).setAttribute('aria-expanded', on ? 'true' : 'false');
+    if (on) { paintDisp(); var b = $('[aria-checked=true]', disp); if (b) b.focus(); }
+  }
+  disp.addEventListener('click', function (e) { var b = e.target.closest('[data-mode]'); if (b) { setMode(b.dataset.mode); toggleDisp(false); } });
+  // a click outside closes the menu without also moving the slides on
+  document.addEventListener('click', function (e) {
+    if (!disp.classList.contains('is-open') || disp.contains(e.target) || e.target.closest('[data-ui=display]')) return;
+    toggleDisp(false); e.stopPropagation(); e.preventDefault();
+  }, true);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && disp.classList.contains('is-open')) { toggleDisp(false); $('[data-ui=display]', ui).focus(); e.stopPropagation(); e.preventDefault(); }
+  }, true);
   helpEl.addEventListener('click', function (e) { if (e.target === helpEl) toggleHelp(false); });
 
   // the control bar fades out while nobody moves the mouse
   var idleT = 0;
-  function wake() { ui.classList.remove('is-idle'); clearTimeout(idleT); idleT = setTimeout(function () { if (!ui.matches(':hover') && !ui.contains(document.activeElement)) ui.classList.add('is-idle'); }, 2800); }
+  function wake() { ui.classList.remove('is-idle'); clearTimeout(idleT); idleT = setTimeout(function () { if (!ui.matches(':hover') && !ui.contains(document.activeElement) && !disp.classList.contains('is-open')) ui.classList.add('is-idle'); }, 2800); }
   addEventListener('mousemove', wake, { passive: true }); addEventListener('touchstart', wake, { passive: true }); addEventListener('keydown', function (e) { if (e.key === 'Tab') wake(); });
 
   addEventListener('resize', function () { fit(); if (overview) layoutOverview(); });
@@ -442,7 +480,7 @@
     goId: function (id, s) { var i = slides.findIndex(function (x) { return x.id === id; }); if (i >= 0) Deck.go(i, s); },
     next: next, prev: prev,
     get index() { return cur; }, get step() { return step; }, get scale() { return scale; },
-    get rotated() { return rotated; }, get tv() { return tv; }, print: PRINT,
+    get rotated() { return rotated; }, get tv() { return tv; }, get display() { return mode; }, print: PRINT,
     slides: slides, $: $, $$: $$, lbox: lbox, vbox: vbox, rect: rect, point: point, clamp: clamp, ease: ease, money: money, reduce: reduce
   };
 

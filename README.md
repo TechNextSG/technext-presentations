@@ -25,7 +25,7 @@ Live (unlisted, `noindex`): https://technextsg.github.io/technext-presentations/
 | `O` | all slides (arrows + `Enter` to pick; `O` or `Esc` closes) |
 | `F` | full screen |
 | `N` | speaker notes |
-| `T` | TV mode: lighter effects for big screens and casting (on by itself for TV browsers, 4K screens, 4-core machines and `?kiosk`; `?tv` / `?tv=0` in the address too) |
+| `T` | Display: **HDMI cable** (full quality, every animation), **Wi-Fi / casting** (less motion, so the stream stays sharp; also for a TV's own browser) or **Auto** (less motion on its own for TV browsers, 4K screens, 4-core machines and `?kiosk`). Also the screen button in the control bar; remembered per browser; `?display=full`, `?display=cast`, `?display=auto` in the address |
 | number, then `Enter` | jump to a slide |
 | `?` | shortcuts |
 
