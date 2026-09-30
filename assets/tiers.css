@@ -20,7 +20,7 @@
 @keyframes tcDrop{from{transform:translateY(-26px);opacity:0}to{transform:none;opacity:1}}
 
 /* ---------------------------------------------------------------- the four tiers */
-.tr-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch}
+.tr-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:24px;align-items:stretch}
 .tr{position:relative;display:flex;flex-direction:column;padding:22px 22px 18px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);
   transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .4s}
 .tr:hover{box-shadow:var(--sh-2)}
@@ -84,7 +84,7 @@
 .xp-node.is-out{opacity:0}
 .xp-ctl{position:relative;margin-top:18px;height:58px}
 .xp-track{position:absolute;left:30px;right:30px;top:20px;height:4px;border-radius:2px;background:var(--line)}
-.xp-fill{position:absolute;left:30px;top:20px;height:4px;border-radius:2px;background:var(--blue);width:calc((100% - 60px) * var(--k,0) / 3);transition:width .7s var(--ease)}
+.xp-fill{position:absolute;left:30px;top:20px;height:4px;border-radius:2px;background:var(--blue);width:calc((100% - 60px) * var(--k,0) / var(--last,2));transition:width .7s var(--ease)}
 .xp-stops{position:absolute;inset:0;display:flex;justify-content:space-between}
 .xp-stops button{width:60px;border:0;background:none;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:10px;font:700 14px/1 var(--f-display);color:var(--muted)}
 .xp-stops button i{width:22px;height:22px;margin-top:11px;border-radius:50%;background:#fff;border:3px solid var(--line);transition:all .45s var(--ease)}
@@ -107,7 +107,7 @@
 .ff-name{display:block;font:800 54px/1.05 var(--f-display);letter-spacing:-.03em;margin:10px 0 4px;transition:opacity .25s}
 .ff-tag{display:block;font-size:17px;color:rgba(255,255,255,.82);transition:opacity .25s}
 .ff-res.is-swap .ff-name,.ff-res.is-swap .ff-tag,.ff-res.is-swap .ff-why{opacity:0}
-.ff-ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:22px 0 18px}
+.ff-ladder{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px;margin:22px 0 18px}
 .ff-ladder span{height:10px;border-radius:5px;background:rgba(255,255,255,.18);transition:background .5s}
 .ff-ladder span.is-on{background:#fff}
 .ff-ladder span.is-past{background:rgba(255,255,255,.5)}
@@ -138,7 +138,7 @@
 .pl{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:30px;align-items:start}
 .pl-card{padding:26px 28px;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-2)}
 .pl-h{margin:0 0 10px;font:700 13px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.pl-tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:22px}
+.pl-tiers{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:8px;margin-bottom:22px}
 .pl-tiers button{padding:13px 10px;border-radius:13px;border:1px solid var(--line);background:var(--alt);cursor:pointer;font:750 16.5px/1 var(--f-display);color:var(--body);transition:all .35s var(--ease)}
 .pl-tiers button:hover{border-color:var(--blue-200);color:var(--ink)}
 .pl-tiers button[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:var(--sh-blue)}

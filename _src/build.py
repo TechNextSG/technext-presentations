@@ -25,7 +25,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "11"
+ASSET_V = "12"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -81,11 +81,11 @@ DECKS = [
     ]),
     ("Pricing", [
         dict(slug="erp-tiers", title="ERP tier list", mins=8, pdf="TechNext-ERP-Tier-List.pdf",
-             alt="ERP tier list cover: four tiers, then add exactly what you need.",
-             desc="Starter, Essentials, Growth and Enterprise for an Odoo rollout, eight add-ons, a which-tier-fits finder and a plan that turns into a quotation request."),
+             alt="ERP tier list cover: three tiers, then add exactly what you need.",
+             desc="Essentials, Growth and Enterprise for an Odoo rollout, priced as TechNext's service fee (the Odoo licence is separate), eight customisation add-ons, a which-tier-fits finder and a plan that turns into a quotation request."),
         dict(slug="marketing-tiers", title="Marketing tier list", mins=8, pdf="TechNext-Marketing-Tier-List.pdf",
-             alt="Marketing tier list cover: four tiers to get you seen and booked.",
-             desc="Starter, Launch, Growth and Brand for websites, social and brand, eight add-ons, a which-tier-fits finder and a plan that turns into a quotation request."),
+             alt="Marketing tier list cover: three tiers to get you seen and booked.",
+             desc="Launch, Growth and Brand for websites, social and brand, priced as TechNext's service fee, eight customisation add-ons, a which-tier-fits finder and a plan that turns into a quotation request."),
     ]),
 ]
 # ---------------------------------------------------------------- share links

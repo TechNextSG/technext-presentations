@@ -49,7 +49,7 @@
     P._text = 'TechNext ' + T.name + ' plan\nTier: ' + (s.tier || 'not sure yet') + '\nAdd-ons: ' + (s.adds.length ? s.adds.join(', ') : 'none') + '\nFinal pricing is confirmed per quotation · sales@technext.asia';
   }
 
-  /* ---------------------------------------------------------------- the four tiers */
+  /* ---------------------------------------------------------------- the tiers */
   Deck.on('tiers', {
     init: function (s) {
       $$('.tr', s).forEach(function (c, i) { var b = $('.tr-go', c); if (b) b.textContent = 'Choose ' + NAMES[i]; });
@@ -62,7 +62,7 @@
   function xpRender(s, k, animate, ctx) {
     s._k = k;
     var tag = $('.tr-tag', $$('#tiers .tr')[k]).textContent, pop = $$('#tiers .tr')[k].classList.contains('is-pop');
-    $('[data-xp-n]', s).textContent = 'Tier ' + (k + 1) + ' of 4';
+    $('[data-xp-n]', s).textContent = 'Tier ' + (k + 1) + ' of ' + NAMES.length;
     $('[data-xp-name]', s).innerHTML = NAMES[k] + (pop ? ' <span class="tr-pop">' + $('#tt-star').innerHTML + 'Most popular</span>' : '');
     $('[data-xp-tag]', s).textContent = tag;
     var ul = $('.xp-list', s), items = xpItems(k), check = $('#tt-check').innerHTML;
@@ -71,7 +71,7 @@
     if (animate) lis.forEach(function (li, i) { ctx.after(60 + i * 70, function () { li.classList.add('is-on'); }); }); else lis.forEach(function (li) { li.classList.add('is-on'); });
     var m = T.meter[k]; $('.xp-bar', s).style.setProperty('--m', m[0]); $('[data-xp-m]', s).textContent = m[1];
     $$('.xp-stops button', s).forEach(function (b, i) { b.classList.toggle('is-cur', i === k); b.classList.toggle('is-past', i < k); });
-    $('.xp-fill', s).style.setProperty('--k', k);
+    $('.xp-fill', s).style.setProperty('--k', k); $('.xp-fill', s).style.setProperty('--last', Math.max(1, NAMES.length - 1));
     xpViz(s, k, animate, ctx);
   }
   // the picture: app icons in a ring (ERP) or the tier's six items around the brand (marketing)
@@ -105,11 +105,11 @@
     enter: function (ctx, s) {
       var auto = true, k = 0;
       xpRender(s, 0, true, ctx);
-      ctx.every(4200, function () { if (auto) { k = (s._k + 1) % 4; xpRender(s, k, true, ctx); } });
+      ctx.every(4200, function () { if (auto) { k = (s._k + 1) % NAMES.length; xpRender(s, k, true, ctx); } });
       ctx.on($('.xp-stops', s), 'click', function (e) { var b = e.target.closest('button'); if (b) { auto = false; xpRender(s, +b.dataset.k, true, ctx); } });
       ctx.on($('.xp-stops', s), 'keydown', function (e) {
         var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return;
-        auto = false; xpRender(s, Math.max(0, Math.min(3, s._k + d)), true, ctx); e.preventDefault();
+        auto = false; xpRender(s, Math.max(0, Math.min(NAMES.length - 1, s._k + d)), true, ctx); e.preventDefault();
         var b = $$('.xp-stops button', s)[s._k]; if (b) b.focus();
       });
       ctx.on($('[data-xp-pick]', s), 'click', function () { pickTier(s._k); });
