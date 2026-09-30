@@ -1,4 +1,4 @@
-/* Portfolio: the client directory (filter + detail, cycling until someone clicks) and the clients x services table. */
+/* Portfolio: the client directory (filter + detail, cycling until someone clicks). */
 (function () {
   'use strict';
   var $ = function (s, r) { return (r || document).querySelector(s); }, $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
@@ -44,21 +44,6 @@
         });
         var v = visible(); if (v.length && v.indexOf(cards[cur]) < 0) show(v[0]);
       });
-    }
-  });
-
-  // the table: follow a cell's row and column
-  Deck.on('matrix', {
-    init: function (s) {
-      var t = $('.mx', s);
-      t.addEventListener('pointerover', function (e) {
-        var td = e.target.closest('td,th'); $$('.is-hl', t).forEach(function (x) { x.classList.remove('is-hl'); });
-        if (!td || !td.closest('tbody')) return;
-        var col = td.dataset.col;
-        $$('th,td', td.parentNode).forEach(function (x) { x.classList.add('is-hl'); });
-        if (col) $$('[data-col="' + col + '"]', t).forEach(function (x) { x.classList.add('is-hl'); });
-      });
-      t.addEventListener('pointerleave', function () { $$('.is-hl', t).forEach(function (x) { x.classList.remove('is-hl'); }); });
     }
   });
 })();

@@ -5,7 +5,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Deck | File | Slides |
 |---|---|---|
 | Company profile | `company-profile.html` | 11 |
-| Portfolio: clients and what we built | `portfolio.html` | 12 |
+| Portfolio: clients and what we built | `portfolio.html` | 11 |
 | Service showcase | `service-showcase.html` | 15 |
 | Marketing showcase: live sites, concepts, pitch microsites | `marketing-showcase.html` | 17 |
 | What is Odoo (what's new in Odoo 20, then a lead-to-cash walkthrough) | `what-is-odoo.html` | 17 |

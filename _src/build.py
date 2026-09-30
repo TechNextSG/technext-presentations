@@ -25,7 +25,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "7"
+ASSET_V = "8"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -372,13 +372,6 @@ def pf_expand(s):
     data = [dict(slug=c["slug"], name=c["name"], mono=c["mono"], c=c["c"], ind=c["ind"], where=c["where"], status=PF.STATUS[c["status"]],
                  svc=[lab for k, lab in PF.SERVICES if c["svc"].get(k)], did=c["did"], links=c["links"]) for c in C]
     s = s.replace("{{pf:data}}", json.dumps(data, ensure_ascii=False))
-    # clients x services
-    head = "<tr><th></th>" + "".join(f'<th data-col="{k}">{_e(lab)}</th>' for k, lab in PF.SERVICES) + "</tr>"
-    body = []
-    for c in C:
-        cells = "".join(f'<td data-col="{k}">' + ('<i></i>' if c["svc"].get(k) == 2 else '<i class="o"></i>' if c["svc"].get(k) == 1 else '') + '</td>' for k, _ in PF.SERVICES)
-        body.append(f'<tr><th>{_e(c["name"])}<small>{_e(c["where"])}</small></th>{cells}</tr>')
-    s = s.replace("{{pf:matrix}}", f"<thead>{head}</thead><tbody>{''.join(body)}</tbody>")
     # proposals, concepts and paused work
     other = "".join(f'<div class="po-c" data-in style="--d:{160 + i * 45}ms"><span class="po-k po-k--{st}">{PF.STATUS[st]}</span><b>{_e(n)}</b><small>{_e(w)}</small><p>{_e(t)}</p></div>'
                     for i, (n, w, t, st) in enumerate(PF.OTHER))
