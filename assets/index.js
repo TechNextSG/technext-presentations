@@ -77,7 +77,7 @@
   if (swOK) {
     navigator.serviceWorker.register('sw.js').catch(function () {});
     navigator.serviceWorker.addEventListener('message', function (e) {
-      if (e.data && e.data.warmed && st) { st.textContent = 'Saved: ' + e.data.warmed + ' decks open on this device with no internet.'; if (off) off.disabled = false; }
+      if (e.data && e.data.warmed && st) { st.textContent = 'Saved: ' + Math.max(1, e.data.warmed - 1) + ' decks open on this device with no internet.'; if (off) off.disabled = false; }
     });
   }
   if (off && swOK) off.addEventListener('click', function () {
