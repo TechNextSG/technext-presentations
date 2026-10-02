@@ -124,7 +124,7 @@
 .pp-a.is-hot{border-color:var(--blue-300);box-shadow:0 0 0 4px var(--blue-050)}
 .pp.is-focus .pp-c:not(.is-hot){opacity:.42}
 .pp.is-focus .pp-a:not(.is-hot){opacity:.34}
-.pp-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.pp-svg{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
 .pp-svg path{fill:none;stroke:var(--blue-300);stroke-width:2;stroke-linecap:round;opacity:.75;transition:opacity .35s,stroke .35s,stroke-width .35s}
 .pp-svg path.is-hot{stroke:var(--blue);stroke-width:3;opacity:1}
 .pp.is-focus .pp-svg path:not(.is-hot){opacity:.1}
@@ -132,7 +132,7 @@
 
 /* ---------------------------------------------------------------- 4 · architecture */
 .ar{position:relative;height:510px}
-.ar-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.ar-svg{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .ar-svg path{fill:none;stroke:rgba(169,196,245,.42);stroke-width:2}
 .ar-svg path.is-dash{stroke-dasharray:6 7}
 .ar-svg path.is-hot{stroke:#fff;stroke-width:2.5}
@@ -218,7 +218,7 @@
 .bk-stamp b{font:800 13.5px/1 var(--f-display)}
 .bk-tk .bk-pri,.bk-tk .bk-ch{transition:opacity .3s}
 .bk-map{overflow:hidden;background:#F5F8FD}
-.bk-map svg{position:absolute;inset:0;width:100%;height:100%}
+.bk-map svg{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%}
 .bk-streets path{fill:none;stroke:#E1E8F4;stroke-width:9;stroke-linecap:round}
 .bk-streets .bk-ave{stroke:#D2DDF0;stroke-width:14}
 .bk-route{fill:none;stroke:var(--blue);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}

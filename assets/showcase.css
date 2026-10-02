@@ -83,13 +83,13 @@
 
 /* ---------------------------------------------------------------- portfolio: map, grid, detail */
 .pm{position:relative;width:1000px;height:600px;flex:none}
-.pm-svg{position:absolute;inset:0;overflow:visible}
+.pm-svg{position:absolute;top:0;right:0;bottom:0;left:0;overflow:visible}
 .pm-dots path{fill:none;stroke:#C9D6EE}
 .dark .pm-dots path{stroke:rgba(255,255,255,.22)}
 .pm-pin{position:absolute;left:0;top:0;transform:translate(var(--px),var(--py));z-index:2}
 .pm-pin i{position:absolute;left:-9px;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px #fff,0 6px 14px -4px rgba(30,70,145,.6)}
 .dark .pm-pin i{background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.25)}
-.pm-pin i::before{content:"";position:absolute;inset:-12px;border-radius:50%;border:2px solid currentColor;color:var(--blue);opacity:0;animation:ofRing 3.4s var(--ease-io) infinite;animation-delay:var(--d,0s)}
+.pm-pin i::before{content:"";position:absolute;top:-12px;right:-12px;bottom:-12px;left:-12px;border-radius:50%;border:2px solid currentColor;color:var(--blue);opacity:0;animation:ofRing 3.4s var(--ease-io) infinite;animation-delay:var(--d,0s)}
 .dark .pm-pin i::before{color:#fff}
 @keyframes ofRing{0%{transform:scale(.5);opacity:.6}100%{transform:scale(1.7);opacity:0}}
 .pm-pin b{position:absolute;left:16px;top:-12px;white-space:nowrap;font:750 14px/1 var(--f-display);color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:9px;padding:6px 9px;box-shadow:var(--sh-1)}
@@ -213,7 +213,7 @@
 .st-m small{display:block;font-size:13.5px;color:var(--muted);margin-top:3px}
 /* the TRE network: four sites around shared events and forms */
 .nw{position:relative;width:820px;height:640px}
-.nw-svg{position:absolute;inset:0;overflow:visible}
+.nw-svg{position:absolute;top:0;right:0;bottom:0;left:0;overflow:visible}
 .nw-svg path{fill:none;stroke:var(--blue-200);stroke-width:2;stroke-dasharray:3 9;animation:flow 2s linear infinite}
 .nw-core{position:absolute;left:410px;top:300px;transform:translate(-50%,-50%);width:200px;height:200px;border-radius:50%;background:#137A4A;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;
   box-shadow:0 0 0 14px rgba(19,122,74,.1),0 0 0 34px rgba(19,122,74,.05),0 24px 50px -24px rgba(19,122,74,.8);z-index:2}

@@ -25,11 +25,28 @@ Live (unlisted, `noindex`): https://technextsg.github.io/technext-presentations/
 | `O` | all slides (arrows + `Enter` to pick; `O` or `Esc` closes) |
 | `F` | full screen |
 | `N` | speaker notes |
+| `P` | presenter view: notes, next slide and a timer in a second window that follows and steers the slides |
+| `B` or `.` | black screen (`W` or `,` for white); the next press brings the slide back without moving on |
+| `F5` | full screen (what presentation clickers send for "start"), not a reload |
 | `T` | Display: **HDMI cable** (full quality, every animation), **Wi-Fi / casting** (less motion, so the stream stays sharp; also for a TV's own browser) or **Auto** (less motion on its own for TV browsers, 4K screens, 4-core machines and `?kiosk`). Also the screen button in the control bar; remembered per browser; `?display=full`, `?display=cast`, `?display=auto` in the address |
 | number, then `Enter` | jump to a slide |
 | `?` | shortcuts |
 
 Click empty space to advance; swipe on touch screens. Add `?kiosk` (or `?kiosk=12` for 12 s a slide) to loop on its own. `#5` in the address opens slide 5.
+
+**On a TV or projector** (the launcher's "Presenting on a TV or projector" section is the team guide):
+
+| Set-up | How | Display mode |
+|---|---|---|
+| HDMI / USB-C cable | `Win`+`P` → Second screen only, open the deck, `F` | HDMI cable (full quality) |
+| Cable with notes on the laptop | `Win`+`P` → Extend, `P` for the presenter view, drag the slides window to the TV, `F` there | HDMI cable |
+| Wi-Fi casting | Chrome → Cast → Cast tab (Chromecast / Google TV), `Win`+`K` (Miracast), AirPlay | Wi-Fi / casting |
+| Zoom, Teams, Meet | share the tab or window | Wi-Fi / casting |
+| The TV's own browser | 2021+ TVs (Chromium 84+ for flex gaps); the remote's arrows and OK drive the deck | Wi-Fi / casting (Auto picks it) |
+| Bluetooth clicker | carries the keys, not the picture: Page Down / Up, F5, B work | any |
+| No internet | open each deck once online, or "Save every deck for offline use" on the launcher (`sw.js`); the PDFs and the Drive copy work offline | any |
+
+Fonts are self-hosted (`assets/fonts.css`, `assets/fonts/*.woff2`, one face per weight as Google declared them, so 650/750 still resolve to 700/800). `inset` is written as top/right/bottom/left so 2020–21 TV browsers lay the slides out. `sw.js` keeps an offline copy on the live https site only (never on a local preview): pages network-first, `?v=` files cache-first, other files stale-while-revalidate.
 
 **Share links.** Each card on the launcher has a Share button: it copies a link to that presentation on its own (on a phone it opens the share sheet), with Email, WhatsApp and Preview beside it. The link opens `s-<token>.html`, a copy of the deck with no Home button and none of the links to the other decks, so the person you send it to has no way from it to the rest. The site is public, though: it hides the way, it doesn't lock the door.
 

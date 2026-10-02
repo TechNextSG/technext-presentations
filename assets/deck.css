@@ -28,9 +28,9 @@ button{font:inherit;color:inherit}
 .ic{width:1em;height:1em;flex:none}
 
 /* ------------------------------------------------------------------ stage */
-.deck{position:fixed;inset:0;overflow:hidden}
+.deck{position:fixed;top:0;right:0;bottom:0;left:0;overflow:hidden}
 /* a phone held upright: deck.js sizes the deck to the screen turned sideways (left, width, height) and this turns it */
-.deck.is-rotated{inset:auto;top:0;transform-origin:0 0;transform:rotate(90deg)}
+.deck.is-rotated{top:auto;right:auto;bottom:auto;left:auto;top:0;transform-origin:0 0;transform:rotate(90deg)}
 /* drags stay with the slide's own code (the browser would take them as a pan, above all when the deck is turned) */
 [data-drag]{touch-action:none}
 .stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;margin:-450px 0 0 -800px;transform:scale(var(--s,1));transform-origin:50% 50%;
@@ -39,11 +39,11 @@ button{font:inherit;color:inherit}
 .deck.is-fading .stage{opacity:0}
 .deck.no-anim .slide,.deck.no-anim .slide *{transition:none!important}
 /* the ambient layer every light slide sits on: a faint dot grid and two slow brand-blue glows */
-.stage-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden;transition:opacity .6s var(--ease)}
+.stage-bg{position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;overflow:hidden;transition:opacity .6s var(--ease)}
 /* under a dark slide the glows cannot be seen: fade them out and stop them, so the GPU skips them */
 .deck[data-theme=dark] .stage-bg{opacity:0}
 .deck[data-theme=dark] .stage-bg i{animation-play-state:paused}
-.stage-bg::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(49,103,202,.13) 1.4px,transparent 1.6px);background-size:34px 34px;
+.stage-bg::before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background-image:radial-gradient(rgba(49,103,202,.13) 1.4px,transparent 1.6px);background-size:34px 34px;
   -webkit-mask-image:radial-gradient(ellipse 90% 80% at 70% 30%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 90% 80% at 70% 30%,#000 20%,transparent 75%)}
 /* the glows are soft radial gradients, not blurred circles: a filter:blur(90px) layer is re-blurred every frame it moves,
    and at 4K (2.4x the pixels) that alone made a TV stutter. Same size and softness as the old 720x620 and 680x560 blurs. */
@@ -53,7 +53,7 @@ button{font:inherit;color:inherit}
 @keyframes bgDrift{to{transform:translate(90px,60px) scale(1.08)}}
 
 /* ------------------------------------------------------------------ slides */
-.slide{position:absolute;inset:0;padding:118px 120px 96px;opacity:0;visibility:hidden;transform:translateX(56px);
+.slide{position:absolute;top:0;right:0;bottom:0;left:0;padding:118px 120px 96px;opacity:0;visibility:hidden;transform:translateX(56px);
   transition:opacity .55s var(--ease),transform .8s var(--ease),visibility 0s linear .8s;overflow:hidden}
 .slide.is-before{transform:translateX(-56px)}
 .slide.is-active{opacity:1;visibility:visible;transform:none;transition:opacity .6s var(--ease) .08s,transform .8s var(--ease),visibility 0s}
@@ -64,7 +64,7 @@ button{font:inherit;color:inherit}
   radial-gradient(ellipse 70% 90% at 85% 10%,rgba(111,160,245,.38),transparent 60%),
   radial-gradient(ellipse 60% 70% at 0% 100%,rgba(33,183,153,.14),transparent 60%),
   linear-gradient(140deg,#0F2350 0%,#1E4691 52%,#2D5DB8 100%)}
-.slide.dark::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.12) 1.3px,transparent 1.5px);background-size:34px 34px;
+.slide.dark::before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.12) 1.3px,transparent 1.5px);background-size:34px 34px;
   -webkit-mask-image:radial-gradient(ellipse 80% 80% at 70% 40%,#000 10%,transparent 75%);mask-image:radial-gradient(ellipse 80% 80% at 70% 40%,#000 10%,transparent 75%)}
 .slide.plain{background:#fff}
 
@@ -143,7 +143,7 @@ button{font:inherit;color:inherit}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center;height:100%}
 .split--wide{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
 .split--narrow{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
-.fill{position:absolute;inset:0}
+.fill{position:absolute;top:0;right:0;bottom:0;left:0}
 .mt-s{margin-top:16px}.mt-m{margin-top:32px}.mt-l{margin-top:52px}
 
 /* ------------------------------------------------------------------ components */
@@ -258,7 +258,7 @@ button{font:inherit;color:inherit}
 .notes-panel p{margin:0 0 8px}
 .slide .notes{display:none}
 
-.help{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:rgba(8,14,32,.55);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .25s}
+.help{position:fixed;top:0;right:0;bottom:0;left:0;z-index:60;display:grid;place-items:center;background:rgba(8,14,32,.55);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .25s}
 .help.is-open{opacity:1;pointer-events:auto}
 .help-card{background:#fff;border-radius:20px;padding:28px 32px;width:min(460px,calc(var(--vw,100vw) - 32px));max-height:calc(var(--vh,100vh) - 32px);overflow:auto;box-shadow:0 30px 80px -30px rgba(0,0,0,.6);font:400 16px/1.4 var(--f-body);color:var(--body)}
 .help-card h2{font:800 22px/1.2 var(--f-display);color:var(--ink);margin:0 0 16px}
@@ -314,6 +314,41 @@ button{font:inherit;color:inherit}
 .disp button[aria-checked=true]{background:rgba(111,160,245,.2)}
 .disp-now{margin:4px 0 2px;padding:8px 12px 4px;border-top:1px solid rgba(255,255,255,.12);font:500 12.5px/1.3 var(--f-body);color:rgba(255,255,255,.62)}
 .deck.is-compact .disp{right:10px;bottom:58px;width:290px}
+.disp .disp-act{grid-template-columns:1fr;margin-top:4px;border-top:1px solid rgba(255,255,255,.12);border-radius:0 0 11px 11px}
+.disp .disp-act::before{content:none}
+.disp-off{margin:0;padding:0 12px 6px;font:500 12px/1.3 var(--f-body);color:#9FE0BF}
+.disp-off:empty{display:none}
+
+/* black or white screen (B . / W ,) */
+.blackout{position:fixed;top:0;right:0;bottom:0;left:0;z-index:66;background:#000;opacity:0;pointer-events:none;transition:opacity .25s}
+.deck.is-black .blackout,.deck.is-white .blackout{opacity:1;pointer-events:auto}
+.deck.is-white .blackout{background:#fff}
+/* while nobody moves the mouse, the cursor goes too */
+.deck.is-still,.deck.is-still *{cursor:none!important}
+
+/* presenter view (?presenter): the slide on the left, notes, next slide and timer on the right */
+.deck.is-presenter{background:#0B1430}
+.deck.is-presenter .stage{left:calc((100% - var(--pvw,420px)) / 2)}
+.deck.is-presenter .ui,.deck.is-presenter .notes-panel,.deck.is-presenter .disp{display:none}
+.deck.is-presenter .blackout{right:var(--pvw,420px)}
+.pv{position:fixed;top:0;right:0;bottom:0;width:var(--pvw,420px);z-index:60;display:flex;flex-direction:column;padding:22px 22px 18px;background:#121C3D;color:#fff;border-left:1px solid rgba(255,255,255,.1);font-family:var(--f-body)}
+.pv-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font:700 13px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.pv-timer{border:0;border-radius:10px;padding:8px 12px;background:rgba(255,255,255,.1);color:#fff;font:800 26px/1 var(--f-display);font-variant-numeric:tabular-nums;cursor:pointer}
+.pv-title{margin:18px 0 0;font:800 26px/1.15 var(--f-display);letter-spacing:-.01em}
+.pv-step{margin:6px 0 0;font:600 14px/1.3 var(--f-display);color:#9CC0FF}
+.pv-step:empty{display:none}
+.pv-notes{flex:1;overflow:auto;margin:16px 0 0;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.06);font-size:20px;line-height:1.5;color:rgba(255,255,255,.92)}
+.pv-notes p{margin:0 0 .7em}
+.pv-none{color:rgba(255,255,255,.5)}
+.pv-next{margin:14px 0 0;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);font:700 16px/1.3 var(--f-display)}
+.pv-next small{display:block;margin-bottom:4px;font:700 11.5px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.pv-acts{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:8px;margin-top:14px}
+.pv-acts button{display:flex;align-items:center;justify-content:center;gap:6px;height:54px;border:0;border-radius:12px;background:rgba(255,255,255,.12);color:#fff;font:700 15px/1 var(--f-display);cursor:pointer}
+.pv-acts button:hover,.pv-acts button:focus-visible{background:rgba(255,255,255,.2);outline:none}
+.pv-acts [data-pv=next]{background:var(--blue)}
+.pv-acts [aria-pressed=true]{background:#fff;color:#0B1430}
+.pv-acts .ic{width:18px;height:18px}
+.pv-hint{margin:12px 0 0;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,.55)}
 
 /* ------------------------------------------------------------------ motion + print */
 @media (prefers-reduced-motion:reduce){

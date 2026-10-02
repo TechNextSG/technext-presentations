@@ -69,4 +69,21 @@
   });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && pop) { e.preventDefault(); close(true); } });
   addEventListener('resize', place);
+
+  // offline: every deck (and its pictures, fonts and PDF) saved on this device, for venues with no internet (sw.js)
+  var off = document.querySelector('[data-offline]'), st = document.querySelector('[data-offline-st]');
+  var swOK = 'serviceWorker' in navigator && location.protocol === 'https:';
+  if (off && !swOK) { off.hidden = true; if (st) st.textContent = 'Saving for offline works on the live site (https).'; }
+  if (swOK) {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+    navigator.serviceWorker.addEventListener('message', function (e) {
+      if (e.data && e.data.warmed && st) { st.textContent = 'Saved: ' + e.data.warmed + ' decks open on this device with no internet.'; if (off) off.disabled = false; }
+    });
+  }
+  if (off && swOK) off.addEventListener('click', function () {
+    var pages = [location.href.split('#')[0]];
+    [].forEach.call(document.querySelectorAll('.ix-thumb'), function (a) { pages.push(new URL(a.getAttribute('href'), location.href).href); });
+    off.disabled = true; if (st) st.textContent = 'Saving ' + (pages.length - 1) + ' decks…';
+    navigator.serviceWorker.ready.then(function (reg) { if (reg.active) reg.active.postMessage({ warm: pages }); });
+  });
 })();

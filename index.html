@@ -19,10 +19,9 @@
 <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
-<link rel="stylesheet" href="assets/index.css?v=13">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=14">
+<link rel="stylesheet" href="assets/index.css?v=14">
 </head>
 <body>
 <header class="ix-hero">
@@ -205,6 +204,21 @@
       <li><b>Leave it running.</b> Add <code>?kiosk</code> to the address (the “Kiosk loop” link) for an event screen that plays on its own.</li>
     </ul>
   </section>
+
+  <section class="ix-how" aria-labelledby="how-h">
+    <h2 id="how-h">Presenting on a TV or projector</h2>
+    <p class="ix-how-lead">Every deck runs in any of these set-ups. Pick the Display mode with the screen button in the deck’s control bar, or press <kbd>T</kbd>.</p>
+    <div class="ix-how-grid">
+      <article><b>HDMI or USB-C cable</b><p>The sharpest picture. Press <kbd>Win</kbd>+<kbd>P</kbd> and choose <em>Second screen only</em>, open the deck and press <kbd>F</kbd>. Display: <em>HDMI cable</em>, full quality.</p></article>
+      <article><b>Notes on your laptop</b><p>Cable, with <kbd>Win</kbd>+<kbd>P</kbd> on <em>Extend</em>. Press <kbd>P</kbd> in the deck: your notes, the next slide and a timer open in a second window. Drag the slides to the TV and press <kbd>F</kbd>.</p></article>
+      <article><b>Wi-Fi casting</b><p>Chrome menu, <em>Cast</em>, <em>Cast tab</em> (Chromecast, Google TV), <kbd>Win</kbd>+<kbd>K</kbd> (Miracast) or AirPlay on a Mac. Display: <em>Wi-Fi / casting</em> keeps the stream sharp.</p></article>
+      <article><b>Zoom, Teams or Meet</b><p>Share the browser tab or window, not the whole screen. <em>Wi-Fi / casting</em> keeps it smooth for people watching remotely.</p></article>
+      <article><b>The TV’s own browser</b><p>Open the deck link on the TV (2021 models or newer): the remote’s arrows and OK move the slides. On older TVs, cast from the laptop or open the PDF.</p></article>
+      <article><b>Bluetooth clicker</b><p>Bluetooth carries the clicker, not the picture. Next and back work with any clicker, <kbd>F5</kbd> starts full screen, <kbd>B</kbd> or <kbd>.</kbd> blacks the screen out.</p></article>
+      <article><b>No internet at the venue</b><p>Open each deck once while online, or press the button below: it then opens with no connection on this device. The PDFs and the Drive copy work offline too.</p></article>
+    </div>
+    <p class="ix-how-act"><button type="button" class="ix-btn ix-btn--p" data-offline>Save every deck for offline use</button><span class="ix-how-st" data-offline-st role="status"></span></p>
+  </section>
 </main>
 
 <footer class="ix-foot">
@@ -213,6 +227,6 @@
     <a href="https://technext.asia/" target="_blank" rel="noopener">technext.asia</a>
   </div>
 </footer>
-<script src="assets/index.js?v=13" defer></script>
+<script src="assets/index.js?v=14" defer></script>
 </body>
 </html>

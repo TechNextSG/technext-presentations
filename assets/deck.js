@@ -1,6 +1,6 @@
 /* TechNext HTML decks: shared engine.
    Slides are <section class="slide" id="..."> inside .stage. Keys: → Space PgDn next · ← PgUp prev · Home End ·
-   O overview · F fullscreen · N speaker notes · T display (HDMI / Wi-Fi) · ? help. Click empty space to advance, swipe on touch.
+   O overview · F fullscreen (F5 too) · N speaker notes · P presenter view · B black screen · T display (HDMI / Wi-Fi) · ? help. Click empty space to advance, swipe on touch.
    [data-in] animates when a slide opens; [data-step="n"] builds on the n-th press ([data-until="m"] hides it again).
    Slides register behaviour with Deck.on(id, {init, enter(ctx, slide), step(n, ctx, slide), leave(slide), settle(slide)});
    settle runs once the slide has faded out, to leave it in its finished state for the overview; ?print and printing
@@ -15,7 +15,7 @@
   var hooks = {}, cur = -1, step = 0, ctx = null, scale = 1, overview = false, oCursor = 0;
   var params = new URLSearchParams(location.search);
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var PRINT = params.has('print');
+  var PRINT = params.has('print'), PRESENTER = params.has('presenter');
   // Display: 'full' (HDMI cable: every animation), 'cast' (Wi-Fi casting and TV browsers: less motion, so the video stream
   // stays sharp; deck.css .is-tv) or 'auto' (lighter on its own for TV browsers, 4K outputs, low-core machines and ?kiosk).
   // Picked from the screen button in the control bar or with T, remembered on this browser; ?display=full|cast|auto, ?tv, ?tv=0.
@@ -142,7 +142,9 @@
     '<button type="button" role="menuitemradio" data-mode="full"><b>HDMI cable</b><small>Full quality, every animation. A cable sends the picture to the TV untouched.</small></button>' +
     '<button type="button" role="menuitemradio" data-mode="cast"><b>Wi-Fi / casting</b><small>Less motion, so the picture stays sharp and smooth over Wi-Fi. Also for a TV\'s own browser.</small></button>' +
     '<button type="button" role="menuitemradio" data-mode="auto"><b>Auto</b><small>Less motion on 4K and TV screens and slower laptops, full quality elsewhere.</small></button>' +
-    '<p class="disp-now"></p>';
+    '<p class="disp-now"></p>' +
+    '<button type="button" role="menuitem" class="disp-act" data-act="presenter"><b>Presenter view (P)</b><small>Your notes, the next slide and a timer in a second window. Put the slides on the TV.</small></button>' +
+    '<p class="disp-off"></p>';
   root.appendChild(disp);
   function paintDisp() {
     $$('[data-mode]', disp).forEach(function (b) { b.setAttribute('aria-checked', b.dataset.mode === mode ? 'true' : 'false'); });
@@ -153,10 +155,95 @@
     try { localStorage.setItem(DKEY, m); } catch (e) {}
     paintDisp();
     if (quiet) return;
-    tvToast.textContent = m === 'full' ? 'HDMI cable: full quality' : m === 'cast' ? 'Wi-Fi / casting: less motion, sharper picture' : 'Auto: ' + (tv ? 'less motion on this screen' : 'full quality on this screen');
-    tvToast.classList.add('is-on'); clearTimeout(tvT); tvT = setTimeout(function () { tvToast.classList.remove('is-on'); }, 1800);
+    note(m === 'full' ? 'HDMI cable: full quality' : m === 'cast' ? 'Wi-Fi / casting: less motion, sharper picture' : 'Auto: ' + (tv ? 'less motion on this screen' : 'full quality on this screen'));
   }
+  function note(t, ms) { tvToast.textContent = t; tvToast.classList.add('is-on'); clearTimeout(tvT); tvT = setTimeout(function () { tvToast.classList.remove('is-on'); }, ms || 1800); }
   paintDisp();
+
+  /* ---------------------------------------------------------------- black or white screen: B or . / W or , (clickers' blank button) */
+  var blackMode = '';
+  var blk = document.createElement('div'); blk.className = 'blackout'; blk.setAttribute('aria-hidden', 'true'); root.appendChild(blk);
+  blk.addEventListener('click', function () { setBlack(''); });
+  function setBlack(v) {
+    blackMode = v || '';
+    root.classList.toggle('is-black', blackMode === 'black'); root.classList.toggle('is-white', blackMode === 'white');
+    share({ t: 'black', v: blackMode }); pvUpdate();
+  }
+
+  /* ---------------------------------------------------------------- presenter view: P opens a second window with the notes, the next
+     slide and a timer. Every window of this deck follows the others (BroadcastChannel), so the slides can sit full screen on the TV. */
+  var bc = null, remote = false, pv = null, pvT0 = Date.now();
+  try { bc = new BroadcastChannel('tn-deck:' + location.pathname); } catch (e) {}
+  function share(m) { if (bc && !remote) try { bc.postMessage(m); } catch (e) {} }
+  if (bc) bc.onmessage = function (e) {
+    var m = e.data || {};
+    if (m.t === 'hello') { share({ t: 'go', i: cur, s: step }); if (blackMode) share({ t: 'black', v: blackMode }); return; }
+    remote = true;
+    try { if (m.t === 'go' && cur >= 0) go(m.i, m.s); else if (m.t === 'black') setBlack(m.v); } finally { remote = false; }
+  };
+  function openPresenter() {
+    var w = null;
+    try { w = window.open(location.pathname + '?presenter#' + (cur + 1), 'tn-presenter', 'popup,width=1200,height=740'); } catch (e) {}
+    if (w) note('Presenter view open. Put this window on the TV and press F.', 3600); else note('Allow pop-ups for this site to open the presenter view.', 3600);
+  }
+  // built from start(), once the icons below exist
+  function pvBuild() {
+    if (!PRESENTER || PRINT) return;
+    root.classList.add('is-presenter', 'is-tv');
+    document.title = 'Presenter · ' + document.title;
+    pv = document.createElement('aside'); pv.className = 'pv'; pv.setAttribute('aria-label', 'Presenter view');
+    pv.innerHTML = '<div class="pv-top"><span class="pv-n"></span><span class="pv-clock"></span><button type="button" class="pv-timer" title="Reset the timer">00:00</button></div>' +
+      '<p class="pv-title"></p><p class="pv-step"></p><div class="pv-notes"></div><p class="pv-next"><small>Next</small><b></b></p>' +
+      '<div class="pv-acts"><button type="button" data-pv="prev">' + I.prev + 'Back</button><button type="button" data-pv="black" aria-pressed="false">Black screen</button><button type="button" data-pv="next">Next' + I.next + '</button></div>' +
+      '<p class="pv-hint">This window follows the slides and steers them: put the other window on the TV and press F there. A demo you click runs in the window you click.</p>';
+    root.appendChild(pv);
+    pv.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-pv],.pv-timer'); if (!b) return;
+      e.stopPropagation();
+      if (b.classList.contains('pv-timer')) { pvT0 = Date.now(); pvTick(); return; }
+      var a = b.dataset.pv; if (a === 'next') next(); else if (a === 'prev') prev(); else if (a === 'black') setBlack(blackMode ? '' : 'black');
+    });
+    setInterval(pvTick, 1000);
+  }
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  function pvTick() {
+    if (!pv) return;
+    var s = Math.floor((Date.now() - pvT0) / 1000), d = new Date();
+    $('.pv-timer', pv).textContent = (s >= 3600 ? Math.floor(s / 3600) + ':' : '') + pad2(Math.floor(s / 60) % 60) + ':' + pad2(s % 60);
+    $('.pv-clock', pv).textContent = pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+  }
+  function pvUpdate() {
+    if (!pv || cur < 0) return;
+    var s = slides[cur], n = s.querySelector('.notes'), nx = slides[cur + 1], st = stepsOf(cur);
+    $('.pv-n', pv).textContent = 'Slide ' + (cur + 1) + ' of ' + total;
+    $('.pv-title', pv).textContent = s.dataset.title || '';
+    $('.pv-step', pv).textContent = st ? 'Build ' + step + ' of ' + st + (step < st ? ': the next press shows the next build' : '') : '';
+    $('.pv-notes', pv).innerHTML = n ? n.innerHTML : '<p class="pv-none">No notes for this slide.</p>';
+    $('.pv-next b', pv).textContent = nx ? (cur + 2) + ' · ' + nx.dataset.title : 'End of the deck';
+    var bb = $('[data-pv=black]', pv); bb.setAttribute('aria-pressed', blackMode ? 'true' : 'false'); bb.textContent = blackMode ? 'Show the slides' : 'Black screen';
+    pvTick();
+  }
+
+  /* ---------------------------------------------------------------- keep the screen awake while presenting (full screen, kiosk, presenter) */
+  var wakeLock = null;
+  function holdScreen() {
+    if (!('wakeLock' in navigator)) return;
+    var want = (!!document.fullscreenElement || !!kiosk || PRESENTER) && document.visibilityState === 'visible';
+    if (want && !wakeLock) navigator.wakeLock.request('screen').then(function (l) { wakeLock = l; l.addEventListener('release', function () { wakeLock = null; }); }).catch(function () {});
+    else if (!want && wakeLock) { wakeLock.release().catch(function () {}); wakeLock = null; }
+  }
+  document.addEventListener('fullscreenchange', holdScreen); document.addEventListener('visibilitychange', holdScreen);
+
+  /* ---------------------------------------------------------------- offline: once opened online, a deck opens and runs with no
+     connection on this device (sw.js). Only on the live https site, so a local preview never serves a stale copy. */
+  function saveOffline() {
+    if (!('serviceWorker' in navigator) || location.protocol !== 'https:' || PRINT) return;
+    navigator.serviceWorker.register('sw.js').then(function () { return navigator.serviceWorker.ready; }).then(function (reg) {
+      navigator.serviceWorker.addEventListener('message', function (e) { if (e.data && e.data.warmed) $('.disp-off', disp).textContent = 'Saved on this device: opens with no internet.'; });
+      if (reg.active) reg.active.postMessage({ warm: [location.href.split('#')[0]] });
+    }).catch(function () {});
+  }
+
   var bg = document.createElement('div'); bg.className = 'stage-bg'; bg.innerHTML = '<i></i><i></i>'; stage.insertBefore(bg, stage.firstChild);
   var prog = document.createElement('div'); prog.className = 'progress'; prog.innerHTML = '<i></i>'; stage.appendChild(prog);
 
@@ -195,9 +282,11 @@
     '<dt><kbd>O</kbd></dt><dd>All slides (arrows + Enter to pick, O or Esc to close)</dd>' +
     '<dt><kbd>F</kbd></dt><dd>Full screen</dd>' +
     '<dt><kbd>N</kbd></dt><dd>Speaker notes</dd>' +
+    '<dt><kbd>P</kbd></dt><dd>Presenter view: notes, next slide and a timer in a second window</dd>' +
+    '<dt><kbd>B</kbd><kbd>.</kbd></dt><dd>Black screen (<kbd>W</kbd> or <kbd>,</kbd> for white); any key brings the slide back</dd>' +
     '<dt><kbd>T</kbd></dt><dd>Display: Auto, HDMI cable (full quality) or Wi-Fi casting (less motion)</dd>' +
     '<dt><kbd>1</kbd>–<kbd>9</kbd> then <kbd>Enter</kbd></dt><dd>Jump to a slide</dd>' +
-    '</dl><p class="small muted" style="margin:18px 0 0">Click empty space to advance · swipe on touch screens · add <b>?kiosk</b> to the address to loop on its own.</p></div>';
+    '</dl><p class="small muted" style="margin:18px 0 0">Click empty space to advance · swipe on touch screens · clickers and TV remotes work (Page Down / Up, arrows, OK; F5 starts full screen) · add <b>?kiosk</b> to the address to loop on its own.</p></div>';
   root.appendChild(helpEl);
   // shown upright for a few seconds when the deck turns for a phone
   var rot = document.createElement('div'); rot.className = 'rotate-hint'; rot.setAttribute('aria-hidden', 'true');
@@ -215,6 +304,7 @@
     root.style.setProperty('--vw', vw + 'px'); root.style.setProperty('--vh', vh + 'px');
     // phones: a smaller control bar, so it covers less of the slide
     root.classList.toggle('is-compact', vh < 520);
+    if (PRESENTER) { var pw = Math.round(Math.min(480, Math.max(330, vw * .36))); root.style.setProperty('--pvw', pw + 'px'); vw = Math.max(200, vw - pw - 32); vh = Math.max(200, vh - 32); }
     scale = Math.min(vw / W, vh / H);
     root.style.setProperty('--s', scale);
     if (!rotated) { hinted = false; rot.classList.remove('is-on'); }
@@ -272,6 +362,7 @@
     kiosk_reset();
     // other scripts (lazy images) follow along
     try { root.dispatchEvent(new CustomEvent('deck:slide', { detail: { index: i } })); } catch (e) {}
+    share({ t: 'go', i: cur, s: step });
   }
   function setStep(s) {
     var sl = slides[cur]; s = clamp(s, 0, stepsOf(cur));
@@ -279,9 +370,11 @@
     step = s; paint(sl, s);
     var h = hooks[sl.id]; if (h && h.step) try { h.step(s, ctx, sl, false); } catch (e) { console.error(e); }
     ui_update(); kiosk_reset();
+    share({ t: 'go', i: cur, s: step });
   }
-  function next() { if (step < stepsOf(cur)) setStep(step + 1); else if (cur < total - 1) go(cur + 1, 0); }
-  function prev() { if (step > 0) setStep(step - 1); else if (cur > 0) go(cur - 1, -1); }
+  // with the screen blacked out, the first press (or click) brings the slide back without moving on
+  function next() { if (blackMode) { setBlack(''); return; } if (step < stepsOf(cur)) setStep(step + 1); else if (cur < total - 1) go(cur + 1, 0); }
+  function prev() { if (blackMode) { setBlack(''); return; } if (step > 0) setStep(step - 1); else if (cur > 0) go(cur - 1, -1); }
 
   function ui_update() {
     countEl.textContent = (cur + 1) + ' / ' + total;
@@ -290,6 +383,7 @@
     built += step + 1;
     prog.style.setProperty('--p', total > 1 ? (built - 1) / (all - 1) : 1);
     if (notesEl.classList.contains('is-open')) notes_fill();
+    pvUpdate();
   }
 
   /* ---------------------------------------------------------------- overview */
@@ -380,10 +474,15 @@
       case 'End': go(total - 1, -1); break;
       case 'o': case 'O': setOverview(!overview); break;
       // Esc closes the notes; it never opens the overview (in full screen the browser also uses it to exit)
-      case 'Escape': if (notesEl.classList.contains('is-open')) toggleNotes(); else return; break;
+      case 'Escape': if (blackMode) setBlack(''); else if (notesEl.classList.contains('is-open')) toggleNotes(); else return; break;
       case 'f': case 'F': toggleFull(); break;
       case 'n': case 'N': toggleNotes(); break;
-      case 't': case 'T': setMode(MODES[(MODES.indexOf(mode) + 1) % MODES.length]); break;
+      case 't': case 'T': if (PRESENTER) return; setMode(MODES[(MODES.indexOf(mode) + 1) % MODES.length]); break;
+      case 'p': case 'P': if (PRESENTER) return; openPresenter(); break;
+      case 'b': case 'B': case '.': setBlack(blackMode === 'black' ? '' : 'black'); break;
+      case 'w': case 'W': case ',': setBlack(blackMode === 'white' ? '' : 'white'); break;
+      // presentation clickers send F5 for start: full screen, not a reload
+      case 'F5': toggleFull(); break;
       case '?': toggleHelp(); break;
       default: return;
     }
@@ -436,7 +535,10 @@
     disp.classList.toggle('is-open', on); $('[data-ui=display]', ui).setAttribute('aria-expanded', on ? 'true' : 'false');
     if (on) { paintDisp(); var b = $('[aria-checked=true]', disp); if (b) b.focus(); }
   }
-  disp.addEventListener('click', function (e) { var b = e.target.closest('[data-mode]'); if (b) { setMode(b.dataset.mode); toggleDisp(false); } });
+  disp.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-mode]'); if (b) { setMode(b.dataset.mode); toggleDisp(false); return; }
+    if (e.target.closest('[data-act=presenter]')) { toggleDisp(false); openPresenter(); }
+  });
   // a click outside closes the menu without also moving the slides on
   document.addEventListener('click', function (e) {
     if (!disp.classList.contains('is-open') || disp.contains(e.target) || e.target.closest('[data-ui=display]')) return;
@@ -449,7 +551,8 @@
 
   // the control bar fades out while nobody moves the mouse
   var idleT = 0;
-  function wake() { ui.classList.remove('is-idle'); clearTimeout(idleT); idleT = setTimeout(function () { if (!ui.matches(':hover') && !ui.contains(document.activeElement) && !disp.classList.contains('is-open')) ui.classList.add('is-idle'); }, 2800); }
+  // the mouse cursor hides with it, so it never sits on the slide on a TV
+  function wake() { ui.classList.remove('is-idle'); root.classList.remove('is-still'); clearTimeout(idleT); idleT = setTimeout(function () { if (!ui.matches(':hover') && !ui.contains(document.activeElement) && !disp.classList.contains('is-open')) { ui.classList.add('is-idle'); root.classList.add('is-still'); } }, 2800); }
   addEventListener('mousemove', wake, { passive: true }); addEventListener('touchstart', wake, { passive: true }); addEventListener('keydown', function (e) { if (e.key === 'Tab') wake(); });
 
   addEventListener('resize', function () { fit(); if (overview) layoutOverview(); });
@@ -480,17 +583,21 @@
     goId: function (id, s) { var i = slides.findIndex(function (x) { return x.id === id; }); if (i >= 0) Deck.go(i, s); },
     next: next, prev: prev,
     get index() { return cur; }, get step() { return step; }, get scale() { return scale; },
-    get rotated() { return rotated; }, get tv() { return tv; }, get display() { return mode; }, print: PRINT,
+    get rotated() { return rotated; }, get tv() { return tv; }, get display() { return mode; }, presenter: PRESENTER, print: PRINT,
     slides: slides, $: $, $$: $$, lbox: lbox, vbox: vbox, rect: rect, point: point, clamp: clamp, ease: ease, money: money, reduce: reduce
   };
 
   function start() {
+    pvBuild();
     fit();
     Object.keys(hooks).forEach(function (id) { var s = document.getElementById(id); if (s && hooks[id].init) try { hooks[id].init(s); } catch (e) { console.error(e); } });
     var n = parseInt(location.hash.slice(1), 10);
     go(n && n <= total ? n - 1 : 0, 0);
     if (PRINT) settleAll();
     wake();
+    if (PRESENTER) share({ t: 'hello' });
+    holdScreen();
+    setTimeout(saveOffline, 2500);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else setTimeout(start, 0);
 })();

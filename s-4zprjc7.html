@@ -8,10 +8,10 @@
 <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
-<link rel="stylesheet" href="assets/deck.css?v=13">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=14">
+<link rel="stylesheet" href="assets/deck.css?v=14">
 <title>TechNext Company Profile</title>
 <meta name="description" content="TechNext Pte. Ltd. company profile: an Odoo Ready Partner headquartered in Singapore, with teams in the Philippines and Vietnam. Odoo ERP, enterprise AI and websites.">
 <meta property="og:type" content="website">
@@ -23,8 +23,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/ai-demos.css?v=13">
-<link rel="stylesheet" href="assets/company-profile.css?v=13">
+<link rel="stylesheet" href="assets/ai-demos.css?v=14">
+<link rel="stylesheet" href="assets/company-profile.css?v=14">
 </head>
 <body data-label="Company profile" data-shared>
 <main class="deck" aria-label="TechNext company profile">
@@ -459,10 +459,10 @@
   </div>
 </template>
 
-<script src="assets/deck.js?v=13"></script>
-<script src="assets/fx.js?v=13"></script>
-<script src="assets/ai-demos.js?v=13"></script>
+<script src="assets/deck.js?v=14"></script>
+<script src="assets/fx.js?v=14"></script>
+<script src="assets/ai-demos.js?v=14"></script>
 <script>window.APPS = [{"id":"finance","title":"Finance","apps":[{"n":"Accounting","d":"Journals, bank sync, tax reports and closing.","m":"accountant"},{"n":"Invoicing","d":"Send invoices and collect payments online.","m":"account"},{"n":"Expenses","d":"Capture receipts and approve claims.","m":"hr_expense"},{"n":"Spreadsheet (BI)","d":"Live pivots and dashboards on Odoo data.","m":"spreadsheet_dashboard"},{"n":"Documents","d":"File storage with workflows and OCR.","m":"documents"},{"n":"Sign","d":"Legally binding e-signatures.","m":"sign"}]},{"id":"sales","title":"Sales","apps":[{"n":"CRM","d":"Leads, pipeline and activities.","m":"crm"},{"n":"Sales","d":"Quotations, orders and upsells.","m":"sale"},{"n":"Point of Sale — Shop","d":"Offline-ready retail checkout.","m":"point_of_sale"},{"n":"Point of Sale — Restaurant","d":"Tables, kitchen printing, bills.","m":"pos_restaurant"},{"n":"Subscriptions","d":"Recurring billing and renewals.","m":"sale_subscription"},{"n":"Rental","d":"Book, pick up and return assets.","m":"sale_renting"}]},{"id":"websites","title":"Websites","apps":[{"n":"Website Builder","d":"Drag-and-drop pages with SEO tools.","m":"website"},{"n":"eCommerce","d":"Online store tied to stock and accounting.","m":"website_sale"},{"n":"Blog","d":"Articles with scheduling and SEO.","m":"website_blog"},{"n":"Forum","d":"Community Q&A.","m":"website_forum"},{"n":"Live Chat","d":"Chat with visitors from Discuss.","m":"im_livechat"},{"n":"eLearning","d":"Courses, quizzes and certifications.","m":"website_slides"}]},{"id":"supply-chain","title":"Supply Chain","apps":[{"n":"Inventory","d":"Multi-warehouse stock, barcodes, replenishment.","m":"stock"},{"n":"Manufacturing","d":"Bills of materials and work orders.","m":"mrp"},{"n":"PLM","d":"Engineering changes and versions.","m":"mrp_plm"},{"n":"Purchase","d":"RFQs, vendor pricelists, receipts.","m":"purchase"},{"n":"Maintenance","d":"Preventive and corrective requests.","m":"maintenance"},{"n":"Quality","d":"Control points and quality alerts.","m":"quality_control"}]},{"id":"hr","title":"Human Resources","apps":[{"n":"Employees","d":"Directory, contracts and org chart.","m":"hr"},{"n":"Recruitment","d":"Job posts, applicants and interviews.","m":"hr_recruitment"},{"n":"Time Off","d":"Leave requests and allocations.","m":"hr_holidays"},{"n":"Appraisals","d":"Reviews and goals.","m":"hr_appraisal"},{"n":"Referrals","d":"Employee referral programme.","m":"hr_referral"},{"n":"Fleet","d":"Vehicles, contracts and costs.","m":"fleet"},{"n":"Payroll","d":"Salary rules and payslips.","m":"hr_payroll"}]},{"id":"marketing","title":"Marketing","apps":[{"n":"Social Marketing","d":"Schedule and track posts.","m":"social"},{"n":"Email Marketing","d":"Campaigns, lists and A/B tests.","m":"mass_mailing"},{"n":"SMS Marketing","d":"Text campaigns with tracking.","m":"mass_mailing_sms"},{"n":"Events","d":"Registrations, tickets and badges.","m":"event"},{"n":"Marketing Automation","d":"Multi-step flows on triggers.","m":"marketing_automation"},{"n":"Surveys","d":"Forms, quizzes and feedback.","m":"survey"}]},{"id":"services","title":"Services","apps":[{"n":"Project","d":"Tasks, stages and milestones.","m":"project"},{"n":"Timesheets","d":"Time tracking billed to projects.","m":"hr_timesheet"},{"n":"Field Service","d":"On-site jobs, run in Planning from Odoo 20.","m":"industry_fsm"},{"n":"Helpdesk","d":"Tickets, SLAs and knowledge base.","m":"helpdesk"},{"n":"Planning","d":"Shifts, resources and field service.","m":"planning"},{"n":"Appointments","d":"Online booking calendars.","m":"appointment"}]},{"id":"productivity","title":"Productivity","apps":[{"n":"Discuss","d":"Chat, channels and notifications.","m":"mail"},{"n":"Approvals","d":"Request and approve anything.","m":"approvals"},{"n":"IoT","d":"Connect scales, printers and devices.","m":"iot"},{"n":"Phone","d":"Calls over VoIP from inside Odoo.","m":"voip"},{"n":"Knowledge","d":"Wiki pages linked to records.","m":"knowledge"},{"n":"WhatsApp","d":"Templates and conversations.","m":"whatsapp"},{"n":"AI","d":"Assistants and agents inside Odoo.","m":"ai_app"}]}];</script>
-<script src="assets/company-profile.js?v=13"></script>
+<script src="assets/company-profile.js?v=14"></script>
 </body>
 </html>
