@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>Odoo CRM</title>
+<meta name="description" content="Odoo CRM in one live session: leads from every channel merged into one pipeline, Lead Sourcing, assignment by rotation, planned activities, predictive scoring, the quotation and the forecast. By TechNext, an Odoo Ready Partner in Singapore.">
+{{og:odoo-crm}}
+<link rel="stylesheet" href="assets/odoo-app.css?v={{v}}">
+<link rel="stylesheet" href="assets/odoo-crm.css?v={{v}}">
+</head>
+<body data-label="Odoo CRM" data-home="./">
+<main class="deck" aria-label="Odoo CRM: a live session">
+<div class="stage">
+
+<!-- 1 · cover: the pipeline is already moving -->
+<section class="slide dark cover oa-cover" id="cover" data-chrome="none" data-title="Odoo CRM">
+  <div class="cv-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">{{odoo:crm:38}}odoo crm</span>
+    <h1 class="h-xl" data-in style="--d:200ms">No lead <span class="hl">left waiting.</span></h1>
+    <p class="lead" data-in style="--d:320ms">Website, inbox and team leads land in one pipeline, get shared out by rule and always carry a next step, with odds from your own history.</p>
+    <div class="cv-tags" data-in style="--d:440ms">
+      <span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="46" height="22">Presented by an Odoo Ready Partner</span>
+      <span class="tag">{{icon:refresh}}Odoo 20</span>
+    </div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> to start the session <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="cv-win" data-in data-fx="fade" style="--d:300ms"><div class="lw" aria-hidden="true">
+    {{include:crm-nav}}
+    <div class="lw-cp"><div class="lw-bc"><button type="button" class="lw-btn lw-btn--p">New</button><b>Pipeline</b><span class="kb-team">Projects {{icon:chevron}}</span></div><div class="lw-search">{{icon:search}}<span class="lw-facet">My Pipeline</span></div></div>
+    <div class="lw-body kb cv-kb">
+      <div class="kb-col"><p class="kb-h"><b>New</b><span>3 · S$21,400</span></p>
+        <div class="kb-card"><b>Café counter</b><small>Tiong Bahru Bakehouse</small><p class="kb-f"><span class="kb-st" aria-label="Priority 1 of 3"><i class="on">{{icon:star}}</i><i>{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$4,800</em><i class="kb-av" style="--c:#137A4A">MR</i></p></div>
+        <div class="kb-card"><b>Dental reception</b><small>Pasir Ris Dental</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$9,600</em><i class="kb-av" style="--c:#8A5A00">AK</i></p></div>
+        <div class="kb-card"><b>Office pantry, 2 floors</b><small>Kallang Hub</small><p class="kb-f"><span class="kb-st" aria-label="Priority 1 of 3"><i class="on">{{icon:star}}</i><i>{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$7,000</em><i class="kb-av" style="--c:#3167CA">JT</i></p></div></div>
+      <div class="kb-col"><p class="kb-h"><b>Qualified</b><span class="cv-n"><span>4 · S$46,900</span><span>3 · S$28,900</span></span></p>
+        <div class="kb-card cv-mover"><b>Reception refresh, 3 clinics</b><small>Sunbird Clinics Pte Ltd</small><p class="kb-f"><span class="kb-st" aria-label="Priority 3 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i></span><em>S$18,000</em><i class="kb-av" style="--c:#3167CA">JT</i></p></div>
+        <div class="kb-card"><b>Standing desks × 20</b><small>Riverton Logistics</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$12,400</em><i class="kb-av" style="--c:#8A5A00">AK</i></p></div>
+        <div class="kb-card"><b>Boardroom refit</b><small>Harbourlight Bistro</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$9,500</em><i class="kb-av" style="--c:#137A4A">MR</i></p></div>
+        <div class="kb-card"><b>Reception desk</b><small>Maple &amp; Moss Crafts</small><p class="kb-f"><span class="kb-st" aria-label="Priority 1 of 3"><i class="on">{{icon:star}}</i><i>{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$7,000</em><i class="kb-av" style="--c:#8A5A00">AK</i></p></div></div>
+      <div class="kb-col"><p class="kb-h"><b>Proposition</b><span class="cv-n"><span>2 · S$15,300</span><span>3 · S$33,300</span></span></p>
+        <div class="kb-card"><b>Meeting room for 12</b><small>Orchard Pilates Studio</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$7,800</em><i class="kb-av" style="--c:#137A4A">MR</i></p></div>
+        <div class="kb-card"><b>Staff lounge</b><small>Lumen Trading Pte Ltd</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$7,500</em><i class="kb-av" style="--c:#3167CA">JT</i></p></div></div>
+      <div class="kb-col"><p class="kb-h"><b>Won</b><span>5 · S$24,600</span></p>
+        <div class="kb-card"><span class="kb-won">Won</span><b>Ergonomic chairs × 20</b><small>Lumen Trading Pte Ltd</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$6,240</em><i class="kb-av" style="--c:#3167CA">JT</i></p></div>
+        <div class="kb-card"><span class="kb-won">Won</span><b>Office desks × 12</b><small>Riverton Logistics</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$7,800</em><i class="kb-av" style="--c:#8A5A00">AK</i></p></div>
+        <div class="kb-card"><span class="kb-won">Won</span><b>Café stools</b><small>Harbourlight Bistro</small><p class="kb-f"><span class="kb-st" aria-label="Priority 1 of 3"><i class="on">{{icon:star}}</i><i>{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$5,200</em><i class="kb-av" style="--c:#137A4A">MR</i></p></div>
+        <div class="kb-card"><span class="kb-won">Won</span><b>Meeting table</b><small>Orchard Pilates Studio</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$3,200</em><i class="kb-av" style="--c:#137A4A">MR</i></p></div>
+        <div class="kb-card"><span class="kb-won">Won</span><b>Clinic stools</b><small>Pasir Ris Dental</small><p class="kb-f"><span class="kb-st" aria-label="Priority 1 of 3"><i class="on">{{icon:star}}</i><i>{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$2,160</em><i class="kb-av" style="--c:#8A5A00">AK</i></p></div></div>
+    </div>
+  </div>
+  </div>
+  <aside class="notes"><p>Odoo CRM in one line: every lead in one pipeline, each with a next step. The window on the right is the session we are about to run, on a sample company in Singapore: the Sunbird Clinics deal that the Sales deck then quotes.</p></aside>
+</section>
+
+<!-- 2 · what it replaces -->
+<section class="slide" id="replaces" data-title="What it replaces" data-steps="1">
+  <div class="sec-head">
+    <span class="kicker" data-in>leads today</span>
+    <h2 class="h-m" data-in style="--d:80ms">Leads in five places, <span class="hl">or one pipeline.</span></h2>
+  </div>
+  <div class="rp" data-i>
+    <div class="rp-col" data-in style="--d:160ms">
+      <p class="rp-h"><b>Today, by hand</b><small>inboxes, phones, spreadsheets</small></p>
+      <div class="rp-desk">
+        <div class="rp-t" style="--x:22px;--y:20px;--r:-1.5deg">{{icon:mail}}<span><b>Website enquiries</b><small>in a shared inbox, first come first served</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:300px;--y:52px;--r:1.2deg">{{icon:whatsapp}}<span><b>Chats on one phone</b><small>gone when that person is away</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:40px;--y:140px;--r:.8deg">{{icon:briefcase}}<span><b>Cards from an event</b><small>in a drawer, waiting to be typed</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:318px;--y:178px;--r:-1deg">{{icon:calculator}}<span><b>A pipeline spreadsheet</b><small>updated on Fridays, if at all</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:24px;--y:266px;--r:-.6deg">{{icon:clock}}<span><b>Follow-ups from memory</b><small>until someone forgets one</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:300px;--y:306px;--r:1.4deg">{{icon:chat}}<span><b>"Where are we on this?"</b><small>asked in every sales meeting</small></span><em>by hand</em></div>
+      </div>
+      <div class="rp-meter"><span>Places a lead can hide</span><b data-rp-n data-from="5" data-to="1">5</b></div>
+    </div>
+    <div class="rp-arrow" data-in style="--d:240ms">{{icon:arrow}}</div>
+    <div class="rp-col rp-right" data-in style="--d:300ms">
+      <p class="rp-h"><b>With Odoo CRM</b><small>one pipeline, every channel</small></p>
+      <div class="rp-rec">
+        <p class="rp-rec-h">{{odoo:crm:26}}Kestrel &amp; Pine Pte Ltd<small>Sample company</small></p>
+        <ul>
+          <li style="--k:0">{{icon:check}}<span><b>Every lead lands in one place</b><small>website forms, email aliases, mail plugins</small></span></li>
+          <li style="--k:1">{{icon:check}}<span><b>Duplicates found by email and phone</b><small>merged into one opportunity</small></span></li>
+          <li style="--k:2">{{icon:check}}<span><b>Shared out by rule</b><small>in rotation, within each person's capacity</small></span></li>
+          <li style="--k:3">{{icon:check}}<span><b>A next step on every deal</b><small>activity plans schedule the follow-ups</small></span></li>
+          <li style="--k:4">{{icon:check}}<span><b>The odds, from your own history</b><small>predictive scoring on won and lost deals</small></span></li>
+          <li class="is-you" style="--k:5">{{icon:usercheck}}<span><b>You choose where the week goes</b><small>the forecast is always current</small></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><p>Left: where leads hide in many small sales teams. Press → for the Odoo side: one pipeline every channel feeds, with the follow-ups planned for you.</p></aside>
+</section>
+
+<!-- 3-9 · the live session: one Odoo window, seven moves -->
+<section class="slide oa-mv" id="mv1" data-group="live" data-steps="1" data-title="Move 1 · Leads merged">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Wrote twice, <span class="hl">merged once.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Grace Lim used the website form, then emailed the team. One conversion merges both leads.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Convert to Opportunity</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:crm-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Leads /</span><b>Reception refresh, 3 clinics</b></div><div class="lw-search">{{icon:search}}<span class="lw-facet">New leads</span></div></div>
+    <div class="lw-body ld" data-in data-fx="fade" style="--d:60ms">
+      <div class="lv-wrap ld-list"><table class="lv">
+        <thead><tr><th>Lead</th><th>Contact</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr class="is-sel" data-sb1><td>Reception refresh, 3 clinics</td><td>Grace Lim</td><td><span class="bdg">{{icon:globe}}Website form</span></td></tr>
+          <tr class="is-sel" data-sb2><td>Clinic counters, quote please</td><td>grace.lim@sunbird…</td><td><span class="bdg">{{icon:mail}}Email alias</span></td></tr>
+          <tr><td>Meeting room for 12</td><td>Orchard Pilates Studio</td><td><span class="bdg">{{icon:globe}}Website form</span></td></tr>
+          <tr><td>Standing desks × 20</td><td>Riverton Logistics</td><td><span class="bdg">{{icon:mail}}Mail plugin</span></td></tr>
+          <tr><td>Café counter</td><td>Tiong Bahru Bakehouse</td><td><span class="bdg">{{icon:phone}}Phone call</span></td></tr>
+          <tr><td>Dental reception</td><td>Pasir Ris Dental</td><td><span class="bdg">{{icon:globe}}Website form</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="lw-sheet ld-card">
+        <p class="ld-t">Reception refresh, 3 clinics</p>
+        <p class="ld-smart"><span class="ld-sim" data-sim>{{icon:users}}<b>2</b> Similar Leads</span></p>
+        <div class="ld-f"><label>Company</label><span>Sunbird Clinics Pte Ltd</span><label>Contact</label><span>Grace Lim</span><label>Email</label><span>grace.lim@sunbird.example</span><label>Phone</label><span>+65 6000 0000 (sample)</span><label>Source</label><span>Website form · Contact us</span></div>
+        <div class="ld-acts"><button type="button" class="lw-btn lw-btn--p" data-act>Convert to Opportunity</button><button type="button" class="lw-btn lw-btn--s">Lost</button><button type="button" class="lw-btn lw-btn--s">{{icon:sparkle}}Enrich</button></div>
+      </div>
+      <div class="lv-veil"></div>
+      <div class="dlg" role="presentation">
+        <p class="dlg-h">Convert to opportunity</p>
+        <div class="dlg-b">
+          <p class="dlg-l">Conversion Action</p>
+          <p class="dlg-r"><i class="rd"></i>Convert to opportunity</p><p class="dlg-r is-on"><i class="rd"></i>Merge with existing opportunities <small>2 similar leads</small></p>
+          <p class="dlg-l">Customer</p>
+          <p class="dlg-r"><i class="rd"></i>Create a new customer</p><p class="dlg-r is-on"><i class="rd"></i>Link to an existing customer <small>Sunbird Clinics Pte Ltd</small></p>
+        </div>
+        <div class="dlg-f"><button type="button" class="lw-btn lw-btn--p" data-ok>Create Opportunity</button><button type="button" class="lw-btn lw-btn--s">Discard</button></div>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span>Two leads merged into one opportunity · Sunbird Clinics Pte Ltd</span></div>
+  </div>
+  <aside class="notes"><p>Leads from the website form, the team's email alias, a mail plugin and a phone call, all in one list. Odoo finds similar leads by email and phone: Grace Lim wrote twice. Press → (or click Convert to Opportunity): the conversion merges both and links them to the existing customer.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv2" data-group="live" data-steps="1" data-title="Move 2 · Lead Sourcing">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Ten clinics, <span class="hl">one search.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Lead Sourcing searches 580 million companies by country, industry and size, a credit each.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Generate</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:crm-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><button type="button" class="lw-btn lw-btn--p">New</button><span class="lw-btn lw-btn--s kb-gen">Generate {{icon:chevron}}</span><b>Pipeline</b><span class="kb-team">Projects {{icon:chevron}}</span></div><div class="lw-search">{{icon:search}}<span class="lw-facet">My Pipeline</span></div></div>
+    <div class="lw-body kb kb--dim" data-in data-fx="fade" style="--d:60ms">
+      <p class="kb-ban" data-ban>{{icon:check}}<span><b>10 new leads</b> in Leads · Lead Sourcing · Healthcare · Singapore · 51 to 200 staff</span><span class="lk">Open Leads</span></p>
+      <div class="kb-col" data-col="new"><p class="kb-h"><b>New</b><span>3 · S$21,400</span></p>
+        <div class="kb-card"><b>Café counter</b><small>Tiong Bahru Bakehouse</small><p class="kb-f"><span class="kb-st" aria-label="Priority 1 of 3"><i class="on">{{icon:star}}</i><i>{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$4,800</em><i class="kb-av" style="--c:#137A4A">MR</i></p></div>
+        <div class="kb-card"><b>Dental reception</b><small>Pasir Ris Dental</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$9,600</em><i class="kb-av" style="--c:#8A5A00">AK</i></p></div>
+        <div class="kb-card"><b>Office pantry, 2 floors</b><small>Kallang Hub</small><p class="kb-f"><span class="kb-st" aria-label="Priority 1 of 3"><i class="on">{{icon:star}}</i><i>{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$7,000</em><i class="kb-av" style="--c:#3167CA">JT</i></p></div></div>
+      <div class="kb-col"><p class="kb-h"><b>Qualified</b><span>4 · S$46,900</span></p>
+        <div class="kb-card"><b>Reception refresh, 3 clinics</b><small>Sunbird Clinics Pte Ltd</small><p class="kb-f"><span class="kb-st" aria-label="Priority 3 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i></span><em>S$18,000</em><i class="kb-av" style="--c:#3167CA">JT</i></p></div>
+        <div class="kb-card"><b>Standing desks × 20</b><small>Riverton Logistics</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$12,400</em><i class="kb-av" style="--c:#8A5A00">AK</i></p></div>
+        <div class="kb-card"><b>Boardroom refit</b><small>Harbourlight Bistro</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$9,500</em><i class="kb-av" style="--c:#137A4A">MR</i></p></div>
+        <div class="kb-card"><b>Reception desk</b><small>Maple &amp; Moss Crafts</small><p class="kb-f"><span class="kb-st" aria-label="Priority 1 of 3"><i class="on">{{icon:star}}</i><i>{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$7,000</em><i class="kb-av" style="--c:#8A5A00">AK</i></p></div></div>
+      <div class="kb-col"><p class="kb-h"><b>Proposition</b><span>2 · S$15,300</span></p>
+        <div class="kb-card"><b>Meeting room for 12</b><small>Orchard Pilates Studio</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$7,800</em><i class="kb-av" style="--c:#137A4A">MR</i></p></div>
+        <div class="kb-card"><b>Staff lounge</b><small>Lumen Trading Pte Ltd</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$7,500</em><i class="kb-av" style="--c:#3167CA">JT</i></p></div></div>
+      <div class="kb-col"><p class="kb-h"><b>Won</b><span>5 · S$24,600</span></p>
+        <div class="kb-card"><span class="kb-won">Won</span><b>Ergonomic chairs × 20</b><small>Lumen Trading Pte Ltd</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$6,240</em><i class="kb-av" style="--c:#3167CA">JT</i></p></div>
+        <div class="kb-card"><span class="kb-won">Won</span><b>Office desks × 12</b><small>Riverton Logistics</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$7,800</em><i class="kb-av" style="--c:#8A5A00">AK</i></p></div>
+        <div class="kb-card"><span class="kb-won">Won</span><b>Café stools</b><small>Harbourlight Bistro</small><p class="kb-f"><span class="kb-st" aria-label="Priority 1 of 3"><i class="on">{{icon:star}}</i><i>{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$5,200</em><i class="kb-av" style="--c:#137A4A">MR</i></p></div>
+        <div class="kb-card"><span class="kb-won">Won</span><b>Meeting table</b><small>Orchard Pilates Studio</small><p class="kb-f"><span class="kb-st" aria-label="Priority 2 of 3"><i class="on">{{icon:star}}</i><i class="on">{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$3,200</em><i class="kb-av" style="--c:#137A4A">MR</i></p></div>
+        <div class="kb-card"><span class="kb-won">Won</span><b>Clinic stools</b><small>Pasir Ris Dental</small><p class="kb-f"><span class="kb-st" aria-label="Priority 1 of 3"><i class="on">{{icon:star}}</i><i>{{icon:star}}</i><i>{{icon:star}}</i></span><em>S$2,160</em><i class="kb-av" style="--c:#8A5A00">AK</i></p></div></div>
+      <div class="dlg dlg--mine" role="presentation">
+        <p class="dlg-h">Lead Sourcing <small>Search in our directory of 580M+ entities</small></p>
+        <div class="dlg-b dlg-b--grid">
+          <label>Target</label><span><i class="rd is-on"></i>Companies <i class="rd"></i>Companies and their Contacts</span>
+          <label>Countries</label><span><b class="tg">Singapore</b></span>
+          <label>Industries</label><span><b class="tg">Health Care</b></span>
+          <label>Filter on Size</label><span>51 to 200 employees</span>
+          <label>Number of leads</label><span>10</span>
+          <label>Sales Team</label><span>Projects</span>
+          <label>Default Tags</label><span><b class="tg">Healthcare</b></span>
+        </div>
+        <p class="dlg-note">{{icon:sparkle}}<span>10 credits: one credit per company found.</span></p>
+        <div class="dlg-f"><button type="button" class="lw-btn lw-btn--p" data-act>Generate</button><button type="button" class="lw-btn lw-btn--s">Discard</button></div>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span><b>10</b> healthcare companies added as leads for the Projects team</span></div>
+  </div>
+  <aside class="notes"><p>From the pipeline, Generate › Lead Sourcing. New in Odoo 20, it searches the Dun &amp; Bradstreet company database instead of Clearbit. Press → (or click Generate): ten healthcare companies in Singapore with 51 to 200 staff become leads for the Projects team. Lead Sourcing is a paid service: one credit per lead, plus one per contact when contacts are included. The team dropdown beside Pipeline is the new pipeline switcher.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv3" data-group="live" data-steps="1" data-title="Move 3 · Shared out by rotation">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">New leads, <span class="hl">shared out fairly.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">New in Odoo 20, each person is always in rotation, in it with a limit, or out of it.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Assign Leads</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:crm-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Sales Teams /</span><b>Projects</b></div><div class="lw-cp-r"><button type="button" class="lw-btn lw-btn--p" data-act>{{icon:users}}Assign Leads</button></div></div>
+    <div class="lw-body tm" data-in data-fx="fade" style="--d:60ms">
+      <div class="tm-top">
+        <span><small>Team Leader</small><b>Daniel Lee</b></span><span><small>Email Alias</small><b>projects@kestrelpine.example</b></span><span><small>Waiting to be assigned</small><b data-wait>10 leads</b></span>
+      </div>
+      <div class="lw-sheet tm-sheet">
+        <div class="tm-r tm-r--h"><span>Member</span><span>Auto-Assignment</span><span>Average Leads Capacity (on 30 days)</span><span>Leads (30 days)</span></div>
+        <div class="tm-r" data-m="jt"><span><i class="lw-av" style="background:#3167CA">JT</i>Jia Hui Tan</span><span><span class="bdg bdg--ok">Always in rotation</span></span><span>30</span><span class="tm-n"><b data-n0>18</b><span class="tm-after">→ <b data-n>22</b><em>+4</em></span></span></div>
+        <div class="tm-r" data-m="mr"><span><i class="lw-av" style="background:#137A4A">MR</i>Marco Reyes</span><span><span class="bdg bdg--warn">In rotation, with a limit</span></span><span>20</span><span class="tm-n"><b data-n0>16</b><span class="tm-after">→ <b data-n>19</b><em>+3 · limit 20</em></span></span></div>
+        <div class="tm-r" data-m="ak"><span><i class="lw-av" style="background:#8A5A00">AK</i>Aisha Kumar</span><span><span class="bdg bdg--ok">Always in rotation</span></span><span>30</span><span class="tm-n"><b data-n0>21</b><span class="tm-after">→ <b data-n>24</b><em>+3</em></span></span></div>
+        <div class="tm-r tm-r--off" data-m="dl"><span><i class="lw-av">DL</i>Daniel Lee</span><span><span class="bdg">Out of rotation</span></span><span>–</span><span class="tm-n"><b data-n0>4</b></span></div>
+      </div>
+      <p class="tm-rule">{{icon:target}}<span><b>Only assign if</b> the lead's country is Singapore · <b>Give priority if</b> the probability is 20% or more</span></p>
+    </div>
+    <div class="lw-toast">{{icon:users}}<span><b>10</b> leads assigned · Jia Hui 4, Marco 3, Aisha 3</span></div>
+  </div>
+  <aside class="notes"><p>The Projects sales team. New in Odoo 20, each member's auto-assignment rule is Always in rotation, In rotation with a limit, or Out of rotation, within an average capacity over 30 days. Press → (or click Assign Leads): the ten new leads are shared out; the manager, out of rotation, gets none. Rule-based assignment can also run on a schedule.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv4" data-group="live" data-steps="1" data-title="Move 4 · The next step, planned">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Log the call, <span class="hl">next steps follow.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">An activity plan chains the follow-ups: mark the call done and the next steps are booked.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Mark Done</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:crm-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Pipeline /</span><b>Reception refresh, 3 clinics</b></div><div class="lw-sb"><i data-sb="0">New</i><i data-sb="1" class="is-cur">Qualified</i><i data-sb="2">Proposition</i><i data-sb="3">Won</i></div></div>
+    <div class="lw-body op" data-in data-fx="fade" style="--d:60ms">
+      <div class="lw-sheet op-form">
+        <p class="op-t">Reception refresh, 3 clinics</p>
+        <div class="op-k"><span><small>Expected Revenue</small><b>S$18,000.00</b></span><span><small>Probability</small><b>41.2%</b></span></div>
+        <div class="ld-f"><label>Customer</label><span>Sunbird Clinics Pte Ltd</span><label>Contact</label><span>Grace Lim</span><label>Salesperson</label><span>Jia Hui Tan</span><label>Expected Closing</label><span>16/10/2026</span><label>Tags</label><span><b class="tg">Healthcare</b> <b class="tg">Fit-out</b></span></div>
+      </div>
+      <div class="op-chat">
+        <p class="op-ch">Planned Activities</p>
+        <div class="ac ac--now" data-ac="call"><i>{{icon:phone}}</i><span><b>Call · discuss the three clinics</b><small>Today · Jia Hui Tan</small></span><button type="button" class="lw-btn lw-btn--p" data-act>{{icon:check}}Mark Done</button></div>
+        <p class="ac-fb" data-fb>{{icon:pen}}<span>Wants installation included. Send the quote by Friday.</span></p>
+        <div class="ac ac--next" data-ac="mail"><i>{{icon:mail}}</i><span><b>Email · send the quotation</b><small>In 2 days · Jia Hui Tan</small></span><span class="bdg bdg--plum">Plan: next</span></div>
+        <div class="ac ac--next" data-ac="meet"><i>{{icon:calendar}}</i><span><b>Meeting · site visit, Novena clinic</b><small>In 4 days · any Projects salesperson</small></span><span class="bdg bdg--plum">Plan: next</span></div>
+        <p class="op-ch op-ch--log">Log</p>
+        <p class="ac-log">{{icon:globe}}<span>Lead created from the website form · merged with an email to projects@kestrelpine.example</span></p>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span>Call logged · the plan booked the quote email and the site visit</span></div>
+  </div>
+  <aside class="notes"><p>The opportunity with its chatter. Today's call is due. Press → (or click Mark Done): the feedback goes into the log, and the activity plan schedules the next two steps. New in Odoo 20, an activity can be assigned to a person or to a role, like the site visit here.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv5" data-group="live" data-steps="1" data-title="Move 5 · Win probability">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Move the deal on. <span class="hl">The odds follow.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Predictive scoring learns from your own won and lost deals. Moving the stage updates it.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Proposition</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:crm-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Pipeline /</span><b>Reception refresh, 3 clinics</b></div><div class="lw-sb lw-sb--act"><i data-sb="0">New</i><i data-sb="1" class="is-cur">Qualified</i><button type="button" class="lw-sb-b" data-sb="2" data-act>Proposition</button><i data-sb="3">Won</i></div></div>
+    <div class="lw-body op" data-in data-fx="fade" style="--d:60ms">
+      <div class="lw-sheet op-form">
+        <p class="op-t">Reception refresh, 3 clinics</p>
+        <div class="op-k op-k--big"><span><small>Expected Revenue</small><b>S$18,000.00</b></span><span><small>Probability</small><b data-prob>41.2%</b></span><span><small>Prorated Revenue</small><b data-pro>S$7,416.00</b></span></div>
+        <div class="op-gauge"><i data-gauge style="--p:.412"></i></div>
+        <p class="op-gl"><span>0%</span><span>Predictive, from 214 closed deals</span><span>100%</span></p>
+      </div>
+      <div class="lw-sheet why">
+        <p class="op-ch">What the score looks at</p>
+        <div class="why-r"><span>Stage</span><b data-w="stage">Qualified</b><em>always counted</em></div>
+        <div class="why-r"><span>Sales Team</span><b>Projects</b><em>always counted</em></div>
+        <div class="why-r"><span>Country</span><b>Singapore</b><em>chosen in settings</em></div>
+        <div class="why-r"><span>Source</span><b>Website form</b><em>chosen in settings</em></div>
+        <div class="why-r"><span>Tags</span><b>Healthcare, Fit-out</b><em>chosen in settings</em></div>
+        <p class="why-n">{{icon:bars}}<span>Settings › Predictive Lead Scoring picks the variables; Update Probabilities recomputes them from your history.</span></p>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:trend}}<span>Proposition · <b>41.2% → 63.0%</b> · prorated S$11,340.00</span></div>
+  </div>
+  <aside class="notes"><p>Predictive lead scoring is a model trained on the company's own won and lost opportunities: stage and team always count, and the settings add country, source, tags and others. Press → (or click Proposition on the stage bar): the probability moves from 41.2% to 63.0%, and the forecast's prorated revenue moves with it. The 214 closed deals are sample data.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv6" data-group="live" data-steps="1" data-title="Move 6 · The quotation">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">The quote starts <span class="hl">from the deal.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">New Quotation opens Sales with the customer and salesperson filled in, linked to the deal.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click New Quotation</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:crm-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Pipeline /</span><b>Reception refresh, 3 clinics</b></div><div class="lw-sb"><i data-sb="0">New</i><i data-sb="1">Qualified</i><i data-sb="2" class="is-cur">Proposition</i><i data-sb="3">Won</i></div></div>
+    <div class="lw-acts" data-in data-fx="fade"><button type="button" class="lw-btn lw-btn--p" data-act>New Quotation</button><button type="button" class="lw-btn lw-btn--s">Won</button><button type="button" class="lw-btn lw-btn--s">Lost</button>
+      <span class="so-smart op-smart"><span data-qn>{{odoo:sale:18}}<b>0</b> Quotations</span><span>{{icon:users}}<b>2</b> Similar Leads</span></span></div>
+    <div class="lw-body op" data-in data-fx="fade" style="--d:60ms">
+      <div class="lw-sheet op-form">
+        <p class="op-t">Reception refresh, 3 clinics</p>
+        <div class="op-k"><span><small>Expected Revenue</small><b>S$18,000.00</b></span><span><small>Probability</small><b>63.0%</b></span></div>
+        <div class="ld-f"><label>Customer</label><span>Sunbird Clinics Pte Ltd</span><label>Contact</label><span>Grace Lim</span><label>Salesperson</label><span>Jia Hui Tan</span><label>Sales Team</label><span>Projects</span></div>
+      </div>
+      <div class="lw-sheet oq" data-oq>
+        <p class="oq-h">{{odoo:sale:22}}<b>S00057</b><span class="bdg">Quotation</span></p>
+        <p class="so-r"><span>Customer</span><b>Sunbird Clinics Pte Ltd</b></p>
+        <p class="so-r"><span>Salesperson</span><b>Jia Hui Tan</b></p>
+        <p class="so-r"><span>Opportunity</span><b>Reception refresh, 3 clinics</b></p>
+        <p class="so-r"><span>Next</span><b>Pick the template in Sales</b></p>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span>Quotation <b>S00057</b> created and linked to the opportunity</span></div>
+  </div>
+  <aside class="notes"><p>Press → (or click New Quotation): Sales opens a quotation with the customer, contact and salesperson already set, linked back to this opportunity by its Quotations smart button. This is quotation S00057, the one the Sales deck builds from a template.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv7" data-group="live" data-steps="1" data-title="Move 7 · Won, and the forecast">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Grace signed. <span class="hl">October just moved.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Mark it won and the forecast counts it in full; open deals still count at their odds.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Won</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:crm-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Reporting /</span><b>Forecast</b></div><div class="lw-cp-r"><button type="button" class="lw-btn lw-btn--p" data-act>{{icon:star}}Won</button><span class="lw-facet">Expected Closing: Q4 2026</span></div></div>
+    <div class="lw-body fc" data-in data-fx="fade" style="--d:60ms">
+      <div class="lw-sheet fc-opp">
+        <span class="fc-rib">Won</span>
+        <p class="op-t">Reception refresh, 3 clinics</p>
+        <p class="fc-s">Sunbird Clinics Pte Ltd · Jia Hui Tan · quotation S00057</p>
+        <div class="op-k"><span><small>Expected Revenue</small><b>S$18,000.00</b></span><span><small>Probability</small><b data-p7>63.0%</b></span></div>
+      </div>
+      <div class="lw-sheet fc-chart">
+        <p class="op-ch">Forecast by expected closing <span class="fc-key"><i class="k-won"></i>Won <i class="k-pro"></i>Prorated, open deals</span></p>
+        <div class="fc-bars">
+          <div class="fc-m" data-m="oct"><p class="fc-v"><b data-tot>S$55,840</b></p><div class="fc-b"><i class="k-won" data-won style="--h:.351"></i><i class="k-pro" data-pro style="--h:.446;--b:.351"></i></div><small>October 2026</small></div>
+          <div class="fc-m"><p class="fc-v"><b>S$38,950</b></p><div class="fc-b"><i class="k-pro" style="--h:.556"></i></div><small>November 2026</small></div>
+          <div class="fc-m"><p class="fc-v"><b>S$21,300</b></p><div class="fc-b"><i class="k-pro" style="--h:.304"></i></div><small>December 2026</small></div>
+        </div>
+        <p class="fc-n">{{icon:bars}}<span>Prorated revenue is expected revenue × probability, so the forecast moves with every deal.</span></p>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:star}}<span>Won · Sunbird Clinics · October forecast <b>S$55,840 → S$62,500</b></span></div>
+  </div>
+  <aside class="notes"><p>The Forecast report groups deals by expected closing month; open deals count at expected revenue times probability. Press → (or click Won): Sunbird moves from 63% to won, and October's forecast rises by S$6,660, from S$55,840 to S$62,500. The deal then continues in the Sales deck, from quotation S00057 to a paid deposit.</p></aside>
+</section>
+
+<!-- 10 · new in Odoo 20 -->
+<section class="slide" id="new20" data-title="New in Odoo 20">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>new in odoo 20</span>
+      <h2 class="h-m" data-in style="--d:80ms">What changed in CRM, <span class="hl">and where you saw it.</span></h2>
+    </div>
+    <div class="seg" role="group" aria-label="Show" data-in style="--d:160ms"><button type="button" aria-pressed="true" data-v="all">All</button><button type="button" aria-pressed="false" data-v="new">In the session</button><button type="button" aria-pressed="false" data-v="chk">Also new</button></div>
+  </div>
+  <div class="nw" data-i data-in style="--d:200ms">
+    <div class="nw-r" data-t="new"><h3>Lead distribution <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv3">{{icon:play}}Move 3</button><p>Each member is always in rotation, in rotation with a limit, or out of rotation.</p></div>
+    <div class="nw-r" data-t="new"><h3>Lead Sourcing with Dun &amp; Bradstreet <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv2">{{icon:play}}Move 2</button><p>Generate suggests more ways to find leads, and searches Dun &amp; Bradstreet's database instead of Clearbit.</p></div>
+    <div class="nw-r" data-t="new"><h3>Pipeline switcher <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv2">{{icon:play}}Move 2</button><p>A dropdown beside the pipeline switches between the sales teams' pipelines.</p></div>
+    <div class="nw-r" data-t="new"><h3>Activities for a person or a role <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv4">{{icon:play}}Move 4</button><p>Assign an activity to someone or to a role, from a clearer Schedule Activity window.</p></div>
+    <div class="nw-r" data-t="new"><h3>Mail plugins <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv1">{{icon:play}}Move 1</button><p>From Gmail or Outlook, find the contact and log the email in its chatter.</p></div>
+    <div class="nw-r" data-t="chk"><h3>Upsells from a lead <span class="nw-tag">New</span></h3><p>See a customer's subscriptions from the lead and start upsell or renewal quotes linked to it (needs Subscriptions).</p></div>
+    <div class="nw-r" data-t="chk"><h3>Company identifiers <span class="nw-tag">New</span></h3><p>DUNS numbers and country company IDs on contacts, each checked against its type.</p></div>
+    <div class="nw-r" data-t="chk"><h3>Contacts before addresses <span class="nw-tag nw-tag--chk">Changed</span></h3><p>Address details are hidden on leads, so the team creates a proper contact instead.</p></div>
+  </div>
+  <p class="nw-src" data-in style="--d:300ms">{{icon:search}}From Odoo's Odoo 20 release notes. We test what you use on a copy of your database before an upgrade.</p>
+  <aside class="notes"><p>Eight CRM changes from the Odoo 20 release notes, including the general ones that show up in CRM. The first five were in the session: click a move to jump back to it.</p></aside>
+</section>
+
+<!-- 11 · Singapore, the Philippines, Vietnam -->
+<section class="slide" id="local" data-title="Singapore, the Philippines, Vietnam">
+  <div class="sec-head">
+    <span class="kicker" data-in>where we work</span>
+    <h2 class="h-m" data-in style="--d:80ms">One pipeline, <span class="hl">set up for each country.</span></h2>
+  </div>
+  <div class="lc" data-i>
+    <div class="lc-map" data-in data-fx="fade" style="--d:120ms">
+      <svg class="lc-svg" viewBox="0 0 380 330" width="380" height="330" aria-hidden="true"><g class="lc-dots">{{seamap:380:330}}</g></svg>
+      <button type="button" class="lc-pin is-l" data-c="sg" style="{{mappx:sg:380:330}}" aria-pressed="true"><i></i><span>Singapore</span></button>
+      <button type="button" class="lc-pin" data-c="ph" style="{{mappx:ph:380:330}}" aria-pressed="false"><i></i><span>Philippines</span></button>
+      <button type="button" class="lc-pin is-l" data-c="vn" style="{{mappx:vn:380:330}}" aria-pressed="false"><i></i><span>Vietnam</span></button>
+    </div>
+    <div class="lc-cols-w" data-in style="--d:200ms"><div class="lc-cols">
+      <div class="lc-c" data-c="sg"><h3>Singapore</h3><p>Companies identified the way ACRA does.</p><ul>
+        <li>{{icon:building}}<span><b>UEN on companies and contacts</b><small>a field added by the Singapore localisation</small></span></li>
+        <li>{{icon:search}}<span><b>Lead Sourcing by country</b><small>search Singapore companies by industry and size</small></span></li>
+        <li>{{icon:qr}}<span><b>PayNow on the invoice that follows</b><small>once the deal is won and invoiced in Accounting</small></span></li>
+      </ul></div>
+      <div class="lc-c" data-c="ph"><h3>Philippines</h3><p>Names and IDs as BIR expects them.</p><ul>
+        <li>{{icon:users}}<span><b>First, middle and last names</b><small>contact fields from the Philippine localisation</small></span></li>
+        <li>{{icon:building}}<span><b>Entity type on every contact</b><small>individuals and companies told apart for BIR reports</small></span></li>
+        <li>{{icon:users}}<span><b>A sales team for Taguig</b><small>its own pipeline, email alias, team leader and target</small></span></li>
+      </ul></div>
+      <div class="lc-c" data-c="vn"><h3>Vietnam</h3><p>A team of its own, the same pipeline view.</p><ul>
+        <li>{{icon:users}}<span><b>A sales team for <span class="keep">Ho Chi Minh City</span></b><small>its own pipeline, email alias, team leader and target</small></span></li>
+        <li>{{icon:search}}<span><b>Lead Sourcing by country</b><small>search Vietnamese companies by industry and size</small></span></li>
+        <li>{{icon:qr}}<span><b>VietQR on the invoice that follows</b><small>once the deal is won and invoiced in Accounting</small></span></li>
+      </ul></div>
+      </div><p class="lc-src">{{icon:search}}Odoo 20 release notes and documentation. Click a pin to point out a country.</p>
+    </div>
+  </div>
+  <aside class="notes"><p>What changes for a sales team in each country we work in, from Odoo's release notes and localisation documentation. Singapore is selected; click the Philippines or Vietnam.</p></aside>
+</section>
+
+<!-- 12 · how TechNext sets it up -->
+<section class="slide" id="setup" data-title="How TechNext sets it up">
+  <div class="sec-head">
+    <span class="kicker" data-in>with technext</span>
+    <h2 class="h-m" data-in style="--d:80ms">Your pipeline in Odoo, <span class="hl">set up with your team.</span></h2>
+  </div>
+  <div class="su" data-in style="--d:160ms">
+    <div class="su-p"><i>{{icon:search}}</i><span class="su-w">Weeks 1–2</span><h3>Discover</h3><ul><li>{{icon:check}}How leads reach you, and who answers</li><li>{{icon:check}}Your stages, from first call to won</li></ul></div>
+    <div class="su-p"><i>{{icon:gear}}</i><span class="su-w">Weeks 3–6</span><h3>Build</h3><ul><li>{{icon:check}}Teams, stages and lost reasons</li><li>{{icon:check}}Assignment rules and activity plans</li><li>{{icon:check}}Website form, email alias, mail plugin</li></ul></div>
+    <div class="su-p"><i>{{icon:graduation}}</i><span class="su-w">Weeks 7–9</span><h3>Test &amp; train</h3><ul><li>{{icon:check}}A week of real leads run on a copy</li><li>{{icon:check}}Each salesperson trained on their pipeline</li></ul></div>
+    <div class="su-p"><i>{{icon:zap}}</i><span class="su-w">Week 10</span><h3>Go live</h3><ul><li>{{icon:check}}Open deals imported with their history</li><li>{{icon:check}}The old spreadsheet archived</li></ul></div>
+    <div class="su-p"><i>{{icon:lifebuoy}}</i><span class="su-w">After</span><h3>Run</h3><ul><li>{{icon:check}}Rules tuned as the team grows</li><li>{{icon:check}}Upgrades tested on a copy first</li></ul></div>
+  </div>
+  <div class="su-rules">
+    <div class="su-r" data-in style="--d:300ms">{{icon:check}}<span><b>Standard before custom</b><small>configuration first; code only where your process truly differs</small></span></div>
+    <div class="su-r" data-in style="--d:360ms">{{icon:layers}}<span><b>CRM with Sales and Accounting</b><small>the same record from the first lead to the paid invoice</small></span></div>
+    <div class="su-r" data-in style="--d:420ms">{{icon:users}}<span><b>One team, three offices</b><small>Singapore HQ, Taguig City and Ho Chi Minh City, from discovery to support</small></span></div>
+  </div>
+  <p class="su-illus">{{icon:check}}Illustrative plan · your dates are set in discovery</p>
+  <aside class="notes"><p>A typical first phase for CRM. The five phases light up in turn. Lead Sourcing, lead enrichment and AI features use Odoo credits; we set the budget with the client.</p></aside>
+</section>
+
+<!-- 13 · contact -->
+<section class="slide dark" id="contact" data-title="See your pipeline in Odoo" data-chrome="foot">
+  <div class="split split--narrow">
+    <div>
+      <img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40" data-in>
+      <span class="kicker" data-in style="--d:80ms">next step</span>
+      <h2 class="h-xl ct-h" data-in style="--d:140ms">See your own pipeline <span class="hl">in Odoo.</span></h2>
+      <p class="lead" data-in style="--d:220ms">Book a 30-minute online discovery call. We'll map where your leads come from today, and show the same session on your kind of deals.</p>
+      <div class="ct-actions" data-in style="--d:320ms">
+        <a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener">{{icon:calendar}}Book a discovery call</a>
+        <a class="btn btn-ghost" href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      </div>
+      <div class="ct-links" data-in style="--d:400ms">
+        <a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a>
+        <a href="erp-tiers.html" data-internal>{{icon:layers}}See the ERP tiers</a>
+      </div>
+    </div>
+    <div class="ct-qr" data-in data-fx="scale" style="--d:300ms">
+      <div class="ct-qr-card">{{qr:meet}}<b>Scan to book a call</b><small>Discovery Call with TechNext · 30 min online</small></div>
+    </div>
+  </div>
+  <aside class="notes"><p>Close with the booking link, or jump to the ERP tier list for what a first phase includes.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/odoo-app.js?v={{v}}"></script>
+<script src="assets/odoo-crm.js?v={{v}}"></script>
+</body>
+</html>

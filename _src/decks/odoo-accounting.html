@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>Odoo Accounting</title>
+<meta name="description" content="Odoo Accounting in one live session: bank lines matched, a bill read from its PDF, late payers reminded, bills paid, the GST return and a locked month. By TechNext, an Odoo Ready Partner in Singapore.">
+{{og:odoo-accounting}}
+<link rel="stylesheet" href="assets/odoo-app.css?v={{v}}">
+<link rel="stylesheet" href="assets/odoo-accounting.css?v={{v}}">
+</head>
+<body data-label="Odoo Accounting" data-home="./">
+<main class="deck" aria-label="Odoo Accounting: a live session">
+<div class="stage">
+
+<!-- 1 · cover: the window is already working -->
+<section class="slide dark cover oa-cover" id="cover" data-chrome="none" data-title="Odoo Accounting">
+  <div class="cv-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">{{odoo:accountant:38}}odoo accounting</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Books that <span class="hl">keep up.</span></h1>
+    <p class="lead" data-in style="--d:320ms">Bank lines matched as they arrive, bills read from their PDFs, late payers reminded and the GST return checked, so month-end is a review.</p>
+    <div class="cv-tags" data-in style="--d:440ms">
+      <span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="46" height="22">Presented by an Odoo Ready Partner</span>
+      <span class="tag">{{icon:refresh}}Odoo 20</span>
+    </div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> to start the session <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="cv-win" data-in data-fx="fade" style="--d:300ms"><div class="lw" aria-hidden="true">
+    {{include:acc-nav}}
+    <div class="lw-cp"><div class="lw-bc"><span class="lw-bc-l">SGD current account /</span><b>Bank Matching</b></div><div class="lw-search">{{icon:search}}<span class="lw-facet">Not Matched</span></div></div>
+    <div class="lw-body br cv-br">
+      <div class="br-list">
+        <p class="br-h">SGD current account <b>1 Oct 2026</b></p>
+        <div class="br-l" style="--k:0"><small>01/10</small><span><b>Sunbird Clinics</b><small>INV/2026/00039</small></span><em class="in">+4,280.00</em><i>{{icon:check}}</i></div>
+        <div class="br-l" style="--k:1"><small>01/10</small><span><b>Harbourlight Bistro</b><small>INV/2026/00040</small></span><em class="in">+2,616.00</em><i>{{icon:check}}</i></div>
+        <div class="br-l" style="--k:2"><small>30/09</small><span><b>Straits Office Rentals</b><small>Rent, September</small></span><em>−3,200.00</em><i>{{icon:check}}</i></div>
+        <div class="br-l" style="--k:3"><small>30/09</small><span><b>Riverton Logistics</b><small>INV/2026/00036</small></span><em class="in">+1,744.00</em><i>{{icon:check}}</i></div>
+        <div class="br-l" style="--k:4"><small>30/09</small><span><b>Card fee</b><small>Merchant account</small></span><em>−18.50</em><i>{{icon:check}}</i></div>
+        <div class="br-l" style="--k:5"><small>29/09</small><span><b>Tanglin Stationers</b><small>BILL/2026/09/0027</small></span><em>−412.60</em><i>{{icon:check}}</i></div>
+        <div class="br-l" style="--k:6"><small>29/09</small><span><b>Maple &amp; Moss Crafts</b><small>INV/2026/00034</small></span><em class="in">+7,600.00</em><i>{{icon:check}}</i></div>
+        <div class="br-l" style="--k:7"><small>29/09</small><span><b>Lumen Trading Pte Ltd</b><small>Transfer</small></span><em class="in">+6,801.60</em><i>{{icon:check}}</i></div>
+      </div>
+      <div class="br-side">
+        <p>Matched by rule</p>
+        <div class="br-inv"><p class="br-inv-h">{{odoo:account:24}}<b>INV/2026/00039</b></p>
+          <p class="br-row"><span>Customer</span><b>Sunbird Clinics</b></p><p class="br-row"><span>Amount due</span><b>S$4,280.00</b></p><p class="br-row"><span>Match</span><b class="ok">Reference and amount</b></p></div>
+        <p class="br-rule">{{icon:zap}}<span>Your matching rules reconcile the lines they recognise as the bank sends them.</span></p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <aside class="notes"><p>Odoo Accounting in one line: the books keep up with the bank on their own. The window on the right is the session we are about to run, on a sample company in Singapore.</p></aside>
+</section>
+
+<!-- 2 · what it replaces -->
+<section class="slide" id="replaces" data-title="What it replaces" data-steps="1">
+  <div class="sec-head">
+    <span class="kicker" data-in>month-end today</span>
+    <h2 class="h-m" data-in style="--d:80ms">Six chores at month&#8209;end, <span class="hl">or one review.</span></h2>
+  </div>
+  <div class="rp" data-i>
+    <div class="rp-col" data-in style="--d:160ms">
+      <p class="rp-h"><b>Today, by hand</b><small>spreadsheets, inboxes, the bank portal</small></p>
+      <div class="rp-desk">
+        <div class="rp-t" style="--x:22px;--y:20px;--r:-1.5deg">{{icon:bank}}<span><b>Download statements</b><small>from the bank portal, every month</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:300px;--y:52px;--r:1.2deg">{{icon:file}}<span><b>Type in every bill</b><small>from the PDFs in the inbox</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:40px;--y:140px;--r:.8deg">{{icon:calculator}}<span><b>Tick off payments</b><small>invoice by invoice, in a spreadsheet</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:318px;--y:178px;--r:-1deg">{{icon:whatsapp}}<span><b>Chase late payers</b><small>one message at a time</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:24px;--y:266px;--r:-.6deg">{{icon:receipt}}<span><b>Work out the GST</b><small>each quarter, in a spreadsheet</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:300px;--y:306px;--r:1.4deg">{{icon:bars}}<span><b>Rebuild the reports</b><small>for the owner and the auditor</small></span><em>by hand</em></div>
+      </div>
+      <div class="rp-meter"><span>Chores done by hand each month</span><b data-rp-n data-from="6" data-to="1">6</b></div>
+    </div>
+    <div class="rp-arrow" data-in style="--d:240ms">{{icon:arrow}}</div>
+    <div class="rp-col rp-right" data-in style="--d:300ms">
+      <p class="rp-h"><b>With Odoo Accounting</b><small>one database, every journal</small></p>
+      <div class="rp-rec">
+        <p class="rp-rec-h">{{odoo:accountant:26}}Kestrel &amp; Pine Pte Ltd<small>Sample company</small></p>
+        <ul>
+          <li style="--k:0">{{icon:check}}<span><b>Bank lines arrive on their own</b><small>bank synchronisation, or a statement import</small></span></li>
+          <li style="--k:1">{{icon:check}}<span><b>Bills are read from their PDF</b><small>lines suggested from the vendor's past bills</small></span></li>
+          <li style="--k:2">{{icon:check}}<span><b>Payments match by rule</b><small>you validate only what the rules cannot place</small></span></li>
+          <li style="--k:3">{{icon:check}}<span><b>Reminders go out on schedule</b><small>by email, from the invoice itself</small></span></li>
+          <li style="--k:4">{{icon:check}}<span><b>The GST return fills itself in</b><small>box by box, from posted entries</small></span></li>
+          <li class="is-you" style="--k:5">{{icon:usercheck}}<span><b>You review, then lock the month</b><small>the reports are already live</small></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><p>Left: the chores most small finance teams do by hand at month-end. Press → for the Odoo side: five of the six happen as the month goes, and what is left for a person is the review and the lock.</p></aside>
+</section>
+
+<!-- 3-9 · the live session: one Odoo window, seven moves -->
+<section class="slide oa-mv" id="mv1" data-group="live" data-steps="1" data-title="Move 1 · The bank feed">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">The bank is <span class="hl">already in.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Every journal on one dashboard. Bank synchronisation fetches new transactions twice a day.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Fetch Transactions</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:acc-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><b>Accounting Dashboard</b></div><div class="lw-search">{{icon:search}}<span>Search…</span></div></div>
+    <div class="lw-body ad" data-in data-fx="fade" style="--d:60ms">
+      <div class="ad-c">
+        <div class="ad-h"><span><b>Sales</b><small>Customer invoices</small></span></div>
+        <div class="ad-row"><button type="button" class="lw-btn lw-btn--p">New</button>
+          <div class="ad-k"><p><span>3 To Validate</span><b>S$4,120.00</b></p><p><span>14 Unpaid</span><b>S$50,857.00</b></p><p class="is-late"><span>6 Late</span><b>S$17,935.40</b></p></div></div>
+        <div class="ad-bars"><span><i class="is-late" style="--h:.82"></i><small>Overdue</small></span><span><i style="--h:.34"></i><small>This week</small></span><span><i style="--h:.55"></i><small>Next week</small></span><span><i style="--h:.7"></i><small>Later</small></span></div>
+      </div>
+      <div class="ad-c">
+        <div class="ad-h"><span><b>Purchases</b><small>Vendor bills</small></span></div>
+        <div class="ad-row"><button type="button" class="lw-btn lw-btn--p">Upload</button>
+          <div class="ad-k"><p><span>1 To Validate</span><b>S$741.20</b></p><p><span>2 To Pay</span><b>S$2,442.00</b></p><p><span>0 Late</span><b>S$0.00</b></p></div></div>
+        <div class="ad-bars"><span><i style="--h:.06"></i><small>Overdue</small></span><span><i style="--h:.62"></i><small>This week</small></span><span><i style="--h:.4"></i><small>Next week</small></span><span><i style="--h:.48"></i><small>Later</small></span></div>
+      </div>
+      <div class="ad-c ad-bank">
+        <div class="ad-h"><span><b>Bank</b><small>SGD current account</small></span></div>
+        <div class="ad-row"><button type="button" class="lw-btn lw-btn--p" data-act>{{icon:refresh}}Fetch Transactions</button>
+          <div class="ad-k"><p><span><b class="ad-n" data-torec>0</b> to reconcile</span><span></span></p><p><span>Balance</span><b class="ad-n" data-gl>S$110,382.30</b></p><p><span>Fetched</span><b data-sync>yesterday, 19:30</b></p></div></div>
+        <div class="ad-line"><svg viewBox="0 0 380 62" preserveAspectRatio="none" aria-hidden="true"><path class="ad-fill" d="M0,44 L54,40 L108,46 L162,30 L216,34 L270,22 L324,26 L380,18 L380,62 L0,62 Z"/><path d="M0,44 L54,40 L108,46 L162,30 L216,34 L270,22 L324,26 L380,18"/></svg></div>
+      </div>
+      <div class="ad-c">
+        <div class="ad-h"><span><b>Tax Returns</b><small>GST, every quarter</small></span></div>
+        <div class="ad-row"><button type="button" class="lw-btn lw-btn--s">Tax Returns</button>
+          <div class="ad-k"><p><span>Next return</span><b>Jul – Sep 2026</b></p><p><span>Deadline</span><b>31/10/2026</b></p><p><span>Steps</span><b>Review · Submit · Pay</b></p></div></div>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span><b>14</b> new bank transactions fetched</span></div>
+  </div>
+  <aside class="notes"><p>The Accounting dashboard: one card per journal. Press → (or click Fetch Transactions): 14 transactions come in and the Bank card shows them waiting to be matched. Bank synchronisation is part of Odoo Enterprise and runs every 12 hours; Odoo's bank list shows business accounts for DBS, OCBC and UOB in Singapore, so check the client's bank before promising a feed. A statement import (CSV, CAMT.053, OFX) does the same job.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv2" data-group="live" data-steps="1" data-title="Move 2 · Bank lines matched">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">13 match. <span class="hl">You confirm one.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Matching rules place every payment they recognise. For the rest, Odoo suggests the invoice.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Reconcile</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:acc-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">SGD current account /</span><b>Bank Matching</b></div><div class="lw-search">{{icon:search}}<span class="lw-facet">Not Matched</span></div></div>
+    <div class="lw-body br" data-in data-fx="fade" style="--d:60ms">
+      <div class="br-list">
+        <p class="br-h">SGD current account <span>To match <b data-left>14</b></span></p>
+        <div class="br-l is-sel" data-me><small>29/09</small><span><b>Lumen Trading Pte Ltd</b><small>Transfer, no reference</small></span><em class="in">+6,801.60</em><i>{{icon:check}}</i></div>
+        <div class="br-l" data-auto><small>01/10</small><span><b>Sunbird Clinics</b><small>INV/2026/00039</small></span><em class="in">+4,280.00</em><i>{{icon:check}}</i></div>
+        <div class="br-l" data-auto><small>01/10</small><span><b>Harbourlight Bistro</b><small>INV/2026/00040</small></span><em class="in">+2,616.00</em><i>{{icon:check}}</i></div>
+        <div class="br-l" data-auto><small>30/09</small><span><b>Straits Office Rentals</b><small>Rent, September</small></span><em>−3,200.00</em><i>{{icon:check}}</i></div>
+        <div class="br-l" data-auto><small>30/09</small><span><b>Riverton Logistics</b><small>INV/2026/00036</small></span><em class="in">+1,744.00</em><i>{{icon:check}}</i></div>
+        <div class="br-l" data-auto><small>30/09</small><span><b>Card fee</b><small>Merchant account</small></span><em>−18.50</em><i>{{icon:check}}</i></div>
+        <div class="br-l" data-auto><small>29/09</small><span><b>Maple &amp; Moss Crafts</b><small>INV/2026/00034</small></span><em class="in">+7,600.00</em><i>{{icon:check}}</i></div>
+        <p class="br-more" data-more>+ 7 more lines matched by rule</p>
+      </div>
+      <div class="br-side">
+        <p>Lumen Trading Pte Ltd · +S$6,801.60</p>
+        <div class="br-acts"><span class="lw-btn lw-btn--s">Set Partner</span><span class="lw-btn lw-btn--s">Set Account</span><span class="lw-btn lw-btn--s">Receivable</span><span class="lw-btn lw-btn--s">Bank Fees</span></div>
+        <div class="br-inv"><span class="br-stamp">Paid</span><p class="br-inv-h">{{odoo:account:24}}<b>INV/2026/00042</b></p>
+          <p class="br-row"><span>Customer</span><b>Lumen Trading Pte Ltd</b></p><p class="br-row"><span>Amount due</span><b data-due>S$6,801.60</b></p><p class="br-row"><span>Due date</span><b>29/10/2026</b></p><p class="br-row"><span>Match</span><b class="ok">Amount and customer</b></p></div>
+        <button type="button" class="lw-btn lw-btn--p" data-act>{{icon:check}}Reconcile</button>
+        <p class="br-rule">{{icon:zap}}<span>The card fee went to the Bank Fees model, set up once.</span></p>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span>All <b>14</b> bank transactions matched · INV/2026/00042 is paid</span></div>
+  </div>
+  <aside class="notes"><p>The Bank Matching view, filtered to lines not yet matched. Matching rules reconcile 13 of the 14 as they arrive: invoices and bills by reference and amount, the card fee through the Bank Fees reconciliation model. Lumen Trading paid without a reference, so Odoo suggests the invoice by amount and customer. Press → (or click Reconcile): the invoice shows Paid.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv3" data-group="live" data-steps="1" data-title="Move 3 · A bill from its PDF">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">A PDF bill, <span class="hl">never typed.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Forwarded to the bills address, it is read, and each line coded from the vendor's past bills.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Confirm</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:acc-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Bills /</span><b data-bill-no>Draft</b></div><div class="lw-sb"><i data-sb="0">Draft</i><i data-sb="1">Posted</i></div></div>
+    <div class="lw-acts" data-in data-fx="fade"><button type="button" class="lw-btn lw-btn--p" data-act>Confirm</button><button type="button" class="lw-btn lw-btn--s">{{icon:sparkle}}Reload AI data</button></div>
+    <div class="lw-body bl" data-in data-fx="fade" style="--d:60ms">
+      <div class="bl-pdf"><small>{{icon:mail}}<span>vendor-bills@kestrelpine.example · <span class="keep">MPC-2210.pdf</span></span></small>
+        <div class="bl-page"><span class="bl-scan"></span>
+          <p class="bl-vn">Marina Print Co. Pte Ltd</p>
+          <p class="bl-co">18 Kallang Way, Singapore<br>GST Reg. No. M9-0000000-X (sample)</p>
+          <p class="bl-ti">TAX INVOICE</p>
+          <dl><dt>Invoice</dt><dd>MPC-2210</dd><dt>Date</dt><dd>29/09/2026</dd><dt>Terms</dt><dd>30 days</dd><dt>Bill to</dt><dd>Kestrel &amp; Pine Pte Ltd</dd></dl>
+          <table><thead><tr><th>Description</th><th>Amount</th></tr></thead>
+            <tbody><tr><td>Brochures, A4 tri-fold × 2,000</td><td>620.00</td></tr><tr><td>Delivery</td><td>60.00</td></tr></tbody></table>
+          <div class="bl-tot"><p><span>Subtotal</span><span>680.00</span></p><p><span>GST 9%</span><span>61.20</span></p><p><span>Total S$</span><span>741.20</span></p></div>
+        </div>
+      </div>
+      <div class="bl-form">
+        <p class="bl-title"><b data-bill-t>Draft</b><span class="bdg bdg--plum" data-pred>{{icon:sparkle}}Read from the PDF</span></p>
+        <div class="bl-fields">
+          <div><label>Vendor</label><span><i class="sug" data-pv>Marina Print Co. Pte Ltd</i></span></div>
+          <div><label>Bill Reference</label><span><i class="sug" data-pv>MPC-2210</i></span></div>
+          <div><label>Bill Date</label><span><i class="sug" data-pv>29/09/2026</i></span></div>
+          <div><label>Due Date</label><span><i class="sug" data-pv>29/10/2026</i></span></div>
+        </div>
+        <table class="bl-lines">
+          <thead><tr><th>Label</th><th>Account</th><th>Taxes</th><th>Analytic</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td><i class="sug" data-pv>Brochures, A4 tri-fold</i></td><td><i class="sug" data-pv>Printing &amp; Stationery</i></td><td><i class="sug" data-pv><span class="bdg">9% GST</span></i></td><td><i class="sug" data-pv>Marketing</i></td><td><i class="sug" data-pv>620.00</i></td></tr>
+            <tr><td><i class="sug" data-pv>Delivery</i></td><td><i class="sug" data-pv>Freight &amp; Delivery</i></td><td><i class="sug" data-pv><span class="bdg">9% GST</span></i></td><td><i class="sug" data-pv>Marketing</i></td><td><i class="sug" data-pv>60.00</i></td></tr>
+          </tbody>
+        </table>
+        <div class="bl-tot"><p><span>Untaxed Amount</span><b><i class="sug" data-pv>S$680.00</i></b></p><p><span>GST 9%</span><b><i class="sug" data-pv>S$61.20</i></b></p><p><span>Total</span><b><i class="sug" data-pv>S$741.20</i></b></p></div>
+        <p class="bl-hint">{{icon:sparkle}}Account, GST and analytic come from Marina Print Co.'s earlier bills.</p>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span>Bill <b>BILL/2026/10/0003</b> posted · nothing typed</span></div>
+  </div>
+  <aside class="notes"><p>A vendor emails a PDF to the bills address. Odoo reads it and, new in Odoo 20, predicts each line's account, tax and analytic distribution from that vendor's past bills. Press → (or click Confirm) to post it. Reading a document with OCR and AI costs one Odoo credit; XML e-invoices need none. Vendor bill digitisation is part of Odoo Enterprise.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv4" data-group="live" data-steps="1" data-title="Move 4 · Late payers reminded">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Six late payers, <span class="hl">one click.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Reminders go out by email with the invoice attached, from the overdue list or on a schedule.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Send</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:acc-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Customers /</span><b>Invoices</b></div><div class="lw-cp-r"><button type="button" class="lw-btn lw-btn--p" data-act>{{icon:send}}Send</button><div class="lw-search">{{icon:search}}<span class="lw-facet">Overdue</span></div></div></div>
+    <div class="lw-body" data-in data-fx="fade" style="--d:60ms">
+      <div class="lv-wrap"><table class="lv">
+        <thead><tr><th><input type="checkbox" checked aria-label="all" tabindex="-1"></th><th>Number</th><th>Customer</th><th>Due Date</th><th class="r">Amount Due</th><th>Status</th><th>Reminder</th></tr></thead>
+        <tbody>
+          <tr class="is-sel"><td><input type="checkbox" checked aria-label="select" tabindex="-1"></td><td>INV/2026/00021</td><td>Riverton Logistics</td><td><span class="lv-days">38 days ago</span></td><td class="r">S$2,910.00</td><td><span class="bdg bdg--bad">Not Paid</span></td><td><span class="rm-sent bdg bdg--info">{{icon:mail}}Sent</span></td></tr>
+          <tr class="is-sel"><td><input type="checkbox" checked aria-label="select" tabindex="-1"></td><td>INV/2026/00024</td><td>Harbourlight Bistro</td><td><span class="lv-days">31 days ago</span></td><td class="r">S$4,180.00</td><td><span class="bdg bdg--bad">Not Paid</span></td><td><span class="rm-sent bdg bdg--info">{{icon:mail}}Sent</span></td></tr>
+          <tr class="is-sel"><td><input type="checkbox" checked aria-label="select" tabindex="-1"></td><td>INV/2026/00027</td><td>Orchard Pilates Studio</td><td><span class="lv-days">24 days ago</span></td><td class="r">S$1,260.00</td><td><span class="bdg bdg--warn">Partially Paid</span></td><td><span class="rm-sent bdg bdg--info">{{icon:mail}}Sent</span></td></tr>
+          <tr class="is-sel"><td><input type="checkbox" checked aria-label="select" tabindex="-1"></td><td>INV/2026/00029</td><td>Sunbird Clinics</td><td><span class="lv-days">17 days ago</span></td><td class="r">S$5,342.40</td><td><span class="bdg bdg--bad">Not Paid</span></td><td><span class="rm-sent bdg bdg--info">{{icon:mail}}Sent</span></td></tr>
+          <tr class="is-sel"><td><input type="checkbox" checked aria-label="select" tabindex="-1"></td><td>INV/2026/00031</td><td>Tiong Bahru Bakehouse</td><td><span class="lv-days">12 days ago</span></td><td class="r">S$868.00</td><td><span class="bdg bdg--bad">Not Paid</span></td><td><span class="rm-sent bdg bdg--info">{{icon:mail}}Sent</span></td></tr>
+          <tr class="is-sel"><td><input type="checkbox" checked aria-label="select" tabindex="-1"></td><td>INV/2026/00033</td><td>Pasir Ris Dental</td><td><span class="lv-days">5 days ago</span></td><td class="r">S$3,375.00</td><td><span class="bdg bdg--bad">Not Paid</span></td><td><span class="rm-sent bdg bdg--info">{{icon:mail}}Sent</span></td></tr>
+        </tbody>
+        <tfoot><tr><td></td><td colspan="3"><b>6 overdue</b></td><td class="r"><b>S$17,935.40</b></td><td colspan="2"></td></tr></tfoot>
+      </table></div>
+      <div class="rm-mail" data-mail>
+        <p class="rm-mail-h">{{icon:mail}}<span><b>Payment reminder: INV/2026/00021</b><small>To accounts@riverton.example · from Kestrel &amp; Pine Pte Ltd</small></span><span class="bdg bdg--info">Sent</span></p>
+        <p class="rm-mail-b">Dear Riverton Logistics, our records show S$2,910.00 on invoice INV/2026/00021, due 25 August 2026, is still open. The invoice is attached, with a link to pay it online.</p>
+        <p class="rm-mail-f"><span class="rm-att">{{icon:file}}INV_2026_00021.pdf</span><span class="rm-att">{{icon:link}}Pay online</span></p>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:mail}}<span><b>6</b> reminders sent by email, each with its invoice attached</span></div>
+  </div>
+  <aside class="notes"><p>The overdue invoices, oldest first. New in Odoo 20, reminders go out from this list or from an invoice's Send button, and automatic reminders can run on a schedule set in the Accounting settings. Follow-up levels can also go by WhatsApp, SMS or post, which use Odoo credits. Press → (or click Send).</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv5" data-group="live" data-steps="1" data-title="Move 5 · Bills paid in one batch">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Three bills, <span class="hl">paid in one go.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Select the bills to pay and pay them together. Payments already on their way are deducted first.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Pay</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:acc-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Vendors /</span><b>Bills</b></div><div class="lw-cp-r"><button type="button" class="lw-btn lw-btn--p" data-act>{{icon:bank}}Pay</button><div class="lw-search">{{icon:search}}<span class="lw-facet">To Pay</span></div></div></div>
+    <div class="lw-body" data-in data-fx="fade" style="--d:60ms">
+      <div class="lv-wrap"><table class="lv">
+        <thead><tr><th><input type="checkbox" checked aria-label="all" tabindex="-1"></th><th>Number</th><th>Vendor</th><th>Due Date</th><th class="r">Amount</th><th>Payment Status</th></tr></thead>
+        <tbody>
+          <tr class="is-sel" data-bill><td><input type="checkbox" checked aria-label="select" tabindex="-1"></td><td>BILL/2026/10/0003</td><td>Marina Print Co. Pte Ltd</td><td>29/10/2026</td><td class="r">S$741.20</td><td><span class="bdg bdg--bad" data-ps>Not Paid</span></td></tr>
+          <tr class="is-sel" data-bill><td><input type="checkbox" checked aria-label="select" tabindex="-1"></td><td>BILL/2026/09/0031</td><td>Kallang Freight Pte Ltd</td><td>03/10/2026</td><td class="r">S$1,962.00</td><td><span class="bdg bdg--bad" data-ps>Not Paid</span></td></tr>
+          <tr class="is-sel" data-bill><td><input type="checkbox" checked aria-label="select" tabindex="-1"></td><td>BILL/2026/09/0033</td><td>Evergreen Facilities Pte Ltd</td><td>05/10/2026</td><td class="r">S$480.00</td><td><span class="bdg bdg--bad" data-ps>Not Paid</span></td></tr>
+        </tbody>
+        <tfoot><tr><td></td><td colspan="3"><b>3 selected</b></td><td class="r"><b>S$3,183.20</b></td><td></td></tr></tfoot>
+      </table></div>
+      <div class="ps-flow" data-flow>
+        <p class="ps-h">The payment itself, in Odoo 20</p>
+        <div class="ps-steps"><span data-ps-k="0"><b>Draft</b><small>not yet confirmed</small></span><i>{{icon:arrow}}</i><span data-ps-k="1"><b>Paid</b><small>sent, waiting for its bank line</small></span><i>{{icon:arrow}}</i><span data-ps-k="2"><b>Reconciled</b><small>matched to its bank line</small></span></div>
+      </div>
+      <div class="lv-veil"></div>
+      <div class="pw" role="presentation">
+        <p class="pw-h"><span>Pay</span><small>3 bills · 3 vendors</small></p>
+        <div class="pw-b"><label>Journal</label><span>Bank · SGD current account</span><label>Payment Method</label><span>Manual Payment</span><label>Amount</label><span class="pw-amt">S$3,183.20</span><label>Payment Date</label><span>02/10/2026</span></div>
+        <p class="pw-note">{{icon:shield}}<span>Payments already on their way are deducted from what is due. None were found for these bills.</span></p>
+        <div class="pw-f"><button type="button" class="lw-btn lw-btn--p" data-pay>Create Payment</button><button type="button" class="lw-btn lw-btn--s">Discard</button></div>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span><b>3</b> payments · S$3,183.20 · they reconcile when the bank lines arrive</span></div>
+  </div>
+  <aside class="notes"><p>Three vendor bills to pay, including the one Odoo read from its PDF. Press → (or click Pay): one payment window for all three. New in Odoo 20, it deducts payments already on their way. The bills show In Payment, and each payment shows Paid until its bank line matches, then Reconciled: in Odoo 20, "In Process" became Paid and "Paid" became Reconciled.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv6" data-group="live" data-steps="1" data-title="Move 6 · The GST return">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">The GST return, <span class="hl">checked first.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Odoo checks the quarter first: bank matched, bills attached, no drafts. Validate posts it.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Validate</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:acc-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Tax Returns /</span><b>GST · Jul – Sep 2026</b></div><div class="lw-cp-r"><button type="button" class="lw-btn lw-btn--p" data-act>{{icon:check}}Validate</button></div></div>
+    <div class="lw-body tx" data-in data-fx="fade" style="--d:60ms">
+      <div class="trn">
+        <span class="trn-p"><b>Jul – Sep 2026</b><small>Deadline 31/10/2026</small></span>
+        <span class="trn-s" data-trs="0"><i>1</i>Review</span><span class="trn-s" data-trs="1"><i>2</i>Submit</span><span class="trn-s" data-trs="2"><i>3</i>Pay</span>
+      </div>
+      <div class="trc">
+        <p class="trc-h">Tax checks <span class="bdg bdg--ok" data-passed>4 Passed</span></p>
+        <div class="trc-g"><span data-ck>{{icon:check}}<b>Bank Matching</b><small>no bank lines left to match</small></span><span data-ck>{{icon:check}}<b>Bill attachments</b><small>every bill has its document</small></span><span data-ck>{{icon:check}}<b>Company data</b><small>GST number and country set</small></span><span data-ck>{{icon:check}}<b>Draft entries</b><small>nothing left in draft</small></span></div>
+      </div>
+      <div class="tx-rep"><table>
+        <thead><tr><th>Tax</th><th>Base</th><th>Tax</th></tr></thead>
+        <tbody>
+          <tr data-bx><td>9% GST · standard-rated sales</td><td>S$412,380.00</td><td>S$37,114.20</td></tr>
+          <tr data-bx><td>0% GST · zero-rated sales</td><td>S$18,640.00</td><td>S$0.00</td></tr>
+          <tr data-bx><td>9% GST · purchases</td><td>S$236,950.00</td><td>−S$21,325.50</td></tr>
+          <tr class="is-net" data-bx><td>GST to pay for the quarter</td><td></td><td>S$15,788.70</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span>Return validated · closing entry posted · <b>S$15,788.70</b> to pay</span></div>
+  </div>
+  <aside class="notes"><p>Odoo 20 tax returns run in three steps, Review, Submit and Pay, and the review starts with automatic checks; the moves before this one cleared them. Press → (or click Validate): the tax return lock date moves to 30 September and the closing entry posts in the Tax Returns journal. The figures come from the tax report; confirm the exact layout of the Singapore GST report in a live database before matching it box by box to the IRAS form.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv7" data-group="live" data-steps="1" data-title="Move 7 · The month locked">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">September done. <span class="hl">Lock it.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">The reports were live all month. Locking the period keeps what you reported from changing.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Save</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:acc-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Reporting /</span><b>Profit and Loss</b></div><div class="lw-cp-r"><span class="lw-facet">{{icon:calendar}}Sep 2026</span><span class="lw-facet">Comparison: Aug 2026</span></div></div>
+    <div class="lw-body fr" data-in data-fx="fade" style="--d:60ms">
+      <div class="fr-rep"><table>
+        <thead><tr><th></th><th>Sep 2026</th><th>Aug 2026</th></tr></thead>
+        <tbody>
+          <tr class="is-sub"><td>Revenue</td><td>S$142,680.00</td><td>S$131,905.00</td></tr>
+          <tr><td>Cost of revenue</td><td>S$81,240.00</td><td>S$76,118.40</td></tr>
+          <tr class="is-sub"><td>Gross profit</td><td class="up">S$61,440.00</td><td>S$55,786.60</td></tr>
+          <tr><td>Rent</td><td>S$3,200.00</td><td>S$3,200.00</td></tr>
+          <tr><td>Salaries</td><td>S$27,400.00</td><td>S$27,400.00</td></tr>
+          <tr><td>Printing &amp; stationery</td><td>S$1,092.60</td><td>S$318.20</td></tr>
+          <tr><td>Freight &amp; delivery</td><td>S$4,866.00</td><td>S$4,410.00</td></tr>
+          <tr><td>Bank fees</td><td>S$62.40</td><td>S$55.10</td></tr>
+          <tr><td>Other expenses</td><td>S$2,294.20</td><td>S$2,607.30</td></tr>
+          <tr class="is-tot"><td>Net profit</td><td>S$22,524.80</td><td>S$17,796.00</td></tr>
+        </tbody>
+      </table></div>
+      <div class="fr-side">
+        <div class="fr-k"><small>Bank, after this morning's fetch</small><b>S$130,407.90</b><em>14 of 14 lines matched</em></div>
+        <div class="fr-k"><small>Owed by customers</small><b>S$27,815.40</b><em>6 reminders out today</em></div>
+        <div class="fr-lock"><p class="fr-lock-h">{{icon:lock}}Lock Journal Entries</p>
+          <p><span>Lock Everything</span><b>30/09/2026</b></p><p><span>Hard Lock</span><b>Off · cannot be undone</b></p>
+          <button type="button" class="lw-btn lw-btn--p" data-act>Save</button>
+          <p class="fr-locked">{{icon:lock}}Everything up to 30/09/2026 is locked</p></div>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:lock}}<span>Entries up to <b>30/09/2026</b> are locked</span></div>
+  </div>
+  <aside class="notes"><p>The reports were current all month, because every move posted as it happened: the bill from move 3 is already in Printing and stationery, the card fee in Bank fees. Press → (or click Save) to lock everything up to 30 September. A Hard Lock can be added for the year end; it cannot be undone.</p></aside>
+</section>
+
+<!-- 10 · new in Odoo 20 -->
+<section class="slide" id="new20" data-title="New in Odoo 20">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>new in odoo 20</span>
+      <h2 class="h-m" data-in style="--d:80ms">What changed in Accounting, <span class="hl">and where you saw it.</span></h2>
+    </div>
+    <div class="seg" role="group" aria-label="Show" data-in style="--d:160ms"><button type="button" aria-pressed="true" data-v="all">All</button><button type="button" aria-pressed="false" data-v="new">New</button><button type="button" aria-pressed="false" data-v="chk">Check before upgrading</button></div>
+  </div>
+  <div class="nw" data-i data-in style="--d:200ms">
+    <div class="nw-r" data-t="new"><h3>Bill line prediction <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv3">{{icon:play}}Move 3</button><p>A bill's product, account, tax and analytic distribution are suggested from past bills and the label.</p></div>
+    <div class="nw-r" data-t="new"><h3>Invoice reminders <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv4">{{icon:play}}Move 4</button><p>Follow-ups from the invoice list or the Send button, or automatic reminders set in the Accounting settings.</p></div>
+    <div class="nw-r" data-t="new"><h3>Matching rules and auto reconciliation <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv2">{{icon:play}}Move 2</button><p>Rules set the payment tolerance and matching order; Run Auto Reconciliation reruns them on demand.</p></div>
+    <div class="nw-r" data-t="new"><h3>No double payments <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv5">{{icon:play}}Move 5</button><p>The payment dialog finds payments already on their way and deducts them from the amount due.</p></div>
+    <div class="nw-r" data-t="chk"><h3>Payment statuses renamed <span class="nw-tag nw-tag--chk">Changed</span></h3><button type="button" class="nw-seen" data-go="mv5">{{icon:play}}Move 5</button><p>A payment that was "In Process" now shows Paid, and one that was "Paid" now shows Reconciled, once it meets its bank line.</p></div>
+    <div class="nw-r" data-t="chk"><h3>Parent accounts <span class="nw-tag nw-tag--chk">Changed</span></h3><p>Parent accounts replace account groups in the chart of accounts, and account codes become optional.</p></div>
+    <div class="nw-r" data-t="chk"><h3>Bank entries come from the bank <span class="nw-tag nw-tag--chk">Changed</span></h3><p>Every journal entry on a bank account must now come from a bank transaction, so manual mismatches cannot happen.</p></div>
+    <div class="nw-r" data-t="chk"><h3>Expenses arrive as draft bills <span class="nw-tag nw-tag--chk">Changed</span></h3><p>Approved expenses become draft bills in the expense journal; the separate Employee Expenses menu is gone.</p></div>
+  </div>
+  <p class="nw-src" data-in style="--d:300ms">{{icon:search}}From Odoo's Odoo 20 release notes. We test what you use on a copy of your database before an upgrade.</p>
+  <aside class="notes"><p>Eight Accounting changes from the Odoo 20 release notes. The first five were in the session: click a move to jump back to it. The last four change how existing books work, so we check them on a copy before upgrading a client.</p></aside>
+</section>
+
+<!-- 11 · Singapore, the Philippines, Vietnam -->
+<section class="slide" id="local" data-title="Singapore, the Philippines, Vietnam">
+  <div class="sec-head">
+    <span class="kicker" data-in>where we work</span>
+    <h2 class="h-m" data-in style="--d:80ms">Local rules, <span class="hl">in the standard product.</span></h2>
+  </div>
+  <div class="lc" data-i>
+    <div class="lc-map" data-in data-fx="fade" style="--d:120ms">
+      <svg class="lc-svg" viewBox="0 0 380 330" width="380" height="330" aria-hidden="true"><g class="lc-dots">{{seamap:380:330}}</g></svg>
+      <button type="button" class="lc-pin is-l" data-c="sg" style="{{mappx:sg:380:330}}" aria-pressed="true"><i></i><span>Singapore</span></button>
+      <button type="button" class="lc-pin" data-c="ph" style="{{mappx:ph:380:330}}" aria-pressed="false"><i></i><span>Philippines</span></button>
+      <button type="button" class="lc-pin is-l" data-c="vn" style="{{mappx:vn:380:330}}" aria-pressed="false"><i></i><span>Vietnam</span></button>
+    </div>
+    <div class="lc-cols-w" data-in style="--d:200ms"><div class="lc-cols">
+      <div class="lc-c" data-c="sg"><h3>Singapore</h3><p>GST and the statements your auditor expects.</p><ul>
+        <li>{{icon:file}}<span><b>IRAS GST documents</b><small>tax invoice, credit note and customer accounting PDFs, with GST taxes refined to prepare for InvoiceNow</small></span></li>
+        <li>{{icon:bars}}<span><b>SFRS statements</b><small>chart of accounts, balance sheet and profit and loss improved to Singapore Financial Reporting Standards</small></span></li>
+        <li>{{icon:qr}}<span><b>PayNow QR codes</b><small>on invoices, so customers pay from their banking app</small></span></li>
+      </ul></div>
+      <div class="lc-c" data-c="ph"><h3>Philippines</h3><p>BIR formats, certificates and books.</p><ul>
+        <li>{{icon:file}}<span><b>BIR-format partner ledger and Books of Accounts</b><small>for CAS and CBA compliance</small></span></li>
+        <li>{{icon:receipt}}<span><b>BIR 2306 and 2307 certificates</b><small>generated on vendor bills, and sent to the vendor when the bill is paid</small></span></li>
+        <li>{{icon:calculator}}<span><b>BIR- and CAS-compliant invoices</b><small>plus the BIR 1600VT report and a disbursement voucher</small></span></li>
+      </ul></div>
+      <div class="lc-c" data-c="vn"><h3>Vietnam</h3><p>Circular 99 and the 01/GTGT declaration.</p><ul>
+        <li>{{icon:layers}}<span><b>Circular 99/2025/TT-BTC</b><small>chart of accounts, balance sheet, General Journal <span class="keep">S03a-DN</span> and General Ledger <span class="keep">S03b-DN</span></small></span></li>
+        <li>{{icon:receipt}}<span><b>01/GTGT with Appendix&nbsp;142</b><small>exported as XML for HTKK or the tax portal</small></span></li>
+        <li>{{icon:send}}<span><b>SInvoice (Viettel) <span class="keep">e-invoices</span></b><small>sent from the invoice, and for Point of Sale orders and internal transfer notes</small></span></li>
+      </ul></div>
+      </div><p class="lc-src">{{icon:search}}Odoo 20 release notes and localisation docs. Click a pin to point out a country.</p>
+    </div>
+  </div>
+  <aside class="notes"><p>Odoo 20's accounting localisations for the three countries we work in, from the release notes. Singapore is selected; click the Philippines or Vietnam.</p></aside>
+</section>
+
+<!-- 12 · how TechNext sets it up -->
+<section class="slide" id="setup" data-title="How TechNext sets it up">
+  <div class="sec-head">
+    <span class="kicker" data-in>with technext</span>
+    <h2 class="h-m" data-in style="--d:80ms">Your books in Odoo, <span class="hl">a month&#8209;end at a time.</span></h2>
+  </div>
+  <div class="su" data-in style="--d:160ms">
+    <div class="su-p"><i>{{icon:search}}</i><span class="su-w">Weeks 1–2</span><h3>Discover</h3><ul><li>{{icon:check}}Your chart of accounts, taxes and banks</li><li>{{icon:check}}The reports you file, and who reads them</li></ul></div>
+    <div class="su-p"><i>{{icon:gear}}</i><span class="su-w">Weeks 3–6</span><h3>Build</h3><ul><li>{{icon:check}}Opening balances, loaded twice on a copy</li><li>{{icon:check}}Bank feeds, or statement imports</li><li>{{icon:check}}Matching rules and reminder steps</li></ul></div>
+    <div class="su-p"><i>{{icon:graduation}}</i><span class="su-w">Weeks 7–9</span><h3>Test &amp; train</h3><ul><li>{{icon:check}}A full month run on the copy</li><li>{{icon:check}}Each person trained on their own screens</li></ul></div>
+    <div class="su-p"><i>{{icon:zap}}</i><span class="su-w">Week 10</span><h3>Go live</h3><ul><li>{{icon:check}}Cut-over at the start of a month</li><li>{{icon:check}}The old books kept for reference</li></ul></div>
+    <div class="su-p"><i>{{icon:lifebuoy}}</i><span class="su-w">After</span><h3>Run</h3><ul><li>{{icon:check}}Month-end support from the same team</li><li>{{icon:check}}Upgrades tested on a copy first</li></ul></div>
+  </div>
+  <div class="su-rules">
+    <div class="su-r" data-in style="--d:300ms">{{icon:check}}<span><b>Standard before custom</b><small>configuration first; code only where your process truly differs</small></span></div>
+    <div class="su-r" data-in style="--d:360ms">{{icon:usercheck}}<span><b>Your accountant included</b><small>access for your external accountant or auditor, set up with them</small></span></div>
+    <div class="su-r" data-in style="--d:420ms">{{icon:users}}<span><b>One team, three offices</b><small>Singapore HQ, Taguig City and Ho Chi Minh City, from discovery to support</small></span></div>
+  </div>
+  <p class="su-illus">{{icon:check}}Illustrative plan · your dates are set in discovery</p>
+  <aside class="notes"><p>A typical first phase for Accounting. The five phases light up in turn. Most finance teams go live at the start of a month, with the last month of the old system kept for reference. Odoo Accounting, bank synchronisation and bill digitisation are part of Odoo Enterprise; Community has Invoicing.</p></aside>
+</section>
+
+<!-- 13 · contact -->
+<section class="slide dark" id="contact" data-title="See your month-end in Odoo" data-chrome="foot">
+  <div class="split split--narrow">
+    <div>
+      <img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40" data-in>
+      <span class="kicker" data-in style="--d:80ms">next step</span>
+      <h2 class="h-xl ct-h" data-in style="--d:140ms">See your own books <span class="hl">in Odoo.</span></h2>
+      <p class="lead" data-in style="--d:220ms">Book a 30-minute online discovery call. We'll walk through your banks, bills and GST, and show the same session on your kind of books.</p>
+      <div class="ct-actions" data-in style="--d:320ms">
+        <a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener">{{icon:calendar}}Book a discovery call</a>
+        <a class="btn btn-ghost" href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      </div>
+      <div class="ct-links" data-in style="--d:400ms">
+        <a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a>
+        <a href="erp-tiers.html" data-internal>{{icon:layers}}See the ERP tiers</a>
+      </div>
+    </div>
+    <div class="ct-qr" data-in data-fx="scale" style="--d:300ms">
+      <div class="ct-qr-card">{{qr:meet}}<b>Scan to book a call</b><small>Discovery Call with TechNext · 30 min online</small></div>
+    </div>
+  </div>
+  <aside class="notes"><p>Close with the booking link, or jump to the ERP tier list for what a first phase includes.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/odoo-app.js?v={{v}}"></script>
+<script src="assets/odoo-accounting.js?v={{v}}"></script>
+</body>
+</html>

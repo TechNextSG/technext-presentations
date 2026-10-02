@@ -1,0 +1,214 @@
+/* Odoo app series (Accounting, Sales, CRM): one live Odoo window holds the stage for seven moves.
+   Shared by odoo-accounting.html, odoo-sales.html and odoo-crm.html; assets/odoo-app.js runs the session and
+   each deck's own script (assets/odoo-<app>.js) fills the window. Inside the window everything follows Odoo's
+   own grammar (white navbar, plum primary button, teal links, chevron status bar); around it, the deck's. */
+
+/* ---------------------------------------------------------------- the live window */
+.lw{position:absolute;left:548px;top:112px;width:932px;height:700px;background:#fff;border:1px solid #DCDCE3;border-radius:16px;box-shadow:var(--sh-2);
+  overflow:hidden;display:flex;flex-direction:column;font:400 15px/1.4 var(--f-body);color:#1F1F3D;z-index:2}
+.lw-nav{height:50px;flex:none;display:flex;align-items:center;gap:14px;padding:0 18px;border-bottom:1px solid #E6E6EA;background:#fff}
+.lw-menu{display:grid;color:#6C6C80;font-size:19px}
+.lw-nav .oi{width:24px!important;height:24px!important}
+.lw-nav>b{font:700 16px/1 var(--f-body)}
+.lw-m{font-size:14.5px;color:#4C4C63;white-space:nowrap}
+.lw-m.is-on{color:#1F1F3D;font-weight:600}
+.lw-sp{flex:1}
+.lw-co{display:flex;align-items:center;gap:8px;font-size:13px;color:#4C4C63;white-space:nowrap}
+.lw-co em{font-style:normal;font:700 11px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:#8A5A00;background:#FFF1D6;padding:5px 7px;border-radius:5px}
+.lw-av{width:30px;height:30px;border-radius:50%;background:var(--odoo);color:#fff;font:700 11.5px/30px var(--f-body);text-align:center;flex:none}
+.lw-cp{flex:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 18px;border-bottom:1px solid #EFEFF3;min-height:58px;background:#fff}
+.lw-bc{display:flex;align-items:center;gap:10px;font-size:17px;white-space:nowrap;min-width:0}
+.lw-bc-l{color:#017E84}
+.lw-bc b{font-weight:600}
+.lw-cp-r{display:flex;align-items:center;gap:10px}
+.lw-search{display:flex;align-items:center;gap:8px;width:300px;padding:7px 10px;border:1px solid #DCDCE3;border-radius:6px;color:#6C6C80;font-size:14px;white-space:nowrap;overflow:hidden}
+.lw-facet{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:4px;background:#EEF0F4;color:#1F1F3D;font-size:13px;font-weight:600}
+.lw-facet i{font-style:normal;color:#fff;background:#714B67;border-radius:3px;padding:1px 5px;font-size:11px}
+.lw-acts{flex:none;display:flex;align-items:center;gap:7px;padding:9px 18px;border-bottom:1px solid #EFEFF3;background:#fff}
+.lw-btn{border:0;border-radius:6px;padding:8px 14px;font:600 14px/1.2 var(--f-body);cursor:pointer;display:inline-flex;gap:7px;align-items:center;white-space:nowrap;
+  transition:background .35s,color .35s,box-shadow .6s var(--ease)}
+.lw-btn .ic{font-size:15px}
+.lw-btn--p{background:var(--odoo);color:#fff}
+.lw-btn--p:hover{background:#5E3E56}
+.lw-btn--s{background:#E7E9ED;color:#1F1F3D}
+.lw-btn--s:hover{background:#DADDE3}
+.lw-btn--l{background:none;color:#017E84;padding-left:6px;padding-right:6px}
+/* the button the presenter (or a click) presses next */
+.lw-btn.is-ready{box-shadow:0 0 0 5px rgba(113,75,103,.22);animation:lwReady 2.4s var(--ease-io) infinite}
+@keyframes lwReady{50%{box-shadow:0 0 0 9px rgba(113,75,103,.1)}}
+.lw-btn.is-done{background:#E7E9ED;color:#6C6C80;box-shadow:none;animation:none;pointer-events:none}
+.lw-btn:focus-visible{outline:3px solid #017E84;outline-offset:2px}
+.lw-sb{display:flex;flex:none}
+.lw-sb i{font-style:normal;font-size:13px;font-weight:500;padding:7px 16px 7px 20px;margin-left:-6px;background:#F1F1F5;color:#6C6C80;white-space:nowrap;
+  clip-path:polygon(0 0,calc(100% - 9px) 0,100% 50%,calc(100% - 9px) 100%,0 100%,9px 50%);transition:background .5s,color .5s}
+.lw-sb i:first-child{clip-path:polygon(0 0,calc(100% - 9px) 0,100% 50%,calc(100% - 9px) 100%,0 100%);padding-left:14px;margin-left:0}
+.lw-sb i.is-cur{background:#EFE4EC;color:var(--odoo);font-weight:700}
+.lw-body{flex:1;min-height:0;background:#F6F6F9;position:relative;overflow:hidden}
+.lw-sheet{background:#fff;border:1px solid #E6E6EA;border-radius:8px;padding:18px 22px;overflow:hidden}
+.lw-toast{position:absolute;left:18px;bottom:12px;display:flex;gap:10px;align-items:center;padding:11px 18px;border-radius:10px;background:#1F1F3D;color:#fff;font-size:18px;line-height:1.3;white-space:nowrap;z-index:6;
+  max-width:calc(100% - 36px);opacity:0;transform:translateY(8px);transition:opacity .45s var(--ease),transform .55s var(--ease);pointer-events:none}
+.lw-toast .ic{color:#6DDBA6;flex:none}
+.lw-toast.is-on{opacity:1;transform:none}
+/* Odoo-style badges and links */
+.bdg{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font:600 12.5px/1.25 var(--f-body);white-space:nowrap;background:#EEF0F4;color:#4C4C63;transition:background .5s,color .5s}
+.bdg--ok{background:#E3F4EA;color:#14703F}
+.bdg--info{background:#E1F1F2;color:#016A70}
+.bdg--warn{background:#FFF1D6;color:#8A5A00}
+.bdg--bad{background:#FBE6E3;color:#A6312A}
+.bdg--plum{background:#F3EDF2;color:var(--odoo)}
+.lk{color:#017E84}
+.num{font-variant-numeric:tabular-nums}
+/* list views */
+.lv{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff}
+.lv th{text-align:left;font-weight:700;color:#1F1F3D;padding:10px 12px;border-bottom:1px solid #E6E6EA;font-size:13.5px;white-space:nowrap;background:#fff}
+.lv td{padding:9px 12px;border-bottom:1px solid #F1F1F5;font-variant-numeric:tabular-nums;white-space:nowrap;transition:background .5s,opacity .5s}
+.lv .r{text-align:right}
+.lv tr.is-sel td{background:#F8F2F6}
+.lv tr.is-hit td{background:#F1FAF4}
+.lv input[type=checkbox]{width:16px;height:16px;margin:0;accent-color:var(--odoo);vertical-align:-3px;pointer-events:none}
+.lv-wrap{margin:14px 18px;border:1px solid #E6E6EA;border-radius:8px;overflow:hidden;background:#fff}
+
+.oa-snap .lw *,.oa-snap .mv-log *{transition:none!important;animation:none!important}
+/* a view change inside the window is quick, like the app's own */
+.lw [data-in]{transition:opacity .4s var(--ease);transition-delay:var(--d,0ms)}
+
+/* ---------------------------------------------------------------- the move slides */
+.oa-mv .mv-left{position:absolute;left:120px;top:112px;width:388px}
+.mv-h{line-height:1.1;margin:0}
+.mv-p{font-size:22px;line-height:1.5;margin:16px 0 0;text-wrap:pretty}
+.mv-cta{display:flex;align-items:center;gap:8px;margin:16px 0 0;font:600 17px/1.3 var(--f-display);color:var(--odoo)}
+.mv-cta .ic{flex:none}
+/* the session log: what Odoo has done so far, one row per move; a result appears in place, so nothing reflows */
+.mv-log{list-style:none;margin:24px 0 0;padding:16px 0 0;border-top:1px solid var(--line)}
+.mv-log::before{content:attr(data-h);display:block;margin:0 0 10px;font:700 13px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:#6C6C80}
+.mv-log li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start;padding:5px 0}
+.mv-log li i{width:26px;height:26px;margin-top:1px;border-radius:50%;display:grid;place-items:center;font:800 12.5px/1 var(--f-display);font-style:normal;color:#6C6C80;
+  border:1.5px solid var(--line);background:#fff;transition:background .5s,border-color .5s,color .5s}
+.mv-log li i .ic{font-size:14px}
+.mv-log li span{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:10px;font:650 20px/1.35 var(--f-display);color:#6C6C80;min-width:0;transition:color .5s}
+.mv-log li small{font:500 17px/1.35 var(--f-body);color:var(--ok);opacity:0;visibility:hidden;transition:opacity .5s,visibility 0s .5s}
+.mv-log li.is-done i{background:var(--ok);border-color:var(--ok);color:#fff}
+.mv-log li.is-done span{color:var(--ink)}
+.mv-log li.is-done small{opacity:1;visibility:visible;transition:opacity .5s,visibility 0s}
+.mv-log li.is-cur i{border-color:var(--blue);color:var(--blue);box-shadow:0 0 0 4px rgba(49,103,202,.14)}
+.mv-log li.is-cur span{color:var(--blue-700)}
+.mv-log li.is-cur.is-done i{background:var(--ok);border-color:var(--ok);color:#fff;box-shadow:none}
+.mv-log button{all:unset;cursor:pointer;display:contents}
+.mv-log button:focus-visible span{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+/* every move window keeps a lane at the bottom for its toast, so the toast never covers the screen it reports on */
+.oa-mv .lw{padding-bottom:64px;background:#F6F6F9}
+
+/* ---------------------------------------------------------------- cover */
+.oa-cover .cv-copy{width:640px}
+.oa-cover .h-xl{font-size:84px;line-height:1.03}
+.oa-cover .lead{font-size:25px;max-width:600px}
+.oa-cover .kicker .oi{display:inline-block;vertical-align:-6px;width:38px!important;height:38px!important;margin-right:10px;transform:rotate(1.5deg)}
+.oa-cover .cv-win{position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}
+.oa-cover .lw{left:784px;top:146px;width:780px;height:624px;transform:perspective(2200px) rotateY(10deg) rotateX(3deg);transform-origin:0 50%;
+  box-shadow:0 60px 110px -40px rgba(4,10,30,.75),0 2px 0 rgba(255,255,255,.3) inset;border-color:rgba(255,255,255,.5)}
+.oa-cover .tag--badge img{height:22px;width:auto}
+/* the cover window is narrower than a move window: keep three menus so the company and its Sample chip stay in view */
+.oa-cover .lw-nav .lw-m ~ .lw-m ~ .lw-m ~ .lw-m{display:none}
+
+/* ---------------------------------------------------------------- 2 · what it replaces */
+.rp{display:grid;grid-template-columns:minmax(0,1fr) 92px minmax(0,1fr);align-items:stretch;gap:0;height:560px}
+.rp-col{position:relative;display:flex;flex-direction:column}
+.rp-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 16px}
+.rp-h b{font:750 22px/1.2 var(--f-display);color:var(--ink)}
+.rp-h small{font:600 15px/1.2 var(--f-display);color:#6C6C80}
+.rp-desk{position:relative;flex:1;border-radius:22px;background:#F3F1F4;border:1px dashed #D8D4DC}
+.rp-t{position:absolute;left:var(--x);top:var(--y);width:280px;display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border-radius:12px;background:#fff;border:1px solid var(--line);
+  box-shadow:0 1px 2px rgba(31,31,61,.06),0 12px 24px -16px rgba(31,31,61,.4);transform:rotate(var(--r,0deg));transition:opacity .6s var(--ease),transform .8s var(--ease),filter .6s}
+.rp-t>.ic{width:38px;height:38px;padding:9px;border-radius:10px;background:var(--alt);color:var(--body);flex:none}
+.rp-t b{display:block;font:700 15.5px/1.25 var(--f-display);color:var(--ink)}
+.rp-t small{display:block;font-size:13.5px;line-height:1.35;color:#6C6C80;margin-top:2px}
+.rp-t em{position:absolute;right:10px;top:-10px;font:700 11.5px/1 var(--f-display);font-style:normal;letter-spacing:.04em;color:#8A5A00;background:var(--amber-050);border:1px solid #F0DDB4;padding:5px 8px;border-radius:999px}
+.rp-arrow{display:grid;place-items:center;color:var(--blue-200);font-size:46px}
+.rp-arrow .ic{transition:color .6s,transform .8s var(--ease)}
+.rp-rec{flex:1;display:flex;flex-direction:column;border-radius:16px;background:#fff;border:1px solid #DCDCE3;box-shadow:var(--sh-2);overflow:hidden}
+.rp-rec-h{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid #E6E6EA;font:700 16px/1 var(--f-body);color:#1F1F3D}
+.rp-rec-h .oi{width:26px!important;height:26px!important}
+.rp-rec-h small{margin-left:auto;font:500 13px/1 var(--f-body);color:#6C6C80}
+.rp-rec ul{list-style:none;margin:0;padding:8px 18px 4px;display:flex;flex-direction:column}
+.rp-rec li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid #F1F1F5;
+  opacity:0;transform:translateX(16px);transition:opacity .5s var(--ease),transform .6s var(--ease);transition-delay:calc(var(--k) * 110ms + 250ms)}
+.rp-rec li:last-child{border-bottom:0}
+.rp-rec li>.ic{width:26px;height:26px;padding:5px;border-radius:50%;background:var(--ok-050);color:var(--ok)}
+.rp-rec li b{display:block;font:650 15.5px/1.3 var(--f-display);color:var(--ink)}
+.rp-rec li small{display:block;font-size:13.5px;color:#6C6C80;margin-top:1px}
+.rp-rec li.is-you>.ic{background:var(--blue-050);color:var(--blue)}
+.rp-meter{margin-top:14px;display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-radius:14px;background:var(--amber-050);font:650 16px/1.2 var(--f-display);color:var(--ink)}
+.rp-meter b{font:800 32px/1 var(--f-display);color:var(--amber);font-variant-numeric:tabular-nums}
+.rp-meter--ok{background:var(--ok-050)}
+.rp-meter--ok b{color:var(--ok)}
+.rp-right{opacity:.32;transition:opacity .7s var(--ease)}
+.rp.is-on .rp-right{opacity:1}
+.rp.is-on .rp-rec li{opacity:1;transform:none}
+.rp.is-on .rp-t{opacity:.42;filter:saturate(.3)}
+.rp.is-on .rp-arrow .ic{color:var(--blue);transform:translateX(6px)}
+
+/* ---------------------------------------------------------------- 10 · new in Odoo 20 */
+.nw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;margin-top:6px}
+.nw-r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:start;padding:17px 2px 16px;border-top:1px solid var(--line);transition:opacity .45s}
+.nw-r h3{margin:0;font:750 20px/1.25 var(--f-display);color:var(--ink);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.nw-r p{grid-column:1;margin:0;font-size:16px;line-height:1.5;color:var(--body);text-wrap:pretty}
+.nw-tag{font:700 11.5px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;padding:5px 8px;border-radius:6px;background:var(--ok-050);color:var(--ok)}
+.nw-tag--chk{background:var(--amber-050);color:#8A5A00}
+.nw-seen{grid-column:2;grid-row:1 / span 2;align-self:center;display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border-radius:10px;border:1px solid var(--blue-100);background:var(--blue-050);
+  color:var(--blue-700);font:650 13.5px/1.2 var(--f-display);cursor:pointer;white-space:nowrap;transition:background .3s,border-color .3s}
+.nw-seen:hover,.nw-seen:focus-visible{background:#fff;border-color:var(--blue-300);outline:none}
+.nw-r.is-dim{opacity:.22}
+.nw-src{position:absolute;left:120px;bottom:64px;display:flex;align-items:center;gap:8px;font:500 15px/1.3 var(--f-body);color:#6C6C80}
+.nw-src .ic{color:var(--blue)}
+
+/* ---------------------------------------------------------------- 11 · Singapore, the Philippines, Vietnam: all three on screen */
+.lc{display:grid;grid-template-columns:380px minmax(0,1fr);gap:36px;align-items:start}
+.lc-map{position:relative;width:380px;height:330px;margin-top:6px}
+.lc-map svg{position:absolute;left:0;top:0;width:380px;height:330px}
+.lc-dots path{fill:none;stroke:#C4D4F0}
+.lc-pin{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;border:0;background:none;padding:0;cursor:pointer;
+  font:700 15px/1 var(--f-display);color:var(--ink)}
+.lc-pin i{width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 0 0 5px rgba(49,103,202,.14);transition:background .4s,box-shadow .4s}
+.lc-pin span{padding:6px 10px;border-radius:9px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);transition:background .4s,color .4s,border-color .4s}
+.lc-pin.is-l{flex-direction:row-reverse}
+.lc-pin[aria-pressed=true] i{background:var(--blue);box-shadow:0 0 0 8px rgba(49,103,202,.18)}
+.lc-pin[aria-pressed=true] span{background:var(--blue);border-color:var(--blue);color:#fff}
+.lc-pin:focus-visible span{outline:3px solid var(--blue-300);outline-offset:2px}
+.lc-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.lc-c{padding:18px 18px 10px;border-radius:18px;background:#fff;border:1px solid var(--line);transition:border-color .4s,box-shadow .4s}
+.lc-c.is-hi{border-color:var(--blue-300);box-shadow:0 0 0 4px rgba(49,103,202,.12)}
+.lc-c h3{margin:0 0 4px;font:800 28px/1.1 var(--f-display);color:var(--ink);letter-spacing:-.02em}
+.lc-c>p{margin:0 0 8px;font-size:17px;line-height:1.4;color:var(--body)}
+.lc-c ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.lc-c li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;padding:11px 0;border-top:1px solid var(--line)}
+.lc-c li>.ic{width:28px;height:28px;padding:6px;border-radius:8px;background:var(--blue-050);color:var(--blue)}
+.lc-c li b{display:block;font:700 17px/1.3 var(--f-display);color:var(--ink)}
+.lc-c li small{display:block;font-size:15px;line-height:1.4;color:var(--body);margin-top:2px}
+.lc-src{margin:16px 0 0;font:500 14.5px/1.4 var(--f-body);color:#6C6C80;display:flex;gap:8px;align-items:center}
+.lc-src .ic{color:var(--blue)}
+.keep{white-space:nowrap}
+
+/* ---------------------------------------------------------------- 12 · how TechNext sets it up */
+.su{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;position:relative;margin-top:10px}
+.su::before{content:"";position:absolute;left:28px;right:28px;top:27px;height:2px;background:var(--line)}
+.su-p{position:relative;padding:0 18px 0 0}
+.su-p>i{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid var(--blue-100);color:var(--blue);font-size:24px;
+  transition:background .5s,border-color .5s,color .5s,box-shadow .5s}
+.su-p.is-on>i{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 0 7px rgba(49,103,202,.14)}
+.su-w{display:block;margin:18px 0 4px;font:700 13px/1 var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.su-p h3{margin:0 0 12px;font:800 24px/1.15 var(--f-display);color:var(--ink)}
+.su-p ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.su-p li{display:flex;gap:9px;align-items:flex-start;font-size:15.5px;line-height:1.4;color:var(--body)}
+.su-p li .ic{color:var(--ok);flex:none;margin-top:3px;font-size:15px}
+.su-rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px}
+.su-r{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.su-r .ic{width:36px;height:36px;padding:8px;border-radius:10px;background:var(--blue-050);color:var(--blue);flex:none}
+.su-r b{display:block;font:750 17px/1.25 var(--f-display);color:var(--ink)}
+.su-r small{display:block;font-size:14.5px;line-height:1.4;color:var(--body);margin-top:3px}
+.su-illus{position:absolute;left:120px;bottom:64px;font:500 14.5px/1 var(--f-body);color:#6C6C80;display:flex;gap:8px;align-items:center}
+.su-illus .ic{color:var(--ok)}
+
+/* ---------------------------------------------------------------- TV / cast mode and reduced motion */
+.deck.is-tv .lw-btn.is-ready{animation:none}
+.deck.is-tv .oa-cover .lw *{animation:none!important}
+@media (prefers-reduced-motion:reduce){.lw-btn.is-ready{animation:none}.lc-c.is-on{animation:none}}

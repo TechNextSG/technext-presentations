@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>Odoo Sales</title>
+<meta name="description" content="Odoo Sales in one live session: a quotation from a template, margins and pricing, signed and paid online, the order invoiced, marketplace orders and commissions. By TechNext, an Odoo Ready Partner in Singapore.">
+{{og:odoo-sales}}
+<link rel="stylesheet" href="assets/odoo-app.css?v={{v}}">
+<link rel="stylesheet" href="assets/odoo-sales.css?v={{v}}">
+</head>
+<body data-label="Odoo Sales" data-home="./">
+<main class="deck" aria-label="Odoo Sales: a live session">
+<div class="stage">
+
+<!-- 1 · cover: the window is already working -->
+<section class="slide dark cover oa-cover" id="cover" data-chrome="none" data-title="Odoo Sales">
+  <div class="cv-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">{{odoo:sale:38}}odoo sales</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Quotes that <span class="hl">get&nbsp;paid.</span></h1>
+    <p class="lead" data-in style="--d:320ms">A quote built from a template, priced by your rules, signed and paid online, then delivered and invoiced from the same record.</p>
+    <div class="cv-tags" data-in style="--d:440ms">
+      <span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="46" height="22">Presented by an Odoo Ready Partner</span>
+      <span class="tag">{{icon:refresh}}Odoo 20</span>
+    </div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> to start the session <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="cv-win" data-in data-fx="fade" style="--d:300ms"><div class="lw" aria-hidden="true">
+    {{include:sale-nav}}
+    <div class="lw-cp"><div class="lw-bc"><span class="lw-bc-l">Quotations /</span><b>S00057</b></div><div class="lw-sb"><i data-sb="0">Quotation</i><i data-sb="1" class="is-cur">Quotation Sent</i><i data-sb="2">Sales Order</i></div></div>
+    <div class="lw-body cv-qt">
+      <div class="lw-sheet qt-sheet">
+        <p class="qt-title">S00057 <span class="bdg bdg--info">{{icon:mail}}Sent to Sunbird Clinics</span></p>
+        <div class="qt-f"><div><label>Customer</label><span>Sunbird Clinics Pte Ltd</span></div><div><label>Quotation Template</label><span>Clinic reception refresh</span></div></div>
+        <table class="ql">
+          <thead><tr><th>Product</th><th>Quantity</th><th>Unit Price</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr class="ql-sec"><td colspan="4">Novena clinic</td></tr>
+            <tr style="--k:0"><td><span class="ql-p"><i class="ql-img">{{include:pico-desk}}</i>Reception counter</span></td><td>1.00</td><td>3,850.00</td><td>S$3,850.00</td></tr>
+            <tr style="--k:1"><td><span class="ql-p"><i class="ql-img">{{include:pico-chair}}</i>Visitor chair</span></td><td>8.00</td><td>166.50</td><td>S$1,332.00</td></tr>
+            <tr style="--k:2"><td><span class="ql-p"><i class="ql-img">{{icon:wrench}}</i>Installation</span></td><td>1.00</td><td>420.00</td><td>S$420.00</td></tr>
+            <tr class="ql-sum" style="--k:3"><td>Tampines clinic · 3 lines</td><td></td><td></td><td>S$5,602.00</td></tr>
+            <tr class="ql-sum" style="--k:4"><td>Jurong clinic · 3 lines</td><td></td><td></td><td>S$5,602.00</td></tr>
+          </tbody>
+        </table>
+        <div class="qt-tot"><p><span>Untaxed Amount</span><b>S$16,806.00</b></p><p><span>GST 9%</span><b>S$1,512.54</b></p><p><span>Total</span><b>S$18,318.54</b></p></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <aside class="notes"><p>Odoo Sales in one line: the quotation is the order, the delivery and the invoice, one record from start to finish. The window on the right is the session we are about to run, on a sample company in Singapore.</p></aside>
+</section>
+
+<!-- 2 · what it replaces -->
+<section class="slide" id="replaces" data-title="What it replaces" data-steps="1">
+  <div class="sec-head">
+    <span class="kicker" data-in>a quote today</span>
+    <h2 class="h-m" data-in style="--d:80ms">Six hand-offs per quote, <span class="hl">or one record.</span></h2>
+  </div>
+  <div class="rp" data-i>
+    <div class="rp-col" data-in style="--d:160ms">
+      <p class="rp-h"><b>Today, by hand</b><small>documents, spreadsheets, inboxes</small></p>
+      <div class="rp-desk">
+        <div class="rp-t" style="--x:22px;--y:20px;--r:-1.5deg">{{icon:file}}<span><b>Copy last month's quote</b><small>a document template, edited by hand</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:300px;--y:52px;--r:1.2deg">{{icon:calculator}}<span><b>Look up the prices</b><small>in a price list that may be out of date</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:40px;--y:140px;--r:.8deg">{{icon:mail}}<span><b>Email the PDF</b><small>then wait, and follow up</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:318px;--y:178px;--r:-1deg">{{icon:pen}}<span><b>Chase the signature</b><small>print, sign, scan, send back</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:24px;--y:266px;--r:-.6deg">{{icon:truck}}<span><b>Re-type it for delivery</b><small>so the warehouse knows what to send</small></span><em>by hand</em></div>
+        <div class="rp-t" style="--x:300px;--y:306px;--r:1.4deg">{{icon:receipt}}<span><b>Re-type it for the invoice</b><small>and hope nothing changed</small></span><em>by hand</em></div>
+      </div>
+      <div class="rp-meter"><span>Times one quote is typed</span><b data-rp-n data-from="3" data-to="1">3</b></div>
+    </div>
+    <div class="rp-arrow" data-in style="--d:240ms">{{icon:arrow}}</div>
+    <div class="rp-col rp-right" data-in style="--d:300ms">
+      <p class="rp-h"><b>With Odoo Sales</b><small>one record, start to finish</small></p>
+      <div class="rp-rec">
+        <p class="rp-rec-h">{{odoo:sale:26}}Kestrel &amp; Pine Pte Ltd<small>Sample company</small></p>
+        <ul>
+          <li style="--k:0">{{icon:check}}<span><b>Start from a quotation template</b><small>sections, products and terms already in place</small></span></li>
+          <li style="--k:1">{{icon:check}}<span><b>Prices come from your pricelists</b><small>with the margin on every line</small></span></li>
+          <li style="--k:2">{{icon:check}}<span><b>Send it from the quotation</b><small>the customer opens it online</small></span></li>
+          <li style="--k:3">{{icon:check}}<span><b>Signed and paid online</b><small>the customer accepts on their phone</small></span></li>
+          <li style="--k:4">{{icon:check}}<span><b>Delivery and invoice follow the order</b><small>every line carried over, nothing re-typed</small></span></li>
+          <li class="is-you" style="--k:5">{{icon:usercheck}}<span><b>You agree the deal</b><small>the paperwork follows by itself</small></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><p>Left: the hand-offs one quote goes through in many small companies, typed three times on the way: the quote, the delivery note and the invoice. Press → for the Odoo side: one record from template to invoice.</p></aside>
+</section>
+
+<!-- 3-9 · the live session: one Odoo window, seven moves -->
+<section class="slide oa-mv" id="mv1" data-group="live" data-steps="1" data-title="Move 1 · The sales dashboard">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Every open quote, <span class="hl">one click away.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">New in Odoo 20, the quotations list opens on a sales dashboard with one-click filters.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click To Confirm</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:sale-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><button type="button" class="lw-btn lw-btn--p">New</button><b>Quotations</b></div><div class="lw-search">{{icon:search}}<span class="lw-facet" data-facet>My Quotations</span></div></div>
+    <div class="lw-body" data-in data-fx="fade" style="--d:60ms">
+      <div class="sd">
+        <button type="button" class="sd-k sd-k--btn" data-act><small>To Confirm</small><b>6</b><em>quotations</em></button>
+        <div class="sd-k"><small>To Deliver</small><b>3</b><em>orders</em></div>
+        <div class="sd-k"><small>To Invoice</small><b>5</b><em>orders</em></div>
+        <div class="sd-k sd-k--per"><small>Sales Orders</small><b>24</b><em class="up">+12% on September</em></div>
+        <div class="sd-k sd-k--per"><small>Sales Revenue</small><b>S$212k</b><em class="up">+8% on September</em></div>
+      </div>
+      <div class="lv-wrap"><table class="lv">
+        <thead><tr><th>Number</th><th>Customer</th><th>Salesperson</th><th>Expiration</th><th class="r">Total</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr data-st="draft"><td>S00058</td><td>Orchard Pilates Studio</td><td>Marco Reyes</td><td>17/10/2026</td><td class="r">S$4,212.00</td><td><span class="bdg">Quotation</span></td></tr>
+          <tr data-st="sent"><td>S00054</td><td>Riverton Logistics</td><td>Aisha Kumar</td><td>09/10/2026</td><td class="r">S$12,903.60</td><td><span class="bdg bdg--info">Quotation Sent</span></td></tr>
+          <tr data-st="draft"><td>S00059</td><td>Tiong Bahru Bakehouse</td><td>Jia Hui Tan</td><td>18/10/2026</td><td class="r">S$2,746.80</td><td><span class="bdg">Quotation</span></td></tr>
+          <tr data-st="sent"><td>S00051</td><td>Pasir Ris Dental</td><td>Marco Reyes</td><td>05/10/2026</td><td class="r">S$7,358.40</td><td><span class="bdg bdg--info">Quotation Sent</span></td></tr>
+          <tr data-st="sent"><td>S00049</td><td>Harbourlight Bistro</td><td>Aisha Kumar</td><td>04/10/2026</td><td class="r">S$5,886.00</td><td><span class="bdg bdg--info">Quotation Sent</span></td></tr>
+          <tr data-st="draft"><td>S00060</td><td>Maple &amp; Moss Crafts</td><td>Aisha Kumar</td><td>19/10/2026</td><td class="r">S$1,632.00</td><td><span class="bdg">Quotation</span></td></tr>
+          <tr data-st="so"><td>S00053</td><td>Lumen Trading Pte Ltd</td><td>Jia Hui Tan</td><td>01/10/2026</td><td class="r">S$6,801.60</td><td><span class="bdg bdg--ok">Sales Order</span></td></tr>
+          <tr data-st="so"><td>S00052</td><td>Riverton Logistics</td><td>Marco Reyes</td><td>30/09/2026</td><td class="r">S$3,488.00</td><td><span class="bdg bdg--ok">Sales Order</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="lw-toast">{{icon:search}}<span><b>6</b> quotations to confirm · the oldest expires on Sunday</span></div>
+  </div>
+  <aside class="notes"><p>The quotations list with Odoo 20's new sales dashboard above it. Press → (or click To Confirm) to keep only the quotations still waiting for a yes; the cards also filter what needs delivering and invoicing. The next move opens Sunbird Clinics' new quotation, the deal won in the CRM deck.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv2" data-group="live" data-steps="1" data-title="Move 2 · A quote from a template">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Nine lines, <span class="hl">one template.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Pick the template as the quote opens: sections, products and pictures drop in at the customer's prices.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or pick the template</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:sale-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Quotations /</span><b>New</b></div><div class="lw-sb"><i data-sb="0" class="is-cur">Quotation</i><i data-sb="1">Quotation Sent</i><i data-sb="2">Sales Order</i></div></div>
+    <div class="lw-body" data-in data-fx="fade" style="--d:60ms">
+      <div class="lw-sheet qt-sheet qt-sheet--full">
+        <div class="qt-f qt-f--3">
+          <div><label>Customer</label><span>Sunbird Clinics Pte Ltd</span></div>
+          <div><label>Pricelist</label><span>Healthcare 2026 (SGD)</span></div>
+          <div class="qt-tpl"><label>Quotation Template</label><span class="qt-tpl-v" data-tpl><em data-tpl-v>Choose a template…</em>
+            <span class="qt-dd" data-dd><button type="button" class="qt-dd-o" data-act>{{icon:layers}}Clinic reception refresh<small>3 sections · 9 lines</small></button><span class="qt-dd-o">Office fit-out, small<small>2 sections · 6 lines</small></span><span class="qt-dd-o">Meeting room set<small>1 section · 4 lines</small></span></span></span></div>
+        </div>
+        <table class="ql ql--full" data-lines>
+          <thead><tr><th>Product</th><th>Quantity</th><th>Unit Price</th><th>Taxes</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr class="ql-sec" style="--k:0"><td colspan="5">Novena clinic <small>section</small></td></tr>
+            <tr style="--k:1"><td><span class="ql-p"><i class="ql-img">{{include:pico-desk}}</i>Reception counter, oak 2.4 m</span></td><td>1.00</td><td>3,850.00</td><td><span class="bdg">9% GST</span></td><td>S$3,850.00</td></tr>
+            <tr style="--k:2"><td><span class="ql-p"><i class="ql-img">{{include:pico-chair}}</i>Visitor chair, fabric</span></td><td>8.00</td><td>166.50</td><td><span class="bdg">9% GST</span></td><td>S$1,332.00</td></tr>
+            <tr style="--k:3"><td><span class="ql-p"><i class="ql-img">{{icon:wrench}}</i>Installation</span></td><td>1.00</td><td>390.00</td><td><span class="bdg">9% GST</span></td><td>S$390.00</td></tr>
+            <tr class="ql-sec" style="--k:4"><td colspan="4">Tampines clinic <small>section · 3 lines</small></td><td>S$5,572.00</td></tr>
+            <tr class="ql-sec" style="--k:5"><td colspan="4">Jurong clinic <small>section · 3 lines</small></td><td>S$5,572.00</td></tr>
+          </tbody>
+        </table>
+        <div class="qt-tot" data-tot><p><span>Untaxed Amount</span><b>S$16,716.00</b></p><p><span>GST 9%</span><b>S$1,504.44</b></p><p><span>Total</span><b>S$18,220.44</b></p></div>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span>Template applied · <b>3</b> sections, <b>9</b> lines at Healthcare 2026 prices</span></div>
+  </div>
+  <aside class="notes"><p>New in Odoo 20, the quotation template is picked right on the new quote, and sections can be saved and reused. Press → (or click the template): three clinic sections drop in, each with its products, product pictures and the customer's prices.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv3" data-group="live" data-steps="1" data-title="Move 3 · Price by margin">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Set the margin, <span class="hl">the price follows.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Each line shows its margin. Type the margin you want and Odoo works out the price.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or set the margin to 35%</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:sale-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Quotations /</span><b>S00057</b></div><div class="lw-sb"><i data-sb="0" class="is-cur">Quotation</i><i data-sb="1">Quotation Sent</i><i data-sb="2">Sales Order</i></div></div>
+    <div class="lw-body" data-in data-fx="fade" style="--d:60ms">
+      <div class="lw-sheet qt-sheet qt-sheet--full">
+        <p class="qt-sub">Novena clinic <small>section · the same edit applies to every clinic</small></p>
+        <table class="ql ql--full ql--margin">
+          <thead><tr><th>Product</th><th>Quantity</th><th>Unit Price</th><th>Cost</th><th>Margin</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td><span class="ql-p"><i class="ql-img">{{include:pico-desk}}</i>Reception counter, oak 2.4 m</span></td><td>1.00</td><td>3,850.00</td><td>2,695.00</td><td><span class="mg">30.0%</span></td><td>S$3,850.00</td></tr>
+            <tr><td><span class="ql-p"><i class="ql-img">{{include:pico-chair}}</i>Visitor chair, fabric<span class="ql-promo">{{icon:calendar}}Q4 promotion · 1 Oct – 31 Dec · −10%</span></span></td><td>8.00</td><td><s>185.00</s> 166.50</td><td>112.00</td><td><span class="mg">32.7%</span></td><td>S$1,332.00</td></tr>
+            <tr class="is-edit" data-edit><td><span class="ql-p"><i class="ql-img">{{icon:wrench}}</i>Installation</span></td><td>1.00</td><td><b data-price>390.00</b></td><td>273.00</td><td><button type="button" class="mg mg--in" data-act><span data-mg>30.0%</span><i>{{icon:pen}}</i></button></td><td data-amt>S$390.00</td></tr>
+            <tr class="ql-sec"><td colspan="6">The other two clinics <small>the same three lines each</small></td></tr>
+            <tr class="ql-sum"><td>Tampines clinic</td><td>3 lines</td><td></td><td></td><td></td><td data-sum>S$5,572.00</td></tr>
+            <tr class="ql-sum"><td>Jurong clinic</td><td>3 lines</td><td></td><td></td><td></td><td data-sum>S$5,572.00</td></tr>
+          </tbody>
+        </table>
+        <div class="qt-row">
+          <div class="qt-note"><b>{{icon:calendar}}Pricelist Healthcare 2026</b><span>Rules can cover dates or days of the week: the chair promotion runs only this quarter.</span></div>
+          <div class="qt-tot" data-tot><p><span>Untaxed Amount</span><b data-t-u>S$16,716.00</b></p><p><span>GST 9%</span><b data-t-g>S$1,504.44</b></p><p><span>Total</span><b data-t-t>S$18,220.44</b></p></div>
+        </div>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span>Margin 35% · installation now <b>S$420.00</b> in all three clinics</span></div>
+  </div>
+  <aside class="notes"><p>New in Odoo 20, the margin on a line can be edited and the price recomputes, and pricelist rules can be limited to dates or days of the week. Press → (or click the margin) to take installation from 30% to 35%: S$390.00 becomes S$420.00, and the total moves from S$18,220.44 to S$18,318.54.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv4" data-group="live" data-steps="1" data-title="Move 4 · Signed and paid online">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Signed and paid, <span class="hl">on a phone.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">The customer opens the quote on their phone, signs, and pays a fixed S$5,000 deposit.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Sign &amp; Pay</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:sale-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Quotations /</span><b>S00057</b></div><div class="lw-sb"><i data-sb="0">Quotation</i><i data-sb="1" class="is-cur">Quotation Sent</i><i data-sb="2">Sales Order</i></div></div>
+    <div class="lw-body po" data-in data-fx="fade" style="--d:60ms">
+      <div class="po-left">
+        <div class="lw-sheet po-card">
+          <p class="po-h">{{icon:mail}}<span><b>Sent to Grace Lim</b><small>grace.lim@sunbird.example · today, 10:12</small></span></p>
+          <div class="po-row"><span>Total</span><b>S$18,318.54</b></div>
+          <div class="po-row"><span>Prepayment</span><b>S$5,000.00 <small>fixed amount</small></b></div>
+          <div class="po-row"><span>Signature</span><b data-sig-st>Waiting</b></div>
+          <div class="po-row"><span>Payment</span><b data-pay-st>Waiting</b></div>
+        </div>
+        <div class="po-trail">
+          <p data-po="0"><i>{{icon:mail}}</i><span>Opened the quotation<small>10:31 · on a phone</small></span></p>
+          <p data-po="1"><i>{{icon:pen}}</i><span>Signed it<small>Grace Lim, Operations Director</small></span></p>
+          <p data-po="2"><i>{{icon:receipt}}</i><span>Paid the deposit<small>S$5,000.00 by card</small></span></p>
+        </div>
+      </div>
+      <div class="po-phone">
+        <div class="po-screen">
+          <p class="po-brand">{{odoo:sale:18}}Kestrel &amp; Pine</p>
+          <p class="po-q">Quotation S00057</p>
+          <p class="po-amt">S$18,318.54</p>
+          <p class="po-l"><span>3 clinics · 9 lines</span><span>Valid until 16 Oct</span></p>
+          <div class="po-lines"><p><span>Novena clinic</span><span>S$5,602.00</span></p><p><span>Tampines clinic</span><span>S$5,602.00</span></p><p><span>Jurong clinic</span><span>S$5,602.00</span></p><p><span>GST 9%</span><span>S$1,512.54</span></p></div>
+          <div class="po-sign"><svg viewBox="0 0 220 70" aria-hidden="true"><path d="M8,48 C24,18 36,16 40,40 C43,58 52,52 58,36 C64,22 70,24 72,42 C74,56 86,50 94,30 C99,18 108,22 110,40 C112,52 122,48 132,36 C142,24 150,30 156,44 C160,54 172,50 182,40 C192,30 202,30 212,36" data-sig/></svg><small>Signed by Grace Lim</small></div>
+          <button type="button" class="po-btn" data-act>{{icon:pen}}Sign &amp; Pay S$5,000.00</button>
+          <p class="po-paid">{{icon:check}}Paid · order confirmed</p>
+        </div>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span>S00057 signed and <b>S$5,000.00</b> paid · it is now a sales order</span></div>
+  </div>
+  <aside class="notes"><p>The customer's side of the same record: the quotation opens on a phone in the customer portal (redesigned in Odoo 20). Press → (or click Sign &amp; Pay): Grace Lim signs and pays the fixed S$5,000 prepayment, new in Odoo 20, and the quotation becomes a sales order.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv5" data-group="live" data-steps="1" data-title="Move 5 · Delivered and invoiced">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Delivered, <span class="hl">then invoiced.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Deliveries are already scheduled. One click invoices the order, with the deposit taken off.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Create Invoice</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:sale-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Orders /</span><b>S00057</b></div><div class="lw-sb"><i data-sb="0">Quotation</i><i data-sb="1">Quotation Sent</i><i data-sb="2" class="is-cur">Sales Order</i></div></div>
+    <div class="lw-acts" data-in data-fx="fade"><button type="button" class="lw-btn lw-btn--p" data-act>Create Invoice</button><button type="button" class="lw-btn lw-btn--s">Send</button>
+      <span class="so-smart"><span>{{icon:truck}}<b>3</b> Delivery</span><span data-inv-n>{{icon:receipt}}<b>1</b> Invoice</span></span></div>
+    <div class="lw-body so" data-in data-fx="fade" style="--d:60ms">
+      <div class="lw-sheet so-sheet">
+        <p class="qt-title">S00057 <span class="bdg bdg--ok">{{icon:check}}Signed · deposit paid</span></p>
+        <table class="ql ql--full">
+          <thead><tr><th>Section</th><th>Lines</th><th>Delivered</th><th>Invoiced</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Novena clinic</td><td>3</td><td><span class="bdg">Scheduled 12/10</span></td><td data-iv>0 of 3</td><td>S$5,602.00</td></tr>
+            <tr><td>Tampines clinic</td><td>3</td><td><span class="bdg">Scheduled 13/10</span></td><td data-iv>0 of 3</td><td>S$5,602.00</td></tr>
+            <tr><td>Jurong clinic</td><td>3</td><td><span class="bdg">Scheduled 14/10</span></td><td data-iv>0 of 3</td><td>S$5,602.00</td></tr>
+          </tbody>
+        </table>
+        <div class="qt-tot"><p><span>Untaxed Amount</span><b>S$16,806.00</b></p><p><span>GST 9%</span><b>S$1,512.54</b></p><p><span>Total</span><b>S$18,318.54</b></p></div>
+      </div>
+      <div class="so-inv" data-inv>
+        <p class="so-inv-h">{{odoo:account:22}}<b>INV/2026/00061</b><span class="bdg bdg--plum">Draft</span></p>
+        <p class="so-r"><span>Order S00057, 9 lines</span><b>S$18,318.54</b></p>
+        <p class="so-r"><span>Less deposit paid on 02/10</span><b>−S$5,000.00</b></p>
+        <p class="so-r so-r--t"><span>Amount due</span><b>S$13,318.54</b></p>
+      </div>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span>Invoice <b>INV/2026/00061</b> created · the deposit is deducted</span></div>
+  </div>
+  <aside class="notes"><p>The signed quote is now sales order S00057: three deliveries scheduled, the deposit invoice already paid. Press → (or click Create Invoice): the invoice copies every line and deducts the deposit. Without the Inventory app, Odoo 20 can still send shipping confirmations from the order.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv6" data-group="live" data-steps="1" data-title="Move 6 · Marketplace orders">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Three shops, <span class="hl">one list.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">Shopee, Lazada and TikTok Shop orders come in; stock levels go back out to each shop.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Sync Orders</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:sale-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Orders /</span><b>Marketplace</b></div><div class="lw-cp-r"><button type="button" class="lw-btn lw-btn--p" data-act>{{icon:refresh}}Sync Orders</button><div class="lw-search">{{icon:search}}<span class="lw-facet">Desk accessories</span></div></div></div>
+    <div class="lw-body" data-in data-fx="fade" style="--d:60ms">
+      <div class="mk-top">
+        <div class="mk-c"><span class="mk-dot mk-dot--sp"></span><b>Shopee</b><small data-mk="sp">Synced 07:00 · 4 today</small></div>
+        <div class="mk-c"><span class="mk-dot mk-dot--lz"></span><b>Lazada</b><small data-mk="lz">Synced 07:00 · 6 today</small></div>
+        <div class="mk-c"><span class="mk-dot mk-dot--tt"></span><b>TikTok Shop</b><small data-mk="tt">Synced 07:00 · 3 today</small></div>
+        <div class="mk-c"><span class="mk-dot mk-dot--st"></span><b>Stock sent back</b><small data-mk="st">Monitor riser: 48 on hand</small></div>
+      </div>
+      <div class="lv-wrap"><table class="lv mk-lv">
+        <thead><tr><th>Order</th><th>Channel</th><th>Product</th><th class="r">Qty</th><th class="r">Total</th><th>Delivery</th></tr></thead>
+        <tbody data-mk>
+          <tr class="mk-new"><td>S00072</td><td><span class="bdg bdg--sp">Shopee</span></td><td>Monitor riser, walnut</td><td class="r">1</td><td class="r">S$59.00</td><td><span class="bdg">Slip received</span></td></tr>
+          <tr class="mk-new"><td>S00071</td><td><span class="bdg bdg--lz">Lazada</span></td><td>Monitor riser, walnut</td><td class="r">1</td><td class="r">S$59.00</td><td><span class="bdg">Slip received</span></td></tr>
+          <tr class="mk-new"><td>S00070</td><td><span class="bdg bdg--tt">TikTok Shop</span></td><td>Cable tray, steel</td><td class="r">1</td><td class="r">S$34.90</td><td><span class="bdg">Slip received</span></td></tr>
+          <tr><td>S00068</td><td><span class="bdg bdg--lz">Lazada</span></td><td>Desk lamp, brass</td><td class="r">1</td><td class="r">S$89.00</td><td><span class="bdg bdg--ok">Shipped</span></td></tr>
+          <tr><td>S00066</td><td><span class="bdg bdg--tt">TikTok Shop</span></td><td>Monitor riser, walnut</td><td class="r">1</td><td class="r">S$59.00</td><td><span class="bdg bdg--ok">Shipped</span></td></tr>
+          <tr><td>S00065</td><td><span class="bdg bdg--sp">Shopee</span></td><td>Footrest, oak</td><td class="r">1</td><td class="r">S$72.00</td><td><span class="bdg bdg--ok">Shipped</span></td></tr>
+          <tr><td>S00063</td><td><span class="bdg bdg--lz">Lazada</span></td><td>Desk organiser set</td><td class="r">3</td><td class="r">S$104.70</td><td><span class="bdg bdg--ok">Shipped</span></td></tr>
+          <tr><td>S00062</td><td><span class="bdg bdg--sp">Shopee</span></td><td>Desk lamp, brass</td><td class="r">2</td><td class="r">S$178.00</td><td><span class="bdg bdg--ok">Shipped</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="lw-toast">{{icon:refresh}}<span><b>3</b> new orders · monitor riser stock (<b>46</b>) sent to all three shops</span></div>
+  </div>
+  <aside class="notes"><p>Kestrel &amp; Pine also sells desk accessories on Shopee, Lazada and TikTok Shop. Each connector brings orders and delivery slips into Sales and sends stock levels back out; Odoo documents all three for Singapore, the Philippines and Vietnam. Lazada and TikTok are in the Odoo 20 release notes (also available from 19). The connectors are not part of Odoo Community. Press → (or click Sync Orders): three new orders arrive, and the monitor riser's stock, now 46, goes back to all three shops.</p></aside>
+</section>
+
+<section class="slide oa-mv" id="mv7" data-group="live" data-steps="1" data-title="Move 7 · Commissions on paid sales">
+  <div class="mv-left">
+    <h2 class="h-m mv-h" data-in style="--d:60ms">Commission on <span class="hl">what's paid.</span></h2>
+    <p class="mv-p" data-in style="--d:120ms">New in Odoo 20, plans can count only what is paid, and a manager's plan rolls up the team.</p>
+    <p class="mv-cta" data-in style="--d:160ms">{{icon:zap}}Press → or click Refresh</p>
+    <ol class="mv-log" data-h="This session" data-in style="--d:200ms"></ol>
+  </div>
+  <div class="lw" data-i>
+    {{include:sale-nav}}
+    <div class="lw-cp" data-in data-fx="fade"><div class="lw-bc"><span class="lw-bc-l">Commissions /</span><b>Projects team · Q4 2026</b></div><div class="lw-cp-r"><button type="button" class="lw-btn lw-btn--p" data-act>{{icon:refresh}}Refresh</button><span class="lw-facet">Q4 2026</span></div></div>
+    <div class="lw-body cm" data-in data-fx="fade" style="--d:60ms">
+      <div class="cm-plan"><span><small>Plan</small><b>Projects team · Q4 2026</b></span><span><small>Based on</small><b>Amount paid</b></span><span><small>Rate</small><b>3% of paid sales</b></span><span><small>Manager</small><b>2% of the team, rolled up</b></span></div>
+      <div class="lw-sheet cm-sheet">
+        <div class="cm-r cm-r--h"><span>Salesperson</span><span>Target</span><span>Paid so far</span><span></span><span>Commission</span></div>
+        <div class="cm-r" data-jt><span><i class="lw-av" style="background:#3167CA">JT</i>Jia Hui Tan</span><span>S$60,000</span><span data-paid>S$36,280</span><span class="cm-bar"><i data-bar style="--p:.605"></i></span><span data-com>S$1,088.40</span></div>
+        <div class="cm-r"><span><i class="lw-av" style="background:#137A4A">MR</i>Marco Reyes</span><span>S$50,000</span><span>S$29,410</span><span class="cm-bar"><i style="--p:.588"></i></span><span>S$882.30</span></div>
+        <div class="cm-r"><span><i class="lw-av" style="background:#8A5A00">AK</i>Aisha Kumar</span><span>S$55,000</span><span>S$38,925</span><span class="cm-bar"><i style="--p:.708"></i></span><span>S$1,167.75</span></div>
+        <div class="cm-r cm-r--mgr"><span><i class="lw-av">DL</i>Daniel Lee <small>manager</small></span><span>S$165,000</span><span data-tpaid>S$104,615</span><span class="cm-bar"><i data-tbar style="--p:.634"></i></span><span data-mcom>S$2,092.30</span></div>
+      </div>
+      <p class="cm-note">{{icon:receipt}}<span>Sunbird Clinics' S$5,000.00 deposit counts the day it is paid. The rest counts when the invoice is paid.</span></p>
+    </div>
+    <div class="lw-toast">{{icon:check}}<span>Commissions refreshed · Jia Hui Tan <b>+S$150.00</b> on the deposit</span></div>
+  </div>
+  <aside class="notes"><p>The commission report for the quarter. New in Odoo 20, plans can be based on the amount paid, and a manager's commission can roll up the team's. Press → (or click Refresh): the Sunbird deposit paid in move 4 lifts Jia Hui Tan's paid sales by S$5,000 and her commission by S$150. Commissions are not part of Odoo Community.</p></aside>
+</section>
+
+<!-- 10 · new in Odoo 20 -->
+<section class="slide" id="new20" data-title="New in Odoo 20">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>new in odoo 20</span>
+      <h2 class="h-m" data-in style="--d:80ms">What changed in Sales, <span class="hl">and where you saw it.</span></h2>
+    </div>
+    <div class="seg" role="group" aria-label="Show" data-in style="--d:160ms"><button type="button" aria-pressed="true" data-v="all">All</button><button type="button" aria-pressed="false" data-v="new">In the session</button><button type="button" aria-pressed="false" data-v="chk">Also new</button></div>
+  </div>
+  <div class="nw" data-i data-in style="--d:200ms">
+    <div class="nw-r" data-t="new"><h3>Sales dashboard <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv1">{{icon:play}}Move 1</button><p>Performance and quick filters at the top of the quotations and orders lists.</p></div>
+    <div class="nw-r" data-t="new"><h3>Templates and sections <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv2">{{icon:play}}Move 2</button><p>Pick a template as the quote opens; save sections as templates, with subsections and Hide Price options.</p></div>
+    <div class="nw-r" data-t="new"><h3>Editable margins, periodic pricing <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv3">{{icon:play}}Move 3</button><p>Edit a line's margin to recompute its price; pricelist rules for set dates or days of the week.</p></div>
+    <div class="nw-r" data-t="new"><h3>Fixed prepayments <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv4">{{icon:play}}Move 4</button><p>Ask for a fixed deposit amount instead of a percentage; the portal page is redesigned.</p></div>
+    <div class="nw-r" data-t="new"><h3>Lazada and TikTok <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv6">{{icon:play}}Move 6</button><p>Orders, delivery slips and stock sync with both marketplaces, next to Shopee (also available from Odoo 19).</p></div>
+    <div class="nw-r" data-t="new"><h3>Commissions on paid amounts <span class="nw-tag">New</span></h3><button type="button" class="nw-seen" data-go="mv7">{{icon:play}}Move 7</button><p>Plans based on the amount paid, and managers' or split commissions rolled up from the team.</p></div>
+    <div class="nw-r" data-t="chk"><h3>Product images on orders <span class="nw-tag">New</span></h3><p>Product pictures on sales orders and their PDFs, and numbered order lines on the form, PDF and portal.</p></div>
+    <div class="nw-r" data-t="chk"><h3>Lines without a product <span class="nw-tag">New</span></h3><p>Order lines can be a description only; the Mandatory Product setting enforces a product where you need one.</p></div>
+  </div>
+  <p class="nw-src" data-in style="--d:300ms">{{icon:search}}From Odoo's Odoo 20 release notes. We test what you use on a copy of your database before an upgrade.</p>
+  <aside class="notes"><p>Eight Sales changes from the Odoo 20 release notes. The first six were in the session: click a move to jump back to it.</p></aside>
+</section>
+
+<!-- 11 · Singapore, the Philippines, Vietnam -->
+<section class="slide" id="local" data-title="Singapore, the Philippines, Vietnam">
+  <div class="sec-head">
+    <span class="kicker" data-in>where we work</span>
+    <h2 class="h-m" data-in style="--d:80ms">Selling across the region, <span class="hl">from one Sales app.</span></h2>
+  </div>
+  <div class="lc" data-i>
+    <div class="lc-map" data-in data-fx="fade" style="--d:120ms">
+      <svg class="lc-svg" viewBox="0 0 380 330" width="380" height="330" aria-hidden="true"><g class="lc-dots">{{seamap:380:330}}</g></svg>
+      <button type="button" class="lc-pin is-l" data-c="sg" style="{{mappx:sg:380:330}}" aria-pressed="true"><i></i><span>Singapore</span></button>
+      <button type="button" class="lc-pin" data-c="ph" style="{{mappx:ph:380:330}}" aria-pressed="false"><i></i><span>Philippines</span></button>
+      <button type="button" class="lc-pin is-l" data-c="vn" style="{{mappx:vn:380:330}}" aria-pressed="false"><i></i><span>Vietnam</span></button>
+    </div>
+    <div class="lc-cols-w" data-in style="--d:200ms"><div class="lc-cols">
+      <div class="lc-c" data-c="sg"><h3>Singapore</h3><p>GST on every line, paid by PayNow.</p><ul>
+        <li>{{icon:receipt}}<span><b>9% GST from the tax settings</b><small>on every quotation line, refined in Odoo 20 to current requirements</small></span></li>
+        <li>{{icon:qr}}<span><b>PayNow QR codes</b><small>on the invoice, so the customer pays from their banking app</small></span></li>
+        <li>{{icon:cart}}<span><b>Shopee, Lazada and TikTok&nbsp;Shop</b><small>all three connectors are documented for Singapore</small></span></li>
+      </ul></div>
+      <div class="lc-c" data-c="ph"><h3>Philippines</h3><p>BIR-compliant invoices from the same order.</p><ul>
+        <li>{{icon:file}}<span><b>BIR- and CAS-compliant invoices</b><small>from the Philippine localisation in Odoo 20</small></span></li>
+        <li>{{icon:users}}<span><b>Senior citizen and PWD discounts</b><small>the statutory discounts on invoices and credit notes</small></span></li>
+        <li>{{icon:bank}}<span><b>Xendit and AsiaPay</b><small>the payment providers Odoo names for the Philippines</small></span></li>
+      </ul></div>
+      <div class="lc-c" data-c="vn"><h3>Vietnam</h3><p>E-invoices and QR payment.</p><ul>
+        <li>{{icon:send}}<span><b>SInvoice (Viettel) <span class="keep">e-invoices</span></b><small>sent from the invoice with Send to SInvoice</small></span></li>
+        <li>{{icon:qr}}<span><b>VietQR codes</b><small>on invoices, for payment from a banking app</small></span></li>
+        <li>{{icon:cart}}<span><b>Shopee, Lazada and TikTok&nbsp;Shop</b><small>all three connectors are documented for Vietnam</small></span></li>
+      </ul></div>
+      </div><p class="lc-src">{{icon:search}}Odoo 20 release notes and documentation. Click a pin to point out a country.</p>
+    </div>
+  </div>
+  <aside class="notes"><p>What changes when the same Sales app sells in each country we work in, from Odoo's release notes and localisation documentation. Singapore is selected; click the Philippines or Vietnam. Prices in another currency need the Accounting app, or a company of its own per country.</p></aside>
+</section>
+
+<!-- 12 · how TechNext sets it up -->
+<section class="slide" id="setup" data-title="How TechNext sets it up">
+  <div class="sec-head">
+    <span class="kicker" data-in>with technext</span>
+    <h2 class="h-m" data-in style="--d:80ms">Your price list and quotes in Odoo, <span class="hl">set up with you.</span></h2>
+  </div>
+  <div class="su" data-in style="--d:160ms">
+    <div class="su-p"><i>{{icon:search}}</i><span class="su-w">Weeks 1–2</span><h3>Discover</h3><ul><li>{{icon:check}}How you quote, price and discount today</li><li>{{icon:check}}Who approves what, and when</li></ul></div>
+    <div class="su-p"><i>{{icon:gear}}</i><span class="su-w">Weeks 3–6</span><h3>Build</h3><ul><li>{{icon:check}}Products, variants and pricelists</li><li>{{icon:check}}Quotation templates in your layout</li><li>{{icon:check}}Online payment and marketplaces</li></ul></div>
+    <div class="su-p"><i>{{icon:graduation}}</i><span class="su-w">Weeks 7–9</span><h3>Test &amp; train</h3><ul><li>{{icon:check}}Real quotes run end to end on a copy</li><li>{{icon:check}}Sales team trained on their screens</li></ul></div>
+    <div class="su-p"><i>{{icon:zap}}</i><span class="su-w">Week 10</span><h3>Go live</h3><ul><li>{{icon:check}}Open quotes carried over</li><li>{{icon:check}}Commission plans from day one</li></ul></div>
+    <div class="su-p"><i>{{icon:lifebuoy}}</i><span class="su-w">After</span><h3>Run</h3><ul><li>{{icon:check}}New templates and price changes with you</li><li>{{icon:check}}Upgrades tested on a copy first</li></ul></div>
+  </div>
+  <div class="su-rules">
+    <div class="su-r" data-in style="--d:300ms">{{icon:check}}<span><b>Standard before custom</b><small>configuration first; code only where your process truly differs</small></span></div>
+    <div class="su-r" data-in style="--d:360ms">{{icon:layers}}<span><b>Sales with CRM and Accounting</b><small>the same record from the first lead to the paid invoice</small></span></div>
+    <div class="su-r" data-in style="--d:420ms">{{icon:users}}<span><b>One team, three offices</b><small>Singapore HQ, Taguig City and Ho Chi Minh City, from discovery to support</small></span></div>
+  </div>
+  <p class="su-illus">{{icon:check}}Illustrative plan · your dates are set in discovery</p>
+  <aside class="notes"><p>A typical first phase for Sales. The five phases light up in turn. Quotation templates are built from the client's own best quotes, in their layout.</p></aside>
+</section>
+
+<!-- 13 · contact -->
+<section class="slide dark" id="contact" data-title="See your quotes in Odoo" data-chrome="foot">
+  <div class="split split--narrow">
+    <div>
+      <img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40" data-in>
+      <span class="kicker" data-in style="--d:80ms">next step</span>
+      <h2 class="h-xl ct-h" data-in style="--d:140ms">See your own quotes <span class="hl">in Odoo.</span></h2>
+      <p class="lead" data-in style="--d:220ms">Book a 30-minute online discovery call. Bring a recent quote: we'll walk through how you price it, and show the same session on your products.</p>
+      <div class="ct-actions" data-in style="--d:320ms">
+        <a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener">{{icon:calendar}}Book a discovery call</a>
+        <a class="btn btn-ghost" href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      </div>
+      <div class="ct-links" data-in style="--d:400ms">
+        <a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a>
+        <a href="erp-tiers.html" data-internal>{{icon:layers}}See the ERP tiers</a>
+      </div>
+    </div>
+    <div class="ct-qr" data-in data-fx="scale" style="--d:300ms">
+      <div class="ct-qr-card">{{qr:meet}}<b>Scan to book a call</b><small>Discovery Call with TechNext · 30 min online</small></div>
+    </div>
+  </div>
+  <aside class="notes"><p>Close with the booking link, or jump to the ERP tier list for what a first phase includes.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/odoo-app.js?v={{v}}"></script>
+<script src="assets/odoo-sales.js?v={{v}}"></script>
+</body>
+</html>

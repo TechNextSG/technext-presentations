@@ -8,6 +8,7 @@ Sources live in _src/decks/*.html and are written to the repo root with these to
   {{qr:key}}                    inline SVG QR code for a known link (see QR below)
   {{seamap:W:H}}                dot-matrix land map of Southeast Asia, W x H, as SVG circles
   {{mapxy:key:W:H}}             x,y of an office on that map (sg, ph, vn), e.g. for an SVG transform
+  {{mappx:key:W:H}}             the same office as --x/--y, for HTML pins on that map
   {{phmap:W:H}}                 dot-matrix map of the Philippines (client proposals), W x H
   {{phxy:lon,lat:W:H}}          x,y of a place on that map; {{phpx:lon,lat:W:H}} gives --x/--y for HTML pins
   {{apps_json}}                 the Odoo app catalogue (assets/apps.json) inline, for scripts
@@ -25,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "16"
+ASSET_V = "17"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -73,6 +74,15 @@ DECKS = [
         dict(slug="what-is-odoo", title="What is Odoo?", mins=15, pdf="What-Is-Odoo.pdf",
              alt="What is Odoo cover: one suite of business apps on one database.",
              desc="Odoo explained from scratch, what's new in Odoo 20, then one order walked from lead to cash across six Odoo screens: CRM, Sales, Inventory, Invoicing, Accounting and Reporting."),
+        dict(slug="odoo-accounting", title="Odoo Accounting", mins=15, pdf="TechNext-Odoo-Accounting.pdf",
+             alt="Odoo Accounting cover: books that keep up with your bank.",
+             desc="One live Odoo 20 session on a sample Singapore company: bank lines fetched and matched by rule, a bill read from its PDF, reminders, a batch payment, the GST return checked and validated, the month locked."),
+        dict(slug="odoo-sales", title="Odoo Sales", mins=15, pdf="TechNext-Odoo-Sales.pdf",
+             alt="Odoo Sales cover: quotes that get paid.",
+             desc="One live Odoo 20 session: a quote from a template, priced by margin, signed and paid online, invoiced with the deposit deducted, then Shopee, Lazada and TikTok Shop orders and commissions."),
+        dict(slug="odoo-crm", title="Odoo CRM", mins=15, pdf="TechNext-Odoo-CRM.pdf",
+             alt="Odoo CRM cover: every lead in one pipeline, none left waiting.",
+             desc="One live Odoo 20 session: two leads merged, Lead Sourcing, assignment by rotation, a planned next step, predictive scoring, the quotation and the forecast."),
     ]),
     ("Sales proposals", [
         dict(slug="hitachi-elevator-ph", title="Hitachi Elevator Philippines", mins=25, pdf="TechNext-Proposal-Hitachi-Elevator-PH.pdf",
@@ -434,6 +444,12 @@ def expand(s, page=""):
         x, y = project(*OFFICES[m.group(1)])
         return f"{x:.1f},{y:.1f}"
     s = re.sub(r"\{\{mapxy:([a-z]+):(\d+):(\d+)\}\}", mapxy, s)
+
+    def mappx(m):
+        _, project, _ = seamap(int(m.group(2)), int(m.group(3)))
+        x, y = project(*OFFICES[m.group(1)])
+        return f"--x:{x:.1f}px;--y:{y:.1f}px"
+    s = re.sub(r"\{\{mappx:([a-z]+):(\d+):(\d+)\}\}", mappx, s)
     # pictures carry the asset version too, so a deck saved for offline use (sw.js) never keeps showing an old capture
     s = re.sub(r'(assets/img/(?:sites|thumbs)/[a-z0-9-]+\.jpg)(?=")', r"\1?v=" + ASSET_V, s)
     left = re.findall(r"\{\{[^}]*\}\}", s)

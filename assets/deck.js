@@ -344,6 +344,10 @@
         if (h0 && h0.settle) try { h0.settle(ps); } catch (e) { console.error(e); }
       }, 900);
     }
+    // consecutive slides of one data-group share a frame (the live Odoo window): they cut instead of fading,
+    // so the frame holds still and only what is inside it changes
+    var grp = slides[i].dataset.group;
+    root.classList.toggle('is-cut', !!(grp && prev >= 0 && slides[prev].dataset.group === grp));
     cur = i; step = s;
     slides.forEach(function (sl, k) { sl.classList.toggle('is-before', k < i); sl.classList.toggle('is-after', k > i); sl.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
     var sl = slides[i];
