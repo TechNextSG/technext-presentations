@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Marketing Showcase content. Facts come from the site inventory (every URL checked 200 on 2026-09-28)
-and the project notes; nothing here is a result or a metric. Screenshots: assets/img/sites/<slug>-*.jpg."""
+and the project notes; nothing here is a result or a metric. Screenshots: assets/img/sites/<slug>-*.jpg.
+Blue Moon Secret's Chamber and Tri-Comp Solutions were removed on request (2 Oct 2026); keep them out.
+PITCH is laid out five to a row (marketing-showcase.html, .cw--5)."""
 
 LIVE = [
     dict(slug="casa-escondida-anilao", name="Casa Escondida Anilao", kicker="dive resort · anilao, philippines",
@@ -46,16 +48,6 @@ CONCEPTS = [
          what="Redesign concept for a Cebu travel agency: tours and packages, ticketing, hotel and vehicle bookings, and an enquiry and quotation form.",
          chips=[("layout", "Redesign concept"), ("plane", "Tours & packages"), ("calendar", "Bookings"), ("mail", "Quotation form")],
          meta=[("Type", "Concept · redesign"), ("Industry", "Travel agency"), ("Where", "Cebu, Philippines")]),
-    dict(slug="bluemoon", name="Blue Moon Secret's Chamber", kicker="beauty & wellness store · singapore",
-         url="https://technextmarketing.github.io/bluemoon-website/", dom="technextmarketing.github.io/bluemoon-website",
-         what="E-commerce rebuild of a beauty and wellness store: 143 products, a cart, a demo checkout, order tracking and a chatbot.",
-         chips=[("cart", "E-commerce concept"), ("bag", "143 products"), ("receipt", "Demo checkout"), ("bot", "Chatbot")],
-         meta=[("Type", "Concept · e-commerce"), ("Industry", "Beauty & wellness"), ("Where", "Singapore")]),
-    dict(slug="tricomp-website", name="Tri-Comp Solutions", kicker="it managed services · singapore",
-         url="https://technextmarketing.github.io/tricomp-website/", dom="technextmarketing.github.io/tricomp-website",
-         what="Website redesign concept for a Singapore IT managed-services provider, built with the company's own logos, team photos and intro video.",
-         chips=[("layout", "Redesign concept"), ("shield", "Services"), ("users", "Team"), ("play", "Intro video")],
-         meta=[("Type", "Concept · redesign"), ("Industry", "IT managed services"), ("Where", "Singapore")]),
     dict(slug="auntie-gaik-lean", name="Auntie Gaik Lean's Old School Eatery", kicker="peranakan restaurant · penang, malaysia",
          url="https://technextsg.github.io/auntie-gaik-lean/", dom="technextsg.github.io/auntie-gaik-lean",
          what="Seven-page restaurant website concept for a Michelin-starred Peranakan restaurant in Penang: story, menu, press, reservations and visit.",
@@ -86,10 +78,8 @@ PITCH = [
     ("showcase-jrtech", "JR-Tech Solution", "Marketing showcase", "show", "https://technextmarketing.github.io/jrtech-marketing-showcase/"),
     ("showcase-saymara-tre-romania", "Saymara × TRE România", "Marketing showcase", "show", "https://technextmarketing.github.io/saymara-marketing-showcase/"),
     ("showcase-tre-bali", "TRE Conference, Bali", "Event marketing showcase", "show", "https://technextmarketing.github.io/tre-bali-marketing-showcase/"),
-    ("showcase-tricomp", "Tri-Comp Solutions", "Marketing showcase", "show", "https://technextmarketing.github.io/tricomp-marketing-showcase/"),
     ("showcase-convotherm", "Convotherm maxx", "Marketing showcase", "show", "https://technextmarketing.github.io/convotherm-marketing-showcase/"),
     ("proposal-casa-escondida", "Casa Escondida on Odoo", "Odoo proposal", "prop", "https://technextmarketing.github.io/casa-escondida-sales-proposal/"),
-    ("proposal-tricomp", "Tri-Comp on Odoo", "Odoo proposal", "prop", "https://technextmarketing.github.io/tricomp-sales-proposal/"),
     ("proposal-auntie-gaik", "Auntie Gaik Lean on Odoo", "Odoo proposal", "prop", "https://technextmarketing.github.io/auntie-gaik-sales-proposal/"),
     ("proposal-jrtech", "JR-Tech on Odoo", "Odoo proposal", "prop", "https://technextmarketing.github.io/jrtech-sales-proposal/JR-Tech/"),
     ("proposal-convotherm", "Convotherm service ops", "Odoo proposal", "prop", "https://technextmarketing.github.io/convotherm-sales-proposal/hvac-services.html"),

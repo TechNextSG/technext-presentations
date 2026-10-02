@@ -25,7 +25,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "15"
+ASSET_V = "16"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -275,12 +275,23 @@ def _tile_rows():
     return [r for r in rows if r[0] in M]
 
 
+def mz_layout(n):
+    """Columns for the wall of n tiles, and whether the first tile is 2x2: every row full (33 tiles: 9 columns
+    with the big tile; 29: 8 with it), 9 columns when nothing fits."""
+    for c in (9, 8, 10):
+        if (n + 3) % c == 0:
+            return c, True
+        if n % c == 0:
+            return c, False
+    return 9, False
+
+
 def sc_tiles():
     rows = _tile_rows(); out = []
+    _, big_first = mz_layout(len(rows))
     for i, (slug, name, k, lab, go, url) in enumerate(rows):
         attr = f'data-go="{go}"' if go else f'data-url="{url}"'
-        # 9 columns: the first tile at 2x2 makes 33 tiles fill four rows exactly
-        big = " is-big" if i == 0 and (len(rows) + 3) % 9 == 0 else ""
+        big = " is-big" if i == 0 and big_first else ""
         out.append(f'<button type="button" class="mz-t{big}" data-k="{k}" {attr} title="{_e(name)}"><img data-src="assets/img/sites/{slug}-top.jpg" alt="" width="480" height="270">'
                    f'<span class="mz-cap"><b>{_e(name)}</b><small>{lab}</small></span></button>')
     return "\n".join(out)
@@ -310,7 +321,7 @@ def sc_cards(rows, view_h):
 
 
 def sc_expand(s):
-    s = s.replace("{{sc:wall}}", sc_wall()).replace("{{sc:tiles}}", sc_tiles())
+    s = s.replace("{{sc:wall}}", sc_wall()).replace("{{sc:tiles}}", sc_tiles()).replace("{{sc:mz-cols}}", str(mz_layout(len(_tile_rows()))[0]))
     kinds = [r[2] for r in _tile_rows()]
     for k in ("live", "concept", "pitch"):
         s = s.replace("{{sc:n:" + k + "}}", str(kinds.count(k)))
@@ -423,6 +434,8 @@ def expand(s, page=""):
         x, y = project(*OFFICES[m.group(1)])
         return f"{x:.1f},{y:.1f}"
     s = re.sub(r"\{\{mapxy:([a-z]+):(\d+):(\d+)\}\}", mapxy, s)
+    # pictures carry the asset version too, so a deck saved for offline use (sw.js) never keeps showing an old capture
+    s = re.sub(r'(assets/img/(?:sites|thumbs)/[a-z0-9-]+\.jpg)(?=")', r"\1?v=" + ASSET_V, s)
     left = re.findall(r"\{\{[^}]*\}\}", s)
     if left:
         raise ValueError("unexpanded tokens: " + ", ".join(sorted(set(left))[:10]))

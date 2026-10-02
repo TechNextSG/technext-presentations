@@ -5,7 +5,7 @@
    <slug>-d.jpg    desktop page 900 wide, capped (browser frame)
    <slug>-m.jpg    phone page 357 wide (1.5x for a 238 px screen), capped
    <slug>-dp.jpg, -mp.jpg, -wp.jpg   the top of -d, -m and -w only, for print (a PDF shows each page from the top)
-   and write _src/sites_meta.json with every image's size.
+   and merge every image's size into _src/sites_meta.json (a recapture of a few sites keeps the others).
    python -B _src/sites_images.py <capture dir>"""
 import json, pathlib, sys
 from PIL import Image
@@ -29,7 +29,8 @@ def crop_top(im, h):
 
 def main(cap):
     cap = pathlib.Path(cap); OUT.mkdir(parents=True, exist_ok=True)
-    meta = {}
+    mp_ = SRC / "sites_meta.json"
+    meta = json.loads(mp_.read_text(encoding="utf-8")) if mp_.exists() else {}
     for d in sorted(cap.glob("*-d.jpg")):
         slug = d.name[:-6]
         im = Image.open(d); w, h = im.size
@@ -53,7 +54,7 @@ def main(cap):
         meta[slug] = m
     (SRC / "sites_meta.json").write_text(json.dumps(meta, indent=1), encoding="utf-8")
     total = sum(p.stat().st_size for p in OUT.glob("*.jpg"))
-    print(len(meta), "sites,", round(total / 1048576, 2), "MB")
+    print(len(meta), "sites in sites_meta.json,", round(total / 1048576, 2), "MB")
 
 
 if __name__ == "__main__":

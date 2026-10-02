@@ -36,7 +36,7 @@
       <button type="button" aria-pressed="true" data-f="all">All</button><button type="button" aria-pressed="false" data-f="live">Live sites</button><button type="button" aria-pressed="false" data-f="concept">Concepts</button><button type="button" aria-pressed="false" data-f="pitch">Pitch microsites</button>
     </div>
   </div>
-  <div class="mz" data-i data-in data-fx="fade" style="--d:200ms">{{sc:tiles}}</div>
+  <div class="mz" data-i data-in data-fx="fade" style="--d:200ms;--mz-c:{{sc:mz-cols}}">{{sc:tiles}}</div>
   <div class="mz-foot" data-in style="--d:300ms">
     <button type="button" class="mz-n" data-f="live"><b>{{sc:n:live}}</b><small>live client sites</small></button>
     <button type="button" class="mz-n" data-f="concept"><b>{{sc:n:concept}}</b><small>redesigns and concepts</small></button>
@@ -72,7 +72,7 @@
       <button type="button" aria-pressed="true" data-f="all">All</button><button type="button" aria-pressed="false" data-f="show">Marketing showcases</button><button type="button" aria-pressed="false" data-f="prop">Odoo proposals</button>
     </div>
   </div>
-  <div class="cw cw--6" data-i data-in data-fx="fade" style="--d:200ms">{{sc:pitch}}</div>
+  <div class="cw cw--5" data-i data-in data-fx="fade" style="--d:200ms">{{sc:pitch}}</div>
   <p class="mz-legend" data-in style="--d:300ms">Each client gets its own microsite: the marketing we'd run, or the Odoo screens they'd use</p>
   <aside class="notes"><p>Marketing showcases show social content, the website and AI video for one client; Odoo proposals walk through the screens they would use. Some are for prospects, so check before showing them outside TechNext.</p></aside>
 </section>
