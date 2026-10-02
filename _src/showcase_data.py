@@ -31,7 +31,7 @@ LIVE = [
          chips=[("globe", "Website"), ("grid", "Product catalogue"), ("wrench", "Services")],
          meta=[("Type", "Client site"), ("Industry", "Commercial kitchens"), ("Where", "Penang, Malaysia")]),
     dict(slug="tre-singapore", name="TRE in Singapore", kicker="tre community · singapore",
-         url="https://technextmarketing.github.io/tre-singapore/", dom="technextmarketing.github.io/tre-singapore",
+         url="https://tre-in-singapore.com/", dom="tre-in-singapore.com",
          what="Community website for TRE practitioners in Singapore: events shared with HummingBeing, a facilitator directory with profile pages, a blog and a contact form.",
          chips=[("globe", "Website"), ("users", "Facilitator directory"), ("calendar", "Events"), ("file", "Blog")],
          meta=[("Type", "Client site"), ("Industry", "Wellness · TRE community"), ("Where", "Singapore")]),
