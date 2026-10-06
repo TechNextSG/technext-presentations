@@ -399,10 +399,14 @@
     settle: function (s) { s._all(true); }
   });
 
-  /* ---------------------------------------------------------------- 16 · the invoicing video: chapters, pause on leave, presenter view in step */
+  /* ---------------------------------------------------------------- 16 · the invoicing video: chapters, zoom, pause on leave, presenter view in step */
+  // Zoom is the deck's own, never the browser's video full screen: leaving that also drops the deck out of full screen.
+  // The frame grows from its place on the slide to the whole stage (and the screen, if the deck isn't full screen yet),
+  // keeps playing, and shrinks back into the slide on Esc, Z, a double-click, "Back to the slides" or the end of the video.
   Deck.on('video-ar', {
     init: function (s) {
-      var v = $('.jf-v', s), box = $('.jf-player', s), chs = $$('.jf-ch button', s), bc = null;
+      var v = $('.jf-v', s), box = $('.jf-player', s), frame = $('.jf-frame', s), chs = $$('.jf-ch button', s), deck = document.querySelector('.deck'), bc = null;
+      var zoomed = false, fsByUs = false, locked = false, idleT = 0, endT = 0;
       // the presenter window stays silent: the sound comes from the screen the room watches
       if (Deck.presenter) v.muted = true;
       function at(t, then) {
@@ -410,32 +414,131 @@
         v.addEventListener('loadedmetadata', function once() { v.removeEventListener('loadedmetadata', once); try { v.currentTime = t; } catch (e) {} if (then) then(); });
         v.load();
       }
-      function play() { box.classList.add('is-started'); v.controls = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      function play() { frame.classList.add('is-started'); var p = v.play(); if (p && p.catch) p.catch(function () {}); }
       s._start = function (t) { if (t == null) play(); else at(t, play); };
       function mark() {
         var t = v.currentTime, cur = -1;
         chs.forEach(function (b, i) { if (t >= +b.dataset.t - .3) cur = i; });
-        chs.forEach(function (b, i) { b.classList.toggle('is-on', box.classList.contains('is-started') && i === cur); });
+        chs.forEach(function (b, i) { b.classList.toggle('is-on', frame.classList.contains('is-started') && i === cur); });
       }
       $('.jf-play', s).addEventListener('click', function () { s._start(null); });
       chs.forEach(function (b) { b.addEventListener('click', function () { s._start(+b.dataset.t); }); });
       v.addEventListener('timeupdate', mark); v.addEventListener('seeked', mark);
-      // presenter view (P) opens a second window: play, pause and seek in either one and the other follows
+
+      // ---- the control bar: play / pause, time, a seek track with chapter marks, sound, zoom
+      var track = $('.jf-track', s), nowEl = $('[data-jf=now]', s), durEl = $('[data-jf=dur]', s), DUR = 201.2, clickT = 0, dragging = false;
+      function mmss(x) { x = Math.max(0, Math.floor(x)); return Math.floor(x / 60) + ':' + ('0' + x % 60).slice(-2); }
+      function dur() { return isFinite(v.duration) && v.duration > 0 ? v.duration : DUR; }
+      function paintBar() {
+        var p = clamp(v.currentTime / dur(), 0, 1);
+        track.style.setProperty('--p', (p * 100).toFixed(2) + '%'); nowEl.textContent = mmss(v.currentTime); durEl.textContent = mmss(dur());
+        track.setAttribute('aria-valuenow', Math.round(v.currentTime)); track.setAttribute('aria-valuetext', mmss(v.currentTime));
+      }
+      chs.forEach(function (b) { var t = +b.dataset.t; if (t > 0) { var i = document.createElement('i'); i.style.left = (t / DUR * 100).toFixed(2) + '%'; $('.jf-ticks', s).appendChild(i); } });
+      ['timeupdate', 'seeked', 'loadedmetadata', 'durationchange'].forEach(function (ev) { v.addEventListener(ev, paintBar); });
+      function playState() { frame.classList.toggle('is-playing', !v.paused); frame.classList.toggle('is-muted', v.muted); }
+      ['play', 'pause', 'volumechange', 'ended'].forEach(function (ev) { v.addEventListener(ev, playState); });
+      playState();
+      function toggle() { if (!frame.classList.contains('is-started') || v.paused) play(); else v.pause(); }
+      function seekAt(e) { var a = PX.at(e, track); try { v.currentTime = clamp(a.x / track.offsetWidth, 0, 1) * dur(); } catch (x) {} paintBar(); }
+      track.addEventListener('pointerdown', function (e) { dragging = true; track.classList.add('is-drag'); try { track.setPointerCapture(e.pointerId); } catch (x) {} seekAt(e); e.preventDefault(); e.stopPropagation(); });
+      track.addEventListener('pointermove', function (e) { if (dragging) seekAt(e); });
+      ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(function (ev) { track.addEventListener(ev, function () { dragging = false; track.classList.remove('is-drag'); }); });
+      $('.jf-pp', s).addEventListener('click', function () { toggle(); });
+      $('.jf-mute', s).addEventListener('click', function () { v.muted = !v.muted; });
+      $('.jf-zb', s).addEventListener('click', function (e) { e.stopPropagation(); s._zoom(!zoomed, { user: true }); });
+      // a mouse click leaves no focus behind, so Space and the arrows keep driving the slides
+      $$('.jf-frame button', s).concat([v]).forEach(function (b) { b.addEventListener('pointerup', function (e) { if (e.pointerType === 'mouse') setTimeout(function () { b.blur(); }, 0); }); });
+      // one click plays or pauses, a double-click zooms: the single click waits a moment so a double-click doesn't flicker
+      v.addEventListener('click', function (e) { e.preventDefault(); clearTimeout(clickT); clickT = setTimeout(toggle, 230); });
+      ['mousemove', 'pointerdown'].forEach(function (ev) { frame.addEventListener(ev, function () { wakeBar(); }); });
+
+      // ---- zoom
+      function home() { var a = Deck.lbox(box, s); return { x: a.x, y: a.y, k: a.w / 1600, ky: a.h / 900 }; }
+      function lockEsc() { if (locked || !document.fullscreenElement || !navigator.keyboard || !navigator.keyboard.lock) return; navigator.keyboard.lock(['Escape']).then(function () { locked = true; }, function () {}); }
+      function unlockEsc() { if (locked && navigator.keyboard && navigator.keyboard.unlock) navigator.keyboard.unlock(); locked = false; }
+      function wakeBar() { frame.classList.remove('is-idle'); clearTimeout(idleT); idleT = setTimeout(function () { if (!v.paused && !dragging) frame.classList.add('is-idle'); }, 2600); }
+      function quiet() { return Deck.reduce || Deck.tv || Deck.print; }
+      // on: true / false. o.user: a click or key (may take the screen), o.instant: no animation, o.remote: from the other window
+      s._zoom = function (on, o) {
+        o = o || {};
+        if (on === zoomed) return;
+        zoomed = on; clearTimeout(endT);
+        deck.classList.toggle('is-vzoom', on);
+        var h = home(), from = 'translate(' + h.x + 'px,' + h.y + 'px) scale(' + h.k + ',' + h.ky + ')', r = (18 / h.k).toFixed(1) + 'px';
+        if (on) {
+          frame.classList.remove('is-anim'); frame.classList.add('is-zoom');
+          if (!o.instant && !quiet()) {
+            frame.style.transform = from; frame.style.borderRadius = r; void frame.offsetWidth;
+            frame.classList.add('is-anim'); frame.style.transform = ''; frame.style.borderRadius = '';
+          }
+          wakeBar();
+          if (o.user && !Deck.presenter && !document.fullscreenElement && document.documentElement.requestFullscreen) {
+            var p = document.documentElement.requestFullscreen();
+            fsByUs = true; if (p && p.then) p.then(lockEsc, function () { fsByUs = false; });
+          } else lockEsc();
+          if (!frame.classList.contains('is-started') && o.user) play();
+          var zl = $('.jf-zl', s); if (zl) zl.textContent = 'Back';
+        } else {
+          unlockEsc();
+          var zl2 = $('.jf-zl', s); if (zl2) zl2.textContent = 'Zoom';
+          var done = function () { frame.classList.remove('is-zoom', 'is-anim', 'is-idle'); frame.style.transform = ''; frame.style.borderRadius = ''; };
+          if (o.instant || quiet() || !frame.classList.contains('is-zoom')) done();
+          else {
+            frame.classList.add('is-anim'); frame.style.transform = from; frame.style.borderRadius = r;
+            var end = function (e) { if (e && e.propertyName !== 'transform') return; frame.removeEventListener('transitionend', end); if (!zoomed) done(); };
+            frame.addEventListener('transitionend', end); endT = setTimeout(end, 650);
+          }
+          if (fsByUs && document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(function () {});
+          fsByUs = false;
+          // hand the keys back to the slides (a focused button would keep Space and Enter)
+          if (document.activeElement && frame.contains(document.activeElement)) document.activeElement.blur();
+        }
+        if (bc && !o.remote) bc.postMessage({ a: 'zoom', on: on, t: v.currentTime });
+      };
+      $('.jf-zoom', s).addEventListener('click', function (e) { e.stopPropagation(); s._zoom(true, { user: true }); });
+      $('.jf-back', s).addEventListener('click', function (e) { e.stopPropagation(); s._zoom(false); });
+      v.addEventListener('dblclick', function (e) { e.preventDefault(); clearTimeout(clickT); s._zoom(!zoomed, { user: true }); });
+      v.addEventListener('ended', function () { s._zoom(false); });
+      v.addEventListener('pause', function () { wakeBar(); });
+      v.addEventListener('play', function () { wakeBar(); });
+      // the browser left full screen (its own Esc, or F): the zoom comes back with it
+      document.addEventListener('fullscreenchange', function () { if (zoomed && !document.fullscreenElement) { fsByUs = false; locked = false; s._zoom(false); } });
+      // keys: Z zooms on this slide; while zoomed, Esc and Z come back, Space plays or pauses, the arrows skip 5 s,
+      // and anything that moves the deck (PageDown from a clicker, O, Home...) comes back first, then moves it
+      document.addEventListener('keydown', function (e) {
+        if (Deck.slides[Deck.index] !== s || e.metaKey || e.ctrlKey || e.altKey || deck.classList.contains('is-overview')) return;
+        var k = e.key, tg = e.target;
+        if (tg && tg.closest && tg.closest('input,textarea,select')) return;
+        if (!zoomed) { if (k === 'z' || k === 'Z') { e.preventDefault(); e.stopPropagation(); s._zoom(true, { user: true }); } return; }
+        var mine = true;
+        if (k === 'Escape' || k === 'z' || k === 'Z') s._zoom(false);
+        else if (k === ' ' || k === 'k' || k === 'K' || k === 'Enter') { toggle(); wakeBar(); }
+        else if (k === 'm' || k === 'M') { v.muted = !v.muted; wakeBar(); }
+        else if (k === 'ArrowLeft' || k === 'ArrowRight') { try { v.currentTime = clamp(v.currentTime + (k === 'ArrowRight' ? 5 : -5), 0, v.duration || 1e4); } catch (x) {} wakeBar(); }
+        else if (k === 'ArrowUp' || k === 'ArrowDown') { e.preventDefault(); return; }
+        else { mine = false; if (!/^(b|B|w|W|\.|,|n|N|t|T|f|F|Shift|Tab)$/.test(k)) s._zoom(false, { instant: true }); }
+        if (mine) { e.preventDefault(); e.stopPropagation(); }
+      }, true);
+
+      // presenter view (P) opens a second window: play, pause, seek and zoom in either one and the other follows
       try { bc = new BroadcastChannel('jrtech-odoo-erp-video'); } catch (e) {}
       if (bc) {
-        function send(a) { bc.postMessage({ a: a, t: v.currentTime }); }
+        var send = function (a) { bc.postMessage({ a: a, t: v.currentTime }); };
         v.addEventListener('play', function () { send('play'); });
         v.addEventListener('pause', function () { send('pause'); });
         v.addEventListener('seeked', function () { send('seek'); });
         bc.onmessage = function (e) {
           var m = e.data || {}, far = Math.abs(v.currentTime - m.t) > .6;
-          if (m.a === 'play' && (v.paused || far)) { if (far) at(m.t, play); else play(); }
+          if (m.a === 'zoom') { if (Deck.slides[Deck.index] === s) s._zoom(!!m.on, { remote: true }); }
+          else if (m.a === 'play' && (v.paused || far)) { if (far) at(m.t, play); else play(); }
           else if (m.a === 'pause' && !v.paused) { v.pause(); if (far) at(m.t); }
           else if (m.a === 'seek' && far) at(m.t);
         };
       }
     },
-    leave: function (s) { var v = $('.jf-v', s); if (!v.paused) v.pause(); }
+    leave: function (s) { s._zoom(false, { instant: true }); var v = $('.jf-v', s); if (!v.paused) v.pause(); },
+    settle: function (s) { s._zoom(false, { instant: true, remote: true }); }
   });
 
   /* ---------------------------------------------------------------- tick lists kept for the meeting: checklist, questions, files */

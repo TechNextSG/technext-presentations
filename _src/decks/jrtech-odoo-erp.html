@@ -574,10 +574,21 @@
   </div>
   <div class="jf" data-i>
     <div class="jf-player" data-in style="--d:180ms">
-      <video class="jf-v" preload="none" playsinline tabindex="0" poster="assets/video/jrtech-getting-paid.jpg?v={{v}}" aria-label="Getting paid, with less chasing: customer invoicing and receivables in Odoo 20, built around JR-Tech's monthly robot-rental invoices">
+      <div class="jf-frame">
+      <video class="jf-v" preload="none" playsinline tabindex="0" disablepictureinpicture disableremoteplayback poster="assets/video/jrtech-getting-paid.jpg?v={{v}}" aria-label="Getting paid, with less chasing: customer invoicing and receivables in Odoo 20, built around JR-Tech's monthly robot-rental invoices">
         <source src="assets/video/jrtech-getting-paid.mp4?v={{v}}" type="video/mp4">
       </video>
       <button type="button" class="jf-play"><i>{{icon:play}}</i><span><b>Play the video</b><small>3:21, with sound</small></span></button>
+      <button type="button" class="jf-zoom" aria-label="Zoom the video to fill the screen (Z)">{{icon:expand}}<span>Zoom</span><kbd>Z</kbd></button>
+      <div class="jf-ctl">
+        <button type="button" class="jf-cb jf-pp" aria-label="Play or pause (Space when zoomed)"><svg class="jf-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg><svg class="jf-i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.6v14H7zM13.4 5H17v14h-3.6z" fill="currentColor"/></svg></button>
+        <span class="jf-time"><b data-jf="now">0:00</b> / <span data-jf="dur">3:21</span></span>
+        <div class="jf-track" data-drag role="slider" tabindex="-1" aria-label="Position in the video" aria-valuemin="0" aria-valuemax="201" aria-valuenow="0"><i class="jf-rail"></i><i class="jf-fill"></i><span class="jf-ticks"></span><i class="jf-knob"></i></div>
+        <button type="button" class="jf-cb jf-mute" aria-label="Sound on or off"><svg class="jf-i-vol" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><svg class="jf-i-mute" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M16 9.5l5 5M21 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <button type="button" class="jf-cb jf-zb" aria-label="Zoom to fill the screen, or back to the slide (Z)"><svg class="jf-i-in" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="jf-i-out" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="jf-zl">Zoom</span></button>
+      </div>
+      <div class="jf-bar"><span class="jf-bt"><b>Getting paid, with less chasing</b><small>Space plays or pauses · ← → skip 5 seconds · M sound</small></span><button type="button" class="jf-back">{{icon:x}}<span>Back to the slides</span><kbd>Esc</kbd></button></div>
+      </div>
     </div>
     <div class="jf-side" data-in data-fx="right" style="--d:240ms">
       <span class="jf-lh">Chapters · click to jump</span>
@@ -590,9 +601,10 @@
         <li><button type="button" data-t="147"><i>2:27</i><span><b>Bulk tools</b><small>Back to draft, and every PDF in one zip</small></span></button></li>
         <li><button type="button" data-t="184"><i>3:04</i><span><b>Recap</b><small>Faster collection. Less admin.</small></span></button></li>
       </ol>
+      <p class="jf-tip">{{icon:expand}}<span><b>Zoom</b> fills the screen: the button, a double-click or <kbd>Z</kbd>. <kbd>Esc</kbd> brings it back to the slide.</span></p>
     </div>
   </div>
-  <aside class="notes"><p>A narrated 3:21 video, part 3 of the Odoo 20 accounting series: customer invoicing and receivables, built around JR-Tech's monthly robot-rental invoices, on demo data. Click "Play the video" (it plays with sound); the chapter list jumps to any part, and the current chapter lights up. The video pauses when you leave the slide. In presenter view, play or pause in either window and the other follows; the presenter window stays muted.</p></aside>
+  <aside class="notes"><p>A narrated 3:21 video, part 3 of the Odoo 20 accounting series: customer invoicing and receivables, built around JR-Tech's monthly robot-rental invoices, on demo data. Click "Play the video" (it plays with sound); the chapter list jumps to any part, and the current chapter lights up. The video pauses when you leave the slide. Zoom (the button, a double-click on the video, or Z) grows it to fill the screen and keeps it playing; Esc, Z or "Back to the slides" shrinks it back into the slide, and the deck stays in full screen if it was. While zoomed, Space plays or pauses and the arrow keys skip 5 seconds. In presenter view, play, pause, seek and zoom in either window and the other follows; the presenter window stays muted.</p></aside>
 </section>
 
 <!-- 17 · what we need -->
