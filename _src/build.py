@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "22"
+ASSET_V = "23"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {

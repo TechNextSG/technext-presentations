@@ -238,7 +238,7 @@
      connection on this device (sw.js). Only on the live https site, so a local preview never serves a stale copy. */
   function saveOffline() {
     if (!('serviceWorker' in navigator) || location.protocol !== 'https:' || PRINT) return;
-    navigator.serviceWorker.register('sw.js').then(function () { return navigator.serviceWorker.ready; }).then(function (reg) {
+    navigator.serviceWorker.register('sw.js').then(function (r) { try { r.update(); } catch (e) {} return navigator.serviceWorker.ready; }).then(function (reg) {
       navigator.serviceWorker.addEventListener('message', function (e) { if (e.data && e.data.warmed) $('.disp-off', disp).textContent = 'Saved on this device: opens with no internet.'; });
       if (reg.active) reg.active.postMessage({ warm: [location.href.split('#')[0]] });
     }).catch(function () {});

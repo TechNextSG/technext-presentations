@@ -409,7 +409,15 @@
       var zoomed = false, fsByUs = false, locked = false, idleT = 0, endT = 0;
       // the presenter window stays silent: the sound comes from the screen the room watches
       if (Deck.presenter) v.muted = true;
+      var target = null, guardT = 0;
       function at(t, then) {
+        target = t; lastT = t; clearTimeout(guardT);
+        // a jump that lands somewhere else (a stalled range, an old offline worker) is put right once
+        guardT = setTimeout(function () {
+          if (target == null || v.seeking || v.error) return;
+          if (v.currentTime < target - .5 || v.currentTime > target + 4) { try { v.currentTime = target; } catch (e) {} }
+          target = null;
+        }, 1800);
         if (v.readyState >= 1 && !v.error) { try { v.currentTime = t; } catch (e) {} if (then) then(); return; }
         v.addEventListener('loadedmetadata', function once() { v.removeEventListener('loadedmetadata', once); try { v.currentTime = t; } catch (e) {} if (then) then(); });
         v.load();
@@ -418,11 +426,12 @@
       s._start = function (t) { if (t == null) play(); else at(t, play); };
       // a dropped connection mid-video leaves a media error: reload and carry on from the same point
       var lastT = 0, wasPlaying = false, healed = 0;
-      v.addEventListener('timeupdate', function () { if (!v.error) { lastT = v.currentTime; wasPlaying = !v.paused; } });
+      v.addEventListener('timeupdate', function () { if (!v.error && !v.seeking && target == null) { lastT = v.currentTime; wasPlaying = !v.paused; } });
+      v.addEventListener('seeked', function () { if (target != null && Math.abs(v.currentTime - target) < .5) { target = null; clearTimeout(guardT); } });
       v.addEventListener('play', function () { wasPlaying = true; });
       v.addEventListener('error', function () {
         if (Date.now() - healed < 4000) return;
-        healed = Date.now(); var t = lastT, go = wasPlaying || frame.classList.contains('is-started');
+        healed = Date.now(); var t = target != null ? target : lastT, go = wasPlaying || frame.classList.contains('is-started');
         at(t, go ? play : null);
       });
       function mark() {
