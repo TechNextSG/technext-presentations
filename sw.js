@@ -3,7 +3,8 @@
    Pages: network first, so an update shows as soon as there is a connection; the saved copy when there is none.
    Versioned files (?v=): the saved copy. Other files (pictures, PDFs, fonts): the saved copy at once, refreshed behind it.
    A page asks for itself to be saved in full ({warm: [urls]}): the HTML, every file it points at, and what its CSS points at.
-   Video asks for byte ranges: those are cut from the saved copy (206), or go straight to the network when there is none. */
+   Video asks for byte ranges: the network answers them while there is one (Chrome rejects a video whose pieces come from two
+   sources, so a stream never switches mid-way); with no connection they are cut from the saved copy (206). */
 var CACHE = 'tn-decks-1';
 
 self.addEventListener('install', function () { self.skipWaiting(); });
@@ -22,8 +23,10 @@ self.addEventListener('fetch', function (e) {
   var url = new URL(req.url);
   if (url.origin !== location.origin) return;
   if (req.headers.has('range')) {
-    e.respondWith(caches.open(CACHE).then(function (k) { return k.match(req.url); }).then(function (hit) {
-      return hit ? ranged(hit, req.headers.get('range')) : fetch(req);
+    e.respondWith(fetch(req).catch(function () {
+      return caches.open(CACHE).then(function (k) { return k.match(req.url); }).then(function (hit) {
+        return hit ? ranged(hit, req.headers.get('range')) : Response.error();
+      });
     }));
     return;
   }

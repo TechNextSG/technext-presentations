@@ -410,12 +410,21 @@
       // the presenter window stays silent: the sound comes from the screen the room watches
       if (Deck.presenter) v.muted = true;
       function at(t, then) {
-        if (v.readyState >= 1) { try { v.currentTime = t; } catch (e) {} if (then) then(); return; }
+        if (v.readyState >= 1 && !v.error) { try { v.currentTime = t; } catch (e) {} if (then) then(); return; }
         v.addEventListener('loadedmetadata', function once() { v.removeEventListener('loadedmetadata', once); try { v.currentTime = t; } catch (e) {} if (then) then(); });
         v.load();
       }
       function play() { frame.classList.add('is-started'); var p = v.play(); if (p && p.catch) p.catch(function () {}); }
       s._start = function (t) { if (t == null) play(); else at(t, play); };
+      // a dropped connection mid-video leaves a media error: reload and carry on from the same point
+      var lastT = 0, wasPlaying = false, healed = 0;
+      v.addEventListener('timeupdate', function () { if (!v.error) { lastT = v.currentTime; wasPlaying = !v.paused; } });
+      v.addEventListener('play', function () { wasPlaying = true; });
+      v.addEventListener('error', function () {
+        if (Date.now() - healed < 4000) return;
+        healed = Date.now(); var t = lastT, go = wasPlaying || frame.classList.contains('is-started');
+        at(t, go ? play : null);
+      });
       function mark() {
         var t = v.currentTime, cur = -1;
         chs.forEach(function (b, i) { if (t >= +b.dataset.t - .3) cur = i; });
