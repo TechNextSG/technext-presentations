@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E4691">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=24">
+<link rel="stylesheet" href="assets/deck.css?v=24">
+<title>BHD Asia on Odoo: six workflows, nine modules · TechNext</title>
+<meta name="description" content="BHD Asia and HummingBeing on Odoo Online: the six workflows we will build (event tickets, paid sessions, free bookings, screened sales, waitlists, money and books), the nine modules that carry them, phase two, what is already decided and the open items that finish the quotation.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechNext">
+<meta property="og:title" content="BHD Asia on Odoo: six workflows, nine modules · TechNext">
+<meta property="og:description" content="BHD Asia and HummingBeing on Odoo Online: the six workflows we will build (event tickets, paid sessions, free bookings, screened sales, waitlists, money and books), the nine modules that carry them, phase two, what is already decided and the open items that finish the quotation.">
+<meta property="og:url" content="https://technextsg.github.io/technext-presentations/s-4sg4p5j.html">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/bhdasia-odoo-scope-og.jpg?v=24">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/proposal.css?v=24">
+<link rel="stylesheet" href="assets/bhdasia.css?v=24">
+</head>
+<body data-label="Implementation scope · BHD Asia" data-shared data-cobrand="assets/img/clients/bhdasia.png" data-cobrand-white="assets/img/clients/bhdasia-white.png">
+<main class="deck" aria-label="BHD Asia on Odoo: six workflows, nine modules">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="BHD Asia on Odoo: six workflows, nine modules">
+  <div class="cv-copy ec-copy">
+    <div class="hx-lock ec-lock" data-in><img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48"><i></i><img class="hx-co ec-bhd" src="assets/img/clients/bhdasia-white.png" alt="BHD Asia" width="60" height="46"><img class="hx-co ec-hb" src="assets/img/clients/hummingbeing-white.png" alt="HummingBeing" width="145" height="40"></div>
+    <span class="kicker" data-in style="--d:120ms">bhd asia · hummingbeing × technext</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Six workflows, <span class="hl">one Odoo.</span></h1>
+    <p class="lead" data-in style="--d:320ms">Everything we agreed since August, as the workflows we will build and the nine modules that carry them. Standard Odoo Online: no custom code, no third-party apps.</p>
+    <nav class="ec-agenda" data-in style="--d:420ms" aria-label="Parts of this presentation">
+      <button type="button" data-go="scope"><i>01</i>The scope</button>
+      <button type="button" data-go="flows"><i>02</i>Six workflows</button>
+      <button type="button" data-go="modules"><i>03</i>Modules</button>
+      <button type="button" data-go="decided"><i>04</i>Next steps</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Implementation scope · October 2026</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="ec-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <svg class="ec-svg" viewBox="0 0 620 680" width="620" height="680">
+      <circle class="ec-orbit" cx="310" cy="340" r="250"></circle>
+      <path class="ec-ln flow" d="M310,90 L310,340"></path>
+      <path class="ec-ln flow" d="M484,184 L310,340"></path>
+      <path class="ec-ln flow" d="M534,384 L310,340"></path>
+      <path class="ec-ln flow" d="M406,564 L310,340"></path>
+      <path class="ec-ln flow" d="M214,564 L310,340"></path>
+      <path class="ec-ln flow" d="M86,384 L310,340"></path>
+      <path class="ec-ln ec-ln--later" d="M136,184 L310,340"></path>
+    </svg>
+    <div class="ec-core"><span class="ec-av"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><b>One client record</b><small>every ticket, booking, form and invoice</small></div>
+    <span class="ec-n" style="left:310px;top:90px;--k:0"><img class="oi" src="assets/img/odoo/event.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>TRE™ cohorts</b></span>
+    <span class="ec-n" style="left:484px;top:184px;--k:1"><img class="oi" src="assets/img/odoo/event.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Workshops</b></span>
+    <span class="ec-n" style="left:534px;top:384px;--k:2"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>1:1 sessions</b></span>
+    <span class="ec-n" style="left:406px;top:564px;--k:3"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Supervision</b></span>
+    <span class="ec-n" style="left:214px;top:564px;--k:4"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Third-party work</b></span>
+    <span class="ec-n" style="left:86px;top:384px;--k:5"><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Retreats &amp; shop</b></span>
+    <span class="ec-n ec-n--later" style="left:136px;top:184px;--k:6"><img class="oi" src="assets/img/odoo/website_slides.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>eLearning · later</b></span>
+  </div>
+  <aside class="notes"><p>This is the scope consolidated from the 20 August demo, the 18 September review and the lawyer's questions of 6 October, tested across five demo databases. Four parts: the scope boundary, the six workflows, the modules and phase two, then what is decided and what is still open. The agenda buttons jump straight to each part.</p></aside>
+</section>
+
+<!-- 2 · the scope boundary -->
+<section class="slide" id="scope" data-title="Standard Odoo, nothing bolted on">
+  <div class="sec-head">
+    <span class="kicker" data-in>the promise this rests on</span>
+    <h2 class="h-m" data-in style="--d:80ms">Standard Odoo, <span class="hl">nothing bolted on.</span></h2>
+    <p class="lead eb-lead" data-in style="--d:160ms">Every workflow in this scope is native configuration. That keeps your running cost at the Odoo subscription, and answers the lock-in question.</p>
+  </div>
+  <div class="eb">
+    <div class="eb-stack" data-in style="--d:220ms" data-i>
+      <button type="button" class="eb-l eb-l--x" data-k="mods"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span><b>Custom modules</b><small>none</small></span></button>
+      <button type="button" class="eb-l eb-l--x" data-k="apps"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span><b>Third-party apps</b><small>none</small></span></button>
+      <button type="button" class="eb-l eb-l--x" data-k="code"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span><b>Scripts and code</b><small>none</small></span></button>
+      <button type="button" class="eb-l eb-l--cfg" data-k="cfg"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span><b>Configuration</b><small>by TechNext, one-off</small></span></button>
+      <button type="button" class="eb-l eb-l--odoo" data-k="odoo"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg><span><b>Odoo Online</b><small>per-user subscription, from Odoo</small></span></button>
+    </div>
+    <div class="eb-say" data-in style="--d:300ms" aria-live="polite">
+      <span class="eb-say-h">Click a layer</span>
+      <p class="eb-say-t"><b>Two layers, nothing on top.</b> <span>Odoo runs and upgrades the system. We configure it once, with screens you can open and change yourself.</span></p>
+      <div class="eb-led">
+        <p><span>Recurring</span><b>The Odoo subscription</b><em>per user, from Odoo</em></p>
+        <p><span>One-off</span><b>Our configuration</b><em>in the quotation</em></p>
+        <p class="is-zero"><span>Code upkeep</span><b>None to carry</b><em>there is none</em></p>
+      </div>
+    </div>
+    <div class="eb-out" data-in data-fx="right" style="--d:380ms">
+      <span class="eb-out-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Out of this scope</span>
+      <b>Capturing a Zoom meeting link</b>
+      <p>Zoom needs an outbound call that Odoo Online can't make from inside the database. A separate TechNext developer builds it as a webhook to an external service.</p>
+      <p class="eb-out-n"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Until then, appointment types use <b>Odoo's own video link</b>. Nothing Zoom-related sits in your database.</span></p>
+    </div>
+  </div>
+  <aside class="notes"><p>The constraint is deliberate: no custom modules, no third-party apps, no code. It is what keeps the recurring cost at the subscription level, and it answers the lock-in concern, because nothing here exists only because we wrote it. Click each layer to explain it. Zoom is the one thing outside: it needs an outbound API call, so another TechNext developer builds it as a webhook to an external service. Everything built for Zoom on the demo databases has been removed.</p></aside>
+</section>
+
+<!-- 3 · what the system has to carry -->
+<section class="slide" id="carry" data-title="Seven kinds of work, one client record">
+  <div class="sec-head">
+    <span class="kicker" data-in>what it has to carry</span>
+    <h2 class="h-m" data-in style="--d:80ms">Seven kinds of work, <span class="hl">one client record.</span></h2>
+  </div>
+  <div class="es">
+    <div class="es-list" data-i>
+      <button type="button" data-k="0" data-in style="--d:160ms"><i>01</i><span><b>TRE™ certifications and cohorts</b><small>Ticket · the big one</small></span></button>
+      <button type="button" data-k="1" data-in style="--d:200ms"><i>02</i><span><b>Workshops and introductory events</b><small>Ticket · free or paid</small></span></button>
+      <button type="button" data-k="2" data-in style="--d:240ms"><i>03</i><span><b>1:1 sessions and prepaid packages</b><small>Booking · the clinical work</small></span></button>
+      <button type="button" data-k="3" data-in style="--d:280ms"><i>04</i><span><b>Supervision for certified providers</b><small>Booking · never sold</small></span></button>
+      <button type="button" data-k="4" data-in style="--d:320ms"><i>05</i><span><b>Third-party programme work</b><small>Booking · no ticket changes hands</small></span></button>
+      <button type="button" data-k="5" data-in style="--d:360ms"><i>06</i><span><b>Retreats and a small webshop</b><small>Ticket and shop · e-book, journal</small></span></button>
+      <button type="button" data-k="6" class="es-later" data-in style="--d:400ms"><i>07</i><span><b>Later: eLearning and memberships</b><small>Phase two</small></span></button>
+    </div>
+    <div class="es-panel" data-in data-fx="right" style="--d:240ms">
+      <div class="es-d" data-k="0">
+        <span class="es-how es-how--tk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Sold as a ticket</span>
+        <h3 class="h-s">TRE™ certifications and cohorts</h3>
+        <p>The big ticket, run across several countries. The 2027 campaign is the hard deadline: the webshop must be production-ready for the October–November push.</p>
+        <p class="es-geo"><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Singapore</span><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bucharest, Romania</span><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>India</span><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>United Kingdom</span></p>
+        <div class="es-go"><button type="button" data-go="w1">Workflow 1 · ticket<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button><button type="button" data-go="w5">Workflow 5 · waitlist<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+        <p class="es-mods"><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><img class="oi" src="assets/img/odoo/event.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><img class="oi" src="assets/img/odoo/crm.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span>Website + eCommerce, Events, Invoicing, CRM</span></p>
+      </div>
+      <div class="es-d" data-k="1">
+        <span class="es-how es-how--tk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Sold as a ticket, or free</span>
+        <h3 class="h-s">Workshops and introductory events</h3>
+        <p>Some free, some paid, some run with partner organisations. A free event is the same flow with a free ticket: no payment step, the rest unchanged.</p>
+        <div class="es-go"><button type="button" data-go="w1">Workflow 1 · ticket<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button><button type="button" data-go="w5">Workflow 5 · waitlist<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+        <p class="es-mods"><img class="oi" src="assets/img/odoo/event.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><img class="oi" src="assets/img/odoo/mass_mailing.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span>Events, Website + eCommerce, Email Marketing</span></p>
+      </div>
+      <div class="es-d" data-k="2">
+        <span class="es-how es-how--bk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Booked, paid up front</span>
+        <h3 class="h-s">1:1 sessions and prepaid packages</h3>
+        <p>The recurring clinical work. A single session is paid before the slot confirms. A session from a prepaid package is booked free, as a request you approve.</p>
+        <div class="es-go"><button type="button" data-go="w2">Workflow 2 · paid session<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button><button type="button" data-go="w3">Workflow 3 · package<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+        <p class="es-mods"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span>Appointments, Invoicing, Calendar with Google sync</span></p>
+      </div>
+      <div class="es-d" data-k="3">
+        <span class="es-how es-how--fr"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg>Booked, never sold</span>
+        <h3 class="h-s">Supervision for certified providers</h3>
+        <p>For the providers you have certified. They book through a link you send; the booking arrives as a request; no payment, no invoice.</p>
+        <div class="es-go"><button type="button" data-go="w3">Workflow 3 · free booking<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+        <p class="es-mods"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span>Appointments, Calendar with Google sync</span></p>
+      </div>
+      <div class="es-d" data-k="4">
+        <span class="es-how es-how--fr"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Booked, no ticket</span>
+        <h3 class="h-s">Third-party programme work</h3>
+        <p>Another organisation sends you its clients. No ticket changes hands with them, so the booking is free and approved by you.</p>
+        <div class="es-go"><button type="button" data-go="w3">Workflow 3 · free booking<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+        <p class="es-mods"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span>Appointments, Calendar with Google sync</span></p>
+      </div>
+      <div class="es-d" data-k="5">
+        <span class="es-how es-how--tk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Ticket and webshop</span>
+        <h3 class="h-s">Retreats and a small webshop</h3>
+        <p>Retreats run as events. The e-book and the journal sit in the same shop, so a client buys a ticket and a journal in one basket and one checkout.</p>
+        <div class="es-go"><button type="button" data-go="w1">Workflow 1 · one basket<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button><button type="button" data-go="w4">Workflow 4 · if screened<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+        <p class="es-mods"><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><img class="oi" src="assets/img/odoo/event.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span>Website + eCommerce, Events, Invoicing</span></p>
+      </div>
+      <div class="es-d" data-k="6">
+        <span class="es-how es-how--later"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Phase two</span>
+        <h3 class="h-s">An eLearning library and memberships</h3>
+        <p>Your recorded teaching as an eLearning library, and TRE™ Singapore memberships. Both are modules in the same database, switched on later.</p>
+        <div class="es-go"><button type="button" data-go="phase2">Phase two · switches<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+        <p class="es-mods"><img class="oi" src="assets/img/odoo/website_slides.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><img class="oi" src="assets/img/odoo/sale_subscription.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span>eLearning, Subscriptions</span></p>
+      </div>
+      <div class="es-rec">
+        <p class="es-rec-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Whatever they buy or book, it lands on <b>the same contact</b></span></p>
+        <div class="es-rec-row"><span data-k="0"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Cohort</span><span data-k="1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Workshop</span><span data-k="2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Session</span><span data-k="3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg>Supervision</span><span data-k="4"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Referral</span><span data-k="5"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Order</span><span data-k="6"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Course</span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><p>The design has to hold all of this on one client record: the revenue is not one product. The certifications are the big ticket, and the 2027 campaign is the hard deadline: the webshop must be production-ready for the October–November push. The panel walks through each line on its own until you click one; each "Workflow" button jumps to the slide that shows it.</p></aside>
+</section>
+
+<!-- 4 · six workflows, nine modules -->
+<section class="slide" id="flows" data-title="Six workflows, nine modules">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the six workflows</span>
+      <h2 class="h-m" data-in style="--d:80ms">Six workflows, <span class="hl">nine modules.</span></h2>
+    </div>
+    <p class="ex-note" data-in style="--d:160ms">Click a module to light its workflows, or a workflow to open it. <span>Payments and Calendar run under all six.</span></p>
+  </div>
+  <div class="ex" data-in style="--d:200ms">
+    <div class="ex-hd">
+      <span class="ex-corner">Workflow</span>
+      <button type="button" data-m="1"><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><small>Website + eCommerce</small></button>
+      <button type="button" data-m="2"><img class="oi" src="assets/img/odoo/event.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><small>Events</small></button>
+      <button type="button" data-m="3"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><small>Appoint&shy;ments</small></button>
+      <button type="button" data-m="4"><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><small>Sales</small></button>
+      <button type="button" data-m="5"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><small>Invoicing &amp; Accounting</small></button>
+      <button type="button" data-m="6"><img class="oi" src="assets/img/odoo/crm.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><small>CRM</small></button>
+      <button type="button" data-m="7"><img class="oi" src="assets/img/odoo/sign.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><small>Sign</small></button>
+      <button type="button" data-m="8"><img class="oi" src="assets/img/odoo/survey.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><small>Surveys</small></button>
+      <button type="button" data-m="9"><img class="oi" src="assets/img/odoo/mass_mailing.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><small>Email Marketing</small></button>
+    </div>
+    <div class="ex-row" data-u="1,2,5,6" style="--i:0"><button type="button" class="ex-w" data-go="w1"><i>1</i><span><b>Public event or cohort ticket</b><small>payment is the trigger</small></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+    <div class="ex-row" data-u="1,3,5" style="--i:1"><button type="button" class="ex-w" data-go="w2"><i>2</i><span><b>Paid 1:1 session</b><small>pay to book</small></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+    <div class="ex-row" data-u="3" style="--i:2"><button type="button" class="ex-w" data-go="w3"><i>3</i><span><b>Free booking, no ticket</b><small>a request you approve</small></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+    <div class="ex-row" data-u="1,4,5,7,8" style="--i:3"><button type="button" class="ex-w" data-go="w4"><i>4</i><span><b>Screened sale</b><small>cleared first, then sold</small></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+    <div class="ex-row" data-u="1,2,6,9" style="--i:4"><button type="button" class="ex-w" data-go="w5"><i>5</i><span><b>Waitlist and full events</b><small>names keep coming</small></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+    <div class="ex-row" data-u="5" style="--i:5"><button type="button" class="ex-w" data-go="w6"><i>6</i><span><b>Money and books</b><small>matched and reconciled</small></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+  </div>
+  <aside class="notes"><p>The map of the build: six workflows down the side, the nine go-live modules across the top. A dot means the workflow uses that module. Click a module to light the workflows it serves; click a workflow to open its slide. Payments (card, bank transfer, PayPal) and Calendar with Google sync sit under every flow.</p></aside>
+</section>
+
+<!-- 5 · workflow 1 -->
+<section class="slide ew" id="w1" data-steps="9" data-title="Workflow 1 · A public event or cohort ticket">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 1 · payment is the trigger</span>
+      <h2 class="h-m" data-in style="--d:80ms">Pay once, and <span class="hl">the rest runs itself.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-count"><b>0</b> / 9</span><button type="button" class="ew-play"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>Client browses the event page</span><em><img class="oi" src="assets/img/odoo/website.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Website + Events</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>Answers registration and health-screening questions</span><em><img class="oi" src="assets/img/odoo/event.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Events</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>Adds the ticket, and anything else, to one basket</span><em><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">eCommerce</em></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span>Pays by card, surcharge added, or by bank transfer</span><em><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Payments</em></button></li>
+      <li><button type="button" data-n="5"><i>5</i><span>Invoice raised and sent automatically</span><em><img class="oi" src="assets/img/odoo/account.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Invoicing</em></button></li>
+      <li><button type="button" data-n="6"><i>6</i><span>Confirmation and info pack go out</span><em><img class="oi" src="assets/img/odoo/event.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Events · mail scheduler</em></button></li>
+      <li><button type="button" data-n="7"><i>7</i><span>Seat count and calendar update themselves</span><em><img class="oi" src="assets/img/odoo/event.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Events</em></button></li>
+      <li><button type="button" data-n="8"><i>8</i><span>Reminders fire 7 days and 1 day before</span><em><img class="oi" src="assets/img/odoo/event.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Events · mail scheduler</em></button></li>
+      <li><button type="button" data-n="9"><i>9</i><span>Buyer becomes a tagged contact, answers attached</span><em><img class="oi" src="assets/img/odoo/crm.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">CRM</em></button></li>
+    </ol>
+    <div class="ew-scene e1" data-in data-fx="right" style="--d:240ms">
+      <div class="e1-top">
+        <span class="e1-av">ML</span><span class="e1-who"><b>Mei Lin Tan</b><small>Contact · sample client</small></span>
+        <div class="seg e1-pay" role="group" aria-label="How the client pays"><button type="button" data-v="card" aria-pressed="true">Card</button><button type="button" data-v="bank" aria-pressed="false">Bank transfer</button></div>
+      </div>
+      <div class="e1-ev"><img class="oi" src="assets/img/odoo/event.svg" alt="" width="32" height="32" style="width:32px;height:32px" loading="lazy" decoding="async"><span><b>TRE™ Module 1 · Singapore</b><small>Sample event · 12 seats</small></span><span class="e1-seats"><u><s></s></u><em data-t="0:9 of 12 taken|7:10 of 12 taken">9 of 12 taken</em></span></div>
+      <ul class="e1-feed">
+        <li data-on="1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span>Opened the event page</span><em>Website</em></li>
+        <li data-on="2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg><span>Answered 3 questions · screening on file</span><em>Events</em></li>
+        <li data-on="3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h17l-1.6 8.4a2 2 0 0 1-2 1.6H9.7a2 2 0 0 1-2-1.6z" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span>One basket: Module 1 ticket + journal</span><em>eCommerce</em></li>
+        <li data-on="4"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span data-e1="pay">Paid by card · surcharge added on top</span><em>Payments</em></li>
+        <li data-on="5"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg><span data-e1="inv">Invoice sent automatically · Paid</span><em>Invoicing</em></li>
+        <li data-on="6"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><span>Confirmation + info pack sent</span><em>Events</em></li>
+        <li data-on="7"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Seat taken · on the event calendar</span><em>Events</em></li>
+        <li data-on="8"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Reminders set: 7 days and 1 day before</span><em>Events</em></li>
+        <li data-on="9"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Tagged: Module 1 · Singapore cohort</span><em>CRM</em></li>
+      </ul>
+    </div>
+  </div>
+  <p class="illus"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample data</p>
+  <aside class="notes"><p>The "payment is the trigger" flow, for every public event and cohort. Press → for each step, or Play. The client record on the right fills itself: one basket for the ticket and anything else, card with the surcharge on top or bank transfer, the invoice, the confirmation with the info pack, the seat count, reminders at minus 7 and minus 1 days, and a tagged contact with the answers attached. Switch Card / Bank transfer: a transfer is invoiced the same way and shows Paid once the bank feed matches it (workflow 6). Names and figures are samples.</p></aside>
+</section>
+
+<!-- 6 · workflow 2 -->
+<section class="slide ew" id="w2" data-steps="7" data-title="Workflow 2 · A paid 1:1 session">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 2 · a paid 1:1 session</span>
+      <h2 class="h-m" data-in style="--d:80ms">Paid before the slot <span class="hl">is confirmed.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-count"><b>0</b> / 7</span><button type="button" class="ew-play"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>Client opens the booking link</span><em><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Appointments + Website</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>Answers the intake questions</span><em><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Appointments</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>Pays before the slot confirms</span><em><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Pay-to-book + Payments</em></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span>Slot lands on your calendar and syncs to Google</span><em><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Appointments + Calendar</em></button></li>
+      <li><button type="button" data-n="5"><i>5</i><span>Video link attached</span><em><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Odoo's own video link</em></button></li>
+      <li><button type="button" data-n="6"><i>6</i><span>Invoice raised automatically</span><em><img class="oi" src="assets/img/odoo/account.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Invoicing</em></button></li>
+      <li><button type="button" data-n="7"><i>7</i><span>Reminder sent before the session</span><em><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Appointments</em></button></li>
+    </ol>
+    <div class="ew-scene e2" data-in data-fx="right" style="--d:240ms">
+      <div class="e2-book">
+        <p class="e2-h"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>1:1 session · 60 min</b><small>Booking page · sample</small></span></p>
+        <div class="e2-grid" role="group" aria-label="Free slots">
+          <span class="e2-d">Mon</span><span class="e2-d">Tue</span><span class="e2-d">Wed</span><span class="e2-d">Thu</span>
+          <button type="button" data-s="Mon 10:00">10:00</button><button type="button" disabled>10:00</button><button type="button" data-s="Wed 10:00">10:00</button><button type="button" disabled>10:00</button>
+          <button type="button" disabled>14:00</button><button type="button" data-s="Tue 14:00" class="is-pick">14:00</button><button type="button" disabled>14:00</button><button type="button" data-s="Thu 14:00">14:00</button>
+          <button type="button" data-s="Mon 16:00">16:00</button><button type="button" data-s="Tue 16:00">16:00</button><button type="button" data-s="Wed 16:00">16:00</button><button type="button" disabled>16:00</button>
+        </div>
+        <div class="e2-q" data-on="2"><small>Intake · what would you like to work on?</small><span>Sleep and stress since a move abroad.</span></div>
+        <div class="e2-pay" data-on="3"><span data-t="0:Pay to confirm|3:Paid · slot confirmed">Pay to confirm</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+      </div>
+      <div class="e2-side">
+        <div class="e2-c" data-on="4"><span class="e2-ch"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Your calendar</span><b data-e2="when">Tue 14:00</b><small>1:1 session · Mei Lin Tan</small><em class="e2-g"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>Synced to Google Calendar</em></div>
+        <div class="e2-c" data-on="5"><span class="e2-ch"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Video link</span><b>Odoo video link attached</b><small>Zoom capture is separate (slide 2)</small></div>
+        <div class="e2-c" data-on="6"><span class="e2-ch"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Invoice</span><b>Raised automatically</b><em class="e2-paid">Paid</em></div>
+        <div class="e2-c" data-on="7"><span class="e2-ch"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>Reminder</span><b data-e2="rem">Sent before Tue 14:00</b></div>
+      </div>
+    </div>
+  </div>
+  <p class="illus"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample data · click a free slot</p>
+  <aside class="notes"><p>A paid 1:1 session: the client pays before the slot confirms, so there are no unpaid no-shows. The slot lands on Isabelle's calendar and syncs to Google; the video link is Odoo's own, and Zoom capture is the separate piece on slide 2. Click any free slot to book a different time. The working hours on the real booking page come from her (open item 6).</p></aside>
+</section>
+
+<!-- 7 · workflow 3 -->
+<section class="slide ew" id="w3" data-steps="6" data-title="Workflow 3 · A free booking, no ticket">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 3 · a free booking, no ticket</span>
+      <h2 class="h-m" data-in style="--d:80ms">Booked, <span class="hl">never sold.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-built"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Built and tested</span><span class="ew-count"><b>0</b> / 6</span><button type="button" class="ew-play"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>You send the booking link directly to the person</span><em><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Appointments</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>Client answers one intake question</span><em><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Appointments</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>The booking arrives as a request, not a confirmation</span><em><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Auto-confirm off</em></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span>You review and approve it</span><em><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Appointments</em></button></li>
+      <li><button type="button" data-n="5"><i>5</i><span>Meeting lands on your calendar, synced to Google</span><em><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Calendar</em></button></li>
+      <li><button type="button" data-n="6"><i>6</i><span>No payment, no invoice: nothing is sold</span><em><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Nothing to invoice</em></button></li>
+    </ol>
+    <div class="ew-scene e3" data-in data-fx="right" style="--d:240ms">
+      <div class="seg e3-type" role="group" aria-label="Booking type"><button type="button" data-v="sup" aria-pressed="true">Supervision</button><button type="button" data-v="pre" aria-pressed="false">Prepaid package</button><button type="button" data-v="tp" aria-pressed="false">Third-party</button></div>
+      <p class="e3-link" data-on="1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span>Link sent to <b data-e3="who">a provider you certified</b></span></p>
+      <div class="e3-req">
+        <div class="e3-rh"><span class="e3-av" data-e3="ini">AR</span><span><b data-e3="name">A. Rahman</b><small data-e3="what">Supervision · 60 min · sample</small></span><em class="e3-st" data-t="0:Not booked yet|3:Request · waiting for you|4:Confirmed">Not booked yet</em></div>
+        <p class="e3-qa" data-on="2"><small>Anything I should know before we meet?</small><span data-e3="ans">I'd like to bring one client case.</span></p>
+        <div class="e3-act"><button type="button" class="e3-ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Approve</button><span class="e3-hint" data-t="0:Arrives here as a request|3:Waiting for your approval|4:Approved by you">Arrives here as a request</span></div>
+      </div>
+      <div class="e3-row">
+        <p class="e3-cal" data-on="5"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span><b>On your calendar</b><small><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>Synced to Google</small></span></p>
+        <p class="e3-none" data-on="6"><s><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Invoice</s><span>No payment · no invoice</span></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample data · switch the booking type</p>
+  <aside class="notes"><p>Isabelle's single biggest ask, and already built and tested: supervision, prepaid packages and third-party programme work each have their own booking type. She sends the link to the person, the booking arrives as a request, and nothing confirms until she approves. Switch the type at the top; click Approve at step 3. Nothing is sold, so there is no payment and no invoice.</p></aside>
+</section>
+
+<!-- 8 · workflow 4 -->
+<section class="slide ew" id="w4" data-steps="7" data-title="Workflow 4 · A screened sale">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 4 · a screened sale</span>
+      <h2 class="h-m" data-in style="--d:80ms">Cleared first, <span class="hl">then sold.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-count"><b>0</b> / 7</span><button type="button" class="ew-play"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>You send an invite-only screening questionnaire</span><em><img class="oi" src="assets/img/odoo/survey.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Surveys</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>Pass or fail, scored against your criteria</span><em><img class="oi" src="assets/img/odoo/survey.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Surveys · required score</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>The service is not on the webshop at all</span><em><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">eCommerce · unpublished</em></button></li>
+      <li data-pass><button type="button" data-n="4"><i>4</i><span>If cleared, you issue a quotation</span><em><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Sales</em></button></li>
+      <li data-pass><button type="button" data-n="5"><i>5</i><span>Client signs the waiver, the consent and the order</span><em><img class="oi" src="assets/img/odoo/sign.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Sign + Sales</em></button></li>
+      <li data-pass><button type="button" data-n="6"><i>6</i><span>Client pays online</span><em><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Sales + Payments</em></button></li>
+      <li data-pass><button type="button" data-n="7"><i>7</i><span>Order confirmed, invoice raised</span><em><img class="oi" src="assets/img/odoo/account.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Invoicing</em></button></li>
+    </ol>
+    <div class="ew-scene e4" data-in data-fx="right" style="--d:240ms">
+      <div class="e4-top"><span>Sample answers</span><div class="seg e4-res" role="group" aria-label="Screening answers"><button type="button" data-v="pass" aria-pressed="true">All clear</button><button type="button" data-v="fail" aria-pressed="false">A contraindication</button></div></div>
+      <div class="e4-sv" data-on="1">
+        <p class="e4-svh"><img class="oi" src="assets/img/odoo/survey.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Screening questionnaire</b><small>Invite only · scored</small></span><em data-t="0:Sent|2:Scored">Sent</em></p>
+        <div class="e4-bar"><u><s></s></u><i class="e4-req"><em>Required score</em></i></div>
+        <p class="e4-out"><b data-e4="score">–</b><span data-e4="verdict">Waiting for answers</span></p>
+      </div>
+      <p class="e4-shop" data-on="3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span><b>On the webshop:</b> not listed. There is no public buy button.</span></p>
+      <div class="e4-path">
+        <span class="e4-c" data-on="4"><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"><b>Quotation</b><small>sample service</small></span>
+        <span class="e4-c" data-on="5"><img class="oi" src="assets/img/odoo/sign.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"><b>Waiver · consent · order</b><small>signed online</small></span>
+        <span class="e4-c" data-on="6"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><b>Paid online</b><small>card or transfer</small></span>
+        <span class="e4-c" data-on="7"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"><b>Invoice</b><small>order confirmed</small></span>
+      </div>
+      <div class="e4-stop" role="status"><b>Stops here.</b><span>No quotation is issued, so there is nothing to buy: the service was never on sale.</span></div>
+    </div>
+  </div>
+  <p class="illus"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample data · switch the answers</p>
+  <aside class="notes"><p>For any service where a health contraindication could apply. The questionnaire is invite-only and scored against a required score, so pass or fail is automatic. The service is never published on the webshop: if the client is cleared, Isabelle issues a quotation, the client signs the waiver and informed consent in Sign and the order online, then pays. Switch the sample answers to "A contraindication": the flow stops at step 2. The criteria and the waiver PDF still have to come from Isabelle and her lawyer (open items 3 and 4). Verified on a live database.</p></aside>
+</section>
+
+<!-- 9 · how the gate holds -->
+<section class="slide" id="gate" data-steps="1" data-title="The gate is the missing buy button">
+  <div class="split eh">
+    <div class="eh-copy">
+      <span class="kicker" data-in>how the screening holds</span>
+      <h2 class="h-m" data-in style="--d:80ms">The gate is <span class="hl">the missing buy button.</span></h2>
+      <p class="lead" data-in style="--d:160ms">Odoo will never read a questionnaire and then decide whether to allow a checkout. It will happily refuse to sell something that was never put on the shop.</p>
+      <div class="eh-vs" data-in style="--d:260ms">
+        <p class="eh-x"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span><b>Refused after payment</b><small>Money taken, then refunded. Logic that has to be right every time.</small></span></p>
+        <p class="eh-ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Simply unavailable</b><small>Nothing to buy until you issue a quotation. The stronger legal position.</small></span></p>
+      </div>
+    </div>
+    <div class="eh-shop" data-in data-fx="right" style="--d:200ms">
+      <div class="eh-bar"><i></i><i></i><i></i><span>bhdasia.com/shop</span><em>Sample</em></div>
+      <div class="eh-search"><span class="eh-in"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg><span data-eh="q"></span><i class="eh-caret"></i></span><button type="button" class="btn btn-primary eh-go">Search for the screened service</button></div>
+      <div class="eh-grid">
+        <span><img class="oi" src="assets/img/odoo/event.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>TRE™ Module 1</b><small>Ticket</small><em>Add to cart</em></span>
+        <span><img class="oi" src="assets/img/odoo/event.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Intro workshop</b><small>Ticket</small><em>Add to cart</em></span>
+        <span><img class="oi" src="assets/img/odoo/event.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Retreat</b><small>Ticket</small><em>Add to cart</em></span>
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg><b>E-book</b><small>Download</small><em>Add to cart</em></span>
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><b>Journal</b><small>Printed</small><em>Add to cart</em></span>
+        <span><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>1:1 session</b><small>Book a time</small><em>Book</em></span>
+      </div>
+      <p class="eh-none" role="status"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg><span><b>No results.</b> The screened service isn't on the shop: there is no button to press.</span></p>
+    </div>
+  </div>
+  <aside class="notes"><p>How workflow 4 is enforced: by the absence of a public buy button, not by conditional logic. Press → or the button to search the shop for the screened service: there is nothing to find. That is also the stronger legal position: the service is simply unavailable, rather than refused after payment. Product names here are samples.</p></aside>
+</section>
+
+<!-- 10 · workflow 5 -->
+<section class="slide ew" id="w5" data-steps="4" data-title="Workflow 5 · Waitlist and full events">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 5 · waitlist and full events</span>
+      <h2 class="h-m" data-in style="--d:80ms">A full event <span class="hl">keeps collecting names.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-count"><b>0</b> / 4</span><button type="button" class="ew-play"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body ew-body--short">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>The event reaches its seat cap and closes itself</span><em><img class="oi" src="assets/img/odoo/event.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Events</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>A free "join the waitlist" ticket or an interest form keeps capturing names</span><em><img class="oi" src="assets/img/odoo/event.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Events / Website form</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>Those contacts are tagged</span><em><img class="oi" src="assets/img/odoo/crm.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">CRM</em></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span>A campaign invites them to the next cohort</span><em><img class="oi" src="assets/img/odoo/mass_mailing.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Email Marketing</em></button></li>
+    </ol>
+    <div class="ew-scene e5" data-in data-fx="right" style="--d:240ms">
+      <div class="e5-ev"><img class="oi" src="assets/img/odoo/event.svg" alt="" width="32" height="32" style="width:32px;height:32px" loading="lazy" decoding="async"><span><b>Introductory workshop</b><small>Sample event · 12 seats</small></span><em class="e5-st" data-t="0:Registration open|1:Sold out · closed">Registration open</em></div>
+      <div class="e5-seats" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="e5-n"><b data-e5="seats">9</b> of 12 seats taken</p>
+      <div class="e5-w" data-on="2">
+        <span class="e5-tk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span><b>Join the waitlist</b><small>Free ticket</small></span></span>
+        <span class="e5-cnt"><b data-e5="wait">0</b><small>names on the waitlist</small></span>
+        <button type="button" class="e5-add"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Someone joins</button>
+      </div>
+      <p class="e5-tag" data-on="3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Tagged <b>Waitlist · Intro workshop</b> on <b data-e5="tagged">0</b> contacts</span></p>
+      <div class="e5-mail" data-on="4"><img class="oi" src="assets/img/odoo/mass_mailing.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>The next cohort is open</b><small>Email campaign · sent to <b data-e5="sent">0</b> waitlist contacts</small></span><em>Sent</em></div>
+    </div>
+  </div>
+  <p class="illus"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample data</p>
+  <aside class="notes"><p>When an event hits its seat cap it closes itself; a free "join the waitlist" ticket, or an interest form, keeps capturing names. Those contacts are tagged, and when the next cohort opens one email campaign invites them all. "Someone joins" adds a name. Numbers are samples.</p></aside>
+</section>
+
+<!-- 11 · workflow 6 -->
+<section class="slide ew" id="w6" data-steps="4" data-title="Workflow 6 · Money and books">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 6 · money and books</span>
+      <h2 class="h-m" data-in style="--d:80ms">Every payment <span class="hl">finds its own invoice.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-count"><b>0</b> / 4</span><button type="button" class="ew-play"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body ew-body--short">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>Payments arrive from card and bank transfer</span><em><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Payments</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>The bank feed reconciles them against their own invoices</span><em><img class="oi" src="assets/img/odoo/account.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Accounting · bank sync</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>Invoices carry billing address, country, and a company name where needed</span><em><img class="oi" src="assets/img/odoo/account.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Invoicing</em></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span>Your accountant gets exports, or a login that sees only the books</span><em><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Accounting + access rights</em></button></li>
+    </ol>
+    <div class="ew-scene e6" data-in data-fx="right" style="--d:240ms">
+      <div class="e6-tbl">
+        <p class="e6-th"><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 10 6H2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M3 10h18"/><path d="M5 10v9M9 10v9M15 10v9M19 10v9"/><path d="M2 21h20"/><path d="m12 3 10 6H2z"/></svg>Bank feed</span><span>Invoice</span></p>
+        <p class="e6-r" data-on="1"><span><b>Card payment</b><small>M. L. Tan · S$ sample</small></span><em data-t="0:–|1:INV/0148 · In payment|2:INV/0148 · Paid">–</em></p>
+        <p class="e6-r" data-on="1"><span><b>Bank transfer</b><small>R. Kaur · S$ sample</small></span><em data-t="0:–|1:INV/0151 · Not paid|2:INV/0151 · Paid">–</em></p>
+        <p class="e6-r" data-on="1"><span><b>Bank transfer</b><small>Partner organisation · S$ sample</small></span><em data-t="0:–|1:INV/0153 · Not paid|2:INV/0153 · Paid">–</em></p>
+        <p class="e6-r" data-on="1"><span><b>PayPal</b><small>UK school programme · £ sample</small></span><em data-t="0:–|1:INV/0156 · In payment|2:INV/0156 · Paid">–</em></p>
+      </div>
+      <div class="e6-low">
+        <div class="e6-inv" data-on="3">
+          <span class="e6-ih"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>INV/0153 · sample</span>
+          <p><small>Bill to</small><b>Partner organisation Pte Ltd</b><span>Attn. programme office<br>Singapore</span></p>
+        </div>
+        <div class="e6-acc" data-on="4">
+          <div class="seg e6-seg" role="group" aria-label="What the accountant gets"><button type="button" data-v="exp" aria-pressed="false">Exports</button><button type="button" data-v="login" aria-pressed="true">Limited login</button></div>
+          <ul class="e6-menu" data-e6="menu">
+            <li class="is-ok"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Accounting</li>
+            <li><img class="oi" src="assets/img/odoo/event.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Events</li>
+            <li><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Appointments</li>
+            <li><img class="oi" src="assets/img/odoo/survey.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">Surveys</li>
+            <li><img class="oi" src="assets/img/odoo/crm.svg" alt="" width="18" height="18" style="width:18px;height:18px" loading="lazy" decoding="async">CRM</li>
+          </ul>
+          <p class="e6-exp" data-e6="exp"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg><span>Monthly exports: <b>journal items, invoices, bank statements</b> as Excel or PDF.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="illus"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample data · bank sync where your bank is on Odoo's list</p>
+  <aside class="notes"><p>Card, bank transfer and PayPal payments land in the bank feed, which reconciles each against its own invoice: In payment or Not paid, then Paid. Invoices carry the billing address and country, and a company name where a company pays. The accountant gets exports, or a limited login that sees only Accounting: health answers in Events, Appointments and Surveys stay out of reach. Bank sync works where the bank is on Odoo's supported list; otherwise statements are imported. Figures are samples.</p></aside>
+</section>
+
+<!-- 12 · modules at go-live -->
+<section class="slide" id="modules" data-title="Nine modules, one subscription">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>modules at go-live</span>
+      <h2 class="h-m" data-in style="--d:80ms">Nine modules, <span class="hl">one subscription.</span></h2>
+    </div>
+    <div class="seg eo-seg" data-in style="--d:160ms" role="group" aria-label="Show"><button type="button" data-v="does" aria-pressed="true">What it carries</button><button type="button" data-v="was" aria-pressed="false">What it replaces</button></div>
+  </div>
+  <div class="eo">
+    <div class="eo-t" data-in style="--d:180ms"><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><span><b>Website + eCommerce</b><small class="eo-does">Your brand site, shop, event pages, one checkout for everything</small><small class="eo-was">A third-party webshop and checkout form</small></span></div>
+    <div class="eo-t" data-in style="--d:210ms"><img class="oi" src="assets/img/odoo/event.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><span><b>Events</b><small class="eo-does">Cohorts and workshops, tiered tickets, seat caps, screening questions, QR check-in, reminders</small><small class="eo-was">Eventbrite and manual lists</small></span></div>
+    <div class="eo-t" data-in style="--d:240ms"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><span><b>Appointments</b><small class="eo-does">1:1 sessions, supervision, packages, third-party bookings; pay-to-book; Google sync</small><small class="eo-was">Calendly</small></span></div>
+    <div class="eo-t" data-in style="--d:270ms"><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><span><b>Sales</b><small class="eo-does">Quotations for the screened flow, signed and paid online</small><small class="eo-was">Manual proposals</small></span></div>
+    <div class="eo-t" data-in style="--d:300ms"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><span><b>Invoicing &amp; Accounting</b><small class="eo-does">Singapore localisation, multi-currency, automatic invoicing, reconciliation, accountant access</small><small class="eo-was">Manual invoices and a spreadsheet</small></span></div>
+    <div class="eo-t" data-in style="--d:330ms"><img class="oi" src="assets/img/odoo/crm.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><span><b>CRM</b><small class="eo-does">Enquiries become leads; every buyer becomes a tagged contact</small><small class="eo-was">Memory and the inbox</small></span></div>
+    <div class="eo-t" data-in style="--d:360ms"><img class="oi" src="assets/img/odoo/sign.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><span><b>Sign</b><small class="eo-does">Waivers and informed consent, e-signed and filed to the client record</small><small class="eo-was">DocuSign and paper</small></span></div>
+    <div class="eo-t" data-in style="--d:390ms"><img class="oi" src="assets/img/odoo/survey.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><span><b>Surveys</b><small class="eo-does">The screening gate, with automatic pass or fail scoring</small><small class="eo-was">Google Forms</small></span></div>
+    <div class="eo-t" data-in style="--d:420ms"><img class="oi" src="assets/img/odoo/mass_mailing.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><span><b>Email Marketing</b><small class="eo-does">Reminders, waitlist nurture, cohort campaigns</small><small class="eo-was">Mailchimp</small></span></div>
+  </div>
+  <p class="eo-foot" data-in style="--d:500ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>All nine in the same per-user Odoo subscription: <b>no per-app licence</b>, and <b>no Odoo fee on the tickets you sell</b>. The licence comes from Odoo; TechNext quotes the implementation.</span></p>
+  <aside class="notes"><p>The nine modules at go-live. Switch to "What it replaces" to show the tools each one retires: the third-party webshop, Eventbrite, Calendly, DocuSign, Google Forms, Mailchimp, manual invoices and spreadsheets. All nine are in the same per-user Odoo subscription: no per-app licence and no per-sale platform fee from Odoo on the tickets (the card provider's own processing fee is what the surcharge covers). Licence pricing is Odoo's; TechNext's implementation fee comes in the written quotation.</p></aside>
+</section>
+
+<!-- 13 · phase two -->
+<section class="slide" id="phase2" data-title="Phase two: switches, not projects">
+  <div class="sec-head">
+    <span class="kicker" data-in>phase two</span>
+    <h2 class="h-m" data-in style="--d:80ms">Switches, <span class="hl">not projects.</span></h2>
+    <p class="lead ef-lead" data-in style="--d:160ms">Each one is a module in the same database, turned on when you need it.</p>
+  </div>
+  <div class="ef">
+    <ul class="ef-list">
+      <li data-in style="--d:180ms"><button type="button" role="switch" aria-checked="false" data-k="0"><i class="ef-sw"></i><img class="oi" src="assets/img/odoo/website_slides.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><span><b>eLearning</b><small>Your recorded teaching library, and bonus content for the Simba certification</small></span></button></li>
+      <li data-in style="--d:220ms"><button type="button" role="switch" aria-checked="false" data-k="1"><i class="ef-sw"></i><img class="oi" src="assets/img/odoo/documents.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><span><b>Documents</b><small>Replaces the per-student Google Drive folders</small></span></button></li>
+      <li data-in style="--d:260ms"><button type="button" role="switch" aria-checked="false" data-k="2"><i class="ef-sw"></i><img class="oi" src="assets/img/odoo/sale_subscription.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><span><b>Subscriptions</b><small>TRE™ Singapore memberships, if that entity forms</small></span></button></li>
+      <li data-in style="--d:300ms"><button type="button" role="switch" aria-checked="false" data-k="3"><i class="ef-sw"></i><img class="oi" src="assets/img/odoo/knowledge.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><span><b>Knowledge</b><small>Your own playbook and SOPs</small></span></button></li>
+      <li data-in style="--d:340ms"><button type="button" role="switch" aria-checked="false" data-k="4"><i class="ef-sw"></i><span class="ef-ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span><span><b>Multi-company</b><small>Only if a second entity becomes active</small></span></button></li>
+    </ul>
+    <div class="ef-db" data-in data-fx="right" style="--d:260ms">
+      <p class="ef-dbh"><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-1.66 4-3 9-3s9 1.34 9 3v14c0 1.66-4 3-9 3s-9-1.34-9-3z" fill="currentColor" fill-opacity=".2" stroke="none"/><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>Your Odoo database</span><b><em data-ef="n">9</em> modules on</b></p>
+      <div class="ef-grid">
+        <span class="is-live"><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>eCommerce</small></span>
+        <span class="is-live"><img class="oi" src="assets/img/odoo/event.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>Events</small></span>
+        <span class="is-live"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>Appointments</small></span>
+        <span class="is-live"><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>Sales</small></span>
+        <span class="is-live"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>Invoicing</small></span>
+        <span class="is-live"><img class="oi" src="assets/img/odoo/crm.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>CRM</small></span>
+        <span class="is-live"><img class="oi" src="assets/img/odoo/sign.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>Sign</small></span>
+        <span class="is-live"><img class="oi" src="assets/img/odoo/survey.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>Surveys</small></span>
+        <span class="is-live"><img class="oi" src="assets/img/odoo/mass_mailing.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>Email Mkt</small></span>
+        <span class="ef-slot" data-k="0"><img class="oi" src="assets/img/odoo/website_slides.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>eLearning</small></span>
+        <span class="ef-slot" data-k="1"><img class="oi" src="assets/img/odoo/documents.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>Documents</small></span>
+        <span class="ef-slot" data-k="2"><img class="oi" src="assets/img/odoo/sale_subscription.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>Subscriptions</small></span>
+        <span class="ef-slot" data-k="3"><img class="oi" src="assets/img/odoo/knowledge.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><small>Knowledge</small></span>
+        <span class="ef-slot" data-k="4"><span class="ef-ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span><small>Companies</small></span>
+      </div>
+      <p class="ef-say" data-ef="say">Dashed: ready to switch on, same database, same records.</p>
+    </div>
+  </div>
+  <aside class="notes"><p>Phase two items are switches, not projects: each is a module in the same database. eLearning for the recorded teaching library and bonus content for the Simba certification; Documents to replace the per-student Google Drive folders; Subscriptions for TRE™ Singapore memberships if that entity forms; Knowledge for her playbook and SOPs; multi-company only if a second entity activates. Click a switch to turn it on. For the presenter: multi-company sits on Odoo's Custom plan, so check the licence before promising it.</p></aside>
+</section>
+
+<!-- 14 · decided and tested -->
+<section class="slide" id="decided" data-title="Already decided and tested">
+  <div class="sec-head">
+    <span class="kicker" data-in>already decided and tested</span>
+    <h2 class="h-m" data-in style="--d:80ms">Settled, <span class="hl">and shown working.</span></h2>
+  </div>
+  <div class="ed">
+    <div class="ed-c" data-in style="--d:160ms">
+      <span class="ed-ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Built</span>
+      <b>Free booking links</b>
+      <p>Supervision, prepaid and third-party types, each arriving as a request you approve. Your single biggest ask.</p>
+      <button type="button" class="ed-go" data-go="w3">Workflow 3<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+    </div>
+    <div class="ed-c" data-in style="--d:220ms">
+      <span class="ed-ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Verified live</span>
+      <b>Screening is native</b>
+      <p>An invite-only survey, automatic pass or fail, the product kept off the webshop, the sale by quotation.</p>
+      <button type="button" class="ed-go" data-go="w4">Workflow 4<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+    </div>
+    <div class="ed-c" data-in style="--d:280ms">
+      <span class="ed-ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Decided</span>
+      <b>Payments</b>
+      <p>Card with the surcharge added on top, bank transfer kept fee-free alongside, PayPal for the UK school programmes.</p>
+      <button type="button" class="ed-go" data-go="w6">Workflow 6<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+    </div>
+    <div class="ed-c" data-in style="--d:340ms">
+      <span class="ed-ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Decided</span>
+      <b>Invoicing on payment</b>
+      <p>The invoice is raised automatically when the client pays, and the info pack rides on the confirmation email.</p>
+      <button type="button" class="ed-go" data-go="w1">Workflow 1<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+    </div>
+    <div class="ed-c ed-c--warn" data-in style="--d:400ms">
+      <span class="ed-wn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Good to know</span>
+      <b>Booking links are public once published</b>
+      <p>Odoo has no hidden, link-only booking page. What protects a booking:</p>
+      <ul class="ed-prot">
+        <li class="no"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>A secret URL</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Your approval step</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A product never published</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes"><p>What is already decided and shown working on the demo databases. The free booking links were her single biggest ask. Screening was verified on a live database. Payments: card with the surcharge on top, bank transfer fee-free, PayPal for the UK school programmes. Invoices are raised on payment with the info pack attached to the confirmation. And one thing to say plainly before she discovers it: appointment links are public once published. Odoo has no link-only hidden booking page, so the controls are the approval step and not publishing the product, never the secrecy of a URL.</p></aside>
+</section>
+
+<!-- 15 · one decision before the build -->
+<section class="slide" id="currency" data-title="One decision before any build: country and currency">
+  <div class="split ey">
+    <div class="ey-copy">
+      <span class="kicker" data-in>one decision before any build</span>
+      <h2 class="h-m" data-in style="--d:80ms">Country and currency, <span class="hl">decided once.</span></h2>
+      <p class="lead" data-in style="--d:160ms">The demos moved between Japan and yen, Singapore and dollars, and US dollars. BHD Asia is registered in Singapore.</p>
+      <p class="ey-pt" data-in style="--d:240ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Changing a company's currency later means <b>clearing the books first</b>. We hit exactly that on a demo database.</span></p>
+      <p class="ey-pt" data-in style="--d:300ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span>Selling in euros or pounds still works: <b>pricelists and multi-currency</b> handle it on top of the base currency.</span></p>
+    </div>
+    <div class="ey-win" data-in data-fx="right" style="--d:200ms">
+      <div class="ey-bar"><span><img class="oi" src="assets/img/odoo/account.svg" alt="" width="22" height="22" style="width:22px;height:22px" loading="lazy" decoding="async">Settings · Companies</span><em>Sample</em></div>
+      <div class="ey-f"><small>Company</small><b>BHD Asia</b></div>
+      <div class="ey-f"><small>Country</small><b data-ey="country">Not chosen yet</b></div>
+      <div class="ey-f ey-cur"><small>Currency</small>
+        <div class="seg ey-seg" role="group" aria-label="Base currency"><button type="button" data-v="SGD" aria-pressed="false">SGD</button><button type="button" data-v="JPY" aria-pressed="false">JPY</button><button type="button" data-v="USD" aria-pressed="false">USD</button></div>
+        <i class="ey-lock"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></i>
+      </div>
+      <div class="ey-act"><button type="button" class="btn btn-primary ey-post" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Post the first invoice</button><button type="button" class="ey-reset"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>Start again</button></div>
+      <p class="ey-say" data-ey="say">Pick a currency, then post the first invoice.</p>
+    </div>
+  </div>
+  <aside class="notes"><p>One configuration decision to settle before any build starts: the company country and base currency. The demos moved between Japan/JPY, Singapore/SGD and USD; BHD Asia is Singapore-registered. Changing a company's currency after entries exist means clearing the books first, which we hit on a demo database. Try it: pick a currency, post the first invoice, and the currency field locks. Selling in other currencies still works through pricelists and multi-currency. This is her decision; we set it once.</p></aside>
+</section>
+
+<!-- 16 · the provider bundle -->
+<section class="slide dark" id="bundle" data-title="Worth a separate conversation: the provider bundle">
+  <div class="split eu">
+    <div class="eu-copy">
+      <span class="kicker" data-in>worth a separate conversation</span>
+      <h2 class="h-m" data-in style="--d:80ms">Your certification, <span class="hl">with the business set-up included.</span></h2>
+      <p class="lead" data-in style="--d:160ms">Each provider you certify gets a ready-made website, webshop and payment set-up, packaged into the certification.</p>
+      <ul class="eu-pts" data-in style="--d:240ms">
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>About <b>25 students</b> already in the pipeline</span></li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg><span>Held under <b>TRE™ Singapore</b> as a membership benefit</span></li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg><span>Costed as <b>a shared service</b></span></li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span>A route to the <b>global TRE™ organisation</b></span></li>
+      </ul>
+      <p class="eu-tag" data-in style="--d:320ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6l1.8 4.2L18 12l-4.2 1.8L12 18l-1.8-4.2L6 12l4.2-1.8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>The subscription becomes a product you resell. <span>Not in this scope: to discuss.</span></p>
+    </div>
+    <div class="eu-art" data-in data-fx="fade" style="--d:200ms">
+      <div class="eu-ring" aria-hidden="true"></div>
+      <div class="eu-core"><b>TRE™ Singapore</b><small>shared service</small></div>
+      <div class="eu-ctl"><label for="eu-n">Certified providers</label><input id="eu-n" type="range" min="1" max="40" value="25" data-drag><b data-eu="n">25</b><small>each with a site, a shop and payments</small></div>
+    </div>
+  </div>
+  <aside class="notes"><p>The commercial opportunity Sky raised and Isabelle responded to: a ready-made provider website, webshop and payment set-up packaged into her certification. About 25 students are already in the pipeline. It would sit under TRE™ Singapore as a membership benefit and be costed as a shared service. That turns the subscription into a product she resells, and it is a route to the global TRE™ organisation. Drag the slider to show the network grow. It is outside this scope: propose a separate conversation.</p></aside>
+</section>
+
+<!-- 17 · open items (questions at the back) -->
+<section class="slide" id="open" data-title="Open items: they hold the quotation, not the build">
+  <div class="sec-head sec-head--row eq-head">
+    <div>
+      <span class="kicker" data-in>open items</span>
+      <h2 class="h-m" data-in style="--d:80ms">These hold the quotation, <span class="hl">not the build.</span></h2>
+    </div>
+    <p class="eq-key" data-in style="--d:160ms"><span><i class="eq-k eq-k--ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Settled</span><span><i class="eq-k eq-k--fu"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></i>Follow up</span><em>Click an item to mark it</em></p>
+  </div>
+  <div class="eq">
+    <ol class="eq-list">
+      <li data-in style="--d:160ms"><button type="button" data-q="1"><i>1</i><span><b>The written annual cost</b>: licence, number of users, any prepay discount, implementation, and whether back-office support is included.</span><em class="eq-o eq-o--tn">TechNext</em></button></li>
+      <li data-in style="--d:190ms"><button type="button" data-q="2"><i>2</i><span><b>Hosting region and Odoo's signed DPA</b>: the documents themselves, for your lawyer.</span><em class="eq-o eq-o--tn">TechNext + Odoo</em></button></li>
+      <li data-in style="--d:220ms"><button type="button" data-q="3"><i>3</i><span><b>Your lawyer's waiver and informed-consent PDF</b>, so the Sign step can be built and tested.</span><em class="eq-o">Isabelle</em></button></li>
+      <li data-in style="--d:250ms"><button type="button" data-q="4"><i>4</i><span><b>The screening criteria that disqualify</b>, in writing.</span><em class="eq-o">Isabelle + lawyer</em></button></li>
+      <li data-in style="--d:280ms"><button type="button" data-q="5"><i>5</i><span><b>Who else gets a login</b>, such as back-office support. Access to health data is designed in, not added later.</span><em class="eq-o">Isabelle</em></button></li>
+      <li data-in style="--d:310ms"><button type="button" data-q="6"><i>6</i><span><b>Your real working hours</b>, and connecting Google Calendar together.</span><em class="eq-o">Isabelle + AJ</em></button></li>
+      <li data-in style="--d:340ms"><button type="button" data-q="7"><i>7</i><span><b>Who sells in each country</b>: Romania sells locally; the UK and India may too. It decides who the merchant is.</span><em class="eq-o">Isabelle</em></button></li>
+      <li data-in style="--d:370ms"><button type="button" data-q="8"><i>8</i><span><b>Company country and base currency</b>, decided once, before any build.</span><em class="eq-o">Isabelle + TechNext</em></button></li>
+    </ol>
+    <div class="eq-side" data-in data-fx="right" style="--d:260ms">
+      <span class="eq-h">From this meeting</span>
+      <p class="eq-n"><span><b data-eq="ok">0</b><small>settled</small></span><span><b data-eq="fu">0</b><small>to follow up</small></span><span><b data-eq="open">8</b><small>still open</small></span></p>
+      <button type="button" class="btn btn-primary eq-copy"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Copy the follow-up list</button>
+      <p class="eq-say" data-eq="say" aria-live="polite">Copies every item not yet settled, with its owner, ready to paste into an email.</p>
+      <button type="button" class="eq-clear"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>Clear all marks</button>
+    </div>
+    <div class="eq-outp" hidden>
+      <p class="eq-outh"><b>The follow-up list</b><span>This browser didn't allow copying: select the text and copy it.</span><button type="button" class="eq-x">Close</button></p>
+      <textarea readonly aria-label="The follow-up list"></textarea>
+    </div>
+  </div>
+  <aside class="notes"><p>The open items. None of them blocks the build; they block the quotation. The first is the real one: the complete written annual cost (licence, the two-user question, the prepay discount, implementation, and whether back-office support is included). Then the hosting region and Odoo's signed DPA as documents, the lawyer's waiver PDF, the screening criteria in writing, who else gets a login (access to health data must be designed in), her working hours and the Google Calendar connection with AJ, who sells in each country, and the company country and currency. Click once for settled, twice for follow up, a third time to clear. "Copy the follow-up list" gives the email text.</p></aside>
+</section>
+
+<!-- 18 · thank you -->
+<section class="slide dark" id="contact" data-title="Thank you" data-chrome="foot">
+  <div class="split split--narrow">
+    <div>
+      <div class="hx-lock hx-lock--sm ec-lock" data-in><img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40"><i></i><img class="hx-co ec-bhd ec-bhd--sm" src="assets/img/clients/bhdasia-white.png" alt="BHD Asia" width="50" height="38"><img class="hx-co ec-hb ec-hb--sm" src="assets/img/clients/hummingbeing-white.png" alt="HummingBeing" width="123" height="34"></div>
+      <span class="kicker" data-in style="--d:80ms">thank you</span>
+      <h2 class="h-xl ct-h" data-in style="--d:140ms">Next, the quotation, <span class="hl">in writing.</span></h2>
+      <p class="lead" data-in style="--d:220ms">The complete annual cost in one place: licence, users, implementation and support. Then we build, ready for the October–November push.</p>
+      <div class="ct-actions" data-in style="--d:300ms">
+        <a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Book a call</a>
+        <a class="btn btn-ghost" href="https://wa.me/6588396998" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>+65 8839 6998</a>
+      </div>
+      <div class="ct-links" data-in style="--d:360ms"><a href="mailto:sales@technext.asia"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>sales@technext.asia</a><a href="https://technext.asia/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>technext.asia</a></div>
+    </div>
+    <div class="ct-qr" data-in data-fx="scale" style="--d:300ms"><div class="ct-qr-card"><svg aria-hidden="true" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" class="qr"><path class="qr-p" stroke="#1f1f3d" d="M0 0.5h7m1 0h1m1 0h2m1 0h2m3 0h3m1 0h7m-29 1h1m5 0h1m1 0h3m3 0h1m5 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h3m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h3m2 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h3m3 0h4m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m1 0h1m1 0h1m2 0h1m1 0h3m-20 1h1m1 0h2m1 0h3m1 0h1m1 0h2m3 0h3m3 0h1m2 0h1m1 0h2m-28 1h2m4 0h1m2 0h2m1 0h2m1 0h9m3 0h1m-28 1h1m4 0h5m3 0h1m2 0h2m2 0h3m2 0h2m-28 1h5m7 0h5m1 0h1m1 0h1m3 0h1m3 0h1m-29 1h2m4 0h1m1 0h2m1 0h1m3 0h5m5 0h2m-25 1h1m1 0h1m2 0h6m1 0h2m3 0h1m2 0h1m3 0h3m-27 1h1m2 0h2m1 0h4m1 0h1m2 0h4m1 0h4m1 0h3m-29 1h1m1 0h1m4 0h1m1 0h4m2 0h1m4 0h1m3 0h1m2 0h1m-28 1h2m1 0h2m1 0h4m2 0h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m-27 1h5m3 0h2m1 0h1m2 0h2m3 0h2m1 0h1m1 0h3m-28 1h1m1 0h2m2 0h4m1 0h1m1 0h6m1 0h5m1 0h1m-24 1h3m2 0h2m1 0h5m1 0h1m1 0h1m6 0h1m-26 1h2m2 0h2m2 0h1m1 0h4m1 0h3m1 0h7m-19 1h2m2 0h1m3 0h3m1 0h1m3 0h5m-29 1h7m1 0h3m3 0h1m1 0h1m1 0h3m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m1 0h5m2 0h1m1 0h1m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h3m5 0h1m2 0h5m1 0h1m-27 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h1m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h6m3 0h2m1 0h2m1 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m3 0h2m1 0h1m6 0h1m3 0h2m1 0h1m-28 1h7m1 0h1m2 0h1m3 0h1m2 0h1m1 0h1m4 0h1m1 0h1"/></svg><b>Scan to book a time</b><small>Call with TechNext · 30 min online</small></div></div>
+  </div>
+  <aside class="notes"><p>Close on the next step she has been asking for: the written quotation with the complete annual cost. Once the open items are in, the build starts, aimed at the October–November campaign push.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v=24"></script>
+<script src="assets/proposal.js?v=24"></script>
+<script src="assets/bhdasia.js?v=24"></script>
+</body>
+</html>

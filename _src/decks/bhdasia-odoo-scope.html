@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>BHD Asia on Odoo: six workflows, nine modules · TechNext</title>
+<meta name="description" content="BHD Asia and HummingBeing on Odoo Online: the six workflows we will build (event tickets, paid sessions, free bookings, screened sales, waitlists, money and books), the nine modules that carry them, phase two, what is already decided and the open items that finish the quotation.">
+{{og:bhdasia-odoo-scope}}
+<link rel="stylesheet" href="assets/proposal.css?v={{v}}">
+<link rel="stylesheet" href="assets/bhdasia.css?v={{v}}">
+</head>
+<body data-label="Implementation scope · BHD Asia" data-home="./" data-cobrand="assets/img/clients/bhdasia.png" data-cobrand-white="assets/img/clients/bhdasia-white.png">
+<main class="deck" aria-label="BHD Asia on Odoo: six workflows, nine modules">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="BHD Asia on Odoo: six workflows, nine modules">
+  <div class="cv-copy ec-copy">
+    <div class="hx-lock ec-lock" data-in><img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48"><i></i><img class="hx-co ec-bhd" src="assets/img/clients/bhdasia-white.png" alt="BHD Asia" width="60" height="46"><img class="hx-co ec-hb" src="assets/img/clients/hummingbeing-white.png" alt="HummingBeing" width="145" height="40"></div>
+    <span class="kicker" data-in style="--d:120ms">bhd asia · hummingbeing × technext</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Six workflows, <span class="hl">one Odoo.</span></h1>
+    <p class="lead" data-in style="--d:320ms">Everything we agreed since August, as the workflows we will build and the nine modules that carry them. Standard Odoo Online: no custom code, no third-party apps.</p>
+    <nav class="ec-agenda" data-in style="--d:420ms" aria-label="Parts of this presentation">
+      <button type="button" data-go="scope"><i>01</i>The scope</button>
+      <button type="button" data-go="flows"><i>02</i>Six workflows</button>
+      <button type="button" data-go="modules"><i>03</i>Modules</button>
+      <button type="button" data-go="decided"><i>04</i>Next steps</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag">{{icon:file}}Implementation scope · October 2026</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="ec-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <svg class="ec-svg" viewBox="0 0 620 680" width="620" height="680">
+      <circle class="ec-orbit" cx="310" cy="340" r="250"></circle>
+      <path class="ec-ln flow" d="M310,90 L310,340"></path>
+      <path class="ec-ln flow" d="M484,184 L310,340"></path>
+      <path class="ec-ln flow" d="M534,384 L310,340"></path>
+      <path class="ec-ln flow" d="M406,564 L310,340"></path>
+      <path class="ec-ln flow" d="M214,564 L310,340"></path>
+      <path class="ec-ln flow" d="M86,384 L310,340"></path>
+      <path class="ec-ln ec-ln--later" d="M136,184 L310,340"></path>
+    </svg>
+    <div class="ec-core"><span class="ec-av">{{icon:users}}</span><b>One client record</b><small>every ticket, booking, form and invoice</small></div>
+    <span class="ec-n" style="left:310px;top:90px;--k:0">{{odoo:event:30}}<b>TRE™ cohorts</b></span>
+    <span class="ec-n" style="left:484px;top:184px;--k:1">{{odoo:event:30}}<b>Workshops</b></span>
+    <span class="ec-n" style="left:534px;top:384px;--k:2">{{odoo:appointment:30}}<b>1:1 sessions</b></span>
+    <span class="ec-n" style="left:406px;top:564px;--k:3">{{odoo:appointment:30}}<b>Supervision</b></span>
+    <span class="ec-n" style="left:214px;top:564px;--k:4">{{odoo:appointment:30}}<b>Third-party work</b></span>
+    <span class="ec-n" style="left:86px;top:384px;--k:5">{{odoo:website_sale:30}}<b>Retreats &amp; shop</b></span>
+    <span class="ec-n ec-n--later" style="left:136px;top:184px;--k:6">{{odoo:website_slides:30}}<b>eLearning · later</b></span>
+  </div>
+  <aside class="notes"><p>This is the scope consolidated from the 20 August demo, the 18 September review and the lawyer's questions of 6 October, tested across five demo databases. Four parts: the scope boundary, the six workflows, the modules and phase two, then what is decided and what is still open. The agenda buttons jump straight to each part.</p></aside>
+</section>
+
+<!-- 2 · the scope boundary -->
+<section class="slide" id="scope" data-title="Standard Odoo, nothing bolted on">
+  <div class="sec-head">
+    <span class="kicker" data-in>the promise this rests on</span>
+    <h2 class="h-m" data-in style="--d:80ms">Standard Odoo, <span class="hl">nothing bolted on.</span></h2>
+    <p class="lead eb-lead" data-in style="--d:160ms">Every workflow in this scope is native configuration. That keeps your running cost at the Odoo subscription, and answers the lock-in question.</p>
+  </div>
+  <div class="eb">
+    <div class="eb-stack" data-in style="--d:220ms" data-i>
+      <button type="button" class="eb-l eb-l--x" data-k="mods">{{icon:x}}<span><b>Custom modules</b><small>none</small></span></button>
+      <button type="button" class="eb-l eb-l--x" data-k="apps">{{icon:x}}<span><b>Third-party apps</b><small>none</small></span></button>
+      <button type="button" class="eb-l eb-l--x" data-k="code">{{icon:x}}<span><b>Scripts and code</b><small>none</small></span></button>
+      <button type="button" class="eb-l eb-l--cfg" data-k="cfg">{{icon:gear}}<span><b>Configuration</b><small>by TechNext, one-off</small></span></button>
+      <button type="button" class="eb-l eb-l--odoo" data-k="odoo">{{icon:layers}}<span><b>Odoo Online</b><small>per-user subscription, from Odoo</small></span></button>
+    </div>
+    <div class="eb-say" data-in style="--d:300ms" aria-live="polite">
+      <span class="eb-say-h">Click a layer</span>
+      <p class="eb-say-t"><b>Two layers, nothing on top.</b> <span>Odoo runs and upgrades the system. We configure it once, with screens you can open and change yourself.</span></p>
+      <div class="eb-led">
+        <p><span>Recurring</span><b>The Odoo subscription</b><em>per user, from Odoo</em></p>
+        <p><span>One-off</span><b>Our configuration</b><em>in the quotation</em></p>
+        <p class="is-zero"><span>Code upkeep</span><b>None to carry</b><em>there is none</em></p>
+      </div>
+    </div>
+    <div class="eb-out" data-in data-fx="right" style="--d:380ms">
+      <span class="eb-out-h">{{icon:link}}Out of this scope</span>
+      <b>Capturing a Zoom meeting link</b>
+      <p>Zoom needs an outbound call that Odoo Online can't make from inside the database. A separate TechNext developer builds it as a webhook to an external service.</p>
+      <p class="eb-out-n">{{icon:check}}<span>Until then, appointment types use <b>Odoo's own video link</b>. Nothing Zoom-related sits in your database.</span></p>
+    </div>
+  </div>
+  <aside class="notes"><p>The constraint is deliberate: no custom modules, no third-party apps, no code. It is what keeps the recurring cost at the subscription level, and it answers the lock-in concern, because nothing here exists only because we wrote it. Click each layer to explain it. Zoom is the one thing outside: it needs an outbound API call, so another TechNext developer builds it as a webhook to an external service. Everything built for Zoom on the demo databases has been removed.</p></aside>
+</section>
+
+<!-- 3 · what the system has to carry -->
+<section class="slide" id="carry" data-title="Seven kinds of work, one client record">
+  <div class="sec-head">
+    <span class="kicker" data-in>what it has to carry</span>
+    <h2 class="h-m" data-in style="--d:80ms">Seven kinds of work, <span class="hl">one client record.</span></h2>
+  </div>
+  <div class="es">
+    <div class="es-list" data-i>
+      <button type="button" data-k="0" data-in style="--d:160ms"><i>01</i><span><b>TRE™ certifications and cohorts</b><small>Ticket · the big one</small></span></button>
+      <button type="button" data-k="1" data-in style="--d:200ms"><i>02</i><span><b>Workshops and introductory events</b><small>Ticket · free or paid</small></span></button>
+      <button type="button" data-k="2" data-in style="--d:240ms"><i>03</i><span><b>1:1 sessions and prepaid packages</b><small>Booking · the clinical work</small></span></button>
+      <button type="button" data-k="3" data-in style="--d:280ms"><i>04</i><span><b>Supervision for certified providers</b><small>Booking · never sold</small></span></button>
+      <button type="button" data-k="4" data-in style="--d:320ms"><i>05</i><span><b>Third-party programme work</b><small>Booking · no ticket changes hands</small></span></button>
+      <button type="button" data-k="5" data-in style="--d:360ms"><i>06</i><span><b>Retreats and a small webshop</b><small>Ticket and shop · e-book, journal</small></span></button>
+      <button type="button" data-k="6" class="es-later" data-in style="--d:400ms"><i>07</i><span><b>Later: eLearning and memberships</b><small>Phase two</small></span></button>
+    </div>
+    <div class="es-panel" data-in data-fx="right" style="--d:240ms">
+      <div class="es-d" data-k="0">
+        <span class="es-how es-how--tk">{{icon:receipt}}Sold as a ticket</span>
+        <h3 class="h-s">TRE™ certifications and cohorts</h3>
+        <p>The big ticket, run across several countries. The 2027 campaign is the hard deadline: the webshop must be production-ready for the October–November push.</p>
+        <p class="es-geo"><span>{{icon:pin}}Singapore</span><span>{{icon:pin}}Bucharest, Romania</span><span>{{icon:pin}}India</span><span>{{icon:pin}}United Kingdom</span></p>
+        <div class="es-go"><button type="button" data-go="w1">Workflow 1 · ticket{{icon:arrow}}</button><button type="button" data-go="w5">Workflow 5 · waitlist{{icon:arrow}}</button></div>
+        <p class="es-mods">{{odoo:website_sale:26}}{{odoo:event:26}}{{odoo:account:26}}{{odoo:crm:26}}<span>Website + eCommerce, Events, Invoicing, CRM</span></p>
+      </div>
+      <div class="es-d" data-k="1">
+        <span class="es-how es-how--tk">{{icon:receipt}}Sold as a ticket, or free</span>
+        <h3 class="h-s">Workshops and introductory events</h3>
+        <p>Some free, some paid, some run with partner organisations. A free event is the same flow with a free ticket: no payment step, the rest unchanged.</p>
+        <div class="es-go"><button type="button" data-go="w1">Workflow 1 · ticket{{icon:arrow}}</button><button type="button" data-go="w5">Workflow 5 · waitlist{{icon:arrow}}</button></div>
+        <p class="es-mods">{{odoo:event:26}}{{odoo:website_sale:26}}{{odoo:mass_mailing:26}}<span>Events, Website + eCommerce, Email Marketing</span></p>
+      </div>
+      <div class="es-d" data-k="2">
+        <span class="es-how es-how--bk">{{icon:calendar}}Booked, paid up front</span>
+        <h3 class="h-s">1:1 sessions and prepaid packages</h3>
+        <p>The recurring clinical work. A single session is paid before the slot confirms. A session from a prepaid package is booked free, as a request you approve.</p>
+        <div class="es-go"><button type="button" data-go="w2">Workflow 2 · paid session{{icon:arrow}}</button><button type="button" data-go="w3">Workflow 3 · package{{icon:arrow}}</button></div>
+        <p class="es-mods">{{odoo:appointment:26}}{{odoo:account:26}}<span>Appointments, Invoicing, Calendar with Google sync</span></p>
+      </div>
+      <div class="es-d" data-k="3">
+        <span class="es-how es-how--fr">{{icon:usercheck}}Booked, never sold</span>
+        <h3 class="h-s">Supervision for certified providers</h3>
+        <p>For the providers you have certified. They book through a link you send; the booking arrives as a request; no payment, no invoice.</p>
+        <div class="es-go"><button type="button" data-go="w3">Workflow 3 · free booking{{icon:arrow}}</button></div>
+        <p class="es-mods">{{odoo:appointment:26}}<span>Appointments, Calendar with Google sync</span></p>
+      </div>
+      <div class="es-d" data-k="4">
+        <span class="es-how es-how--fr">{{icon:link}}Booked, no ticket</span>
+        <h3 class="h-s">Third-party programme work</h3>
+        <p>Another organisation sends you its clients. No ticket changes hands with them, so the booking is free and approved by you.</p>
+        <div class="es-go"><button type="button" data-go="w3">Workflow 3 · free booking{{icon:arrow}}</button></div>
+        <p class="es-mods">{{odoo:appointment:26}}<span>Appointments, Calendar with Google sync</span></p>
+      </div>
+      <div class="es-d" data-k="5">
+        <span class="es-how es-how--tk">{{icon:bag}}Ticket and webshop</span>
+        <h3 class="h-s">Retreats and a small webshop</h3>
+        <p>Retreats run as events. The e-book and the journal sit in the same shop, so a client buys a ticket and a journal in one basket and one checkout.</p>
+        <div class="es-go"><button type="button" data-go="w1">Workflow 1 · one basket{{icon:arrow}}</button><button type="button" data-go="w4">Workflow 4 · if screened{{icon:arrow}}</button></div>
+        <p class="es-mods">{{odoo:website_sale:26}}{{odoo:event:26}}{{odoo:account:26}}<span>Website + eCommerce, Events, Invoicing</span></p>
+      </div>
+      <div class="es-d" data-k="6">
+        <span class="es-how es-how--later">{{icon:clock}}Phase two</span>
+        <h3 class="h-s">An eLearning library and memberships</h3>
+        <p>Your recorded teaching as an eLearning library, and TRE™ Singapore memberships. Both are modules in the same database, switched on later.</p>
+        <div class="es-go"><button type="button" data-go="phase2">Phase two · switches{{icon:arrow}}</button></div>
+        <p class="es-mods">{{odoo:website_slides:26}}{{odoo:sale_subscription:26}}<span>eLearning, Subscriptions</span></p>
+      </div>
+      <div class="es-rec">
+        <p class="es-rec-h">{{icon:users}}<span>Whatever they buy or book, it lands on <b>the same contact</b></span></p>
+        <div class="es-rec-row"><span data-k="0">{{icon:receipt}}Cohort</span><span data-k="1">{{icon:receipt}}Workshop</span><span data-k="2">{{icon:calendar}}Session</span><span data-k="3">{{icon:usercheck}}Supervision</span><span data-k="4">{{icon:link}}Referral</span><span data-k="5">{{icon:bag}}Order</span><span data-k="6">{{icon:graduation}}Course</span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><p>The design has to hold all of this on one client record: the revenue is not one product. The certifications are the big ticket, and the 2027 campaign is the hard deadline: the webshop must be production-ready for the October–November push. The panel walks through each line on its own until you click one; each "Workflow" button jumps to the slide that shows it.</p></aside>
+</section>
+
+<!-- 4 · six workflows, nine modules -->
+<section class="slide" id="flows" data-title="Six workflows, nine modules">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the six workflows</span>
+      <h2 class="h-m" data-in style="--d:80ms">Six workflows, <span class="hl">nine modules.</span></h2>
+    </div>
+    <p class="ex-note" data-in style="--d:160ms">Click a module to light its workflows, or a workflow to open it. <span>Payments and Calendar run under all six.</span></p>
+  </div>
+  <div class="ex" data-in style="--d:200ms">
+    <div class="ex-hd">
+      <span class="ex-corner">Workflow</span>
+      <button type="button" data-m="1">{{odoo:website_sale:30}}<small>Website + eCommerce</small></button>
+      <button type="button" data-m="2">{{odoo:event:30}}<small>Events</small></button>
+      <button type="button" data-m="3">{{odoo:appointment:30}}<small>Appoint&shy;ments</small></button>
+      <button type="button" data-m="4">{{odoo:sale:30}}<small>Sales</small></button>
+      <button type="button" data-m="5">{{odoo:account:30}}<small>Invoicing &amp; Accounting</small></button>
+      <button type="button" data-m="6">{{odoo:crm:30}}<small>CRM</small></button>
+      <button type="button" data-m="7">{{odoo:sign:30}}<small>Sign</small></button>
+      <button type="button" data-m="8">{{odoo:survey:30}}<small>Surveys</small></button>
+      <button type="button" data-m="9">{{odoo:mass_mailing:30}}<small>Email Marketing</small></button>
+    </div>
+    <div class="ex-row" data-u="1,2,5,6" style="--i:0"><button type="button" class="ex-w" data-go="w1"><i>1</i><span><b>Public event or cohort ticket</b><small>payment is the trigger</small></span>{{icon:arrow}}</button></div>
+    <div class="ex-row" data-u="1,3,5" style="--i:1"><button type="button" class="ex-w" data-go="w2"><i>2</i><span><b>Paid 1:1 session</b><small>pay to book</small></span>{{icon:arrow}}</button></div>
+    <div class="ex-row" data-u="3" style="--i:2"><button type="button" class="ex-w" data-go="w3"><i>3</i><span><b>Free booking, no ticket</b><small>a request you approve</small></span>{{icon:arrow}}</button></div>
+    <div class="ex-row" data-u="1,4,5,7,8" style="--i:3"><button type="button" class="ex-w" data-go="w4"><i>4</i><span><b>Screened sale</b><small>cleared first, then sold</small></span>{{icon:arrow}}</button></div>
+    <div class="ex-row" data-u="1,2,6,9" style="--i:4"><button type="button" class="ex-w" data-go="w5"><i>5</i><span><b>Waitlist and full events</b><small>names keep coming</small></span>{{icon:arrow}}</button></div>
+    <div class="ex-row" data-u="5" style="--i:5"><button type="button" class="ex-w" data-go="w6"><i>6</i><span><b>Money and books</b><small>matched and reconciled</small></span>{{icon:arrow}}</button></div>
+  </div>
+  <aside class="notes"><p>The map of the build: six workflows down the side, the nine go-live modules across the top. A dot means the workflow uses that module. Click a module to light the workflows it serves; click a workflow to open its slide. Payments (card, bank transfer, PayPal) and Calendar with Google sync sit under every flow.</p></aside>
+</section>
+
+<!-- 5 · workflow 1 -->
+<section class="slide ew" id="w1" data-steps="9" data-title="Workflow 1 · A public event or cohort ticket">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 1 · payment is the trigger</span>
+      <h2 class="h-m" data-in style="--d:80ms">Pay once, and <span class="hl">the rest runs itself.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-count"><b>0</b> / 9</span><button type="button" class="ew-play">{{icon:play}}<span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>Client browses the event page</span><em>{{odoo:website:18}}Website + Events</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>Answers registration and health-screening questions</span><em>{{odoo:event:18}}Events</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>Adds the ticket, and anything else, to one basket</span><em>{{odoo:website_sale:18}}eCommerce</em></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span>Pays by card, surcharge added, or by bank transfer</span><em>{{icon:receipt}}Payments</em></button></li>
+      <li><button type="button" data-n="5"><i>5</i><span>Invoice raised and sent automatically</span><em>{{odoo:account:18}}Invoicing</em></button></li>
+      <li><button type="button" data-n="6"><i>6</i><span>Confirmation and info pack go out</span><em>{{odoo:event:18}}Events · mail scheduler</em></button></li>
+      <li><button type="button" data-n="7"><i>7</i><span>Seat count and calendar update themselves</span><em>{{odoo:event:18}}Events</em></button></li>
+      <li><button type="button" data-n="8"><i>8</i><span>Reminders fire 7 days and 1 day before</span><em>{{odoo:event:18}}Events · mail scheduler</em></button></li>
+      <li><button type="button" data-n="9"><i>9</i><span>Buyer becomes a tagged contact, answers attached</span><em>{{odoo:crm:18}}CRM</em></button></li>
+    </ol>
+    <div class="ew-scene e1" data-in data-fx="right" style="--d:240ms">
+      <div class="e1-top">
+        <span class="e1-av">ML</span><span class="e1-who"><b>Mei Lin Tan</b><small>Contact · sample client</small></span>
+        <div class="seg e1-pay" role="group" aria-label="How the client pays"><button type="button" data-v="card" aria-pressed="true">Card</button><button type="button" data-v="bank" aria-pressed="false">Bank transfer</button></div>
+      </div>
+      <div class="e1-ev">{{odoo:event:32}}<span><b>TRE™ Module 1 · Singapore</b><small>Sample event · 12 seats</small></span><span class="e1-seats"><u><s></s></u><em data-t="0:9 of 12 taken|7:10 of 12 taken">9 of 12 taken</em></span></div>
+      <ul class="e1-feed">
+        <li data-on="1">{{icon:globe}}<span>Opened the event page</span><em>Website</em></li>
+        <li data-on="2">{{icon:file}}<span>Answered 3 questions · screening on file</span><em>Events</em></li>
+        <li data-on="3">{{icon:cart}}<span>One basket: Module 1 ticket + journal</span><em>eCommerce</em></li>
+        <li data-on="4">{{icon:receipt}}<span data-e1="pay">Paid by card · surcharge added on top</span><em>Payments</em></li>
+        <li data-on="5">{{icon:file}}<span data-e1="inv">Invoice sent automatically · Paid</span><em>Invoicing</em></li>
+        <li data-on="6">{{icon:mail}}<span>Confirmation + info pack sent</span><em>Events</em></li>
+        <li data-on="7">{{icon:calendar}}<span>Seat taken · on the event calendar</span><em>Events</em></li>
+        <li data-on="8">{{icon:clock}}<span>Reminders set: 7 days and 1 day before</span><em>Events</em></li>
+        <li data-on="9">{{icon:users}}<span>Tagged: Module 1 · Singapore cohort</span><em>CRM</em></li>
+      </ul>
+    </div>
+  </div>
+  <p class="illus">{{icon:check}}Illustrative · sample data</p>
+  <aside class="notes"><p>The "payment is the trigger" flow, for every public event and cohort. Press → for each step, or Play. The client record on the right fills itself: one basket for the ticket and anything else, card with the surcharge on top or bank transfer, the invoice, the confirmation with the info pack, the seat count, reminders at minus 7 and minus 1 days, and a tagged contact with the answers attached. Switch Card / Bank transfer: a transfer is invoiced the same way and shows Paid once the bank feed matches it (workflow 6). Names and figures are samples.</p></aside>
+</section>
+
+<!-- 6 · workflow 2 -->
+<section class="slide ew" id="w2" data-steps="7" data-title="Workflow 2 · A paid 1:1 session">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 2 · a paid 1:1 session</span>
+      <h2 class="h-m" data-in style="--d:80ms">Paid before the slot <span class="hl">is confirmed.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-count"><b>0</b> / 7</span><button type="button" class="ew-play">{{icon:play}}<span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>Client opens the booking link</span><em>{{odoo:appointment:18}}Appointments + Website</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>Answers the intake questions</span><em>{{odoo:appointment:18}}Appointments</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>Pays before the slot confirms</span><em>{{odoo:appointment:18}}Pay-to-book + Payments</em></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span>Slot lands on your calendar and syncs to Google</span><em>{{icon:calendar}}Appointments + Calendar</em></button></li>
+      <li><button type="button" data-n="5"><i>5</i><span>Video link attached</span><em>{{icon:camera}}Odoo's own video link</em></button></li>
+      <li><button type="button" data-n="6"><i>6</i><span>Invoice raised automatically</span><em>{{odoo:account:18}}Invoicing</em></button></li>
+      <li><button type="button" data-n="7"><i>7</i><span>Reminder sent before the session</span><em>{{odoo:appointment:18}}Appointments</em></button></li>
+    </ol>
+    <div class="ew-scene e2" data-in data-fx="right" style="--d:240ms">
+      <div class="e2-book">
+        <p class="e2-h">{{odoo:appointment:28}}<span><b>1:1 session · 60 min</b><small>Booking page · sample</small></span></p>
+        <div class="e2-grid" role="group" aria-label="Free slots">
+          <span class="e2-d">Mon</span><span class="e2-d">Tue</span><span class="e2-d">Wed</span><span class="e2-d">Thu</span>
+          <button type="button" data-s="Mon 10:00">10:00</button><button type="button" disabled>10:00</button><button type="button" data-s="Wed 10:00">10:00</button><button type="button" disabled>10:00</button>
+          <button type="button" disabled>14:00</button><button type="button" data-s="Tue 14:00" class="is-pick">14:00</button><button type="button" disabled>14:00</button><button type="button" data-s="Thu 14:00">14:00</button>
+          <button type="button" data-s="Mon 16:00">16:00</button><button type="button" data-s="Tue 16:00">16:00</button><button type="button" data-s="Wed 16:00">16:00</button><button type="button" disabled>16:00</button>
+        </div>
+        <div class="e2-q" data-on="2"><small>Intake · what would you like to work on?</small><span>Sleep and stress since a move abroad.</span></div>
+        <div class="e2-pay" data-on="3"><span data-t="0:Pay to confirm|3:Paid · slot confirmed">Pay to confirm</span>{{icon:check}}</div>
+      </div>
+      <div class="e2-side">
+        <div class="e2-c" data-on="4"><span class="e2-ch">{{icon:calendar}}Your calendar</span><b data-e2="when">Tue 14:00</b><small>1:1 session · Mei Lin Tan</small><em class="e2-g">{{icon:refresh}}Synced to Google Calendar</em></div>
+        <div class="e2-c" data-on="5"><span class="e2-ch">{{icon:camera}}Video link</span><b>Odoo video link attached</b><small>Zoom capture is separate (slide 2)</small></div>
+        <div class="e2-c" data-on="6"><span class="e2-ch">{{icon:file}}Invoice</span><b>Raised automatically</b><em class="e2-paid">Paid</em></div>
+        <div class="e2-c" data-on="7"><span class="e2-ch">{{icon:mail}}Reminder</span><b data-e2="rem">Sent before Tue 14:00</b></div>
+      </div>
+    </div>
+  </div>
+  <p class="illus">{{icon:check}}Illustrative · sample data · click a free slot</p>
+  <aside class="notes"><p>A paid 1:1 session: the client pays before the slot confirms, so there are no unpaid no-shows. The slot lands on Isabelle's calendar and syncs to Google; the video link is Odoo's own, and Zoom capture is the separate piece on slide 2. Click any free slot to book a different time. The working hours on the real booking page come from her (open item 6).</p></aside>
+</section>
+
+<!-- 7 · workflow 3 -->
+<section class="slide ew" id="w3" data-steps="6" data-title="Workflow 3 · A free booking, no ticket">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 3 · a free booking, no ticket</span>
+      <h2 class="h-m" data-in style="--d:80ms">Booked, <span class="hl">never sold.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-built">{{icon:check}}Built and tested</span><span class="ew-count"><b>0</b> / 6</span><button type="button" class="ew-play">{{icon:play}}<span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>You send the booking link directly to the person</span><em>{{odoo:appointment:18}}Appointments</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>Client answers one intake question</span><em>{{odoo:appointment:18}}Appointments</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>The booking arrives as a request, not a confirmation</span><em>{{odoo:appointment:18}}Auto-confirm off</em></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span>You review and approve it</span><em>{{odoo:appointment:18}}Appointments</em></button></li>
+      <li><button type="button" data-n="5"><i>5</i><span>Meeting lands on your calendar, synced to Google</span><em>{{icon:calendar}}Calendar</em></button></li>
+      <li><button type="button" data-n="6"><i>6</i><span>No payment, no invoice: nothing is sold</span><em>{{icon:x}}Nothing to invoice</em></button></li>
+    </ol>
+    <div class="ew-scene e3" data-in data-fx="right" style="--d:240ms">
+      <div class="seg e3-type" role="group" aria-label="Booking type"><button type="button" data-v="sup" aria-pressed="true">Supervision</button><button type="button" data-v="pre" aria-pressed="false">Prepaid package</button><button type="button" data-v="tp" aria-pressed="false">Third-party</button></div>
+      <p class="e3-link" data-on="1">{{icon:send}}<span>Link sent to <b data-e3="who">a provider you certified</b></span></p>
+      <div class="e3-req">
+        <div class="e3-rh"><span class="e3-av" data-e3="ini">AR</span><span><b data-e3="name">A. Rahman</b><small data-e3="what">Supervision · 60 min · sample</small></span><em class="e3-st" data-t="0:Not booked yet|3:Request · waiting for you|4:Confirmed">Not booked yet</em></div>
+        <p class="e3-qa" data-on="2"><small>Anything I should know before we meet?</small><span data-e3="ans">I'd like to bring one client case.</span></p>
+        <div class="e3-act"><button type="button" class="e3-ok">{{icon:check}}Approve</button><span class="e3-hint" data-t="0:Arrives here as a request|3:Waiting for your approval|4:Approved by you">Arrives here as a request</span></div>
+      </div>
+      <div class="e3-row">
+        <p class="e3-cal" data-on="5">{{icon:calendar}}<span><b>On your calendar</b><small>{{icon:refresh}}Synced to Google</small></span></p>
+        <p class="e3-none" data-on="6"><s>{{icon:file}}Invoice</s><span>No payment · no invoice</span></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus">{{icon:check}}Illustrative · sample data · switch the booking type</p>
+  <aside class="notes"><p>Isabelle's single biggest ask, and already built and tested: supervision, prepaid packages and third-party programme work each have their own booking type. She sends the link to the person, the booking arrives as a request, and nothing confirms until she approves. Switch the type at the top; click Approve at step 3. Nothing is sold, so there is no payment and no invoice.</p></aside>
+</section>
+
+<!-- 8 · workflow 4 -->
+<section class="slide ew" id="w4" data-steps="7" data-title="Workflow 4 · A screened sale">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 4 · a screened sale</span>
+      <h2 class="h-m" data-in style="--d:80ms">Cleared first, <span class="hl">then sold.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-count"><b>0</b> / 7</span><button type="button" class="ew-play">{{icon:play}}<span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>You send an invite-only screening questionnaire</span><em>{{odoo:survey:18}}Surveys</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>Pass or fail, scored against your criteria</span><em>{{odoo:survey:18}}Surveys · required score</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>The service is not on the webshop at all</span><em>{{odoo:website_sale:18}}eCommerce · unpublished</em></button></li>
+      <li data-pass><button type="button" data-n="4"><i>4</i><span>If cleared, you issue a quotation</span><em>{{odoo:sale:18}}Sales</em></button></li>
+      <li data-pass><button type="button" data-n="5"><i>5</i><span>Client signs the waiver, the consent and the order</span><em>{{odoo:sign:18}}Sign + Sales</em></button></li>
+      <li data-pass><button type="button" data-n="6"><i>6</i><span>Client pays online</span><em>{{odoo:sale:18}}Sales + Payments</em></button></li>
+      <li data-pass><button type="button" data-n="7"><i>7</i><span>Order confirmed, invoice raised</span><em>{{odoo:account:18}}Invoicing</em></button></li>
+    </ol>
+    <div class="ew-scene e4" data-in data-fx="right" style="--d:240ms">
+      <div class="e4-top"><span>Sample answers</span><div class="seg e4-res" role="group" aria-label="Screening answers"><button type="button" data-v="pass" aria-pressed="true">All clear</button><button type="button" data-v="fail" aria-pressed="false">A contraindication</button></div></div>
+      <div class="e4-sv" data-on="1">
+        <p class="e4-svh">{{odoo:survey:28}}<span><b>Screening questionnaire</b><small>Invite only · scored</small></span><em data-t="0:Sent|2:Scored">Sent</em></p>
+        <div class="e4-bar"><u><s></s></u><i class="e4-req"><em>Required score</em></i></div>
+        <p class="e4-out"><b data-e4="score">–</b><span data-e4="verdict">Waiting for answers</span></p>
+      </div>
+      <p class="e4-shop" data-on="3">{{icon:bag}}<span><b>On the webshop:</b> not listed. There is no public buy button.</span></p>
+      <div class="e4-path">
+        <span class="e4-c" data-on="4">{{odoo:sale:24}}<b>Quotation</b><small>sample service</small></span>
+        <span class="e4-c" data-on="5">{{odoo:sign:24}}<b>Waiver · consent · order</b><small>signed online</small></span>
+        <span class="e4-c" data-on="6">{{icon:receipt}}<b>Paid online</b><small>card or transfer</small></span>
+        <span class="e4-c" data-on="7">{{odoo:account:24}}<b>Invoice</b><small>order confirmed</small></span>
+      </div>
+      <div class="e4-stop" role="status"><b>Stops here.</b><span>No quotation is issued, so there is nothing to buy: the service was never on sale.</span></div>
+    </div>
+  </div>
+  <p class="illus">{{icon:check}}Illustrative · sample data · switch the answers</p>
+  <aside class="notes"><p>For any service where a health contraindication could apply. The questionnaire is invite-only and scored against a required score, so pass or fail is automatic. The service is never published on the webshop: if the client is cleared, Isabelle issues a quotation, the client signs the waiver and informed consent in Sign and the order online, then pays. Switch the sample answers to "A contraindication": the flow stops at step 2. The criteria and the waiver PDF still have to come from Isabelle and her lawyer (open items 3 and 4). Verified on a live database.</p></aside>
+</section>
+
+<!-- 9 · how the gate holds -->
+<section class="slide" id="gate" data-steps="1" data-title="The gate is the missing buy button">
+  <div class="split eh">
+    <div class="eh-copy">
+      <span class="kicker" data-in>how the screening holds</span>
+      <h2 class="h-m" data-in style="--d:80ms">The gate is <span class="hl">the missing buy button.</span></h2>
+      <p class="lead" data-in style="--d:160ms">Odoo will never read a questionnaire and then decide whether to allow a checkout. It will happily refuse to sell something that was never put on the shop.</p>
+      <div class="eh-vs" data-in style="--d:260ms">
+        <p class="eh-x">{{icon:x}}<span><b>Refused after payment</b><small>Money taken, then refunded. Logic that has to be right every time.</small></span></p>
+        <p class="eh-ok">{{icon:check}}<span><b>Simply unavailable</b><small>Nothing to buy until you issue a quotation. The stronger legal position.</small></span></p>
+      </div>
+    </div>
+    <div class="eh-shop" data-in data-fx="right" style="--d:200ms">
+      <div class="eh-bar"><i></i><i></i><i></i><span>bhdasia.com/shop</span><em>Sample</em></div>
+      <div class="eh-search"><span class="eh-in">{{icon:search}}<span data-eh="q"></span><i class="eh-caret"></i></span><button type="button" class="btn btn-primary eh-go">Search for the screened service</button></div>
+      <div class="eh-grid">
+        <span>{{odoo:event:30}}<b>TRE™ Module 1</b><small>Ticket</small><em>Add to cart</em></span>
+        <span>{{odoo:event:30}}<b>Intro workshop</b><small>Ticket</small><em>Add to cart</em></span>
+        <span>{{odoo:event:30}}<b>Retreat</b><small>Ticket</small><em>Add to cart</em></span>
+        <span>{{icon:file}}<b>E-book</b><small>Download</small><em>Add to cart</em></span>
+        <span>{{icon:pen}}<b>Journal</b><small>Printed</small><em>Add to cart</em></span>
+        <span>{{odoo:appointment:30}}<b>1:1 session</b><small>Book a time</small><em>Book</em></span>
+      </div>
+      <p class="eh-none" role="status">{{icon:search}}<span><b>No results.</b> The screened service isn't on the shop: there is no button to press.</span></p>
+    </div>
+  </div>
+  <aside class="notes"><p>How workflow 4 is enforced: by the absence of a public buy button, not by conditional logic. Press → or the button to search the shop for the screened service: there is nothing to find. That is also the stronger legal position: the service is simply unavailable, rather than refused after payment. Product names here are samples.</p></aside>
+</section>
+
+<!-- 10 · workflow 5 -->
+<section class="slide ew" id="w5" data-steps="4" data-title="Workflow 5 · Waitlist and full events">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 5 · waitlist and full events</span>
+      <h2 class="h-m" data-in style="--d:80ms">A full event <span class="hl">keeps collecting names.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-count"><b>0</b> / 4</span><button type="button" class="ew-play">{{icon:play}}<span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body ew-body--short">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>The event reaches its seat cap and closes itself</span><em>{{odoo:event:18}}Events</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>A free "join the waitlist" ticket or an interest form keeps capturing names</span><em>{{odoo:event:18}}Events / Website form</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>Those contacts are tagged</span><em>{{odoo:crm:18}}CRM</em></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span>A campaign invites them to the next cohort</span><em>{{odoo:mass_mailing:18}}Email Marketing</em></button></li>
+    </ol>
+    <div class="ew-scene e5" data-in data-fx="right" style="--d:240ms">
+      <div class="e5-ev">{{odoo:event:32}}<span><b>Introductory workshop</b><small>Sample event · 12 seats</small></span><em class="e5-st" data-t="0:Registration open|1:Sold out · closed">Registration open</em></div>
+      <div class="e5-seats" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="e5-n"><b data-e5="seats">9</b> of 12 seats taken</p>
+      <div class="e5-w" data-on="2">
+        <span class="e5-tk">{{icon:receipt}}<span><b>Join the waitlist</b><small>Free ticket</small></span></span>
+        <span class="e5-cnt"><b data-e5="wait">0</b><small>names on the waitlist</small></span>
+        <button type="button" class="e5-add">{{icon:plus}}Someone joins</button>
+      </div>
+      <p class="e5-tag" data-on="3">{{icon:users}}<span>Tagged <b>Waitlist · Intro workshop</b> on <b data-e5="tagged">0</b> contacts</span></p>
+      <div class="e5-mail" data-on="4">{{odoo:mass_mailing:28}}<span><b>The next cohort is open</b><small>Email campaign · sent to <b data-e5="sent">0</b> waitlist contacts</small></span><em>Sent</em></div>
+    </div>
+  </div>
+  <p class="illus">{{icon:check}}Illustrative · sample data</p>
+  <aside class="notes"><p>When an event hits its seat cap it closes itself; a free "join the waitlist" ticket, or an interest form, keeps capturing names. Those contacts are tagged, and when the next cohort opens one email campaign invites them all. "Someone joins" adds a name. Numbers are samples.</p></aside>
+</section>
+
+<!-- 11 · workflow 6 -->
+<section class="slide ew" id="w6" data-steps="4" data-title="Workflow 6 · Money and books">
+  <div class="sec-head sec-head--row ew-head">
+    <div>
+      <span class="kicker" data-in>workflow 6 · money and books</span>
+      <h2 class="h-m" data-in style="--d:80ms">Every payment <span class="hl">finds its own invoice.</span></h2>
+    </div>
+    <div class="ew-ctl" data-in style="--d:160ms"><span class="ew-count"><b>0</b> / 4</span><button type="button" class="ew-play">{{icon:play}}<span>Play the flow</span></button></div>
+  </div>
+  <div class="ew-body ew-body--short">
+    <ol class="ew-steps" data-in style="--d:180ms">
+      <li><button type="button" data-n="1"><i>1</i><span>Payments arrive from card and bank transfer</span><em>{{icon:receipt}}Payments</em></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span>The bank feed reconciles them against their own invoices</span><em>{{odoo:account:18}}Accounting · bank sync</em></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span>Invoices carry billing address, country, and a company name where needed</span><em>{{odoo:account:18}}Invoicing</em></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span>Your accountant gets exports, or a login that sees only the books</span><em>{{icon:lock}}Accounting + access rights</em></button></li>
+    </ol>
+    <div class="ew-scene e6" data-in data-fx="right" style="--d:240ms">
+      <div class="e6-tbl">
+        <p class="e6-th"><span>{{icon:bank}}Bank feed</span><span>Invoice</span></p>
+        <p class="e6-r" data-on="1"><span><b>Card payment</b><small>M. L. Tan · S$ sample</small></span><em data-t="0:–|1:INV/0148 · In payment|2:INV/0148 · Paid">–</em></p>
+        <p class="e6-r" data-on="1"><span><b>Bank transfer</b><small>R. Kaur · S$ sample</small></span><em data-t="0:–|1:INV/0151 · Not paid|2:INV/0151 · Paid">–</em></p>
+        <p class="e6-r" data-on="1"><span><b>Bank transfer</b><small>Partner organisation · S$ sample</small></span><em data-t="0:–|1:INV/0153 · Not paid|2:INV/0153 · Paid">–</em></p>
+        <p class="e6-r" data-on="1"><span><b>PayPal</b><small>UK school programme · £ sample</small></span><em data-t="0:–|1:INV/0156 · In payment|2:INV/0156 · Paid">–</em></p>
+      </div>
+      <div class="e6-low">
+        <div class="e6-inv" data-on="3">
+          <span class="e6-ih">{{icon:file}}INV/0153 · sample</span>
+          <p><small>Bill to</small><b>Partner organisation Pte Ltd</b><span>Attn. programme office<br>Singapore</span></p>
+        </div>
+        <div class="e6-acc" data-on="4">
+          <div class="seg e6-seg" role="group" aria-label="What the accountant gets"><button type="button" data-v="exp" aria-pressed="false">Exports</button><button type="button" data-v="login" aria-pressed="true">Limited login</button></div>
+          <ul class="e6-menu" data-e6="menu">
+            <li class="is-ok">{{odoo:account:18}}Accounting</li>
+            <li>{{odoo:event:18}}Events</li>
+            <li>{{odoo:appointment:18}}Appointments</li>
+            <li>{{odoo:survey:18}}Surveys</li>
+            <li>{{odoo:crm:18}}CRM</li>
+          </ul>
+          <p class="e6-exp" data-e6="exp">{{icon:file}}<span>Monthly exports: <b>journal items, invoices, bank statements</b> as Excel or PDF.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="illus">{{icon:check}}Illustrative · sample data · bank sync where your bank is on Odoo's list</p>
+  <aside class="notes"><p>Card, bank transfer and PayPal payments land in the bank feed, which reconciles each against its own invoice: In payment or Not paid, then Paid. Invoices carry the billing address and country, and a company name where a company pays. The accountant gets exports, or a limited login that sees only Accounting: health answers in Events, Appointments and Surveys stay out of reach. Bank sync works where the bank is on Odoo's supported list; otherwise statements are imported. Figures are samples.</p></aside>
+</section>
+
+<!-- 12 · modules at go-live -->
+<section class="slide" id="modules" data-title="Nine modules, one subscription">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>modules at go-live</span>
+      <h2 class="h-m" data-in style="--d:80ms">Nine modules, <span class="hl">one subscription.</span></h2>
+    </div>
+    <div class="seg eo-seg" data-in style="--d:160ms" role="group" aria-label="Show"><button type="button" data-v="does" aria-pressed="true">What it carries</button><button type="button" data-v="was" aria-pressed="false">What it replaces</button></div>
+  </div>
+  <div class="eo">
+    <div class="eo-t" data-in style="--d:180ms">{{odoo:website_sale:40}}<span><b>Website + eCommerce</b><small class="eo-does">Your brand site, shop, event pages, one checkout for everything</small><small class="eo-was">A third-party webshop and checkout form</small></span></div>
+    <div class="eo-t" data-in style="--d:210ms">{{odoo:event:40}}<span><b>Events</b><small class="eo-does">Cohorts and workshops, tiered tickets, seat caps, screening questions, QR check-in, reminders</small><small class="eo-was">Eventbrite and manual lists</small></span></div>
+    <div class="eo-t" data-in style="--d:240ms">{{odoo:appointment:40}}<span><b>Appointments</b><small class="eo-does">1:1 sessions, supervision, packages, third-party bookings; pay-to-book; Google sync</small><small class="eo-was">Calendly</small></span></div>
+    <div class="eo-t" data-in style="--d:270ms">{{odoo:sale:40}}<span><b>Sales</b><small class="eo-does">Quotations for the screened flow, signed and paid online</small><small class="eo-was">Manual proposals</small></span></div>
+    <div class="eo-t" data-in style="--d:300ms">{{odoo:account:40}}<span><b>Invoicing &amp; Accounting</b><small class="eo-does">Singapore localisation, multi-currency, automatic invoicing, reconciliation, accountant access</small><small class="eo-was">Manual invoices and a spreadsheet</small></span></div>
+    <div class="eo-t" data-in style="--d:330ms">{{odoo:crm:40}}<span><b>CRM</b><small class="eo-does">Enquiries become leads; every buyer becomes a tagged contact</small><small class="eo-was">Memory and the inbox</small></span></div>
+    <div class="eo-t" data-in style="--d:360ms">{{odoo:sign:40}}<span><b>Sign</b><small class="eo-does">Waivers and informed consent, e-signed and filed to the client record</small><small class="eo-was">DocuSign and paper</small></span></div>
+    <div class="eo-t" data-in style="--d:390ms">{{odoo:survey:40}}<span><b>Surveys</b><small class="eo-does">The screening gate, with automatic pass or fail scoring</small><small class="eo-was">Google Forms</small></span></div>
+    <div class="eo-t" data-in style="--d:420ms">{{odoo:mass_mailing:40}}<span><b>Email Marketing</b><small class="eo-does">Reminders, waitlist nurture, cohort campaigns</small><small class="eo-was">Mailchimp</small></span></div>
+  </div>
+  <p class="eo-foot" data-in style="--d:500ms">{{icon:check}}<span>All nine in the same per-user Odoo subscription: <b>no per-app licence</b>, and <b>no Odoo fee on the tickets you sell</b>. The licence comes from Odoo; TechNext quotes the implementation.</span></p>
+  <aside class="notes"><p>The nine modules at go-live. Switch to "What it replaces" to show the tools each one retires: the third-party webshop, Eventbrite, Calendly, DocuSign, Google Forms, Mailchimp, manual invoices and spreadsheets. All nine are in the same per-user Odoo subscription: no per-app licence and no per-sale platform fee from Odoo on the tickets (the card provider's own processing fee is what the surcharge covers). Licence pricing is Odoo's; TechNext's implementation fee comes in the written quotation.</p></aside>
+</section>
+
+<!-- 13 · phase two -->
+<section class="slide" id="phase2" data-title="Phase two: switches, not projects">
+  <div class="sec-head">
+    <span class="kicker" data-in>phase two</span>
+    <h2 class="h-m" data-in style="--d:80ms">Switches, <span class="hl">not projects.</span></h2>
+    <p class="lead ef-lead" data-in style="--d:160ms">Each one is a module in the same database, turned on when you need it.</p>
+  </div>
+  <div class="ef">
+    <ul class="ef-list">
+      <li data-in style="--d:180ms"><button type="button" role="switch" aria-checked="false" data-k="0"><i class="ef-sw"></i>{{odoo:website_slides:34}}<span><b>eLearning</b><small>Your recorded teaching library, and bonus content for the Simba certification</small></span></button></li>
+      <li data-in style="--d:220ms"><button type="button" role="switch" aria-checked="false" data-k="1"><i class="ef-sw"></i>{{odoo:documents:34}}<span><b>Documents</b><small>Replaces the per-student Google Drive folders</small></span></button></li>
+      <li data-in style="--d:260ms"><button type="button" role="switch" aria-checked="false" data-k="2"><i class="ef-sw"></i>{{odoo:sale_subscription:34}}<span><b>Subscriptions</b><small>TRE™ Singapore memberships, if that entity forms</small></span></button></li>
+      <li data-in style="--d:300ms"><button type="button" role="switch" aria-checked="false" data-k="3"><i class="ef-sw"></i>{{odoo:knowledge:34}}<span><b>Knowledge</b><small>Your own playbook and SOPs</small></span></button></li>
+      <li data-in style="--d:340ms"><button type="button" role="switch" aria-checked="false" data-k="4"><i class="ef-sw"></i><span class="ef-ico">{{icon:building}}</span><span><b>Multi-company</b><small>Only if a second entity becomes active</small></span></button></li>
+    </ul>
+    <div class="ef-db" data-in data-fx="right" style="--d:260ms">
+      <p class="ef-dbh"><span>{{icon:database}}Your Odoo database</span><b><em data-ef="n">9</em> modules on</b></p>
+      <div class="ef-grid">
+        <span class="is-live">{{odoo:website_sale:34}}<small>eCommerce</small></span>
+        <span class="is-live">{{odoo:event:34}}<small>Events</small></span>
+        <span class="is-live">{{odoo:appointment:34}}<small>Appointments</small></span>
+        <span class="is-live">{{odoo:sale:34}}<small>Sales</small></span>
+        <span class="is-live">{{odoo:account:34}}<small>Invoicing</small></span>
+        <span class="is-live">{{odoo:crm:34}}<small>CRM</small></span>
+        <span class="is-live">{{odoo:sign:34}}<small>Sign</small></span>
+        <span class="is-live">{{odoo:survey:34}}<small>Surveys</small></span>
+        <span class="is-live">{{odoo:mass_mailing:34}}<small>Email Mkt</small></span>
+        <span class="ef-slot" data-k="0">{{odoo:website_slides:34}}<small>eLearning</small></span>
+        <span class="ef-slot" data-k="1">{{odoo:documents:34}}<small>Documents</small></span>
+        <span class="ef-slot" data-k="2">{{odoo:sale_subscription:34}}<small>Subscriptions</small></span>
+        <span class="ef-slot" data-k="3">{{odoo:knowledge:34}}<small>Knowledge</small></span>
+        <span class="ef-slot" data-k="4"><span class="ef-ico">{{icon:building}}</span><small>Companies</small></span>
+      </div>
+      <p class="ef-say" data-ef="say">Dashed: ready to switch on, same database, same records.</p>
+    </div>
+  </div>
+  <aside class="notes"><p>Phase two items are switches, not projects: each is a module in the same database. eLearning for the recorded teaching library and bonus content for the Simba certification; Documents to replace the per-student Google Drive folders; Subscriptions for TRE™ Singapore memberships if that entity forms; Knowledge for her playbook and SOPs; multi-company only if a second entity activates. Click a switch to turn it on. For the presenter: multi-company sits on Odoo's Custom plan, so check the licence before promising it.</p></aside>
+</section>
+
+<!-- 14 · decided and tested -->
+<section class="slide" id="decided" data-title="Already decided and tested">
+  <div class="sec-head">
+    <span class="kicker" data-in>already decided and tested</span>
+    <h2 class="h-m" data-in style="--d:80ms">Settled, <span class="hl">and shown working.</span></h2>
+  </div>
+  <div class="ed">
+    <div class="ed-c" data-in style="--d:160ms">
+      <span class="ed-ok">{{icon:check}}Built</span>
+      <b>Free booking links</b>
+      <p>Supervision, prepaid and third-party types, each arriving as a request you approve. Your single biggest ask.</p>
+      <button type="button" class="ed-go" data-go="w3">Workflow 3{{icon:arrow}}</button>
+    </div>
+    <div class="ed-c" data-in style="--d:220ms">
+      <span class="ed-ok">{{icon:check}}Verified live</span>
+      <b>Screening is native</b>
+      <p>An invite-only survey, automatic pass or fail, the product kept off the webshop, the sale by quotation.</p>
+      <button type="button" class="ed-go" data-go="w4">Workflow 4{{icon:arrow}}</button>
+    </div>
+    <div class="ed-c" data-in style="--d:280ms">
+      <span class="ed-ok">{{icon:check}}Decided</span>
+      <b>Payments</b>
+      <p>Card with the surcharge added on top, bank transfer kept fee-free alongside, PayPal for the UK school programmes.</p>
+      <button type="button" class="ed-go" data-go="w6">Workflow 6{{icon:arrow}}</button>
+    </div>
+    <div class="ed-c" data-in style="--d:340ms">
+      <span class="ed-ok">{{icon:check}}Decided</span>
+      <b>Invoicing on payment</b>
+      <p>The invoice is raised automatically when the client pays, and the info pack rides on the confirmation email.</p>
+      <button type="button" class="ed-go" data-go="w1">Workflow 1{{icon:arrow}}</button>
+    </div>
+    <div class="ed-c ed-c--warn" data-in style="--d:400ms">
+      <span class="ed-wn">{{icon:alert}}Good to know</span>
+      <b>Booking links are public once published</b>
+      <p>Odoo has no hidden, link-only booking page. What protects a booking:</p>
+      <ul class="ed-prot">
+        <li class="no">{{icon:x}}A secret URL</li>
+        <li>{{icon:check}}Your approval step</li>
+        <li>{{icon:check}}A product never published</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes"><p>What is already decided and shown working on the demo databases. The free booking links were her single biggest ask. Screening was verified on a live database. Payments: card with the surcharge on top, bank transfer fee-free, PayPal for the UK school programmes. Invoices are raised on payment with the info pack attached to the confirmation. And one thing to say plainly before she discovers it: appointment links are public once published. Odoo has no link-only hidden booking page, so the controls are the approval step and not publishing the product, never the secrecy of a URL.</p></aside>
+</section>
+
+<!-- 15 · one decision before the build -->
+<section class="slide" id="currency" data-title="One decision before any build: country and currency">
+  <div class="split ey">
+    <div class="ey-copy">
+      <span class="kicker" data-in>one decision before any build</span>
+      <h2 class="h-m" data-in style="--d:80ms">Country and currency, <span class="hl">decided once.</span></h2>
+      <p class="lead" data-in style="--d:160ms">The demos moved between Japan and yen, Singapore and dollars, and US dollars. BHD Asia is registered in Singapore.</p>
+      <p class="ey-pt" data-in style="--d:240ms">{{icon:lock}}<span>Changing a company's currency later means <b>clearing the books first</b>. We hit exactly that on a demo database.</span></p>
+      <p class="ey-pt" data-in style="--d:300ms">{{icon:globe}}<span>Selling in euros or pounds still works: <b>pricelists and multi-currency</b> handle it on top of the base currency.</span></p>
+    </div>
+    <div class="ey-win" data-in data-fx="right" style="--d:200ms">
+      <div class="ey-bar"><span>{{odoo:account:22}}Settings · Companies</span><em>Sample</em></div>
+      <div class="ey-f"><small>Company</small><b>BHD Asia</b></div>
+      <div class="ey-f"><small>Country</small><b data-ey="country">Not chosen yet</b></div>
+      <div class="ey-f ey-cur"><small>Currency</small>
+        <div class="seg ey-seg" role="group" aria-label="Base currency"><button type="button" data-v="SGD" aria-pressed="false">SGD</button><button type="button" data-v="JPY" aria-pressed="false">JPY</button><button type="button" data-v="USD" aria-pressed="false">USD</button></div>
+        <i class="ey-lock">{{icon:lock}}</i>
+      </div>
+      <div class="ey-act"><button type="button" class="btn btn-primary ey-post" disabled>{{icon:file}}Post the first invoice</button><button type="button" class="ey-reset">{{icon:refresh}}Start again</button></div>
+      <p class="ey-say" data-ey="say">Pick a currency, then post the first invoice.</p>
+    </div>
+  </div>
+  <aside class="notes"><p>One configuration decision to settle before any build starts: the company country and base currency. The demos moved between Japan/JPY, Singapore/SGD and USD; BHD Asia is Singapore-registered. Changing a company's currency after entries exist means clearing the books first, which we hit on a demo database. Try it: pick a currency, post the first invoice, and the currency field locks. Selling in other currencies still works through pricelists and multi-currency. This is her decision; we set it once.</p></aside>
+</section>
+
+<!-- 16 · the provider bundle -->
+<section class="slide dark" id="bundle" data-title="Worth a separate conversation: the provider bundle">
+  <div class="split eu">
+    <div class="eu-copy">
+      <span class="kicker" data-in>worth a separate conversation</span>
+      <h2 class="h-m" data-in style="--d:80ms">Your certification, <span class="hl">with the business set-up included.</span></h2>
+      <p class="lead" data-in style="--d:160ms">Each provider you certify gets a ready-made website, webshop and payment set-up, packaged into the certification.</p>
+      <ul class="eu-pts" data-in style="--d:240ms">
+        <li>{{icon:users}}<span>About <b>25 students</b> already in the pipeline</span></li>
+        <li>{{icon:building}}<span>Held under <b>TRE™ Singapore</b> as a membership benefit</span></li>
+        <li>{{icon:layers}}<span>Costed as <b>a shared service</b></span></li>
+        <li>{{icon:globe}}<span>A route to the <b>global TRE™ organisation</b></span></li>
+      </ul>
+      <p class="eu-tag" data-in style="--d:320ms">{{icon:sparkle}}The subscription becomes a product you resell. <span>Not in this scope: to discuss.</span></p>
+    </div>
+    <div class="eu-art" data-in data-fx="fade" style="--d:200ms">
+      <div class="eu-ring" aria-hidden="true"></div>
+      <div class="eu-core"><b>TRE™ Singapore</b><small>shared service</small></div>
+      <div class="eu-ctl"><label for="eu-n">Certified providers</label><input id="eu-n" type="range" min="1" max="40" value="25" data-drag><b data-eu="n">25</b><small>each with a site, a shop and payments</small></div>
+    </div>
+  </div>
+  <aside class="notes"><p>The commercial opportunity Sky raised and Isabelle responded to: a ready-made provider website, webshop and payment set-up packaged into her certification. About 25 students are already in the pipeline. It would sit under TRE™ Singapore as a membership benefit and be costed as a shared service. That turns the subscription into a product she resells, and it is a route to the global TRE™ organisation. Drag the slider to show the network grow. It is outside this scope: propose a separate conversation.</p></aside>
+</section>
+
+<!-- 17 · open items (questions at the back) -->
+<section class="slide" id="open" data-title="Open items: they hold the quotation, not the build">
+  <div class="sec-head sec-head--row eq-head">
+    <div>
+      <span class="kicker" data-in>open items</span>
+      <h2 class="h-m" data-in style="--d:80ms">These hold the quotation, <span class="hl">not the build.</span></h2>
+    </div>
+    <p class="eq-key" data-in style="--d:160ms"><span><i class="eq-k eq-k--ok">{{icon:check}}</i>Settled</span><span><i class="eq-k eq-k--fu">{{icon:clock}}</i>Follow up</span><em>Click an item to mark it</em></p>
+  </div>
+  <div class="eq">
+    <ol class="eq-list">
+      <li data-in style="--d:160ms"><button type="button" data-q="1"><i>1</i><span><b>The written annual cost</b>: licence, number of users, any prepay discount, implementation, and whether back-office support is included.</span><em class="eq-o eq-o--tn">TechNext</em></button></li>
+      <li data-in style="--d:190ms"><button type="button" data-q="2"><i>2</i><span><b>Hosting region and Odoo's signed DPA</b>: the documents themselves, for your lawyer.</span><em class="eq-o eq-o--tn">TechNext + Odoo</em></button></li>
+      <li data-in style="--d:220ms"><button type="button" data-q="3"><i>3</i><span><b>Your lawyer's waiver and informed-consent PDF</b>, so the Sign step can be built and tested.</span><em class="eq-o">Isabelle</em></button></li>
+      <li data-in style="--d:250ms"><button type="button" data-q="4"><i>4</i><span><b>The screening criteria that disqualify</b>, in writing.</span><em class="eq-o">Isabelle + lawyer</em></button></li>
+      <li data-in style="--d:280ms"><button type="button" data-q="5"><i>5</i><span><b>Who else gets a login</b>, such as back-office support. Access to health data is designed in, not added later.</span><em class="eq-o">Isabelle</em></button></li>
+      <li data-in style="--d:310ms"><button type="button" data-q="6"><i>6</i><span><b>Your real working hours</b>, and connecting Google Calendar together.</span><em class="eq-o">Isabelle + AJ</em></button></li>
+      <li data-in style="--d:340ms"><button type="button" data-q="7"><i>7</i><span><b>Who sells in each country</b>: Romania sells locally; the UK and India may too. It decides who the merchant is.</span><em class="eq-o">Isabelle</em></button></li>
+      <li data-in style="--d:370ms"><button type="button" data-q="8"><i>8</i><span><b>Company country and base currency</b>, decided once, before any build.</span><em class="eq-o">Isabelle + TechNext</em></button></li>
+    </ol>
+    <div class="eq-side" data-in data-fx="right" style="--d:260ms">
+      <span class="eq-h">From this meeting</span>
+      <p class="eq-n"><span><b data-eq="ok">0</b><small>settled</small></span><span><b data-eq="fu">0</b><small>to follow up</small></span><span><b data-eq="open">8</b><small>still open</small></span></p>
+      <button type="button" class="btn btn-primary eq-copy">{{icon:file}}Copy the follow-up list</button>
+      <p class="eq-say" data-eq="say" aria-live="polite">Copies every item not yet settled, with its owner, ready to paste into an email.</p>
+      <button type="button" class="eq-clear">{{icon:refresh}}Clear all marks</button>
+    </div>
+    <div class="eq-outp" hidden>
+      <p class="eq-outh"><b>The follow-up list</b><span>This browser didn't allow copying: select the text and copy it.</span><button type="button" class="eq-x">Close</button></p>
+      <textarea readonly aria-label="The follow-up list"></textarea>
+    </div>
+  </div>
+  <aside class="notes"><p>The open items. None of them blocks the build; they block the quotation. The first is the real one: the complete written annual cost (licence, the two-user question, the prepay discount, implementation, and whether back-office support is included). Then the hosting region and Odoo's signed DPA as documents, the lawyer's waiver PDF, the screening criteria in writing, who else gets a login (access to health data must be designed in), her working hours and the Google Calendar connection with AJ, who sells in each country, and the company country and currency. Click once for settled, twice for follow up, a third time to clear. "Copy the follow-up list" gives the email text.</p></aside>
+</section>
+
+<!-- 18 · thank you -->
+<section class="slide dark" id="contact" data-title="Thank you" data-chrome="foot">
+  <div class="split split--narrow">
+    <div>
+      <div class="hx-lock hx-lock--sm ec-lock" data-in><img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40"><i></i><img class="hx-co ec-bhd ec-bhd--sm" src="assets/img/clients/bhdasia-white.png" alt="BHD Asia" width="50" height="38"><img class="hx-co ec-hb ec-hb--sm" src="assets/img/clients/hummingbeing-white.png" alt="HummingBeing" width="123" height="34"></div>
+      <span class="kicker" data-in style="--d:80ms">thank you</span>
+      <h2 class="h-xl ct-h" data-in style="--d:140ms">Next, the quotation, <span class="hl">in writing.</span></h2>
+      <p class="lead" data-in style="--d:220ms">The complete annual cost in one place: licence, users, implementation and support. Then we build, ready for the October–November push.</p>
+      <div class="ct-actions" data-in style="--d:300ms">
+        <a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener">{{icon:calendar}}Book a call</a>
+        <a class="btn btn-ghost" href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      </div>
+      <div class="ct-links" data-in style="--d:360ms"><a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a><a href="https://technext.asia/" target="_blank" rel="noopener">{{icon:globe}}technext.asia</a></div>
+    </div>
+    <div class="ct-qr" data-in data-fx="scale" style="--d:300ms"><div class="ct-qr-card">{{qr:meet}}<b>Scan to book a time</b><small>Call with TechNext · 30 min online</small></div></div>
+  </div>
+  <aside class="notes"><p>Close on the next step she has been asking for: the written quotation with the complete annual cost. Once the open items are in, the build starts, aimed at the October–November campaign push.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/proposal.js?v={{v}}"></script>
+<script src="assets/bhdasia.js?v={{v}}"></script>
+</body>
+</html>
