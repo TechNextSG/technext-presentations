@@ -552,14 +552,15 @@
 .jf-zoom .ic{font-size:16px}
 .jf-zoom kbd,.jf-back kbd{padding:3px 6px;border-radius:5px;background:rgba(255,255,255,.16);font:700 11.5px/1 var(--f-display)}
 .jf-frame.is-zoom .jf-zoom{display:none}
-.jf-bar{position:absolute;left:0;right:0;top:0;z-index:3;display:none;align-items:center;gap:20px;padding:24px 30px 48px;background:linear-gradient(rgba(5,12,30,.78),rgba(5,12,30,0));color:#fff;transition:opacity .4s}
+.jf-bar{position:absolute;left:0;right:0;top:0;z-index:3;display:none;align-items:center;gap:20px;padding:24px 30px 48px;background:linear-gradient(rgba(5,12,30,.78),rgba(5,12,30,0));color:#fff;transition:opacity .15s}
 .jf-frame.is-zoom .jf-bar{display:flex}
-.jf-frame.is-idle .jf-bar{opacity:0;pointer-events:none}
+/* going is quicker than coming: a 0.2 s fade out once idle, 0.15 s back in on the first movement */
+.jf-frame.is-idle .jf-bar{opacity:0;pointer-events:none;transition-duration:.2s}
 /* the deck's own control bar: no browser full-screen button to fall out of the presentation through */
 .jf-ctl{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;gap:10px;padding:40px 16px 12px;background:linear-gradient(rgba(5,12,30,0),rgba(5,12,30,.84));color:#fff;
-  opacity:0;pointer-events:none;transition:opacity .35s}
+  opacity:0;pointer-events:none;transition:opacity .15s}
 .jf-frame.is-started .jf-ctl{opacity:1;pointer-events:auto}
-.jf-frame.is-started.is-idle .jf-ctl,.jf-frame.is-started.is-idle .jf-zoom{opacity:0;pointer-events:none}
+.jf-frame.is-started.is-idle .jf-ctl,.jf-frame.is-started.is-idle .jf-zoom{opacity:0;pointer-events:none;transition-duration:.2s}
 .jf-frame.is-idle,.jf-frame.is-idle *{cursor:none}
 .jf-cb{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:40px;height:40px;padding:0 8px;border:0;border-radius:10px;background:none;color:#fff;font:700 14px/1 var(--f-display);cursor:pointer;transition:background .2s}
 .jf-cb:hover,.jf-cb:focus-visible{background:rgba(255,255,255,.16);outline:none}

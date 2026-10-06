@@ -460,13 +460,26 @@
       $$('.jf-frame button', s).concat([v]).forEach(function (b) { b.addEventListener('pointerup', function (e) { if (e.pointerType === 'mouse') setTimeout(function () { b.blur(); }, 0); }); });
       // one click plays or pauses, a double-click zooms: the single click waits a moment so a double-click doesn't flicker
       v.addEventListener('click', function (e) { e.preventDefault(); clearTimeout(clickT); clickT = setTimeout(toggle, 230); });
-      ['mousemove', 'pointerdown'].forEach(function (ev) { frame.addEventListener(ev, function () { wakeBar(); }); });
+      frame.addEventListener('mousemove', function () { wakeBar(); });
+      frame.addEventListener('pointerdown', function (e) { wakeBar(e.pointerType === 'touch' ? 2600 : 0); });
+      // the pointer leaves the video: the floating controls go at once (while it plays)
+      frame.addEventListener('mouseleave', function () { clearTimeout(idleT); if (!v.paused && !dragging) frame.classList.add('is-idle'); });
 
       // ---- zoom
       function home() { var a = Deck.lbox(box, s); return { x: a.x, y: a.y, k: a.w / 1600, ky: a.h / 900 }; }
       function lockEsc() { if (locked || !document.fullscreenElement || !navigator.keyboard || !navigator.keyboard.lock) return; navigator.keyboard.lock(['Escape']).then(function () { locked = true; }, function () {}); }
       function unlockEsc() { if (locked && navigator.keyboard && navigator.keyboard.unlock) navigator.keyboard.unlock(); locked = false; }
-      function wakeBar() { frame.classList.remove('is-idle'); clearTimeout(idleT); idleT = setTimeout(function () { if (!v.paused && !dragging) frame.classList.add('is-idle'); }, 2600); }
+      // the floating controls show on any movement and go after a second of stillness while the video plays;
+      // they stay while the pointer rests on them, while seeking, and while paused (a tap on a touch screen gives them longer)
+      var IDLE = 1100;
+      function wakeBar(ms) {
+        frame.classList.remove('is-idle'); clearTimeout(idleT);
+        idleT = setTimeout(function hide() {
+          if (v.paused || dragging) return;
+          if ($('.jf-ctl', s).matches(':hover') || $('.jf-bar', s).matches(':hover') || $('.jf-zoom', s).matches(':hover')) { idleT = setTimeout(hide, 600); return; }
+          frame.classList.add('is-idle');
+        }, ms || IDLE);
+      }
       function quiet() { return Deck.reduce || Deck.tv || Deck.print; }
       // on: true / false. o.user: a click or key (may take the screen), o.instant: no animation, o.remote: from the other window
       s._zoom = function (on, o) {
