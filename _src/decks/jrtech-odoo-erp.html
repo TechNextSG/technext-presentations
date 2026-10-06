@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>Moving JR-Tech onto Odoo ERP · TechNext</title>
+<meta name="description" content="JR-Tech Solution and TechNext: eleven Odoo applications in three phases, the move from SQL Account to Odoo Accounting with SST and MyInvois, the cut-over runway, support after go-live, and the accounting and billing questions we need answered.">
+{{og:jrtech-odoo-erp}}
+<link rel="stylesheet" href="assets/proposal.css?v={{v}}">
+<link rel="stylesheet" href="assets/jrtech.css?v={{v}}">
+</head>
+<body data-label="Odoo ERP · JR-Tech Solution" data-home="./" data-cobrand="assets/img/clients/jrtech.png" data-cobrand-white="assets/img/clients/jrtech-white.png">
+<main class="deck" aria-label="Moving JR-Tech onto Odoo ERP">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="Moving JR-Tech onto Odoo ERP">
+  <div class="cv-copy jc-copy">
+    <div class="hx-lock" data-in><img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48"><i></i><img class="hx-co jc-co" src="assets/img/clients/jrtech-white.png" alt="JR-Tech Solution" width="179" height="36"></div>
+    <span class="kicker" data-in style="--d:120ms">jr-tech solution × technext</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Moving JR-Tech <span class="hl">onto Odoo ERP.</span></h1>
+    <p class="lead" data-in style="--d:320ms">The entire solution, the move from SQL Account, our support after go-live, and the questions we need answered.</p>
+    <nav class="jc-agenda" data-in style="--d:420ms" aria-label="Parts of this presentation">
+      <button type="button" data-go="s1"><i>01</i>Your modules</button>
+      <button type="button" data-go="s2"><i>02</i>Your accounting</button>
+      <button type="button" data-go="s3"><i>03</i>Support</button>
+      <button type="button" data-go="s4"><i>04</i>Questions</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag">{{icon:file}}Odoo ERP implementation · October 2026</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="jc-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <div class="jc-ring">
+      <i class="jc-orbit"></i>
+      <i class="jc-sp" style="transform:rotate(-90.00deg);--k:0"><b></b></i>
+      <i class="jc-sp" style="transform:rotate(-57.27deg);--k:1"><b></b></i>
+      <i class="jc-sp" style="transform:rotate(-24.55deg);--k:2"><b></b></i>
+      <i class="jc-sp" style="transform:rotate(8.18deg);--k:3"><b></b></i>
+      <i class="jc-sp" style="transform:rotate(40.91deg);--k:4"><b></b></i>
+      <i class="jc-sp" style="transform:rotate(73.64deg);--k:5"><b></b></i>
+      <i class="jc-sp" style="transform:rotate(106.36deg);--k:6"><b></b></i>
+      <i class="jc-sp" style="transform:rotate(139.09deg);--k:7"><b></b></i>
+      <i class="jc-sp" style="transform:rotate(171.82deg);--k:8"><b></b></i>
+      <i class="jc-sp" style="transform:rotate(204.55deg);--k:9"><b></b></i>
+      <i class="jc-sp" style="transform:rotate(237.27deg);--k:10"><b></b></i>
+      <div class="jc-core"><b>One database</b><small>eleven applications</small></div>
+      <span class="jc-t" data-p="1" style="left:300px;top:84px;--k:0">{{odoo:crm:34}}<small>CRM</small></span>
+      <span class="jc-t" data-p="1" style="left:429px;top:122px;--k:1">{{odoo:sale:34}}<small>Sales</small></span>
+      <span class="jc-t" data-p="1" style="left:516px;top:223px;--k:2">{{odoo:account:34}}<small>Accounting</small></span>
+      <span class="jc-t" data-p="1" style="left:536px;top:356px;--k:3">{{odoo:website:34}}<small>Website</small></span>
+      <span class="jc-t" data-p="2" style="left:480px;top:478px;--k:4">{{odoo:stock:34}}<small>Inventory</small></span>
+      <span class="jc-t" data-p="2" style="left:367px;top:550px;--k:5">{{odoo:purchase:34}}<small>Purchase</small></span>
+      <span class="jc-t" data-p="2" style="left:233px;top:550px;--k:6">{{odoo:planning:34}}<small>Field Service</small></span>
+      <span class="jc-t" data-p="2" style="left:120px;top:478px;--k:7">{{odoo:maintenance:34}}<small>Maintenance</small></span>
+      <span class="jc-t" data-p="2" style="left:64px;top:356px;--k:8">{{odoo:sale_renting:34}}<small>Rental</small></span>
+      <span class="jc-t" data-p="3" style="left:84px;top:223px;--k:9">{{odoo:spreadsheet_dashboard:34}}<small>Dashboards</small></span>
+      <span class="jc-t" data-p="3" style="left:171px;top:122px;--k:10">{{odoo:ai_app:34}}<small>AI Agents</small></span>
+    </div>
+    <p class="jc-leg" aria-label="Phases"><span><i data-p="1">1</i>Commercial foundation</span><span><i data-p="2">2</i>Operations</span><span><i data-p="3">3</i>Intelligence</span></p>
+  </div>
+  <aside class="notes"><p>Four parts today: the modules (Jett and Phillip), the accounting move from SQL Account (AJ), support after go-live (Sky), then the accounting and billing questions we need answered in the room. The agenda buttons jump straight to each part.</p></aside>
+</section>
+
+<!-- 2 · the entire solution -->
+<section class="slide" id="solution" data-title="Your complete journey onto Odoo">
+  <div class="sec-head">
+    <span class="kicker" data-in>the entire solution</span>
+    <h2 class="h-m" data-in style="--d:80ms">Your journey onto Odoo, <span class="hl">mapped end to end.</span></h2>
+  </div>
+  <div class="jm" data-i>
+    <button type="button" class="jm-ai" data-k="ai" data-in style="--d:560ms">{{icon:sparkle}}<span><b>AI Blueprint generator</b><small>From your brief to a working Odoo blueprint: it speeds up the build. AI Agents land in phase 3.</small></span></button>
+    <svg class="jm-svg" aria-hidden="true" data-in data-fx="fade" style="--d:520ms"></svg>
+    <div class="jm-row">
+      <button type="button" class="jm-st jm-st--mig" data-k="mig" data-in style="--d:160ms"><span class="jm-h">Migration</span><span class="jm-ico jm-sql"><em>SQL</em>{{icon:arrow}}<em class="jm-o">Odoo</em></span><small>SQL Account to Odoo, reconciled before you trust it</small></button>
+      <button type="button" class="jm-st" data-k="p1" data-p="1" data-in style="--d:220ms"><span class="jm-h">Phase 1<b>Commercial foundation</b></span><span class="jm-ico">{{odoo:crm:30}}{{odoo:sale:30}}{{odoo:account:30}}{{odoo:website:30}}</span><small>Front office, legally compliant</small></button>
+      <button type="button" class="jm-st" data-k="p2" data-p="2" data-in style="--d:280ms"><span class="jm-h">Phase 2<b>Operations</b></span><span class="jm-ico">{{odoo:stock:30}}{{odoo:purchase:30}}{{odoo:planning:30}}{{odoo:maintenance:30}}{{odoo:sale_renting:30}}</span><small>The physical, real-world layer</small></button>
+      <button type="button" class="jm-st" data-k="p3" data-p="3" data-in style="--d:340ms"><span class="jm-h">Phase 3<b>Intelligence</b></span><span class="jm-ico">{{odoo:spreadsheet_dashboard:30}}{{odoo:ai_app:30}}</span><small>Built last, on real data</small></button>
+      <button type="button" class="jm-st jm-st--go" data-k="go" data-in style="--d:400ms"><span class="jm-h">Go-live</span><span class="jm-ico jm-tick">{{icon:check}}</span><small>Cut-over at the close; first MyInvois from Odoo</small></button>
+      <button type="button" class="jm-st jm-st--sup" data-k="sup" data-in style="--d:460ms"><span class="jm-h">Support</span><span class="jm-ico jm-tick">{{icon:lifebuoy}}</span><small>Four-week window, sign-off, then ongoing</small></button>
+    </div>
+    <div class="jm-thru" data-in style="--d:620ms">
+      <span class="jm-thru-h">Runs through<br>every phase</span>
+      <span>{{icon:users}}Contacts</span>
+      <span>{{odoo:documents:26}}Documents</span>
+      <span>{{icon:phone}}Mobile access</span>
+      <span>{{icon:lock}}User access</span>
+      <span>{{odoo:web_studio:26}}Studio</span>
+    </div>
+    <div class="jm-say" data-in style="--d:680ms" aria-live="polite"><p><b>One database, eleven applications.</b> <span>The AI Blueprint speeds up the build, and we stay with you after go-live. Click any stage.</span></p><button type="button" class="btn btn-line jm-goto" hidden>Go to it {{icon:arrow}}</button></div>
+  </div>
+  <aside class="notes"><p>The whole journey on one page: migrate the books, then three phases of applications, go-live at the close, then support. Click a stage to say more about it, and "Go to it" jumps to its slide. The strip shows what every phase uses: contacts, documents, mobile access, user rights and Studio.</p></aside>
+</section>
+
+<!-- 3 · part 01 -->
+<section class="slide dark" id="s1" data-title="01 · The modules you'll get">
+  <div class="jd">
+    <div class="jd-copy">
+      <b class="jd-n" data-in>01</b>
+      <h2 class="h-l" data-in style="--d:120ms">The modules <span class="hl">you'll get.</span></h2>
+      <p class="lead" data-in style="--d:200ms">One database, eleven applications, described in plain English, app by app.</p>
+      <span class="jd-who" data-in style="--d:280ms"><small>Presents</small>Jett &amp; Phillip</span>
+    </div>
+    <nav class="jd-list" data-in data-fx="right" style="--d:260ms" aria-label="In this part">
+      <span class="jd-lh">In this part</span>
+      <button type="button" data-go="bigidea"><i>{{icon:database}}</i>One system, not three</button>
+      <button type="button" data-go="roadmap"><i>{{icon:layers}}</i>Three phases, eleven applications</button>
+      <button type="button" data-go="phase1"><i>{{icon:cart}}</i>Phase 1 · your front office</button>
+      <button type="button" data-go="phase2"><i>{{icon:truck}}</i>Phase 2 · the real world</button>
+      <button type="button" data-go="phase3"><i>{{icon:trend}}</i>Phase 3 · decisions out of the data</button>
+    </nav>
+  </div>
+  <aside class="notes"><p>Part one, presented by Jett and Phillip: what JR-Tech gets, app by app, in plain English. Click a line on the right to jump to it.</p></aside>
+</section>
+
+<!-- 4 · the big idea -->
+<section class="slide" id="bigidea" data-steps="5" data-title="One system, not three">
+  <div class="sec-head jb-head">
+    <span class="kicker" data-in>the big idea</span>
+    <h2 class="h-m" data-in style="--d:80ms">One system, <span class="hl">not three.</span></h2>
+    <p class="jb-lead" data-in style="--d:160ms">You are not buying eleven separate programs. You are buying <b>one database</b> that eleven applications read from and write to.</p>
+  </div>
+  <div class="jb" data-i data-in style="--d:220ms">
+    <p class="jb-cap">{{icon:utensils}}Enter one combi oven once, and every app uses the same record:</p>
+    <ol class="jb-st">
+      <li data-n="1"><button type="button">{{odoo:sale:30}}<b>Sales quotes it</b></button></li>
+      <li data-n="2"><button type="button">{{odoo:stock:30}}<b>Warehouse picks it</b></button></li>
+      <li data-n="3"><button type="button">{{odoo:planning:30}}<b>Technician installs it</b></button></li>
+      <li data-n="4"><button type="button">{{odoo:maintenance:30}}<b>Service maintains it</b></button></li>
+      <li data-n="5"><button type="button">{{odoo:account:30}}<b>Accounting depreciates it</b></button></li>
+    </ol>
+    <div class="jb-rec">
+      <div class="jb-rec-h"><span class="jb-rec-id">{{icon:database}}<b>Combi oven · serial CO-2417</b></span><small>one record, written by five apps</small><em class="jb-chip">Sample</em></div>
+      <ol class="jb-log">
+        <li data-n="1"><small>Sales</small><b>On quotation S00128</b><span>price, options, delivery date</span></li>
+        <li data-n="2"><small>Inventory</small><b>Serial reserved</b><span>picked for this order only</span></li>
+        <li data-n="3"><small>Field Service</small><b>Installed on site</b><span>worksheet signed by the customer</span></li>
+        <li data-n="4"><small>Maintenance</small><b>Preventive visits planned</b><span>service history on the serial</span></li>
+        <li data-n="5"><small>Accounting</small><b>Depreciated monthly</b><span>as a fixed asset when it's rented out</span></li>
+      </ol>
+    </div>
+  </div>
+  <div class="jb-ph">
+    <div class="jb-pc" data-p="1" data-in style="--d:320ms"><b>Phase 1</b><p><strong>Who your customers are</strong>, what you sell, how money is recognised and reported to LHDN.</p></div>
+    <div class="jb-pc" data-p="2" data-in style="--d:380ms"><b>Phase 2</b><p><strong>The physical layer:</strong> stock, purchasing, technicians on site, service and the hire fleet.</p></div>
+    <div class="jb-pc" data-p="3" data-in style="--d:440ms"><b>Phase 3</b><p><strong>The intelligence layer, last:</strong> dashboards and AI are only as good as the data beneath them.</p></div>
+  </div>
+  <aside class="notes"><p>Press → to follow one combi oven through five apps. The record never gets re-typed: the quotation, the reserved serial, the signed installation, the service plan and the depreciation all sit on the same record. The three phases add apps to that one database; they are not three systems.</p></aside>
+</section>
+
+<!-- 5 · roadmap -->
+<section class="slide" id="roadmap" data-title="Three phases, eleven applications">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the roadmap</span>
+      <h2 class="h-m" data-in style="--d:80ms">Three phases, <span class="hl">eleven applications.</span></h2>
+    </div>
+    <div class="jr-ctl" data-in style="--d:160ms">
+      <span class="jr-count"><b data-jr="n">11</b><small>applications<br><em data-jr="lbl">in all three phases</em></small></span>
+      <div class="seg" role="group" aria-label="Phase" data-jr="seg"><button type="button" aria-pressed="true" data-v="all">All</button><button type="button" aria-pressed="false" data-v="1">Phase 1</button><button type="button" aria-pressed="false" data-v="2">Phase 2</button><button type="button" aria-pressed="false" data-v="3">Phase 3</button></div>
+    </div>
+  </div>
+  <div class="jr" data-i>
+    <div class="jr-c" data-p="1" data-in style="--d:200ms">
+      <button type="button" class="jr-h" data-go="phase1"><small>Phase 1</small><b>Commercial foundation</b><i>{{icon:arrow}}</i></button>
+      <p class="jr-cap">Every enquiry, quote, order and invoice in one place, and legally compliant.</p>
+      <ul>
+        <li>{{odoo:crm:30}}<b>CRM</b><span>Pipeline and forecasting</span></li>
+        <li>{{odoo:sale:30}}<b>Sales</b><span>Quoting, product set-up</span></li>
+        <li>{{odoo:account:30}}<b>Accounting</b><span>Live double-entry books</span></li>
+        <li class="jr-loc"><i class="jr-loc-i">{{icon:shield}}</i><b>SST + MyInvois</b><span>Malaysian e-invoicing, inside Accounting</span></li>
+        <li>{{odoo:website:30}}<b>Website</b><span>Connected to the system</span></li>
+      </ul>
+    </div>
+    <div class="jr-c" data-p="2" data-in style="--d:280ms">
+      <button type="button" class="jr-h" data-go="phase2"><small>Phase 2</small><b>Operations</b><i>{{icon:arrow}}</i></button>
+      <p class="jr-cap">The physical reality: stock, suppliers, technicians and the hire fleet.</p>
+      <ul>
+        <li>{{odoo:stock:30}}<b>Inventory</b><span>Serial-tracked stock</span></li>
+        <li>{{odoo:purchase:30}}<b>Purchase</b><span>Procurement and 3-way match</span></li>
+        <li>{{odoo:planning:30}}<b>Field Service</b><span>On-site work, in Planning</span></li>
+        <li>{{odoo:maintenance:30}}<b>Maintenance</b><span>Preventive and corrective</span></li>
+        <li>{{odoo:sale_renting:30}}<b>Rental</b><span>Rent out kitchen equipment</span></li>
+      </ul>
+    </div>
+    <div class="jr-c" data-p="3" data-in style="--d:360ms">
+      <button type="button" class="jr-h" data-go="phase3"><small>Phase 3</small><b>Intelligence</b><i>{{icon:arrow}}</i></button>
+      <p class="jr-cap">Decisions out of the data, built last, on real operating history.</p>
+      <ul>
+        <li>{{odoo:spreadsheet_dashboard:30}}<b>Analytics</b><span>Live dashboards</span></li>
+        <li>{{odoo:ai_app:30}}<b>AI Agents</b><span>Ask, draft and act</span></li>
+      </ul>
+      <div class="jr-why">{{icon:search}}<span>Dashboards and AI read the data phases 1 and 2 create, so they come last.</span></div>
+    </div>
+  </div>
+  <p class="jr-note" data-in style="--d:440ms">{{icon:shield}}SST + MyInvois is Odoo's Malaysian localisation inside Accounting, so it isn't counted as an app. In Odoo 20, Field Service runs inside Planning.</p>
+  <aside class="notes"><p>Eleven applications in three phases. Filter by phase to talk one column at a time; click a phase header to jump to its slide. SST and MyInvois come with Odoo's Malaysian localisation inside Accounting, which is why it is listed but not counted.</p></aside>
+</section>
+
+<!-- 6 · phase 1 -->
+<section class="slide" id="phase1" data-steps="5" data-title="Phase 1 · the apps that run your front office">
+  <div class="sec-head jx-head">
+    <span class="kicker" data-in>phase 1 · commercial foundation</span>
+    <h2 class="h-m" data-in style="--d:80ms">The apps that run <span class="hl">your front office.</span></h2>
+  </div>
+  <div class="ja" data-i>
+    <article class="ja-c" data-n="1" data-v="crm" data-in style="--d:140ms">
+      <header>{{odoo:crm:30}}<b>CRM</b></header>
+      <p class="ja-tag">Your pipeline, owned by the company</p>
+      <ul><li><b>Leads to opportunities</b> on a Kanban board</li><li><b>Follow-ups</b>, expected value and close date</li><li><b>Win / loss</b> and lead-source reporting</li></ul>
+      <div class="jv jv-crm">
+        <div class="jv-deal"><b>Hotel kitchen fit-out</b><small>RM 86,000 · Proposal</small><span class="jv-own"><i class="jv-av" data-a="AH">AH</i><em>Ahmad</em></span></div>
+        <p class="jv-kept">{{icon:check}}<span>12 notes · 3 quotes kept</span></p>
+      </div>
+      <p class="ja-win">No deal leaves with a salesperson</p>
+    </article>
+    <article class="ja-c" data-n="2" data-v="sale" data-in style="--d:200ms">
+      <header>{{odoo:sale:30}}<b>Sales</b></header>
+      <p class="ja-tag">Quote to cash, one document</p>
+      <ul><li><b>Reusable templates</b> and online signature</li><li><b>Invoice on ordered</b> or delivered quantity</li><li><b>Customer pricelists</b> and commissions</li></ul>
+      <div class="jv jv-sale">
+        <span class="jv-tpl">{{icon:file}}Template · Central kitchen</span>
+        <div class="jv-meter"><i></i></div>
+        <p class="jv-lines"><b data-jv="lines">30</b> lines<span data-jv="sum">RM 212,400</span></p>
+      </div>
+      <p class="ja-win">A 30-line quote loaded in seconds</p>
+    </article>
+    <article class="ja-c" data-n="3" data-v="acc" data-in style="--d:260ms">
+      <header>{{odoo:account:30}}<b>Accounting</b></header>
+      <p class="ja-tag">Live books, real margins</p>
+      <ul><li><b>P&amp;L current to today</b>, not month-end</li><li><b>Margin by business line</b> (analytic)</li><li><b>Fixed assets</b> for the rental fleet</li></ul>
+      <div class="jv jv-acc">
+        <p class="jv-bar" style="--m:18"><span>Equipment</span><i></i><b>18%</b></p>
+        <p class="jv-bar" style="--m:31"><span>Installation</span><i></i><b>31%</b></p>
+        <p class="jv-bar is-top" style="--m:42"><span>Service</span><i></i><b>42%</b></p>
+        <p class="jv-bar" style="--m:27"><span>Rental</span><i></i><b>27%</b></p>
+      </div>
+      <p class="ja-win">Find out which line actually earns</p>
+    </article>
+    <article class="ja-c" data-n="4" data-v="einv" data-in style="--d:320ms">
+      <header><i class="ja-ico">{{icon:shield}}</i><b>SST + MyInvois</b></header>
+      <p class="ja-tag">Compliant by default</p>
+      <ul><li><b>Submit e-Invoices</b> straight from Odoo</li><li><b>SST-02</b> from live transaction data</li><li><b>Credit and debit notes</b>, correctly linked</li></ul>
+      <div class="jv jv-einv">
+        <span class="jv-inv">{{icon:receipt}}INV/2026/0412</span>
+        <i class="jv-wire"><b></b></i>
+        <span class="jv-lhdn">LHDN<small>MyInvois</small></span>
+        <p class="jv-valid">{{icon:check}}<span>Valid · UUID F3K9…QX7</span></p>
+      </div>
+      <p class="ja-win">The part that keeps you legal</p>
+    </article>
+    <article class="ja-c" data-n="5" data-v="web" data-in style="--d:380ms">
+      <header>{{odoo:website:30}}<b>Website</b></header>
+      <p class="ja-tag">Your shopfront, connected</p>
+      <ul><li><b>Fleet and services catalogue</b> published from Odoo</li><li><b>Enquiry forms</b> drop straight into CRM</li><li><b>Integrated</b> with the Odoo system</li></ul>
+      <div class="jv jv-web">
+        <span class="jv-form"><small>Enquiry</small><b data-jv="q">2 combi ovens, delivery to Ipoh</b></span>
+        <span class="jv-lead">{{odoo:crm:20}}<b>New lead in CRM</b></span>
+      </div>
+      <p class="ja-win">Every visitor becomes a lead</p>
+    </article>
+  </div>
+  <p class="jx-note" data-in style="--d:440ms">{{icon:search}}Sample deals, figures and documents, to show each idea. Press → or click a card.</p>
+  <aside class="notes"><p>Phase 1, app by app; press → (or click a card) to play each one. CRM: deals belong to the company, so a salesperson leaving doesn't take the pipeline. Sales: a template loads a long quote in seconds. Accounting: analytic margins per business line. SST and MyInvois: e-Invoices go to LHDN from Odoo and SST-02 comes from live data. Website: enquiries become CRM leads.</p></aside>
+</section>
+
+<!-- 7 · phase 2 -->
+<section class="slide" id="phase2" data-steps="5" data-title="Phase 2 · the apps that run the real world">
+  <div class="sec-head jx-head">
+    <span class="kicker" data-in>phase 2 · operations</span>
+    <h2 class="h-m" data-in style="--d:80ms">The apps that run <span class="hl">the real world.</span></h2>
+  </div>
+  <div class="ja" data-i>
+    <article class="ja-c" data-n="1" data-v="inv" data-in style="--d:140ms">
+      <header>{{odoo:stock:30}}<b>Inventory</b></header>
+      <p class="ja-tag">Know every serial number</p>
+      <ul><li><b>Barcode-based</b> stock tracking</li><li><b>Serials</b> carry warranty and service history</li><li><b>Reserve stock</b> to a specific build</li></ul>
+      <div class="jv jv-stk">
+        <span class="jv-sn">CO-2415<em>In stock</em></span>
+        <span class="jv-sn jv-sn--r">CO-2417<em data-jv="r">Reserved · B-104</em></span>
+        <p class="jv-block">{{icon:alert}}<span>Order S00131 can't take CO-2417</span></p>
+      </div>
+      <p class="ja-win">Never sell equipment twice</p>
+    </article>
+    <article class="ja-c" data-n="2" data-v="pur" data-in style="--d:200ms">
+      <header>{{odoo:purchase:30}}<b>Purchase</b></header>
+      <p class="ja-tag">Buy on data, not memory</p>
+      <ul><li><b>One RFQ to three vendors</b>, compared</li><li><b>Lead times</b> become quotable dates</li><li><b>Three-way match</b> before you pay</li></ul>
+      <div class="jv jv-pur">
+        <span><small>Ordered</small><b>10</b></span><span><small>Received</small><b>8</b></span><span class="jv-bill"><small>Billed</small><b data-jv="bill">8</b></span>
+        <p class="jv-match"><i class="jv-ok">{{icon:check}}</i><i class="jv-no">{{icon:alert}}</i><span data-jv="m">Bill held to the 8 received</span></p>
+      </div>
+      <p class="ja-win">Stop paying for short-shipped goods</p>
+    </article>
+    <article class="ja-c" data-n="3" data-v="fsm" data-in style="--d:260ms">
+      <header>{{odoo:planning:30}}<b>Field Service</b></header>
+      <p class="ja-tag">Bill every part and hour</p>
+      <ul><li><b>Map-based dispatch</b> and routing</li><li><b>Mobile worksheets</b>, signed on site</li><li><b>Parts flow onto</b> the invoice</li></ul>
+      <div class="jv jv-fsm">
+        <p data-r="1"><span>Labour, 2.5 h</span><b>RM 375</b></p>
+        <p data-r="2"><span>Door gasket × 1</span><b>RM 160</b></p>
+        <p data-r="3"><span>Thermostat × 1</span><b>RM 245</b></p>
+        <p class="jv-tot"><span>On the invoice</span><b data-jv="tot">RM 780</b></p>
+      </div>
+      <p class="ja-win">Close the biggest revenue leak</p>
+    </article>
+    <article class="ja-c" data-n="4" data-v="mnt" data-in style="--d:320ms">
+      <header>{{odoo:maintenance:30}}<b>Maintenance</b></header>
+      <p class="ja-tag">Never miss a service</p>
+      <ul><li><b>Preventive schedules</b> generate themselves</li><li><b>Fleet checked</b> before re-hire</li><li><b>MTBF / MTTR</b> reliability by brand</li></ul>
+      <div class="jv jv-mnt">
+        <div class="jv-cal"><i class="p"></i><i></i><i></i><i class="p"></i><i></i><i></i><i class="p"></i><i class="c"></i><i></i><i class="p"></i><i></i><i></i></div>
+        <p class="jv-cal-l"><span><i></i>Preventive</span><span><i class="c"></i>Corrective</span></p>
+        <p class="jv-next">{{icon:calendar}}<span>Checked before re-hire</span></p>
+      </div>
+      <p class="ja-win">Protect recurring contract revenue</p>
+    </article>
+    <article class="ja-c" data-n="5" data-v="ren" data-in style="--d:380ms">
+      <header>{{odoo:sale_renting:30}}<b>Rental</b></header>
+      <p class="ja-tag">Availability by date, not count</p>
+      <ul><li><b>Time-based booking</b>, no double-hire</li><li><b>Automatic late fees</b> and agreements</li><li><b>Margin net</b> of depreciation</li></ul>
+      <div class="jv jv-ren">
+        <div class="jv-tl"><i class="jv-bk" style="--a:0;--b:40"></i><i class="jv-bk" style="--a:52;--b:92"></i><i class="jv-bk jv-bk--x" style="--a:30;--b:62"></i></div>
+        <p class="jv-busy">{{icon:alert}}<span>Already booked then</span></p>
+        <p class="jv-mg"><span>Net of depreciation</span><b>34%</b></p>
+      </div>
+      <p class="ja-win">See true rental profitability</p>
+    </article>
+  </div>
+  <p class="jx-note" data-in style="--d:440ms">{{icon:search}}Sample serials, quantities and prices, to show each idea. In Odoo 20, Field Service runs inside Planning.</p>
+  <aside class="notes"><p>Phase 2, the physical layer; press → or click a card. Inventory reserves a serial to one build so it can't be sold twice. Purchase holds a bill to what was actually received. Field Service puts every hour and part from the signed worksheet onto the invoice. Maintenance generates the preventive schedule and checks a unit before it goes out again. Rental books by date, so a unit can't be hired twice, and shows margin after depreciation.</p></aside>
+</section>
+
+<!-- 8 · phase 3 -->
+<section class="slide" id="phase3" data-steps="2" data-title="Phase 3 · getting decisions out of the data">
+  <div class="sec-head jx-head">
+    <span class="kicker" data-in>phase 3 · intelligence</span>
+    <h2 class="h-m" data-in style="--d:80ms">Getting decisions <span class="hl">out of the data.</span></h2>
+  </div>
+  <div class="ji" data-i>
+    <article class="ji-c" data-n="1" data-in style="--d:140ms">
+      <header>{{odoo:spreadsheet_dashboard:34}}<span><b>Analytics (Dashboards)</b><small>Reporting stops being done by hand</small></span></header>
+      <div class="ji-dash">
+        <div class="ji-dh"><b>Gross margin by month</b><small>click the drop</small><em class="jb-chip">Sample</em></div>
+        <svg class="ji-svg" viewBox="0 0 400 190" role="img" aria-label="Gross margin by month, with a drop in one month"></svg>
+        <div class="ji-drill" aria-live="polite">
+          <p class="ji-drill-h"><b>Sep: 27.6%, down 4.1 pts</b><small>the six jobs behind the drop</small></p>
+          <ol class="ji-jobs">
+            <li><span>J-0912 · Café fit-out</span><b>8.2%</b></li>
+            <li><span>J-0917 · Hotel laundry</span><b>11.5%</b></li>
+            <li><span>J-0921 · Canteen hoods</span><b>12.9%</b></li>
+            <li><span>J-0925 · Bakery ovens</span><b>14.0%</b></li>
+            <li><span>J-0930 · Food court</span><b>15.6%</b></li>
+            <li><span>J-0933 · Hospital chillers</span><b>16.3%</b></li>
+          </ol>
+        </div>
+      </div>
+      <ul class="ji-pts"><li><b>Live views</b> for management, service, rental and sales, current as of now</li><li><b>Drill from any figure</b> down to the records behind it</li><li><b>Role-based access</b>; self-service views in a familiar spreadsheet engine</li></ul>
+    </article>
+    <article class="ji-c" data-n="2" data-in style="--d:220ms">
+      <header>{{odoo:ai_app:34}}<span><b>AI Agents</b><small>Assistants that act, and ask first</small></span></header>
+      <div class="ji-chat">
+        <p class="ji-q">Which rental units are due for service this month?</p>
+        <p class="ji-a"><i>{{icon:bot}}</i><span data-ji="a">Three: <b>RK-07</b>, <b>RK-11</b> and <b>CO-2417</b>, from their preventive schedules in Maintenance.</span></p>
+        <div class="ji-prop">
+          <span class="ji-prop-h">{{icon:file}}<b>Vendor bill read from a PDF</b><em class="jb-chip">Sample</em></span>
+          <span class="ji-prop-d">Cold-room parts supplier · RM 4,820.00 · 3 lines</span>
+          <span class="ji-prop-a"><button type="button" class="ji-ok">{{icon:check}}Confirm</button><button type="button" class="ji-no">Discard</button><em data-ji="st">Proposed, not posted</em></span>
+        </div>
+      </div>
+      <ul class="ji-pts"><li><b>Ask AI and agents</b> grounded in your own manuals and documents</li><li><b>Auto-sort bills</b>, draft leads, answer questions of your own data</li><li><b>Every action is proposed</b> for you to confirm, never auto-posted</li></ul>
+    </article>
+  </div>
+  <p class="ji-note" data-in style="--d:400ms">{{icon:users}}Configured in phase 3 by people who have watched how you actually work. Sample jobs, units and figures.</p>
+  <aside class="notes"><p>Press → twice. First the dashboard: click the September drop and the six jobs that caused it appear; every figure drills down to its records. Then the AI agent: it answers from JR-Tech's own data, and when it prepares something, like a bill read from a PDF, it waits for a person to confirm. Nothing is posted on its own.</p></aside>
+</section>
+
+<!-- 9 · part 02 -->
+<section class="slide dark" id="s2" data-title="02 · Your accounting, moved safely">
+  <div class="jd">
+    <div class="jd-copy">
+      <b class="jd-n" data-in>02</b>
+      <h2 class="h-l" data-in style="--d:120ms">Your accounting, <span class="hl">moved safely.</span></h2>
+      <p class="lead" data-in style="--d:200ms">A well-understood, low-risk path from SQL Account to Odoo Accounting, with every figure reconciled before you trust it.</p>
+      <span class="jd-who" data-in style="--d:280ms"><small>Presents</small>AJ</span>
+    </div>
+    <nav class="jd-list" data-in data-fx="right" style="--d:260ms" aria-label="In this part">
+      <span class="jd-lh">In this part</span>
+      <button type="button" data-go="worries"><i>{{icon:heart}}</i>The honest worries</button>
+      <button type="button" data-go="cutoff"><i>{{icon:calendar}}</i>One clean cut-off</button>
+      <button type="button" data-go="scope"><i>{{icon:layers}}</i>What moves, and how</button>
+      <button type="button" data-go="process"><i>{{icon:refresh}}</i>Seven steps to cut over</button>
+      <button type="button" data-go="runway"><i>{{icon:clock}}</i>The runway to the close</button>
+      <button type="button" data-go="risks"><i>{{icon:shield}}</i>Risks and the go / no-go gate</button>
+      <button type="button" data-go="needs"><i>{{icon:check}}</i>What we need from JR-Tech</button>
+    </nav>
+  </div>
+  <aside class="notes"><p>Part two, presented by AJ: moving the books from SQL Account to Odoo Accounting. The message is safety: nothing is deleted, everything is reconciled, and only the last few days are tied to the close.</p></aside>
+</section>
+
+<!-- 10 · the honest worries -->
+<section class="slide" id="worries" data-steps="4" data-title="Will this break our books?">
+  <div class="sec-head">
+    <span class="kicker" data-in>before we start: the honest worries</span>
+    <h2 class="h-m" data-in style="--d:80ms">“Will this break our books?” <span class="hl">Here's the reassurance.</span></h2>
+  </div>
+  <div class="jw" data-i>
+    <div class="jw-hd" data-in style="--d:140ms"><span class="jw-hw">{{icon:alert}}The worry</span><span class="jw-hr">{{icon:check}}The reality</span></div>
+    <div class="jw-r" data-n="1" data-in style="--d:180ms">
+      <button type="button" class="jw-w"><i>!</i><b>We'll lose our history</b></button>
+      <p class="jw-a"><i>{{icon:check}}</i><span><b>SQL Account is archived read-only,</b> never deleted. Full audit lookup stays available.</span></p>
+    </div>
+    <div class="jw-r" data-n="2" data-in style="--d:240ms">
+      <button type="button" class="jw-w"><i>!</i><b>The numbers won't match</b></button>
+      <p class="jw-a"><i>{{icon:check}}</i><span><b>Every migrated total is reconciled</b> against your closing trial balance before anyone transacts.</span></p>
+    </div>
+    <div class="jw-r" data-n="3" data-in style="--d:300ms">
+      <button type="button" class="jw-w"><i>!</i><b>We'll get double-filed with LHDN<small>Lembaga Hasil Dalam Negeri, Malaysia's tax authority</small></b></button>
+      <p class="jw-a"><i>{{icon:check}}</i><span><b>One authoritative filing system per period.</b> Migrated invoices are locked from re-sending.</span></p>
+    </div>
+    <div class="jw-r" data-n="4" data-in style="--d:360ms">
+      <button type="button" class="jw-w"><i>!</i><b>It will disrupt our current close</b></button>
+      <p class="jw-a"><i>{{icon:check}}</i><span><b>Configuration and clean-up run alongside normal operations.</b> Only the final cut is tied to the date.</span></p>
+    </div>
+  </div>
+  <aside class="notes"><p>Name the four worries out loud before they're asked. Press → (or click a worry) to answer each one. History is archived, not deleted; totals are reconciled before anyone transacts; one system files with LHDN per period; and the close carries on as normal.</p></aside>
+</section>
+
+<!-- 11 · one clean cut-off -->
+<section class="slide" id="cutoff" data-title="One clean cut-off, one system of record">
+  <div class="sec-head">
+    <span class="kicker" data-in>the migration philosophy</span>
+    <h2 class="h-m" data-in style="--d:80ms">One clean cut-off, <span class="hl">one system of record.</span></h2>
+    <p class="jt-lead" data-in style="--d:160ms">We move <b>balances and open items, not a blanket re-key of history.</b> Account, customer and document codes carry forward.</p>
+  </div>
+  <div class="jt" data-i data-in style="--d:220ms">
+    <div class="jt-top"><span class="jt-h">Drag the cut-off</span><span class="jt-st" aria-live="polite"><i class="jt-ok">{{icon:check}}</i><i class="jt-no">{{icon:alert}}</i><span data-jt="st"><b>Clean:</b> SQL Account closes October, Odoo opens November.</span></span><button type="button" class="jt-snap" data-jt="snap">{{icon:refresh}}Cut at the close</button></div>
+    <div class="jt-track" data-drag>
+      <div class="jt-mo"><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span></div>
+      <div class="jt-lane jt-lane--sql"><b>SQL Account</b><i class="jt-fill"></i></div>
+      <div class="jt-lane jt-lane--odoo"><b>Odoo</b><i class="jt-fill"></i></div>
+      <i class="jt-split"></i>
+      <div class="jt-cut" data-jt="cut" role="slider" tabindex="0" aria-label="Cut-off date" aria-valuemin="0" aria-valuemax="6" aria-valuenow="3"><b>Cut-off</b></div>
+    </div>
+  </div>
+  <div class="jt-cards">
+    <div class="jt-c" data-n="1" data-in style="--d:300ms"><i>1</i><b>Cut at a period boundary</b><p>Let SQL Account close the period cleanly; Odoo opens the next one. No month is ever split across two ledgers.</p></div>
+    <div class="jt-c" data-n="2" data-in style="--d:360ms"><i>2</i><b>Reconcile before you trust it</b><p>Every migrated total is checked against the SQL Account trial balance and aging before anyone transacts in Odoo.</p></div>
+    <div class="jt-c" data-n="3" data-in style="--d:420ms"><i>3</i><b>Standard Odoo structures</b><p>Map to Odoo's standard account types and modules, no custom logic. Familiar codes are configuration, not customisation.</p></div>
+  </div>
+  <aside class="notes"><p>Drag the cut-off into the middle of a month to show the problem: that month's transactions would live in two ledgers. "Cut at the close" snaps it back to the period boundary. The months are an example; the real date is agreed in writing and tied to the close.</p></aside>
+</section>
+
+<!-- 12 · migration scope -->
+<section class="slide" id="scope" data-title="What moves, and how">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>migration scope</span>
+      <h2 class="h-m" data-in style="--d:80ms">What moves, <span class="hl">and how.</span></h2>
+    </div>
+    <button type="button" class="btn btn-line jg-run" data-in style="--d:160ms">{{icon:play}}Run the move again</button>
+  </div>
+  <div class="jg" data-i data-in style="--d:200ms">
+    <div class="jg-hd"><span>What</span><span class="jg-ends"><em class="jg-sql">SQL Account</em><em class="jg-odoo">Odoo</em></span><span>How</span></div>
+    <div class="jg-r"><b>Chart of Accounts</b><span class="jg-tk"><i data-t="map">Mapped</i></span><p>Mapped to Odoo account types; your existing codes retained</p></div>
+    <div class="jg-r"><b>Opening balance</b><span class="jg-tk"><i data-t="one">One journal</i></span><p>One journal at cut-off, from the finalised closing trial balance</p></div>
+    <div class="jg-r"><b>Partners (AR / AP)</b><span class="jg-tk"><i data-t="cln">Cleaned</i></span><p>Masters cleaned, de-duplicated; TINs fetched and validated</p></div>
+    <div class="jg-r"><b>Open AR / AP</b><span class="jg-tk"><i data-t="item">Open items</i></span><p>Individual open items, aging correct; e-invoiced items flagged</p></div>
+    <div class="jg-r"><b>Deposits &amp; credit notes</b><span class="jg-tk"><i data-t="item">Open items</i></span><p>Advances and unapplied credits carried as open items</p></div>
+    <div class="jg-r jg-r--cfg"><b>Tax codes / SST</b><span class="jg-tk"><i data-t="cfg">Configured</i></span><p>Configured with the Malaysian localisation, not imported line by line</p></div>
+    <div class="jg-r"><b>Bank accounts</b><span class="jg-tk"><i data-t="rec">Reconciled</i></span><p>Reconciled balance plus outstanding cheques, deposits and PDCs</p></div>
+    <div class="jg-r"><b>Stock opening</b><span class="jg-tk"><i data-t="qty">Qty + value</i></span><p>Opening quantity and valuation; costing method aligned first</p></div>
+    <div class="jg-r"><b>Fixed assets</b><span class="jg-tk"><i data-t="fa">Cost + dep.</i></span><p>Gross cost plus accumulated depreciation, so schedules continue</p></div>
+    <div class="jg-r"><b>Document numbering</b><span class="jg-tk"><i data-t="seq">Continues</i></span><p>Odoo sequences continue from the last SQL Account numbers</p></div>
+    <div class="jg-r jg-r--stay"><b>Prior-year detail</b><span class="jg-tk"><i data-t="arc">{{icon:lock}}Archived</i></span><p>Stays as a read-only archive inside SQL Account</p></div>
+    <p class="jg-out"><b>Out of scope:</b> SQL Payroll is not migrated. Its history stays queryable in the archived SQL Account.</p>
+  </div>
+  <aside class="notes"><p>Each line travels from SQL Account to Odoo the way it really moves: mapped, one opening journal, cleaned masters, open items with correct aging. Tax codes are not imported at all: Odoo's Malaysian localisation configures them. Prior-year detail stays behind as a read-only archive, and SQL Payroll is out of scope.</p></aside>
+</section>
+
+<!-- 13 · seven steps -->
+<section class="slide" id="process" data-steps="7" data-title="How we migrate and cut over: seven steps">
+  <div class="sec-head">
+    <span class="kicker" data-in>migration process</span>
+    <h2 class="h-m" data-in style="--d:80ms">How we migrate and cut over, <span class="hl">in seven steps.</span></h2>
+  </div>
+  <div class="jp" data-i data-in style="--d:160ms">
+    <i class="jp-rail"><b></b></i>
+    <div class="jp-s" data-n="1"><button type="button" class="jp-dot">1</button><b>Discovery &amp; scoping</b><p>Confirm version, COA and tax codes; obtain a full database backup</p></div>
+    <div class="jp-s" data-n="2"><button type="button" class="jp-dot">2</button><b>Mapping</b><p>Map COA, tax codes, partner codes and terms to Odoo; sign off the sheet</p></div>
+    <div class="jp-s" data-n="3"><button type="button" class="jp-dot">3</button><b>Extraction</b><p>Full extract from the Firebird backup: GL, AR / AP, open items, stock</p></div>
+    <div class="jp-s" data-n="4"><button type="button" class="jp-dot">4</button><b>Transformation</b><p>De-duplicate, standardise names, complete TINs and codes; re-code to the mapped COA</p></div>
+    <div class="jp-s" data-n="5"><button type="button" class="jp-dot">5</button><b>Mock migration &amp; UAT</b><p>Full run on an odoo.sh staging branch; reconciliation pack, UAT and training on your own data</p></div>
+    <div class="jp-s" data-n="6"><button type="button" class="jp-dot">6</button><b>Import</b><p>Load masters and opening balances with Odoo's native import tools</p></div>
+    <div class="jp-s" data-n="7"><button type="button" class="jp-dot">7</button><b>Reconcile &amp; go-live</b><p>Match TB, aging and bank items line by line, then freeze SQL Account</p></div>
+  </div>
+  <div class="jp-vis" data-in style="--d:240ms" aria-live="polite">
+    <p class="jp-cap"><b data-jp="t"></b><em data-jp="w"></em></p>
+    <div class="jp-v jp-v--0" data-n="0"><span class="jp-hint">{{icon:arrow}}Press → or click a step to see what happens in it</span></div>
+    <div class="jp-v" data-n="1"><span class="jp-db">{{icon:database}}<b>SQL Account</b><small>version + edition confirmed</small></span><i class="jp-arr">{{icon:arrow}}</i><span class="jp-file">{{icon:file}}<b>Full backup</b><small>handed over, kept safe</small></span></div>
+    <div class="jp-v" data-n="2"><table class="jp-map"><tr><th>SQL Account</th><th></th><th>Odoo</th></tr><tr><td>500-000 Sales</td><td>→</td><td>500-000 Sales · Income</td></tr><tr><td>SR-8</td><td>→</td><td>Service tax 8%</td></tr><tr><td>C30</td><td>→</td><td>30 days</td></tr></table><span class="jp-sign">{{icon:pen}}Signed off</span></div>
+    <div class="jp-v" data-n="3"><span class="jp-db">{{icon:database}}<b>Firebird backup</b></span><i class="jp-arr">{{icon:arrow}}</i><span class="jp-ex"><em>GL</em><em>AR / AP</em><em>Open items</em><em>Stock</em></span></div>
+    <div class="jp-v" data-n="4"><span class="jp-dup"><s>Tan Bros. Sdn Bhd</s><s>TAN BROS SDN. BHD.</s><b>Tan Bros Sdn Bhd · TIN ✓</b></span><small class="jp-say">duplicates merged, names standardised, TINs completed</small></div>
+    <div class="jp-v" data-n="5"><span class="jp-br">{{icon:code}}<b>staging</b><small>odoo.sh branch · your own data</small></span><span class="jp-pk">{{icon:file}}<b>Reconciliation pack</b><small>UAT and training</small></span></div>
+    <div class="jp-v" data-n="6"><span class="jp-imp"><em>Masters</em><em>Opening balances</em><em>Open items</em></span><i class="jp-arr">{{icon:arrow}}</i><span class="jp-db jp-db--o">{{odoo:account:30}}<b>Odoo</b><small>native import tools</small></span></div>
+    <div class="jp-v" data-n="7"><span class="jp-tb">TB <b>=</b> TB</span><span class="jp-tb">Aging <b>=</b> aging</span><span class="jp-tb">Bank <b>=</b> bank</span><span class="jp-frz">{{icon:lock}}SQL Account frozen</span></div>
+  </div>
+  <p class="jp-ban" data-in style="--d:300ms"><b>Nothing disrupts your current close.</b> Configuration happens while SQL Account carries on as normal. Only the final extract, import and reconcile are tied to the cut-off.</p>
+  <aside class="notes"><p>Press → through the seven steps; each one shows what happens. Steps one to five run while SQL Account carries on as normal, the mock migration included. Only the final extract, the import and the reconcile are tied to the close. The codes on the mapping example are illustrative.</p></aside>
+</section>
+
+<!-- 14 · the runway -->
+<section class="slide" id="runway" data-steps="6" data-title="Cut over at the close: the runway">
+  <div class="sec-head">
+    <span class="kicker" data-in>the recommendation</span>
+    <h2 class="h-m" data-in style="--d:80ms">Cut over at the close: <span class="hl">here's the runway.</span></h2>
+  </div>
+  <div class="jy" data-i data-in style="--d:160ms">
+    <div class="jy-c" data-n="1" data-s="sql"><b>Close − 4 weeks</b><p>Mock migration on staging · reconciliation pack signed · UAT and training</p><em>SQL Account</em></div>
+    <div class="jy-c" data-n="2" data-s="sql"><b>Up to close</b><p>Configuration, COA mapping and master clean-up, alongside normal operations</p><em>SQL Account</em></div>
+    <div class="jy-c" data-n="3" data-s="sql"><b>Close date</b><p>Finalise the close; extract TB, aging, bank, stock · last SQL e-Invoices</p><em>SQL Account</em></div>
+    <div class="jy-c" data-n="4" data-s="imp"><b>Close + 1–5 days</b><p>Import opening balances and open items · reconcile line by line · go / no-go</p><em>Import → Odoo</em></div>
+    <div class="jy-c" data-n="5" data-s="odoo"><b>Day 1, new period</b><p>All new invoices, bills and payments in Odoo · first MyInvois from Odoo</p><em>Odoo</em></div>
+    <div class="jy-c" data-n="6" data-s="live"><b>Weeks 1–4</b><p>Confidence window · SQL read-only · week-4 trust sign-off, then archive</p><em>Odoo</em></div>
+  </div>
+  <div class="jy-sys" data-in style="--d:220ms">
+    <div class="jy-row"><span>System of record</span><i class="jy-bar"><b class="jy-a">SQL Account</b><b class="jy-x">go / no-go</b><b class="jy-o">Odoo</b></i></div>
+    <div class="jy-row"><span>e-Invoices to LHDN from</span><i class="jy-bar"><b class="jy-a">SQL Account</b><b class="jy-gap">none</b><b class="jy-o">Odoo</b></i></div>
+    <i class="jy-now"><b data-jy="now">Close − 4 weeks</b></i>
+  </div>
+  <p class="jy-ban" data-in style="--d:280ms"><b>No long parallel run.</b> Double entry across two systems adds errors, not safety, and SST / e-Invoice filings must come from one authoritative system per period. Instead: a four-week confidence window after go-live.</p>
+  <aside class="notes"><p>Press → to walk the runway. The two bars underneath are the point: one system of record and one e-Invoice sender at any moment, switching at the close. The go / no-go happens in the days after the close, before anyone transacts in Odoo.</p></aside>
+</section>
+
+<!-- 15 · risks -->
+<section class="slide" id="risks" data-title="Every risk has a control, and a go / no-go gate">
+  <div class="sec-head">
+    <span class="kicker" data-in>risk register</span>
+    <h2 class="h-m" data-in style="--d:80ms">Every risk has a control, <span class="hl">and a go / no-go gate.</span></h2>
+  </div>
+  <div class="jk" data-i>
+    <div class="jk-grid">
+      <div class="jk-r" data-in style="--d:140ms"><small>Risk</small><b>A mid-period cut-over splits transactions</b><p>{{icon:check}}<span><strong>Cut over exactly</strong> at the close date, never before it.</span></p></div>
+      <div class="jk-r" data-in style="--d:180ms"><small>Risk</small><b>Bank items or deposits left out of opening</b><p>{{icon:check}}<span><strong>Listed and signed off</strong> together with the aging.</span></p></div>
+      <div class="jk-r" data-in style="--d:220ms"><small>Risk</small><b>SST / e-Invoices filed from both systems</b><p>{{icon:check}}<span><strong>One authoritative filing system</strong> per period; no overlapping LHDN submissions.</span></p></div>
+      <div class="jk-r" data-in style="--d:260ms"><small>Risk</small><b>Chart of Accounts mismatch</b><p>{{icon:check}}<span><strong>Mapping sheet reviewed and signed off</strong> before any import runs.</span></p></div>
+      <div class="jk-r" data-in style="--d:300ms"><small>Risk</small><b>Missing TINs cause MyInvois rejections</b><p>{{icon:check}}<span><strong>TIN and classification completeness</strong> checked in cleansing, before import.</span></p></div>
+      <div class="jk-r" data-in style="--d:340ms"><small>Risk</small><b>Migrated invoices re-sent to MyInvois</b><p>{{icon:check}}<span><strong>“Already e-invoiced” flag</strong> plus the stored UUID; the send action is blocked.</span></p></div>
+    </div>
+    <div class="jk-gate" data-in data-fx="right" style="--d:300ms">
+      <span class="jk-gh">Go / no-go at the close</span>
+      <div class="jk-light"><i></i><b data-jk="st">No-go</b><small data-jk="n">0 of 5 checks passed</small></div>
+      <ul class="jk-chk">
+        <li><button type="button" aria-pressed="false">Trial balance reconciles</button></li>
+        <li><button type="button" aria-pressed="false">Aging reconciles</button></li>
+        <li><button type="button" aria-pressed="false">Stock reconciles</button></li>
+        <li><button type="button" aria-pressed="false">Bank reconciles</button></li>
+        <li><button type="button" aria-pressed="false">MyInvois test passed</button></li>
+      </ul>
+      <button type="button" class="jk-run">{{icon:play}}Run the gate</button>
+    </div>
+  </div>
+  <p class="jk-own" data-in style="--d:400ms">{{icon:users}}<span><b>Owners named at every gate:</b> the Finance Lead signs the mapping sheet and the reconciliation pack; the go / no-go at the close is joint, only when TB, aging, stock and bank reconcile and the MyInvois test has passed.</span></p>
+  <aside class="notes"><p>Six risks, each with its control. The gate on the right is the go / no-go: tick the five checks one by one (or "Run the gate"). It only turns to Go when all five pass, and the decision is made jointly with JR-Tech's Finance Lead.</p></aside>
+</section>
+
+<!-- 16 · what we need -->
+<section class="slide" id="needs" data-title="What we need from JR-Tech">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>pre-migration checklist</span>
+      <h2 class="h-m" data-in style="--d:80ms">What we need <span class="hl">from JR-Tech.</span></h2>
+    </div>
+    <p class="jn-hint" data-in style="--d:160ms">{{icon:check}}Tick what's done, in the room.</p>
+  </div>
+  <div class="jn" data-i>
+    <ul class="jn-list">
+      <li data-in style="--d:120ms"><button type="button" aria-pressed="false"><span><b>Confirm SQL Account version</b> and edition; hand over a full database backup</span></button></li>
+      <li data-in style="--d:150ms"><button type="button" aria-pressed="false"><span><b>Sign off the Chart of Accounts</b> and the tax-code mapping sheet</span></button></li>
+      <li data-in style="--d:180ms"><button type="button" aria-pressed="false"><span><b>Authorise Odoo S.A.</b> as MyInvois intermediary on MyTax</span></button></li>
+      <li data-in style="--d:210ms"><button type="button" aria-pressed="false"><span><b>List all open AR / AP</b>, deposits, credit notes and unreconciled bank items</span></button></li>
+      <li data-in style="--d:240ms"><button type="button" aria-pressed="false"><span><b>Confirm TINs</b> for active B2B customers and suppliers; product and MSIC codes</span></button></li>
+      <li data-in style="--d:270ms"><button type="button" aria-pressed="false"><span><b>Confirm the last document numbers</b> so Odoo sequences continue without gaps</span></button></li>
+      <li data-in style="--d:300ms"><button type="button" aria-pressed="false"><span><b>Agree the cut-over date in writing</b>, tied to the exact close date</span></button></li>
+      <li data-in style="--d:330ms"><button type="button" aria-pressed="false"><span><b>Nominate a Finance Lead</b> and two UAT testers; attend staging training</span></button></li>
+      <li data-in style="--d:360ms"><button type="button" aria-pressed="false"><span><b>Generate MyInvois API credentials</b> (pre-production and production)</span></button></li>
+      <li data-in style="--d:390ms"><button type="button" aria-pressed="false"><span><b>Reconcile the opening trial balance</b> before anyone transacts</span></button></li>
+      <li data-in style="--d:420ms"><button type="button" aria-pressed="false"><span><b>Confirm the Malaysian localisation</b> (SST + MyInvois) is enabled in Odoo</span></button></li>
+      <li data-in style="--d:450ms"><button type="button" aria-pressed="false"><span><b>Archive SQL Account, don't delete it,</b> once sign-off is given</span></button></li>
+    </ul>
+    <div class="jn-side" data-in data-fx="right" style="--d:300ms">
+      <div class="jn-ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="jn-bg" cx="60" cy="60" r="50"/><circle class="jn-fg" cx="60" cy="60" r="50" pathLength="100"/></svg><span><b data-jn="n">0</b><small>of 12 done</small></span></div>
+      <p class="jn-say" data-jn="say">Twelve things only JR-Tech can do. Most are one-off confirmations.</p>
+    </div>
+  </div>
+  <aside class="notes"><p>The pre-migration checklist: twelve items that sit with JR-Tech. Tick them in the room as they're confirmed; the ring counts them. The PDF prints the list unticked, ready to work through.</p></aside>
+</section>
+
+<!-- 17 · part 03 -->
+<section class="slide dark" id="s3" data-title="03 · Post-implementation support">
+  <div class="jd">
+    <div class="jd-copy">
+      <b class="jd-n" data-in>03</b>
+      <h2 class="h-l" data-in style="--d:120ms">Support after <span class="hl">go-live.</span></h2>
+      <p class="lead" data-in style="--d:200ms">We don't disappear at go-live. A four-week confidence window, a formal trust sign-off, then ongoing support as you grow.</p>
+      <span class="jd-who" data-in style="--d:280ms"><small>Presents</small>Sky</span>
+    </div>
+    <nav class="jd-list" data-in data-fx="right" style="--d:260ms" aria-label="In this part">
+      <span class="jd-lh">In this part</span>
+      <button type="button" data-go="aftergolive" data-at="0"><i>{{icon:zap}}</i>Day 1 · go-live</button>
+      <button type="button" data-go="aftergolive" data-at="1"><i>{{icon:search}}</i>Weeks 1–4 · the confidence window</button>
+      <button type="button" data-go="aftergolive" data-at="2"><i>{{icon:pen}}</i>End of week 4 · trust sign-off</button>
+      <button type="button" data-go="aftergolive" data-at="3"><i>{{icon:lifebuoy}}</i>Then · ongoing support</button>
+    </nav>
+  </div>
+  <aside class="notes"><p>Part three, presented by Sky: what happens after go-live. Each line on the right jumps to that moment on the next slide.</p></aside>
+</section>
+
+<!-- 18 · after go-live -->
+<section class="slide" id="aftergolive" data-steps="3" data-title="The first month, and everything after">
+  <div class="sec-head">
+    <span class="kicker" data-in>after go-live</span>
+    <h2 class="h-m" data-in style="--d:80ms">The first month, <span class="hl">and everything after.</span></h2>
+  </div>
+  <div class="jl" data-i data-in style="--d:160ms">
+    <div class="jl-track" data-drag>
+      <i class="jl-line"><b></b></i>
+      <div class="jl-m" data-n="1" style="--x:0"><em>Go-live</em><b>Day 1</b><p>All new activity in Odoo; first MyInvois submissions from Odoo</p></div>
+      <div class="jl-m" data-n="2" style="--x:1"><em>Confidence window</em><b>Weeks 1–4</b><p>Spot-checks on live data; SQL Account read-only; nothing re-keyed</p></div>
+      <div class="jl-m" data-n="3" style="--x:2"><em>Trust sign-off</em><b>End of week 4</b><p>JR-Tech confirms Odoo is fully trusted; SQL Account archived for audit</p></div>
+      <div class="jl-knob" role="slider" tabindex="0" aria-label="Day after go-live" aria-valuemin="1" aria-valuemax="35" aria-valuenow="1"><b data-jl="d">Day 1</b></div>
+    </div>
+    <div class="jl-stat">
+      <span><small>System of record</small><b>{{odoo:account:22}}Odoo</b></span>
+      <span><small>SQL Account</small><b data-jl="sql">Read-only</b></span>
+      <span><small>Confidence window</small><b data-jl="win">Day 1 of 28</b></span>
+      <span><small>Re-keyed entries</small><b>0</b></span>
+    </div>
+  </div>
+  <h3 class="jl-h" data-in style="--d:240ms">Then, <span>ongoing support</span></h3>
+  <div class="jl-sup">
+    <div class="jl-s" data-in style="--d:280ms">{{icon:chat}}<b>User questions &amp; fixes</b><p>Day-to-day help as the team settles in</p></div>
+    <div class="jl-s" data-in style="--d:320ms">{{icon:graduation}}<b>Training top-ups</b><p>Refreshers and new-starter onboarding</p></div>
+    <div class="jl-s" data-in style="--d:360ms">{{icon:gear}}<b>Config change requests</b><p>Adjust views, fields and reports as you learn</p></div>
+    <div class="jl-s" data-in style="--d:400ms">{{icon:shield}}<b>LHDN &amp; SST updates</b><p>Rates and rules reconfirmed as they change</p></div>
+    <div class="jl-s" data-in style="--d:440ms">{{icon:plus}}<b>New modules as you grow</b><p>Phase 2 and 3 apps added when you're ready</p></div>
+  </div>
+  <aside class="notes"><p>Press → (or drag the marker) through the first month. Day 1: everything new happens in Odoo. Weeks one to four: spot-checks while SQL Account stays read-only. End of week four: JR-Tech signs off that Odoo is trusted, and SQL Account is archived for audit. After that, ongoing support.</p></aside>
+</section>
+
+<!-- 19 · part 04: the questions -->
+<section class="slide dark" id="s4" data-title="04 · Accounting and billing: what we need to know">
+  <div class="jd jd--q">
+    <div class="jd-copy">
+      <b class="jd-n" data-in>04</b>
+      <h2 class="h-l" data-in style="--d:120ms">Accounting &amp; billing: <span class="hl">what we need to know.</span></h2>
+      <p class="lead" data-in style="--d:200ms"><b>Your answers decide how Odoo is configured, not whether the migration works.</b> Groups 02 and 04 are the ones we most need answered in the room.</p>
+      <span class="jd-who" data-in style="--d:280ms"><small>Discovery</small><span data-jq="all">28 questions · 0 answered</span></span>
+    </div>
+    <div class="jq-tiles" data-in data-fx="right" style="--d:260ms">
+      <button type="button" class="jq-t" data-g="1" data-go="q-books"><i>01</i><b>Current books in SQL Account</b><small>What we are migrating from</small><span class="jq-pr"><u></u><em>0 / 5</em></span></button>
+      <button type="button" class="jq-t is-key" data-g="2" data-go="q-books"><i>02</i><b>Chart of Accounts &amp; tax</b><small>SST and LHDN MyInvois</small><span class="jq-pr"><u></u><em>0 / 5</em></span><strong>Key</strong></button>
+      <button type="button" class="jq-t" data-g="3" data-go="q-billing"><i>03</i><b>Billing: equipment &amp; projects</b><small>Quote to cash today</small><span class="jq-pr"><u></u><em>0 / 5</em></span></button>
+      <button type="button" class="jq-t is-key" data-g="4" data-go="q-billing"><i>04</i><b>Rental &amp; subscription billing</b><small>The new business model</small><span class="jq-pr"><u></u><em>0 / 5</em></span><strong>Key</strong></button>
+      <button type="button" class="jq-t" data-g="5" data-go="q-cash"><i>05</i><b>Collections, banks &amp; payables</b><small>Cash in, cash out</small><span class="jq-pr"><u></u><em>0 / 4</em></span></button>
+      <button type="button" class="jq-t" data-g="6" data-go="q-cash"><i>06</i><b>Reporting, controls &amp; people</b><small>Who needs what</small><span class="jq-pr"><u></u><em>0 / 4</em></span></button>
+    </div>
+  </div>
+  <aside class="notes"><p>The discovery questions: 28 in six groups. Tax set-up (group 02) and the new rental model (group 04) shape the chart of accounts and every invoice JR-Tech will send, so those come first if time is short. Click a group to jump to it; the counters fill as questions are marked answered.</p></aside>
+</section>
+
+<!-- 20 · questions 01 + 02 -->
+<section class="slide" id="q-books" data-title="Questions 01–02 · current books, chart of accounts and tax">
+  <div class="sec-head sec-head--row jq-head">
+    <div>
+      <span class="kicker" data-in>discovery questions · 01 and 02</span>
+      <h2 class="h-m" data-in style="--d:80ms">Your books today, <span class="hl">and your tax set-up.</span></h2>
+    </div>
+    <p class="jq-key" data-in style="--d:160ms"><span><i class="jq-k jq-k--ok">{{icon:check}}</i>Answered</span><span><i class="jq-k jq-k--fu">{{icon:clock}}</i>Follow up</span><em>Click a question to mark it</em></p>
+  </div>
+  <div class="jq">
+    <div class="jq-g" data-g="1" data-in style="--d:140ms">
+      <div class="jq-gh"><i>01</i><span><b>Current books in SQL Account</b><small>What we are migrating from</small></span><em class="jq-c">0 / 5</em></div>
+      <ol>
+        <li><button type="button" data-q="1.1"><i>1.1</i><span>Which <b>SQL Account version and edition</b> (desktop or cloud), and who supports it: in-house or a reseller?</span></button></li>
+        <li><button type="button" data-q="1.2"><i>1.2</i><span>How many <b>companies / databases</b> are kept? Will the Penang fabrication plant be its own company or a branch after consolidation?</span></button></li>
+        <li><button type="button" data-q="1.3"><i>1.3</i><span>What is the <b>financial year-end</b>, the date of the close now in progress, and is it audited?</span></button></li>
+        <li><button type="button" data-q="1.4"><i>1.4</i><span>How many <b>years of history</b> must stay searchable, and does the auditor need any detail moved, or only balances?</span></button></li>
+        <li><button type="button" data-q="1.5"><i>1.5</i><span>Which modules are used today: <b>stock, fixed assets, multi-currency, SQL Payroll</b>, project costing?</span></button></li>
+      </ol>
+    </div>
+    <div class="jq-g is-key" data-g="2" data-in style="--d:200ms">
+      <div class="jq-gh"><i>02</i><span><b>Chart of Accounts &amp; tax</b><small>SST and LHDN MyInvois</small></span><strong>Key</strong><em class="jq-c">0 / 5</em></div>
+      <ol>
+        <li><button type="button" data-q="2.1"><i>2.1</i><span>Is JR-Tech registered for <b>Sales Tax, Service Tax or both</b>? Which tax codes are used on equipment, installation and maintenance?</span></button></li>
+        <li><button type="button" data-q="2.2"><i>2.2</i><span>Where is JR-Tech on <b>e-Invoice (MyInvois)</b>: live, which phase, and via SQL's connector or the LHDN portal?</span></button></li>
+        <li><button type="button" data-q="2.3"><i>2.3</i><span>Do customers' invoices carry <b>TIN / BRN</b> today? How are walk-in or B2C sales handled: consolidated e-Invoice?</span></button></li>
+        <li><button type="button" data-q="2.4"><i>2.4</i><span>Are you happy to <b>re-map to Odoo's standard Malaysian COA</b>, or must certain account codes stay for the auditor?</span></button></li>
+        <li><button type="button" data-q="2.5"><i>2.5</i><span>Are <b>cost centres / departments</b> tracked (sales, technical, fabrication, rental) for P&amp;L by division?</span></button></li>
+      </ol>
+    </div>
+  </div>
+  <aside class="notes"><p>Group 01 tells us what we are migrating from. Group 02 is a key group: the tax registration, the MyInvois status and the chart of accounts decide how every invoice is set up. Click once for answered, twice for follow up, a third time to clear.</p></aside>
+</section>
+
+<!-- 21 · questions 03 + 04 -->
+<section class="slide" id="q-billing" data-title="Questions 03–04 · billing, rental and subscription">
+  <div class="sec-head sec-head--row jq-head">
+    <div>
+      <span class="kicker" data-in>discovery questions · 03 and 04</span>
+      <h2 class="h-m" data-in style="--d:80ms">How you bill today, <span class="hl">and the new rental model.</span></h2>
+    </div>
+    <p class="jq-key" data-in style="--d:160ms"><span><i class="jq-k jq-k--ok">{{icon:check}}</i>Answered</span><span><i class="jq-k jq-k--fu">{{icon:clock}}</i>Follow up</span><em>Click a question to mark it</em></p>
+  </div>
+  <div class="jq">
+    <div class="jq-g" data-g="3" data-in style="--d:140ms">
+      <div class="jq-gh"><i>03</i><span><b>Billing: equipment &amp; projects</b><small>Quote to cash today</small></span><em class="jq-c">0 / 5</em></div>
+      <ol>
+        <li><button type="button" data-q="3.1"><i>3.1</i><span>Who raises invoices today, and from what: <b>quotation, delivery order, job sheet or WhatsApp</b>?</span></button></li>
+        <li><button type="button" data-q="3.2"><i>3.2</i><span>Do kitchen fit-out projects use <b>deposits, progress / milestone billing</b> or retention? What percentages?</span></button></li>
+        <li><button type="button" data-q="3.3"><i>3.3</i><span>What are your standard <b>credit terms</b> (cash, 30, 60 days), and does any customer get special pricing or terms?</span></button></li>
+        <li><button type="button" data-q="3.4"><i>3.4</i><span>Are <b>delivery and installation</b> billed separately or bundled into the equipment price?</span></button></li>
+        <li><button type="button" data-q="3.5"><i>3.5</i><span>Are any sales or purchases in <b>foreign currency</b> (USD, RMB, SGD)? Do imports need landed-cost allocation?</span></button></li>
+      </ol>
+    </div>
+    <div class="jq-g is-key" data-g="4" data-in style="--d:200ms">
+      <div class="jq-gh"><i>04</i><span><b>Rental &amp; subscription billing</b><small>The new business model</small></span><strong>Key</strong><em class="jq-c">0 / 5</em></div>
+      <ol>
+        <li><button type="button" data-q="4.1"><i>4.1</i><span>How is a robotic rental priced: <b>fixed monthly fee</b>, usage-based or tiered, and what does the fee include?</span></button></li>
+        <li><button type="button" data-q="4.2"><i>4.2</i><span>Typical <b>contract length</b>, notice period and auto-renewal? Billed <b>in advance or in arrears</b>, and prorated mid-month?</span></button></li>
+        <li><button type="button" data-q="4.3"><i>4.3</i><span>Is a <b>security deposit</b> taken? How are damage, late return or early termination charged?</span></button></li>
+        <li><button type="button" data-q="4.4"><i>4.4</i><span>Do rental units stay <b>JR-Tech assets</b> (depreciated as a fleet), or are any sold as rent-to-own / hire purchase?</span></button></li>
+        <li><button type="button" data-q="4.5"><i>4.5</i><span>Should maintenance visits under a subscription be <b>free, capped or chargeable</b> beyond a quota?</span></button></li>
+      </ol>
+    </div>
+  </div>
+  <aside class="notes"><p>Group 03 is how billing works today, from quotation to invoice. Group 04 is a key group: the new rental model (pricing, contract terms, deposits, asset treatment and included maintenance) shapes the chart of accounts and every rental invoice.</p></aside>
+</section>
+
+<!-- 22 · questions 05 + 06 -->
+<section class="slide" id="q-cash" data-title="Questions 05–06 · collections, reporting and people">
+  <div class="sec-head sec-head--row jq-head">
+    <div>
+      <span class="kicker" data-in>discovery questions · 05 and 06</span>
+      <h2 class="h-m" data-in style="--d:80ms">Cash in, cash out, <span class="hl">and who needs what.</span></h2>
+    </div>
+    <p class="jq-key" data-in style="--d:160ms"><span><i class="jq-k jq-k--ok">{{icon:check}}</i>Answered</span><span><i class="jq-k jq-k--fu">{{icon:clock}}</i>Follow up</span><em>Click a question to mark it</em></p>
+  </div>
+  <div class="jq">
+    <div class="jq-g" data-g="5" data-in style="--d:140ms">
+      <div class="jq-gh"><i>05</i><span><b>Collections, banks &amp; payables</b><small>Cash in, cash out</small></span><em class="jq-c">0 / 4</em></div>
+      <ol>
+        <li><button type="button" data-q="5.1"><i>5.1</i><span>Which <b>banks and accounts</b> are used, and can statements be downloaded (CSV / OFX) for reconciliation?</span></button></li>
+        <li><button type="button" data-q="5.2"><i>5.2</i><span>How do customers pay: <b>transfer, DuitNow / FPX, cheque, card</b>? Would you want auto-debit for subscriptions?</span></button></li>
+        <li><button type="button" data-q="5.3"><i>5.3</i><span>Who chases overdue payments, and how? Would <b>automatic reminders</b> from Odoo be welcome?</span></button></li>
+        <li><button type="button" data-q="5.4"><i>5.4</i><span>How are supplier bills <b>approved</b> before payment, and how are technician <b>expenses / petty cash</b> claimed today?</span></button></li>
+      </ol>
+    </div>
+    <div class="jq-g" data-g="6" data-in style="--d:200ms">
+      <div class="jq-gh"><i>06</i><span><b>Reporting, controls &amp; people</b><small>Who needs what</small></span><em class="jq-c">0 / 4</em></div>
+      <ol>
+        <li><button type="button" data-q="6.1"><i>6.1</i><span>Which <b>monthly reports</b> does management read today (P&amp;L, aging, cash flow, job profitability)?</span></button></li>
+        <li><button type="button" data-q="6.2"><i>6.2</i><span>Who will use Odoo Accounting: <b>how many finance users</b>, and is an outside accountant or auditor involved?</span></button></li>
+        <li><button type="button" data-q="6.3"><i>6.3</i><span>Do you need <b>approval limits</b> (for example discounts, refunds, bills above RM X) or segregation of duties?</span></button></li>
+        <li><button type="button" data-q="6.4"><i>6.4</i><span>Should <b>technician commissions / KPI rewards</b> feed payroll from job data? Which payroll tool is used today?</span></button></li>
+      </ol>
+    </div>
+  </div>
+  <aside class="notes"><p>Group 05 covers money in and out: banks, payment methods, reminders and approvals. Group 06 covers reporting, users and controls. With these, the configuration questions are complete.</p></aside>
+</section>
+
+<!-- 23 · bring or send ahead -->
+<section class="slide" id="prep" data-title="Please bring or send ahead">
+  <div class="sec-head">
+    <span class="kicker" data-in>to prepare</span>
+    <h2 class="h-m" data-in style="--d:80ms">Please bring, <span class="hl">or send ahead.</span></h2>
+    <p class="je-lead" data-in style="--d:160ms">Exports from SQL Account are fine as they are: <b>we clean and map them.</b></p>
+  </div>
+  <div class="je" data-i>
+    <ul class="je-list">
+      <li data-in style="--d:180ms"><button type="button" aria-pressed="false">{{icon:calculator}}<span><b>Latest trial balance</b> and balance sheet (Excel)</span></button></li>
+      <li data-in style="--d:210ms"><button type="button" aria-pressed="false">{{icon:file}}<span><b>One sample invoice, DO</b> and quotation</span></button></li>
+      <li data-in style="--d:240ms"><button type="button" aria-pressed="false">{{icon:clock}}<span><b>AR and AP aging</b> as at the last month-end</span></button></li>
+      <li data-in style="--d:270ms"><button type="button" aria-pressed="false">{{icon:pen}}<span><b>A draft or sample rental agreement</b></span></button></li>
+      <li data-in style="--d:300ms"><button type="button" aria-pressed="false">{{icon:layers}}<span><b>Chart of Accounts</b> and tax-code list export</span></button></li>
+      <li data-in style="--d:330ms"><button type="button" aria-pressed="false">{{icon:box}}<span><b>Fixed-asset register</b> (if kept)</span></button></li>
+      <li data-in style="--d:360ms"><button type="button" aria-pressed="false">{{icon:users}}<span><b>Customer and supplier</b> master lists</span></button></li>
+      <li data-in style="--d:390ms"><button type="button" aria-pressed="false">{{icon:shield}}<span><b>SST / MyInvois</b> registration details</span></button></li>
+    </ul>
+    <div class="je-side" data-in data-fx="right" style="--d:300ms">
+      <span class="je-h">From this meeting</span>
+      <p class="je-n"><span><b data-je="ok">0</b><small>answered</small></span><span><b data-je="fu">0</b><small>to follow up</small></span><span><b data-je="open">28</b><small>not asked yet</small></span></p>
+      <p class="je-n je-n--docs"><span><b data-je="got">0</b><small>of 8 files received</small></span></p>
+      <button type="button" class="btn btn-primary je-copy">{{icon:file}}Copy the follow-up list</button>
+      <p class="je-say" data-je="say" aria-live="polite">Copies every question not yet answered, and every file still to come, ready to paste into an email.</p>
+      <button type="button" class="je-clear">{{icon:refresh}}Clear all marks</button>
+    </div>
+    <div class="je-out" hidden>
+      <p class="je-out-h"><b>The follow-up list</b><span>This browser didn't allow copying for us: select the text and copy it.</span><button type="button" class="je-out-x">Close</button></p>
+      <textarea readonly aria-label="The follow-up list"></textarea>
+    </div>
+  </div>
+  <aside class="notes"><p>The files that let us start mapping before the next session. Tick what JR-Tech has already sent. "Copy the follow-up list" puts every question still open (follow-ups first) and every missing file on the clipboard, to paste into the follow-up email.</p></aside>
+</section>
+
+<!-- 24 · thank you -->
+<section class="slide dark" id="contact" data-title="Thank you" data-chrome="foot">
+  <div class="split split--narrow">
+    <div>
+      <div class="hx-lock hx-lock--sm" data-in><img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40"><i></i><img class="hx-co jc-co jc-co--sm" src="assets/img/clients/jrtech-white.png" alt="JR-Tech Solution" width="149" height="30"></div>
+      <span class="kicker" data-in style="--d:80ms">thank you</span>
+      <h2 class="h-xl ct-h" data-in style="--d:140ms">Let's set <span class="hl">the cut-over date.</span></h2>
+      <p class="lead" data-in style="--d:220ms">And get JR-Tech onto Odoo, with every figure reconciled before you trust it.</p>
+      <div class="jz-team" data-in style="--d:300ms"><span><b>AJ</b>Accounting migration</span><span><b>Sky</b>AI blueprint &amp; support</span><span><b>Migui &amp; Jett</b>Odoo modules</span></div>
+      <div class="ct-actions" data-in style="--d:360ms">
+        <a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener">{{icon:calendar}}Book a call</a>
+        <a class="btn btn-ghost" href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      </div>
+      <div class="ct-links" data-in style="--d:420ms"><a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a><a href="https://technext.asia/" target="_blank" rel="noopener">{{icon:globe}}technext.asia</a></div>
+    </div>
+    <div class="ct-qr" data-in data-fx="scale" style="--d:300ms"><div class="ct-qr-card">{{qr:meet}}<b>Scan to book a time</b><small>Discovery call with TechNext · 30 min online</small></div></div>
+  </div>
+  <aside class="notes"><p>Close on the next step: agree the cut-over date, tied to the close. The team: AJ for the accounting migration, Sky for the AI blueprint and support, Migui and Jett for the Odoo modules.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/fx.js?v={{v}}"></script>
+<script src="assets/proposal.js?v={{v}}"></script>
+<script src="assets/jrtech.js?v={{v}}"></script>
+</body>
+</html>
