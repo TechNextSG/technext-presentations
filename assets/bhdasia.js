@@ -36,7 +36,7 @@
     mods: ['No custom modules.', 'Odoo Online doesn’t run them, and nothing here needs one. A custom module has to be kept working through every Odoo upgrade: a recurring cost, and code only its author knows.'],
     apps: ['No third-party apps.', 'No app-store add-ons: no extra licences, and nothing that waits on another vendor before you can upgrade.'],
     code: ['No scripts, no outbound calls.', 'Nothing inside the database calls out to another service. That is exactly why the Zoom link sits outside this scope.'],
-    cfg: ['Configuration, by TechNext.', 'Products, events, booking types, emails, surveys and access rights, set up once in Odoo’s standard screens. You can open and change every one of them.'],
+    cfg: ['Configuration, by TechNext.', 'Products, events, booking types, emails, surveys, automation rules and access rights, set up once in Odoo’s standard screens. You can open and change every one of them.'],
     odoo: ['Odoo Online, from Odoo.', 'Odoo hosts, runs and upgrades the system. Every module in this scope is in the same per-user subscription.']
   };
   Deck.on('scope', {
@@ -158,17 +158,35 @@
     paint: function (s, n) { $('.e1-seats', s).style.setProperty('--p', (n >= 7 ? 10 : 9) / 12); }
   });
 
-  /* 6 · workflow 2: pick any free slot */
+  /* 6 · workflow 2: screened once (pass -> paid link, fail -> Discovery Call), then pay to book */
   flow('w2', {
     init: function (s) {
-      var g = $('.e2-grid', s);
-      s._slot = function (b) {
+      s._fail = false;
+      seg($('.e2-res', s), function (v) { s._fail = v === 'fail'; paint2(s, s._k || 0); });
+      var g = $('.e2-slots', s);
+      g.addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-s]'); if (!b) return;
         $$('button', g).forEach(function (x) { x.classList.toggle('is-pick', x === b); });
         $('[data-e2=when]', s).textContent = b.dataset.s;
-        $('[data-e2=rem]', s).textContent = 'Sent before ' + b.dataset.s;
-      };
-      g.addEventListener('click', function (e) { var b = e.target.closest('button[data-s]'); if (b) s._slot(b); });
-    }
+      });
+    },
+    paint: function (s, n) { paint2(s, n); }
+  });
+  function paint2(s, n) {
+    var sc = $('.e2', s), scored = n >= 2, f = s._fail;
+    sc.classList.toggle('is-fail', f); sc.classList.toggle('is-scored', scored); sc.classList.toggle('is-sent', n >= 3);
+    sc.style.setProperty('--sc', scored ? (f ? 35 : 88) : 0);
+    $('[data-e2=score]', s).textContent = scored ? (f ? '35%' : '88%') : '–';
+    $('[data-e2=verdict]', s).textContent = !scored ? 'Waiting for the answers' : f ? 'A red flag: not cleared' : 'No red flags: cleared';
+    $('[data-e2=mail]', s).textContent = f ? 'Book a free Discovery Call' : 'Your booking link · 1:1 session';
+    $('[data-e2=tag]', s).textContent = f ? 'Free' : 'Paid link';
+    $$('li[data-pass]', s).forEach(function (li) { li.classList.toggle('is-skip', f && n >= 3); });
+  }
+
+  /* 7 · screen at the front door: the order we avoid, then the one we build */
+  Deck.on('frontdoor', {
+    step: function (n, ctx, s) { var L = $$('.ek-lane', s); L[0].classList.toggle('is-on', n >= 1); L[1].classList.toggle('is-on', n >= 2); },
+    settle: function (s) { snap(s, function () { $$('.ek-lane', s).forEach(function (l) { l.classList.add('is-on'); }); }); }
   });
 
   /* 7 · workflow 3: three booking types, approved by hand */
@@ -284,29 +302,26 @@
     settle: function (s) { s._on = [false, false, false, false, false]; s._paint(); }
   });
 
-  /* ---------------------------------------------------------------- 15 · country and currency: decided once */
-  var EY_C = { SGD: 'Singapore', JPY: 'Japan', USD: 'Singapore' };
+  /* ---------------------------------------------------------------- 16 · settled: books in SGD, prices in any currency */
+  var EY = {
+    SGD: 'TRE™ Module 1 · Singapore cohort', USD: 'Any service on the USD pricelist', EUR: 'TRE™ Module 1 · Bucharest cohort',
+    GBP: 'UK school programme', JPY: 'Any service on the JPY pricelist'
+  };
   Deck.on('currency', {
     init: function (s) {
-      var win = $('.ey-win', s), post = $('.ey-post', s), say = $('[data-ey=say]', s), say0 = say.textContent;
-      s._reset = function () {
-        s._cur = null; win.classList.remove('is-locked'); post.disabled = true;
-        s._set(null, true); $('[data-ey=country]', s).textContent = 'Not chosen yet'; say.textContent = say0;
-      };
+      var win = $('.ey-win', s), say = $('[data-ey=say]', s), say0 = say.textContent;
       s._set = seg($('.ey-seg', s), function (v) {
-        s._cur = v; post.disabled = false;
-        $('[data-ey=country]', s).textContent = EY_C[v];
-        say.textContent = v + ' chosen. Nothing is posted yet, so it can still change.';
+        $('[data-ey=what]', s).textContent = EY[v]; $('[data-ey=pl]', s).textContent = v;
+        $('[data-ey=books]', s).textContent = v === 'SGD' ? 'Posted to the books as it is, in SGD' : 'Posted to the books in SGD at the day’s rate';
+        win.classList.remove('is-refused'); say.textContent = say0;
       });
-      post.addEventListener('click', function () {
-        if (!s._cur) return;
-        win.classList.add('is-locked'); post.disabled = true;
-        say.textContent = 'Locked. Entries now exist in ' + s._cur + ': changing the currency means clearing the books first.';
+      $('.ey-try', s).addEventListener('click', function () {
+        win.classList.add('is-refused');
+        say.textContent = 'Refused: journal entries already exist in SGD, so the company currency stays SGD.';
       });
-      $('.ey-reset', s).addEventListener('click', function () { s._reset(); });
     },
-    enter: function (ctx, s) { s._reset(); },
-    settle: function (s) { s._reset(); }
+    enter: function (ctx, s) { s._set('EUR'); },
+    settle: function (s) { s._set('EUR'); }
   });
 
   /* ---------------------------------------------------------------- 16 · the provider bundle: a network that grows */
@@ -378,6 +393,7 @@
     if (g.fu.length) out.push('To follow up (' + g.fu.length + ')', g.fu.join('\n'), '');
     if (g.open.length) out.push('Still open (' + g.open.length + ')', g.open.join('\n'), '');
     if (g.ok.length) out.push('Settled in the meeting (' + g.ok.length + ')', g.ok.join('\n'), '');
+    out.push('Settled on 6 October: books in SGD on the Singapore chart of accounts (pricelists in USD, EUR, GBP and JPY); back-office access: full admin.', '');
     out.push('These hold the quotation, not the build.');
     return { text: out.join('\n').trim() + '\n', n: [g.fu.length, g.open.length] };
   }
