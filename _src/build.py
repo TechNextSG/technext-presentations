@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "18"
+ASSET_V = "19"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -90,7 +90,7 @@ DECKS = [
              desc="An Odoo 20 service core beside GERP: breakdown calls, field visits, documents and installations for Makati, Cebu and Cagayan de Oro. A discussion draft."),
         dict(slug="jrtech-odoo-erp", title="JR-Tech Solution", mins=45, pdf="TechNext-JR-Tech-Odoo-ERP.pdf",
              alt="JR-Tech cover: moving JR-Tech onto Odoo ERP.",
-             desc="Eleven Odoo apps in three phases, the move from SQL Account to Odoo Accounting with SST and MyInvois, the cut-over runway and go / no-go gate, support after go-live, then the 28 accounting and billing questions, marked live in the room."),
+             desc="Eleven Odoo apps in three phases, the move from SQL Account to Odoo Accounting with SST and MyInvois, the cut-over runway and go / no-go gate, a narrated invoicing video with chapters, support after go-live, then the 28 accounting and billing questions, marked live in the room."),
     ]),
     ("Pricing", [
         dict(slug="erp-tiers", title="ERP tier list", mins=8, pdf="TechNext-ERP-Tier-List.pdf",

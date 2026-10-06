@@ -2,7 +2,8 @@
    device: venue Wi-Fi down, flight mode, a TV that loses the network. Registered by deck.js and index.js on the live site.
    Pages: network first, so an update shows as soon as there is a connection; the saved copy when there is none.
    Versioned files (?v=): the saved copy. Other files (pictures, PDFs, fonts): the saved copy at once, refreshed behind it.
-   A page asks for itself to be saved in full ({warm: [urls]}): the HTML, every file it points at, and what its CSS points at. */
+   A page asks for itself to be saved in full ({warm: [urls]}): the HTML, every file it points at, and what its CSS points at.
+   Video asks for byte ranges: those are cut from the saved copy (206), or go straight to the network when there is none. */
 var CACHE = 'tn-decks-1';
 
 self.addEventListener('install', function () { self.skipWaiting(); });
@@ -20,6 +21,12 @@ self.addEventListener('fetch', function (e) {
   if (req.method !== 'GET') return;
   var url = new URL(req.url);
   if (url.origin !== location.origin) return;
+  if (req.headers.has('range')) {
+    e.respondWith(caches.open(CACHE).then(function (k) { return k.match(req.url); }).then(function (hit) {
+      return hit ? ranged(hit, req.headers.get('range')) : fetch(req);
+    }));
+    return;
+  }
   if (isPage(req, url)) {
     e.respondWith(fetch(req).then(function (res) {
       if (res.ok) { var copy = res.clone(); caches.open(CACHE).then(function (k) { k.put(pageKey(req.url), copy); }); }
@@ -39,8 +46,20 @@ self.addEventListener('fetch', function (e) {
   }));
 });
 
-// saving a page in full: the HTML, then the files it names (src, data-src, href under assets/ or pdf/), then the fonts its CSS names
-var FILES = /\s(?:src|data-src|href)="((?:assets|pdf)\/[^"#]+)"/g, CSSURL = /url\(\s*['"]?([^)'"]+)['"]?\s*\)/g;
+// one byte range of a saved file, as the 206 a video element expects
+function ranged(res, range) {
+  return res.arrayBuffer().then(function (buf) {
+    var size = buf.byteLength, m = /bytes=(\d*)-(\d*)/.exec(range) || [], a = m[1] ? +m[1] : NaN, b = m[2] ? +m[2] : NaN, start, end;
+    if (isNaN(a)) { start = Math.max(0, size - (isNaN(b) ? size : b)); end = size - 1; } else { start = a; end = isNaN(b) ? size - 1 : Math.min(b, size - 1); }
+    if (start >= size || end < start) return new Response(null, { status: 416, headers: { 'Content-Range': 'bytes */' + size } });
+    return new Response(buf.slice(start, end + 1), { status: 206, statusText: 'Partial Content', headers: {
+      'Content-Type': res.headers.get('Content-Type') || 'application/octet-stream', 'Content-Range': 'bytes ' + start + '-' + end + '/' + size,
+      'Content-Length': String(end - start + 1), 'Accept-Ranges': 'bytes' } });
+  });
+}
+
+// saving a page in full: the HTML, then the files it names (src, data-src, href, poster under assets/ or pdf/), then the fonts its CSS names
+var FILES = /\s(?:src|data-src|href|poster)="((?:assets|pdf)\/[^"#]+)"/g, CSSURL = /url\(\s*['"]?([^)'"]+)['"]?\s*\)/g;
 function save(k, href) {
   return k.match(href).then(function (hit) {
     return hit || fetch(href).then(function (res) { if (!res.ok) return null; return k.put(href, res.clone()).then(function () { return res; }); });

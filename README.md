@@ -15,7 +15,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | ERP tier list | `erp-tiers.html` | 7 |
 | Marketing tier list | `marketing-tiers.html` | 7 |
 | Proposal: Hitachi Elevator Philippines | `hitachi-elevator-ph.html` | 14 |
-| Client deck: Moving JR-Tech onto Odoo ERP (modules, SQL Account migration, support, discovery questions) | `jrtech-odoo-erp.html` | 24 |
+| Client deck: Moving JR-Tech onto Odoo ERP (modules, SQL Account migration, invoicing video, support, discovery questions) | `jrtech-odoo-erp.html` | 25 |
 
 Live (unlisted, `noindex`): https://technextsg.github.io/technext-presentations/
 

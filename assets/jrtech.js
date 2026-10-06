@@ -399,6 +399,45 @@
     settle: function (s) { s._all(true); }
   });
 
+  /* ---------------------------------------------------------------- 16 · the invoicing video: chapters, pause on leave, presenter view in step */
+  Deck.on('video-ar', {
+    init: function (s) {
+      var v = $('.jf-v', s), box = $('.jf-player', s), chs = $$('.jf-ch button', s), bc = null;
+      // the presenter window stays silent: the sound comes from the screen the room watches
+      if (Deck.presenter) v.muted = true;
+      function at(t, then) {
+        if (v.readyState >= 1) { try { v.currentTime = t; } catch (e) {} if (then) then(); return; }
+        v.addEventListener('loadedmetadata', function once() { v.removeEventListener('loadedmetadata', once); try { v.currentTime = t; } catch (e) {} if (then) then(); });
+        v.load();
+      }
+      function play() { box.classList.add('is-started'); v.controls = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      s._start = function (t) { if (t == null) play(); else at(t, play); };
+      function mark() {
+        var t = v.currentTime, cur = -1;
+        chs.forEach(function (b, i) { if (t >= +b.dataset.t - .3) cur = i; });
+        chs.forEach(function (b, i) { b.classList.toggle('is-on', box.classList.contains('is-started') && i === cur); });
+      }
+      $('.jf-play', s).addEventListener('click', function () { s._start(null); });
+      chs.forEach(function (b) { b.addEventListener('click', function () { s._start(+b.dataset.t); }); });
+      v.addEventListener('timeupdate', mark); v.addEventListener('seeked', mark);
+      // presenter view (P) opens a second window: play, pause and seek in either one and the other follows
+      try { bc = new BroadcastChannel('jrtech-odoo-erp-video'); } catch (e) {}
+      if (bc) {
+        function send(a) { bc.postMessage({ a: a, t: v.currentTime }); }
+        v.addEventListener('play', function () { send('play'); });
+        v.addEventListener('pause', function () { send('pause'); });
+        v.addEventListener('seeked', function () { send('seek'); });
+        bc.onmessage = function (e) {
+          var m = e.data || {}, far = Math.abs(v.currentTime - m.t) > .6;
+          if (m.a === 'play' && (v.paused || far)) { if (far) at(m.t, play); else play(); }
+          else if (m.a === 'pause' && !v.paused) { v.pause(); if (far) at(m.t); }
+          else if (m.a === 'seek' && far) at(m.t);
+        };
+      }
+    },
+    leave: function (s) { var v = $('.jf-v', s); if (!v.paused) v.pause(); }
+  });
+
   /* ---------------------------------------------------------------- tick lists kept for the meeting: checklist, questions, files */
   var K = { needs: 'jrtech-odoo-erp:needs', q: 'jrtech-odoo-erp:q', files: 'jrtech-odoo-erp:files' };
   var NEEDS = store.get(K.needs) || [], Q = store.get(K.q) || {}, FILES = store.get(K.files) || [];
@@ -510,7 +549,7 @@
     settle: function () { paintQ(); }
   });
 
-  /* ---------------------------------------------------------------- 18 · the first month, on a track you can drag */
+  /* ---------------------------------------------------------------- 19 · the first month, on a track you can drag */
   // the track is a schematic: day 1, the window from day 8, sign-off on day 28, ongoing by day 35
   var JL_PTS = [[1, 1], [8, 34], [28, 68], [35, 99]], JL_DAY = [1, 14, 28, 35];
   function dayPct(d) { for (var i = 1; i < JL_PTS.length; i++) if (d <= JL_PTS[i][0]) { var a = JL_PTS[i - 1], b = JL_PTS[i]; return a[1] + (d - a[0]) / (b[0] - a[0]) * (b[1] - a[1]); } return 99; }
