@@ -4,10 +4,14 @@
 
 /* ---------------------------------------------------------------- shared: the lockup with two client marks */
 .ec-lock{gap:22px}
-.ec-bhd{height:46px}
-.ec-hb{height:40px;margin-left:-4px}
-.ec-bhd--sm{height:38px}
-.ec-hb--sm{height:33px}
+.ec-bhd{height:58px}
+.ec-hb{height:46px;margin-left:-2px}
+.hx-lock--sm .ec-bhd--sm{height:48px}
+.hx-lock--sm .ec-hb--sm{height:38px}
+/* the slide header: BHD's mark is near-square, so it needs more height than a wordmark (deck.css gives 19px);
+   dark slides carry the official mark on a white tile, because its navy bars and white gaps vanish on navy */
+.s-co{height:34px}
+.dark .s-co{height:40px}
 .hx-lock--sm.ec-lock{gap:18px}
 
 /* ---------------------------------------------------------------- 1 · cover */
