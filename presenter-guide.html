@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E4691">
+<title>Presenter Scripts · TechNext</title>
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="stylesheet" href="assets/fonts.css?v=29">
+<style>
+:root{
+  --blue:#3167CA;--blue-700:#1E4691;--blue-900:#132B5C;--blue-300:#6FA0F5;--blue-100:#DDE7F8;--blue-050:#EAF0FB;
+  --ink:#0E1A33;--body:#33405A;--muted:#6B7690;--line:#E3E8F2;--bg:#F6F8FC;--card:#fff;
+  --joke:#FFF6DB;--joke-ink:#7A5200;--joke-line:#F3DE9C;--do:#EEF7F1;--do-ink:#1D6B41;--warn:#FDECEC;--warn-ink:#A12B2B;
+  --f-display:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-body:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-hand:Caveat,"Segoe Print",cursive;
+  --r:16px;--shadow:0 1px 2px rgba(14,26,51,.05),0 8px 24px -12px rgba(14,26,51,.12);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ink:#EEF2FA;--body:#C3CCDD;--muted:#8E99B0;--line:#26324D;--bg:#0B1222;--card:#121B30;--blue-050:#16264A;--blue-100:#1E3360;
+  --joke:#2B2410;--joke-ink:#F2D27A;--joke-line:#4A3D17;--do:#10261B;--do-ink:#8FD9AE;--warn:#2E1515;--warn-ink:#F2A3A3;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.5)}}
+:root[data-theme="dark"]{
+  --ink:#EEF2FA;--body:#C3CCDD;--muted:#8E99B0;--line:#26324D;--bg:#0B1222;--card:#121B30;--blue-050:#16264A;--blue-100:#1E3360;
+  --joke:#2B2410;--joke-ink:#F2D27A;--joke-line:#4A3D17;--do:#10261B;--do-ink:#8FD9AE;--warn:#2E1515;--warn-ink:#F2A3A3;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.5)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+body{margin:0;background:var(--bg);color:var(--body);font:16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3{font-family:var(--f-display);color:var(--ink);letter-spacing:-.02em;margin:0}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top-in{max-width:1240px;margin:0 auto;padding:12px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto;min-width:0}
+.brand img{height:22px;width:auto}
+.brand .dk{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand .lt{display:none}:root:not([data-theme="light"]) .brand .dk{display:block}}
+:root[data-theme="dark"] .brand .lt{display:none}:root[data-theme="dark"] .brand .dk{display:block}
+.brand span{font:700 13px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.tabs{display:flex;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px}
+.tab{border:0;background:none;padding:8px 16px;border-radius:999px;font:600 14px/1 var(--f-display);color:var(--muted);transition:background .2s,color .2s}
+.tab[aria-selected="true"]{background:var(--blue);color:#fff}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chk{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);font:600 13px/1 var(--f-display);color:var(--body);user-select:none;cursor:pointer}
+.chk input{accent-color:var(--blue);margin:0}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:9px 16px;background:var(--blue);color:#fff;font:700 13px/1 var(--f-display);text-decoration:none;transition:transform .15s,background .2s}
+.btn:hover{background:var(--blue-700)}.btn:active{transform:scale(.97)}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--blue-050)}
+.search{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font:14px/1 var(--f-body);width:170px}
+
+/* hero */
+.wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+.hero{padding:40px 0 28px;display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:end}
+.kicker{font:600 30px/1 var(--f-hand);color:var(--blue);display:inline-block;transform:rotate(-1.5deg);margin-bottom:8px}
+.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.05;font-weight:800}
+.hero p{font-size:18px;margin:14px 0 0;max-width:640px;text-wrap:pretty}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow)}
+.fact b{display:block;font:800 22px/1.1 var(--f-display);color:var(--ink)}
+.fact small{font:600 12px/1.3 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.brief{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 28px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow)}
+.panel h3{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-700);margin-bottom:8px}
+:root[data-theme="dark"] .panel h3{color:var(--blue-300)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .panel h3{color:var(--blue-300)}}
+.panel ul{margin:0;padding-left:18px}.panel li{margin:4px 0}
+.panel.rules{border-color:color-mix(in srgb,var(--warn-ink) 30%,var(--line))}
+.panel.rules h3{color:var(--warn-ink)}
+.cast{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.who{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:var(--blue-050);color:var(--blue-700);font:700 12px/1 var(--f-display)}
+:root[data-theme="dark"] .who{color:var(--blue-300)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .who{color:var(--blue-300)}}
+
+/* layout */
+.main{display:grid;grid-template-columns:250px 1fr;gap:28px;padding-bottom:80px}
+.toc{position:sticky;top:132px;align-self:start;max-height:calc(100vh - 150px);overflow:auto;padding-right:4px}
+.toc h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc a{display:grid;grid-template-columns:28px 1fr;gap:6px;padding:6px 8px;border-radius:8px;text-decoration:none;color:var(--body);font-size:13.5px;line-height:1.35}
+.toc a:hover{background:var(--blue-050)}
+.toc a.on{background:var(--blue-050);color:var(--ink);font-weight:600}
+.toc a i{font:700 12px/1.6 var(--f-display);color:var(--muted);font-style:normal}
+.toc .part{font:700 11px/1 var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin:14px 8px 4px}
+
+.part-h{display:flex;align-items:center;gap:12px;margin:34px 0 14px;font:700 13px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.part-h:first-child{margin-top:0}
+.part-h::after{content:"";flex:1;height:1px;background:var(--line)}
+.slide{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin:0 0 16px;overflow:hidden}
+.s-head{display:flex;gap:14px;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.num{flex:none;width:42px;height:42px;border-radius:12px;background:var(--blue);color:#fff;display:grid;place-items:center;font:800 17px/1 var(--f-display)}
+.s-title{flex:1;min-width:200px}
+.s-title h2{font-size:20px;line-height:1.25}
+.s-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;font:600 12px/1 var(--f-display);color:var(--muted)}
+.s-meta span{display:inline-flex;align-items:center;gap:5px}
+.open{font:700 12px/1 var(--f-display);text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid var(--line);color:var(--blue);white-space:nowrap}
+.open:hover{background:var(--blue-050)}
+.s-body{padding:18px 20px 20px;display:grid;gap:14px}
+.lbl{font:700 11px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+.say .lbl{color:var(--blue)}
+.say p{margin:0 0 10px;font-size:17px;line-height:1.65;color:var(--ink);text-wrap:pretty}
+.say p:last-child{margin:0}
+.say p b{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--blue) 22%,transparent) 62%)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.do{background:var(--do);border-radius:12px;padding:12px 14px}
+.do .lbl{color:var(--do-ink)}
+.do ul{margin:0;padding-left:18px;font-size:14.5px}.do li{margin:3px 0}
+.next{border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:14.5px}
+.next .lbl{color:var(--muted)}
+.next p{margin:0;font-style:italic;color:var(--ink)}
+.joke{background:var(--joke);border:1px solid var(--joke-line);border-radius:12px;padding:12px 14px;position:relative}
+.joke .lbl{color:var(--joke-ink)}
+.joke p{margin:0;color:var(--ink);font-size:15.5px}
+.joke small{display:block;margin-top:6px;color:var(--joke-ink);font-size:12.5px}
+.watch{background:var(--warn);border-radius:12px;padding:10px 14px;font-size:14px;color:var(--warn-ink)}
+.watch b{font-family:var(--f-display)}
+body.no-jokes .joke{display:none}
+body.say-only .do,body.say-only .next,body.say-only .watch{display:none}
+body.say-only .row{display:block}
+.slide.hidden,.part-h.hidden{display:none}
+mark{background:#FFE58A;color:inherit;border-radius:3px}
+
+/* rehearse overlay */
+.reh{position:fixed;inset:0;z-index:50;background:var(--bg);display:none;grid-template-rows:auto 1fr auto}
+.reh.on{display:grid}
+.reh-top{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.reh-top h3{font-size:15px;margin-right:auto}
+.timer{font:800 18px/1 var(--f-display);color:var(--ink);font-variant-numeric:tabular-nums;padding:8px 12px;border-radius:10px;background:var(--card);border:1px solid var(--line)}
+.timer.over{color:var(--warn-ink)}
+.reh-mid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;padding:18px 16px;overflow:auto;min-height:0}
+.stage{position:relative;aspect-ratio:16/9;background:#0C1530;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);align-self:start}
+.stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.stage .hint{position:absolute;left:10px;bottom:8px;font:600 11px/1 var(--f-display);color:rgba(255,255,255,.7);pointer-events:none}
+.reh-script{overflow:auto;min-height:0}
+.reh-script .num{display:inline-grid;margin-bottom:10px}
+.reh-script h2{font-size:24px;margin-bottom:6px}
+.reh-script .say p{font-size:20px}
+.reh-script > *{margin-bottom:14px}
+.reh-bot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 16px;border-top:1px solid var(--line)}
+.dots{display:flex;gap:4px;flex-wrap:wrap;justify-content:center;flex:1}
+.dots button{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:var(--line)}
+.dots button.on{background:var(--blue);transform:scale(1.3)}
+.dots button.done{background:var(--blue-300)}
+
+footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13px;color:var(--muted)}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr}.brief{grid-template-columns:1fr}
+  .main{grid-template-columns:1fr}.toc{display:none}
+  .reh-mid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .top{position:static}html{scroll-padding-top:16px}
+  .row{grid-template-columns:1fr}.search{width:100%}.tools{width:100%}
+  .brand span{display:none}.s-body{padding:14px 16px 16px}.s-head{padding:14px 16px}
+  .say p{font-size:16px}.reh-script .say p{font-size:17px}
+}
+@media print{
+  .top,.toc,.reh,.open,footer{display:none!important}
+  body{background:#fff}.main{display:block}.slide{break-inside:avoid;box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="top-in">
+  <div class="brand">
+    <img class="lt" src="assets/img/logo-horizontal.png" alt="TechNext">
+    <img class="dk" src="assets/img/logo-horizontal-white.png" alt="TechNext">
+    <span>Presenter scripts · internal</span>
+  </div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="tools">
+    <input class="search" id="q" type="search" placeholder="Find a line…" aria-label="Search the scripts">
+    <label class="chk"><input type="checkbox" id="jk" checked> Jokes</label>
+    <label class="chk"><input type="checkbox" id="so"> Script only</label>
+    <button class="btn" id="go">▶ Rehearse</button>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <span class="kicker" id="kick"></span>
+      <h1 id="h1"></h1>
+      <p id="lede"></p>
+    </div>
+    <div class="facts" id="facts"></div>
+  </section>
+  <section class="brief" id="brief"></section>
+  <div class="main">
+    <nav class="toc" id="toc" aria-label="Slides"></nav>
+    <div id="slides"></div>
+  </div>
+</main>
+
+<div class="reh" id="reh" role="dialog" aria-label="Rehearse">
+  <div class="reh-top">
+    <h3 id="rehT"></h3>
+    <span class="timer" id="clk" title="Time on this slide / target">0:00</span>
+    <a class="btn ghost" id="rehOpen" target="_blank" rel="noopener">Open deck ↗</a>
+    <button class="btn ghost" id="rehX">Close (Esc)</button>
+  </div>
+  <div class="reh-mid">
+    <div class="stage"><iframe id="ifr" title="Live slide" loading="lazy"></iframe><span class="hint">Live slide · click inside to play its builds</span></div>
+    <div class="reh-script" id="rehS"></div>
+  </div>
+  <div class="reh-bot">
+    <button class="btn ghost" id="prev">← Prev</button>
+    <div class="dots" id="dots"></div>
+    <button class="btn" id="next">Next →</button>
+  </div>
+</div>
+
+<footer><div class="wrap">Internal only: for TechNext presenters, never for clients. Scripts follow the decks' speaker notes and content rules; jokes are optional and clean. Last updated 7 October 2026.</div></footer>
+
+<script>
+/* ---------- DATA ---------- */
+const DECKS = {
+jrtech: {
+  tab: "JR-Tech · Odoo ERP",
+  url: "jrtech-odoo-erp.html",
+  kicker: "Client walk-through",
+  title: "JR-Tech: Moving onto Odoo ERP",
+  lede: "A 25-slide, four-presenter walk-through: the modules, the accounting move from SQL Account, support after go-live, then 28 discovery questions answered in the room. The goal is one thing: agree the cut-over date.",
+  facts: [["25","slides"],["~50 min","running time"],["4","presenters"],["28","questions to ask"]],
+  cast: ["Lead · opening & close","Jett & Phillip · modules","AJ · accounting migration","Sky · AI blueprint & support","Migui & Jett · Odoo modules"],
+  goal: ["Leave with an agreed cut-over date, tied to a month-end close.","Get the KEY question groups answered: 02 tax set-up and 04 rental model.","Leave the room with the follow-up list copied (slide 24)."],
+  rules: ["Say <b>Odoo Ready Partner</b>, never \"certified\".","Every figure on the demos is <b>sample data</b>: say so if asked.","SST and MyInvois are Odoo's Malaysian localisation inside Accounting, not a separate app.","No prices in this deck. Licences are Odoo's, per user per month; we quote the implementation separately."],
+  parts: {1:"Opening",3:"Part 01 · The modules",9:"Part 02 · The accounting move",18:"Part 03 · Support",20:"Part 04 · Questions",25:"Close"},
+  slides: [
+  {t:"Moving JR-Tech onto Odoo ERP.", who:"Lead", min:2,
+   say:["Good morning everyone, and thank you for the time. I'm from TechNext, and today we're going to walk you through exactly how JR-Tech moves onto Odoo ERP.",
+        "We've split it into four parts. First, <b>the modules</b>: what you'll get, app by app, with Jett and Phillip. Second, <b>the accounting move</b> from SQL Account, with AJ. Third, <b>support after go-live</b>, with Sky. And last, the part we need you for most: <b>the accounting and billing questions</b>, answered right here in the room.",
+        "By the end, we'd like to agree one thing together: the cut-over date."],
+   do:["Point at the agenda buttons: each jumps to its part.","Let the ring animate before you start talking."],
+   joke:"AJ promised me the accounting part is the most exciting part of today. To be fair, AJ is also the only person I've ever heard say that sentence.",
+   next:"Before we zoom in, here's the whole journey on one page."},
+  {t:"Your journey onto Odoo, mapped end to end.", who:"Lead", min:2,
+   say:["This is the whole journey on one page. We start by <b>migrating the books</b>. Then we roll out the applications in <b>three phases</b>, so your team never has to learn everything at once. <b>Go-live happens at a month-end close</b>, and after that, <b>support</b> carries on.",
+        "Along the bottom is what every phase uses: contacts, documents, mobile access, user rights and Studio. That's the shared foundation, so nothing gets rebuilt from phase to phase.",
+        "Running through all of it is the AI blueprint, which Sky will talk about later."],
+   do:["Click a stage to open its detail.","\"Go to it\" jumps to that slide, use it only if they ask."],
+   joke:"Think of it like a road trip: migration is packing the car, the phases are the stops, go-live is arriving, and support is us making sure nobody gets carsick on the way.",
+   next:"Let's start with what you actually get. Jett, over to you."},
+  {t:"The modules you'll get.", who:"Jett & Phillip", min:1,
+   say:["Thanks. In this first part, Phillip and I will take you through the modules: what JR-Tech gets, app by app, in plain English. No jargon, and if we slip into any, please stop us.",
+        "On the right is everything we'll cover. We'll go in order, but if there's one you care about most, tell us and we'll jump straight to it."],
+   do:["Click a line on the right to jump, only if they ask for one."],
+   joke:"Think of Phillip and me as your tour guides for the next fifteen minutes. No souvenir shop, but plenty of answers.",
+   next:"First, the one idea behind all of it."},
+  {t:"One system, not three.", who:"Jett & Phillip", min:2,
+   say:["Here's the big idea. Let's follow <b>one combi oven</b> through its life at JR-Tech.",
+        "It starts as a <b>quotation</b> in Sales. When the deal is won, Inventory <b>reserves that exact serial number</b>. Field Service records the <b>signed installation</b>. Maintenance gives it a <b>service plan</b>. And Accounting tracks its <b>depreciation</b>.",
+        "Five apps, but it's <b>one record</b>. Nobody re-types anything. So when we say three phases, we don't mean three systems. Each phase just adds apps to the same database."],
+   do:["Press → five times; one app lights per press.","Pause on the last build so they see all five on one record."],
+   joke:"Today that oven probably gets typed into more systems than most of us fill in forms in a year. In Odoo it gets typed once. It can finally retire from paperwork.",
+   next:"So which apps come when?"},
+  {t:"Three phases, eleven applications.", who:"Jett & Phillip", min:1,
+   say:["Eleven applications, in three phases. Phase one runs your <b>front office</b>: selling, invoicing, the books. Phase two runs <b>the real world</b>: stock, buying, field work, maintenance and rental. Phase three is about <b>getting decisions out of the data</b>.",
+        "You'll see SST and MyInvois listed but not counted. That's because they come with Odoo's <b>Malaysian localisation inside Accounting</b>. It's not a separate app for your team to learn."],
+   do:["Use the phase filter to talk one column at a time.","Click a phase header to jump to its slide."],
+   joke:"Eleven apps in three phases is a bit like a good buffet. Nobody puts everything on their plate on the first trip.",
+   watch:"Don't count SST + MyInvois as an app. It's the localisation inside Accounting.",
+   next:"Let's open phase one."},
+  {t:"The apps that run your front office.", who:"Jett & Phillip", min:2,
+   say:["Phase one, app by app.",
+        "<b>CRM</b>: deals belong to the company, not to one person. If a salesperson leaves, the pipeline stays.",
+        "<b>Sales</b>: a quotation template loads a long quote in seconds.",
+        "<b>Accounting</b>: you see margins per business line, not just one total.",
+        "<b>SST and MyInvois</b>: e-Invoices go to LHDN straight from Odoo, and your SST-02 comes from live data, not a spreadsheet.",
+        "And the <b>Website</b>: every enquiry becomes a CRM lead automatically."],
+   do:["Press → or click each card to play its mini demo.","Give each card one sentence, then move on."],
+   joke:"With CRM, when a salesperson leaves, the pipeline stays with the company. They can keep the company pen. We're not monsters.",
+   next:"That's the office. Now the physical side of the business."},
+  {t:"The apps that run the real world.", who:"Jett & Phillip", min:2,
+   say:["Phase two is the physical layer.",
+        "<b>Inventory</b> reserves a serial to one build, so the same unit can't be sold twice. <b>Purchase</b> holds a supplier bill to what was actually received. <b>Field Service</b> puts every hour and every part from the signed worksheet straight onto the invoice.",
+        "<b>Maintenance</b> generates the preventive schedule and checks a unit before it goes out again. And <b>Rental</b> books by date, so a unit can't be hired out twice, and it shows you the margin <b>after</b> depreciation."],
+   do:["Press → or click each card; every card has its own live vignette."],
+   joke:"Rental books by date, so the same unit can't be hired twice. Honestly, I wish every office meeting room worked like this.",
+   next:"And once all that data is in one place, here's what you can do with it."},
+  {t:"Getting decisions out of the data.", who:"Jett & Phillip", min:2,
+   say:["Phase three. First, the <b>dashboard</b>. Say September's margin dropped. Click the drop, and the <b>six jobs that caused it</b> appear. Every figure drills down to the records behind it.",
+        "Second, the <b>AI agent</b>. It answers from JR-Tech's own data. When it prepares something, like a bill read from a supplier PDF, it <b>waits for a person to confirm</b>. Nothing is posted on its own. You stay in control."],
+   do:["Press → twice: dashboard first, then the AI agent.","Click the September drop to reveal the six jobs.","Show Confirm / Discard on the AI bill."],
+   joke:"Think of the AI agent as a very keen intern: fast, never tired, and absolutely not allowed to touch the bank account without asking.",
+   watch:"Never say the AI posts anything by itself. It always waits for a person.",
+   next:"That's the modules. Now the part everyone worries about: the books. AJ?"},
+  {t:"Your accounting, moved safely.", who:"AJ", min:1,
+   say:["Thanks Jett. I'm AJ, and I look after the accounting move: getting your books from SQL Account into Odoo Accounting.",
+        "If you remember one thing from my part, make it this: <b>nothing is deleted, everything is reconciled</b>, and only the last few days of the move are tied to the close. The rest happens quietly in the background while you work as normal."],
+   do:["Pause on the three words: safe, reconciled, close."],
+   joke:"My job today is to make an accounting migration sound safe. My second job is to make it sound exciting. I'll be honest: I'm only confident about the first one.",
+   next:"Let me start with the questions you're probably already thinking."},
+  {t:"\"Will this break our books?\" Here's the reassurance.", who:"AJ", min:2,
+   say:["Let me name the four worries out loud, before anyone has to ask.",
+        "One: <b>will we lose our history?</b> No. It's archived, not deleted.",
+        "Two: <b>will the numbers match?</b> Yes. Totals are reconciled <b>before</b> anyone transacts in Odoo.",
+        "Three: <b>who files with LHDN?</b> One system per period. Never both at once.",
+        "Four: <b>does the close change?</b> No. Your month-end close carries on as normal."],
+   do:["Press → or click each worry to reveal its answer (4 builds)."],
+   joke:"If anyone in the room was about to ask \"will this break our books?\", congratulations: you've just saved yourself a question.",
+   next:"The secret to all four answers is one clean cut-off."},
+  {t:"One clean cut-off, one system of record.", who:"AJ", min:2,
+   say:["Here's why the cut-off date matters. If I drag it into the <b>middle of a month</b>, look what happens: that month's transactions now live in <b>two ledgers</b>. Half in SQL Account, half in Odoo. That's a reconciliation headache nobody wants.",
+        "So we <b>cut at the close</b>. One period, one system. The months on screen are just an example; the real date is agreed with you in writing, and tied to your close."],
+   do:["Drag the cut-off into mid-month: it turns red.","Click \"Cut at the close\" to snap it back."],
+   joke:"Cutting over mid-month is like changing the tyres while you're still driving. It works in the movies. Your auditor will not enjoy the sequel.",
+   next:"So what exactly moves across?"},
+  {t:"What moves, and how.", who:"AJ", min:2,
+   say:["Each line moves the way it really should. The <b>chart of accounts is mapped</b>. Balances come in as <b>one opening journal</b>. Customers, suppliers and products are <b>cleaned</b> before they move. Open invoices and bills come across <b>with the correct aging</b>, so your reminders still make sense.",
+        "Two things <b>don't</b> move. <b>Tax codes</b> aren't imported at all: Odoo's Malaysian localisation configures them properly. And <b>prior-year detail</b> stays in SQL Account as a read-only archive. SQL Payroll is out of scope."],
+   do:["Let the lines travel; point at the tax-code line and the archive."],
+   joke:"We don't import tax codes. Odoo configures them. Which is good news, because I've seen people migrate tax codes by hand, and they don't like to talk about it.",
+   watch:"SQL Payroll is out of scope. Say it clearly if payroll comes up.",
+   next:"And here's how the move itself happens."},
+  {t:"How we migrate and cut over, in seven steps.", who:"AJ", min:2,
+   say:["Seven steps. The important bit: <b>steps one to five</b> run while SQL Account carries on as normal, and that includes a full <b>mock migration</b>, a dress rehearsal on real data.",
+        "Only the last part, the <b>final extract, the import and the reconcile</b>, is tied to the close. So your team keeps working right up to the line.",
+        "The account codes on the mapping example are illustrative."],
+   do:["Press → through all seven steps; read the caption under each."],
+   joke:"Five of the seven steps happen while you work as normal. You'll barely notice us. We're like good accountants: very quiet, right up until month-end.",
+   next:"Let me show you what the days around the close look like."},
+  {t:"Cut over at the close: here's the runway.", who:"AJ", min:2,
+   say:["This is the runway around the close. Look at the two bars underneath; they're the whole point.",
+        "At any moment there is <b>one system of record</b>, and <b>one e-Invoice sender</b>. They both switch at the close, together.",
+        "The go / no-go decision happens in the days <b>after</b> the close, <b>before</b> anyone transacts in Odoo."],
+   do:["Press → through the six builds.","Trace both bars with your hand as they switch."],
+   joke:"One system of record at a time. Two systems of record is how you get two versions of the truth, and nobody wants that conversation with the auditor.",
+   next:"And how do we decide it's safe to go?"},
+  {t:"Every risk has a control, and a go / no-go gate.", who:"AJ", min:2,
+   say:["Six risks, and every one has a control next to it. We'd rather show you the risks than pretend there aren't any.",
+        "On the right is the <b>go / no-go gate</b>. Five checks. It only turns to <b>Go</b> when all five pass, and the decision is made <b>jointly with your Finance Lead</b>. If one check fails, we fix it first. We don't go live on a hope."],
+   do:["Tick the five checks one by one, or click \"Run the gate\".","Wait for it to turn green before speaking again."],
+   joke:"It's like a pilot's checklist. We don't take off because the coffee's ready. We take off when all five lights are green.",
+   next:"Here's what day-to-day life in Odoo Accounting actually looks like."},
+  {t:"Getting paid, with less chasing.", who:"AJ", min:4,
+   say:["This is a short narrated video, about three and a half minutes, from our Odoo 20 accounting series. It's customer invoicing and receivables, and we built it around <b>monthly robot-rental invoices</b>, just like yours, on demo data.",
+        "Let's watch it, then I'll take any questions."],
+   do:["Click \"Play the video\" (sound on).","Double-click or press Z to zoom; Esc or Z to come back.","Chapter list jumps to any part if time is short."],
+   joke:"The video is three minutes and twenty-one seconds. Which is still shorter than the average \"gentle reminder\" phone call to a late-paying customer.",
+   watch:"Check the sound before the meeting. The presenter window is muted on purpose.",
+   next:"For all of this to go smoothly, here's what we need from your side."},
+  {t:"What we need from JR-Tech.", who:"AJ", min:2,
+   say:["Twelve items sit with JR-Tech before the migration. Let's tick them as we go: if something's already sorted, just tell me, and the ring fills up.",
+        "Anything we don't tick today goes into the follow-up email, so nothing gets lost."],
+   do:["Tick items as they're confirmed in the room."],
+   joke:"There's something very satisfying about watching this ring fill up. It's the closest accountants get to a video game.",
+   next:"That's the move. Now, what happens after go-live? Sky."},
+  {t:"Support after go-live.", who:"Sky", min:1,
+   say:["Thanks AJ. I'm Sky. I look after the AI blueprint and support after go-live.",
+        "Go-live isn't where we disappear. It's where the support starts. Each line on the right is a moment in that first month, and I'll walk you through it."],
+   do:["Each line jumps to that moment on the next slide."],
+   joke:"Go-live isn't the finish line. It's more like the start of a warranty, except with us, someone actually picks up the phone.",
+   next:"Here's the first month, day by day."},
+  {t:"The first month, and everything after.", who:"Sky", min:2,
+   say:["<b>Day one</b>: everything new happens in Odoo. <b>Weeks one to four</b>: we spot-check together, while SQL Account stays <b>read-only</b>, just in case you need to look something up.",
+        "At the <b>end of week four</b>, JR-Tech signs off that Odoo is trusted, and SQL Account is archived for audit. After that, ongoing support carries on, as long as you need it."],
+   do:["Press → or drag the marker through the month (3 builds)."],
+   joke:"For that first month SQL Account stays read-only. Think of it as a retirement party: it's still in the building, it just doesn't do any work.",
+   next:"Now it's your turn to talk. AJ, the questions."},
+  {t:"Accounting & billing: what we need to know.", who:"AJ", min:1,
+   say:["This is the most important part of today, and it's where we need you. We have <b>28 questions in six groups</b>.",
+        "Two of them are <b>key</b>: group 02, your <b>tax set-up</b>, and group 04, the new <b>rental model</b>. Those shape the chart of accounts and every invoice you'll send. So if time gets short, we'll do those first.",
+        "There are no wrong answers. \"Let me check\" is a perfectly good answer: we'll add it to the follow-up list."],
+   do:["Click a group tile to jump to it.","Counters fill as questions are marked."],
+   joke:"Twenty-eight questions. Don't worry, it's not an exam. The only answer we won't accept is \"just copy whatever we did in SQL Account\".",
+   next:"Let's start with your books today."},
+  {t:"Your books today, and your tax set-up.", who:"AJ", min:4,
+   say:["Group 01 tells us what we're migrating from. Group 02 is a <b>key group</b>: your tax registration, your MyInvois status, and the chart of accounts. Those decide how every invoice is set up.",
+        "Let's go through them one by one. I'll mark each as we go: one click means answered, two means we'll follow up."],
+   do:["One click = answered, two = follow up, three = clear.","Read each question out; don't rush group 02."],
+   joke:"One click for answered, two for follow up, three clicks clears it. Which is also exactly how I manage my gym membership.",
+   next:"Next, how you bill today."},
+  {t:"How you bill today, and the new rental model.", who:"AJ", min:4,
+   say:["Group 03 is how billing works today, from quotation to invoice.",
+        "Group 04 is the other <b>key group</b>: the new rental model. Pricing, contract terms, deposits, how the asset is treated, and what maintenance is included. That shapes the chart of accounts <b>and</b> every rental invoice, so the more detail here, the better."],
+   do:["Same click rule; mark follow-ups honestly."],
+   joke:"If the rental model is still being decided, that's completely fine. Better to decide it now than to discover it on the first invoice.",
+   next:"Last two groups: money in, money out."},
+  {t:"Cash in, cash out, and who needs what.", who:"AJ", min:3,
+   say:["Group 05 covers money in and out: your banks, payment methods, reminders and approvals. Group 06 covers reporting, users and controls: who needs to see what.",
+        "Once these are answered, we have everything we need to configure Odoo for JR-Tech."],
+   do:["Same click rule.","Watch the clock: KEY groups first if behind."],
+   joke:"Approvals are the one place where we actually want things to slow down. Everywhere else, we're trying to make you faster.",
+   next:"Finally, a few files we'd love to have."},
+  {t:"Please bring, or send ahead.", who:"AJ", min:1,
+   say:["These are the files that let us <b>start mapping before the next session</b>. If you've already sent any, I'll tick them now.",
+        "And here's the useful bit: <b>\"Copy the follow-up list\"</b> gathers every open question, follow-ups first, plus every missing file. That becomes our follow-up email today, so nothing gets forgotten."],
+   do:["Tick files already sent.","Click \"Copy the follow-up list\" before the meeting ends. Paste it into your email draft."],
+   joke:"The fastest migration in the world is the one where the files arrive before we do.",
+   watch:"Don't leave without copying the follow-up list. The marks only live in this browser.",
+   next:"Which brings us to the one decision we'd like today."},
+  {t:"Let's set the cut-over date.", who:"Lead", min:2,
+   say:["So, the next step is simple: let's <b>agree the cut-over date</b>, tied to a month-end close.",
+        "You've met the team: <b>AJ</b> for the accounting migration, <b>Sky</b> for the AI blueprint and support, and <b>Migui and Jett</b> for the Odoo modules. You'll get the follow-up list from us today.",
+        "Which month-end works best for you?"],
+   do:["Ask the date question, then stop talking and wait.","Point at the QR for the booking link if they want a follow-up call."],
+   joke:"The only date we need from you today is the cut-over date. Birthdays and anniversaries, we'll leave to you.",
+   next:"(End. Thank them, send the follow-up email the same day.)"}
+  ]
+},
+hst: {
+  tab: "HST Medical · Website",
+  url: "hst-medical-website.html",
+  kicker: "Website & AI review",
+  title: "HST Medical: Website, catalogue & AI",
+  lede: "A 19-slide, light-theme review: the website prototype and catalogue for feedback, AI for hstmedical.com, then why TechNext. Our goal is HST's feedback, captured live, and agreement to refine round by round.",
+  facts: [["19","slides"],["~40 min","running time"],["0","prices shown"],["10","questions to ask"]],
+  cast: ["Lead presenter","Optional: second voice for the AI part"],
+  goal: ["Capture HST's feedback live on slide 9 (must change / nice to have).","Learn their direction on slide 6 (AI, store that converts, brand support).","Get hosting access: staging waits on it (question 1 on slide 18)."],
+  rules: ["<b>No pricing anywhere</b>: no figures, no quotation talk, not even product prices. If asked, \"we'll send that separately\".","AI answers on slide 11 are <b>illustrative</b>; slide 13's AI answer is a <b>sample</b>, not a promise.","Never give medical advice or joke about anyone's health.","Say <b>Odoo Ready Partner</b>, never \"certified\". 11+ enterprise clients, 10+ countries only."],
+  parts: {1:"Opening",3:"Part 01 · Website & catalogue",9:"Part 02 · Feedback",10:"Part 03 · AI for the site",14:"Part 04 · Why TechNext",18:"Close"},
+  slides: [
+  {t:"Ready for your review.", who:"Lead", min:2,
+   say:["Good morning, and thank you for having us. Today has two parts, as we agreed.",
+        "First, <b>the website and the product catalogue</b>: we'll show you what we've built, and we want your honest feedback so we can agree the revisions. Second, <b>AI for the website</b>: what it can do for hstmedical.com, and just as important, what it should never do.",
+        "We'll close with why TechNext, and how we'd get there together."],
+   do:["Let the white logo card build itself first.","The three chips under the logo open what we've built."],
+   joke:"We have a lot to show you today, so I'll keep the introduction short. Like our timelines, as you'll see later.",
+   next:"Let's start where HST starts: its own story."},
+  {t:"Higher, Stronger, Together.", who:"Lead", min:2,
+   say:["Everything on this slide is HST's own. <b>Higher, Stronger, Together</b>, the philosophy from your About page. The Heng Say Tong medical hall from <b>1930</b>. Incorporation in <b>1994</b>. And Kowa Pharmaceutical Asia from <b>29 May 2026</b>.",
+        "On the right are your four brands as the website carries them: Rheuma-Salve, Heritage, HST Medical and Zoo-Vite. Those packshots are your own photos from the live store. Our job is to make the website worthy of that story."],
+   do:["Click the years for each step."],
+   joke:"HST has been looking after people since 1930. The internet arrived in the nineties. So honestly, the website is the new kid here, and we're just helping it catch up.",
+   next:"Here's what we've built so far."},
+  {t:"Three pieces, all live to click.", who:"Lead", min:2,
+   say:["We've built three things, and each one is live on an <b>unlisted test link</b>, not indexed by search engines.",
+        "The <b>website prototype</b>. Your <b>product sheets as a flip-book</b> you own, instead of a Heyzine page. And a <b>brand strategy pack</b>, a discussion draft with the research behind the website.",
+        "Today we'll focus on the first two. The strategy pack is there for a separate conversation, whenever you're ready."],
+   do:["Hover a card to scroll the page.","Click to open; come back with the browser tab."],
+   joke:"These are all live, so please click freely. You can't break them. And if you do manage to break one, that's excellent feedback too.",
+   next:"Let's open the website."},
+  {t:"Need first, then the product.", who:"Lead", min:3,
+   say:["The idea behind the site is <b>need first</b>. A shopper, usually on a phone, names what's bothering them, sees what fits, and only then chooses the pack size.",
+        "Let me click through the pages on desktop and on phone. Every product fact and pack size is <b>yours</b>, from the catalogue and the live store.",
+        "One note: the cart and checkout here are a <b>demo</b>. Nothing is actually sold on the test link."],
+   do:["Click each of the five page tabs.","Hover a screen to pause its scroll when you talk about it."],
+   joke:"Nobody wakes up thinking \"I'd love to browse a product catalogue today.\" They wake up thinking \"my shoulder is stiff.\" So that's where the site starts.",
+   watch:"No product prices out loud, even if they're visible on the live store.",
+   next:"And it's built exactly to your brief."},
+  {t:"We can build your brief, line by line.", who:"Lead", min:2,
+   say:["Your RFP asked for a classic WordPress theme on GeneratePress with WP EasyCart, mobile-first, fast on 4G, typography-led, with SEO and GEO, and to WordPress.org standards.",
+        "We can build every line, and we've <b>already tried each one</b> on our own WordPress staging build. So this is <b>proven, not promised</b>.",
+        "Under 2.4 are the measured load times on PageSpeed's mobile test, slow 4G with a slower phone: <b>every page is inside Google's good line</b>. We'll rerun it on the public staging address before launch."],
+   do:["Click each requirement 2.1 to 2.6.","Point at the mini chart under 2.4."],
+   joke:"Every page loads inside Google's \"good\" line on slow 4G. In practice, that's faster than most of us find our reading glasses.",
+   next:"Before we propose anything more, we want to hear where you want to go."},
+  {t:"Tell us your direction, we'll bring the ideas.", who:"Lead", min:2,
+   say:["We see three directions for hstmedical.com. An <b>AI-enabled site</b>. A <b>store built to convert</b>. And <b>support for your brand strategy</b>.",
+        "Which of these matters most to you right now? Pick one, or tell us the order, and we'll bring the ideas for it.",
+        "Each comes from work we've already done: the Ask HST assistant, the shop prototype, and the brand strategy draft."],
+   do:["Ask the question, then click their pick: the others dim.","Picks go into the follow-up list on slide 18."],
+   joke:"If your answer is \"all three\", that's allowed. We just get more excited.",
+   next:"Now, your product sheets."},
+  {t:"Your product sheets, as a book you can search.", who:"Lead", min:2,
+   say:["These are your product sheets, rebuilt from the Heyzine edition into a reader <b>TechNext built and you own</b>. Same <b>54 pages</b> as the 17 July PDF: cover, About us, 51 product sheets and the index.",
+        "Turn a page, and on a product page tap the name: you get the pack sizes, item codes, and a link straight to that product in the shop.",
+        "When there's a new edition, it's <b>one import of the new PDF</b>."],
+   do:["Click the right page or the arrows to turn.","Open one product card to show item codes."],
+   joke:"It's a flip-book that you own. All the page turning, none of the paper cuts.",
+   next:"While we rebuilt it, we read every page."},
+  {t:"Seven small fixes before the next print.", who:"Lead", min:2,
+   say:["While rebuilding the catalogue, we read every page, and we found <b>seven small things</b> worth fixing before the next print. They're small, but they reach the shelf and the trade.",
+        "An item code that differs between the photo and the list. \"Lintus\" where the pack says \"Linctus\". \"Tumeric\" and \"Gingko\". A category name that differs between the index and the pages. A missing space. And the 20g balm listed as its own product.",
+        "The reader shows the pages exactly as printed, so nothing changes until you send a new edition."],
+   do:["Click each fix to see it boxed on the page."],
+   joke:"\"Tumeric\" and \"Gingko\": honestly, every catalogue in the world has one of these. Spell-check just doesn't speak herbal.",
+   watch:"Frame these as helpful, never as criticism of HST's team.",
+   next:"Which brings us to the most important part: your feedback."},
+  {t:"Your feedback, captured as we talk.", who:"Lead", min:5,
+   say:["This is the working part of the meeting. Let's go through the website and the catalogue, area by area. Tell us what you'd change, and I'll type each point as you say it.",
+        "Each one goes in as a <b>must change</b>, and we can switch it to <b>nice to have</b>. At the end, we'll send you this list as one email, grouped by area.",
+        "So, starting with the home page: what's your first reaction?"],
+   do:["Type each point; Enter adds it as \"must change\".","Click a note to switch it to \"nice to have\"; × removes.","\"Copy the revision list\" at the end."],
+   joke:"This is the part where you get to be the client. Please be honest: we have the Enter key ready, and our feelings are surprisingly robust.",
+   watch:"Notes stay in this browser only. Copy the list before you close the tab.",
+   next:"Thank you. Now, AI. Starting with what the site already does."},
+  {t:"The site already answers questions.", who:"Lead", min:2,
+   say:["<b>Ask HST</b> is already in the prototype. It's <b>rule-based</b>, and it runs entirely in the visitor's browser: no AI service, no API key.",
+        "It answers only from your catalogue and website, matches symptoms to products using <b>your own</b> benefit text, adds to the bag, and finds stores.",
+        "And on red flags, like an emergency, it <b>sends people to care instead of selling</b>. Let me show you four real answers from the test link today."],
+   do:["Click the four questions in order; end on the 995 one."],
+   joke:"It's probably the most well-behaved chatbot you'll ever meet. It only says what's on the label.",
+   watch:"Keep the tone careful on the emergency answer. No jokes on this one after you click it.",
+   next:"So where do rules stop being enough?"},
+  {t:"Where rules stop, AI starts.", who:"Lead", min:2,
+   say:["The same three questions, asked of the rule-based assistant on the left, and an AI assistant on the right. The right side is <b>illustrative</b>.",
+        "A question about <b>mixing medicines</b>: rules show the caution but still show the product; the AI hands over to a pharmacist. A question <b>in Chinese</b>: rules fall back to the help menu; the AI answers in Chinese from the English label. And <b>context</b>: the AI picks the easiest format for an older user and says why.",
+        "So: <b>AI understands, the guardrails keep it on the label.</b>"],
+   do:["Step through the three questions."],
+   joke:"Rules are like a very literal colleague: you ask about joints, you get every joint product. AI is the colleague who asks, \"who's it for?\"",
+   watch:"Say \"illustrative\" for the AI side. Nothing here is a live AI.",
+   next:"Here's where AI could earn its keep."},
+  {t:"Five places AI earns its keep.", who:"Lead", min:2,
+   say:["Five places AI can help hstmedical.com, each one with its guardrail.",
+        "The <b>assistant upgrade</b> is the most visible. Being <b>found in AI answers</b> is partly built already. <b>Two languages</b> is a decision for today. And <b>trade enquiries</b> and <b>health notes</b> save your team time, with a person approving every output.",
+        "These are options for after launch, except the basics of being found in AI answers: those ship with the site."],
+   do:["Click each of the five opportunities."],
+   joke:"Five places where AI earns its keep, and exactly zero places where it gets to improvise medical advice.",
+   watch:"No cost row and no prices. If asked: \"we'll scope it once you pick a direction.\"",
+   next:"Let me show you that \"found in AI answers\" part."},
+  {t:"When shoppers ask an AI, HST should be the answer.", who:"Lead", min:2,
+   say:["This is the <b>GEO</b> from your brief: generative engine optimisation. AI assistants like ChatGPT, Perplexity and Google's AI answers can only quote what they can read.",
+        "So the new site gives them three things: an <b>llms.txt</b>, a plain summary of who HST is; <b>product schema</b> with names, brands and pack sizes; and pages whose content is in the HTML itself.",
+        "The answer at the top is a <b>sample</b> of what this makes possible, not a promise of what any AI will say."],
+   do:["Click each source to show the real file from the prototype."],
+   joke:"SEO used to be about getting Google to notice you. Now it's about getting the robots to quote you correctly. We're basically handing them a well-written cheat sheet.",
+   next:"So why TechNext? Three reasons. The first is speed."},
+  {t:"We move fast. Really fast.", who:"Lead", min:2,
+   say:["Reason one: <b>speed</b>. We treat time as money, because every week the new site goes live sooner is a week more of online sales.",
+        "And the proof is HST's own timeline. Website prototype live on <b>2 October</b>. WordPress staging measured on <b>3 October</b>. Catalogue as a flip-book on <b>5 October</b>. Brand strategy pack on <b>6 October</b>. And here we are today.",
+        "The usual route spends weeks on sitemaps and mockups. Ours builds first, so you go live and start selling earlier."],
+   do:["Toggle the two routes on the right."],
+   joke:"You'll notice nothing happened on the 4th. That was a Sunday. We do sleep. Occasionally.",
+   next:"Reason two: what's behind the website."},
+  {t:"An ERP division behind your website.", who:"Lead", min:2,
+   say:["Reason two: TechNext has an <b>ERP implementation division</b>. We implement ERP for a living, so we can support HST as the business changes, and keep the website aligned with it.",
+        "We're strong in <b>data migration, APIs, connectors</b> and integrated solutions. Here's the map: ERP, payments, couriers, sales channels, email and CRM, analytics.",
+        "And the proof at the bottom: on our staging build we've already moved your <b>51 products</b>, <b>95 health notes</b> and <b>30 stores</b>. We're an <b>Odoo Ready Partner</b> with 11+ enterprise clients in 10+ countries."],
+   do:["Click each connection on the map (it cycles until clicked)."],
+   joke:"Most agencies hand over a website and wave goodbye at the checkout page. We follow the order all the way into the books.",
+   watch:"\"Odoo Ready Partner\", never \"certified\".",
+   next:"Reason three: AI."},
+  {t:"Strong in AI, built for what's next.", who:"Lead", min:2,
+   say:["Reason three: our <b>AI competency</b>. We work in four core AI disciplines: knowledge assistants, AI chatbots, workflow automation agents, and AI inside the ERP. Our Ho Chi Minh City office is mainly AI engineering.",
+        "On the right is how we keep it future-proof: ready for AI search, grounded in HST's own data with sources, a person approving anything irreversible, and <b>no lock-in</b>."],
+   do:["Click each discipline; use its jump-back if they want to revisit a demo."],
+   joke:"We have a whole office that's mainly AI engineering. And yes, they're real humans. We checked.",
+   next:"Finally, how we'd work together."},
+  {t:"We build it and show you, not wireframes.", who:"Lead", min:2,
+   say:["The usual agency route starts with sitemaps, wireframes and mockups, and the client only sees a working site at the end.",
+        "We <b>do and show</b>. We build real pages on a test link from the first round, you click them on your own phones, and we refine together. There's <b>no fixed limit</b> on rounds.",
+        "<b>Satisfaction is guaranteed</b>: we keep refining until you're happy, and nothing launches without HST's sign-off."],
+   do:["Click \"Another round\" a few times.","Toggle the two routes to compare."],
+   joke:"If you've ever been shown a grey box labelled \"image here\" and asked to feel excited about it, consider this our apology on behalf of the whole industry.",
+   next:"To get started, we just need a few answers."},
+  {t:"Ten answers to get started.", who:"Lead", min:3,
+   say:["Ten questions to get started. <b>Hosting access matters most</b>, because the staging build is waiting on it.",
+        "Questions four to six are facts shown on the prototype as placeholders until you confirm them.",
+        "I'll mark each one as we go, and <b>\"Copy the follow-up list\"</b> adds today's revision list and your direction, so one email covers everything."],
+   do:["One click = answered, two = follow up, three = clear.","Click \"Copy the follow-up list\" before you leave."],
+   joke:"Hosting access is question one, because our staging build is currently waiting by the door with its shoes on.",
+   watch:"Question 3 (delivery and GST): no amounts. Ask, don't quote.",
+   next:"And here's what happens next."},
+  {t:"Next, your revisions, then the build.", who:"Lead", min:1,
+   say:["So here's the next step. <b>Today</b>, you'll get one email: your revision list, the open questions, and the direction you picked.",
+        "Then we refine the test link with you, <b>round by round</b>, until you sign it off.",
+        "If a follow-up call helps, the booking link and the QR are right here. Thank you so much for your time today."],
+   do:["Point at the QR / booking link.","Send the email the same day."],
+   joke:"And remember, the \"Another round\" button has no limit. We checked that one too.",
+   next:"(End. Send the revision email today.)"}
+  ]
+}
+};
+
+/* ---------- RENDER ---------- */
+const $ = s => document.querySelector(s);
+let key = "jrtech";
+try { const k = localStorage.getItem("pg-deck"); if (DECKS[k]) key = k; } catch (e) {}
+const qs = new URLSearchParams(location.search).get("deck"); if (DECKS[qs]) key = qs;
+
+const tabs = $("#tabs");
+Object.entries(DECKS).forEach(([k, d]) => {
+  const b = document.createElement("button");
+  b.className = "tab"; b.role = "tab"; b.textContent = d.tab; b.dataset.k = k;
+  b.onclick = () => { key = k; try { localStorage.setItem("pg-deck", k); } catch (e) {} render(); scrollTo({top: 0}); };
+  tabs.appendChild(b);
+});
+
+const paras = a => a.map(p => `<p>${p}</p>`).join("");
+const mins = d => d.slides.reduce((a, s) => a + s.min, 0);
+
+function block(s, i, d) {
+  return `
+  <div class="say"><div class="lbl">🎙 Say this</div>${paras(s.say)}</div>
+  ${s.watch ? `<div class="watch"><b>Watch out:</b> ${s.watch}</div>` : ""}
+  <div class="row">
+    <div class="do"><div class="lbl">👆 Do this</div><ul>${s.do.map(x => `<li>${x}</li>`).join("")}</ul></div>
+    <div class="next"><div class="lbl">➜ Bridge to next</div><p>${s.next}</p></div>
+  </div>
+  ${s.joke ? `<div class="joke"><div class="lbl">😄 Optional joke</div><p>${s.joke}</p><small>Only if the room is warm. Skip it if time is tight or the mood is serious.</small></div>` : ""}`;
+}
+
+function render() {
+  const d = DECKS[key];
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.k === key));
+  $("#kick").textContent = d.kicker;
+  $("#h1").textContent = d.title;
+  $("#lede").textContent = d.lede;
+  $("#facts").innerHTML = d.facts.map(([b, s]) => `<div class="fact"><b>${b}</b><small>${s}</small></div>`).join("");
+  $("#brief").innerHTML = `
+    <div class="panel"><h3>Who presents</h3><div class="cast">${d.cast.map(c => `<span class="who">${c}</span>`).join("")}</div>
+      <p style="margin:10px 0 0;font-size:14px">Scripted time: about ${mins(d)} min. Open the deck, press <b>P</b> for presenter view, <b>F</b> for full screen.</p></div>
+    <div class="panel"><h3>Win the meeting</h3><ul>${d.goal.map(g => `<li>${g}</li>`).join("")}</ul></div>
+    <div class="panel rules"><h3>Never say</h3><ul>${d.rules.map(g => `<li>${g}</li>`).join("")}</ul></div>`;
+  let toc = `<h3>${d.slides.length} slides</h3><ol>`, out = "";
+  d.slides.forEach((s, i) => {
+    const n = i + 1;
+    if (d.parts[n]) { toc += `<li class="part">${d.parts[n]}</li>`; out += `<div class="part-h" data-p="${n}">${d.parts[n]}</div>`; }
+    toc += `<li><a href="#s${n}" data-n="${n}"><i>${String(n).padStart(2, "0")}</i>${s.t}</a></li>`;
+    out += `<article class="slide" id="s${n}" data-n="${n}">
+      <div class="s-head"><div class="num">${n}</div>
+        <div class="s-title"><h2>${s.t}</h2><div class="s-meta"><span>🗣 ${s.who}</span><span>⏱ ~${s.min} min</span></div></div>
+        <a class="open" href="${d.url}#${n}" target="_blank" rel="noopener">Open slide ↗</a></div>
+      <div class="s-body">${block(s, i, d)}</div></article>`;
+  });
+  $("#toc").innerHTML = toc + "</ol>";
+  $("#slides").innerHTML = out;
+  orig = new Map(); filter();
+  spy();
+}
+
+/* search */
+let orig = new Map();
+function filter() {
+  const q = $("#q").value.trim().toLowerCase();
+  document.querySelectorAll(".slide").forEach(el => {
+    const body = el.querySelector(".s-body");
+    if (!orig.has(el)) orig.set(el, body.innerHTML);
+    body.innerHTML = orig.get(el);
+    const hit = !q || el.textContent.toLowerCase().includes(q);
+    el.classList.toggle("hidden", !hit);
+    if (q && hit) {
+      const re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
+      body.querySelectorAll("p,li").forEach(p => { p.innerHTML = p.innerHTML.replace(/(^|>)([^<]+)/g, (m, a, t) => a + t.replace(re, "<mark>$1</mark>")); });
+    }
+  });
+  document.querySelectorAll(".part-h").forEach(h => h.classList.toggle("hidden", !!q));
+}
+$("#q").addEventListener("input", filter);
+
+/* toggles */
+const jk = $("#jk"), so = $("#so");
+try { jk.checked = localStorage.getItem("pg-jokes") !== "0"; so.checked = localStorage.getItem("pg-say") === "1"; } catch (e) {}
+const applyT = () => { document.body.classList.toggle("no-jokes", !jk.checked); document.body.classList.toggle("say-only", so.checked);
+  try { localStorage.setItem("pg-jokes", jk.checked ? "1" : "0"); localStorage.setItem("pg-say", so.checked ? "1" : "0"); } catch (e) {} };
+jk.onchange = so.onchange = applyT; applyT();
+
+/* scroll spy */
+let io;
+function spy() {
+  io && io.disconnect();
+  io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { document.querySelectorAll(".toc a").forEach(a => a.classList.toggle("on", a.dataset.n === e.target.dataset.n)); }
+  }), {rootMargin: "-40% 0px -55% 0px"});
+  document.querySelectorAll(".slide").forEach(s => io.observe(s));
+}
+
+/* ---------- REHEARSE ---------- */
+let ri = 0, t0 = 0, tick;
+const reh = $("#reh"), ifr = $("#ifr");
+function showR(i) {
+  const d = DECKS[key]; ri = Math.max(0, Math.min(d.slides.length - 1, i));
+  const s = d.slides[ri], n = ri + 1;
+  $("#rehT").textContent = `${d.tab} · slide ${n} of ${d.slides.length}`;
+  $("#rehOpen").href = `${d.url}#${n}`;
+  $("#rehS").innerHTML = `<div class="num">${n}</div><h2>${s.t}</h2>
+    <div class="s-meta" style="margin-bottom:14px"><span>🗣 ${s.who}</span><span>⏱ target ~${s.min} min</span></div>${block(s, ri, d)}`;
+  $("#rehS").scrollTop = 0;
+  const want = d.url;
+  try {
+    if (!ifr.src.includes(want)) ifr.src = `${want}#${n}`;
+    else ifr.contentWindow.location.hash = "#" + n;
+  } catch (e) { ifr.src = `${want}#${n}`; }
+  $("#dots").innerHTML = d.slides.map((_, j) => `<button class="${j === ri ? "on" : j < ri ? "done" : ""}" aria-label="Slide ${j + 1}" data-j="${j}"></button>`).join("");
+  t0 = Date.now(); clock();
+}
+function clock() {
+  const s = Math.floor((Date.now() - t0) / 1000), tgt = DECKS[key].slides[ri].min * 60;
+  const el = $("#clk"); el.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")} / ${DECKS[key].slides[ri].min}:00`;
+  el.classList.toggle("over", s > tgt);
+}
+function openR(i) { reh.classList.add("on"); document.body.style.overflow = "hidden"; showR(i); clearInterval(tick); tick = setInterval(clock, 1000); }
+function closeR() { reh.classList.remove("on"); document.body.style.overflow = ""; clearInterval(tick); document.getElementById("s" + (ri + 1))?.scrollIntoView(); }
+$("#go").onclick = () => {
+  const vis = [...document.querySelectorAll(".slide")].find(s => s.getBoundingClientRect().bottom > 160);
+  openR(vis ? +vis.dataset.n - 1 : 0);
+};
+$("#rehX").onclick = closeR;
+$("#prev").onclick = () => showR(ri - 1);
+$("#next").onclick = () => showR(ri + 1);
+$("#dots").onclick = e => { if (e.target.dataset.j) showR(+e.target.dataset.j); };
+addEventListener("keydown", e => {
+  if (!reh.classList.contains("on")) return;
+  if (e.key === "Escape") closeR();
+  else if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); showR(ri + 1); }
+  else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); showR(ri - 1); }
+});
+
+render();
+</script>
+</body>
+</html>
