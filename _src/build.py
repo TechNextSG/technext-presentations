@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "27"
+ASSET_V = "28"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -94,6 +94,9 @@ DECKS = [
         dict(slug="bhdasia-odoo-scope", title="BHD Asia · HummingBeing", mins=30, pdf="TechNext-BHD-Asia-Implementation-Scope.pdf",
              alt="BHD Asia cover: six workflows, one Odoo.",
              desc="The implementation scope on Odoo Online: six workflows played step by step (event tickets, 1:1 sessions screened once then paid, free bookings, screened sales, waitlists, money and books), the nine go-live modules, phase two as switches, what is decided and settled (books in SGD), then the open items, marked live in the room."),
+        dict(slug="hst-medical-website", title="HST Medical", mins=40, pdf="TechNext-HST-Medical-Website-Review.pdf",
+             alt="HST Medical cover: ready for your review.",
+             desc="The website and the product catalogue we built for HST Medical (Kowa Subsidiary): the site page by page, the RFP line by line, measured speed, the flip-book and seven print fixes, feedback typed in live, then AI for the website (Ask HST today, rules vs AI, five opportunities, AI search), the initial website scope and the questions that finish the quotation."),
     ]),
     ("Pricing", [
         dict(slug="erp-tiers", title="ERP tier list", mins=8, pdf="TechNext-ERP-Tier-List.pdf",
