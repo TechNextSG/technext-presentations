@@ -1,6 +1,7 @@
 /* HST Medical: website review, catalogue and AI. Slide behaviour.
-   Product names, pack sizes, prices and item codes are HST's own (catalogue of 17 July 2026 and the live store).
-   The Ask HST answers are the prototype's real replies on the test link (7 Oct 2026); the "With AI" answers are illustrative.
+   Product names, pack sizes and item codes are HST's own (catalogue of 17 July 2026 and the live store).
+   The Ask HST answers are the prototype's real replies on the test link (7 Oct 2026), shown without prices (user, 7 Oct: no pricing
+   anywhere in the deck); the "With AI" answers are illustrative.
    Every slide whose finished state comes from JS has a settle hook, so the overview and the PDF show it finished.
    The feedback notes and the question marks are kept for this browser tab (sessionStorage). */
 (function () {
@@ -100,53 +101,29 @@
   /* ---------------------------------------------------------------- 5 · built to the brief */
   Deck.on('brief', { init: function (s) { tabs($$('.kr-list button', s), $$('.kr-d', s)); } });
 
-  /* ---------------------------------------------------------------- 6 · speed (lab test of the WordPress staging build, 3 Oct 2026) */
-  var SPEED = [ // page, FCP s, LCP s, transferred KB
-    ['Home', 1.5, 1.5, 327], ['All products', 1.1, 1.1, 186], ['Range page', 1.1, 1.1, 157], ['Product page', 2.2, 2.2, 341], ['Cart', 1.8, 2.3, 323],
-    ['About', 0.9, 0.9, 139], ['Contact', 1.0, 1.0, 108], ['Where to buy', 1.1, 1.1, 108], ['Health notes', 1.0, 1.0, 256], ['Longest article', 1.5, 1.5, 207]];
-  var MET = {
-    lcp: { i: 2, max: 3, ticks: [0, 1, 2, 3], unit: ' s', ref: 2.5, refL: 'good ≤ 2.5 s', cap: 'Seconds until the main content shows. Google\'s "good" line is 2.5 s.' },
-    fcp: { i: 1, max: 3, ticks: [0, 1, 2, 3], unit: ' s', ref: 1.8, refL: 'good ≤ 1.8 s', cap: 'Seconds until the first thing shows. Google\'s "good" line is 1.8 s; the product page is the one amber.' },
-    kb: { i: 3, max: 450, ticks: [0, 100, 200, 300, 400], unit: ' KB', ref: 400, refL: 'budget 400 KB', cap: 'Everything the page downloads on a first visit, images included.' }
-  };
-  function speed(s, m, anim) {
-    var M = MET[m], plot = $('[data-kp=plot]', s);
-    if (!plot.firstChild) {
-      var h = '<div class="kp-axis">';
-      for (var g = 0; g < 9; g++) h += '<i class="kp-gl"><span></span></i>';
-      h += '<i class="kp-ref"><em></em></i></div>';
-      SPEED.forEach(function (r, i) { h += '<div class="kp-row" style="top:' + (i * 42) + 'px"><span>' + r[0] + '</span><i class="kp-bar"></i><b class="kp-val"></b></div>'; });
-      plot.innerHTML = h;
-    }
-    plot.classList.toggle('no-anim', !anim);
-    $$('.kp-gl', plot).forEach(function (gl, j) {
-      var t = M.ticks[j]; gl.style.display = t == null ? 'none' : '';
-      if (t != null) { gl.style.left = (t / M.max * 100) + '%'; $('span', gl).textContent = t + M.unit.trim().replace(/^s$/, ' s').replace(/^KB$/, ' KB'); }
+  /* ---------------------------------------------------------------- 6 · your direction: pick what matters, the others dim; the picks go into the follow-up list */
+  var KD = 'hst-medical-website:dir', NAMES = { ai: 'AI-enabled', shop: 'A store that converts', brand: 'Brand strategy support' };
+  function dirGet() { var v = store.get(KD); return v && typeof v === 'object' ? v : { ai: 1, shop: 1, brand: 1 }; }
+  function dirPaint(s, pop) {
+    var D = dirGet(), n = 0, ideas = 0;
+    $$('.kd-col', s).forEach(function (c) {
+      var on = !!D[c.dataset.d];
+      c.classList.toggle('is-on', on); c.classList.toggle('is-pop', !!(pop && on && pop === c.dataset.d));
+      $('.kd-h', c).setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on) { n++; ideas += $$('.kd-ideas li', c).length; }
     });
-    var ref = $('.kp-ref', plot); ref.style.left = (M.ref / M.max * 100) + '%'; $('em', ref).textContent = M.refL;
-    $$('.kp-row', plot).forEach(function (row, i) {
-      var v = SPEED[i][M.i], f = v / M.max, bar = $('.kp-bar', row), val = $('.kp-val', row);
-      bar.classList.toggle('is-warn', v > M.ref);
-      bar.style.width = 'calc((100% - 250px) * ' + f + ')';
-      val.style.left = 'calc(186px + (100% - 250px) * ' + f + ')';
-      val.textContent = (m === 'kb' ? v : v.toFixed(1)) + M.unit;
-    });
-    $('[data-kp=cap]', s).textContent = M.cap;
-    $$('.kp-seg button', s).forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.m === m ? 'true' : 'false'); });
+    $('[data-kd=n]', s).textContent = n; $('[data-kd=ideas]', s).textContent = ideas;
   }
-  Deck.on('speed', {
+  function dirPicked() { var D = dirGet(); return Object.keys(NAMES).filter(function (k) { return D[k]; }).map(function (k) { return NAMES[k]; }); }
+  Deck.on('direction', {
     init: function (s) {
-      speed(s, 'lcp', false);
-      $('.kp-seg', s).addEventListener('click', function (e) { var b = e.target.closest('button[data-m]'); if (b) speed(s, b.dataset.m, true); });
+      s.addEventListener('click', function (e) {
+        var b = e.target.closest('.kd-h'); if (!b) return;
+        var D = dirGet(); D[b.dataset.d] = D[b.dataset.d] ? 0 : 1; store.set(KD, D); dirPaint(s, b.dataset.d);
+      });
+      dirPaint(s);
     },
-    enter: function (ctx, s) {
-      var on = $('.kp-seg button[aria-pressed=true]', s), m = on ? on.dataset.m : 'lcp';
-      if (Deck.reduce) { speed(s, m, false); return; }
-      var plot = $('[data-kp=plot]', s);
-      snap(plot, function () { $$('.kp-bar', plot).forEach(function (b) { b.style.width = '0px'; }); $$('.kp-val', plot).forEach(function (v) { v.style.left = '186px'; }); });
-      ctx.after(350, function () { speed(s, m, true); });
-    },
-    settle: function (s) { var on = $('.kp-seg button[aria-pressed=true]', s); speed(s, on ? on.dataset.m : 'lcp', false); }
+    settle: function (s) { dirPaint(s); }
   });
 
   /* ---------------------------------------------------------------- 7 · the catalogue: a book that turns */
@@ -336,21 +313,26 @@
   });
 
   /* ---------------------------------------------------------------- 10 · Ask HST, as it answers on the test link today */
-  function pc(n, name, sub, why, price) {
-    return '<div class="ka-pc"><img src="' + IMG('p' + (n < 10 ? '0' : '') + n + '.webp') + '" alt="" width="48" height="48"><span><b>' + name + '</b><small>' + sub + (why ? ' · ' + why : '') + '</small></span><em>' + price + '<i>Add to bag</i></em></div>';
+  function pc(n, name, sub, why) {
+    return '<div class="ka-pc"><img src="' + IMG('p' + (n < 10 ? '0' : '') + n + '.webp') + '" alt="" width="48" height="48"><span><b>' + name + '</b><small>' + sub + (why ? ' · ' + why : '') + '</small></span><em><i>Add to bag</i></em></div>';
   }
+  function st(name, addr) { return '<div class="ka-st"><b>' + name + '</b><small>' + addr + '</small></div>'; }
   var GREET = '<p>Hello, I am Ask HST, an automated shop assistant. I answer from our catalogue only and I am not a pharmacist.</p>';
   var ASK = [
     { q: 'My shoulders are stiff from the computer',
       a: '<p><b>Balm: deep and warming</b></p><p>The classic 50g jar. Best for stiff knees, lower-back ache after a long day and tight shoulders. The balm sits on the skin longer than the crème, so the warming-cooling sensation builds.</p><p class="ka-src">From: Balm, crème, liniment or patch? Choosing the right Rheuma-Salve® format</p><p class="ka-warn">Always read the label and follow the directions for use.</p>' },
     { q: "Something for my kid's cough",
       a: '<p>For dry or irritating cough, these are described for it in our catalogue:</p><div class="ka-prods">' +
-        pc(26, 'Alievaid Herbal Drops', 'HST Medical® · 12 lozenges', 'Sore throat and irritating cough', 'S$4.95') +
-        pc(29, 'Ivy Leaf Cough Syrup', '12 sachets × 10ml', 'Dry or chesty cough', 'S$11.90') +
-        pc(30, 'Ivy Leaf Drops', '12 lozenges', 'Cough and sore throat relief on the go', 'S$4.95') +
+        pc(26, 'Alievaid Herbal Drops', 'HST Medical® · 12 lozenges', 'Sore throat and irritating cough') +
+        pc(29, 'Ivy Leaf Cough Syrup', '12 sachets × 10ml', 'Dry or chesty cough') +
+        pc(30, 'Ivy Leaf Drops', '12 lozenges', 'Cough and sore throat relief on the go') +
         '</div><p class="ka-warn">For children, check the age range on each pack. If this is for a child under 2, someone pregnant or breastfeeding, or taking other medicines, ask a pharmacist or doctor first.</p>' },
-    { q: 'Add 2 balms', bag: true,
-      a: '<p>Added 2 × Rheuma-Salve® Pain Relief Balm (Single pack), S$20.20.</p><div class="ka-bag"><p>Bag: 2 items, S$20.20. Add S$9.81 more for free delivery.</p><div class="ka-bar"><i></i></div></div>' },
+    { q: 'Is Rheuma-Salve sold at Watsons near Tampines?',
+      a: '<p>I do not list a Watsons store in Tampines itself. These are the closest stores we list:</p><div class="ka-prods">' +
+        st('Watsons · Changi Airport T3 (Departure Lounge North)', '65 Airport Boulevard #02-66, Singapore 819633') +
+        st('Watsons · Changi Airport T3 (Departure Lounge East)', '65 Airport Boulevard #B2-24, Singapore 819663') +
+        st('Watsons · Jewel Changi Airport', '78 Airport Boulevard #B1-291, Singapore 819666') +
+        '</div><p class="ka-warn">Rheuma-Salve Balm, Creme, Liniment and Medi-Stick: ask the pharmacist for stock, as ranges differ by store. See all 30 stores.</p>' },
     { q: "I have chest pain and can't breathe", alert: true,
       a: '<p><b>This sounds like it needs urgent medical care, not a shop.</b></p><p>Please call 995 now for an ambulance, or go to the nearest A&amp;E (accident and emergency) department. If someone is with you, ask them to stay with you and tell them what is happening.</p><p class="ka-warn">I am an automated assistant and cannot assess symptoms.</p>' }
   ];
@@ -359,8 +341,7 @@
     $$('.ka-qs button', s).forEach(function (b) { b.setAttribute('aria-pressed', +b.dataset.q === i ? 'true' : 'false'); });
     var bot = '<div class="ka-m ka-m--bot' + (A.alert ? ' ka-m--alert' : '') + '">' + A.a + '</div>';
     var head = '<div class="ka-m ka-m--bot">' + GREET + '</div><div class="ka-m ka-m--me">' + esc(A.q) + '</div>';
-    function done() { if (A.bag) { var bar = $('.ka-bar i', body); if (bar) { if (fin) bar.style.transition = 'none'; requestAnimationFrame(function () { bar.style.width = (20.2 / 30 * 100) + '%'; }); } } }
-    if (fin || !ctx) { body.innerHTML = head + bot; $('[data-ka=typing]', s).textContent = 'Ask about a product, a need or your bag…'; done(); return; }
+    if (fin || !ctx) { body.innerHTML = head + bot; $('[data-ka=typing]', s).textContent = 'Ask about a product, a need or your bag…'; return; }
     body.innerHTML = '<div class="ka-m ka-m--bot">' + GREET + '</div>';
     var typing = $('[data-ka=typing]', s); typing.textContent = '';
     ctx.type(typing, A.q, 26).then(function () {
@@ -370,7 +351,7 @@
       ctx.after(900, function () {
         if (s._kaTok !== tok) return;
         var d = $('.ka-dots', body); if (d) d.remove();
-        body.insertAdjacentHTML('beforeend', bot); done();
+        body.insertAdjacentHTML('beforeend', bot);
       });
     });
   }
@@ -387,7 +368,7 @@
   });
 
   /* ---------------------------------------------------------------- 11 · rules today vs AI grounded on the labels */
-  var BALM = pc(3, 'Rheuma-Salve® Pain Relief Balm', 'Heritage® · 50g', '', 'S$10.10');
+  var BALM = pc(3, 'Rheuma-Salve® Pain Relief Balm', 'Heritage® · 50g', '');
   var NEXT = [
     { q: "Can I use the balm if I'm on blood thinners?",
       rules: '<p><b>Rheuma-Salve® Pain Relief Balm: cautions from the catalogue</b></p><p>External use only. Not for broken skin; ask a pharmacist before use in pregnancy or for young children.</p>' + BALM,
@@ -395,15 +376,15 @@
       ai: ['Mixing medicines is a question for a pharmacist, so I won\'t guess.', 'Please ask your pharmacist or doctor before using the balm while you take blood thinners.', 'From the label: <b>external use only, not for broken skin.</b>'],
       acts: ['Ask the order desk', 'Read the full label'], av: 'Hands over to a pharmacist. Nothing sold.' },
     { q: '我妈妈膝盖痛，早上很僵硬 <small>(My mum\'s knees hurt and are stiff in the morning)</small>', zh: true,
-      rules: '<p>I answer from our catalogue and this website only. I can:</p><ul class="kn-menu"><li>add products to your bag: add 2 rheuma salve balm</li><li>suggest products for a need: sore throat, can\'t sleep, knee pain</li><li>show prices, pack sizes, ingredients, how to use and cautions</li><li>compare products, find a store near you, explain delivery</li></ul>',
+      rules: '<p>I answer from our catalogue and this website only. I can:</p><ul class="kn-menu"><li>add products to your bag: add 2 rheuma salve balm</li><li>suggest products for a need: sore throat, can\'t sleep, knee pain</li><li>show pack sizes, ingredients, how to use and cautions</li><li>compare products, find a store near you, explain delivery</li></ul>',
       rv: 'Doesn\'t understand the Chinese: falls back to the help menu.',
-      ai: ['妈妈膝盖痛、早上僵硬，可以考虑 <b>Rheuma-Salve® Pain Relief Balm</b>（50g，S$10.10）。', '标签写明：舒缓关节疼痛，放松酸痛紧绷的肌肉。用法：取少量轻轻涂抹或按摩患处，每天 3 至 4 次。', '如疼痛持续超过一周，请咨询医生。请务必阅读标签，并按照使用说明使用。'],
+      ai: ['妈妈膝盖痛、早上僵硬，可以考虑 <b>Rheuma-Salve® Pain Relief Balm</b>（50g）。', '标签写明：舒缓关节疼痛，放松酸痛紧绷的肌肉。用法：取少量轻轻涂抹或按摩患处，每天 3 至 4 次。', '如疼痛持续超过一周，请咨询医生。请务必阅读标签，并按照使用说明使用。'],
       card: BALM, av: 'Answers in Chinese, from the English label.' },
     { q: 'My mum is 70 and her knees are stiff every morning. What is easiest for her to use?',
       rules: '<p>For joint pain, these are described for it in our catalogue:</p>' + BALM.replace('Heritage® · 50g', 'Heritage® · 50g · Deep joint and muscle pain, stiffness') +
-        pc(18, 'Gold Lion Rheumatic Oil', 'Heritage® · 60ml', 'Swollen and aching joints', 'S$26.00') + pc(20, 'Qian Li Zhui Feng Oil', 'Heritage® · 60ml', 'Joint aches and pains', 'S$17.50') + '<p>If pain persists beyond a week, see a doctor.</p>',
+        pc(18, 'Gold Lion Rheumatic Oil', 'Heritage® · 60ml', 'Swollen and aching joints') + pc(20, 'Qian Li Zhui Feng Oil', 'Heritage® · 60ml', 'Joint aches and pains') + '<p>If pain persists beyond a week, see a doctor.</p>',
       rv: 'Lists joint products by keyword; doesn\'t answer "easiest".',
-      ai: ['For stiff knees, two Rheuma-Salve® formats need no rubbing in:', '<b>On-the-Go Medi-Stick</b> (15g, S$13.00): the label says it is easy to apply, gives quick relief from arthritis and rheumatism, and has less smell.', '<b>Pain Relief Patch (Cool)</b> (8 patches, S$10.10): for joint aches, worn for up to 6 hours.', 'If the pain lasts more than a week, she should see a doctor.'],
+      ai: ['For stiff knees, two Rheuma-Salve® formats need no rubbing in:', '<b>On-the-Go Medi-Stick</b> (15g): the label says it is easy to apply, gives quick relief from arthritis and rheumatism, and has less smell.', '<b>Pain Relief Patch (Cool)</b> (8 patches): for joint aches, worn for up to 6 hours.', 'If the pain lasts more than a week, she should see a doctor.'],
       av: 'Picks the easiest formats for her, in the label\'s words.' }
   ];
   function nextPaint(s, i, fin, ctx) {
@@ -446,37 +427,87 @@
   var FILES = ['hst-medical-website/llms.txt', 'products/rheuma-salve-balm/ · JSON-LD', 'products/rheuma-salve-balm/ · the HTML'];
   Deck.on('geo', { init: function (s) { tabs($$('.kg-src button', s), $$('.kg-c', s), function (k) { $('[data-kg=file]', s).textContent = FILES[+k]; }); } });
 
-  /* ---------------------------------------------------------------- 14 · scope */
-  var SCOPE = [
-    'A GeneratePress child theme with the classic template files, built to the design you approve on the test link. Classic Editor and Classic Widgets only.',
-    'All 51 products with their pack sizes and prices; product, cart and checkout pages styled to the design; Singapore delivery rules.',
-    'Products, health notes, the store list and your pages moved from the current site, with 301 redirects so old links and search rankings carry over.',
-    'Product, FAQ and breadcrumb schema, a sitemap, llms.txt and clean permalinks; the sitemap submitted to Google Search Console at launch.',
-    'The three RFP deliverables: the Core Web Vitals report, a clean WordPress Theme Check, and the editor guide for widgets, menus and products.',
-    'Staging on your hosting for your team to test, then the move to hstmedical.com and a check of every redirect after launch.'
-  ];
-  Deck.on('scope', {
+  /* ---------------------------------------------------------------- 14 · why TechNext 1: speed. Two routes on one time line (no dates claimed): the usual one spends longer before launch */
+  var ROUTES = {
+    usual: { steps: ['Brief', 'Sitemap', 'Wireframes', 'Mockups', 'Sign-off', 'Build'], at: 72, cap: 'Weeks of sketches and sign-offs before anything is built, so selling starts late.' },
+    tn: { steps: ['Brief', 'Build & show', 'Refine'], at: 40, cap: 'Build, show, refine, launch. Your site starts selling sooner.' }
+  };
+  function race(s, w, snapIt) {
+    var R = ROUTES[w], box = $('.kv-race', s), build = $('[data-kv=build]', s);
+    if (snapIt) box.classList.add('k-snap');
+    box.classList.toggle('is-usual', w === 'usual');
+    build.classList.toggle('is-tn', w === 'tn');
+    build.innerHTML = R.steps.map(function (t) { return '<span>' + t + '</span>'; }).join('');
+    build.style.width = 'calc(' + R.at + '% - 6px)';
+    $('[data-kv=flag]', s).style.left = R.at + '%';
+    $('[data-kv=sell]', s).style.left = 'calc(' + R.at + '% + 8px)';
+    var g = $('[data-kv=gain]', s);
+    $('i', g).style.left = ROUTES.tn.at + '%'; $('i', g).style.width = (ROUTES.usual.at - ROUTES.tn.at) + '%';
+    $('span', g).style.left = (ROUTES.tn.at + 1) + '%';
+    $('[data-kv=cap]', s).textContent = R.cap;
+    $$('.kv-seg button', s).forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.w === w ? 'true' : 'false'); });
+    if (snapIt) { void box.offsetWidth; box.classList.remove('k-snap'); }
+  }
+  Deck.on('fast', {
     init: function (s) {
-      var say = $('[data-kq=say]', s), btns = $$('.kq-list button', s);
-      btns.forEach(function (b) {
-        b.addEventListener('click', function () {
-          var on = b.getAttribute('aria-pressed') !== 'true';
-          btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b && on ? 'true' : 'false'); });
-          say.textContent = on ? SCOPE[+b.dataset.k] : 'Click a line for what it covers.';
-        });
-      });
-    }
+      $('.kv-seg', s).addEventListener('click', function (e) { var b = e.target.closest('button[data-w]'); if (b) race(s, b.dataset.w); });
+      race(s, 'tn', true);
+    },
+    enter: function (ctx, s) {
+      if (Deck.reduce) { race(s, 'tn', true); return; }
+      race(s, 'usual', true);   // open on the usual route, then show how much earlier ours goes live
+      ctx.after(1300, function () { race(s, 'tn'); });
+    },
+    settle: function (s) { race(s, 'tn', true); }
   });
 
-  /* ---------------------------------------------------------------- 15 · next steps */
-  Deck.on('next', {
+  /* ---------------------------------------------------------------- 15 · why TechNext 2: the integration map */
+  var LINKS = [
+    ['Your ERP', 'Web orders arrive as sales orders and invoices; stock levels flow back, so the shop never sells what is out of stock.', 'Odoo connects natively; other ERPs through their API.'],
+    ['Payments', 'Every payment, refund and payout matched to its order, ready for the books.', 'Through your payment gateway\'s API, set up once.'],
+    ['Couriers', 'Delivery labels and tracking numbers created from the order, and the tracking email sent, with no retyping.', 'A courier API or a ready-made connector.'],
+    ['Channels', 'One product catalogue feeding every channel, so names, pack sizes and photos agree everywhere HST sells.', 'Connectors or scheduled exports, kept in step.'],
+    ['Email & CRM', 'Shoppers, reseller enquiries and reorder reminders in one customer record, with consent kept.', 'A CRM connector; enquiries arrive with their summary.'],
+    ['Analytics', 'What sells, what people search for, and where they leave before checkout.', 'GA4 and Search Console, with e-commerce events.']
+  ];
+  function link(s, k) {
+    var L = LINKS[k];
+    $$('.ke-n', s).forEach(function (b) { b.setAttribute('aria-pressed', +b.dataset.k === k ? 'true' : 'false'); });
+    $$('.ke-ln', s).forEach(function (p) { p.classList.toggle('is-on', +p.dataset.k === k); });
+    $('[data-ke=t]', s).textContent = L[0]; $('[data-ke=f]', s).textContent = L[1];
+    $('[data-ke=h] span', s).textContent = L[2];
+  }
+  Deck.on('erp', {
     init: function (s) {
-      var btns = $$('.kt-steps button', s), fill = $('[data-kt=fill]', s);
-      tabs(btns, $$('.kt-d', s), function (k) {
-        btns.forEach(function (b) { b.classList.toggle('is-done', +b.dataset.k < +k); });
-        fill.style.width = (+k / 5 * 100) + '%';
+      $$('.ke-n', s).forEach(function (b) { b.addEventListener('click', function () { s._keHeld = true; link(s, +b.dataset.k); }); });
+      link(s, 0);
+    },
+    enter: function (ctx, s) {
+      s._keHeld = false; var k = 0; link(s, 0);
+      if (!Deck.reduce) ctx.every(3200, function () { if (s._keHeld) return; k = (k + 1) % LINKS.length; link(s, k); });
+    },
+    settle: function (s) { var on = $('.ke-n[aria-pressed=true]', s); link(s, on ? +on.dataset.k : 0); }
+  });
+
+  /* ---------------------------------------------------------------- 16 · why TechNext 3: AI */
+  Deck.on('ai', { init: function (s) { tabs($$('.ki-tabs button', s), $$('.ki-d', s)); } });
+
+  /* ---------------------------------------------------------------- 17 · how we get there: build and show, refine until signed off */
+  function how(s, w) {
+    $$('.kh-lane', s).forEach(function (l) { l.classList.toggle('is-on', l.dataset.w === w); });
+    $$('.kh-seg button', s).forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.w === w ? 'true' : 'false'); });
+  }
+  Deck.on('how', {
+    init: function (s) {
+      $('.kh-seg', s).addEventListener('click', function (e) { var b = e.target.closest('button[data-w]'); if (b) how(s, b.dataset.w); });
+      var again = $('.kh-again', s), em = $('[data-kh=round]', s), n = 1;
+      again.addEventListener('click', function () {
+        n++; em.textContent = n < 10 ? n : n + ' and counting';
+        again.classList.remove('is-bump'); void again.offsetWidth; again.classList.add('is-bump');
       });
-    }
+      how(s, 'tn');
+    },
+    settle: function (s) { how(s, $('.kh-seg button[aria-pressed=true]', s) ? $('.kh-seg button[aria-pressed=true]', s).dataset.w : 'tn'); }
   });
 
   /* ---------------------------------------------------------------- 16 · questions at the back */
@@ -500,6 +531,7 @@
     if (g.fu.length) out.push('To follow up (' + g.fu.length + ')', g.fu.join('\n'), '');
     if (g.open.length) out.push('Still open (' + g.open.length + ')', g.open.join('\n'), '');
     if (g.ok.length) out.push('Answered in the meeting (' + g.ok.length + ')', g.ok.join('\n'), '');
+    var dp = dirPicked(); if (dp.length) out.push('Directions picked: ' + dp.join('; '), '');
     var f = fbText(); if (f.n) out.push('', f.text.replace(/^HST Medical × TechNext: /, 'Also: '));
     return { text: out.join('\n').trim() + '\n', n: [g.fu.length, g.open.length, f.n] };
   }

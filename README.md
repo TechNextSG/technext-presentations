@@ -17,7 +17,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Proposal: Hitachi Elevator Philippines | `hitachi-elevator-ph.html` | 14 |
 | Client deck: Moving JR-Tech onto Odoo ERP (modules, SQL Account migration, invoicing video, support, discovery questions) | `jrtech-odoo-erp.html` | 25 |
 | Client deck: BHD Asia · HummingBeing implementation scope (six workflows, nine modules, phase two, decisions, open items) | `bhdasia-odoo-scope.html` | 19 |
-| Client deck: HST Medical website review (website and catalogue, feedback, AI for the website, initial scope, questions) | `hst-medical-website.html` | 17 |
+| Client deck: HST Medical website review (website and catalogue, your direction, feedback, AI for the website, why TechNext, how we build, questions) | `hst-medical-website.html` | 19 |
 
 Live (unlisted, `noindex`): https://technextsg.github.io/technext-presentations/
 
