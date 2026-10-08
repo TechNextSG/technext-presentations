@@ -109,7 +109,7 @@
 .jb{padding:18px 22px 20px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:var(--sh-1)}
 .jb-cap{display:flex;align-items:center;gap:10px;margin:0 0 14px;font:700 17px/1.2 var(--f-display);color:var(--ink)}
 .jb-cap .ic{font-size:20px;color:var(--blue)}
-.jb-st,.jb-log{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+.jb-st,.jb-log{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .jb-st li{position:relative}
 .jb-st li + li::before{content:"";position:absolute;left:-17px;top:50%;width:9px;height:9px;margin-top:-5px;border-top:2.5px solid var(--blue-200);border-right:2.5px solid var(--blue-200);transform:rotate(45deg)}
 .jb-st button{width:100%;height:58px;display:flex;align-items:center;gap:10px;padding:0 12px;border:1px solid var(--line);border-radius:14px;background:var(--alt);cursor:pointer;text-align:left;

@@ -86,7 +86,7 @@
   Deck.on('bigidea', {
     init: function (s) { $$('.jb-st button', s).forEach(function (b, i) { b.addEventListener('click', function () { stepTo(i + 1); }); }); },
     step: function (n, ctx, s) { paintBig(s, n); },
-    settle: function (s) { snap(s, function () { paintBig(s, 6); }); }
+    settle: function (s) { snap(s, function () { paintBig(s, 5); }); }
   });
 
   /* ---------------------------------------------------------------- 5 · roadmap: filter by phase */
