@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "33"
+ASSET_V = "34"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -164,7 +164,7 @@ def launcher():
                 continue
             slides = len(re.findall(r'<section class="slide[ "]', html.read_text(encoding="utf-8")))
             th = f"assets/img/thumbs/{d['slug']}"
-            second = (f'\n        <img class="ix-thumb-2" src="{th}-2.jpg" alt="" width="960" height="540" loading="lazy">' if (ROOT / f"{th}-2.jpg").exists() else "")
+            second = (f'\n        <img class="ix-thumb-2" src="{th}-2.jpg" alt="" width="960" height="540" loading="lazy" decoding="async">' if (ROOT / f"{th}-2.jpg").exists() else "")
             has_pdf = (ROOT / "pdf" / d["pdf"]).exists()
             pdf = (f'<a class="ix-btn ix-btn--t" href="pdf/{d["pdf"]}">{{{{icon:file}}}}PDF</a>' if has_pdf else "")
             share = (f'<button type="button" class="ix-btn ix-btn--t ix-share" data-share="{BASE}s-{share_tokens()[d["slug"]]}.html" data-title="{d["title"]}"'

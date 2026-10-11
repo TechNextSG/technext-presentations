@@ -39,8 +39,8 @@ code{font-size:.92em;background:var(--blue-050);color:var(--blue-700);padding:2p
 
 /* the filter bar: overlaps the hero, then sticks to the top while you scroll */
 main.ix-wrap{margin-top:-36px;position:relative}
-.ix-bar{position:sticky;top:10px;z-index:20;padding:12px;border-radius:18px;background:rgba(255,255,255,.97);border:1px solid var(--line);
-  box-shadow:0 2px 6px rgba(31,31,61,.05),0 24px 50px -28px rgba(31,31,61,.4)}
+.ix-bar{position:sticky;top:10px;z-index:20;padding:12px;border-radius:18px;background:#fff;border:1px solid var(--line);
+  box-shadow:0 1px 2px rgba(31,31,61,.06),0 12px 28px -18px rgba(31,31,61,.35)}
 .ix-bar-1,.ix-bar-2{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
 .ix-bar-2{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
 .ix-q{position:relative;display:flex;align-items:center;flex:1 1 220px;min-width:0;max-width:340px}
@@ -86,12 +86,12 @@ main.ix-wrap{margin-top:-36px;position:relative}
 .ix-gn{font:700 12px/1 var(--f-display);padding:4px 8px;border-radius:999px;background:var(--blue-050);color:var(--blue)}
 .ix-gh p{margin:0;flex-basis:100%;font-size:14.5px;color:#6C6C80}
 .ix-grid{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:22px}
-.ix-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;contain:layout paint;box-shadow:0 2px 6px rgba(31,31,61,.05),0 24px 50px -30px rgba(31,31,61,.3);display:flex;flex-direction:column;
-  transition:box-shadow .35s var(--ease),border-color .35s var(--ease)}
-.ix-card:hover{border-color:var(--blue-100);box-shadow:0 2px 6px rgba(31,31,61,.05),0 34px 60px -30px rgba(31,31,61,.42)}
+.ix-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;contain:layout paint;box-shadow:0 1px 2px rgba(31,31,61,.05),0 10px 24px -16px rgba(31,31,61,.22);display:flex;flex-direction:column;
+  transition:border-color .25s var(--ease)}
+.ix-card:hover{border-color:var(--blue-300)}
 .ix-thumb{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:#0F2350}
 .ix-thumb img{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s var(--ease)}
-.ix-thumb-2{opacity:0}
+.ix-thumb-2{opacity:0;will-change:opacity}
 .ix-card:hover .ix-thumb-2,.ix-card:focus-within .ix-thumb-2{opacity:1}
 .ix-len{position:absolute;right:10px;bottom:10px;padding:5px 8px;border-radius:8px;background:rgba(15,35,80,.82);color:#fff;font:700 12px/1 var(--f-display)}
 .ix-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
@@ -113,7 +113,7 @@ main.ix-wrap{margin-top:-36px;position:relative}
 /* the card's actions: one row that never wraps; on tight cards the link icons go, then "loop", then some padding */
 .ix-body{container-type:inline-size}
 .ix-acts{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;margin-top:auto;padding-top:16px}
-.ix-btn{display:inline-flex;align-items:center;flex:none;padding:9px 12px;border-radius:9px;border:1px solid var(--line);background:#fff;text-decoration:none;font:700 13px/1 var(--f-display);color:var(--ink);white-space:nowrap;transition:border-color .3s,background .3s}
+.ix-btn{display:inline-flex;align-items:center;flex:none;padding:9px 12px;border-radius:9px;border:1px solid var(--line);background:#fff;text-decoration:none;font:700 13px/1 var(--f-display);color:var(--ink);white-space:nowrap;transition:border-color .2s,background .2s}
 .ix-btn:hover{border-color:var(--blue-300)}
 .ix-btn--p{background:var(--blue);border-color:var(--blue);color:#fff}
 .ix-btn--p:hover{background:var(--blue-700);border-color:var(--blue-700)}
@@ -134,7 +134,7 @@ main.ix-wrap{margin-top:-36px;position:relative}
 .ix-empty p{margin:8px 0 0}
 
 /* how to present: shortcuts, then tips and TV set-ups folded */
-.ix-guide{margin:56px 0 0;scroll-margin-top:24px}
+.ix-guide{margin:56px 0 0;scroll-margin-top:24px;content-visibility:auto;contain-intrinsic-size:auto 640px}
 .ix-guide>h2{margin:0;font:800 26px/1.2 var(--f-display);color:var(--ink);letter-spacing:-.01em}
 .ix-keys{list-style:none;margin:14px 0 18px;padding:0;display:flex;flex-wrap:wrap;gap:10px 22px}
 .ix-keys li{display:flex;align-items:center;gap:6px;font-size:14px}
@@ -185,15 +185,7 @@ main.ix-wrap{margin-top:-36px;position:relative}
   .is-list .ix-thumb{width:100%;aspect-ratio:16/9;min-height:0}
   .ix-tips ul,.ix-how-grid{grid-template-columns:1fr}
 }
-/* filtering: cards glide to their new places and fade in or out (View Transitions; browsers without it just switch) */
-.ix-bar{view-transition-name:ix-bar}
-::view-transition-group(*){animation-duration:.42s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}
-::view-transition-old(*):only-child{animation:ixOut .2s ease both}
-::view-transition-new(*):only-child{animation:ixIn .34s cubic-bezier(.2,.8,.2,1) both}
-@keyframes ixOut{to{opacity:0;transform:scale(.97)}}
-@keyframes ixIn{from{opacity:0;transform:scale(.97)}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
 /* Share: a link to one presentation on its own */
 button.ix-btn{cursor:pointer}

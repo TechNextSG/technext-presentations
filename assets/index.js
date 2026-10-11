@@ -34,17 +34,31 @@
     return ('000' + c.dataset.order).slice(-3);
   }
   var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  cards.forEach(function (c, i) { c.style.viewTransitionName = 'ix-c' + i; });
-  // every change glides: cards move to their new places, the ones that leave fade out, the ones that come fade in
+  var EASE = 'cubic-bezier(.2,.8,.2,1)';
+  function onScreen(r) { return r.bottom > -40 && r.top < innerHeight + 40 && r.width > 0; }
+  // every change glides, cheaply: only the cards on screen animate, and only transform and opacity (FLIP, on the compositor)
   function update(push, scroll) {
-    var run = function () {
-      render(push);
-      // if the results' top has scrolled under the bar, bring it back into view so the change is seen
-      var top = res.getBoundingClientRect().top, bb = bar.getBoundingClientRect().bottom;
-      if (scroll && top < bb && getComputedStyle(bar).position === 'sticky') scrollBy(0, top - bb - 16);
-    };
-    if (document.startViewTransition && !calm && !document.hidden) document.startViewTransition(run);
-    else run();
+    var before = new Map();
+    if (!calm) cards.forEach(function (c) { if (!c.hidden) { var r = c.getBoundingClientRect(); if (onScreen(r)) before.set(c, r); } });
+    render(push);
+    // if the results' top has scrolled under the bar, bring it back into view so the change is seen
+    var top = res.getBoundingClientRect().top, bb = bar.getBoundingClientRect().bottom;
+    if (scroll && top < bb && getComputedStyle(bar).position === 'sticky') scrollBy(0, top - bb - 16);
+    if (calm || !Element.prototype.animate) return;
+    var k = 0;
+    cards.forEach(function (c) {
+      if (c.hidden) return;
+      if (c.getAnimations) c.getAnimations().forEach(function (an) { an.cancel(); });
+      var r = c.getBoundingClientRect();
+      if (!onScreen(r)) return;
+      var b = before.get(c);
+      if (b) {
+        var dx = b.left - r.left, dy = b.top - r.top;
+        if (Math.abs(dx) > 1 || Math.abs(dy) > 1) c.animate([{ transform: 'translate(' + dx + 'px,' + dy + 'px)' }, { transform: 'none' }], { duration: 360, easing: EASE });
+      } else {
+        c.animate([{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }], { duration: 300, easing: EASE, delay: Math.min(k++, 6) * 30, fill: 'backwards' });
+      }
+    });
   }
   function render(push) {
     var grouped = !st.t.length && !st.len && !st.q && !st.sort;
@@ -89,6 +103,11 @@
     });
     return true;
   }
+  function fadeIn() {
+    if (calm || !Element.prototype.animate) return;
+    var k = 0;
+    cards.forEach(function (c) { if (!c.hidden && onScreen(c.getBoundingClientRect())) c.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 240, easing: 'ease-out', delay: Math.min(k++, 6) * 20, fill: 'backwards' }); });
+  }
   function view(v) {
     res.classList.toggle('is-list', v === 'list');
     press('[data-view]', function (b) { return b.dataset.view === v; });
@@ -101,7 +120,7 @@
     if (b.classList.contains('ix-tab')) st.g = b.dataset.g;
     else if (b.dataset.t) { var i = st.t.indexOf(b.dataset.t); if (i < 0) st.t.push(b.dataset.t); else st.t.splice(i, 1); }
     else if (b.dataset.len) st.len = st.len === b.dataset.len ? '' : b.dataset.len;
-    else if (b.dataset.view) { var v = b.dataset.view; if (document.startViewTransition && !calm) document.startViewTransition(function () { view(v); }); else view(v); return; }
+    else if (b.dataset.view) { view(b.dataset.view); fadeIn(); return; }
     else return;
     update(true, true);
   });
