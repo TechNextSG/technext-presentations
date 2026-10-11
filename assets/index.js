@@ -33,6 +33,19 @@
     if (st.sort === 'long') return ('000' + (999 - c.dataset.mins)).slice(-3) + c.dataset.title;
     return ('000' + c.dataset.order).slice(-3);
   }
+  var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  cards.forEach(function (c, i) { c.style.viewTransitionName = 'ix-c' + i; });
+  // every change glides: cards move to their new places, the ones that leave fade out, the ones that come fade in
+  function update(push, scroll) {
+    var run = function () {
+      render(push);
+      // if the results' top has scrolled under the bar, bring it back into view so the change is seen
+      var top = res.getBoundingClientRect().top, bb = bar.getBoundingClientRect().bottom;
+      if (scroll && top < bb && getComputedStyle(bar).position === 'sticky') scrollBy(0, top - bb - 16);
+    };
+    if (document.startViewTransition && !calm && !document.hidden) document.startViewTransition(run);
+    else run();
+  }
   function render(push) {
     var grouped = !st.t.length && !st.len && !st.q && !st.sort;
     var shown = cards.filter(match);
@@ -88,16 +101,16 @@
     if (b.classList.contains('ix-tab')) st.g = b.dataset.g;
     else if (b.dataset.t) { var i = st.t.indexOf(b.dataset.t); if (i < 0) st.t.push(b.dataset.t); else st.t.splice(i, 1); }
     else if (b.dataset.len) st.len = st.len === b.dataset.len ? '' : b.dataset.len;
-    else if (b.dataset.view) { view(b.dataset.view); return; }
+    else if (b.dataset.view) { var v = b.dataset.view; if (document.startViewTransition && !calm) document.startViewTransition(function () { view(v); }); else view(v); return; }
     else return;
-    render();
+    update(true, true);
   });
   var tq = 0;
-  q.addEventListener('input', function () { clearTimeout(tq); tq = setTimeout(function () { st.q = q.value.trim(); render(); }, 120); });
-  q.addEventListener('keydown', function (e) { if (e.key === 'Escape' && q.value) { e.stopPropagation(); st.q = ''; render(); } });
-  sort.addEventListener('change', function () { st.sort = sort.value; render(); });
+  q.addEventListener('input', function () { clearTimeout(tq); tq = setTimeout(function () { st.q = q.value.trim(); update(true, true); }, 160); });
+  q.addEventListener('keydown', function (e) { if (e.key === 'Escape' && q.value) { e.stopPropagation(); st.q = ''; update(true, true); } });
+  sort.addEventListener('change', function () { st.sort = sort.value; update(true, true); });
   [].forEach.call(document.querySelectorAll('[data-clear]'), function (b) {
-    b.addEventListener('click', function () { st = { g: '', t: [], len: '', q: '', sort: '' }; render(); q.focus(); });
+    b.addEventListener('click', function () { st = { g: '', t: [], len: '', q: '', sort: '' }; update(true, true); q.focus({ preventScroll: true }); });
   });
   // "/" jumps to the search box, as on most sites
   document.addEventListener('keydown', function (e) {
@@ -106,13 +119,17 @@
     if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
     e.preventDefault(); q.focus();
   });
-  addEventListener('hashchange', function () { if (fromHash()) render(false); });
+  addEventListener('hashchange', function () { if (fromHash()) update(false, true); });
 
   var saved = 'grid';
   try { saved = localStorage.getItem('ix-view') || 'grid'; } catch (e) {}
   view(saved === 'list' ? 'list' : 'grid');
   fromHash();
   render(false);
+  // the hover slide is lazy: fetch it once the page has settled, so the first hover doesn't pop in
+  addEventListener('load', function () {
+    setTimeout(function () { [].forEach.call(document.querySelectorAll('.ix-thumb-2'), function (im) { im.loading = 'eager'; im.decode && im.decode().catch(function () {}); }); }, 600);
+  });
 })();
 
 /* Launcher: Share copies a link to one presentation on its own (its s-<token>.html copy, with no way to the other decks).

@@ -86,14 +86,13 @@ main.ix-wrap{margin-top:-36px;position:relative}
 .ix-gn{font:700 12px/1 var(--f-display);padding:4px 8px;border-radius:999px;background:var(--blue-050);color:var(--blue)}
 .ix-gh p{margin:0;flex-basis:100%;font-size:14.5px;color:#6C6C80}
 .ix-grid{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:22px}
-.ix-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 2px 6px rgba(31,31,61,.05),0 24px 50px -30px rgba(31,31,61,.3);display:flex;flex-direction:column;
-  transition:box-shadow .5s var(--ease),border-color .5s var(--ease)}
+.ix-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;contain:layout paint;box-shadow:0 2px 6px rgba(31,31,61,.05),0 24px 50px -30px rgba(31,31,61,.3);display:flex;flex-direction:column;
+  transition:box-shadow .35s var(--ease),border-color .35s var(--ease)}
 .ix-card:hover{border-color:var(--blue-100);box-shadow:0 2px 6px rgba(31,31,61,.05),0 34px 60px -30px rgba(31,31,61,.42)}
 .ix-thumb{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:#0F2350}
-.ix-thumb img{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s var(--ease),transform 1.2s var(--ease)}
+.ix-thumb img{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s var(--ease)}
 .ix-thumb-2{opacity:0}
 .ix-card:hover .ix-thumb-2,.ix-card:focus-within .ix-thumb-2{opacity:1}
-.ix-card:hover .ix-thumb img{transform:scale(1.03)}
 .ix-len{position:absolute;right:10px;bottom:10px;padding:5px 8px;border-radius:8px;background:rgba(15,35,80,.82);color:#fff;font:700 12px/1 var(--f-display)}
 .ix-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
 .ix-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 6px;font:700 11.5px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase}
@@ -107,7 +106,6 @@ main.ix-wrap{margin-top:-36px;position:relative}
 .ix-body h3 a:hover{color:var(--blue)}
 .ix-body h3 a:focus-visible{outline:2px solid var(--blue-300);outline-offset:2px;border-radius:4px}
 .ix-desc{margin:0;font-size:15px;line-height:1.5;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}
-.ix-card:hover .ix-desc,.ix-card:focus-within .ix-desc{-webkit-line-clamp:unset;line-clamp:unset}
 .ix-tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
 .ix-tags:empty{display:none}
 .ix-tag{font:600 12px/1 var(--f-display);padding:5px 8px;border-radius:999px;background:var(--alt);border:1px solid var(--line);color:var(--body)}
@@ -187,7 +185,15 @@ main.ix-wrap{margin-top:-36px;position:relative}
   .is-list .ix-thumb{width:100%;aspect-ratio:16/9;min-height:0}
   .ix-tips ul,.ix-how-grid{grid-template-columns:1fr}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* filtering: cards glide to their new places and fade in or out (View Transitions; browsers without it just switch) */
+.ix-bar{view-transition-name:ix-bar}
+::view-transition-group(*){animation-duration:.42s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}
+::view-transition-old(*):only-child{animation:ixOut .2s ease both}
+::view-transition-new(*):only-child{animation:ixIn .34s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ixOut{to{opacity:0;transform:scale(.97)}}
+@keyframes ixIn{from{opacity:0;transform:scale(.97)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
 
 /* Share: a link to one presentation on its own */
 button.ix-btn{cursor:pointer}
