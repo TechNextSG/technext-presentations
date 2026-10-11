@@ -18,35 +18,51 @@
 <body>
 <header class="ix-hero">
   <div class="ix-wrap">
-    <a class="ix-logo" href="https://technext.asia/" target="_blank" rel="noopener"><img src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40"></a>
-    <span class="ix-kicker">presentations</span>
-    <h1>{{deck_count}} decks, <span>made to be clicked.</span></h1>
-    <p class="ix-lead">Interactive presentations in TechNext branding. Open one and press <kbd>→</kbd> to present. Every demo inside runs live, with sample data.</p>
-    <ul class="ix-keys" aria-label="Keyboard shortcuts">
-      <li><kbd>→</kbd><kbd>Space</kbd><span>next</span></li>
-      <li><kbd>←</kbd><span>back</span></li>
-      <li><kbd>O</kbd><span>all slides</span></li>
-      <li><kbd>F</kbd><span>full screen</span></li>
-      <li><kbd>N</kbd><span>speaker notes</span></li>
-    </ul>
+    <div class="ix-top">
+      <a class="ix-logo" href="https://technext.asia/" target="_blank" rel="noopener"><img src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40"></a>
+      <a class="ix-guide-link" href="#guide">How to present</a>
+    </div>
+    <div class="ix-hero-row">
+      <div>
+        <span class="ix-kicker">presentations</span>
+        <h1>{{deck_count}} decks, <span>made to be clicked.</span></h1>
+        <p class="ix-lead">Interactive presentations in TechNext branding. Find one below, open it and press <kbd>→</kbd>. Every demo inside runs live, with sample data.</p>
+      </div>
+      <dl class="ix-stats">
+        <div><dt>decks</dt><dd>{{deck_count}}</dd></div>
+        <div><dt>slides</dt><dd>{{slide_count}}</dd></div>
+        <div><dt>hours of talk</dt><dd>{{hours}}</dd></div>
+      </dl>
+    </div>
   </div>
 </header>
 
 <main class="ix-wrap">
 {{launcher}}
 
-  <section class="ix-tips" aria-labelledby="tips-h">
-    <h2 id="tips-h">Presenting tips</h2>
+  <section class="ix-guide" id="guide" aria-labelledby="guide-h">
+  <h2 id="guide-h">How to present</h2>
+  <ul class="ix-keys" aria-label="Keyboard shortcuts">
+    <li><kbd>→</kbd><kbd>Space</kbd><span>next</span></li>
+    <li><kbd>←</kbd><span>back</span></li>
+    <li><kbd>O</kbd><span>all slides</span></li>
+    <li><kbd>F</kbd><span>full screen</span></li>
+    <li><kbd>N</kbd><span>speaker notes</span></li>
+    <li><kbd>P</kbd><span>presenter view</span></li>
+    <li><kbd>T</kbd><span>display mode</span></li>
+  </ul>
+  <details class="ix-tips" open>
+    <summary>Presenting tips</summary>
     <ul>
       <li><b>Builds before slides.</b> On slides with steps, the first presses reveal each step; the next press moves on.</li>
       <li><b>Click the demos.</b> Maps, pipelines, toggles and the Odoo buttons in the walkthrough all respond to clicks; click empty space to advance.</li>
       <li><b>Jump anywhere.</b> Press <kbd>O</kbd> for every slide at once, or type a slide number and press <kbd>Enter</kbd>.</li>
       <li><b>Leave it running.</b> Add <code>?kiosk</code> to the address (the “Kiosk loop” link) for an event screen that plays on its own.</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="ix-how" aria-labelledby="how-h">
-    <h2 id="how-h">Presenting on a TV or projector</h2>
+  <details class="ix-how">
+    <summary>Presenting on a TV or projector</summary>
     <p class="ix-how-lead">Every deck runs in any of these set-ups. Pick the Display mode with the screen button in the deck’s control bar, or press <kbd>T</kbd>.</p>
     <div class="ix-how-grid">
       <article><b>HDMI or USB-C cable</b><p>The sharpest picture. Press <kbd>Win</kbd>+<kbd>P</kbd> and choose <em>Second screen only</em>, open the deck and press <kbd>F</kbd>. Display: <em>HDMI cable</em>, full quality.</p></article>
@@ -58,6 +74,7 @@
       <article><b>No internet at the venue</b><p>Open each deck once while online, or press the button below: it then opens with no connection on this device. The PDFs and the Drive copy work offline too.</p></article>
     </div>
     <p class="ix-how-act"><button type="button" class="ix-btn ix-btn--p" data-offline>Save every deck for offline use</button><span class="ix-how-st" data-offline-st role="status"></span></p>
+  </details>
   </section>
 </main>
 

@@ -12,7 +12,7 @@
 <meta property="og:title" content="TechNext Presentations">
 <meta property="og:description" content="Interactive TechNext presentations: company profile, portfolio, service and marketing showcases, What is Odoo, the Odoo app series, client decks (Hitachi Elevator Philippines, JR-Tech Solution, BHD Asia, HST Medical), and the ERP and marketing tier lists.">
 <meta property="og:url" content="https://technextsg.github.io/technext-presentations/">
-<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/company-profile-og.jpg?v=31">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/company-profile-og.jpg?v=32">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -20,39 +20,62 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/fonts.css?v=31">
-<link rel="stylesheet" href="assets/index.css?v=31">
+<link rel="stylesheet" href="assets/fonts.css?v=32">
+<link rel="stylesheet" href="assets/index.css?v=32">
 </head>
 <body>
 <header class="ix-hero">
   <div class="ix-wrap">
-    <a class="ix-logo" href="https://technext.asia/" target="_blank" rel="noopener"><img src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40"></a>
-    <span class="ix-kicker">presentations</span>
-    <h1>14 decks, <span>made to be clicked.</span></h1>
-    <p class="ix-lead">Interactive presentations in TechNext branding. Open one and press <kbd>→</kbd> to present. Every demo inside runs live, with sample data.</p>
-    <ul class="ix-keys" aria-label="Keyboard shortcuts">
-      <li><kbd>→</kbd><kbd>Space</kbd><span>next</span></li>
-      <li><kbd>←</kbd><span>back</span></li>
-      <li><kbd>O</kbd><span>all slides</span></li>
-      <li><kbd>F</kbd><span>full screen</span></li>
-      <li><kbd>N</kbd><span>speaker notes</span></li>
-    </ul>
+    <div class="ix-top">
+      <a class="ix-logo" href="https://technext.asia/" target="_blank" rel="noopener"><img src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40"></a>
+      <a class="ix-guide-link" href="#guide">How to present</a>
+    </div>
+    <div class="ix-hero-row">
+      <div>
+        <span class="ix-kicker">presentations</span>
+        <h1>14 decks, <span>made to be clicked.</span></h1>
+        <p class="ix-lead">Interactive presentations in TechNext branding. Find one below, open it and press <kbd>→</kbd>. Every demo inside runs live, with sample data.</p>
+      </div>
+      <dl class="ix-stats">
+        <div><dt>decks</dt><dd>14</dd></div>
+        <div><dt>slides</dt><dd>198</dd></div>
+        <div><dt>hours of talk</dt><dd>4</dd></div>
+      </dl>
+    </div>
   </div>
 </header>
 
 <main class="ix-wrap">
-  <section class="ix-group" aria-label="About TechNext">
-    <h2 class="ix-gh">About TechNext</h2>
+  <div class="ix-bar" id="decks" role="search" aria-label="Find a presentation">
+    <div class="ix-bar-1">
+      <label class="ix-q"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg><input type="search" placeholder="Search the decks" aria-label="Search the decks" autocomplete="off" spellcheck="false"><kbd aria-hidden="true">/</kbd></label>
+      <div class="ix-tabs" role="group" aria-label="Group"><button type="button" class="ix-tab" data-g="" aria-pressed="true">All<span>14</span></button><button type="button" class="ix-tab" data-g="about" aria-pressed="false">About TechNext<span>2</span></button><button type="button" class="ix-tab" data-g="build" aria-pressed="false">What we build<span>2</span></button><button type="button" class="ix-tab" data-g="odoo" aria-pressed="false">Odoo<span>4</span></button><button type="button" class="ix-tab" data-g="client" aria-pressed="false">Client decks<span>4</span></button><button type="button" class="ix-tab" data-g="pricing" aria-pressed="false">Pricing<span>2</span></button></div>
+    </div>
+    <div class="ix-bar-2">
+      <div class="ix-chips" role="group" aria-label="Topic"><span class="ix-lbl">Topic</span><button type="button" class="ix-chip" data-t="odoo" aria-pressed="false">Odoo</button><button type="button" class="ix-chip" data-t="ai" aria-pressed="false">AI</button><button type="button" class="ix-chip" data-t="websites" aria-pressed="false">Websites</button><button type="button" class="ix-chip" data-t="marketing" aria-pressed="false">Marketing</button></div>
+      <div class="ix-chips" role="group" aria-label="Length"><span class="ix-lbl">Length</span><button type="button" class="ix-chip" data-len="s" aria-pressed="false">Up to 10 min</button><button type="button" class="ix-chip" data-len="m" aria-pressed="false">15 to 25 min</button><button type="button" class="ix-chip" data-len="l" aria-pressed="false">30 min +</button></div>
+      <div class="ix-end">
+        <label class="ix-sort"><span class="ix-lbl">Sort</span><select aria-label="Sort"><option value="">By group</option><option value="az">A to Z</option><option value="short">Shortest first</option><option value="long">Longest first</option></select></label>
+        <div class="ix-view" role="group" aria-label="View"><button type="button" data-view="grid" aria-pressed="true" aria-label="Grid"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg></button><button type="button" data-view="list" aria-pressed="false" aria-label="List"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></button></div>
+      </div>
+    </div>
+  </div>
+  <p class="ix-count" role="status" aria-live="polite"><span data-count>All 14 decks</span><button type="button" class="ix-clear" data-clear hidden>Clear filters</button></p>
+  <div class="ix-results">
+  <section class="ix-group" data-g="about" style="--n:2" aria-labelledby="g-about">
+    <header class="ix-gh"><h2 id="g-about">About TechNext</h2><span class="ix-gn">2</span><p>Who we are and who we have worked for.</p></header>
     <div class="ix-grid">
-    <article class="ix-card">
-      <a class="ix-thumb" href="company-profile.html" aria-label="Open Company profile">
-        <img src="assets/img/thumbs/company-profile.jpg?v=31" alt="Company profile cover: We automate what slows you down." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/company-profile-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="about" data-tags="odoo ai" data-mins="10" data-slides="11" data-order="0" data-title="company profile" data-words="company profile who technext is: three offices on a live map, the three practices, the odoo partnership, how an engagement runs, the four ai disciplines and the company details. about technext odoo ai">
+      <a class="ix-thumb" href="company-profile.html" aria-label="Open Company profile" tabindex="-1">
+        <img src="assets/img/thumbs/company-profile.jpg?v=32" alt="Company profile cover: We automate what slows you down." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/company-profile-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">10 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>11 slides</span><span>about 10 minutes</span></p>
-        <h3>Company profile</h3>
-        <p>Who TechNext is: three offices on a live map, the three practices, the Odoo partnership, how an engagement runs, the four AI disciplines and the company details.</p>
+        <p class="ix-meta"><span class="ix-cat">About TechNext</span><span class="ix-sl">11 slides</span></p>
+        <h3><a href="company-profile.html">Company profile</a></h3>
+        <p class="ix-desc">Who TechNext is: three offices on a live map, the three practices, the Odoo partnership, how an engagement runs, the four AI disciplines and the company details.</p>
+        <p class="ix-tags"><span class="ix-tag">Odoo</span><span class="ix-tag">AI</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="company-profile.html">Present</a>
           <a class="ix-btn" href="company-profile.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -60,15 +83,17 @@
         </div>
       </div>
     </article>
-    <article class="ix-card">
-      <a class="ix-thumb" href="portfolio.html" aria-label="Open Portfolio">
-        <img src="assets/img/thumbs/portfolio.jpg?v=31" alt="Portfolio cover: the clients TechNext has served." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/portfolio-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="about" data-tags="odoo websites marketing" data-mins="10" data-slides="10" data-order="1" data-title="portfolio" data-words="portfolio the clients we have served and what we built for each: websites, odoo proposals and rollouts, social, video and brand work, on a map and client by client. about technext odoo websites marketing">
+      <a class="ix-thumb" href="portfolio.html" aria-label="Open Portfolio" tabindex="-1">
+        <img src="assets/img/thumbs/portfolio.jpg?v=32" alt="Portfolio cover: the clients TechNext has served." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/portfolio-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">10 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>10 slides</span><span>about 10 minutes</span></p>
-        <h3>Portfolio</h3>
-        <p>The clients we have served and what we built for each: websites, Odoo proposals and rollouts, social, video and brand work, on a map and client by client.</p>
+        <p class="ix-meta"><span class="ix-cat">About TechNext</span><span class="ix-sl">10 slides</span></p>
+        <h3><a href="portfolio.html">Portfolio</a></h3>
+        <p class="ix-desc">The clients we have served and what we built for each: websites, Odoo proposals and rollouts, social, video and brand work, on a map and client by client.</p>
+        <p class="ix-tags"><span class="ix-tag">Odoo</span><span class="ix-tag">Websites</span><span class="ix-tag">Marketing</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="portfolio.html">Present</a>
           <a class="ix-btn" href="portfolio.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -78,18 +103,20 @@
     </article>
     </div>
   </section>
-  <section class="ix-group" aria-label="What we build">
-    <h2 class="ix-gh">What we build</h2>
+  <section class="ix-group" data-g="build" style="--n:2" aria-labelledby="g-build">
+    <header class="ix-gh"><h2 id="g-build">What we build</h2><span class="ix-gn">2</span><p>Every service and every website, shown working.</p></header>
     <div class="ix-grid">
-    <article class="ix-card">
-      <a class="ix-thumb" href="service-showcase.html" aria-label="Open Service showcase">
-        <img src="assets/img/thumbs/service-showcase.jpg?v=31" alt="Service showcase cover: What we build, and how it works." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/service-showcase-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="build" data-tags="odoo ai websites" data-mins="15" data-slides="15" data-order="2" data-title="service showcase" data-words="service showcase all fourteen services, each shown working: the implementation plan, a live crm pipeline, multi-company odoo, integrations with outages, and four ai demos. what we build odoo ai websites">
+      <a class="ix-thumb" href="service-showcase.html" aria-label="Open Service showcase" tabindex="-1">
+        <img src="assets/img/thumbs/service-showcase.jpg?v=32" alt="Service showcase cover: What we build, and how it works." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/service-showcase-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">15 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>15 slides</span><span>about 15 minutes</span></p>
-        <h3>Service showcase</h3>
-        <p>All fourteen services, each shown working: the implementation plan, a live CRM pipeline, multi-company Odoo, integrations with outages, and four AI demos.</p>
+        <p class="ix-meta"><span class="ix-cat">What we build</span><span class="ix-sl">15 slides</span></p>
+        <h3><a href="service-showcase.html">Service showcase</a></h3>
+        <p class="ix-desc">All fourteen services, each shown working: the implementation plan, a live CRM pipeline, multi-company Odoo, integrations with outages, and four AI demos.</p>
+        <p class="ix-tags"><span class="ix-tag">Odoo</span><span class="ix-tag">AI</span><span class="ix-tag">Websites</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="service-showcase.html">Present</a>
           <a class="ix-btn" href="service-showcase.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -97,15 +124,17 @@
         </div>
       </div>
     </article>
-    <article class="ix-card">
-      <a class="ix-thumb" href="marketing-showcase.html" aria-label="Open Marketing showcase">
-        <img src="assets/img/thumbs/marketing-showcase.jpg?v=31" alt="Marketing showcase cover: websites TechNext has built." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/marketing-showcase-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="build" data-tags="websites marketing" data-mins="10" data-slides="15" data-order="3" data-title="marketing showcase" data-words="marketing showcase every live website we have built, and the concepts we have mocked up, with each full page scrolling in a browser and on a phone. what we build websites marketing">
+      <a class="ix-thumb" href="marketing-showcase.html" aria-label="Open Marketing showcase" tabindex="-1">
+        <img src="assets/img/thumbs/marketing-showcase.jpg?v=32" alt="Marketing showcase cover: websites TechNext has built." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/marketing-showcase-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">10 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>15 slides</span><span>about 10 minutes</span></p>
-        <h3>Marketing showcase</h3>
-        <p>Every live website we have built, and the concepts we have mocked up, with each full page scrolling in a browser and on a phone.</p>
+        <p class="ix-meta"><span class="ix-cat">What we build</span><span class="ix-sl">15 slides</span></p>
+        <h3><a href="marketing-showcase.html">Marketing showcase</a></h3>
+        <p class="ix-desc">Every live website we have built, and the concepts we have mocked up, with each full page scrolling in a browser and on a phone.</p>
+        <p class="ix-tags"><span class="ix-tag">Websites</span><span class="ix-tag">Marketing</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="marketing-showcase.html">Present</a>
           <a class="ix-btn" href="marketing-showcase.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -115,18 +144,20 @@
     </article>
     </div>
   </section>
-  <section class="ix-group" aria-label="Odoo">
-    <h2 class="ix-gh">Odoo</h2>
+  <section class="ix-group" data-g="odoo" style="--n:4" aria-labelledby="g-odoo">
+    <header class="ix-gh"><h2 id="g-odoo">Odoo</h2><span class="ix-gn">4</span><p>Odoo from scratch, then one app at a time in a live session.</p></header>
     <div class="ix-grid">
-    <article class="ix-card">
-      <a class="ix-thumb" href="what-is-odoo.html" aria-label="Open What is Odoo?">
-        <img src="assets/img/thumbs/what-is-odoo.jpg?v=31" alt="What is Odoo cover: one suite of business apps on one database." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/what-is-odoo-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="odoo" data-tags="odoo" data-mins="15" data-slides="17" data-order="4" data-title="what is odoo?" data-words="what is odoo? odoo explained from scratch, what&#x27;s new in odoo 20, then one order walked from lead to cash across six odoo screens: crm, sales, inventory, invoicing, accounting and reporting. odoo odoo">
+      <a class="ix-thumb" href="what-is-odoo.html" aria-label="Open What is Odoo?" tabindex="-1">
+        <img src="assets/img/thumbs/what-is-odoo.jpg?v=32" alt="What is Odoo cover: one suite of business apps on one database." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/what-is-odoo-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">15 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>17 slides</span><span>about 15 minutes</span></p>
-        <h3>What is Odoo?</h3>
-        <p>Odoo explained from scratch, what's new in Odoo 20, then one order walked from lead to cash across six Odoo screens: CRM, Sales, Inventory, Invoicing, Accounting and Reporting.</p>
+        <p class="ix-meta"><span class="ix-cat">Odoo</span><span class="ix-sl">17 slides</span></p>
+        <h3><a href="what-is-odoo.html">What is Odoo?</a></h3>
+        <p class="ix-desc">Odoo explained from scratch, what's new in Odoo 20, then one order walked from lead to cash across six Odoo screens: CRM, Sales, Inventory, Invoicing, Accounting and Reporting.</p>
+        <p class="ix-tags"><span class="ix-tag">Odoo</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="what-is-odoo.html">Present</a>
           <a class="ix-btn" href="what-is-odoo.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -134,15 +165,17 @@
         </div>
       </div>
     </article>
-    <article class="ix-card">
-      <a class="ix-thumb" href="odoo-accounting.html" aria-label="Open Odoo Accounting">
-        <img src="assets/img/thumbs/odoo-accounting.jpg?v=31" alt="Odoo Accounting cover: books that keep up with your bank." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/odoo-accounting-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="odoo" data-tags="odoo" data-mins="15" data-slides="13" data-order="5" data-title="odoo accounting" data-words="odoo accounting one live odoo 20 session on a sample singapore company: bank lines fetched and matched by rule, a bill read from its pdf, reminders, a batch payment, the gst return checked and validated, the month locked. odoo odoo">
+      <a class="ix-thumb" href="odoo-accounting.html" aria-label="Open Odoo Accounting" tabindex="-1">
+        <img src="assets/img/thumbs/odoo-accounting.jpg?v=32" alt="Odoo Accounting cover: books that keep up with your bank." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/odoo-accounting-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">15 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>13 slides</span><span>about 15 minutes</span></p>
-        <h3>Odoo Accounting</h3>
-        <p>One live Odoo 20 session on a sample Singapore company: bank lines fetched and matched by rule, a bill read from its PDF, reminders, a batch payment, the GST return checked and validated, the month locked.</p>
+        <p class="ix-meta"><span class="ix-cat">Odoo</span><span class="ix-sl">13 slides</span></p>
+        <h3><a href="odoo-accounting.html">Odoo Accounting</a></h3>
+        <p class="ix-desc">One live Odoo 20 session on a sample Singapore company: bank lines fetched and matched by rule, a bill read from its PDF, reminders, a batch payment, the GST return checked and validated, the month locked.</p>
+        <p class="ix-tags"><span class="ix-tag">Odoo</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="odoo-accounting.html">Present</a>
           <a class="ix-btn" href="odoo-accounting.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -150,15 +183,17 @@
         </div>
       </div>
     </article>
-    <article class="ix-card">
-      <a class="ix-thumb" href="odoo-sales.html" aria-label="Open Odoo Sales">
-        <img src="assets/img/thumbs/odoo-sales.jpg?v=31" alt="Odoo Sales cover: quotes that get paid." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/odoo-sales-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="odoo" data-tags="odoo" data-mins="15" data-slides="13" data-order="6" data-title="odoo sales" data-words="odoo sales one live odoo 20 session: a quote from a template, priced by margin, signed and paid online, invoiced with the deposit deducted, then shopee, lazada and tiktok shop orders and commissions. odoo odoo">
+      <a class="ix-thumb" href="odoo-sales.html" aria-label="Open Odoo Sales" tabindex="-1">
+        <img src="assets/img/thumbs/odoo-sales.jpg?v=32" alt="Odoo Sales cover: quotes that get paid." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/odoo-sales-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">15 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>13 slides</span><span>about 15 minutes</span></p>
-        <h3>Odoo Sales</h3>
-        <p>One live Odoo 20 session: a quote from a template, priced by margin, signed and paid online, invoiced with the deposit deducted, then Shopee, Lazada and TikTok Shop orders and commissions.</p>
+        <p class="ix-meta"><span class="ix-cat">Odoo</span><span class="ix-sl">13 slides</span></p>
+        <h3><a href="odoo-sales.html">Odoo Sales</a></h3>
+        <p class="ix-desc">One live Odoo 20 session: a quote from a template, priced by margin, signed and paid online, invoiced with the deposit deducted, then Shopee, Lazada and TikTok Shop orders and commissions.</p>
+        <p class="ix-tags"><span class="ix-tag">Odoo</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="odoo-sales.html">Present</a>
           <a class="ix-btn" href="odoo-sales.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -166,15 +201,17 @@
         </div>
       </div>
     </article>
-    <article class="ix-card">
-      <a class="ix-thumb" href="odoo-crm.html" aria-label="Open Odoo CRM">
-        <img src="assets/img/thumbs/odoo-crm.jpg?v=31" alt="Odoo CRM cover: every lead in one pipeline, none left waiting." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/odoo-crm-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="odoo" data-tags="odoo" data-mins="15" data-slides="13" data-order="7" data-title="odoo crm" data-words="odoo crm one live odoo 20 session: two leads merged, lead sourcing, assignment by rotation, a planned next step, predictive scoring, the quotation and the forecast. odoo odoo">
+      <a class="ix-thumb" href="odoo-crm.html" aria-label="Open Odoo CRM" tabindex="-1">
+        <img src="assets/img/thumbs/odoo-crm.jpg?v=32" alt="Odoo CRM cover: every lead in one pipeline, none left waiting." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/odoo-crm-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">15 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>13 slides</span><span>about 15 minutes</span></p>
-        <h3>Odoo CRM</h3>
-        <p>One live Odoo 20 session: two leads merged, Lead Sourcing, assignment by rotation, a planned next step, predictive scoring, the quotation and the forecast.</p>
+        <p class="ix-meta"><span class="ix-cat">Odoo</span><span class="ix-sl">13 slides</span></p>
+        <h3><a href="odoo-crm.html">Odoo CRM</a></h3>
+        <p class="ix-desc">One live Odoo 20 session: two leads merged, Lead Sourcing, assignment by rotation, a planned next step, predictive scoring, the quotation and the forecast.</p>
+        <p class="ix-tags"><span class="ix-tag">Odoo</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="odoo-crm.html">Present</a>
           <a class="ix-btn" href="odoo-crm.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -184,18 +221,20 @@
     </article>
     </div>
   </section>
-  <section class="ix-group" aria-label="Sales proposals">
-    <h2 class="ix-gh">Sales proposals</h2>
+  <section class="ix-group" data-g="client" style="--n:4" aria-labelledby="g-client">
+    <header class="ix-gh"><h2 id="g-client">Client decks</h2><span class="ix-gn">4</span><p>Proposals and reviews made for one client. Send them with Share.</p></header>
     <div class="ix-grid">
-    <article class="ix-card">
-      <a class="ix-thumb" href="hitachi-elevator-ph.html" aria-label="Open Hitachi Elevator Philippines">
-        <img src="assets/img/thumbs/hitachi-elevator-ph.jpg?v=31" alt="Proposal cover: keep every lift moving, and prove it." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/hitachi-elevator-ph-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="client" data-tags="odoo" data-mins="25" data-slides="14" data-order="8" data-title="hitachi elevator philippines" data-words="hitachi elevator philippines an odoo 20 service core beside gerp: breakdown calls, field visits, documents and installations for makati, cebu and cagayan de oro. a discussion draft. client decks odoo">
+      <a class="ix-thumb" href="hitachi-elevator-ph.html" aria-label="Open Hitachi Elevator Philippines" tabindex="-1">
+        <img src="assets/img/thumbs/hitachi-elevator-ph.jpg?v=32" alt="Proposal cover: keep every lift moving, and prove it." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/hitachi-elevator-ph-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">25 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>14 slides</span><span>about 25 minutes</span></p>
-        <h3>Hitachi Elevator Philippines</h3>
-        <p>An Odoo 20 service core beside GERP: breakdown calls, field visits, documents and installations for Makati, Cebu and Cagayan de Oro. A discussion draft.</p>
+        <p class="ix-meta"><span class="ix-cat">Client decks</span><span class="ix-sl">14 slides</span></p>
+        <h3><a href="hitachi-elevator-ph.html">Hitachi Elevator Philippines</a></h3>
+        <p class="ix-desc">An Odoo 20 service core beside GERP: breakdown calls, field visits, documents and installations for Makati, Cebu and Cagayan de Oro. A discussion draft.</p>
+        <p class="ix-tags"><span class="ix-tag">Odoo</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="hitachi-elevator-ph.html">Present</a>
           <a class="ix-btn" href="hitachi-elevator-ph.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -203,15 +242,17 @@
         </div>
       </div>
     </article>
-    <article class="ix-card">
-      <a class="ix-thumb" href="jrtech-odoo-erp.html" aria-label="Open JR-Tech Solution">
-        <img src="assets/img/thumbs/jrtech-odoo-erp.jpg?v=31" alt="JR-Tech cover: moving JR-Tech onto Odoo ERP." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/jrtech-odoo-erp-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="client" data-tags="odoo" data-mins="45" data-slides="25" data-order="9" data-title="jr-tech solution" data-words="jr-tech solution eleven odoo apps in three phases, the move from sql account to odoo accounting with sst and myinvois, the cut-over runway and go / no-go gate, a narrated invoicing video with chapters, support after go-live, then the 28 accounting and billing questions, marked live in the room. client decks odoo">
+      <a class="ix-thumb" href="jrtech-odoo-erp.html" aria-label="Open JR-Tech Solution" tabindex="-1">
+        <img src="assets/img/thumbs/jrtech-odoo-erp.jpg?v=32" alt="JR-Tech cover: moving JR-Tech onto Odoo ERP." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/jrtech-odoo-erp-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">45 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>25 slides</span><span>about 45 minutes</span></p>
-        <h3>JR-Tech Solution</h3>
-        <p>Eleven Odoo apps in three phases, the move from SQL Account to Odoo Accounting with SST and MyInvois, the cut-over runway and go / no-go gate, a narrated invoicing video with chapters, support after go-live, then the 28 accounting and billing questions, marked live in the room.</p>
+        <p class="ix-meta"><span class="ix-cat">Client decks</span><span class="ix-sl">25 slides</span></p>
+        <h3><a href="jrtech-odoo-erp.html">JR-Tech Solution</a></h3>
+        <p class="ix-desc">Eleven Odoo apps in three phases, the move from SQL Account to Odoo Accounting with SST and MyInvois, the cut-over runway and go / no-go gate, a narrated invoicing video with chapters, support after go-live, then the 28 accounting and billing questions, marked live in the room.</p>
+        <p class="ix-tags"><span class="ix-tag">Odoo</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="jrtech-odoo-erp.html">Present</a>
           <a class="ix-btn" href="jrtech-odoo-erp.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -219,15 +260,17 @@
         </div>
       </div>
     </article>
-    <article class="ix-card">
-      <a class="ix-thumb" href="bhdasia-odoo-scope.html" aria-label="Open BHD Asia · HummingBeing">
-        <img src="assets/img/thumbs/bhdasia-odoo-scope.jpg?v=31" alt="BHD Asia cover: six workflows, one Odoo." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/bhdasia-odoo-scope-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="client" data-tags="odoo" data-mins="30" data-slides="19" data-order="10" data-title="bhd asia · hummingbeing" data-words="bhd asia · hummingbeing the implementation scope on odoo online: six workflows played step by step (event tickets, 1:1 sessions screened once then paid, free bookings, screened sales, waitlists, money and books), the nine go-live modules, phase two as switches, what is decided and settled (books in sgd), then the open items, marked live in the room. client decks odoo">
+      <a class="ix-thumb" href="bhdasia-odoo-scope.html" aria-label="Open BHD Asia · HummingBeing" tabindex="-1">
+        <img src="assets/img/thumbs/bhdasia-odoo-scope.jpg?v=32" alt="BHD Asia cover: six workflows, one Odoo." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/bhdasia-odoo-scope-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">30 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>19 slides</span><span>about 30 minutes</span></p>
-        <h3>BHD Asia · HummingBeing</h3>
-        <p>The implementation scope on Odoo Online: six workflows played step by step (event tickets, 1:1 sessions screened once then paid, free bookings, screened sales, waitlists, money and books), the nine go-live modules, phase two as switches, what is decided and settled (books in SGD), then the open items, marked live in the room.</p>
+        <p class="ix-meta"><span class="ix-cat">Client decks</span><span class="ix-sl">19 slides</span></p>
+        <h3><a href="bhdasia-odoo-scope.html">BHD Asia · HummingBeing</a></h3>
+        <p class="ix-desc">The implementation scope on Odoo Online: six workflows played step by step (event tickets, 1:1 sessions screened once then paid, free bookings, screened sales, waitlists, money and books), the nine go-live modules, phase two as switches, what is decided and settled (books in SGD), then the open items, marked live in the room.</p>
+        <p class="ix-tags"><span class="ix-tag">Odoo</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="bhdasia-odoo-scope.html">Present</a>
           <a class="ix-btn" href="bhdasia-odoo-scope.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -235,15 +278,17 @@
         </div>
       </div>
     </article>
-    <article class="ix-card">
-      <a class="ix-thumb" href="hst-medical-website.html" aria-label="Open HST Medical">
-        <img src="assets/img/thumbs/hst-medical-website.jpg?v=31" alt="HST Medical cover: ready for your review." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/hst-medical-website-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="client" data-tags="websites ai" data-mins="40" data-slides="19" data-order="11" data-title="hst medical" data-words="hst medical the website and the product catalogue we built for hst medical (kowa subsidiary): the site page by page, the rfp we can build line by line, ideas by direction, the flip-book and seven print fixes, feedback typed in live, then ai for the website (ask hst today, rules vs ai, five opportunities, ai search), why technext (speed, an erp implementation division, ai) and how we build and show. client decks ai websites">
+      <a class="ix-thumb" href="hst-medical-website.html" aria-label="Open HST Medical" tabindex="-1">
+        <img src="assets/img/thumbs/hst-medical-website.jpg?v=32" alt="HST Medical cover: ready for your review." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/hst-medical-website-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">40 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>19 slides</span><span>about 40 minutes</span></p>
-        <h3>HST Medical</h3>
-        <p>The website and the product catalogue we built for HST Medical (Kowa Subsidiary): the site page by page, the RFP we can build line by line, ideas by direction, the flip-book and seven print fixes, feedback typed in live, then AI for the website (Ask HST today, rules vs AI, five opportunities, AI search), why TechNext (speed, an ERP implementation division, AI) and how we build and show.</p>
+        <p class="ix-meta"><span class="ix-cat">Client decks</span><span class="ix-sl">19 slides</span></p>
+        <h3><a href="hst-medical-website.html">HST Medical</a></h3>
+        <p class="ix-desc">The website and the product catalogue we built for HST Medical (Kowa Subsidiary): the site page by page, the RFP we can build line by line, ideas by direction, the flip-book and seven print fixes, feedback typed in live, then AI for the website (Ask HST today, rules vs AI, five opportunities, AI search), why TechNext (speed, an ERP implementation division, AI) and how we build and show.</p>
+        <p class="ix-tags"><span class="ix-tag">AI</span><span class="ix-tag">Websites</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="hst-medical-website.html">Present</a>
           <a class="ix-btn" href="hst-medical-website.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -253,18 +298,20 @@
     </article>
     </div>
   </section>
-  <section class="ix-group" aria-label="Pricing">
-    <h2 class="ix-gh">Pricing</h2>
+  <section class="ix-group" data-g="pricing" style="--n:2" aria-labelledby="g-pricing">
+    <header class="ix-gh"><h2 id="g-pricing">Pricing</h2><span class="ix-gn">2</span><p>Three tiers each, priced as TechNext's service fee.</p></header>
     <div class="ix-grid">
-    <article class="ix-card">
-      <a class="ix-thumb" href="erp-tiers.html" aria-label="Open ERP tier list">
-        <img src="assets/img/thumbs/erp-tiers.jpg?v=31" alt="ERP tier list cover: three tiers, then add exactly what you need." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/erp-tiers-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="pricing" data-tags="odoo" data-mins="8" data-slides="7" data-order="12" data-title="erp tier list" data-words="erp tier list essentials, growth and enterprise for an odoo rollout, priced as technext&#x27;s service fee (the odoo licence is separate), eight customisation add-ons, a which-tier-fits finder and a plan that turns into a quotation request. pricing odoo">
+      <a class="ix-thumb" href="erp-tiers.html" aria-label="Open ERP tier list" tabindex="-1">
+        <img src="assets/img/thumbs/erp-tiers.jpg?v=32" alt="ERP tier list cover: three tiers, then add exactly what you need." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/erp-tiers-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">8 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>7 slides</span><span>about 8 minutes</span></p>
-        <h3>ERP tier list</h3>
-        <p>Essentials, Growth and Enterprise for an Odoo rollout, priced as TechNext's service fee (the Odoo licence is separate), eight customisation add-ons, a which-tier-fits finder and a plan that turns into a quotation request.</p>
+        <p class="ix-meta"><span class="ix-cat">Pricing</span><span class="ix-sl">7 slides</span></p>
+        <h3><a href="erp-tiers.html">ERP tier list</a></h3>
+        <p class="ix-desc">Essentials, Growth and Enterprise for an Odoo rollout, priced as TechNext's service fee (the Odoo licence is separate), eight customisation add-ons, a which-tier-fits finder and a plan that turns into a quotation request.</p>
+        <p class="ix-tags"><span class="ix-tag">Odoo</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="erp-tiers.html">Present</a>
           <a class="ix-btn" href="erp-tiers.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -272,15 +319,17 @@
         </div>
       </div>
     </article>
-    <article class="ix-card">
-      <a class="ix-thumb" href="marketing-tiers.html" aria-label="Open Marketing tier list">
-        <img src="assets/img/thumbs/marketing-tiers.jpg?v=31" alt="Marketing tier list cover: three tiers to get you seen and booked." width="960" height="540">
-        <img class="ix-thumb-2" src="assets/img/thumbs/marketing-tiers-2.jpg?v=31" alt="" width="960" height="540" loading="lazy">
+    <article class="ix-card" data-g="pricing" data-tags="websites marketing" data-mins="8" data-slides="7" data-order="13" data-title="marketing tier list" data-words="marketing tier list launch, growth and brand for websites, social and brand, priced as technext&#x27;s service fee, eight customisation add-ons, a which-tier-fits finder and a plan that turns into a quotation request. pricing websites marketing">
+      <a class="ix-thumb" href="marketing-tiers.html" aria-label="Open Marketing tier list" tabindex="-1">
+        <img src="assets/img/thumbs/marketing-tiers.jpg?v=32" alt="Marketing tier list cover: three tiers to get you seen and booked." width="960" height="540" loading="lazy">
+        <img class="ix-thumb-2" src="assets/img/thumbs/marketing-tiers-2.jpg?v=32" alt="" width="960" height="540" loading="lazy">
+        <span class="ix-len">8 min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>7 slides</span><span>about 8 minutes</span></p>
-        <h3>Marketing tier list</h3>
-        <p>Launch, Growth and Brand for websites, social and brand, priced as TechNext's service fee, eight customisation add-ons, a which-tier-fits finder and a plan that turns into a quotation request.</p>
+        <p class="ix-meta"><span class="ix-cat">Pricing</span><span class="ix-sl">7 slides</span></p>
+        <h3><a href="marketing-tiers.html">Marketing tier list</a></h3>
+        <p class="ix-desc">Launch, Growth and Brand for websites, social and brand, priced as TechNext's service fee, eight customisation add-ons, a which-tier-fits finder and a plan that turns into a quotation request.</p>
+        <p class="ix-tags"><span class="ix-tag">Websites</span><span class="ix-tag">Marketing</span></p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="marketing-tiers.html">Present</a>
           <a class="ix-btn" href="marketing-tiers.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>
@@ -290,19 +339,33 @@
     </article>
     </div>
   </section>
+  <div class="ix-grid ix-flat" hidden></div>
+  <div class="ix-empty" hidden><b>No deck matches that.</b><p>Try another word, or <button type="button" data-clear>clear the filters</button>.</p></div>
+  </div>
 
-  <section class="ix-tips" aria-labelledby="tips-h">
-    <h2 id="tips-h">Presenting tips</h2>
+  <section class="ix-guide" id="guide" aria-labelledby="guide-h">
+  <h2 id="guide-h">How to present</h2>
+  <ul class="ix-keys" aria-label="Keyboard shortcuts">
+    <li><kbd>→</kbd><kbd>Space</kbd><span>next</span></li>
+    <li><kbd>←</kbd><span>back</span></li>
+    <li><kbd>O</kbd><span>all slides</span></li>
+    <li><kbd>F</kbd><span>full screen</span></li>
+    <li><kbd>N</kbd><span>speaker notes</span></li>
+    <li><kbd>P</kbd><span>presenter view</span></li>
+    <li><kbd>T</kbd><span>display mode</span></li>
+  </ul>
+  <details class="ix-tips" open>
+    <summary>Presenting tips</summary>
     <ul>
       <li><b>Builds before slides.</b> On slides with steps, the first presses reveal each step; the next press moves on.</li>
       <li><b>Click the demos.</b> Maps, pipelines, toggles and the Odoo buttons in the walkthrough all respond to clicks; click empty space to advance.</li>
       <li><b>Jump anywhere.</b> Press <kbd>O</kbd> for every slide at once, or type a slide number and press <kbd>Enter</kbd>.</li>
       <li><b>Leave it running.</b> Add <code>?kiosk</code> to the address (the “Kiosk loop” link) for an event screen that plays on its own.</li>
     </ul>
-  </section>
+  </details>
 
-  <section class="ix-how" aria-labelledby="how-h">
-    <h2 id="how-h">Presenting on a TV or projector</h2>
+  <details class="ix-how">
+    <summary>Presenting on a TV or projector</summary>
     <p class="ix-how-lead">Every deck runs in any of these set-ups. Pick the Display mode with the screen button in the deck’s control bar, or press <kbd>T</kbd>.</p>
     <div class="ix-how-grid">
       <article><b>HDMI or USB-C cable</b><p>The sharpest picture. Press <kbd>Win</kbd>+<kbd>P</kbd> and choose <em>Second screen only</em>, open the deck and press <kbd>F</kbd>. Display: <em>HDMI cable</em>, full quality.</p></article>
@@ -314,6 +377,7 @@
       <article><b>No internet at the venue</b><p>Open each deck once while online, or press the button below: it then opens with no connection on this device. The PDFs and the Drive copy work offline too.</p></article>
     </div>
     <p class="ix-how-act"><button type="button" class="ix-btn ix-btn--p" data-offline>Save every deck for offline use</button><span class="ix-how-st" data-offline-st role="status"></span></p>
+  </details>
   </section>
 </main>
 
@@ -323,6 +387,6 @@
     <a href="https://technext.asia/" target="_blank" rel="noopener">technext.asia</a>
   </div>
 </footer>
-<script src="assets/index.js?v=31" defer></script>
+<script src="assets/index.js?v=32" defer></script>
 </body>
 </html>

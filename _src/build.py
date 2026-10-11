@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "31"
+ASSET_V = "32"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -55,54 +55,54 @@ _maps = {}
 # Slide counts come from the built file; the PDF button shows only when pdf/<name> exists.
 DECKS = [
     ("About TechNext", [
-        dict(slug="company-profile", title="Company profile", mins=10, pdf="TechNext-Company-Profile.pdf",
+        dict(slug="company-profile", tags="odoo ai", title="Company profile", mins=10, pdf="TechNext-Company-Profile.pdf",
              alt="Company profile cover: We automate what slows you down.",
              desc="Who TechNext is: three offices on a live map, the three practices, the Odoo partnership, how an engagement runs, the four AI disciplines and the company details."),
-        dict(slug="portfolio", title="Portfolio", mins=10, pdf="TechNext-Portfolio.pdf",
+        dict(slug="portfolio", tags="odoo websites marketing", title="Portfolio", mins=10, pdf="TechNext-Portfolio.pdf",
              alt="Portfolio cover: the clients TechNext has served.",
              desc="The clients we have served and what we built for each: websites, Odoo proposals and rollouts, social, video and brand work, on a map and client by client."),
     ]),
     ("What we build", [
-        dict(slug="service-showcase", title="Service showcase", mins=15, pdf="TechNext-Service-Showcase.pdf",
+        dict(slug="service-showcase", tags="odoo ai websites", title="Service showcase", mins=15, pdf="TechNext-Service-Showcase.pdf",
              alt="Service showcase cover: What we build, and how it works.",
              desc="All fourteen services, each shown working: the implementation plan, a live CRM pipeline, multi-company Odoo, integrations with outages, and four AI demos."),
-        dict(slug="marketing-showcase", title="Marketing showcase", mins=10, pdf="TechNext-Marketing-Showcase.pdf",
+        dict(slug="marketing-showcase", tags="websites marketing", title="Marketing showcase", mins=10, pdf="TechNext-Marketing-Showcase.pdf",
              alt="Marketing showcase cover: websites TechNext has built.",
              desc="Every live website we have built, and the concepts we have mocked up, with each full page scrolling in a browser and on a phone."),
     ]),
     ("Odoo", [
-        dict(slug="what-is-odoo", title="What is Odoo?", mins=15, pdf="What-Is-Odoo.pdf",
+        dict(slug="what-is-odoo", tags="odoo", title="What is Odoo?", mins=15, pdf="What-Is-Odoo.pdf",
              alt="What is Odoo cover: one suite of business apps on one database.",
              desc="Odoo explained from scratch, what's new in Odoo 20, then one order walked from lead to cash across six Odoo screens: CRM, Sales, Inventory, Invoicing, Accounting and Reporting."),
-        dict(slug="odoo-accounting", title="Odoo Accounting", mins=15, pdf="TechNext-Odoo-Accounting.pdf",
+        dict(slug="odoo-accounting", tags="odoo", title="Odoo Accounting", mins=15, pdf="TechNext-Odoo-Accounting.pdf",
              alt="Odoo Accounting cover: books that keep up with your bank.",
              desc="One live Odoo 20 session on a sample Singapore company: bank lines fetched and matched by rule, a bill read from its PDF, reminders, a batch payment, the GST return checked and validated, the month locked."),
-        dict(slug="odoo-sales", title="Odoo Sales", mins=15, pdf="TechNext-Odoo-Sales.pdf",
+        dict(slug="odoo-sales", tags="odoo", title="Odoo Sales", mins=15, pdf="TechNext-Odoo-Sales.pdf",
              alt="Odoo Sales cover: quotes that get paid.",
              desc="One live Odoo 20 session: a quote from a template, priced by margin, signed and paid online, invoiced with the deposit deducted, then Shopee, Lazada and TikTok Shop orders and commissions."),
-        dict(slug="odoo-crm", title="Odoo CRM", mins=15, pdf="TechNext-Odoo-CRM.pdf",
+        dict(slug="odoo-crm", tags="odoo", title="Odoo CRM", mins=15, pdf="TechNext-Odoo-CRM.pdf",
              alt="Odoo CRM cover: every lead in one pipeline, none left waiting.",
              desc="One live Odoo 20 session: two leads merged, Lead Sourcing, assignment by rotation, a planned next step, predictive scoring, the quotation and the forecast."),
     ]),
-    ("Sales proposals", [
-        dict(slug="hitachi-elevator-ph", title="Hitachi Elevator Philippines", mins=25, pdf="TechNext-Proposal-Hitachi-Elevator-PH.pdf",
+    ("Client decks", [
+        dict(slug="hitachi-elevator-ph", tags="odoo", title="Hitachi Elevator Philippines", mins=25, pdf="TechNext-Proposal-Hitachi-Elevator-PH.pdf",
              alt="Proposal cover: keep every lift moving, and prove it.",
              desc="An Odoo 20 service core beside GERP: breakdown calls, field visits, documents and installations for Makati, Cebu and Cagayan de Oro. A discussion draft."),
-        dict(slug="jrtech-odoo-erp", title="JR-Tech Solution", mins=45, pdf="TechNext-JR-Tech-Odoo-ERP.pdf",
+        dict(slug="jrtech-odoo-erp", tags="odoo", title="JR-Tech Solution", mins=45, pdf="TechNext-JR-Tech-Odoo-ERP.pdf",
              alt="JR-Tech cover: moving JR-Tech onto Odoo ERP.",
              desc="Eleven Odoo apps in three phases, the move from SQL Account to Odoo Accounting with SST and MyInvois, the cut-over runway and go / no-go gate, a narrated invoicing video with chapters, support after go-live, then the 28 accounting and billing questions, marked live in the room."),
-        dict(slug="bhdasia-odoo-scope", title="BHD Asia · HummingBeing", mins=30, pdf="TechNext-BHD-Asia-Implementation-Scope.pdf",
+        dict(slug="bhdasia-odoo-scope", tags="odoo", title="BHD Asia · HummingBeing", mins=30, pdf="TechNext-BHD-Asia-Implementation-Scope.pdf",
              alt="BHD Asia cover: six workflows, one Odoo.",
              desc="The implementation scope on Odoo Online: six workflows played step by step (event tickets, 1:1 sessions screened once then paid, free bookings, screened sales, waitlists, money and books), the nine go-live modules, phase two as switches, what is decided and settled (books in SGD), then the open items, marked live in the room."),
-        dict(slug="hst-medical-website", title="HST Medical", mins=40, pdf="TechNext-HST-Medical-Website-Review.pdf",
+        dict(slug="hst-medical-website", tags="websites ai", title="HST Medical", mins=40, pdf="TechNext-HST-Medical-Website-Review.pdf",
              alt="HST Medical cover: ready for your review.",
              desc="The website and the product catalogue we built for HST Medical (Kowa Subsidiary): the site page by page, the RFP we can build line by line, ideas by direction, the flip-book and seven print fixes, feedback typed in live, then AI for the website (Ask HST today, rules vs AI, five opportunities, AI search), why TechNext (speed, an ERP implementation division, AI) and how we build and show."),
     ]),
     ("Pricing", [
-        dict(slug="erp-tiers", title="ERP tier list", mins=8, pdf="TechNext-ERP-Tier-List.pdf",
+        dict(slug="erp-tiers", tags="odoo", title="ERP tier list", mins=8, pdf="TechNext-ERP-Tier-List.pdf",
              alt="ERP tier list cover: three tiers, then add exactly what you need.",
              desc="Essentials, Growth and Enterprise for an Odoo rollout, priced as TechNext's service fee (the Odoo licence is separate), eight customisation add-ons, a which-tier-fits finder and a plan that turns into a quotation request."),
-        dict(slug="marketing-tiers", title="Marketing tier list", mins=8, pdf="TechNext-Marketing-Tier-List.pdf",
+        dict(slug="marketing-tiers", tags="websites marketing", title="Marketing tier list", mins=8, pdf="TechNext-Marketing-Tier-List.pdf",
              alt="Marketing tier list cover: three tiers to get you seen and booked.",
              desc="Launch, Growth and Brand for websites, social and brand, priced as TechNext's service fee, eight customisation add-ons, a which-tier-fits finder and a plan that turns into a quotation request."),
     ]),
@@ -142,9 +142,21 @@ def share_copy(html, slug):
 WORDS = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten"}
 
 
+# One line under each launcher group's heading, and its key for the filter (the URL keeps it: #g=odoo).
+GROUPS = {
+    "About TechNext": ("about", "Who we are and who we have worked for."),
+    "What we build": ("build", "Every service and every website, shown working."),
+    "Odoo": ("odoo", "Odoo from scratch, then one app at a time in a live session."),
+    "Client decks": ("client", "Proposals and reviews made for one client. Send them with Share."),
+    "Pricing": ("pricing", "Three tiers each, priced as TechNext's service fee."),
+}
+TOPICS = [("odoo", "Odoo"), ("ai", "AI"), ("websites", "Websites"), ("marketing", "Marketing")]
+
+
 def launcher():
-    groups, n = [], 0
+    groups, tabs, n, slides_all, mins_all = [], [], 0, 0, 0
     for gname, decks in DECKS:
+        gkey, blurb = GROUPS[gname]
         cards = []
         for d in decks:
             html = ROOT / (d["slug"] + ".html")
@@ -153,19 +165,25 @@ def launcher():
             slides = len(re.findall(r'<section class="slide[ "]', html.read_text(encoding="utf-8")))
             th = f"assets/img/thumbs/{d['slug']}"
             second = (f'\n        <img class="ix-thumb-2" src="{th}-2.jpg" alt="" width="960" height="540" loading="lazy">' if (ROOT / f"{th}-2.jpg").exists() else "")
-            pdf = (f'<a class="ix-btn ix-btn--t" href="pdf/{d["pdf"]}">{{{{icon:file}}}}PDF</a>' if (ROOT / "pdf" / d["pdf"]).exists() else "")
+            has_pdf = (ROOT / "pdf" / d["pdf"]).exists()
+            pdf = (f'<a class="ix-btn ix-btn--t" href="pdf/{d["pdf"]}">{{{{icon:file}}}}PDF</a>' if has_pdf else "")
             share = (f'<button type="button" class="ix-btn ix-btn--t ix-share" data-share="{BASE}s-{share_tokens()[d["slug"]]}.html" data-title="{d["title"]}"'
                      f' aria-haspopup="dialog" aria-expanded="false">{{{{icon:link}}}}Share</button>')
             # PDF and Share sit beside Present and Kiosk loop, all on one row
             more = f'\n          <span class="ix-more">{pdf}{share}</span>'
-            cards.append(f"""    <article class="ix-card">
-      <a class="ix-thumb" href="{d['slug']}.html" aria-label="Open {d['title']}">
-        <img src="{th}.jpg" alt="{d['alt']}" width="960" height="540">{second}
+            tags = d.get("tags", "").split()
+            chips = "".join(f'<span class="ix-tag">{label}</span>' for key, label in TOPICS if key in tags)
+            words = " ".join([d["title"], d["desc"], gname] + [label for key, label in TOPICS if key in tags]).lower()
+            cards.append(f"""    <article class="ix-card" data-g="{gkey}" data-tags="{' '.join(tags)}" data-mins="{d['mins']}" data-slides="{slides}" data-order="{n}" data-title="{_html.escape(d['title'].lower())}" data-words="{_html.escape(words)}">
+      <a class="ix-thumb" href="{d['slug']}.html" aria-label="Open {d['title']}" tabindex="-1">
+        <img src="{th}.jpg" alt="{d['alt']}" width="960" height="540" loading="lazy">{second}
+        <span class="ix-len">{d['mins']} min</span>
       </a>
       <div class="ix-body">
-        <p class="ix-meta"><span>{slides} slides</span><span>about {d['mins']} minutes</span></p>
-        <h3>{d['title']}</h3>
-        <p>{d['desc']}</p>
+        <p class="ix-meta"><span class="ix-cat">{gname}</span><span class="ix-sl">{slides} slides</span></p>
+        <h3><a href="{d['slug']}.html">{d['title']}</a></h3>
+        <p class="ix-desc">{d['desc']}</p>
+        <p class="ix-tags">{chips}</p>
         <div class="ix-acts">
           <a class="ix-btn ix-btn--p" href="{d['slug']}.html">Present</a>
           <a class="ix-btn" href="{d['slug']}.html?kiosk" aria-label="Kiosk loop">Kiosk<span class="ix-kl">&nbsp;loop</span></a>{more}
@@ -173,9 +191,34 @@ def launcher():
       </div>
     </article>""")
             n += 1
+            slides_all += slides
+            mins_all += d["mins"]
         if cards:
-            groups.append(f'  <section class="ix-group" aria-label="{gname}">\n    <h2 class="ix-gh">{gname}</h2>\n    <div class="ix-grid">\n' + "\n".join(cards) + "\n    </div>\n  </section>")
-    return "\n".join(groups), n
+            tabs.append(f'<button type="button" class="ix-tab" data-g="{gkey}" aria-pressed="false">{gname}<span>{len(cards)}</span></button>')
+            groups.append(f'  <section class="ix-group" data-g="{gkey}" style="--n:{min(len(cards), 4)}" aria-labelledby="g-{gkey}">\n'
+                          f'    <header class="ix-gh"><h2 id="g-{gkey}">{gname}</h2><span class="ix-gn">{len(cards)}</span><p>{blurb}</p></header>\n'
+                          f'    <div class="ix-grid">\n' + "\n".join(cards) + "\n    </div>\n  </section>")
+    topics = "".join(f'<button type="button" class="ix-chip" data-t="{k}" aria-pressed="false">{v}</button>' for k, v in TOPICS)
+    bar = f"""  <div class="ix-bar" id="decks" role="search" aria-label="Find a presentation">
+    <div class="ix-bar-1">
+      <label class="ix-q">{{{{icon:search}}}}<input type="search" placeholder="Search the decks" aria-label="Search the decks" autocomplete="off" spellcheck="false"><kbd aria-hidden="true">/</kbd></label>
+      <div class="ix-tabs" role="group" aria-label="Group"><button type="button" class="ix-tab" data-g="" aria-pressed="true">All<span>{n}</span></button>{''.join(tabs)}</div>
+    </div>
+    <div class="ix-bar-2">
+      <div class="ix-chips" role="group" aria-label="Topic"><span class="ix-lbl">Topic</span>{topics}</div>
+      <div class="ix-chips" role="group" aria-label="Length"><span class="ix-lbl">Length</span><button type="button" class="ix-chip" data-len="s" aria-pressed="false">Up to 10 min</button><button type="button" class="ix-chip" data-len="m" aria-pressed="false">15 to 25 min</button><button type="button" class="ix-chip" data-len="l" aria-pressed="false">30 min +</button></div>
+      <div class="ix-end">
+        <label class="ix-sort"><span class="ix-lbl">Sort</span><select aria-label="Sort"><option value="">By group</option><option value="az">A to Z</option><option value="short">Shortest first</option><option value="long">Longest first</option></select></label>
+        <div class="ix-view" role="group" aria-label="View"><button type="button" data-view="grid" aria-pressed="true" aria-label="Grid">{{{{icon:grid}}}}</button><button type="button" data-view="list" aria-pressed="false" aria-label="List">{{{{icon:menu}}}}</button></div>
+      </div>
+    </div>
+  </div>
+  <p class="ix-count" role="status" aria-live="polite"><span data-count>All {n} decks</span><button type="button" class="ix-clear" data-clear hidden>Clear filters</button></p>
+  <div class="ix-results">
+"""
+    empty = '  <div class="ix-empty" hidden><b>No deck matches that.</b><p>Try another word, or <button type="button" data-clear>clear the filters</button>.</p></div>\n'
+    flat = '  <div class="ix-grid ix-flat" hidden></div>\n'
+    return bar + "\n".join(groups) + "\n" + flat + empty + "  </div>", n, slides_all, mins_all
 
 
 def seamap(w, h):
@@ -473,8 +516,9 @@ def main():
     for p in sorted((SRC / "decks").glob("*.html"), key=lambda p: p.name == "index.html"):
         src = p.read_text(encoding="utf-8")
         if "{{launcher}}" in src:
-            cards, n = launcher()
-            src = src.replace("{{launcher}}", cards).replace("{{deck_count}}", WORDS.get(n, str(n)))
+            cards, n, ns, nm = launcher()
+            src = (src.replace("{{launcher}}", cards).replace("{{deck_count}}", WORDS.get(n, str(n)))
+                   .replace("{{slide_count}}", str(ns)).replace("{{hours}}", str(round(nm / 60))))
         html = expand(src, p.name)
         (ROOT / p.name).write_text(html, encoding="utf-8", newline="\n")
         out.append((p.name, len(html)))
