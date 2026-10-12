@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>Case study · Ecommerce: four shops, one shelf, one Odoo · TechNext</title>
+<meta name="description" content="An industry case study for ecommerce: a composite Singapore skincare brand selling on its own website, Shopee, Lazada and TikTok Shop from one warehouse, what an 11.11 mega-sale did to its stock, gift sets, payouts and returns, and how Odoo 20 joins them: one stock figure, gift sets as kits, payouts matched to the bank, and a phased rollout.">
+{{og:case-study-ecommerce}}
+<link rel="stylesheet" href="assets/case-study.css?v={{v}}">
+<link rel="stylesheet" href="assets/case-study-ecommerce.css?v={{v}}">
+</head>
+<body data-label="Case study · Ecommerce" data-home="./">
+<main class="deck" aria-label="Case study, ecommerce: four shops, one shelf, one Odoo">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="Four shops, one shelf">
+  <div class="cv-copy fb-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">case study · ecommerce</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Four shops, <span class="hl">one shelf.</span></h1>
+    <p class="lead" data-in style="--d:320ms">A Singapore skincare brand selling on its own website, Shopee, Lazada and TikTok Shop from one warehouse. What 11.11 did to it, and how Odoo 20 untied it.</p>
+    <nav class="fb-agenda" data-in style="--d:420ms" aria-label="Parts of this case study">
+      <button type="button" data-go="client"><i>01</i>The problem</button>
+      <button type="button" data-go="arch"><i>02</i>The Odoo answer</button>
+      <button type="button" data-go="rollout"><i>03</i>Rollout</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag">{{icon:cart}}Industry case study · Ecommerce</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="ecm-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <div class="ecm-clock"><b>11.11</b><span>00:00 · the sale opens</span></div>
+    <svg class="ecm-art-svg" viewBox="0 0 640 700" width="640" height="700">
+      <path class="ecm-art-ln" d="M80,262 C80,360 280,350 300,440"></path>
+      <path class="ecm-art-ln" d="M240,262 C240,340 305,360 312,440"></path>
+      <path class="ecm-art-ln" d="M400,262 C400,340 335,360 328,440"></path>
+      <path class="ecm-art-ln" d="M560,262 C560,360 360,350 340,440"></path>
+    </svg>
+    <span class="ecm-ch" style="left:80px;--k:0"><i class="ecm-dot ecm-dot--web"></i>Website</span>
+    <span class="ecm-ch" style="left:240px;--k:1"><i class="ecm-dot ecm-dot--sp"></i>Shopee</span>
+    <span class="ecm-ch" style="left:400px;--k:2"><i class="ecm-dot ecm-dot--lz"></i>Lazada</span>
+    <span class="ecm-ch" style="left:560px;--k:3"><i class="ecm-dot ecm-dot--tt"></i>TikTok Shop</span>
+    <i class="ecm-drop ecm-drop--web" style="--k:0"></i><i class="ecm-drop ecm-drop--sp" style="--k:1"></i><i class="ecm-drop ecm-drop--lz" style="--k:2"></i><i class="ecm-drop ecm-drop--tt" style="--k:3"></i>
+    <i class="ecm-drop ecm-drop--web" style="--k:2.4"></i><i class="ecm-drop ecm-drop--sp" style="--k:3.3"></i><i class="ecm-drop ecm-drop--lz" style="--k:.4"></i><i class="ecm-drop ecm-drop--tt" style="--k:1.5"></i>
+    <div class="ecm-jar">
+      <i class="ecm-jar-fill"></i>
+      <span class="ecm-jar-t">{{odoo:stock:40}}<b>One stock</b><small>one figure for all four shops</small></span>
+    </div>
+    <span class="ecm-kit"><b>Glow Trio</b> = serum + toner + cream</span>
+  </div>
+  <p class="illus fb-comp">{{icon:check}}Illustrative composite · sample company and figures</p>
+  <aside class="notes"><p>This is an industry case study, not one named client. It is a composite of what Singapore direct-to-consumer brands selling on marketplaces tell us, built on a sample skincare company we call Kelpmere Skin. Every figure is sample data. Three parts: the problem, the Odoo answer, the rollout; the agenda buttons jump to each. The picture on the right is the whole story: four shop fronts pouring orders into one shelf.</p></aside>
+</section>
+
+<!-- 2 · the client -->
+<section class="slide" id="client" data-title="Loved online, counted by hand">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>meet the client</span>
+      <h2 class="h-m" data-in style="--d:80ms">Loved online, <span class="hl">counted by hand.</span></h2>
+    </div>
+    <p class="fb-who" data-in style="--d:160ms"><b>Kelpmere Skin</b> <span>sample company · Singapore</span></p>
+  </div>
+  <div class="ecm-stats" data-in style="--d:200ms">
+    <p><b>38</b><span>products</span></p>
+    <p><b>6</b><span>gift sets and bundles</span></p>
+    <p><b>4</b><span>shop fronts</span></p>
+    <p><b>1</b><span>warehouse</span></p>
+    <p class="is-red"><b>2</b><span>people typing stock in by hand</span></p>
+  </div>
+  <div class="ecm-sf">
+    <div class="ecm-sf-l" data-in style="--d:260ms">
+      <div class="ecm-sf-top">
+        <span class="ecm-sf-cap">{{icon:clock}}<span><b class="ecm-sf-clock">Tuesday 14:40</b><small>what each shop says about the Ceramide Barrier Serum</small></span></span>
+        <div class="seg ecm-day" role="group" aria-label="Which day">
+          <button type="button" data-v="tue" aria-pressed="true">{{icon:calendar}}A normal Tuesday</button>
+          <button type="button" data-v="sale" aria-pressed="false">{{icon:zap}}11.11, 00:45</button>
+        </div>
+      </div>
+      <div class="ecm-shops">
+        <div class="ecm-shop"><span class="ecm-shop-h"><i class="ecm-dot ecm-dot--web"></i>Website</span><span class="ecm-shop-q"><b data-q>512</b><small>in stock</small></span><span class="ecm-shop-u" data-u>typed in at 13:00</span></div>
+        <div class="ecm-shop"><span class="ecm-shop-h"><i class="ecm-dot ecm-dot--sp"></i>Shopee</span><span class="ecm-shop-q"><b data-q>512</b><small>in stock</small></span><span class="ecm-shop-u" data-u>typed in at 13:00</span></div>
+        <div class="ecm-shop"><span class="ecm-shop-h"><i class="ecm-dot ecm-dot--lz"></i>Lazada</span><span class="ecm-shop-q"><b data-q>515</b><small>in stock</small></span><span class="ecm-shop-u" data-u>typed in at 13:05</span></div>
+        <div class="ecm-shop"><span class="ecm-shop-h"><i class="ecm-dot ecm-dot--tt"></i>TikTok Shop</span><span class="ecm-shop-q"><b data-q>509</b><small>in stock</small></span><span class="ecm-shop-u" data-u>typed in at 13:10</span></div>
+      </div>
+      <div class="ecm-shelf">
+        <span class="ecm-shelf-h">{{icon:box}}Really on the shelf</span>
+        <div class="ecm-shelf-bar"><i class="ecm-shelf-fill"></i></div>
+        <b class="ecm-shelf-n">498</b>
+      </div>
+    </div>
+    <div class="ecm-sf-r" data-in data-fx="right" style="--d:320ms" aria-live="polite">
+      <span class="ecm-verdict-h">The gap</span>
+      <b class="ecm-gap">17 units</b>
+      <p class="ecm-verdict">Close enough. Nobody notices.</p>
+      <ul class="ecm-facts">
+        <li><span>Orders an hour</span><b class="ecm-f1">18</b></li>
+        <li><span>Stock typed in</span><b class="ecm-f2">every 4 hours</b></li>
+        <li><span>Gift sets take a serum</span><b class="is-bad">never</b></li>
+      </ul>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative composite · sample data</p>
+  <aside class="notes"><p>Kelpmere is a sample, but this routine is what we hear again and again. One warehouse, four shop fronts, and two people who export orders and type stock figures into four seller centres a few times a day. On a normal Tuesday that works: the shops are a few units off and nobody notices. Now click 11.11 at 00:45. Every shop still shows the 600 typed in at 23:30, and the shelf has been empty for half an hour. Same people, same process; the day is what changed. Also notice the last line: gift sets are listed as their own products, so selling one never takes a serum off the count.</p></aside>
+</section>
+
+<!-- 3 · the night -->
+<section class="slide" id="night" data-steps="5" data-title="11.11: 900 sold, 600 on the shelf">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the complicated part</span>
+      <h2 class="h-m" data-in style="--d:80ms">11.11: 900 sold, <span class="hl">600 on the shelf.</span></h2>
+    </div>
+    <p class="hint ecm-hint" data-in style="--d:160ms"><kbd>→</kbd> plays the night, hour by hour</p>
+  </div>
+  <div class="ecm-nt">
+    <div class="ecm-race" data-in style="--d:200ms">
+      <div class="ecm-race-h"><span><b>Ceramide Barrier Serum</b> · units sold since midnight</span><b class="ecm-race-t">23:59</b></div>
+      <div class="ecm-track">
+        <div class="ecm-bars"><i class="ecm-seg ecm-seg--sp"></i><i class="ecm-seg ecm-seg--tt"></i><i class="ecm-seg ecm-seg--lz"></i><i class="ecm-seg ecm-seg--web"></i><i class="ecm-seg ecm-seg--kit"></i></div>
+        <i class="ecm-over"></i>
+        <span class="ecm-mark" style="left:60%"><b>600 on the shelf</b></span>
+        <span class="ecm-tick" style="left:0%">0</span><span class="ecm-tick" style="left:30%">300</span><span class="ecm-tick" style="left:90%">900</span>
+      </div>
+      <ul class="ecm-legend">
+        <li><i class="ecm-seg--sp"></i>Shopee</li><li><i class="ecm-seg--tt"></i>TikTok Shop</li><li><i class="ecm-seg--lz"></i>Lazada</li><li><i class="ecm-seg--web"></i>Website</li><li><i class="ecm-seg--kit"></i>Inside Glow Trio gift sets, not counted</li>
+      </ul>
+      <ol class="ecm-hours">
+        <li><button type="button" data-n="1"><i>00:10</i>Sale opens</button></li>
+        <li><button type="button" data-n="2"><i>00:30</i>Shelf empty</button></li>
+        <li><button type="button" data-n="3"><i>00:55</i>Stock zeroed</button></li>
+        <li><button type="button" data-n="4"><i>09:00</i>Picking</button></li>
+        <li><button type="button" data-n="5"><i>Day 3</i>Penalties</button></li>
+      </ol>
+      <p class="ecm-say"><span class="ecm-say-x">Midnight. Four shop fronts each say <b>600 in stock</b>. The sale is about to open.</span></p>
+    </div>
+    <div class="ecm-nt-r" data-in data-fx="right" style="--d:260ms">
+      <div class="ecm-sc">
+        <span class="ecm-sc-h">What the shops still show</span>
+        <ul>
+          <li><i class="ecm-dot ecm-dot--sp"></i>Shopee<b data-s>600</b></li>
+          <li><i class="ecm-dot ecm-dot--tt"></i>TikTok Shop<b data-s>600</b></li>
+          <li><i class="ecm-dot ecm-dot--lz"></i>Lazada<b data-s>600</b></li>
+          <li><i class="ecm-dot ecm-dot--web"></i>Website<b data-s>600</b></li>
+          <li class="is-kit"><i class="ecm-dot ecm-dot--kit"></i>Glow Trio gift set<b class="ecm-kit-q">300</b></li>
+        </ul>
+      </div>
+      <div class="ecm-ct">
+        <p><span>Oversold</span><b class="ecm-ct-o">0</b><small>units</small></p>
+        <p><span>Cancelled</span><b class="ecm-ct-c">0</b><small class="ecm-ct-v">S$0.00 refunded</small></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Sample figures</p>
+  <aside class="notes"><p>Walk it with the arrow key. At 00:10, 420 serums are gone, 80 of them inside Glow Trio gift sets, which nobody counts as serums because the gift set is its own product with its own number. The shelf is empty just after 00:15, but every shop still says 600. At 00:55 the two people finish setting stock to zero in four seller centres: 900 sold against 600. At 9 am picking starts and 300 orders can't be filled: 230 serums and 70 gift sets cancelled, S$15,890.00 refunded. By day 3 the marketplaces count the cancellations against the shop: on Shopee as penalty points, on the others under their own seller-performance rules. And 300 customers got an apology instead of their order. Sample figures: serum S$42.00, Glow Trio S$89.00, one unit an order.</p></aside>
+</section>
+
+<!-- 4 · four knots -->
+<section class="slide" id="knots" data-title="Four knots, pulled tight at once">
+  <div class="sec-head">
+    <span class="kicker" data-in>why it is hard</span>
+    <h2 class="h-m" data-in style="--d:80ms">Four knots, <span class="hl">pulled tight at once.</span></h2>
+  </div>
+  <div class="ecm-kn">
+    <div class="ecm-k ecm-k--calc" data-in style="--d:180ms" data-i>
+      <span class="ecm-k-n">1</span>
+      <h3 class="ecm-k-t">Every update by hand is already late</h3>
+      <div class="ecm-pre seg" role="group" aria-label="Which day">
+        <button type="button" data-v="tue" aria-pressed="false">Normal Tuesday</button>
+        <button type="button" data-v="sale" aria-pressed="true">11.11, midnight</button>
+      </div>
+      <label class="ecm-sl"><span>Serums sold a minute, all shops <b class="ecm-sl-r">12</b></span><input type="range" class="ecm-r-rate" data-drag min="0.1" max="20" step="0.1" value="12" aria-label="Serums sold a minute"></label>
+      <label class="ecm-sl"><span>Minutes to update four seller centres <b class="ecm-sl-m">25</b></span><input type="range" class="ecm-r-min" data-drag min="5" max="60" step="1" value="25" aria-label="Minutes to update four seller centres"></label>
+      <p class="ecm-blind"><b class="ecm-blind-n">300</b><span>serums sold on an old number during one update, with <b>600</b> on the shelf</span></p>
+    </div>
+    <div class="ecm-k" data-in style="--d:240ms">
+      <span class="ecm-k-n">2</span>
+      <h3 class="ecm-k-t">Gift sets hide what they use</h3>
+      <div class="ecm-bom">
+        <span class="ecm-bom-p">{{icon:bag}}<b>Glow Trio</b><small>210 sold</small></span>
+        <span class="ecm-bom-a">{{icon:arrow}}</span>
+        <ul><li>Serum<b>−210</b></li><li>Toner<b>−210</b></li><li>Cream<b>−210</b></li></ul>
+      </div>
+      <p class="ecm-k-p">Listed as its own product with its own count, so 630 units left the shelf <em>without touching</em> their numbers.</p>
+    </div>
+    <div class="ecm-k" data-in style="--d:300ms">
+      <span class="ecm-k-n">3</span>
+      <h3 class="ecm-k-t">Money arrives net, and weeks later</h3>
+      <div class="ecm-net">
+        <p><span>Sold, 11–17 Nov</span><b>S$18,640.00</b></p>
+        <p class="is-in"><span>Banked, 25 Nov</span><b>S$15,088.20</b></p>
+      </div>
+      <p class="ecm-k-p">Commission, fees, vouchers and refunds come off <em>before</em> the money arrives, in one lump per payout. The books never match the bank.</p>
+    </div>
+    <div class="ecm-k" data-in style="--d:360ms">
+      <span class="ecm-k-n">4</span>
+      <h3 class="ecm-k-t">Returns go straight back on the shelf</h3>
+      <ol class="ecm-rt"><li>Parcel back</li><li>On the shelf</li><li>Sold again</li><li class="is-bad">Complaint</li></ol>
+      <p class="ecm-k-p">No check, no reason recorded, and the refund lives only in the marketplace, so stock and money <em>both drift.</em></p>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Sample figures</p>
+  <aside class="notes"><p>Why don't they just work harder? Because the first knot is arithmetic. Drag the sliders: on a normal Tuesday, a fraction of a serum a minute and a 25-minute update means a handful sold on an old number, which the stock absorbs. At 11.11 midnight, 12 a minute for 25 minutes is 300 serums sold on a number that is already wrong. No amount of care fixes that. Then three more knots pull at the same time: gift sets use components nobody deducts, marketplace money arrives net and a week or two later, and returns go back on the shelf unchecked. Each alone is manageable; on a mega-sale day they all tighten together. Sample figures throughout; payout timing and fees differ by marketplace and contract.</p></aside>
+</section>
+
+<!-- 5 · the architecture -->
+<section class="slide" id="arch" data-title="One stock figure, every shop front">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the odoo answer</span>
+      <h2 class="h-m" data-in style="--d:80ms">One stock figure, <span class="hl">every shop front.</span></h2>
+    </div>
+    <div class="seg ecm-flow" data-in style="--d:160ms" role="group" aria-label="Which flow">
+      <button type="button" data-v="orders" aria-pressed="true">{{icon:cart}}Orders</button>
+      <button type="button" data-v="stock" aria-pressed="false">{{icon:box}}Stock</button>
+      <button type="button" data-v="money" aria-pressed="false">{{icon:bank}}Money</button>
+      <button type="button" data-v="returns" aria-pressed="false">{{icon:refresh}}Returns</button>
+    </div>
+  </div>
+  <div class="ecm-map" data-flow="orders" data-in style="--d:220ms">
+    <svg class="ecm-map-svg" viewBox="0 0 1360 330" width="1360" height="330" aria-hidden="true">
+      <path class="ecm-l" data-f="orders stock" d="M250,37 C390,37 380,165 520,165"></path>
+      <path class="ecm-l" data-f="orders stock money" d="M250,123 C390,123 380,165 520,165"></path>
+      <path class="ecm-l" data-f="orders stock money" d="M250,209 C390,209 380,165 520,165"></path>
+      <path class="ecm-l" data-f="orders stock money" d="M250,295 C390,295 380,165 520,165"></path>
+      <path class="ecm-l" data-f="money" d="M840,165 C980,165 970,37 1110,37"></path>
+      <path class="ecm-l" data-f="returns" d="M840,165 C980,165 970,123 1110,123"></path>
+      <path class="ecm-l" data-f="returns" d="M840,165 C980,165 970,209 1110,209"></path>
+      <path class="ecm-l" data-f="orders" d="M840,165 C980,165 970,295 1110,295"></path>
+    </svg>
+    <div class="ecm-nd" style="top:6px;left:0" data-f="orders stock">{{odoo:website_sale:34}}<span><b>Website</b><small>Odoo eCommerce</small></span></div>
+    <div class="ecm-nd" style="top:92px;left:0" data-f="orders stock money"><i class="ecm-dot ecm-dot--sp"></i><span><b>Shopee</b><small>Odoo connector</small></span></div>
+    <div class="ecm-nd" style="top:178px;left:0" data-f="orders stock money"><i class="ecm-dot ecm-dot--lz"></i><span><b>Lazada</b><small>Odoo connector</small></span></div>
+    <div class="ecm-nd" style="top:264px;left:0" data-f="orders stock money"><i class="ecm-dot ecm-dot--tt"></i><span><b>TikTok Shop</b><small>Odoo connector</small></span></div>
+    <div class="ecm-core">
+      <span class="ecm-core-h">{{icon:database}}One database</span>
+      <p data-f="orders money">{{odoo:sale:34}}<span><b>Sales</b><small>every order, every shop</small></span></p>
+      <p data-f="stock orders returns">{{odoo:stock:34}}<span><b>Inventory</b><small>one figure per product</small></span></p>
+      <p data-f="stock">{{odoo:mrp:34}}<span><b>Manufacturing · kits</b><small>gift sets use components</small></span></p>
+    </div>
+    <div class="ecm-nd ecm-nd--r" style="top:6px;right:0" data-f="money">{{odoo:account:34}}<span><b>Accounting</b><small>payouts and the bank</small></span></div>
+    <div class="ecm-nd ecm-nd--r" style="top:92px;right:0" data-f="returns">{{odoo:helpdesk:34}}<span><b>Helpdesk</b><small>return requests</small></span></div>
+    <div class="ecm-nd ecm-nd--r" style="top:178px;right:0" data-f="returns">{{odoo:quality_control:34}}<span><b>Quality</b><small>check before restock</small></span></div>
+    <div class="ecm-nd ecm-nd--r" style="top:264px;right:0" data-f="orders">{{odoo:mass_mailing:34}}<span><b>Email Marketing</b><small>website customers</small></span></div>
+  </div>
+  <ol class="ecm-cap" data-in style="--d:300ms" aria-live="polite">
+    <li><i>1</i><span class="ecm-cap-t">Website orders are Sales orders the moment they are paid.</span></li>
+    <li><i>2</i><span class="ecm-cap-t">Marketplace orders and their delivery slips arrive through each connector, on its sync schedule.</span></li>
+    <li><i>3</i><span class="ecm-cap-t">Each order reserves stock in the one warehouse; a gift set reserves its three components.</span></li>
+  </ol>
+  <aside class="notes"><p>The answer is one database with one stock figure that every shop front reads. Click the four flows. Orders: website orders are Sales orders straight away; Shopee, Lazada and TikTok Shop orders come in through Odoo's connectors with their delivery slips, on each connector's sync schedule, not instantly. Stock: one on-hand figure per product, gift sets set up as kits so selling one takes the serum, toner and cream, and stock levels go back out to the marketplaces. Money: marketplace settlement reports imported into Accounting and matched to the bank, two slides on. Returns: a request in Helpdesk, a return receipt, a quality check, then restock or scrap. Honest notes: the three connectors are Odoo Enterprise features, documented for Singapore; Lazada and TikTok Shop are in the Odoo 20 release notes; exact sync behaviour and fulfilment types are confirmed per marketplace in discovery. Kits need the Manufacturing app for the bill of materials. Email Marketing reaches website customers who opted in; marketplace buyers' contact details stay with the marketplace.</p></aside>
+</section>
+
+<!-- 6 · workflow 1: the same midnight -->
+<section class="slide" id="w1" data-steps="5" data-title="Same midnight, stopped at zero">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 1 · the stock</span>
+      <h2 class="h-m" data-in style="--d:80ms">Same midnight, <span class="hl">stopped at zero.</span></h2>
+    </div>
+    <div class="ecm-w1-ctl" data-in style="--d:160ms">
+      <div class="seg ecm-mode" role="group" aria-label="How stock is kept">
+        <button type="button" data-v="hand" aria-pressed="false">{{icon:pen}}By hand</button>
+        <button type="button" data-v="odoo" aria-pressed="true">{{icon:layers}}One Odoo stock</button>
+      </div>
+      <button type="button" class="btn btn-line ecm-play">{{icon:play}}<span>Play</span></button>
+    </div>
+  </div>
+  <div class="ecm-sim">
+    <div class="ecm-lanes" data-in style="--d:200ms">
+      <div class="ecm-ln" data-c="0"><span class="ecm-ln-h"><i class="ecm-dot ecm-dot--sp"></i><b>Shopee</b></span><span class="ecm-ln-s"><i></i><i></i><i></i></span><span class="ecm-ln-n"><b data-sold>0</b><small>sold</small></span><span class="ecm-ln-q"><b data-list>600</b><small data-when>listed</small></span></div>
+      <div class="ecm-ln" data-c="1"><span class="ecm-ln-h"><i class="ecm-dot ecm-dot--tt"></i><b>TikTok Shop</b></span><span class="ecm-ln-s"><i></i><i></i><i></i></span><span class="ecm-ln-n"><b data-sold>0</b><small>sold</small></span><span class="ecm-ln-q"><b data-list>600</b><small data-when>listed</small></span></div>
+      <div class="ecm-ln" data-c="2"><span class="ecm-ln-h"><i class="ecm-dot ecm-dot--lz"></i><b>Lazada</b></span><span class="ecm-ln-s"><i></i><i></i><i></i></span><span class="ecm-ln-n"><b data-sold>0</b><small>sold</small></span><span class="ecm-ln-q"><b data-list>600</b><small data-when>listed</small></span></div>
+      <div class="ecm-ln" data-c="3"><span class="ecm-ln-h"><i class="ecm-dot ecm-dot--web"></i><b>Website</b></span><span class="ecm-ln-s"><i></i><i></i><i></i></span><span class="ecm-ln-n"><b data-sold>0</b><small>sold</small></span><span class="ecm-ln-q"><b data-list>600</b><small data-when>listed</small></span></div>
+      <div class="ecm-ln is-kit" data-c="4"><span class="ecm-ln-h"><i class="ecm-dot ecm-dot--kit"></i><b>Glow Trio</b></span><span class="ecm-ln-s"><i></i><i></i><i></i></span><span class="ecm-ln-n"><b data-sold>0</b><small>sold</small></span><span class="ecm-ln-q"><b data-list>600</b><small data-when>listed</small></span></div>
+      <ol class="ecm-time">
+        <li><button type="button" data-n="1">00:05</button></li><li><button type="button" data-n="2">00:15</button></li><li><button type="button" data-n="3">00:17</button></li><li><button type="button" data-n="4">00:20</button></li><li><button type="button" data-n="5">09:00</button></li>
+      </ol>
+    </div>
+    <div class="ecm-inv win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url ecm-inv-url">Kelpmere Skin · Inventory</span></div>
+      <div class="ecm-inv-b">
+        <p class="ecm-inv-p">{{odoo:stock:28}}<span><b>Ceramide Barrier Serum</b><small>KS-SER-30 · one warehouse</small></span></p>
+        <div class="ecm-inv-k">
+          <p><span>On hand</span><b class="ecm-oh">600</b></p>
+          <p><span class="ecm-fc-l">Forecasted</span><b class="ecm-fc">600</b></p>
+        </div>
+        <div class="ecm-gauge"><i class="ecm-g-fill"></i></div>
+        <p class="ecm-inv-kit">{{odoo:mrp:22}}<span>Glow Trio · kit · <b class="ecm-kit-a">600</b> can be sold</span></p>
+        <p class="ecm-inv-say"><b class="ecm-say-t">00:00</b><span class="ecm-say-d">One figure for every shop front. Each order reserves from it.</span></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative · sample data and sync times</p>
+  <aside class="notes"><p>Same night, same demand, played twice. Start on One Odoo stock and press Play or step through. Every order, from any shop, reserves from one forecasted figure, and a Glow Trio reserves a serum too, because the gift set is a kit. At 00:17 the forecast hits zero: the website stops selling at once, and the marketplaces get the new level at their next sync. Orders taken in that gap, 12 in this sample, show up in Sales at 00:20, so someone deals with 12 customers at twenty past midnight instead of 300 at 9 am. Now switch to By hand: the same demand, but the shops keep showing 600 until 00:55. Honest note: Odoo does not make a marketplace real-time; orders arrive and stock goes out on each connector's schedule, which we confirm per marketplace. For a mega-sale we also agree a small safety margin per shop.</p></aside>
+</section>
+
+<!-- 7 · workflow 2: the payout -->
+<section class="slide" id="w2" data-steps="4" data-title="Every payout, matched to the bank">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 2 · the money</span>
+      <h2 class="h-m" data-in style="--d:80ms">Every payout, <span class="hl">matched to the bank.</span></h2>
+    </div>
+    <div class="seg ecm-mk" data-in style="--d:160ms" role="group" aria-label="Which marketplace">
+      <button type="button" data-v="sp" aria-pressed="true"><i class="ecm-dot ecm-dot--sp"></i>Shopee</button>
+      <button type="button" data-v="lz" aria-pressed="false"><i class="ecm-dot ecm-dot--lz"></i>Lazada</button>
+      <button type="button" data-v="tt" aria-pressed="false"><i class="ecm-dot ecm-dot--tt"></i>TikTok Shop</button>
+    </div>
+  </div>
+  <div class="ecm-po">
+    <div class="ecm-wf" data-in style="--d:200ms">
+      <span class="ecm-wf-h">One payout, <b class="ecm-wf-p">sales 11–17 Nov</b>, from order to bank</span>
+      <ul class="ecm-wf-rows">
+        <li data-on="1" class="is-gross"><span>Orders sold</span><span class="ecm-wf-bar"><i></i></span><b>S$0.00</b></li>
+        <li data-on="2"><span>Commission</span><span class="ecm-wf-bar"><i></i></span><b>S$0.00</b></li>
+        <li data-on="2"><span>Transaction fee</span><span class="ecm-wf-bar"><i></i></span><b>S$0.00</b></li>
+        <li data-on="2"><span>Seller-funded vouchers</span><span class="ecm-wf-bar"><i></i></span><b>S$0.00</b></li>
+        <li data-on="2"><span>Shipping fee</span><span class="ecm-wf-bar"><i></i></span><b>S$0.00</b></li>
+        <li data-on="2"><span>Refunds</span><span class="ecm-wf-bar"><i></i></span><b>S$0.00</b></li>
+        <li data-on="2" class="is-net"><span>Net payout</span><span class="ecm-wf-bar"><i></i></span><b>S$0.00</b></li>
+        <li data-on="3" class="is-bank"><span>Bank line</span><span class="ecm-wf-bar"><i></i></span><b>S$0.00</b></li>
+      </ul>
+    </div>
+    <div class="ecm-je win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Kelpmere Skin · Accounting</span></div>
+      <div class="ecm-je-b">
+        <ol class="ecm-je-s">
+          <li data-on="1"><i>1</i><span><b>Orders invoiced</b><small class="ecm-je-1">into the Shopee clearing account</small></span><em class="ecm-je-a1">S$0.00</em></li>
+          <li data-on="2"><i>2</i><span><b>Settlement report imported</b><small>fees, vouchers, refunds on their own lines</small></span><em class="ecm-je-a2">S$0.00</em></li>
+          <li data-on="3"><i>3</i><span><b>Bank line fetched</b><small class="ecm-je-3">Bank · SHOPEE PAYOUT · 25 Nov</small></span><em class="ecm-je-a3">S$0.00</em></li>
+          <li data-on="4"><i>4</i><span><b>Bank Matching</b><small>payout matched to the clearing account</small></span><em class="ecm-je-a4">Reconciled</em></li>
+        </ol>
+        <div class="ecm-clr"><span class="ecm-clr-l">Shopee clearing account</span><b class="ecm-clr-n">S$0.00</b></div>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative · sample fees, not any marketplace’s actual rates</p>
+  <aside class="notes"><p>This is the knot that hurts at month-end. Step through it. Each marketplace order is invoiced into a clearing account for that marketplace, so revenue is the full selling price, not whatever arrived. When the payout comes, the marketplace's settlement report is imported into Accounting, and commission, transaction fees, seller-funded vouchers, shipping and refunds land on their own expense lines. Then the bank line is fetched, matched, and the clearing account goes back to zero: every dollar sold is accounted for. Switch marketplaces: the fees and the timing differ, the method doesn't. Honest notes: the rates here are samples, not any marketplace's actual fees. Odoo's docs say fees and payouts are reconciled from the marketplace's financial reports imported into Accounting, not by the connector itself; the import is set up per marketplace. Bank sync depends on the bank being on Odoo's list; otherwise statements are imported. The GST treatment of fees is confirmed with the client's accountant.</p></aside>
+</section>
+
+<!-- 8 · rollout, what changes, next step -->
+<section class="slide" id="rollout" data-title="Four phases, live before the next big sale">
+  <div class="sec-head">
+    <span class="kicker" data-in>how we rolled it out</span>
+    <h2 class="h-m" data-in style="--d:80ms">Four phases, <span class="hl">live before the next big sale.</span></h2>
+  </div>
+  <div class="fb-ro">
+    <ol class="fb-ph ecm-ph" data-in style="--d:180ms" data-i>
+      <li><button type="button" data-k="0" class="is-on"><i>1</i><span><b>One product list, one stock</b><small>Inventory · kits · Accounting</small></span></button></li>
+      <li><button type="button" data-k="1"><i>2</i><span><b>The website shop</b><small>eCommerce · Sales</small></span></button></li>
+      <li><button type="button" data-k="2"><i>3</i><span><b>Marketplaces, one at a time</b><small>Shopee, Lazada, TikTok Shop</small></span></button></li>
+      <li><button type="button" data-k="3"><i>4</i><span><b>Money, returns, customers</b><small>Accounting · Helpdesk · Quality</small></span></button></li>
+    </ol>
+    <div class="fb-pd" data-in data-fx="right" style="--d:240ms" aria-live="polite">
+      <p class="fb-pd-w"><span>We do</span><b class="fb-pd-do">Clean the 38 products so each internal reference matches its marketplace SKU, set up the six gift sets as kits, count the warehouse once, and connect the bank.</b></p>
+      <ul class="fb-ba">
+        <li><span class="fb-b">Gift sets with their own count</span>{{icon:arrow}}<b class="fb-a">Gift sets as kits</b></li>
+        <li><span class="fb-b">Stock in four seller centres</span>{{icon:arrow}}<b class="fb-a">One stock figure</b></li>
+      </ul>
+    </div>
+    <div class="fb-cta" data-in data-fx="scale" style="--d:320ms">
+      <div class="fb-qr">{{qr:meet}}</div>
+      <b>Selling on four shop fronts?</b>
+      <small>30-minute discovery call · online</small>
+      <a href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      <a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative composite · no client figures</p>
+  <aside class="notes"><p>The order matters. First one clean product list: every internal reference matches the SKU on each marketplace, because that is how the Shopee connector matches products, and the gift sets become kits. Then the website, because it is ours and reads stock directly. Then the marketplaces one at a time, each run through a normal week before the next, and all of them live well before the next mega-sale, never during one. Money, returns and customer emails last, once orders and stock are trustworthy. Click each phase for what changes. We don't put weeks on this: it depends on how clean the product data is and on the marketplace accounts, which we see in the discovery call. Close on the QR.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/case-study-ecommerce.js?v={{v}}"></script>
+</body>
+</html>

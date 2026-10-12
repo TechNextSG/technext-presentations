@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>Case study · Construction: every job green, red at handover · TechNext</title>
+<meta name="description" content="An industry case study for construction: a composite Singapore fit-out and M&amp;E contractor running twelve projects at once, the margin that erodes month by month (variations agreed on WhatsApp, materials on the wrong job, late subcontractor invoices, forgotten retention), and how Odoo 20 keeps each project's money in one place: variations from site to signature, progress claims built from percent complete, and a phased rollout.">
+{{og:case-study-construction}}
+<link rel="stylesheet" href="assets/case-study.css?v={{v}}">
+<link rel="stylesheet" href="assets/case-study-construction.css?v={{v}}">
+</head>
+<body data-label="Case study · Construction" data-home="./">
+<main class="deck" aria-label="Case study, construction: every job green, red at handover">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="Every job green, red at handover">
+  <div class="cv-copy cst-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">case study · construction</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Every job green, <span class="hl">red at handover.</span></h1>
+    <p class="lead" data-in style="--d:320ms">A Singapore fit-out and M&amp;E contractor with twelve live projects, whose margins looked healthy every month and fell away at the final account. Where the money went, and how Odoo 20 keeps it in view.</p>
+    <nav class="fb-agenda" data-in style="--d:420ms" aria-label="Parts of this case study">
+      <button type="button" data-go="client"><i>01</i>The problem</button>
+      <button type="button" data-go="apps"><i>02</i>The Odoo answer</button>
+      <button type="button" data-go="rollout"><i>03</i>Rollout</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag">{{icon:hardhat}}Industry case study · Construction</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="cst-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <div class="cst-board">
+      <p class="cst-bh"><b>Site board</b><span>12 live projects · margin</span></p>
+      <div class="cst-rows">
+        <p style="--k:0"><i>P01</i><span><em style="left:2%;width:46%"></em></span><s class="cst-m"><u>21%</u><u>12%</u></s></p>
+        <p style="--k:1" class="is-red"><i>P02</i><span><em style="left:8%;width:70%"></em></span><s class="cst-m"><u>18%</u><u>−3%</u></s></p>
+        <p style="--k:2"><i>P03</i><span><em style="left:30%;width:34%"></em></span><s class="cst-m"><u>24%</u><u>9%</u></s></p>
+        <p style="--k:3"><i>P04</i><span><em style="left:14%;width:52%"></em></span><s class="cst-m"><u>19%</u><u>14%</u></s></p>
+        <p style="--k:4"><i>P05</i><span><em style="left:40%;width:58%"></em></span><s class="cst-m"><u>16%</u><u>4%</u></s></p>
+        <p style="--k:5"><i>P06</i><span><em style="left:0%;width:30%"></em></span><s class="cst-m"><u>22%</u><u>15%</u></s></p>
+        <p style="--k:6" class="is-red"><i>P07</i><span><em style="left:22%;width:76%"></em></span><s class="cst-m"><u>15%</u><u>−1%</u></s></p>
+        <p style="--k:7"><i>P08</i><span><em style="left:48%;width:44%"></em></span><s class="cst-m"><u>18%</u><u>6%</u></s></p>
+        <p style="--k:8"><i>P09</i><span><em style="left:6%;width:36%"></em></span><s class="cst-m"><u>20%</u><u>11%</u></s></p>
+        <p style="--k:9"><i>P10</i><span><em style="left:34%;width:50%"></em></span><s class="cst-m"><u>18%</u><u>3%</u></s></p>
+        <p style="--k:10"><i>P11</i><span><em style="left:56%;width:40%"></em></span><s class="cst-m"><u>21%</u><u>13%</u></s></p>
+        <p style="--k:11"><i>P12</i><span><em style="left:18%;width:62%"></em></span><s class="cst-m"><u>17%</u><u>8%</u></s></p>
+        <i class="cst-today"><b>today</b></i>
+      </div>
+      <p class="cst-bf"><span class="is-g">monthly report</span><span class="is-r">final account</span></p>
+    </div>
+    <span class="cst-chip cst-chip--a">{{icon:whatsapp}}Variation agreed on site</span>
+    <span class="cst-chip cst-chip--b">{{icon:receipt}}Sub invoice, 3 months late</span>
+    <span class="cst-chip cst-chip--c">{{icon:lock}}Retention 5% held</span>
+  </div>
+  <p class="illus fb-comp">{{icon:check}}Illustrative composite · sample company and figures</p>
+  <aside class="notes"><p>This is an industry case study, not one named client. It is a composite of what Singapore fit-out and M&amp;E contractors tell us, built on a sample company we call Lattwell Fit-Out. Every figure is sample data. The story in one line: every project looks profitable in the monthly report, and the real margin only shows up at the final account, when it is too late to do anything. Three parts: the problem, the Odoo answer, the rollout.</p></aside>
+</section>
+
+<!-- 2 · the client -->
+<section class="slide" id="client" data-title="Twelve jobs, all green until handover">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>meet the client</span>
+      <h2 class="h-m" data-in style="--d:80ms">Twelve jobs, all green <span class="hl">until handover.</span></h2>
+    </div>
+    <div class="seg cst-cl-seg" data-in style="--d:160ms" role="group" aria-label="Which margin">
+      <button type="button" data-v="rep" aria-pressed="true">{{icon:file}}Monthly report</button>
+      <button type="button" data-v="fin" aria-pressed="false">{{icon:calculator}}Final account</button>
+    </div>
+  </div>
+  <div class="cst-cl">
+    <div class="cst-who" data-in style="--d:200ms">
+      <p class="cst-who-n"><b>Lattwell Fit-Out</b><span>sample company · Singapore</span></p>
+      <p class="cst-who-d">Interior fit-out and M&amp;E for offices, clinics, shops and hotels, mostly as a subcontractor to main contractors.</p>
+      <ul class="cst-facts">
+        <li>{{icon:building}}<b>12</b><span>projects running at once</span></li>
+        <li>{{icon:users}}<b>38</b><span>subcontractors</span></li>
+        <li>{{icon:hardhat}}<b>9</b><span>site supervisors on WhatsApp</span></li>
+        <li>{{icon:receipt}}<b>7</b><span>clients claimed monthly</span></li>
+        <li>{{icon:grid}}<b>1</b><span>Excel file per progress claim</span></li>
+      </ul>
+    </div>
+    <div class="cst-wall">
+      <p class="cst-wall-h" data-in style="--d:240ms"><span>Last year’s 12 completed projects</span><b class="cst-wall-say">Margin as the monthly report showed it, half-way through</b></p>
+      <div class="cst-tiles" data-in style="--d:280ms" data-mode="rep">
+        <div class="cst-t" data-r="21" data-f="12"><i>P01</i><b>Clinic fit-out</b><small>Novena · S$640,000</small><strong>21%</strong></div>
+        <div class="cst-t is-us" data-r="18" data-f="-3"><i>P02</i><b>Office, level 18</b><small>CBD · S$1,860,000</small><strong>18%</strong></div>
+        <div class="cst-t" data-r="24" data-f="9"><i>P03</i><b>Restaurant</b><small>Orchard · S$380,000</small><strong>24%</strong></div>
+        <div class="cst-t" data-r="19" data-f="14"><i>P04</i><b>Showroom</b><small>Ubi · S$520,000</small><strong>19%</strong></div>
+        <div class="cst-t" data-r="16" data-f="4"><i>P05</i><b>Office, level 6</b><small>one-north · S$1,120,000</small><strong>16%</strong></div>
+        <div class="cst-t" data-r="22" data-f="15"><i>P06</i><b>Retail unit</b><small>Jurong East · S$290,000</small><strong>22%</strong></div>
+        <div class="cst-t" data-r="15" data-f="-1"><i>P07</i><b>Hotel room refit</b><small>Bugis · S$2,400,000</small><strong>15%</strong></div>
+        <div class="cst-t" data-r="18" data-f="6"><i>P08</i><b>Lab M&amp;E works</b><small>Science Park · S$960,000</small><strong>18%</strong></div>
+        <div class="cst-t" data-r="20" data-f="11"><i>P09</i><b>School canteen</b><small>Tampines · S$330,000</small><strong>20%</strong></div>
+        <div class="cst-t" data-r="18" data-f="3"><i>P10</i><b>Co-working floor</b><small>Tanjong Pagar · S$810,000</small><strong>18%</strong></div>
+        <div class="cst-t" data-r="21" data-f="13"><i>P11</i><b>Bank branch</b><small>Toa Payoh · S$450,000</small><strong>21%</strong></div>
+        <div class="cst-t" data-r="17" data-f="8"><i>P12</i><b>Server room M&amp;E</b><small>Woodlands · S$700,000</small><strong>17%</strong></div>
+      </div>
+      <p class="cst-wall-f" data-in style="--d:340ms"><span>Average margin <b class="cst-avg">19.1%</b></span><span>Jobs that lost money <b class="cst-loss">0</b></span><span class="cst-wall-q">{{icon:target}}P02 is the job we follow next</span></p>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative composite · sample data</p>
+  <aside class="notes"><p>Lattwell is a sample, but the shape is common: twelve jobs at once, 38 subcontractors, nine supervisors who run the sites from WhatsApp, and a progress claim built in Excel every month for each client. Look at the wall: this is the margin the monthly report showed, half-way through each of last year’s jobs. All green, around 19 percent. Now press Final account. The same twelve jobs, closed out: the average falls to about 7.6 percent, and two jobs lost money. Nobody lied in the monthly report. The costs and the missed revenue simply had not reached the office yet. We follow P02, the level 18 office, on the next slide.</p></aside>
+</section>
+
+<!-- 3 · the knot: the S-curve -->
+<section class="slide" id="curve" data-steps="9" data-title="The margin leaked a month at a time">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the complicated part · project P02</span>
+      <h2 class="h-m" data-in style="--d:80ms">The margin leaked <span class="hl">a month at a time.</span></h2>
+    </div>
+    <p class="hint" data-in style="--d:160ms"><kbd>→</kbd> one month at a time</p>
+  </div>
+  <div class="cst-cv">
+    <div class="cst-chart" data-in style="--d:200ms">
+      <svg class="cst-svg" viewBox="0 0 900 470" width="900" height="470" role="img" aria-label="Cumulative cost against budget for project P02, by month">
+        <g class="cst-grid"></g>
+        <path class="cst-l-ct" d="M80,58 L880,58"></path>
+        <text class="cst-t-ct" x="880" y="46" text-anchor="end">Contract sum S$1.86M</text>
+        <path class="cst-l-bd" d=""></path>
+        <path class="cst-gap" d=""></path>
+        <path class="cst-l-rp" d=""></path>
+        <path class="cst-l-rl" d=""></path>
+        <circle class="cst-d-rp" r="6" cx="80" cy="420"></circle>
+        <circle class="cst-d-rl" r="7" cx="80" cy="420"></circle>
+        <g class="cst-xl"></g>
+      </svg>
+      <p class="cst-key"><span class="is-bd">Budget cost</span><span class="is-rp">Cost in the monthly report</span><span class="is-rl">Real cost</span></p>
+    </div>
+    <div class="cst-side" data-in data-fx="right" style="--d:260ms">
+      <p class="cst-side-h">Switch on what the report could not see</p>
+      <div class="cst-tg" data-i>
+        <button type="button" data-k="vo" aria-pressed="false"><i></i><span><b>Variations agreed on WhatsApp</b><small>work done, never priced or claimed</small></span><em class="cst-tg-v" data-k="vo">S$0</em></button>
+        <button type="button" data-k="wr" aria-pressed="false"><i></i><span><b>Costs booked to other jobs</b><small>materials moved between sites</small></span><em class="cst-tg-v" data-k="wr">S$0</em></button>
+        <button type="button" data-k="lt" aria-pressed="false"><i></i><span><b>Sub work not yet invoiced</b><small>invoices arriving months late</small></span><em class="cst-tg-v" data-k="lt">S$0</em></button>
+      </div>
+      <div class="cst-read">
+        <p class="cst-mo">Month <b class="cst-mo-n">0</b> of 9 <span class="cst-mo-p">· contract signed</span></p>
+        <div class="cst-mg">
+          <p><span>Report says</span><b class="cst-mg-r">17.6%</b></p>
+          <p class="is-real"><span>Real margin</span><b class="cst-mg-t">17.6%</b></p>
+        </div>
+        <p class="cst-ret">{{icon:lock}}<span>Retention held by the main contractor <b class="cst-ret-v">S$0</b>, with no date to claim it back</span></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Sample figures · one project replayed</p>
+  <aside class="notes"><p>This is the heart of it. P02: a level 18 office, contract sum S$1.86 million, budgeted cost S$1.58 million, so about 15 percent planned margin. The blue line is the cost the monthly report saw. It ran just under budget every month, so the report said 17.6 percent all the way. Step through the nine months, then switch on the three things the report could not see. Variations the client asked for on site and the supervisor agreed on WhatsApp: the work was done and the cost was real, but it was never priced or claimed. Materials bought for this job but booked to others. And subcontractor work done but not yet invoiced, some of it still outstanding at handover. Each one is small in a month. Together they turn a 17.6 percent job into a loss of S$48,600 at the final account. The retention line is cash, not cost: 5 percent of every claim, S$93,000 by the end, held by the main contractor, and nobody owns the date to claim it back. Every number is sample data.</p></aside>
+</section>
+
+<!-- 4 · why it is hard: three clocks -->
+<section class="slide" id="clocks" data-steps="6" data-title="One month, three clocks">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>why it is hard</span>
+      <h2 class="h-m" data-in style="--d:80ms">One month, <span class="hl">three clocks.</span></h2>
+    </div>
+    <p class="cst-lg" data-in style="--d:160ms"><span class="is-site">Site · every day</span><span class="is-sub">Subcontractors · when they invoice</span><span class="is-claim">Office · claim on the 25th</span></p>
+  </div>
+  <div class="cst-ck">
+    <div class="cst-cal" data-in style="--d:200ms">
+      <p class="cst-cal-h"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></p>
+      <div class="cst-days"></div>
+    </div>
+    <div class="cst-story" data-in data-fx="right" style="--d:260ms" aria-live="polite">
+      <p class="cst-st-h"><span class="cst-st-day">Month 6 · P02</span><span class="cst-st-n">Press → to play the month</span></p>
+      <h3 class="h-s cst-st-t">Nobody is careless. The facts arrive at different times.</h3>
+      <p class="cst-st-d">Watch who knows what, and when the claim is cut.</p>
+      <p class="cst-claim-h">Claim 06, as it went out</p>
+      <ul class="cst-claim">
+        <li data-k="4"><span>Work done</span><b>Guessed by phone: “about 70%”</b></li>
+        <li data-k="5"><span>Variations</span><b>0 of 3 included</b></li>
+        <li data-k="5"><span>Sub costs</span><b>S$58,000 not invoiced yet</b></li>
+        <li data-k="6"><span>Retention</span><b>5% held, no release date</b></li>
+      </ul>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative · sample month</p>
+  <aside class="notes"><p>Why it is structurally hard, and why a better spreadsheet doesn’t fix it. A contractor runs on three clocks. The site moves every day, and decisions are made on the spot. Subcontractors invoice when they get round to it, often a month or more after the work. And the office cuts the progress claim on a fixed date, the 25th here. Step through month six of P02. On day 3 the client’s project manager asks for fourteen extra power points and the supervisor agrees on WhatsApp. On day 9 twelve gypsum boards go to another site, still booked to P02. On day 12 the electrician invoices last month’s work; the air-conditioning sub hasn’t invoiced since March. On day 22 the QS rings the supervisor for percent complete. On the 25th the claim goes out built from those guesses, without the variations. On the 30th the cost report closes and says 17.6 percent. The panel on the right is what Claim 06 really contained.</p></aside>
+</section>
+
+<!-- 5 · the odoo answer: one project, one set of numbers -->
+<section class="slide" id="apps" data-title="One project, every cost in one place">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the odoo answer</span>
+      <h2 class="h-m" data-in style="--d:80ms">One project, <span class="hl">every cost in one place.</span></h2>
+    </div>
+    <p class="hint" data-in style="--d:160ms">Click an app to switch it on</p>
+  </div>
+  <div class="cst-ap">
+    <div class="cst-apps" data-in style="--d:200ms">
+      <div class="cst-ab" data-i>
+        <button type="button" data-k="sale" aria-pressed="false">{{odoo:sale:40}}<span><b>Sales</b><small>contract lines and progress claims</small></span><i></i></button>
+        <button type="button" data-k="vo" aria-pressed="false">{{odoo:sale:40}}<span><b>Sales · variations</b><small>quoted, signed online by the client</small></span><i></i></button>
+        <button type="button" data-k="pur" aria-pressed="false">{{odoo:purchase:40}}<span><b>Purchase</b><small>subcontracts count before the bill</small></span><i></i></button>
+        <button type="button" data-k="mat" aria-pressed="false">{{odoo:account:40}}<span><b>Accounting · analytic</b><small>every bill line tagged to a project</small></span><i></i></button>
+        <button type="button" data-k="ts" aria-pressed="false">{{odoo:hr_timesheet:40}}<span><b>Timesheets</b><small>own crews’ hours at cost</small></span><i></i></button>
+      </div>
+      <div class="cst-site"><span class="cst-site-h">The site side</span><p>{{odoo:project:28}}<b>Project</b></p><p>{{odoo:planning:28}}<b>Planning · Field Service</b></p><p>{{odoo:documents:28}}<b>Documents</b></p><p>{{odoo:sign:28}}<b>Sign</b></p></div>
+    </div>
+    <div class="cst-pf win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Lattwell Fit-Out · Project · P02 Office, level 18</span></div>
+      <div class="cst-pf-b">
+        <p class="cst-pf-h">{{odoo:project:26}}<b>Profitability</b><span>month 7 · replayed with Odoo</span></p>
+        <table class="cst-pt">
+          <thead><tr><th>Revenues</th><th>Invoiced</th><th>To invoice</th></tr></thead>
+          <tbody>
+            <tr data-k="sale"><td>Progress claims 01–07</td><td>S$1,488,000</td><td>S$0</td></tr>
+            <tr data-k="vo"><td>Variation orders, signed</td><td>S$36,000</td><td>S$148,000</td></tr>
+          </tbody>
+          <thead><tr><th>Costs</th><th>Billed</th><th>To bill</th></tr></thead>
+          <tbody>
+            <tr data-k="pur"><td>Subcontractors · purchase orders</td><td>S$708,000</td><td>S$104,000</td></tr>
+            <tr data-k="mat"><td>Materials · vendor bills</td><td>S$364,000</td><td>S$0</td></tr>
+            <tr data-k="ts"><td>Site labour · timesheets</td><td>S$226,000</td><td>S$0</td></tr>
+          </tbody>
+        </table>
+        <div class="cst-pf-f">
+          <p class="cst-pf-mm"><span>Margin Odoo can see</span><b class="cst-pf-m">—</b><small class="cst-pf-s">no app switched on</small></p>
+          <p class="cst-pf-r">{{icon:lock}}<span><small>Retention receivable</small><b>S$74,400</b><small>5% of claims, on its own account</small></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative screen · sample data</p>
+  <aside class="notes"><p>The answer is not a construction add-on. It is standard Odoo 20 apps that all post to one analytic account per project, so the project’s Profitability panel shows revenue and cost as they happen. Switch the apps on one by one and watch the margin: with only Sales on, P02 looks wildly profitable, which is exactly the trap of the old monthly report. Purchase is the big one: a subcontract purchase order counts as cost in the panel from the day it is confirmed, so the S$104,000 the subcontractors haven’t billed yet is already in the number. Analytic distribution is made mandatory on purchase and bill lines, so nothing is bought without a project. With all five on, P02 shows about 16 percent at month seven: a true number, early enough to act on. Honest notes: Odoo has no built-in retention feature; we set it up as a retention line on the claim posted to a retention receivable account, or as an instalment in the payment terms. Odoo is not a BIM or CAD tool; drawings live in Documents as files.</p></aside>
+</section>
+
+<!-- 6 · workflow 1: a variation from site to signature -->
+<section class="slide" id="vo" data-steps="6" data-title="Agreed on site at 10 am, signed by 4 pm">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 1 · site to office</span>
+      <h2 class="h-m" data-in style="--d:80ms">Agreed on site at 10 am, <span class="hl">signed by 4 pm.</span></h2>
+    </div>
+    <button type="button" class="btn btn-line fb-play cst-play" data-in style="--d:160ms">{{icon:play}}<span>Play the flow</span></button>
+  </div>
+  <div class="cst-vo">
+    <div class="cst-ph" data-in style="--d:200ms">
+      <div class="cst-ph-scr">
+        <p class="cst-ph-top"><span>10:04</span>{{odoo:project:20}}<b>P02 · Variations</b></p>
+        <div class="cst-ph-card">
+          <p class="cst-ph-t">VO-07 · 14 extra power points</p>
+          <p class="cst-ph-m">Asked by the client’s PM on the site walk, level 18 east wing</p>
+          <div class="cst-ph-pic"><span class="cst-pic-a">{{icon:camera}}before</span><span class="cst-pic-b">{{icon:camera}}after</span></div>
+          <p class="cst-ph-stage"><span>Stage</span><b data-t="0:New|2:Priced|3:Approved|5:Done|6:Claimed">New</b></p>
+        </div>
+        <ul class="cst-ph-feed">
+          <li data-on="1"><b>You</b> logged it with 2 photos</li>
+          <li data-on="2"><b>PM</b> sent quotation S00431</li>
+          <li data-on="3"><b>Client</b> signed online · 15:52</li>
+          <li data-on="4"><b>Planning</b> electrician, Thu 08:00</li>
+          <li data-on="5"><b>You</b> marked done · 6 h logged</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cst-of win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Lattwell Fit-Out · the office</span></div>
+      <div class="cst-of-b">
+        <ol class="cst-pipe">
+          <li data-on="1">Logged</li><li data-on="2">Priced</li><li data-on="3">Signed</li><li data-on="4">Ordered</li><li data-on="5">Done</li><li data-on="6">Claimed</li>
+        </ol>
+        <ul class="cst-docs">
+          <li data-on="1">{{odoo:project:28}}<span><b>Task VO-07</b><small>P02 · stage Variations · 2 photos</small></span><em data-t="0:—|1:New|2:Priced|5:Done">—</em></li>
+          <li data-on="2">{{odoo:sale:28}}<span><b>S00431 · S$18,400.00</b><small>quotation on the P02 project</small></span><em data-t="0:—|2:Quotation sent|3:Sales order">—</em></li>
+          <li data-on="4">{{odoo:purchase:28}}<span><b>P00877 · S$9,860.00</b><small>electrical subcontractor · analytic P02</small></span><em data-t="0:—|4:Confirmed|5:To bill">—</em></li>
+          <li data-on="4">{{odoo:planning:28}}<span><b>Shift · Thu 08:00–14:00</b><small>Planning · Field Service · level 18</small></span><em data-t="0:—|4:Published|5:Done">—</em></li>
+          <li data-on="6">{{odoo:account:28}}<span><b>INV/2026/00318</b><small>progress claim 07 · VO-07 at 100%</small></span><em data-t="0:—|6:Draft">—</em></li>
+        </ul>
+        <p class="cst-of-m"><span>P02 revenue to invoice from VO-07</span><b data-t="0:S$0.00|3:S$18,400.00|6:In claim 07">S$0.00</b></p>
+      </div>
+    </div>
+    <ol class="cst-steps" data-in style="--d:320ms">
+      <li><button type="button" data-n="1"><i>1</i>Supervisor logs it, with photos</button></li>
+      <li><button type="button" data-n="2"><i>2</i>PM prices it as a quotation</button></li>
+      <li><button type="button" data-n="3"><i>3</i>Client signs it online</button></li>
+      <li><button type="button" data-n="4"><i>4</i>Sub ordered, crew planned</button></li>
+      <li><button type="button" data-n="5"><i>5</i>Done: photo and hours</button></li>
+      <li><button type="button" data-n="6"><i>6</i>Lands in the next claim</button></li>
+    </ol>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative screens · sample data</p>
+  <aside class="notes"><p>Press Play or step through it. This is the variation that leaked on slide three, done the Odoo way. The supervisor logs VO-07 as a task in the P02 project from Odoo on his phone, with before photos. The project manager prices it as a quotation linked to the same project and sends it; the client signs it online, which Sales does as standard, so there is a signed record before the work starts. The subcontract purchase order carries the P02 analytic tag, and the crew is planned in Planning, which includes Field Service from Odoo 20. The supervisor marks it done with an after photo and his hours go on the timesheet. At the next claim the variation is a line at 100 percent. Everything stays on one project, so the money can’t drift. The phone screen is a simplified view of Odoo in the mobile app or browser.</p></aside>
+</section>
+
+<!-- 7 · workflow 2: the progress claim -->
+<section class="slide" id="claim" data-title="Percent complete in, claim invoice out">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 2 · the progress claim</span>
+      <h2 class="h-m" data-in style="--d:80ms">Percent complete in, <span class="hl">claim invoice out.</span></h2>
+    </div>
+    <p class="hint" data-in style="--d:160ms">Drag any line’s percent complete</p>
+  </div>
+  <div class="cst-pc">
+    <div class="cst-so win" data-in style="--d:200ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Sales · S00412 · P02 Office, level 18 · claim 07</span></div>
+      <table class="cst-ct">
+        <thead><tr><th>Contract line</th><th>Contract sum</th><th>Previous</th><th>Delivered to date</th><th>This claim</th></tr></thead>
+        <tbody>
+          <tr data-v="310000" data-p="80" data-n="95"><td>Partitions and doors</td><td>S$310,000</td><td class="cst-pv">80%</td><td class="cst-rg"><input type="range" min="0" max="100" step="1" aria-label="Partitions and doors, percent complete"><b class="cst-pc-v"></b></td><td class="cst-amt"></td></tr>
+          <tr data-v="186000" data-p="55" data-n="70"><td>Ceilings</td><td>S$186,000</td><td class="cst-pv">55%</td><td class="cst-rg"><input type="range" min="0" max="100" step="1" aria-label="Ceilings, percent complete"><b class="cst-pc-v"></b></td><td class="cst-amt"></td></tr>
+          <tr data-v="420000" data-p="60" data-n="72"><td>Electrical (M&amp;E)</td><td>S$420,000</td><td class="cst-pv">60%</td><td class="cst-rg"><input type="range" min="0" max="100" step="1" aria-label="Electrical, percent complete"><b class="cst-pc-v"></b></td><td class="cst-amt"></td></tr>
+          <tr data-v="380000" data-p="50" data-n="65"><td>Air-conditioning (M&amp;E)</td><td>S$380,000</td><td class="cst-pv">50%</td><td class="cst-rg"><input type="range" min="0" max="100" step="1" aria-label="Air-conditioning, percent complete"><b class="cst-pc-v"></b></td><td class="cst-amt"></td></tr>
+          <tr data-v="214000" data-p="20" data-n="45"><td>Flooring</td><td>S$214,000</td><td class="cst-pv">20%</td><td class="cst-rg"><input type="range" min="0" max="100" step="1" aria-label="Flooring, percent complete"><b class="cst-pc-v"></b></td><td class="cst-amt"></td></tr>
+          <tr data-v="350000" data-p="40" data-n="55"><td>Carpentry and joinery</td><td>S$350,000</td><td class="cst-pv">40%</td><td class="cst-rg"><input type="range" min="0" max="100" step="1" aria-label="Carpentry and joinery, percent complete"><b class="cst-pc-v"></b></td><td class="cst-amt"></td></tr>
+          <tr class="is-vo" data-v="18400" data-p="0" data-n="100"><td>VO-07 · power points <small>signed</small></td><td>S$18,400</td><td class="cst-pv">0%</td><td class="cst-rg"><input type="range" min="0" max="100" step="1" aria-label="Variation 07, percent complete"><b class="cst-pc-v"></b></td><td class="cst-amt"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cst-sum" data-in data-fx="right" style="--d:260ms">
+      <div class="cst-sm">
+        <p><span>Work done to date</span><b class="cst-s-td"></b></p>
+        <p><span>Less previous claims</span><b class="cst-s-pv"></b></p>
+        <p class="is-claim"><span>This claim</span><b class="cst-s-cl"></b></p>
+        <p class="is-ret"><span>Less retention 5%</span><b class="cst-s-rt"></b></p>
+        <p class="is-due"><span>Amount due <small>before GST</small></span><b class="cst-s-du"></b></p>
+      </div>
+      <button type="button" class="btn btn-primary cst-mk">{{icon:receipt}}<span>Create Invoice</span></button>
+      <div class="cst-inv">
+        <p class="cst-inv-h">{{odoo:account:24}}<b>INV/2026/00318</b><em>Draft</em></p>
+        <p class="cst-inv-l"><span>Claim 07 · 7 lines</span><b class="cst-i-cl"></b></p>
+        <p class="cst-inv-l is-ret"><span>Retention 5% · own account</span><b class="cst-i-rt"></b></p>
+        <p class="cst-inv-l is-tot"><span>Total before GST</span><b class="cst-i-du"></b></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative screen · sample contract</p>
+  <aside class="notes"><p>This replaces the Excel claim. The contract is a sales order with one line per trade, each a service invoiced on delivered quantity, so “delivered” is simply the percent complete, which the QS sets from the supervisors’ task updates, not from a phone call. Drag a line: Odoo invoices only the difference between what is delivered to date and what was already invoiced, so previous claims are deducted by design. The signed variation sits on the same order. Press Create Invoice: the draft invoice carries this claim’s lines and a retention line. Honest limits, say them plainly: Odoo has no built-in retention feature, so retention is a line and an account we configure, and its release is a separate invoice when the defects period ends. A claim document in the client’s usual format, with previous and cumulative columns, is a report layout we set up. Odoo also offers invoicing based on project milestones, where reaching a milestone bills a set percent; we choose per contract. GST is added on the real invoice; the sample stops before GST.</p></aside>
+</section>
+
+<!-- 8 · rollout + next step -->
+<section class="slide" id="rollout" data-title="Two live jobs first, then all twelve">
+  <div class="sec-head">
+    <span class="kicker" data-in>how we rolled it out</span>
+    <h2 class="h-m" data-in style="--d:80ms">Two live jobs first, <span class="hl">then all twelve.</span></h2>
+  </div>
+  <div class="cst-ro">
+    <div class="cst-rl">
+      <ol class="cst-gt" data-in style="--d:180ms" data-i>
+        <li><button type="button" data-k="0" class="is-on"><i>1</i><b>Foundation</b><small>Accounting · Purchase</small></button></li>
+        <li><button type="button" data-k="1"><i>2</i><b>Two pilot jobs</b><small>Project · Sales · Purchase</small></button></li>
+        <li><button type="button" data-k="2"><i>3</i><b>Site on phones</b><small>Planning · Timesheets · Sign</small></button></li>
+        <li><button type="button" data-k="3"><i>4</i><b>All twelve jobs</b><small>Budgets · dashboards</small></button></li>
+      </ol>
+      <div class="cst-rd" data-in style="--d:240ms" aria-live="polite">
+        <p class="cst-rd-w"><span>We do</span><b class="cst-rd-do"></b></p>
+        <p class="cst-rd-apps"><span data-k="0">{{odoo:account:28}}Accounting · analytic plans</span><span data-k="0">{{odoo:purchase:28}}Purchase</span><span data-k="0">{{odoo:account:28}}Budgets per project</span><span data-k="1">{{odoo:project:28}}Project</span><span data-k="1">{{odoo:sale:28}}Sales</span><span data-k="1">{{odoo:purchase:28}}Purchase</span><span data-k="1">{{odoo:account:28}}Accounting</span><span data-k="2">{{odoo:planning:28}}Planning · Field Service</span><span data-k="2">{{odoo:hr_timesheet:28}}Timesheets</span><span data-k="2">{{odoo:documents:28}}Documents</span><span data-k="2">{{odoo:sign:28}}Sign</span><span data-k="3">{{odoo:project:28}}All 12 projects</span><span data-k="3">{{odoo:spreadsheet_dashboard:28}}Dashboards</span><span data-k="3">{{odoo:account:28}}Retention follow-up</span></p>
+        <ul class="cst-rba">
+          <li><span class="fb-b"></span>{{icon:arrow}}<b class="fb-a"></b></li>
+          <li><span class="fb-b"></span>{{icon:arrow}}<b class="fb-a"></b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fb-cta" data-in data-fx="scale" style="--d:320ms">
+      <div class="fb-qr">{{qr:meet}}</div>
+      <b>Run a fit-out or M&amp;E firm?</b>
+      <small>30-minute discovery call · online</small>
+      <a href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      <a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative composite · no client figures</p>
+  <aside class="notes"><p>The order matters. Foundation first: the analytic plan for projects, cost codes, a budget per job and the retention account, because every later document points at them. Then two pilot jobs, one starting and one half-way, so we test both a clean start and a job with claims already made. Then the site side: supervisors on phones, crews in Planning, drawings in Documents, variations signed. Only then all twelve, with budget against actual on a dashboard. Click each phase to see what changes. No weeks on this slide: it depends on how clean the open jobs’ claims and subcontracts are, which we see in the discovery call. Close on the QR: a 30-minute discovery call.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/case-study-construction.js?v={{v}}"></script>
+</body>
+</html>

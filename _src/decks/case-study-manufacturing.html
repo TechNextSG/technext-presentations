@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>Case study · Manufacturing: quoted blind, promised late · TechNext</title>
+<meta name="description" content="An industry case study for manufacturing: a composite Singapore precision sheet-metal shop that quotes without its true cost and promises dates without its capacity. One press-brake breakdown and one late steel sheet cascade across five customers; Odoo 20 replans the work centres, costs every quote from the BoM and routing, and keeps the shop floor on the current revision.">
+{{og:case-study-manufacturing}}
+<link rel="stylesheet" href="assets/case-study.css?v={{v}}">
+<link rel="stylesheet" href="assets/case-study-manufacturing.css?v={{v}}">
+</head>
+<body data-label="Case study · Manufacturing" data-home="./">
+<main class="deck" aria-label="Case study, manufacturing: quoted blind, promised late">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="Quoted blind, promised late">
+  <div class="cv-copy fb-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">case study · manufacturing</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Quoted blind, <span class="hl">promised late.</span></h1>
+    <p class="lead" data-in style="--d:320ms">A Singapore sheet-metal shop making to order for electronics and semicon customers. It never knew a job’s true cost or its real capacity. How Odoo 20 joined the quote, the machines and the drawing.</p>
+    <nav class="fb-agenda" data-in style="--d:420ms" aria-label="Parts of this case study">
+      <button type="button" data-go="client"><i>01</i>The problem</button>
+      <button type="button" data-go="thread"><i>02</i>The Odoo answer</button>
+      <button type="button" data-go="rollout"><i>03</i>Rollout</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag">{{icon:factory}}Industry case study · Manufacturing</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="mfg-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <div class="mfg-bp">
+      <span class="mfg-bp-h">KP-3108 · sensor bracket · flat pattern</span>
+      <svg class="mfg-bp-svg" viewBox="0 0 560 340" width="560" height="340">
+        <path class="mfg-bp-out draw" style="--len:1500" d="M60,60 H240 V20 H320 V60 H500 V270 H320 V310 H240 V270 H60 Z"></path>
+        <path class="mfg-bp-bend" d="M40,120 H520 M40,210 H520"></path>
+        <circle class="mfg-bp-hole" cx="110" cy="90" r="9"></circle><circle class="mfg-bp-hole" cx="450" cy="90" r="9"></circle>
+        <circle class="mfg-bp-hole" cx="110" cy="240" r="9"></circle><circle class="mfg-bp-hole" cx="450" cy="240" r="9"></circle>
+        <rect class="mfg-bp-hole" x="230" y="145" width="100" height="40" rx="8"></rect>
+        <circle class="mfg-bp-hole" cx="280" cy="40" r="7"></circle><circle class="mfg-bp-hole" cx="280" cy="290" r="7"></circle>
+        <path class="mfg-bp-dim" d="M60,330 H500 M60,322 V338 M500,322 V338"></path>
+        <text class="mfg-bp-t" x="280" y="326" text-anchor="middle">440.0</text>
+        <text class="mfg-bp-t" x="356" y="114">BEND UP 90° R1.5</text>
+        <text class="mfg-bp-t" x="356" y="204">BEND UP 90° R1.5</text>
+      </svg>
+      <span class="mfg-stamp"><b>Rev C</b><small>ECO0042 · applied</small></span>
+      <span class="mfg-stamp mfg-stamp--old"><b>Rev B</b><small>still on the floor?</small></span>
+    </div>
+    <div class="mfg-route">
+      <i class="mfg-route-dot"></i>
+      <span class="mfg-st">{{odoo:mrp:28}}<b>Laser</b><small>S$120/h</small></span>
+      <span class="mfg-st">{{odoo:mrp:28}}<b>CNC bend</b><small>S$95/h</small></span>
+      <span class="mfg-st">{{odoo:mrp:28}}<b>Weld</b><small>S$85/h</small></span>
+      <span class="mfg-st mfg-st--out">{{odoo:purchase:28}}<b>Coat</b><small>outsourced</small></span>
+    </div>
+  </div>
+  <p class="illus fb-comp">{{icon:check}}Illustrative composite · sample company and figures</p>
+  <aside class="notes"><p>This is an industry case study, not one named client. It is a composite of what precision sheet-metal and fabrication shops in Singapore tell us, built on a sample company we call Kerrowan Precision. Every figure in the deck is sample data. Three parts: the problem, the Odoo answer, the rollout; the agenda buttons jump to each. The art on the right is the whole story in one picture: a part number, its revision, and the four places it goes, each with an hourly cost nobody used when quoting.</p></aside>
+</section>
+
+<!-- 2 · the client: the shop floor -->
+<section class="slide" id="client" data-title="300 part numbers, one whiteboard">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>meet the client</span>
+      <h2 class="h-m" data-in style="--d:80ms">300 part numbers, <span class="hl">one whiteboard.</span></h2>
+    </div>
+    <p class="fb-who" data-in style="--d:160ms"><b>Kerrowan Precision</b> <span>sample company · Singapore</span></p>
+  </div>
+  <div class="mfg-kp" data-in style="--d:200ms">
+    <p><b>300</b><span>active part numbers, made to order</span></p>
+    <p><b>38</b><span>customers in electronics and semicon</span></p>
+    <p><b>4+1</b><span>work centres, plus outsourced coating</span></p>
+    <p><b>ISO</b><span>9001 quality records, in binders</span></p>
+    <p class="is-red"><b>0</b><span>jobs costed after delivery</span></p>
+  </div>
+  <div class="mfg-floor">
+    <div class="mfg-plan" data-in style="--d:260ms" data-i>
+      <svg class="mfg-flow" viewBox="0 0 880 440" width="880" height="440" aria-hidden="true">
+        <path class="mfg-flow-l flow" d="M110,283 H636 V143 H760"></path>
+      </svg>
+      <button type="button" class="mfg-z" data-k="quote" style="left:16px;top:16px;width:396px;height:118px">{{icon:calculator}}<b>Quotes office</b><small>Excel quote sheet</small></button>
+      <button type="button" class="mfg-z" data-k="disp" style="left:428px;top:16px;width:436px;height:118px">{{icon:truck}}<b>Dispatch</b><small>typed delivery orders</small></button>
+      <button type="button" class="mfg-z" data-k="board" style="left:16px;top:152px;width:190px;height:122px">{{icon:grid}}<b>Planning</b><small>the whiteboard</small></button>
+      <button type="button" class="mfg-z" data-k="dwg" style="left:222px;top:152px;width:190px;height:122px">{{icon:file}}<b>Drawings</b><small>printed, in a cabinet</small></button>
+      <button type="button" class="mfg-z" data-k="qc" style="left:428px;top:152px;width:200px;height:122px">{{icon:shield}}<b>QC</b><small>ISO binders</small></button>
+      <button type="button" class="mfg-z mfg-z--out" data-k="coat" style="left:644px;top:152px;width:220px;height:122px">{{icon:truck}}<b>Out to coater</b><small>2-day turnaround</small></button>
+      <button type="button" class="mfg-z" data-k="store" style="left:16px;top:292px;width:190px;height:132px">{{icon:box}}<b>Steel store</b><small>sheets by gauge</small></button>
+      <button type="button" class="mfg-z mfg-z--wc" data-k="laser" style="left:222px;top:292px;width:190px;height:132px">{{icon:target}}<b>Laser</b><small>1 fibre laser</small></button>
+      <button type="button" class="mfg-z mfg-z--wc" data-k="bend" style="left:428px;top:292px;width:200px;height:132px">{{icon:gear}}<b>CNC bend</b><small>2 press brakes</small></button>
+      <button type="button" class="mfg-z mfg-z--wc" data-k="weld" style="left:644px;top:292px;width:220px;height:132px">{{icon:zap}}<b>Weld</b><small>3 TIG/MIG bays</small></button>
+    </div>
+    <div class="mfg-zd" data-in data-fx="right" style="--d:320ms" aria-live="polite">
+      <span class="mfg-zd-h">Click a place on the floor</span>
+      <h3 class="h-s mfg-zd-t">Every place works. None of them sees the job.</h3>
+      <dl class="mfg-zd-g">
+        <div><dt>Runs on</dt><dd class="mfg-zd-r">Paper, Excel, a whiteboard and good memories.</dd></div>
+        <div class="is-blind"><dt>Can’t see</dt><dd class="mfg-zd-b">What the next place is waiting for.</dd></div>
+        <div class="is-cost"><dt>So</dt><dd class="mfg-zd-c">The job’s cost and date are guesses.</dd></div>
+      </dl>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative composite · sample data</p>
+  <aside class="notes"><p>Kerrowan is a sample, but this floor plan is every job shop we have walked. Steel comes in, the fibre laser cuts it, the press brakes bend it, the welders join it, a lorry takes it to an outside powder coater, QC checks it against ISO 9001 records, and dispatch sends it. Click any place. Each one runs fine on its own: the problem is that the quote, the whiteboard and the drawing cabinet never talk to each other, and no job is ever costed after it ships. One honest note we always say early: the laser’s nesting and the CAM programs stay in their CAM software. Odoo does not nest parts or drive the machine.</p></aside>
+</section>
+
+<!-- 3 · the cascade on the schedule -->
+<section class="slide" id="cascade" data-title="One breakdown, five customers late">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the complicated part</span>
+      <h2 class="h-m" data-in style="--d:80ms">One breakdown, <span class="hl">five customers late.</span></h2>
+    </div>
+    <div class="mfg-inj" data-in style="--d:160ms" data-i>
+      <button type="button" class="mfg-inj-b" data-x="brk" aria-pressed="false">{{icon:wrench}}<span><b>Break Bend 1</b><small>Tue 10:00, for 2 days</small></span></button>
+      <button type="button" class="mfg-inj-b" data-x="late" aria-pressed="false">{{icon:truck}}<span><b>Steel sheet late</b><small>arrives Tue 10:00</small></span></button>
+    </div>
+  </div>
+  <div class="mfg-g mfg-g--big" data-in style="--d:220ms"></div>
+  <div class="mfg-cs" data-in style="--d:300ms">
+    <div class="mfg-cs-k"><span>Orders late</span><b class="mfg-c-late">0 of 6</b></div>
+    <div class="mfg-cs-k"><span>Customers hit</span><b class="mfg-c-cust">0</b></div>
+    <div class="mfg-cs-k"><span>Hours late, total</span><b class="mfg-c-hrs">0 h</b></div>
+    <p class="mfg-cs-q"><b class="mfg-cs-qh">This week, on time.</b><span class="mfg-cs-qt">Press a button above. The whiteboard keeps the jobs in order, so one stopped machine pushes every job behind it to the right.</span></p>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Sample orders and hours</p>
+  <aside class="notes"><p>This is the knot, and the room should feel it. Six orders for five customers, planned on the whiteboard; every job is laser, bend, weld, then out to the coater for a day. The flags are the promised dates. Everything is on time. Now press Break Bend 1: the main press brake stops on Tuesday at ten for two days. The whiteboard has no answer but to wait, so every job behind it slides right, and five orders for five customers go late, seventy hours in total. Press Steel sheet late too: two jobs wait for 2 mm sheet, and because the shop works the board in order, the laser waits with them. Nobody can see this on Monday; the customers find out on the promised day. Sample week: eight-hour days, a nine-day window.</p></aside>
+</section>
+
+<!-- 4 · why it is hard: the job post-mortem -->
+<section class="slide" id="postmortem" data-steps="5" data-title="The quote was wrong before the laser started">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>why it is hard</span>
+      <h2 class="h-m" data-in style="--d:80ms">The quote was wrong <span class="hl">before the laser started.</span></h2>
+    </div>
+    <p class="hint mfg-pm-hint" data-in style="--d:160ms"><kbd>→</kbd> opens the job’s real cost</p>
+  </div>
+  <div class="mfg-pm">
+    <div class="mfg-wf" data-in style="--d:200ms">
+      <p class="mfg-wf-h"><b>Job J-2398</b> · frame for a semicon tool · 120 pcs · quoted at <b>S$14,760.00</b></p>
+      <div class="mfg-wf-grid">
+        <div class="mfg-wf-ax"><span style="left:0%">S$8k</span><span style="left:25%">S$10k</span><span style="left:50%">S$12k</span><span style="left:75%">S$14k</span><span style="left:100%">S$16k</span></div>
+        <i class="mfg-wf-q" style="left:84.5%"><em>Price S$14,760</em></i>
+      </div>
+      <div class="mfg-wr is-base"><span class="mfg-wr-l">Excel estimate<small>kg × S$/kg + flat labour</small></span><span class="mfg-wr-t"><i class="mfg-wr-b"></i></span><b>S$10,933.33</b></div>
+      <div class="mfg-wr" data-n="1"><span class="mfg-wr-l">Bend set-ups not quoted<small>6 × 50 min at S$95/h</small></span><span class="mfg-wr-t"><i class="mfg-wr-b"></i></span><b>+S$475.00</b></div>
+      <div class="mfg-wr" data-n="2"><span class="mfg-wr-l">Welds took 18 min, not 12<small>120 × 6 min at S$85/h</small></span><span class="mfg-wr-t"><i class="mfg-wr-b"></i></span><b>+S$1,020.00</b></div>
+      <div class="mfg-wr" data-n="3"><span class="mfg-wr-l">24 bent to Rev B, remade<small>the floor had the old print</small></span><span class="mfg-wr-t"><i class="mfg-wr-b"></i></span><b>+S$2,030.40</b></div>
+      <div class="mfg-wr" data-n="4"><span class="mfg-wr-l">Scrap and offcuts<small>9%, not in the S$/kg</small></span><span class="mfg-wr-t"><i class="mfg-wr-b"></i></span><b>+S$540.00</b></div>
+      <div class="mfg-wr" data-n="5"><span class="mfg-wr-l">Express coating run<small>to win back the date</small></span><span class="mfg-wr-t"><i class="mfg-wr-b"></i></span><b>+S$380.00</b></div>
+      <div class="mfg-wr is-tot"><span class="mfg-wr-l">Real cost<small>seen by nobody</small></span><span class="mfg-wr-t"><i class="mfg-wr-b"></i></span><b class="mfg-wr-tv">S$10,933.33</b></div>
+    </div>
+    <div class="mfg-why" data-in data-fx="right" style="--d:280ms">
+      <div class="mfg-mg"><span>Margin on the job</span><b class="mfg-mg-n">+25.9%</b><small class="mfg-mg-s">as quoted</small></div>
+      <ul class="mfg-why-l">
+        <li data-on="1">{{icon:calculator}}<span><b>Cost lives in Excel</b>It knows the weight. Not the set-ups, the minutes or the scrap.</span></li>
+        <li data-on="3">{{icon:file}}<span><b>Revisions live on paper</b>Rev C was emailed to sales. Rev B stayed in the cabinet.</span></li>
+        <li data-on="5">{{icon:grid}}<span><b>Time lives on a whiteboard</b>Nothing writes back to the next quote, so the loss is quoted again.</span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Sample job and rates</p>
+  <aside class="notes"><p>Here is why it is structurally hard, and why a better spreadsheet doesn’t fix it. Take one finished job, J-2398, and open its real cost with the arrow key. Excel priced it by the kilogram plus a flat labour rate, with a 35% markup, so on paper it made about 26%. Then: six press-brake set-ups nobody quoted, welds that took eighteen minutes instead of twelve, twenty-four parts bent to the old revision because the floor had the Rev B print, offcuts and scrap, and an express coating run to rescue the date. The real cost ends above the price: about minus 4%. The point is not that someone made a mistake. The cost, the time and the revision live in three places that never meet, and nothing flows back to the next quote, so the shop quotes the same loss again.</p></aside>
+</section>
+
+<!-- 5 · the Odoo answer: one job, one thread -->
+<section class="slide" id="thread" data-title="One job, one thread of documents">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the odoo answer</span>
+      <h2 class="h-m" data-in style="--d:80ms">One job, <span class="hl">one thread of documents.</span></h2>
+    </div>
+    <p class="hint mfg-th-hint" data-in style="--d:160ms">Click a document or a side chip</p>
+  </div>
+  <ol class="mfg-th" data-in style="--d:200ms" data-i>
+    <li><button type="button" class="mfg-tn" data-k="so">{{odoo:sale:36}}<b>Quotation</b><small>S00318 · KP-3108 × 500</small></button>
+      <button type="button" class="mfg-chip" data-k="crm">{{odoo:crm:20}}RFQ lead in CRM</button></li>
+    <li><button type="button" class="mfg-tn" data-k="mo">{{odoo:mrp:36}}<b>Manufacturing order</b><small>WH/MO/00512 · BoM Rev C</small></button>
+      <button type="button" class="mfg-chip" data-k="eco">{{odoo:mrp_plm:20}}ECO0042 · Rev C</button></li>
+    <li><button type="button" class="mfg-tn" data-k="wo">{{odoo:mrp:36}}<b>Work orders</b><small>Laser · Bend · Weld</small></button>
+      <button type="button" class="mfg-chip" data-k="mr">{{odoo:maintenance:20}}Bend 1 · preventive</button></li>
+    <li><button type="button" class="mfg-tn" data-k="po">{{odoo:purchase:36}}<b>Subcontract PO</b><small>P00281 · the coater</small></button>
+      <button type="button" class="mfg-chip" data-k="steel">{{odoo:purchase:20}}P00274 · steel</button></li>
+    <li><button type="button" class="mfg-tn" data-k="qc">{{odoo:quality_control:36}}<b>Quality check</b><small>flange 12.0 ±0.2 mm</small></button>
+      <button type="button" class="mfg-chip" data-k="qa">{{odoo:quality_control:20}}Quality alert</button></li>
+    <li><button type="button" class="mfg-tn" data-k="out">{{odoo:stock:36}}<b>Delivery</b><small>WH/OUT/00433</small></button>
+      <button type="button" class="mfg-chip" data-k="lot">{{odoo:stock:20}}Lot KP-2610-07</button></li>
+    <li><button type="button" class="mfg-tn" data-k="inv">{{odoo:account:36}}<b>Invoice</b><small>INV/2026/00611</small></button>
+      <button type="button" class="mfg-chip" data-k="cost">{{odoo:spreadsheet_dashboard:20}}Real vs expected</button></li>
+  </ol>
+  <div class="mfg-td" data-in style="--d:280ms" aria-live="polite">
+    <div class="mfg-td-a"><span class="mfg-td-i"></span><span><small class="mfg-td-app">Odoo 20</small><b class="mfg-td-t">Every document is made from the one before.</b></span></div>
+    <p class="mfg-td-d">Standard apps on one database: one part number, one BoM, one routing, one cost. Click a step to see what it does for Kerrowan.</p>
+    <div class="mfg-td-r"><span>Replaces</span><b class="mfg-td-x">Excel, the whiteboard, the cabinet and re-typing</b></div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative · sample references</p>
+  <aside class="notes"><p>The answer is a thread, not a system bolted on. One sample job, KP-3108 times five hundred, read left to right: the quotation becomes a manufacturing order from the bill of materials, the routing creates work orders on each work centre, the coating goes out on a subcontracting purchase order, Quality checks it, Inventory ships it with a lot number, Accounting invoices it, and the cost report compares expected with real. The chips are the side documents that make it work: the engineering change order that moved the BoM to Rev C, preventive maintenance on our own press brake, the steel purchase order, a quality alert. Apps: Sales and CRM, Manufacturing with Shop Floor, PLM, Maintenance, Purchase with subcontracting, Quality, Inventory, Accounting. Honest limits: Odoo keeps the ISO 9001 records and the checks, but the certification is the auditor’s; and the coating is modelled as a subcontracting bill of materials, which we confirm against how the coater works and invoices.</p></aside>
+</section>
+
+<!-- 6 · workflow 1: the breakdown, replanned -->
+<section class="slide" id="replan" data-steps="5" data-title="Bend 1 stops. The plan moves">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 1 · capacity</span>
+      <h2 class="h-m" data-in style="--d:80ms">Bend 1 stops. <span class="hl">The plan moves.</span></h2>
+    </div>
+    <button type="button" class="btn btn-line fb-play" data-in style="--d:160ms">{{icon:play}}<span>Play the replan</span></button>
+  </div>
+  <div class="mfg-rp">
+    <ol class="fb-steps mfg-rs" data-in style="--d:200ms">
+      <li><button type="button" data-n="1"><i>1</i><span><b>Maintenance request blocks Bend 1</b><small>Maintenance · Corrective · Block Workcenter</small></span></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span><b>Plan moves bending to Bend 2</b><small>Manufacturing · alternative work centre</small></span></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span><b>The late sheet is known on Monday</b><small>Purchase · laser cuts other jobs first</small></span></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span><b>One customer told, days early</b><small>Sales · new date on the order</small></span></button></li>
+      <li><button type="button" data-n="5"><i>5</i><span><b>Next time it is planned</b><small>Maintenance · preventive, on Saturday</small></span></button></li>
+    </ol>
+    <div class="win mfg-ow" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Kerrowan Precision · Manufacturing · Planning</span></div>
+      <div class="mfg-ow-b">
+        <p class="mfg-ow-doc"><span class="mfg-ow-ic" data-t="0:WB|1:MR|2:MO|3:PO|4:SO|5:MR">WB</span><b data-t="0:The whiteboard, with both problems in|1:MR/0031 · Bend 1 hydraulic fault · Block Workcenter|2:Plan · bending work orders moved to Bend 2|3:P00274 · Expected Arrival Tue 10:00 · 2 MOs wait|4:S00297 · Customer D · new delivery date sent|5:MR/0032 · Bend 1 · Preventive · Sat 08:00">The whiteboard, with both problems in</b></p>
+        <div class="mfg-g mfg-g--sm"></div>
+        <div class="mfg-ow-k">
+          <p><span>Orders late</span><b class="mfg-o-late">5 of 6</b></p>
+          <p><span>Hours late</span><b class="mfg-o-hrs">70 h</b></p>
+          <p><span>Customers told early</span><b class="mfg-o-told">0</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="fb-wf-n">Step <b class="fb-cnt">0</b> of 5 · <span>the same six orders as the whiteboard slide</span></p>
+  <p class="illus fb-ill">{{icon:check}}Illustrative · sample data</p>
+  <aside class="notes"><p>Same six orders, same two problems, now in Odoo. Step through or press Play. One: the press-brake fault is a corrective maintenance request on the Bend 1 work centre with Block Workcenter ticked, so nothing more is scheduled on it. Two: Plan on the manufacturing orders routes the bending to the alternative work centre, the smaller Bend 2, which runs about 25% slower in the sample. Three: the steel supplier’s new arrival date is on the purchase order on Monday, so the two jobs waiting for it are planned after it and the laser cuts the other jobs first. That leaves one order late by about an hour. Four: sales sees it on the order and tells Customer D early in the week, not on the promised day. Five: preventive maintenance on Bend 1 goes into the maintenance calendar for a Saturday. Honest limits: Odoo schedules each work order into its work centre’s working hours, after what is already booked there, and per the docs Plan uses an alternative work centre when the first is unavailable or at capacity. It is not an optimiser that re-sequences the whole shop by profit; the planner still sets priorities and can drag work orders in the Gantt. We confirm the blocking behaviour on their database.</p></aside>
+</section>
+
+<!-- 7 · workflow 2: the true-cost quote -->
+<section class="slide" id="quote" data-title="Quote from the routing, not the kilogram">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 2 · cost</span>
+      <h2 class="h-m" data-in style="--d:80ms">Quote from the routing, <span class="hl">not the kilogram.</span></h2>
+    </div>
+    <p class="hint" data-in style="--d:160ms">Drag the quantity and the scrap</p>
+  </div>
+  <div class="mfg-qc">
+    <div class="win mfg-bom" data-in style="--d:200ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Manufacturing · BoM Overview</span></div>
+      <div class="mfg-bom-b">
+        <p class="mfg-bom-t">{{odoo:mrp:28}}<b>KP-3108 sensor bracket · Rev C</b><span class="mfg-bom-q">500 Units</span></p>
+        <table class="mfg-bt">
+          <thead><tr><th>Line</th><th>Basis</th><th>Cost / pc</th></tr></thead>
+          <tbody>
+            <tr><td><span class="mfg-ln">{{odoo:stock:18}}SUS304 sheet 1.5 mm</span></td><td>component</td><td data-c="sheet">S$3.10</td></tr>
+            <tr><td><span class="mfg-ln">{{odoo:stock:18}}PEM nut M4</span></td><td>4 × S$0.12</td><td data-c="pem">S$0.48</td></tr>
+            <tr><td><span class="mfg-ln">{{odoo:mrp:18}}Laser cutting</span></td><td>1.2 min + 10 min set-up · S$120/h</td><td data-c="laser">S$2.44</td></tr>
+            <tr><td><span class="mfg-ln">{{odoo:mrp:18}}CNC bending</span></td><td>1.6 min + 30 min set-up · S$95/h</td><td data-c="bend">S$2.63</td></tr>
+            <tr><td><span class="mfg-ln">{{odoo:mrp:18}}TIG weld</span></td><td>2.5 min + 15 min set-up · S$85/h</td><td data-c="weld">S$3.58</td></tr>
+            <tr><td><span class="mfg-ln">{{odoo:purchase:18}}Powder coat, subcontract</span></td><td>S$1.80 + S$90.00 a lot</td><td data-c="coat">S$1.98</td></tr>
+            <tr class="is-hot"><td><span class="mfg-ln">{{icon:alert}}Scrap allowance</span></td><td class="mfg-c-scn">5% of material and work</td><td data-c="scrap">S$0.60</td></tr>
+          </tbody>
+          <tfoot><tr><td>Real cost per piece</td><td></td><td class="mfg-c-tot">S$14.81</td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+    <div class="mfg-qr" data-in style="--d:260ms">
+      <div class="mfg-sls">
+        <label class="fb-sl"><span>Quantity on the RFQ <b class="mfg-sl-q">500 pcs</b></span>
+          <input type="range" class="mfg-in-q" min="0" max="100" step="1" value="82" aria-label="Quantity"></label>
+        <label class="fb-sl"><span>Scrap and rework <b class="mfg-sl-s">5%</b></span>
+          <input type="range" class="mfg-in-s" min="2" max="12" step="1" value="5" aria-label="Scrap percentage"></label>
+      </div>
+      <div class="mfg-qk">
+        <p><span>Excel quote</span><b class="mfg-k-x">S$20.09</b><small>per pc, any quantity</small></p>
+        <p><span>Margin at Excel</span><b class="mfg-k-m">26.3%</b><small>target 20%</small></p>
+        <p><span>Price for 20%</span><b class="mfg-k-p">S$18.51</b><small>from the real cost</small></p>
+      </div>
+      <div class="mfg-ch">
+        <svg class="mfg-ch-svg" viewBox="0 0 640 160" width="640" height="160" role="img" aria-label="Cost per piece by quantity against the Excel price">
+          <line class="mfg-ch-ax" x1="10" y1="132" x2="630" y2="132"></line>
+          <path class="mfg-ch-x"></path>
+          <path class="mfg-ch-r"></path>
+          <line class="mfg-ch-v" x1="0" y1="8" x2="0" y2="132"></line>
+          <circle class="mfg-ch-d" r="6" cx="0" cy="0"></circle>
+          <text class="mfg-ch-t" x="10" y="153">20 pcs</text><text class="mfg-ch-t" x="630" y="153" text-anchor="end">1,000 pcs</text>
+          <text class="mfg-ch-lx" x="630" y="22" text-anchor="end">Excel price</text>
+          <text class="mfg-ch-lr" x="630" y="122" text-anchor="end">real cost per piece</text>
+        </svg>
+      </div>
+      <p class="mfg-qa" data-state="ok"></p>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative · sample rates and part</p>
+  <aside class="notes"><p>This is the answer to the post-mortem. In Odoo the part has a bill of materials and a routing: each operation has minutes per piece on a work centre, and each work centre has a cost per hour and a set-up time. Odoo’s BoM overview costs the part from those, the same way it costs the manufacturing order, and the real cost of finished orders then shows where the estimate was wrong. Drag the quantity. Excel quotes S$20.09 a piece at any quantity, because it spreads labour flat. The real cost doesn’t: at 20 pieces the set-ups and the coater’s lot charge eat the margin and the job loses money; at 1,000 pieces the Excel price is higher than it needs to be, which is how the shop loses bids it should win. Drag scrap too. Honest notes: the minutes come from the routing, and they are only as good as the times the shop records on the Shop Floor tablets; scrap is set here as an allowance in the quote, and in production it is recorded as scrap orders on the manufacturing order. Rates and the part are sample figures.</p></aside>
+</section>
+
+<!-- 8 · rollout, what changes, next step -->
+<section class="slide" id="rollout" data-title="Four phases, the bottleneck first">
+  <div class="sec-head">
+    <span class="kicker" data-in>how we rolled it out</span>
+    <h2 class="h-m" data-in style="--d:80ms">Four phases, <span class="hl">the bottleneck first.</span></h2>
+  </div>
+  <div class="mfg-ro">
+    <div class="mfg-rl">
+      <ol class="mfg-ph" data-in style="--d:180ms" data-i>
+        <li><button type="button" data-k="0" class="is-on"><i>1</i><b>Data and stock</b><small>Inventory · Purchase · Accounting</small></button></li>
+        <li><button type="button" data-k="1"><i>2</i><b>BoMs and routings</b><small>Manufacturing · Shop Floor</small></button></li>
+        <li><button type="button" data-k="2"><i>3</i><b>Drawings, checks, machines</b><small>PLM · Quality · Maintenance</small></button></li>
+        <li><button type="button" data-k="3"><i>4</i><b>Quote from real cost</b><small>CRM · Sales · reporting</small></button></li>
+      </ol>
+      <div class="mfg-pd" data-in style="--d:240ms" aria-live="polite">
+        <p class="mfg-pd-w"><span>We do</span><b class="mfg-pd-do">x</b></p>
+        <p class="mfg-pd-g">{{icon:check}}<span>Done when</span><b class="mfg-pd-gt">x</b></p>
+        <ul class="mfg-ba">
+          <li><span class="fb-b">x</span>{{icon:arrow}}<b class="fb-a">x</b></li>
+          <li><span class="fb-b">x</span>{{icon:arrow}}<b class="fb-a">x</b></li>
+          <li><span class="fb-b">x</span>{{icon:arrow}}<b class="fb-a">x</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fb-cta" data-in data-fx="scale" style="--d:320ms">
+      <div class="fb-qr">{{qr:meet}}</div>
+      <b>Run a job shop?</b>
+      <small>30-minute discovery call · online</small>
+      <a href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      <a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative composite · no client figures</p>
+  <aside class="notes"><p>The order matters. First the data: 300 part numbers, steel grades and suppliers, stock in the store and the books, because everything else reads them. Second, bills of materials and routings, starting with the bottleneck, the press brakes, and the Shop Floor tablets so real minutes get recorded; the other work centres follow once the first runs cleanly. Third, engineering change orders, quality control points for the ISO 9001 records, and preventive maintenance on the shop’s own machines. Last, quoting from the real cost, once a few months of recorded times make the routings trustworthy. Click each phase for what changes. No weeks on this slide: it depends on how many of the 300 part numbers already have a clean drawing and a known routing, which we see in the discovery call. Close on the QR.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/case-study-manufacturing.js?v={{v}}"></script>
+</body>
+</html>

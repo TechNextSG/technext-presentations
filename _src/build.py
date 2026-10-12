@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "35"
+ASSET_V = "36"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -102,6 +102,27 @@ DECKS = [
         dict(slug="case-study-fnb", tags="odoo", title="Case study · F&B", mins=15, pdf="TechNext-Case-Study-FnB.pdf",
              alt="F&B case study cover: five outlets, one truth.",
              desc="An industry case study on a composite Singapore F&B group (a central kitchen, five outlets, two delivery apps): the tangled problem (one price rise found 38 days late, four flows that never meet), nine Odoo apps on one database, replenishment from the central kitchen played step by step, every plate costed as it sells, and a four-phase rollout. Sample data."),
+        dict(slug="case-study-medical", tags="odoo", title="Case study · Medical", mins=15, pdf="TechNext-Case-Study-Medical.pdf",
+             alt="Medical case study cover: recall at 9:00, traced by 9:05.",
+             desc="An industry case study on a composite Singapore group of six GP and aesthetic clinics that could not trace a recalled vaccine lot, with expired stock written off and panel claims unbilled for months, and how Odoo 20 joins stock, sales and billing: lot traceability in one report, panel claims invoiced every Friday, and a phased rollout. Sample data."),
+        dict(slug="case-study-travel", tags="odoo", title="Case study · Travel", mins=15, pdf="TechNext-Case-Study-Travel.pdf",
+             alt="Travel case study cover: the margin flies home last.",
+             desc="An industry case study on a composite Singapore tour operator (group tours to Japan, Korea and Europe plus incentive trips): a price fixed in SGD months ahead, costs in yen, won and euro, pax that change, suppliers paid before guests; every departure as an Odoo project with its own P&L, a booking from enquiry to balance, a yen bill posted and paid with its exchange difference, and a four-stop rollout. Sample data."),
+        dict(slug="case-study-retail", tags="odoo", title="Case study · Retail", mins=15, pdf="TechNext-Case-Study-Retail.pdf",
+             alt="Retail case study cover: right stock, wrong store.",
+             desc="An industry case study on a composite Singapore apparel retailer (eight stores, one warehouse, a separate loyalty app): size M sold out in three stores while two sit on dead stock, markdowns that eat the margin and a buy plan that repeats the mistake; the season as one Odoo loop, store-to-store rebalancing step by step, one loyalty card across every store, and a four-phase rollout. Sample data."),
+        dict(slug="case-study-ecommerce", tags="odoo", title="Case study · Ecommerce", mins=15, pdf="TechNext-Case-Study-Ecommerce.pdf",
+             alt="Ecommerce case study cover: four shops, one shelf.",
+             desc="An industry case study on a composite Singapore skincare brand selling on its website, Shopee, Lazada and TikTok Shop from one warehouse: the 11.11 knot (900 sold against 600 on the shelf, gift sets that hide their components, payouts that never match the bank), one Odoo stock figure played against hand updates, every payout matched to the bank, and a four-phase rollout. Sample data."),
+        dict(slug="case-study-construction", tags="odoo", title="Case study · Construction", mins=15, pdf="TechNext-Case-Study-Construction.pdf",
+             alt="Construction case study cover: every job green, red at handover.",
+             desc="An industry case study on a composite Singapore fit-out and M&E contractor running twelve projects: margins green every month and red at handover (variations on WhatsApp, materials on the wrong job, late subcontractor invoices, forgotten retention), one project's costs in one place, a variation from site to signature, a progress claim from percent complete, and a four-phase rollout. Sample data."),
+        dict(slug="case-study-manufacturing", tags="odoo", title="Case study · Manufacturing", mins=15, pdf="TechNext-Case-Study-Manufacturing.pdf",
+             alt="Manufacturing case study cover: quoted blind, promised late.",
+             desc="An industry case study on a composite Singapore precision sheet-metal shop (laser, CNC bending, welding, outsourced coating, 300 part numbers): one breakdown and one late steel sheet make five customers late and a +26% quote ends at -4%; Odoo 20 replans the work centres, keeps the floor on the current revision and quotes from the BoM and routing cost, with a four-phase rollout. Sample data."),
+        dict(slug="case-study-wellness", tags="odoo", title="Case study · Health & Wellness", mins=15, pdf="TechNext-Case-Study-Health-Wellness.pdf",
+             alt="Health & Wellness case study cover: paid today, earned later.",
+             desc="An industry case study on a composite Singapore studio and spa group (four pilates and yoga studios, a day spa): money collected up front but earned class by class, S$412,640 owed to members on no report, four leaks from one root; one member record across Odoo apps, a class pack followed from sale to expiry on the books, spa rooms that can't be sold twice, and a four-phase rollout. Sample data."),
     ]),
     ("Pricing", [
         dict(slug="erp-tiers", tags="odoo", title="ERP tier list", mins=8, pdf="TechNext-ERP-Tier-List.pdf",

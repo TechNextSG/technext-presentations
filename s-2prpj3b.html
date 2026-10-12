@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E4691">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=36">
+<link rel="stylesheet" href="assets/deck.css?v=36">
+<title>Case study · Retail: right stock, wrong store · TechNext</title>
+<meta name="description" content="An industry case study for retail: a composite Singapore apparel retailer with eight stores and one warehouse, the tangled problem (the right sizes in the wrong stores, markdowns that eat the margin, and a buy plan that repeats the mistake), and how Odoo 20 joins the stores, the warehouse and the loyalty programme on one database.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechNext">
+<meta property="og:title" content="Case study · Retail: right stock, wrong store · TechNext">
+<meta property="og:description" content="An industry case study for retail: a composite Singapore apparel retailer with eight stores and one warehouse, the tangled problem (the right sizes in the wrong stores, markdowns that eat the margin, and a buy plan that repeats the mistake), and how Odoo 20 joins the stores, the warehouse and the loyalty programme on one database.">
+<meta property="og:url" content="https://technextsg.github.io/technext-presentations/s-2prpj3b.html">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/case-study-retail-og.jpg?v=36">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/case-study.css?v=36">
+<link rel="stylesheet" href="assets/case-study-retail.css?v=36">
+</head>
+<body data-label="Case study · Retail" data-shared>
+<main class="deck" aria-label="Case study, retail: right stock, wrong store">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="Right stock, wrong store">
+  <div class="cv-copy rtl-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">case study · retail</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Right stock, <span class="hl">wrong store.</span></h1>
+    <p class="lead" data-in style="--d:320ms">A Singapore apparel retailer with eight stores, one warehouse and a size M that kept selling out in the wrong places. The knot, and how Odoo 20 untied it.</p>
+    <nav class="fb-agenda" data-in style="--d:420ms" aria-label="Parts of this case study">
+      <button type="button" data-go="client"><i>01</i>The problem</button>
+      <button type="button" data-go="loop"><i>02</i>The Odoo answer</button>
+      <button type="button" data-go="rollout"><i>03</i>Rollout</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Industry case study · Retail</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="rtl-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <div class="rtl-art-grid">
+      <span></span><b>XS</b><b>S</b><b>M</b><b>L</b><b>XL</b>
+      <em>Orchard</em><i style="--h:.5;--k:0"></i><i style="--h:.7;--k:1"></i><i style="--h:.92;--k:2"></i><i style="--h:.6;--k:3"></i><i style="--h:.25;--k:4"></i>
+      <em>Tampines</em><i style="--h:.75;--k:5"></i><i style="--h:.9;--k:6"></i><i class="is-out" style="--h:1;--k:7"></i><i style="--h:.8;--k:8"></i><i style="--h:.5;--k:9"></i>
+      <em>Jurong East</em><i style="--h:.25;--k:10"></i><i style="--h:.5;--k:11"></i><i style="--h:.83;--k:12"></i><i style="--h:.7;--k:13"></i><i style="--h:.5;--k:14"></i>
+      <em>Bugis</em><i style="--h:.5;--k:15"></i><i style="--h:.8;--k:16"></i><i class="is-out" style="--h:1;--k:17"></i><i style="--h:.6;--k:18"></i><i style="--h:.25;--k:19"></i>
+      <em>Woodlands</em><i style="--h:.25;--k:20"></i><i style="--h:.4;--k:21"></i><i style="--h:.58;--k:22"></i><i style="--h:.8;--k:23"></i><i style="--h:.75;--k:24"></i>
+      <em>Novena</em><i style="--h:.05;--k:25"></i><i style="--h:.3;--k:26"></i><i class="is-cold" style="--h:.25;--k:27"></i><i style="--h:.4;--k:28"></i><i style="--h:.25;--k:29"></i>
+      <em>Punggol</em><i style="--h:.5;--k:30"></i><i style="--h:.6;--k:31"></i><i class="is-out" style="--h:1;--k:32"></i><i style="--h:.7;--k:33"></i><i style="--h:.5;--k:34"></i>
+      <em>Holland V</em><i style="--h:.25;--k:35"></i><i style="--h:.4;--k:36"></i><i class="is-cold" style="--h:.33;--k:37"></i><i style="--h:.3;--k:38"></i><i style="--h:.05;--k:39"></i>
+    </div>
+    <svg class="rtl-art-svg" viewBox="0 0 600 640" width="600" height="640">
+      <path class="rtl-art-arc flow" d="M336,396 C440,380 440,150 336,132"></path>
+      <path class="rtl-art-arc flow" d="M336,528 C470,510 470,282 336,264"></path>
+    </svg>
+    <div class="rtl-tag"><span class="rtl-tag-hole"></span><small>Weftwood · SS collection</small><b>Linen camp shirt</b><span class="rtl-tag-v">Navy · <strong>M</strong></span><span class="rtl-tag-bc"></span><span class="rtl-tag-px">S$89.00</span></div>
+  </div>
+  <p class="illus fb-comp"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · sample company and figures</p>
+  <aside class="notes"><p>This is an industry case study, not one named client. It is a composite of what Singapore apparel and lifestyle retailers with a handful of stores tell us, built on a sample company we call Weftwood. Every figure is sample data. The picture on the right is the whole story: a grid of sizes by store, where size M is sold out in three stores and sitting still in two others. Three parts: the problem, the Odoo answer, the rollout.</p></aside>
+</section>
+
+<!-- 2 · the client -->
+<section class="slide" id="client" data-title="One shirt, 135 stock numbers">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>meet the client</span>
+      <h2 class="h-m" data-in style="--d:80ms">One shirt, <span class="hl">135 stock numbers.</span></h2>
+    </div>
+    <p class="fb-who" data-in style="--d:160ms"><b>Weftwood</b> <span>sample company · Singapore</span></p>
+  </div>
+  <div class="rtl-cl">
+    <div class="rtl-cl-l">
+      <div class="rtl-st" data-in style="--d:200ms">
+        <p><b>8</b><span>stores, malls and high streets</span></p>
+        <p><b>1</b><span>warehouse</span></p>
+        <p><b>2</b><span>collections a year</span></p>
+        <p><b>240</b><span>styles a season</span></p>
+      </div>
+      <div class="rtl-sys" data-in style="--d:280ms">
+        <span class="rtl-sys-h">It runs on</span>
+        <p><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><b>A stand-alone till</b><small>in each store, sales only</small></p>
+        <p><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg><b>Stock in Excel</b><small>updated weekly by the warehouse</small></p>
+        <p><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/><path d="M8 12h2l1.5-2.5 1.5 4 1-1.5H16"/></svg><b>A loyalty app</b><small>its own login, its own points</small></p>
+        <p><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01"/></svg><b>Accounting software</b><small>fed by the bookkeeper monthly</small></p>
+      </div>
+    </div>
+    <div class="rtl-mx" data-in data-fx="right" style="--d:260ms">
+      <div class="rtl-mx-h">
+        <span class="rtl-mx-t">Count what one style really is</span>
+        <div class="rtl-mx-f" data-i>
+          <button type="button" class="is-on" data-f="0" disabled><b>1</b><small>style</small></button><i>×</i>
+          <button type="button" data-f="1"><b>3</b><small>colours</small></button><i>×</i>
+          <button type="button" data-f="2"><b>5</b><small>sizes</small></button><i>×</i>
+          <button type="button" data-f="3"><b>9</b><small>locations</small></button><i>=</i>
+          <strong class="rtl-mx-n">1</strong>
+        </div>
+      </div>
+      <div class="rtl-mx-dots" aria-hidden="true"></div>
+      <p class="rtl-mx-say"><span class="rtl-mx-tot">× 240 styles</span><b class="rtl-mx-big">= 32,400</b> stock figures a season, in a weekly Excel file.</p>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · sample data</p>
+  <aside class="notes"><p>Weftwood is a sample, but the shape is common: eight stores, one warehouse, two seasonal collections, around 240 styles a season. Click the multipliers, or let them build. One linen shirt is not one product: three colours times five sizes is fifteen variants, and each variant lives in nine places, eight stores plus the warehouse. That is 135 stock numbers for one shirt, and 32,400 for the season. The tills only know what they sold, the stock sheet is a week old, and the loyalty app knows the customer but not the basket. Nothing here is broken. It just can’t be seen at the size-and-store level, which is exactly where apparel retail is won or lost.</p></aside>
+</section>
+
+<!-- 3 · the knot: size x store -->
+<section class="slide" id="knot" data-title="The total said on plan, the sizes didn’t">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the complicated part</span>
+      <h2 class="h-m" data-in style="--d:80ms">The total said “on plan”. <span class="hl">The sizes didn’t.</span></h2>
+    </div>
+    <div class="seg rtl-kn-seg" data-in style="--d:160ms" role="group" aria-label="Report view">
+      <button type="button" data-v="tot" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Weekly report</button>
+      <button type="button" data-v="grid" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>By size and store</button>
+    </div>
+  </div>
+  <div class="rtl-kn" data-mode="tot">
+    <div class="rtl-hm" data-in style="--d:220ms" data-i>
+      <div class="rtl-hm-head"><span>Linen camp shirt · Navy · week 6 · sold / allocated</span><span class="rtl-hm-key"><i class="k0"></i>slow<i class="k2"></i>selling<i class="k4"></i>sold out</span></div>
+      <div class="rtl-hm-g"></div>
+      <div class="rtl-hm-cover"><b>190 of 320 sold</b><span>59% sell-through at week 6 · on plan</span></div>
+    </div>
+    <div class="rtl-kn-r" data-in data-fx="right" style="--d:280ms" aria-live="polite">
+      <div class="rtl-kn-tot">
+        <span class="rtl-lab">What the buyer sees on Monday</span>
+        <p class="rtl-kn-big">59%</p>
+        <table class="rtl-rep">
+          <tr><th>Style</th><th>Sold</th><th>Status</th></tr>
+          <tr class="is-me"><td>Linen camp shirt · Navy</td><td>190 / 320</td><td>On plan</td></tr>
+          <tr><td>Cotton chino · Stone</td><td>173 / 320</td><td>On plan</td></tr>
+          <tr><td>Knit polo · White</td><td>202 / 320</td><td>On plan</td></tr>
+        </table>
+        <p class="rtl-kn-say">One number per style, all sizes, all stores. 59% at week 6 is on plan, so no one acts.</p>
+      </div>
+      <div class="rtl-kn-grid">
+        <p class="rtl-f rtl-f--red"><b>3 stores</b><span>sold out of M by week 5: Tampines, Bugis, Punggol</span></p>
+        <p class="rtl-f rtl-f--blue"><b>17 shirts</b><span>in size M sit unsold in Novena and Holland Village</span></p>
+        <p class="rtl-f"><b class="rtl-cell-t">Click a cell</b><span class="rtl-cell-d">Each square is one size in one store: sold, out of what was allocated.</span></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sample figures</p>
+  <aside class="notes"><p>This is the knot. Press By size and store. The weekly report gives the buyer one number per style: 190 of 320 shirts sold by week 6, 59 percent, on plan. Nothing to do. Now open the same shirt by size and store. Size M is sold out in Tampines, Bugis and Punggol, in Tampines since week 3, while Novena and Holland Village are sitting on 17 size M shirts between them. The customer who wanted an M in Tampines walked out. The stock that would have served her is twenty minutes away on the MRT. Nobody is careless: the data that shows it simply doesn’t exist in one place.</p></aside>
+</section>
+
+<!-- 4 · the season -->
+<section class="slide" id="season" data-steps="1" data-title="Everything sold, so the mistake repeats">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>why it is hard</span>
+      <h2 class="h-m" data-in style="--d:80ms">Everything sold, <span class="hl">so the mistake repeats.</span></h2>
+    </div>
+    <p class="hint rtl-se-hint" data-in style="--d:160ms">drag the season, or <kbd>→</kbd> to week 12</p>
+  </div>
+  <div class="rtl-se">
+    <div class="rtl-sl" data-in style="--d:200ms">
+      <div class="rtl-sl-top"><span>Week <b class="rtl-wk">1</b> of 12</span><span class="rtl-sl-px">Price on the rail <b class="rtl-px">S$89.00</b></span></div>
+      <input type="range" min="1" max="12" step="1" value="1" aria-label="Week of the season">
+      <div class="rtl-band"><i style="flex:7">Full price · S$89.00</i><i class="b30" style="flex:3">30% off</i><i class="b50" style="flex:2">50% off</i></div>
+    </div>
+    <ol class="rtl-ev" data-in style="--d:260ms">
+      <li data-w="3"><i>W3</i><span><b>Tampines sells out of M</b>Customers asking for M leave empty-handed.</span></li>
+      <li data-w="5"><i>W5</i><span><b>Bugis and Punggol follow</b>Novena still has 9 M, Holland Village 8.</span></li>
+      <li data-w="8"><i>W8</i><span><b>Markdown, 30% off</b>To move the M, XS and XL that didn’t sell.</span></li>
+      <li data-w="11"><i>W11</i><span><b>Clearance, 50% off</b>The last 51 shirts go at S$44.50.</span></li>
+      <li data-w="12"><i>W12</i><span><b>Next season’s buy</b>“All 320 sold. Same size curve again.”</span></li>
+    </ol>
+    <div class="rtl-ctr" data-in style="--d:320ms">
+      <p><span>Sold at full price</span><b class="rtl-c-fp">0</b><small>shirts at S$89.00</small></p>
+      <p class="is-red"><span>Margin lost to sell-outs</span><b class="rtl-c-lost">S$0.00</b><small><em class="rtl-c-lu">0</em> customers wanted a size that was out</small></p>
+      <p class="is-amb"><span>Margin given in markdowns</span><b class="rtl-c-md">S$0.00</b><small><em class="rtl-c-mu">0</em> shirts sold below full price</small></p>
+    </div>
+    <div class="rtl-bp" data-in data-fx="right" style="--d:380ms">
+      <span class="rtl-lab">Next season’s size curve</span>
+      <div class="rtl-bp-ch">
+        <div class="rtl-bp-c" data-s="XS"><i class="b" style="--v:10"></i><i class="w" style="--v:4.8"></i></div>
+        <div class="rtl-bp-c" data-s="S"><i class="b" style="--v:25"></i><i class="w" style="--v:23.3"></i></div>
+        <div class="rtl-bp-c" data-s="M"><i class="b" style="--v:30"></i><i class="w" style="--v:45.4"></i></div>
+        <div class="rtl-bp-c" data-s="L"><i class="b" style="--v:25"></i><i class="w" style="--v:22.5"></i></div>
+        <div class="rtl-bp-c" data-s="XL"><i class="b" style="--v:10"></i><i class="w" style="--v:4"></i></div>
+      </div>
+      <p class="rtl-bp-k"><span><i class="b"></i>Bought, and “all sold”</span><span><i class="w"></i>Wanted at full price</span></p>
+      <p class="rtl-bp-say"><b>M was 30% of the buy and 45% of full-price demand.</b> The report can’t show it: sold-out sizes record no demand.</p>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sample figures · one style, one colour</p>
+  <aside class="notes"><p>Drag the season, or press the arrow to jump to week 12. This is why it is structurally hard, not just a bad week. Size M sells out early in three stores, so the customers who wanted it are lost: in this sample 44 of them, about S$2,552 of margin at S$58 a shirt. Meanwhile the slow sizes and the stranded M get marked down: 30 percent in week 8, 50 percent in week 11, and another S$3,978 of margin is given away. Then the cruel part: at the end of the season all 320 shirts have sold, so the report says the size curve was right and the buyer orders the same curve again. Sold-out sizes record no demand, so the till can never show what was wanted. That is S$6,530 of margin on one style in one colour, and Weftwood has 240 styles. All sample figures: cost S$31, full price S$89.</p></aside>
+</section>
+
+<!-- 5 · the answer: the season loop -->
+<section class="slide" id="loop" data-title="Every step of the season, in one database">
+  <div class="sec-head">
+    <span class="kicker" data-in>the odoo answer</span>
+    <h2 class="h-m" data-in style="--d:80ms">Every step of the season, <span class="hl">in one database.</span></h2>
+  </div>
+  <div class="rtl-lp">
+    <div class="rtl-lp-l" data-i>
+      <svg class="rtl-lp-svg" viewBox="0 0 860 470" width="860" height="470" aria-hidden="true">
+        <path class="rtl-lp-path flow" d="M100,99 L760,99 Q830,99 830,169 L830,289 Q830,359 760,359 L100,359 Q30,359 30,289 L30,169 Q30,99 100,99"></path>
+      </svg>
+      <button type="button" class="rtl-nd" style="left:0;top:24px;--d:160ms" data-k="buy" data-in data-fx="scale"><img class="oi" src="assets/img/odoo/purchase.svg" alt="" width="38" height="38" style="width:38px;height:38px" loading="lazy" decoding="async"><span><i>1</i><b>Buy</b><small>Purchase</small></span></button>
+      <button type="button" class="rtl-nd" style="left:218px;top:24px;--d:220ms" data-k="recv" data-in data-fx="scale"><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="38" height="38" style="width:38px;height:38px" loading="lazy" decoding="async"><span><i>2</i><b>Receive</b><small>Inventory · Barcode</small></span></button>
+      <button type="button" class="rtl-nd" style="left:436px;top:24px;--d:280ms" data-k="alloc" data-in data-fx="scale"><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="38" height="38" style="width:38px;height:38px" loading="lazy" decoding="async"><span><i>3</i><b>Allocate</b><small>Inventory · resupply</small></span></button>
+      <button type="button" class="rtl-nd" style="left:654px;top:24px;--d:340ms" data-k="sell" data-in data-fx="scale"><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="38" height="38" style="width:38px;height:38px" loading="lazy" decoding="async"><span><i>4</i><b>Sell</b><small>Point of Sale</small></span></button>
+      <button type="button" class="rtl-nd" style="left:654px;top:284px;--d:400ms" data-k="loyal" data-in data-fx="scale"><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="38" height="38" style="width:38px;height:38px" loading="lazy" decoding="async"><span><i>5</i><b>Reward</b><small>Loyalty cards</small></span></button>
+      <button type="button" class="rtl-nd" style="left:436px;top:284px;--d:460ms" data-k="move" data-in data-fx="scale"><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="38" height="38" style="width:38px;height:38px" loading="lazy" decoding="async"><span><i>6</i><b>Rebalance</b><small>Inventory · transfers</small></span></button>
+      <button type="button" class="rtl-nd" style="left:218px;top:284px;--d:520ms" data-k="mark" data-in data-fx="scale"><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="38" height="38" style="width:38px;height:38px" loading="lazy" decoding="async"><span><i>7</i><b>Mark down</b><small>Pricelists</small></span></button>
+      <button type="button" class="rtl-nd" style="left:0;top:284px;--d:580ms" data-k="read" data-in data-fx="scale"><img class="oi" src="assets/img/odoo/spreadsheet_dashboard.svg" alt="" width="38" height="38" style="width:38px;height:38px" loading="lazy" decoding="async"><span><i>8</i><b>Read it</b><small>Dashboards</small></span></button>
+      <p class="rtl-lp-mid" data-in style="--d:600ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-1.66 4-3 9-3s9 1.34 9 3v14c0 1.66-4 3-9 3s-9-1.34-9-3z" fill="currentColor" fill-opacity=".2" stroke="none"/><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg><span>One product record · one customer list · one stock figure per size and store</span></p>
+      <p class="rtl-lp-db" data-in style="--d:640ms"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span>Every till session posts to <b>Accounting</b>, store by store</span></p>
+    </div>
+    <div class="fb-ap rtl-lp-p" data-in data-fx="right" style="--d:300ms" aria-live="polite">
+      <span class="fb-ap-h"><span class="fb-ap-i"></span><span class="fb-ap-place">Click a step</span></span>
+      <h3 class="h-s fb-ap-t">Eight steps, standard apps.</h3>
+      <p class="fb-ap-d">One product list with sizes and colours as variants, nine locations, one customer list. Click a step to see what it does.</p>
+      <div class="rtl-lp-doc"><span>In Odoo</span><b class="rtl-lp-dv">One product, 15 variants, 9 locations</b></div>
+      <div class="fb-ap-fix"><span>Replaces</span><b class="fb-ap-r">Four systems and a weekly Excel file</b></div>
+    </div>
+  </div>
+  <aside class="notes"><p>The answer is a loop, because a retail season is a loop: buy, receive, allocate, sell, reward, rebalance, mark down, read the season, and buy again. Every step is a standard Odoo 20 app on one database. Click each step. What changes is not any single screen: it is that the product, with its sizes and colours as variants, is the same record from the purchase order to the till to the dashboard, so the size-and-store view from slide 3 is a report, not a project. Loyalty is part of Point of Sale through Discount and Loyalty programmes; eCommerce can join the same loop later on the same stock.</p></aside>
+</section>
+
+<!-- 6 · workflow 1: rebalance -->
+<section class="slide" id="w1" data-steps="3" data-title="Novena’s M, on Tampines’ rail">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 1 · the stock</span>
+      <h2 class="h-m" data-in style="--d:80ms">Novena’s M, <span class="hl">on Tampines’ rail.</span></h2>
+    </div>
+    <ol class="rtl-w1-st" data-in style="--d:160ms">
+      <li><button type="button" data-n="1"><i>1</i>Propose</button></li>
+      <li><button type="button" data-n="2"><i>2</i>Transfer</button></li>
+      <li><button type="button" data-n="3"><i>3</i>Scan in</button></li>
+    </ol>
+  </div>
+  <div class="rtl-w1">
+    <div class="rtl-mg win" data-in style="--d:200ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Dashboards · Sell-through by size</span></div>
+      <div class="rtl-mg-b">
+        <p class="rtl-mg-t"><b>Linen camp shirt · Navy · M</b><span>week 6 · on hand</span></p>
+        <div class="rtl-mg-g"></div>
+      </div>
+    </div>
+    <div class="rtl-tr win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Weftwood · Inventory · Transfers</span></div>
+      <div class="rtl-tr-b">
+        <p class="rtl-tr-rule"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 1 0 0-12zm0 4a2 2 0 1 1 0 4 2 2 0 1 1 0-4z" fill-rule="evenodd" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span><b>The rule, agreed with the merchandiser</b><small>Move M from stores with over 8 weeks of cover to stores that are out</small></span></p>
+        <ul class="rtl-docs">
+          <li data-on="1"><span class="rtl-rt">NOV<i>→</i>TAM</span><span><b data-t="0:—|1:Proposed · 4 × M|2:NOV/OUT/00042|3:TAM/IN/00118">—</b><small>Novena → Tampines · 4 units</small></span><em data-t="0:—|1:Proposed|2:Ready|3:Done">—</em></li>
+          <li data-on="1"><span class="rtl-rt">NOV<i>→</i>PGL</span><span><b data-t="0:—|1:Proposed · 3 × M|2:NOV/OUT/00043|3:PGL/IN/00097">—</b><small>Novena → Punggol · 3 units</small></span><em data-t="0:—|1:Proposed|2:Ready|3:Done">—</em></li>
+          <li data-on="1"><span class="rtl-rt">HLV<i>→</i>BUG</span><span><b data-t="0:—|1:Proposed · 4 × M|2:HLV/OUT/00031|3:BUG/IN/00104">—</b><small>Holland Village → Bugis · 4 units</small></span><em data-t="0:—|1:Proposed|2:Ready|3:Done">—</em></li>
+        </ul>
+        <p class="rtl-tr-n"><b data-t="0:Nothing moved yet: press → to propose|1:11 shirts, 3 moves, approved by the merchandiser|2:On the van · Inter-warehouse transit|3:11 shirts back on sale at full price">Nothing moved yet: press → to propose</b></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample data</p>
+  <aside class="notes"><p>Press the arrow, or click the steps. One: the dashboard shows size M by store, and a rule we agree with Weftwood’s merchandiser proposes the moves: take M from stores holding more than eight weeks of cover and send it to the stores that are out. Honest note: that proposal is something we set up for Weftwood, as a dashboard view or a small automation, not a standard Odoo button, and the merchandiser approves it. Two: each move becomes a standard transfer between warehouses, a delivery out of Novena and a receipt into Tampines, with the stock in an inter-warehouse transit location while it is on the van. Three: Tampines scans the shirts in with the Barcode app, and they are on sale at full price, not on the 30 percent rail in week 8.</p></aside>
+</section>
+
+<!-- 7 · workflow 2: loyalty across stores -->
+<section class="slide" id="w2" data-steps="4" data-title="Earn in Tampines, redeem in Novena">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 2 · the customer</span>
+      <h2 class="h-m" data-in style="--d:80ms">Earn in Tampines, <span class="hl">redeem in Novena.</span></h2>
+    </div>
+    <p class="hint rtl-w2-hint" data-in style="--d:160ms"><kbd>→</kbd> follows one customer</p>
+  </div>
+  <div class="rtl-w2">
+    <div class="rtl-pos win" data-in style="--d:200ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url" data-t="0:Point of Sale · Tampines|3:Point of Sale · Novena|4:Contacts · Loyalty Cards">Point of Sale · Tampines</span></div>
+      <div class="rtl-pos-b">
+        <p class="rtl-pos-c"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg><span><b>Sample customer · member</b><small data-t="0:No customer set|1:Customer set · card found|3:Customer set · 412 points|4:One card, every store">No customer set</small></span></p>
+        <table class="rtl-ol">
+          <tbody class="rtl-ol-a">
+            <tr><td>Linen camp shirt <small>Navy · M</small></td><td>1</td><td>S$89.00</td></tr>
+            <tr><td>Cotton chino <small>Stone · 32</small></td><td>1</td><td>S$70.00</td></tr>
+          </tbody>
+          <tbody class="rtl-ol-b">
+            <tr><td>Linen camp shirt <small>Sand · M</small></td><td>1</td><td>S$89.00</td></tr>
+            <tr class="is-rw"><td>Reward · S$20 off <small>400 points</small></td><td>1</td><td>−S$20.00</td></tr>
+          </tbody>
+          <tbody class="rtl-ol-c">
+            <tr><td>Tampines · order TAM/0412</td><td>+159 pts</td><td>S$159.00</td></tr>
+            <tr><td>Novena · order NOV/0388</td><td>−400 +69 pts</td><td>S$69.00</td></tr>
+            <tr><td>Balance brought over <small>imported from the old app</small></td><td>253 pts</td><td></td></tr>
+            <tr><td>Loyalty card · Weftwood Circle <small>valid in all 8 stores</small></td><td>81 pts</td><td></td></tr>
+          </tbody>
+        </table>
+        <p class="rtl-pos-tot"><span data-t="0:Total|4:Spent across stores">Total</span><b data-t="0:S$159.00|3:S$69.00|4:S$228.00">S$159.00</b></p>
+        <p class="rtl-pos-rw"><span class="rtl-rwb"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Rewards</span><em data-t="0:Set a customer to earn points|1:+159 points on this order|3:400 points used · S$20.00 off|4:Points earned and used in 2 stores">Set a customer to earn points</em></p>
+      </div>
+    </div>
+    <div class="rtl-card" data-in data-fx="scale" style="--d:260ms">
+      <div class="rtl-cc">
+        <span class="rtl-cc-l">Weftwood Circle</span>
+        <span class="rtl-cc-s">Loyalty card · all 8 stores</span>
+        <b class="rtl-cc-n">253</b>
+        <span class="rtl-cc-u">points</span>
+        <span class="rtl-cc-r">1 point per S$1 · 400 points = S$20 off</span>
+      </div>
+      <p class="rtl-cc-st" data-t="0:Before: points in a separate app|1:Order in Tampines|2:Earned in Tampines, visible everywhere|3:Redeemed in Novena|4:One history, one balance">Before: points in a separate app</p>
+    </div>
+    <ol class="rtl-w2-steps">
+      <li data-step="1"><i>1</i><span><b>Tampines, Saturday</b>The cashier sets the customer. The M is there: it came from Novena.</span></li>
+      <li data-step="2"><i>2</i><span><b>Points land on the card</b>+159 points, on the one loyalty card all 8 stores read.</span></li>
+      <li data-step="3"><i>3</i><span><b>Novena, two weeks later</b>The Rewards button offers S$20 off. One click.</span></li>
+      <li data-step="4"><i>4</i><span><b>One customer history</b>The contact shows every order, from every store.</span></li>
+    </ol>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample customer and programme</p>
+  <aside class="notes"><p>Follow one customer with the arrow. In Tampines the cashier sets the customer on the order, and the size M is there because of the transfer on the last slide. The order earns 159 points on a loyalty card: a Discount and Loyalty programme of the Loyalty Cards type, available in Point of Sale; leaving its Point of Sale field empty makes it work at every till. Two weeks later in Novena the same card shows 412 points, and the Rewards button takes S$20 off. The customer’s contact shows a Loyalty Cards smart button and every order from every store. The points rule and the reward are Weftwood’s choice: these are sample values. Moving members from the old app means importing their balances, which we plan in phase 3.</p></aside>
+</section>
+
+<!-- 8 · rollout, what changes, next step -->
+<section class="slide" id="rollout" data-title="Four phases, one pilot store first">
+  <div class="sec-head">
+    <span class="kicker" data-in>how we rolled it out</span>
+    <h2 class="h-m" data-in style="--d:80ms">Four phases, <span class="hl">one pilot store first.</span></h2>
+  </div>
+  <div class="fb-ro">
+    <ol class="fb-ph" data-in style="--d:180ms" data-i>
+      <li><button type="button" data-k="0" class="is-on"><i>1</i><span><b>Products and the warehouse</b><small>Inventory · Purchase · Accounting</small></span></button></li>
+      <li><button type="button" data-k="1"><i>2</i><span><b>Pilot store</b><small>Point of Sale · Barcode</small></span></button></li>
+      <li><button type="button" data-k="2"><i>3</i><span><b>Seven more stores, loyalty</b><small>Point of Sale · Loyalty cards</small></span></button></li>
+      <li><button type="button" data-k="3"><i>4</i><span><b>Read and rebalance</b><small>Dashboards · transfers</small></span></button></li>
+    </ol>
+    <div class="fb-pd" data-in data-fx="right" style="--d:240ms" aria-live="polite">
+      <p class="fb-pd-w"><span>We do</span><b class="fb-pd-do">Load every style with sizes and colours as variants and a barcode each, set up the warehouse and eight store locations, and connect purchasing to the books.</b></p>
+      <ul class="fb-ba">
+        <li><span class="fb-b">Stock in a weekly Excel file</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><b class="fb-a">Stock by size and store, live</b></li>
+        <li><span class="fb-b">Purchase orders by email</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><b class="fb-a">Receipts scanned against the order</b></li>
+      </ul>
+    </div>
+    <div class="fb-cta" data-in data-fx="scale" style="--d:320ms">
+      <div class="fb-qr"><svg aria-hidden="true" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" class="qr"><path class="qr-p" stroke="#1f1f3d" d="M0 0.5h7m1 0h1m1 0h2m1 0h2m3 0h3m1 0h7m-29 1h1m5 0h1m1 0h3m3 0h1m5 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h3m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h3m2 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h3m3 0h4m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m1 0h1m1 0h1m2 0h1m1 0h3m-20 1h1m1 0h2m1 0h3m1 0h1m1 0h2m3 0h3m3 0h1m2 0h1m1 0h2m-28 1h2m4 0h1m2 0h2m1 0h2m1 0h9m3 0h1m-28 1h1m4 0h5m3 0h1m2 0h2m2 0h3m2 0h2m-28 1h5m7 0h5m1 0h1m1 0h1m3 0h1m3 0h1m-29 1h2m4 0h1m1 0h2m1 0h1m3 0h5m5 0h2m-25 1h1m1 0h1m2 0h6m1 0h2m3 0h1m2 0h1m3 0h3m-27 1h1m2 0h2m1 0h4m1 0h1m2 0h4m1 0h4m1 0h3m-29 1h1m1 0h1m4 0h1m1 0h4m2 0h1m4 0h1m3 0h1m2 0h1m-28 1h2m1 0h2m1 0h4m2 0h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m-27 1h5m3 0h2m1 0h1m2 0h2m3 0h2m1 0h1m1 0h3m-28 1h1m1 0h2m2 0h4m1 0h1m1 0h6m1 0h5m1 0h1m-24 1h3m2 0h2m1 0h5m1 0h1m1 0h1m6 0h1m-26 1h2m2 0h2m2 0h1m1 0h4m1 0h3m1 0h7m-19 1h2m2 0h1m3 0h3m1 0h1m3 0h5m-29 1h7m1 0h3m3 0h1m1 0h1m1 0h3m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m1 0h5m2 0h1m1 0h1m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h3m5 0h1m2 0h5m1 0h1m-27 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h1m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h6m3 0h2m1 0h2m1 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m3 0h2m1 0h1m6 0h1m3 0h2m1 0h1m-28 1h7m1 0h1m2 0h1m3 0h1m2 0h1m1 0h1m4 0h1m1 0h1"/></svg></div>
+      <b>Run retail stores?</b>
+      <small>30-minute discovery call · online</small>
+      <a href="https://wa.me/6588396998" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>+65 8839 6998</a>
+      <a href="mailto:sales@technext.asia"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>sales@technext.asia</a>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · no client figures</p>
+  <aside class="notes"><p>The order matters. Products and the warehouse first: every style with its sizes and colours as variants and a barcode on each, because the tills, the transfers and the dashboards all read them. Then one pilot store on Point of Sale, and only when it closes a clean week do the other seven go live, together with the loyalty programme and the import of members’ balances. The season view comes last, once the sales underneath are trustworthy: sell-through by size and store, and the rebalance rule. Click each phase to see what changes. No weeks on this slide: the length depends on how clean the product and variant data is, which we see in the discovery call. Close on the QR.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v=36"></script>
+<script src="assets/case-study-retail.js?v=36"></script>
+</body>
+</html>

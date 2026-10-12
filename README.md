@@ -19,6 +19,13 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Client deck: BHD Asia · HummingBeing implementation scope (six workflows, nine modules, phase two, decisions, open items) | `bhdasia-odoo-scope.html` | 19 |
 | Client deck: HST Medical website review (website and catalogue, your direction, feedback, AI for the website, why TechNext, how we build, questions) | `hst-medical-website.html` | 19 |
 | Case study: F&B (composite Singapore group: central kitchen + five outlets; the problem, nine Odoo apps, replenishment flow, plate costing, rollout) | `case-study-fnb.html` | 8 |
+| Case study: Medical (clinic group: recalled lot traced, panel claims) | `case-study-medical.html` | 8 |
+| Case study: Travel (tour operator: FX and pax margin, deposits before payments) | `case-study-travel.html` | 8 |
+| Case study: Retail (eight stores: size by store, markdowns, one loyalty card) | `case-study-retail.html` | 8 |
+| Case study: Ecommerce (website + Shopee, Lazada, TikTok Shop: 11.11 oversell, payouts) | `case-study-ecommerce.html` | 8 |
+| Case study: Construction (fit-out contractor: hidden overrun, variations, progress claims) | `case-study-construction.html` | 8 |
+| Case study: Manufacturing (sheet-metal shop: breakdown cascade, routing-based quotes) | `case-study-manufacturing.html` | 8 |
+| Case study: Health & Wellness (studios + spa: prepaid credits owed, rooms) | `case-study-wellness.html` | 8 |
 
 Live (unlisted, `noindex`): https://technextsg.github.io/technext-presentations/
 

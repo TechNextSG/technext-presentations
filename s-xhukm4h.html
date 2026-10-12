@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E4691">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=36">
+<link rel="stylesheet" href="assets/deck.css?v=36">
+<title>Case study · Travel: the margin flies home last · TechNext</title>
+<meta name="description" content="An industry case study for travel: a composite Singapore agency running group tours to Japan, Korea and Europe and corporate incentive trips, the tangled problem (a price fixed in SGD months ahead, costs in yen, won and euro, pax that change, supplier deposits paid before the guests pay), and how Odoo 20 runs every departure as a project with its own live P&amp;L.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechNext">
+<meta property="og:title" content="Case study · Travel: the margin flies home last · TechNext">
+<meta property="og:description" content="An industry case study for travel: a composite Singapore agency running group tours to Japan, Korea and Europe and corporate incentive trips, the tangled problem (a price fixed in SGD months ahead, costs in yen, won and euro, pax that change, supplier deposits paid before the guests pay), and how Odoo 20 runs every departure as a project with its own live P&amp;L.">
+<meta property="og:url" content="https://technextsg.github.io/technext-presentations/s-xhukm4h.html">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/case-study-travel-og.jpg?v=36">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/case-study.css?v=36">
+<link rel="stylesheet" href="assets/case-study-travel.css?v=36">
+</head>
+<body data-label="Case study · Travel" data-shared>
+<main class="deck" aria-label="Case study, travel: the margin flies home last">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="The margin flies home last">
+  <div class="cv-copy fb-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">case study · travel</span>
+    <h1 class="h-xl" data-in style="--d:200ms">The margin <span class="hl">flies home last.</span></h1>
+    <p class="lead" data-in style="--d:320ms">A Singapore agency sells group tours in dollars, pays hotels and coaches in yen, won and euro, and learns what each trip made weeks after the group lands. The knot, and how Odoo 20 untied it.</p>
+    <nav class="fb-agenda" data-in style="--d:420ms" aria-label="Parts of this case study">
+      <button type="button" data-go="client"><i>01</i>The problem</button>
+      <button type="button" data-go="arch"><i>02</i>The Odoo answer</button>
+      <button type="button" data-go="rollout"><i>03</i>Rollout</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>Industry case study · Travel</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="trv-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <svg class="trv-svg" viewBox="0 0 660 700" width="660" height="700">
+      <g class="trv-grat">
+        <ellipse cx="330" cy="380" rx="300" ry="300"></ellipse>
+        <ellipse cx="330" cy="380" rx="200" ry="300"></ellipse>
+        <ellipse cx="330" cy="380" rx="90" ry="300"></ellipse>
+        <path d="M30,380 H630 M60,230 H600 M60,530 H600 M150,130 H510 M150,630 H510"></path>
+      </g>
+      <path class="trv-arc flow" d="M300,610 Q540,520 560,230"></path>
+      <path class="trv-arc flow" d="M300,610 Q420,330 470,150"></path>
+      <path class="trv-arc flow" d="M300,610 Q120,420 80,150"></path>
+    </svg>
+    <span class="trv-plane"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg></span>
+    <span class="trv-pin trv-pin--home" style="left:300px;top:610px;--k:3"><b>Singapore</b><em>SGD</em></span>
+    <span class="trv-pin" style="left:560px;top:230px;--k:0"><b>Hokkaido</b><em>JPY</em></span>
+    <span class="trv-pin" style="left:470px;top:150px;--k:1"><b>Seoul</b><em>KRW</em></span>
+    <span class="trv-pin" style="left:80px;top:150px;--k:2"><b>Bavaria</b><em>EUR</em></span>
+    <div class="trv-tag">
+      <span class="trv-tag-h">HKD-1027 · Hokkaido Autumn</span>
+      <p><span>Quoted in Feb</span><b>18.0%</b></p>
+      <p class="is-q"><span>Actual margin</span><b class="trv-q">?</b></p>
+      <small>known 5 weeks after landing</small>
+    </div>
+  </div>
+  <p class="illus fb-comp"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · sample company and figures</p>
+  <aside class="notes"><p>This is an industry case study, not one named client. It is a composite of what Singapore tour operators and incentive agencies tell us, built on a sample company we call Wayfern Journeys. Every figure is sample data. The title is the whole problem: a tour is priced in Singapore dollars months before it leaves, paid for in yen, won and euro, and its real margin is only known after the last supplier bill arrives, weeks after the group is home. Three parts: the problem, the Odoo answer, the rollout.</p></aside>
+</section>
+
+<!-- 2 · the client: the departures board -->
+<section class="slide" id="client" data-title="Busy departures, unknown margins">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>meet the client</span>
+      <h2 class="h-m" data-in style="--d:80ms">Busy departures, <span class="hl">unknown margins.</span></h2>
+    </div>
+    <p class="fb-who" data-in style="--d:160ms"><b>Wayfern Journeys</b> <span>sample company · Singapore</span></p>
+  </div>
+  <div class="trv-stats" data-in style="--d:200ms">
+    <p><b>62</b><span>group departures a year</span></p>
+    <p><b>9</b><span>incentive (MICE) trips a year</span></p>
+    <p><b>4</b><span>currencies: SGD, JPY, KRW, EUR</span></p>
+    <p><b>140</b><span>hotels, coaches and guides</span></p>
+    <p class="is-red"><b>5 wks</b><span>after return: margin known</span></p>
+  </div>
+  <div class="trv-bd">
+    <div class="trv-board" data-in style="--d:260ms" data-i>
+      <div class="trv-bh"><span>Departure</span><span>Date</span><span>Tour</span><span>Pax</span><span>Pays in</span><span>Margin</span></div>
+      <button type="button" data-k="0"><b>HKD-1027</b><span>14 Oct</span><span class="trv-tn">Hokkaido Autumn 9D7N</span><span>20 / 24</span><span>JPY</span><em>quoted 18.0%</em></button>
+      <button type="button" data-k="1"><b>SEL-1022</b><span>22 Oct</span><span class="trv-tn">Seoul &amp; Gangwon 7D5N</span><span>30 / 32</span><span>KRW</span><em>quoted 16.5%</em></button>
+      <button type="button" data-k="2"><b>KIX-M1104</b><span>04 Nov</span><span class="trv-tn">Kyoto incentive · corporate</span><span>118 / 120</span><span>JPY</span><em>quoted 14.0%</em></button>
+      <button type="button" data-k="3"><b>MUC-1128</b><span>28 Nov</span><span class="trv-tn">Christmas Markets 10D7N</span><span>18 / 26</span><span>EUR</span><em>quoted 19.0%</em></button>
+      <button type="button" data-k="4"><b>CJU-1209</b><span>09 Dec</span><span class="trv-tn">Busan &amp; Jeju 6D4N</span><span>12 / 28</span><span>KRW</span><em>quoted 17.0%</em></button>
+    </div>
+    <div class="trv-bc" data-in data-fx="right" style="--d:320ms" aria-live="polite">
+      <span class="trv-bc-h">Click a departure</span>
+      <h3 class="h-s trv-bc-t">Every tour has a quote. None has a P&amp;L.</h3>
+      <div class="trv-bc-g">
+        <p><span>Quoted</span><b class="trv-bc-a">A price per person, fixed in SGD months ahead.</b></p>
+        <p class="is-blind"><span>Moving since</span><b class="trv-bc-b">Exchange rates, pax counts and supplier bills.</b></p>
+        <p class="is-cost"><span>Known</span><b class="trv-bc-c">Only when the last bill is in, after the trip.</b></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · sample data</p>
+  <aside class="notes"><p>Wayfern is a sample, but the board is what a mid-sized Singapore agency looks like in the autumn: group tours to Japan, Korea and Europe, plus incentive trips for corporate clients. Click each departure. Every one has a quoted margin from the day it went on sale. None of them has a live P&amp;L: the quote is in an Excel file, supplier deposits are in email, the bills arrive in three foreign currencies, and the pax count is still moving. The real margin is known about five weeks after the group lands, when the last guide and coach bills are in.</p></aside>
+</section>
+
+<!-- 3 · the knot: live tour P&L -->
+<section class="slide" id="knot" data-title="Priced once in SGD, costed all year in yen">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the complicated part</span>
+      <h2 class="h-m" data-in style="--d:80ms">Priced once in SGD, <span class="hl">costed all year in yen.</span></h2>
+    </div>
+    <p class="hint" data-in style="--d:160ms">drag the rate · change the pax</p>
+  </div>
+  <div class="trv-pl">
+    <div class="trv-ctl" data-in style="--d:200ms">
+      <label class="trv-fx"><span>Exchange rate <b class="trv-fx-v">S$0.900 per ¥100</b></span>
+        <input type="range" min="840" max="1000" step="2" value="900" aria-label="Singapore dollars per 100 yen">
+        <i class="trv-fx-sc"><em>stronger SGD</em><em>stronger yen</em></i></label>
+      <div class="trv-pax">
+        <div class="trv-pax-h"><span>Travelling <b class="trv-pax-v">24</b> of 24 sold</span>
+          <span class="trv-pax-b"><button type="button" data-d="-1" aria-label="One cancellation">−</button><button type="button" data-d="1" aria-label="One more passenger">+</button></span></div>
+        <div class="trv-seats" aria-hidden="true"></div>
+        <small class="trv-pax-n">Coach, guide and tour leader cost the same for 16 pax or 24. An odd number leaves one twin room with a single guest.</small>
+      </div>
+      <p class="trv-say"><b class="trv-say-n">S$0</b><span>moves off the margin for every 1 cent the yen gains per ¥100</span></p>
+    </div>
+    <div class="trv-st win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">HKD-1027 tour costing.xlsx · last saved in February</span></div>
+      <table class="trv-tb">
+        <thead><tr><th>Hokkaido Autumn 9D7N</th><th>Paid in</th><th>Quoted, Feb</th><th>Now</th></tr></thead>
+        <tbody>
+          <tr class="is-rev"><td>Revenue <small class="trv-r-n">24 × S$4,280</small></td><td>SGD</td><td>S$102,720</td><td class="trv-r">S$102,720</td></tr>
+          <tr><td>Group air fares <small>consolidator</small></td><td>SGD</td><td>S$32,400</td><td class="trv-c0">S$32,400</td></tr>
+          <tr class="is-fx"><td>Hotels and ryokan <small>¥88,000 a head</small></td><td>JPY</td><td>S$19,008</td><td class="trv-c1">S$19,008</td></tr>
+          <tr class="is-fx"><td>Coach, 9 days <small>fixed</small></td><td>JPY</td><td>S$14,850</td><td class="trv-c2">S$14,850</td></tr>
+          <tr class="is-fx"><td>Local guide <small>fixed</small></td><td>JPY</td><td>S$6,480</td><td class="trv-c3">S$6,480</td></tr>
+          <tr class="is-fx"><td>Meals and entrances</td><td>JPY</td><td>S$9,072</td><td class="trv-c4">S$9,072</td></tr>
+          <tr><td>Tour leader from Singapore <small>fixed</small></td><td>SGD</td><td>S$2,400</td><td class="trv-c5">S$2,400</td></tr>
+        </tbody>
+        <tfoot><tr><td>Margin <small>floor 12%</small></td><td></td><td>S$18,510 · 18.0%</td><td><span class="trv-m" data-state="ok">S$18,510 · 18.0%</span></td></tr></tfoot>
+      </table>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample rates, prices and costs</p>
+  <aside class="notes"><p>This is the knot. The Hokkaido tour was priced in February at S$4,280 a head, 24 pax, at 90 cents per 100 yen: an 18% margin on the quote. Watch what happens by September: four guests cancel and the yen strengthens to 94 cents. The coach, the guide and the tour leader cost the same whatever the pax count, and every yen line costs more. The margin falls from 18% to about 11%, below the agency’s 12% floor, and the line turns red. Drag the rate and change the pax yourself. The point is not the maths: this sheet was last saved in February, so nobody sees the red until the bills come in. Sample figures; cancellation fees and forfeited air deposits are left out to keep it readable.</p></aside>
+</section>
+
+<!-- 4 · why it is hard: the cash gap -->
+<section class="slide" id="gap" data-title="Suppliers are paid before the guests pay">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>why it is hard</span>
+      <h2 class="h-m" data-in style="--d:80ms">Suppliers are paid <span class="hl">before the guests pay.</span></h2>
+    </div>
+    <div class="seg trv-dp" data-in style="--d:160ms" role="group" aria-label="Guest deposit at booking">
+      <button type="button" data-v="10" aria-pressed="true">10% deposit</button>
+      <button type="button" data-v="20" aria-pressed="false">20%</button>
+      <button type="button" data-v="30" aria-pressed="false">30%</button>
+    </div>
+  </div>
+  <div class="trv-gp">
+    <div class="trv-ch" data-in style="--d:200ms">
+      <div class="trv-ch-h">
+        <p><span>Cash position · HKD-1027</span><b>Guest receipts minus supplier payments, 24 pax as booked</b></p>
+        <p class="trv-ch-k"><span>Deepest gap</span><b class="trv-gap-n">S$42,858</b><small class="trv-gap-d">163 days below zero</small></p>
+      </div>
+      <svg class="trv-cv" viewBox="0 0 900 380" width="900" height="380" aria-hidden="true"></svg>
+    </div>
+    <div class="trv-why">
+      <div class="trv-wc" data-in style="--d:260ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg><b>Four currencies, one price</b><p>The guest pays a fixed SGD price. Deposits go out in yen in March, balances in September, each at that day’s rate.</p></div>
+      <div class="trv-wc" data-in style="--d:320ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg><b>Costs land in the wrong tour</b><p>The coach company bills two departures on one invoice. Half of it lands in HKD-1027, half in “general”.</p></div>
+      <div class="trv-wc is-red" data-in style="--d:380ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><b>The last bill comes late</b><p>The guide invoices five weeks after the group lands. Until then the margin is a guess.</p></div>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample payment terms</p>
+  <aside class="notes"><p>Why is this structurally hard, and not just a spreadsheet problem? Three reasons. First, money moves in the wrong order: the agency pays the airline and hotel deposits in March, the second hotel deposit and the coach deposit in June, and the air tickets in August, but the guests pay a deposit at booking and the balance 45 days before departure. With a 10% deposit this one tour is under water from March to the end of August, S$42,858 at the deepest. Switch to 20% or 30%: the gap shrinks but does not disappear. Multiply that by a season of departures. Second, four currencies, each payment at its own day’s rate. Third, costs land in the wrong tour, and the last bill arrives weeks after the trip. Sample terms only: every supplier contract is different.</p></aside>
+</section>
+
+<!-- 5 · the answer: every departure is a project -->
+<section class="slide" id="arch" data-title="Every departure is a project with its own P&amp;L">
+  <div class="sec-head">
+    <span class="kicker" data-in>the odoo answer</span>
+    <h2 class="h-m" data-in style="--d:80ms">Every departure is a project <span class="hl">with its own P&amp;L.</span></h2>
+  </div>
+  <div class="trv-ar">
+    <div class="trv-hub" data-in style="--d:180ms" data-i>
+      <svg class="trv-hub-svg" viewBox="0 0 880 520" width="880" height="520" aria-hidden="true">
+        <path data-l="crm" d="M130,45 L440,260"></path><path data-l="sale" d="M440,45 L440,260"></path><path data-l="sign" d="M750,45 L440,260"></path>
+        <path data-l="web" d="M105,260 L440,260"></path><path data-l="pur" d="M775,260 L440,260"></path>
+        <path data-l="docs" d="M130,475 L440,260"></path><path data-l="acc" d="M440,475 L440,260"></path><path data-l="dash" d="M750,475 L440,260"></path>
+      </svg>
+      <div class="trv-dep">
+        <span class="trv-dep-h"><img class="oi" src="assets/img/odoo/project.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async">Project · analytic account</span>
+        <b>HKD-1027 Hokkaido Autumn</b>
+        <p><span>14 Oct</span><span>20 pax</span><span>SGD · JPY</span></p>
+      </div>
+      <button type="button" class="trv-ap" data-k="crm" style="left:130px;top:45px"><img class="oi" src="assets/img/odoo/crm.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><b>CRM</b></button>
+      <button type="button" class="trv-ap" data-k="sale" style="left:440px;top:45px"><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><b>Sales</b></button>
+      <button type="button" class="trv-ap" data-k="sign" style="left:750px;top:45px"><img class="oi" src="assets/img/odoo/sign.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><b>Sign</b></button>
+      <button type="button" class="trv-ap" data-k="web" style="left:105px;top:260px"><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><b>eCommerce</b></button>
+      <button type="button" class="trv-ap" data-k="pur" style="left:775px;top:260px"><img class="oi" src="assets/img/odoo/purchase.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><b>Purchase</b></button>
+      <button type="button" class="trv-ap" data-k="docs" style="left:130px;top:475px"><img class="oi" src="assets/img/odoo/documents.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><b>Documents</b></button>
+      <button type="button" class="trv-ap" data-k="acc" style="left:440px;top:475px"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><b>Accounting</b></button>
+      <button type="button" class="trv-ap" data-k="dash" style="left:750px;top:475px"><img class="oi" src="assets/img/odoo/spreadsheet_dashboard.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><b>Dashboards</b></button>
+    </div>
+    <div class="fb-ap trv-pn" data-in data-fx="right" style="--d:260ms" aria-live="polite">
+      <span class="fb-ap-h"><span class="fb-ap-i"></span><span class="fb-ap-place">Click an app</span></span>
+      <h3 class="h-s fb-ap-t">Eight apps around one departure.</h3>
+      <p class="fb-ap-d">Each app writes into the departure’s analytic account, so its revenue and its costs meet in one place, in SGD, from the day it goes on sale.</p>
+      <div class="fb-ap-fix"><span>Replaces</span><b class="fb-ap-r">One costing spreadsheet per tour</b></div>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample data</p>
+  <aside class="notes"><p>The answer is one idea: every departure is a project in Odoo, with its own analytic account. Everything that touches the tour carries that account: the sales order for each booking, the purchase orders and bills to hotels and coaches, the tour leader’s expenses. The project dashboard then shows revenue and costs side by side, expected and billed. Click each of the eight apps around it. Honest limits: Odoo is not an airline or hotel booking engine and not a GDS. Air tickets still come from the agency’s GDS or consolidator; in Odoo they are recorded as purchases against the departure. Passport copies in Documents sit in a restricted folder, collected only as needed under the PDPA.</p></aside>
+</section>
+
+<!-- 6 · workflow 1: a booking, from enquiry to balance -->
+<section class="slide" id="w1" data-steps="6" data-title="Booked, signed and paid on one schedule">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 1 · the guest’s money</span>
+      <h2 class="h-m" data-in style="--d:80ms">Booked, signed and paid <span class="hl">on one schedule.</span></h2>
+    </div>
+    <button type="button" class="btn btn-line fb-play trv-play" data-in style="--d:160ms"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Play the booking</span></button>
+  </div>
+  <ol class="trv-rail" data-in style="--d:200ms">
+    <li><button type="button" data-n="1"><i>12 Feb</i><img class="oi" src="assets/img/odoo/crm.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><b>Website enquiry</b><small>CRM · opportunity</small></button></li>
+    <li><button type="button" data-n="2"><i>13 Feb</i><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><b>Quote from template</b><small>Sales · optional section</small></button></li>
+    <li><button type="button" data-n="3"><i>15 Feb</i><img class="oi" src="assets/img/odoo/sign.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><b>Signed online</b><small>Online confirmation</small></button></li>
+    <li><button type="button" data-n="4"><i>15 Feb</i><img class="oi" src="assets/img/odoo/account.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><b>Deposit invoiced</b><small>Down payment 10%</small></button></li>
+    <li><button type="button" data-n="5"><i>30 Aug</i><img class="oi" src="assets/img/odoo/account.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><b>Balance invoiced</b><small>Deposit deducted</small></button></li>
+    <li><button type="button" data-n="6"><i>06 Sep</i><img class="oi" src="assets/img/odoo/account.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><b>Reminder, then paid</b><small>Follow-up</small></button></li>
+  </ol>
+  <div class="trv-bk">
+    <div class="trv-so win" data-in style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Wayfern Journeys · Sales · S00318</span></div>
+      <div class="trv-so-b">
+        <p class="trv-so-t"><b>S00318</b><span>Two guests · HKD-1027</span><em data-t="0:—|1:Opportunity|2:Quotation sent|3:Sales order">—</em></p>
+        <table class="trv-sl">
+          <thead><tr><th>Product</th><th>Qty</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr data-on="2"><td>Hokkaido Autumn 9D7N · twin share</td><td>2</td><td>S$8,560.00</td></tr>
+            <tr class="trv-sec" data-on="2"><td colspan="3">Add-ons <small>optional section · the guests pick</small></td></tr>
+            <tr data-on="2" class="trv-opt"><td>Lake Toya cruise</td><td data-t="0:0|3:2">0</td><td data-t="0:S$0.00|3:S$130.00">S$0.00</td></tr>
+            <tr data-on="2" class="trv-opt"><td>Travel insurance</td><td data-t="0:0|3:2">0</td><td data-t="0:S$0.00|3:S$96.00">S$0.00</td></tr>
+            <tr data-on="2" class="trv-opt"><td>Single supplement</td><td>0</td><td>S$0.00</td></tr>
+          </tbody>
+          <tfoot><tr><td>Total</td><td></td><td data-t="0:S$0.00|2:S$8,560.00|3:S$8,786.00">S$0.00</td></tr></tfoot>
+        </table>
+        <p class="trv-so-a" data-on="3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Signed and confirmed online · analytic: <b>HKD-1027</b></span></p>
+      </div>
+    </div>
+    <div class="trv-pay" data-in data-fx="right" style="--d:320ms">
+      <span class="trv-pay-h">Guest payments · S$8,786.00</span>
+      <div class="trv-pbar"><i class="trv-pb1"></i><i class="trv-pb2"></i></div>
+      <p class="trv-pb-l"><span>Deposit 10% at booking</span><span>Balance 45 days before departure</span></p>
+      <ul class="trv-inv">
+        <li data-on="4"><span><b>INV/2027/00412</b><small>Down payment · 15 Feb</small></span><b>S$878.60</b><em data-t="0:—|4:Paid">—</em></li>
+        <li data-on="5"><span><b>INV/2027/01764</b><small>Balance · deposit deducted</small></span><b>S$7,907.40</b><em data-t="0:—|5:Not paid|6:Paid">—</em></li>
+        <li data-on="6"><span><b>First reminder</b><small>6 Sep, 7 days overdue · paid 8 Sep</small></span><b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></b><em data-t="0:—|6:Sent">—</em></li>
+      </ul>
+    </div>
+  </div>
+  <p class="trv-wf-n">Step <b class="trv-cnt">0</b> of 6 · <span>every receipt lands in the departure, not in a general pot</span></p>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample data</p>
+  <aside class="notes"><p>Press Play or step through one booking. A couple enquires on the website and CRM opens an opportunity. The quotation comes from the tour’s quotation template, with an optional section of add-ons the guests set themselves in the customer portal. They sign and confirm online. The deposit is a down-payment invoice for 10%. On 30 August, 45 days before departure, the balance invoice is created from the same sales order and the deposit is deducted automatically. It isn’t paid on time, so a follow-up reminder goes out, and it is paid two days later. Every line carries the departure’s analytic account, so receipts land in HKD-1027. Honest note: the balance invoice is created by the team, or by an automation we set up; a down payment is not the same as an instalment payment term, and we pick the one that fits the agency’s terms.</p></aside>
+</section>
+
+<!-- 7 · workflow 2: a yen bill, landed in its tour -->
+<section class="slide" id="w2" data-steps="3" data-title="Every yen, landed in its tour">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 2 · the supplier’s money</span>
+      <h2 class="h-m" data-in style="--d:80ms">Every yen, <span class="hl">landed in its tour.</span></h2>
+    </div>
+    <p class="hint" data-in style="--d:160ms"><kbd>→</kbd> order · bill · pay</p>
+  </div>
+  <div class="trv-fxw">
+    <div class="trv-doc win" data-in style="--d:200ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Purchase · P00412 · sample coach company, Sapporo</span></div>
+      <div class="trv-doc-b">
+        <ol class="trv-mo">
+          <li data-on="1"><i>1</i><span><b>P00412 confirmed</b><small>¥1,650,000 · 9-day coach · rate 0.900</small></span><em>S$14,850.00</em></li>
+          <li data-on="2"><i>2</i><span><b>BILL/2027/09/0031 posted</b><small>14 Sep · rate 0.940 · analytic HKD-1027</small></span><em>S$15,510.00</em></li>
+          <li data-on="3"><i>3</i><span><b>Paid from the JPY bank account</b><small class="trv-pay-n">28 Sep · rate 0.955</small></span><em class="trv-paid">S$15,757.50</em></li>
+        </ol>
+        <div class="trv-pd3" data-on="3">
+          <label class="trv-fx trv-fx--sm"><span>Rate on payment day <b class="trv-fx2-v">S$0.955 per ¥100</b></span>
+            <input type="range" min="900" max="990" step="1" value="955" aria-label="Singapore dollars per 100 yen on payment day"></label>
+          <table class="trv-je">
+            <thead><tr><th>Exchange Difference journal</th><th>Debit</th><th>Credit</th></tr></thead>
+            <tbody>
+              <tr><td>Accounts payable · coach company</td><td>S$15,510.00</td><td></td></tr>
+              <tr><td>Bank · JPY</td><td></td><td class="trv-je-b">S$15,757.50</td></tr>
+              <tr class="trv-je-x"><td class="trv-je-xl">Foreign exchange loss</td><td class="trv-je-xd">S$247.50</td><td class="trv-je-xc"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="trv-pd win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Project · HKD-1027 · Dashboard</span></div>
+      <div class="trv-pd-b">
+        <p class="trv-pd-t"><img class="oi" src="assets/img/odoo/project.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><b>Profitability</b><span>in SGD</span></p>
+        <table class="trv-pf">
+          <tbody>
+            <tr class="trv-pf-h"><td>Revenues</td><td>Invoiced</td></tr>
+            <tr><td>Bookings · 20 pax</td><td>S$85,600</td></tr>
+            <tr class="trv-pf-h"><td>Costs</td><td>Expected / billed</td></tr>
+            <tr><td>Group air fares</td><td>S$27,000</td></tr>
+            <tr><td>Hotels and ryokan</td><td>S$16,544</td></tr>
+            <tr class="is-hot"><td>Coach · P00412</td><td class="trv-pf-c" data-t="0:S$14,850 expected|2:S$15,510 billed">S$14,850 expected</td></tr>
+            <tr><td>Meals and entrances</td><td>S$7,896</td></tr>
+            <tr><td>Local guide <small>bill due in Nov</small></td><td>S$6,480 expected</td></tr>
+            <tr><td>Tour leader expenses</td><td>S$2,400</td></tr>
+          </tbody>
+          <tfoot><tr><td>Margin</td><td class="trv-pf-m" data-t="0:S$10,430 · 12.2%|2:S$9,770 · 11.4%">S$10,430 · 12.2%</td></tr></tfoot>
+        </table>
+        <p class="trv-pd-a" data-on="2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><span>Below the 12% floor, seen on <b>14 Sep</b>: a month before departure, not five weeks after it.</span></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample rates and documents</p>
+  <aside class="notes"><p>Now the supplier side, on the coach for HKD-1027. Press the arrow. The purchase order is in yen, ¥1,650,000, and the project dashboard counts it as an expected cost in Singapore dollars. In September the bill is posted at 0.94: the dashboard moves it from expected to billed, the margin drops to 11.4%, and it is visible a month before departure, while there is still time to act. Then it is paid at 0.955. Drag the payment-day rate: Odoo posts the difference in the Exchange Difference journal as a foreign exchange gain or loss. Exchange rates can be fetched automatically every day. Honest note: realised exchange differences post to the company’s gain and loss accounts; if the agency also wants them per departure, we confirm that setup in discovery. Purchase orders only count on the dashboard once their bill is linked to the project’s analytic account.</p></aside>
+</section>
+
+<!-- 8 · rollout + next step -->
+<section class="slide" id="rollout" data-title="Four stops, money first">
+  <div class="sec-head">
+    <span class="kicker" data-in>how we rolled it out</span>
+    <h2 class="h-m" data-in style="--d:80ms">Four stops, <span class="hl">money first.</span></h2>
+  </div>
+  <div class="trv-ro">
+    <div class="trv-rl">
+      <ol class="trv-stops" data-in style="--d:180ms" data-i>
+        <li><button type="button" data-k="0" class="is-on"><i>1</i><b>Foundation</b><small>Accounting · currencies</small></button></li>
+        <li><button type="button" data-k="1"><i>2</i><b>Departures</b><small>Project · Purchase</small></button></li>
+        <li><button type="button" data-k="2"><i>3</i><b>Selling and collecting</b><small>CRM · Sales · Sign</small></button></li>
+        <li><button type="button" data-k="3"><i>4</i><b>Insight</b><small>Dashboards · Documents</small></button></li>
+      </ol>
+      <div class="trv-rd fb-pd" data-in style="--d:240ms" aria-live="polite">
+        <p class="fb-pd-w"><span>We do</span><b class="fb-pd-do">Set up SGD, JPY, KRW and EUR with daily rates, a bank account per currency, the exchange difference accounts and the chart of accounts. Everything else reads these.</b></p>
+        <ul class="fb-ba">
+          <li><span class="fb-b">Rates typed into each quote</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><b class="fb-a">Rates fetched every day</b></li>
+          <li><span class="fb-b">Yen bills booked at a guess</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><b class="fb-a">Each bill at its own date’s rate</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fb-cta" data-in data-fx="scale" style="--d:320ms">
+      <div class="fb-qr"><svg aria-hidden="true" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" class="qr"><path class="qr-p" stroke="#1f1f3d" d="M0 0.5h7m1 0h1m1 0h2m1 0h2m3 0h3m1 0h7m-29 1h1m5 0h1m1 0h3m3 0h1m5 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h3m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h3m2 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h3m3 0h4m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m1 0h1m1 0h1m2 0h1m1 0h3m-20 1h1m1 0h2m1 0h3m1 0h1m1 0h2m3 0h3m3 0h1m2 0h1m1 0h2m-28 1h2m4 0h1m2 0h2m1 0h2m1 0h9m3 0h1m-28 1h1m4 0h5m3 0h1m2 0h2m2 0h3m2 0h2m-28 1h5m7 0h5m1 0h1m1 0h1m3 0h1m3 0h1m-29 1h2m4 0h1m1 0h2m1 0h1m3 0h5m5 0h2m-25 1h1m1 0h1m2 0h6m1 0h2m3 0h1m2 0h1m3 0h3m-27 1h1m2 0h2m1 0h4m1 0h1m2 0h4m1 0h4m1 0h3m-29 1h1m1 0h1m4 0h1m1 0h4m2 0h1m4 0h1m3 0h1m2 0h1m-28 1h2m1 0h2m1 0h4m2 0h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m-27 1h5m3 0h2m1 0h1m2 0h2m3 0h2m1 0h1m1 0h3m-28 1h1m1 0h2m2 0h4m1 0h1m1 0h6m1 0h5m1 0h1m-24 1h3m2 0h2m1 0h5m1 0h1m1 0h1m6 0h1m-26 1h2m2 0h2m2 0h1m1 0h4m1 0h3m1 0h7m-19 1h2m2 0h1m3 0h3m1 0h1m3 0h5m-29 1h7m1 0h3m3 0h1m1 0h1m1 0h3m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m1 0h5m2 0h1m1 0h1m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h3m5 0h1m2 0h5m1 0h1m-27 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h1m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h6m3 0h2m1 0h2m1 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m3 0h2m1 0h1m6 0h1m3 0h2m1 0h1m-28 1h7m1 0h1m2 0h1m3 0h1m2 0h1m1 0h1m4 0h1m1 0h1"/></svg></div>
+      <b>Run tours or incentive trips?</b>
+      <small>30-minute discovery call · online</small>
+      <a href="https://wa.me/6588396998" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>+65 8839 6998</a>
+      <a href="mailto:sales@technext.asia"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>sales@technext.asia</a>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · no client figures</p>
+  <aside class="notes"><p>The order matters. Money first: currencies, rates, banks and the exchange accounts, because every other app posts into them. Then departures: a project template per tour product, so each new departure gets its analytic account, and supplier bookings as purchase orders in the supplier’s currency. Then the front of the business: CRM, quotation templates, online confirmation and down-payment invoices. Last, the dashboards (margin by departure, the cash gap by month) and Documents for passport and visa copies, in restricted folders. Click each stop. We don’t put weeks on this: it depends on how many tour products and suppliers there are, which we see in the discovery call. Air tickets keep coming from the GDS or consolidator. Close on the QR: a 30-minute discovery call.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v=36"></script>
+<script src="assets/case-study-travel.js?v=36"></script>
+</body>
+</html>

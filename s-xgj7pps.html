@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E4691">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=36">
+<link rel="stylesheet" href="assets/deck.css?v=36">
+<title>Case study · Medical: one recalled lot, six clinics, one Odoo · TechNext</title>
+<meta name="description" content="An industry case study for clinics and healthcare groups: a composite Singapore group of six GP and aesthetic clinics with a central store, the knot (a recalled vaccine lot nobody can trace, expired stock written off, panel claims unbilled for months), and how Odoo 20 joins stock, sales and billing: lot traceability in one report, panel claims invoiced every Friday, and a phased rollout.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechNext">
+<meta property="og:title" content="Case study · Medical: one recalled lot, six clinics, one Odoo · TechNext">
+<meta property="og:description" content="An industry case study for clinics and healthcare groups: a composite Singapore group of six GP and aesthetic clinics with a central store, the knot (a recalled vaccine lot nobody can trace, expired stock written off, panel claims unbilled for months), and how Odoo 20 joins stock, sales and billing: lot traceability in one report, panel claims invoiced every Friday, and a phased rollout.">
+<meta property="og:url" content="https://technextsg.github.io/technext-presentations/s-xgj7pps.html">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/case-study-medical-og.jpg?v=36">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/case-study.css?v=36">
+<link rel="stylesheet" href="assets/case-study-medical.css?v=36">
+</head>
+<body data-label="Case study · Medical" data-shared>
+<main class="deck" aria-label="Case study, medical clinics: one recalled lot, six clinics, one Odoo">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="Recall at 9:00, traced by 9:05">
+  <div class="cv-copy mdc-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">case study · medical</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Recall at 9:00, <span class="hl">traced by 9:05.</span></h1>
+    <p class="lead" data-in style="--d:320ms">A Singapore group of six GP and aesthetic clinics that could not say where one recalled vaccine lot had gone. The knot, and how Odoo 20 untied it.</p>
+    <nav class="fb-agenda" data-in style="--d:420ms" aria-label="Parts of this case study">
+      <button type="button" data-go="client"><i>01</i>The problem</button>
+      <button type="button" data-go="apps"><i>02</i>The Odoo answer</button>
+      <button type="button" data-go="rollout"><i>03</i>Rollout</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/><path d="M8 12h2l1.5-2.5 1.5 4 1-1.5H16"/></svg>Industry case study · Medical</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="mdc-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <svg class="mdc-svg" viewBox="0 0 640 700" width="640" height="700">
+      <path class="mdc-ln" d="M320,112 L320,190"></path>
+      <path class="mdc-ln mdc-ln--x" d="M245,212 L135,212"></path>
+      <path class="mdc-ln mdc-ln--x" d="M395,212 L505,212"></path>
+      <path class="mdc-ln flow" d="M320,232 C320,300 80,290 80,350"></path>
+      <path class="mdc-ln flow" d="M320,232 C320,300 240,290 240,350"></path>
+      <path class="mdc-ln flow" d="M320,232 C320,300 400,290 400,350"></path>
+      <path class="mdc-ln flow" d="M320,232 C320,300 560,290 560,350"></path>
+      <path class="mdc-ln mdc-ln--d" d="M80,392 L80,436"></path>
+      <path class="mdc-ln mdc-ln--d" d="M240,392 L240,436"></path>
+      <path class="mdc-ln mdc-ln--d" d="M400,392 L400,436"></path>
+      <path class="mdc-ln mdc-ln--d" d="M560,392 L560,436"></path>
+    </svg>
+    <div class="mdc-lot"><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><span><b>Lot IV-2417B</b><small>Influenza vaccine (sample) · 400 doses</small></span><em>Recalled</em></div>
+    <span class="mdc-node mdc-node--cs" style="left:320px;top:212px"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12v10l7-4a2 2 0 0 0 2-1.73V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg><b>Central store</b></span>
+    <span class="mdc-node mdc-node--off" style="left:70px;top:212px">Orchard<small>aesthetic · no stock</small></span>
+    <span class="mdc-node mdc-node--off" style="left:570px;top:212px">Holland V<small>aesthetic · no stock</small></span>
+    <span class="mdc-node mdc-cl" style="left:80px;top:370px;--k:0">Tampines<small>120 in</small></span>
+    <span class="mdc-node mdc-cl" style="left:240px;top:370px;--k:1">Jurong East<small>100 in</small></span>
+    <span class="mdc-node mdc-cl" style="left:400px;top:370px;--k:2">Woodlands<small>80 in</small></span>
+    <span class="mdc-node mdc-cl" style="left:560px;top:370px;--k:3">Toa Payoh<small>100 in</small></span>
+    <div class="mdc-pts" style="left:80px;--k:0" data-n="68"></div>
+    <div class="mdc-pts" style="left:240px;--k:1" data-n="59"></div>
+    <div class="mdc-pts" style="left:400px;--k:2" data-n="33"></div>
+    <div class="mdc-pts" style="left:560px;--k:3" data-n="52"></div>
+    <p class="mdc-art-cap"><b>212</b> sales of this lot, found in one traceability report</p>
+  </div>
+  <p class="illus fb-comp"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · sample company and figures</p>
+  <aside class="notes"><p>This is an industry case study, not one named client. It is a composite of what Singapore clinic groups tell us, built on a sample company we call Kinsail Medical. Every figure is sample data. The picture on the right is the whole story: one vaccine lot comes into the central store, goes out to four clinics, and is given to 212 people. Odoo can draw that tree in one report. Spreadsheets cannot. Three parts: the problem, the Odoo answer, the rollout.</p><p>Say early, because a clinic owner will ask: Odoo is not a clinic management system or an EMR. Medical records stay in the clinic’s own system. Odoo runs the stock, the dispensary sales, the billing and the books.</p></aside>
+</section>
+
+<!-- 2 · the client -->
+<section class="slide" id="client" data-title="Six clinics, one store, no shared record">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>meet the client</span>
+      <h2 class="h-m" data-in style="--d:80ms">Six clinics, one store, <span class="hl">no shared record.</span></h2>
+    </div>
+    <p class="fb-who" data-in style="--d:160ms"><b>Kinsail Medical</b> <span>sample company · Singapore</span></p>
+  </div>
+  <ul class="mdc-strip" data-in style="--d:200ms">
+    <li><b>4</b>GP clinics</li>
+    <li><b>2</b>aesthetic clinics</li>
+    <li><b>1</b>central store</li>
+    <li><b>1,450</b>medicines and consumables</li>
+    <li><b>38</b>corporate and TPA panels</li>
+    <li class="is-red"><b>0</b>lot numbers in the stock sheets</li>
+  </ul>
+  <div class="mdc-cl-grid">
+    <div class="mdc-map" data-in style="--d:260ms" data-i>
+      <svg viewBox="0 0 820 470" width="820" height="470" aria-hidden="true">
+        <path class="mdc-isl" d="M70,250 C60,170 150,120 250,118 C320,70 420,62 500,96 C590,92 700,120 752,180 C790,230 770,300 700,330 C620,372 520,360 450,392 C360,420 250,404 180,370 C110,350 76,310 70,250 Z"></path>
+        <g class="mdc-routes">
+          <path d="M540,240 C480,200 420,150 380,120"></path>
+          <path d="M540,240 C430,250 300,260 200,252"></path>
+          <path d="M540,240 C500,240 470,226 420,212"></path>
+          <path d="M540,240 C580,220 620,196 670,180"></path>
+          <path d="M540,240 C500,290 470,325 430,340"></path>
+          <path d="M540,240 C460,300 340,320 270,320"></path>
+        </g>
+      </svg>
+      <button type="button" class="mdc-pin mdc-pin--cs" data-k="cs" style="left:540px;top:240px"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12v10l7-4a2 2 0 0 0 2-1.73V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg><b>Central store</b></button>
+      <button type="button" class="mdc-pin" data-k="wdl" style="left:380px;top:120px"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/><path d="M8 12h2l1.5-2.5 1.5 4 1-1.5H16"/></svg><b>Woodlands</b></button>
+      <button type="button" class="mdc-pin" data-k="jur" style="left:200px;top:252px"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/><path d="M8 12h2l1.5-2.5 1.5 4 1-1.5H16"/></svg><b>Jurong East</b></button>
+      <button type="button" class="mdc-pin" data-k="tpy" style="left:420px;top:200px"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/><path d="M8 12h2l1.5-2.5 1.5 4 1-1.5H16"/></svg><b>Toa Payoh</b></button>
+      <button type="button" class="mdc-pin" data-k="tmp" style="left:670px;top:180px"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/><path d="M8 12h2l1.5-2.5 1.5 4 1-1.5H16"/></svg><b>Tampines</b></button>
+      <button type="button" class="mdc-pin mdc-pin--ae" data-k="orc" style="left:440px;top:340px"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6l1.8 4.2L18 12l-4.2 1.8L12 18l-1.8-4.2L6 12l4.2-1.8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg><b>Orchard</b></button>
+      <button type="button" class="mdc-pin mdc-pin--ae" data-k="hlv" style="left:250px;top:320px"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6l1.8 4.2L18 12l-4.2 1.8L12 18l-1.8-4.2L6 12l4.2-1.8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg><b>Holland V</b></button>
+      <p class="mdc-map-key"><span><i class="k-gp"></i>GP clinic</span><span><i class="k-ae"></i>Aesthetic clinic</span><span><i class="k-rt"></i>Weekly restock, ordered on WhatsApp</span></p>
+    </div>
+    <div class="mdc-cd" data-in data-fx="right" style="--d:320ms" aria-live="polite">
+      <span class="mdc-cd-h">Click a clinic</span>
+      <h3 class="h-s mdc-cd-t">Seven places, seven stock sheets.</h3>
+      <dl class="mdc-cd-g">
+        <div><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>Stock lives in</dt><dd class="mdc-cd-s">An Excel file per clinic</dd></div>
+        <div><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Expiry checked</dt><dd class="mdc-cd-e">When someone remembers</dd></div>
+        <div class="is-red"><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>Lot numbers</dt><dd class="mdc-cd-l">Not recorded</dd></div>
+        <div class="is-amber"><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Panel billing</dt><dd class="mdc-cd-p">Keyed into portals at month-end</dd></div>
+      </dl>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · sample data</p>
+  <aside class="notes"><p>Kinsail is a sample, but this shape is common: four GP clinics, two aesthetic clinics, and a central store that restocks them every week from WhatsApp lists. Click round the map. Every clinic keeps stock its own way, in Excel, a shared sheet or a paper card, and none of them records the lot number. Most GP visits are panel visits, billed to a company or a third-party administrator, and those claims are keyed in at month-end when someone has time.</p><p>The clinic system, the EMR, is fine. It holds the consultation. It just doesn’t hold the stock, and the stock sheets don’t hold the visit.</p></aside>
+</section>
+
+<!-- 3 · the recall -->
+<section class="slide" id="recall" data-steps="5" data-title="One recalled lot, four days to answer">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the complicated part</span>
+      <h2 class="h-m" data-in style="--d:80ms">One recalled lot, <span class="hl">four days to answer.</span></h2>
+    </div>
+    <p class="mdc-clock" data-in style="--d:160ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Searching for</span><b class="mdc-clock-n">0 h</b><kbd>→</kbd></p>
+  </div>
+  <div class="mdc-notice" data-in style="--d:200ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><p><b>Supplier notice · Mon 09:10</b>Influenza vaccine (sample) <em>lot IV-2417B</em>: stop use, quarantine stock on hand, report doses on hand and given.</p><span class="mdc-notice-q">Where is it, and who got it?</span></div>
+  <div class="mdc-rc">
+    <div class="mdc-fr" data-in style="--d:260ms">
+      <div class="mdc-ft mdc-ft--cs" data-s="1"><b>Central store</b><span class="mdc-ft-a" data-t="0:Waiting|1:400 received 2 Sep. Lot? The receipt sheet has no lot column.">Waiting</span></div>
+      <div class="mdc-ft" data-s="2"><b>Tampines</b><span class="mdc-ft-a" data-t="0:Phone call…|2:52 doses in the fridge, read off each box · Mon 14:30">Phone call…</span></div>
+      <div class="mdc-ft" data-s="2"><b>Toa Payoh</b><span class="mdc-ft-a" data-t="0:Phone call…|2:48 doses on hand · Mon 15:10">Phone call…</span></div>
+      <div class="mdc-ft" data-s="3"><b>Jurong East</b><span class="mdc-ft-a" data-t="0:Phone call…|3:41 doses · counted after clinic hours, Mon 21:40">Phone call…</span></div>
+      <div class="mdc-ft" data-s="3"><b>Woodlands</b><span class="mdc-ft-a" data-t="0:Phone call…|3:47 doses · locum on duty, counted Tue 11:00">Phone call…</span></div>
+      <div class="mdc-ft mdc-ft--ae" data-s="3"><b>Orchard + Holland V</b><span class="mdc-ft-a" data-t="0:Phone call…|3:No flu vaccine, but the sheets couldn’t say: checked by hand">Phone call…</span></div>
+    </div>
+    <div class="mdc-pp" data-in data-fx="right" style="--d:320ms">
+      <div class="mdc-pp-h">
+        <p><span>Who was given it?</span><b class="mdc-pp-n">?</b><small class="mdc-pp-s">Dispensing records say “flu vaccine”, never the lot</small></p>
+        <div class="seg mdc-pp-seg" role="group" aria-label="What the records can say">
+          <button type="button" data-v="sheet" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>What the records say</button>
+          <button type="button" data-v="truth" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>What happened</button>
+        </div>
+      </div>
+      <div class="mdc-dots" aria-hidden="true"></div>
+      <p class="mdc-pp-k"><span><i class="d-all"></i>given a flu vaccine since 2 Sep</span><span><i class="d-hit"></i>given lot IV-2417B</span><span class="mdc-pp-u">1 dot = 5 patients</span></p>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sample recall · sample figures</p>
+  <aside class="notes"><p>Walk this with the arrow key and watch the clock. Monday, 9:10, a supplier recalls one vaccine lot. The central store knows it received 400 doses, but its receipt sheet has no lot column. So the clinics are phoned, and nurses read lot numbers off boxes in the fridge, between patients. Woodlands has a locum on Monday, so the answer comes Tuesday. The aesthetic clinics don’t carry flu vaccine, but nobody can prove that from the sheets, so they check too.</p><p>Then the hard question: who was given it? The clinic system records “influenza vaccine” on the visit, not the lot. So all 1,140 people vaccinated since the delivery have to be contacted. Press “What happened”: only 212 actually received this lot. That gap, 1,140 letters instead of 212, is the cost of a missing column. This is a sample scenario; recall steps follow the supplier’s and the authority’s instructions.</p></aside>
+</section>
+
+<!-- 4 · why it is hard -->
+<section class="slide" id="gap" data-title="Four missing columns, three bills to pay">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>why it is hard</span>
+      <h2 class="h-m" data-in style="--d:80ms">Four missing columns, <span class="hl">three bills to pay.</span></h2>
+    </div>
+    <p class="hint" data-in style="--d:160ms">Click a problem to see its columns</p>
+  </div>
+  <div class="mdc-sh" data-in style="--d:200ms">
+    <p class="mdc-sh-f"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg><b>TMP_stock_v7.xlsx</b><span>Tampines · sheet “Sep”</span></p>
+    <table class="mdc-xl">
+      <thead><tr><th>Date</th><th>Item</th><th>In</th><th>Out</th><th>Balance</th><th class="mdc-gh" data-c="lot">Lot</th><th class="mdc-gh" data-c="exp">Expiry</th><th class="mdc-gh" data-c="visit">Visit</th><th class="mdc-gh" data-c="bill">Billed to</th></tr></thead>
+      <tbody>
+        <tr><td>03/09</td><td>Influenza vaccine</td><td>120</td><td></td><td>132</td><td class="mdc-gh" data-c="lot"></td><td class="mdc-gh" data-c="exp"></td><td class="mdc-gh" data-c="visit"></td><td class="mdc-gh" data-c="bill"></td></tr>
+        <tr><td>04/09</td><td>Influenza vaccine</td><td></td><td>9</td><td>123</td><td class="mdc-gh" data-c="lot"></td><td class="mdc-gh" data-c="exp"></td><td class="mdc-gh" data-c="visit"></td><td class="mdc-gh" data-c="bill"></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mdc-bills" data-i>
+    <button type="button" class="mdc-bill" data-k="0" data-in style="--d:260ms">
+      <span class="mdc-bill-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>Recalls answered blind<i>Lot + Visit</i></span>
+      <span class="mdc-vs"><span><b>1,140</b><small>people contacted</small></span><em>vs</em><span><b class="is-ok">212</b><small>who got the lot</small></span></span>
+      <span class="mdc-bill-f">Without the lot on the sale, every patient of the window is a suspect.</span>
+    </button>
+    <button type="button" class="mdc-bill" data-k="1" data-in style="--d:320ms">
+      <span class="mdc-bill-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Stock that expires unseen<i>Lot + Expiry</i></span>
+      <span class="mdc-hm" aria-hidden="true"></span>
+      <span class="mdc-bill-f"><b>S$19,340</b> written off in six months, found at the quarterly check.</span>
+    </button>
+    <button type="button" class="mdc-bill" data-k="2" data-in style="--d:380ms">
+      <span class="mdc-bill-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Claims that sit unbilled<i>Visit + Billed to</i></span>
+      <span class="mdc-age" aria-hidden="true">
+        <span style="--h:100%"><b>92.3k</b><i>0–30 d</i></span>
+        <span style="--h:78%"><b>71.8k</b><i>31–60 d</i></span>
+        <span style="--h:70%"><b>64.2k</b><i>61–90 d</i></span>
+        <span style="--h:54%"><b>50.1k</b><i>90+ d</i></span>
+      </span>
+      <span class="mdc-bill-f"><b>S$186,100</b> of panel visits older than 30 days, not yet billed.</span>
+    </button>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample figures</p>
+  <aside class="notes"><p>This is why it is hard, and why a better spreadsheet doesn’t fix it. The stock sheet holds a date, an item and a quantity. Four columns are missing: the lot, the expiry, the visit it went to, and who pays for that visit. Those facts exist, but in three different places: the box, the clinic system and the panel portals.</p><p>Each missing pair is a bill. Lot and visit: recalls answered blind. Lot and expiry: stock found expired at the quarterly check and written off; the heat map is six clinics by six months. Visit and billed-to: panel visits wait for someone to key them in, so S$186,100 is more than 30 days old and not even invoiced yet. All sample figures. One root cause, three costs.</p></aside>
+</section>
+
+<!-- 5 · the Odoo answer: apps around the lot -->
+<section class="slide" id="apps" data-title="One lot record, eight apps around it">
+  <div class="sec-head">
+    <span class="kicker" data-in>the odoo answer</span>
+    <h2 class="h-m" data-in style="--d:80ms">One lot record, <span class="hl">eight apps around it.</span></h2>
+  </div>
+  <div class="mdc-ap">
+    <div class="mdc-lf win" data-in style="--d:180ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Inventory · Lots/Serial Numbers · IV-2417B</span></div>
+      <div class="mdc-lf-b">
+        <div class="mdc-lf-sb"><span data-f="loc"><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="20" height="20" style="width:20px;height:20px" loading="lazy" decoding="async"><b>188</b>Locations</span><span data-f="trace"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><b>Traceability</b></span><span data-f="docs"><img class="oi" src="assets/img/odoo/documents.svg" alt="" width="20" height="20" style="width:20px;height:20px" loading="lazy" decoding="async"><b>2</b>Documents</span></div>
+        <p class="mdc-lf-t" data-f="lot"><small>Lot/Serial Number</small><b>IV-2417B</b></p>
+        <div class="mdc-lf-g">
+          <p data-f="lot" class="is-wide"><span>Product</span><b>Influenza vaccine 0.5 ml (sample)</b></p>
+          <p data-f="pur"><span>Vendor receipt</span><b>CS/IN/00231 · 02/09/2026</b></p>
+          <p data-f="loc"><span>On hand</span><b>188 Units · 4 clinics</b></p>
+          <p data-f="exp"><span>Expiration Date</span><b>31/03/2027</b></p>
+          <p data-f="exp"><span>Best before Date</span><b>15/03/2027</b></p>
+          <p data-f="exp"><span>Removal Date</span><b>28/02/2027</b></p>
+          <p data-f="exp"><span>Alert Date</span><b>31/01/2027</b></p>
+        </div>
+        <ul class="mdc-lf-mv">
+          <li data-f="loc"><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="20" height="20" style="width:20px;height:20px" loading="lazy" decoding="async"><b>CS/INT/00512</b><span>Central store → TMP/Stock</span><em>120</em></li>
+          <li data-f="pos"><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="20" height="20" style="width:20px;height:20px" loading="lazy" decoding="async"><b>TMP/POS/00417</b><span>Self-pay sale · customer on order</span><em>1</em></li>
+          <li data-f="sale"><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="20" height="20" style="width:20px;height:20px" loading="lazy" decoding="async"><b>S04417</b><span>Panel visit · ref V-24817</span><em>1</em></li>
+          <li data-f="acc"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="20" height="20" style="width:20px;height:20px" loading="lazy" decoding="async"><b>INV/2026/01842</b><span>TPA A · lot printed on the invoice</span><em>1</em></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mdc-al" data-in data-fx="right" style="--d:240ms" data-i>
+      <div class="mdc-al-l">
+        <button type="button" data-k="stock"><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="32" height="32" style="width:32px;height:32px" loading="lazy" decoding="async"><b>Inventory</b></button>
+        <button type="button" data-k="purchase"><img class="oi" src="assets/img/odoo/purchase.svg" alt="" width="32" height="32" style="width:32px;height:32px" loading="lazy" decoding="async"><b>Purchase</b></button>
+        <button type="button" data-k="pos"><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="32" height="32" style="width:32px;height:32px" loading="lazy" decoding="async"><b>Point of Sale</b></button>
+        <button type="button" data-k="sale"><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="32" height="32" style="width:32px;height:32px" loading="lazy" decoding="async"><b>Sales</b></button>
+        <button type="button" data-k="account"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="32" height="32" style="width:32px;height:32px" loading="lazy" decoding="async"><b>Accounting</b></button>
+        <button type="button" data-k="appointment"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="32" height="32" style="width:32px;height:32px" loading="lazy" decoding="async"><b>Appointments</b></button>
+        <button type="button" data-k="sign"><img class="oi" src="assets/img/odoo/sign.svg" alt="" width="32" height="32" style="width:32px;height:32px" loading="lazy" decoding="async"><b>Sign</b></button>
+        <button type="button" data-k="documents"><img class="oi" src="assets/img/odoo/documents.svg" alt="" width="32" height="32" style="width:32px;height:32px" loading="lazy" decoding="async"><b>Documents</b></button>
+      </div>
+      <div class="mdc-al-d" aria-live="polite">
+        <span class="mdc-al-h">Click an app</span>
+        <p class="mdc-al-t">Eight standard apps, one database.</p>
+        <p class="mdc-al-x">Each app fills one of the missing columns. The highlights on the lot show which.</p>
+      </div>
+      <p class="mdc-lim"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Medical records stay in the clinic system (EMR). Odoo holds stock, sales, billing and the books.</span></p>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Simplified Odoo screen · sample data</p>
+  <aside class="notes"><p>The answer starts from one record: the lot. In Odoo 20, with lots and expiration dates switched on, every vaccine and medicine lot has an expiration date, a removal date and an alert date, knows where its stock is, and has a Traceability report. Click each app and watch which part of the lot record it fills. Purchase writes the receipt, Inventory moves it to the clinics, Point of Sale and Sales record who it went to, Accounting prints the lot on the invoice and chases the panel.</p><p>Honest limits. Odoo is not an EMR or a clinic management system: consultations, diagnoses and prescriptions stay in the clinic’s system, and we integrate where it helps. Patient contact details in Odoo are personal data under the PDPA, so we keep only what billing and recalls need, with access rights per role. Sign and Documents are for consent forms and supplier paperwork, not clinical notes.</p></aside>
+</section>
+
+<!-- 6 · workflow 1: lot trace -->
+<section class="slide" id="trace" data-steps="5" data-title="Pick the lot, see every move">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 1 · the recall</span>
+      <h2 class="h-m" data-in style="--d:80ms">Pick the lot, <span class="hl">see every move.</span></h2>
+    </div>
+    <div class="seg mdc-lots" data-in style="--d:160ms" role="group" aria-label="Lot">
+      <button type="button" data-v="IV-2417B" aria-pressed="true">IV-2417B</button>
+      <button type="button" data-v="IV-2420A" aria-pressed="false">IV-2420A</button>
+      <button type="button" data-v="AMX-5512" aria-pressed="false">AMX-5512</button>
+    </div>
+  </div>
+  <div class="mdc-tr">
+    <ol class="mdc-ts" data-in style="--d:200ms">
+      <li><button type="button" data-n="1"><i>1</i><span><b>Search the lot</b><small>Inventory · Lots/Serial Numbers</small></span></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span><b>Where it came from</b><small>Traceability · vendor receipt</small></span></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span><b>Which clinics got it</b><small>Traceability · internal transfers</small></span></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span><b>Who it was sold to</b><small>POS orders · panel invoices</small></span></button></li>
+      <li><button type="button" data-n="5"><i>5</i><span><b>Block what is left</b><small>Move to Quarantine · contact list</small></span></button></li>
+    </ol>
+    <div class="mdc-tw win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Inventory · Traceability Report · <b class="mdc-tw-lot">IV-2417B</b></span></div>
+      <div class="mdc-tw-b">
+        <p class="mdc-tw-p"><span class="mdc-tw-prod">Influenza vaccine 0.5 ml (sample)</span><span class="mdc-tw-exp">Expiration Date 31/03/2027</span></p>
+        <table class="mdc-tt">
+          <thead><tr><th>Reference</th><th>Date</th><th>From → To</th><th>Quantity</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="mdc-tsum"></div>
+      </div>
+    </div>
+  </div>
+  <p class="fb-wf-n mdc-wf-n">Step <b class="mdc-cnt">0</b> of 5 · <span>one report, not 30 phone calls</span></p>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Simplified Odoo screen · sample data</p>
+  <aside class="notes"><p>Same recall, with Odoo. Step through it, or pick another lot at the top to show it isn’t staged. Search the lot. The Traceability report shows where it came from: the vendor receipt at the central store, with the lot and expiry entered once. Then the four internal transfers to the clinics. Then every sale: self-pay sales at the Point of Sale with the customer on the order, and panel visits as sales orders whose invoice prints the lot. Step five: what is left moves to a Quarantine location so FEFO can never pick it, and the customers on those sales are the contact list: 212, not 1,140.</p><p>Honest limits: patient-level tracing works through the sales of the lot, so it depends on the lot and the customer or visit reference being on every sale. Odoo does not read the clinic’s medical record. For panel visits, the patient is identified by the visit reference that links back to the clinic system.</p></aside>
+</section>
+
+<!-- 7 · workflow 2: panel claims -->
+<section class="slide" id="claims" data-steps="3" data-title="Panel claims, billed every Friday">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 2 · the money</span>
+      <h2 class="h-m" data-in style="--d:80ms">Panel claims, <span class="hl">billed every Friday.</span></h2>
+    </div>
+    <p class="mdc-open" data-in style="--d:160ms"><span>Open panel balance</span><b class="mdc-open-n">S$278,400</b><small class="mdc-open-s">not yet invoiced</small></p>
+  </div>
+  <div class="mdc-cb">
+    <div class="mdc-acts" data-in style="--d:200ms">
+      <button type="button" data-n="1"><i>1</i><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Create Invoices</b><small>Sales · Orders to Invoice · Consolidated Billing</small></span></button>
+      <button type="button" data-n="2"><i>2</i><img class="oi" src="assets/img/odoo/account.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Send follow-ups</b><small>Accounting · Follow-up Reports by level</small></span></button>
+      <button type="button" data-n="3"><i>3</i><img class="oi" src="assets/img/odoo/account.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Match payments</b><small>Accounting · Bank Matching</small></span></button>
+      <p class="mdc-acts-n" aria-live="polite">Before: every card is a panel visit nobody has invoiced yet.</p>
+    </div>
+    <div class="mdc-board" data-in data-fx="right" style="--d:260ms" role="img" aria-label="Panel balance by days since visit"></div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample panels and amounts</p>
+  <aside class="notes"><p>The second knot is money. Before, panel visits wait for someone to key them into each panel’s portal at month-end, so S$278,400 sits unbilled, more than half of it older than 30 days. Columns are days since the visit. Step through. One: every Friday, accounts open Sales, Orders to Invoice, select the panel orders and Create Invoices with Consolidated Billing: one invoice per panel, each line with its visit reference. Two: Follow-up Reports send reminders by level, so the oldest are chased first. Three: payments come in and Bank Matching reconciles them, and the board drains. What is left in 90+ is in dispute, and now you know exactly which visits.</p><p>Honest limits: some TPAs require their own portal or file format. Odoo produces the invoice and the statement; the portal upload is by export or a connector we confirm per TPA. Panel prices and co-payments come from each panel contract, set up as pricelists. All panels and amounts are samples.</p></aside>
+</section>
+
+<!-- 8 · rollout, what changes, next step -->
+<section class="slide" id="rollout" data-title="Four phases, one pilot clinic first">
+  <div class="sec-head">
+    <span class="kicker" data-in>how we rolled it out</span>
+    <h2 class="h-m" data-in style="--d:80ms">Four phases, <span class="hl">one pilot clinic first.</span></h2>
+  </div>
+  <div class="fb-ro mdc-ro">
+    <ol class="fb-ph" data-in style="--d:180ms" data-i>
+      <li><button type="button" data-k="0" class="is-on"><i>1</i><span><b>Foundation</b><small>Inventory · Purchase · Accounting</small></span></button></li>
+      <li><button type="button" data-k="1"><i>2</i><span><b>Pilot clinic dispensary</b><small>Point of Sale · Inventory</small></span></button></li>
+      <li><button type="button" data-k="2"><i>3</i><span><b>Panel billing</b><small>Sales · Accounting</small></span></button></li>
+      <li><button type="button" data-k="3"><i>4</i><span><b>Five more clinics, front desk</b><small>Appointments · Sign · Documents</small></span></button></li>
+    </ol>
+    <div class="fb-pd" data-in data-fx="right" style="--d:240ms" aria-live="polite">
+      <p class="fb-pd-w"><span>We do</span><b class="fb-pd-do">Clean the 1,450-item list, switch on lots and expiration dates for medicines and vaccines, set up the central store and six clinic warehouses, and an analytic account per clinic.</b></p>
+      <ul class="fb-ba">
+        <li><span class="fb-b">Stock in seven spreadsheets</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><b class="fb-a">One stock, seven warehouses</b></li>
+        <li><span class="fb-b">Lot written down if remembered</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><b class="fb-a">Lot and expiry at every receipt</b></li>
+      </ul>
+    </div>
+    <div class="fb-cta" data-in data-fx="scale" style="--d:320ms">
+      <div class="fb-qr"><svg aria-hidden="true" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" class="qr"><path class="qr-p" stroke="#1f1f3d" d="M0 0.5h7m1 0h1m1 0h2m1 0h2m3 0h3m1 0h7m-29 1h1m5 0h1m1 0h3m3 0h1m5 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h3m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h3m2 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h3m3 0h4m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m1 0h1m1 0h1m2 0h1m1 0h3m-20 1h1m1 0h2m1 0h3m1 0h1m1 0h2m3 0h3m3 0h1m2 0h1m1 0h2m-28 1h2m4 0h1m2 0h2m1 0h2m1 0h9m3 0h1m-28 1h1m4 0h5m3 0h1m2 0h2m2 0h3m2 0h2m-28 1h5m7 0h5m1 0h1m1 0h1m3 0h1m3 0h1m-29 1h2m4 0h1m1 0h2m1 0h1m3 0h5m5 0h2m-25 1h1m1 0h1m2 0h6m1 0h2m3 0h1m2 0h1m3 0h3m-27 1h1m2 0h2m1 0h4m1 0h1m2 0h4m1 0h4m1 0h3m-29 1h1m1 0h1m4 0h1m1 0h4m2 0h1m4 0h1m3 0h1m2 0h1m-28 1h2m1 0h2m1 0h4m2 0h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m-27 1h5m3 0h2m1 0h1m2 0h2m3 0h2m1 0h1m1 0h3m-28 1h1m1 0h2m2 0h4m1 0h1m1 0h6m1 0h5m1 0h1m-24 1h3m2 0h2m1 0h5m1 0h1m1 0h1m6 0h1m-26 1h2m2 0h2m2 0h1m1 0h4m1 0h3m1 0h7m-19 1h2m2 0h1m3 0h3m1 0h1m3 0h5m-29 1h7m1 0h3m3 0h1m1 0h1m1 0h3m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m1 0h5m2 0h1m1 0h1m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h3m5 0h1m2 0h5m1 0h1m-27 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h1m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h6m3 0h2m1 0h2m1 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m3 0h2m1 0h1m6 0h1m3 0h2m1 0h1m-28 1h7m1 0h1m2 0h1m3 0h1m2 0h1m1 0h1m4 0h1m1 0h1"/></svg></div>
+      <b>Run a group of clinics?</b>
+      <small>30-minute discovery call · online</small>
+      <a href="https://wa.me/6588396998" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>+65 8839 6998</a>
+      <a href="mailto:sales@technext.asia"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>sales@technext.asia</a>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · no client figures</p>
+  <aside class="notes"><p>The order matters. Foundation first: a clean product list with lots and expiry switched on, the warehouses, and an analytic account per clinic, because everything else reads them. Then one pilot clinic dispenses through Point of Sale with lots and FEFO, after a full count by barcode. Then panel billing, once the visits arrive with their references. Then the other five clinics one at a time, with online booking, signed consent forms and supplier documents. Click each phase to see what changes.</p><p>No weeks on this slide: the length depends on how clean the product list is and how the clinic system can hand over visits, which we see in the discovery call. Integration with the clinic’s EMR is scoped per system. Close on the QR: a 30-minute discovery call.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v=36"></script>
+<script src="assets/case-study-medical.js?v=36"></script>
+</body>
+</html>

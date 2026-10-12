@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E4691">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=36">
+<link rel="stylesheet" href="assets/deck.css?v=36">
+<title>Case study · Health &amp; Wellness: paid today, earned later · TechNext</title>
+<meta name="description" content="An industry case study for health and wellness: a composite Singapore group with four pilates and yoga studios and a day spa, the tangled problem (money collected up front for packs and memberships but earned class by class, with credit owed to members on no report), and how Odoo 20 puts every credit on the books: packs as eWallet balances, check-in redemptions, rooms that can't be sold twice, and a phased rollout.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechNext">
+<meta property="og:title" content="Case study · Health &amp; Wellness: paid today, earned later · TechNext">
+<meta property="og:description" content="An industry case study for health and wellness: a composite Singapore group with four pilates and yoga studios and a day spa, the tangled problem (money collected up front for packs and memberships but earned class by class, with credit owed to members on no report), and how Odoo 20 puts every credit on the books: packs as eWallet balances, check-in redemptions, rooms that can't be sold twice, and a phased rollout.">
+<meta property="og:url" content="https://technextsg.github.io/technext-presentations/s-q2wcuku.html">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/case-study-wellness-og.jpg?v=36">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/case-study.css?v=36">
+<link rel="stylesheet" href="assets/case-study-wellness.css?v=36">
+</head>
+<body data-label="Case study · Health &amp; Wellness" data-shared>
+<main class="deck" aria-label="Case study, health and wellness: paid today, earned later">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="Paid today, earned later">
+  <div class="cv-copy fb-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">case study · health &amp; wellness</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Paid today, <span class="hl">earned later.</span></h1>
+    <p class="lead" data-in style="--d:320ms">Four studios and a day spa sell packs and memberships up front, then deliver them class by class. What they still owed members was on no report. The knot, and how Odoo 20 untied it.</p>
+    <nav class="fb-agenda" data-in style="--d:420ms" aria-label="Parts of this case study">
+      <button type="button" data-go="client"><i>01</i>The problem</button>
+      <button type="button" data-go="apps"><i>02</i>The Odoo answer</button>
+      <button type="button" data-go="rollout"><i>03</i>Rollout</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/><path d="M8 12h2l1.5-2.5 1.5 4 1-1.5H16"/></svg>Industry case study · Wellness</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="hw-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <svg class="hw-dial" viewBox="0 0 640 640" width="640" height="640">
+      <circle class="hw-dial-t" cx="320" cy="320" r="270"></circle>
+      <circle class="hw-seg" cx="320" cy="320" r="236" style="--c:#6FA0F5;--r:-90deg;--k:0"></circle>
+      <circle class="hw-seg" cx="320" cy="320" r="236" style="--c:#7FD6A8;--r:-18deg;--k:1"></circle>
+      <circle class="hw-seg" cx="320" cy="320" r="236" style="--c:#A9C8FF;--r:54deg;--k:2"></circle>
+      <circle class="hw-seg" cx="320" cy="320" r="236" style="--c:#FFC9AE;--r:126deg;--k:3"></circle>
+      <circle class="hw-seg" cx="320" cy="320" r="236" style="--c:#E4B8D8;--r:198deg;--k:4"></circle>
+      <circle class="hw-dial-in" cx="320" cy="320" r="200"></circle>
+    </svg>
+    <span class="hw-lab" style="left:452px;top:46px">Tanjong Pagar</span>
+    <span class="hw-lab" style="left:598px;top:470px">Holland<br>Village</span>
+    <span class="hw-lab" style="left:300px;top:604px">Tampines</span>
+    <span class="hw-lab" style="left:34px;top:470px">Novena</span>
+    <span class="hw-lab hw-lab--spa" style="left:96px;top:96px">Day spa</span>
+    <div class="hw-pass">
+      <span class="hw-pass-h">Reformer · 10-class pack</span>
+      <span class="hw-pass-d"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="hw-pass-l">Credit still owed to members</span>
+      <b>S$412,640</b>
+      <small>on no report, until now</small>
+    </div>
+    <span class="hw-chip" style="left:500px;top:170px;--k:0"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><b>Reformer · 07:00</b></span>
+    <span class="hw-chip" style="left:520px;top:520px;--k:1"><img class="oi" src="assets/img/odoo/sale_subscription.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><b>Renews 1 Oct</b></span>
+    <span class="hw-chip" style="left:130px;top:540px;--k:2"><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><b>Check-in · S$32</b></span>
+    <span class="hw-chip" style="left:96px;top:300px;--k:3"><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><b>10-pack sold</b></span>
+  </div>
+  <p class="illus fb-comp"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · sample company and figures</p>
+  <aside class="notes"><p>This is an industry case study, not one named client. It is a composite of what boutique studio and spa groups in Singapore tell us, built on a sample company we call Tidemere Studios. Every figure is sample data. The idea in one line: the business is paid today and earns it later, class by class, and the gap between the two is money it owes its members. Three parts: the problem, the Odoo answer, the rollout. The agenda buttons jump to each part. Nothing here is a health claim: this is about bookings, credits and the books.</p></aside>
+</section>
+
+<!-- 2 · the client: collected vs earned -->
+<section class="slide" id="client" data-title="Five sites, one blind spot">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>meet the client</span>
+      <h2 class="h-m" data-in style="--d:80ms">Five sites, <span class="hl">one blind spot.</span></h2>
+    </div>
+    <p class="fb-who" data-in style="--d:160ms"><b>Tidemere Studios</b> <span>sample company · Singapore</span></p>
+  </div>
+  <div class="hw-cl">
+    <ul class="hw-facts" data-in style="--d:200ms">
+      <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><b>4</b><span>pilates and yoga studios</span></li>
+      <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/><path d="M8 12h2l1.5-2.5 1.5 4 1-1.5H16"/></svg><b>1</b><span>day spa, four treatment rooms</span></li>
+      <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><b>1,850</b><span>active members</span></li>
+      <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg><b>38</b><span>freelance instructors, paid per class</span></li>
+      <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><b>1,240</b><span>classes taught a month</span></li>
+      <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><b>2</b><span>retail corners: mats, skincare</span></li>
+    </ul>
+    <div class="hw-cash" data-in data-fx="right" style="--d:260ms">
+      <div class="hw-cash-h">
+        <span>September, by income stream</span>
+        <div class="seg hw-cash-seg" role="group" aria-label="Collected or earned">
+          <button type="button" data-v="in" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 10 6H2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M3 10h18"/><path d="M5 10v9M9 10v9M15 10v9M19 10v9"/><path d="M2 21h20"/><path d="m12 3 10 6H2z"/></svg>Collected</button>
+          <button type="button" data-v="earn" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Actually earned</button>
+        </div>
+      </div>
+      <div class="hw-bars" data-mode="in">
+        <p><span>Monthly memberships<small>booking app · card billing</small></span><i style="--in:100%;--e:100%"><em></em></i><b data-a="S$251,900" data-b="S$251,900">S$251,900</b></p>
+        <p><span>Annual memberships<small>paid up front</small></span><i style="--in:21.8%;--e:1.8%"><em></em></i><b data-a="S$54,960" data-b="S$4,580">S$54,960</b></p>
+        <p><span>Class packs<small>3, 10 and 20 classes</small></span><i style="--in:39.4%;--e:31.5%"><em></em></i><b data-a="S$99,200" data-b="S$79,360">S$99,200</b></p>
+        <p><span>Spa treatments<small>packages and walk-ins</small></span><i style="--in:27.2%;--e:24.3%"><em></em></i><b data-a="S$68,400" data-b="S$61,200">S$68,400</b></p>
+        <p><span>Retail<small>a separate till</small></span><i style="--in:8.5%;--e:8.5%"><em></em></i><b data-a="S$21,300" data-b="S$21,300">S$21,300</b></p>
+      </div>
+      <div class="hw-cash-f">
+        <p><span>Collected</span><b>S$495,760</b></p>
+        <p><span>Earned</span><b>S$418,340</b></p>
+        <p class="is-gap"><span>Still owed as classes</span><b>S$77,420</b><small>from this month alone</small></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · sample data</p>
+  <aside class="notes"><p>Tidemere is a sample, but the shape is real. Four studios, a day spa with four rooms, 1,850 members, 38 freelance instructors. Press Actually earned. Monthly memberships and retail are earned in the month. But annual memberships, class packs and spa packages are paid now and delivered later. In this sample month the business collected S$495,760 and earned S$418,340: the S$77,420 difference is classes and treatments it still owes. The books treat all of it as sales on the day it is paid. Across every open pack and membership, the sample total owed is S$412,640, and no report shows it.</p></aside>
+</section>
+
+<!-- 3 · one pack, two stories -->
+<section class="slide" id="ledger" data-steps="6" data-title="One 10-pack, two stories">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the complicated part</span>
+      <h2 class="h-m" data-in style="--d:80ms">One 10-pack, <span class="hl">two stories.</span></h2>
+    </div>
+    <p class="hint" data-in style="--d:160ms"><kbd>→</kbd> follows one member’s pack</p>
+  </div>
+  <div class="hw-lg">
+    <div class="hw-lg-l" data-in style="--d:200ms">
+      <div class="hw-card">
+        <div class="hw-card-t"><b>Member M-20418</b><span>Reformer 10-pack · S$320 · valid 6 months</span></div>
+        <div class="hw-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p class="hw-card-n"><b class="hw-left">0</b> credits left · <span class="hw-card-s">not bought yet</span></p>
+      </div>
+      <ol class="hw-ev">
+        <li data-k="1"><i>3 Mar</i><span><b>Buys the pack online</b><small>The bookkeeper posts S$320 as March sales</small></span><em>+10</em></li>
+        <li data-k="2"><i>Mar</i><span><b>Three classes</b><small>Each one counted on a paper sheet for pay</small></span><em>−3</em></li>
+        <li data-k="3"><i>Apr</i><span><b>Two classes, one no-show</b><small>The app takes the credit; the member argues</small></span><em>−3</em></li>
+        <li data-k="4"><i>Jun</i><span><b>Two more classes</b><small>Then nothing for three months</small></span><em>−2</em></li>
+        <li data-k="5" class="is-bad"><i>3 Sep</i><span><b>Pack expires, two left</b><small>The app zeroes it; a manager extends it on WhatsApp</small></span><em>?</em></li>
+        <li data-k="6" class="is-bad"><i>30 Sep</i><span><b>Month-end close</b><small>Nobody can say what was owed, or when it was earned</small></span><em>×750</em></li>
+      </ol>
+    </div>
+    <div class="hw-lg-r" data-in data-fx="right" style="--d:260ms">
+      <div class="hw-ch">
+        <div class="hw-ch-h"><span>By month</span><span class="hw-key"><i class="is-bk"></i>What the books say</span><span class="hw-key"><i class="is-ok"></i>What was earned</span></div>
+        <div class="hw-ch-g">
+          <div class="hw-mo"><div><i class="hw-bk" data-m="0"></i><i class="hw-er" data-m="0"></i></div><span>Mar</span></div>
+          <div class="hw-mo"><div><i class="hw-bk" data-m="1"></i><i class="hw-er" data-m="1"></i></div><span>Apr</span></div>
+          <div class="hw-mo"><div><i class="hw-bk" data-m="2"></i><i class="hw-er" data-m="2"></i></div><span>May</span></div>
+          <div class="hw-mo"><div><i class="hw-bk" data-m="3"></i><i class="hw-er" data-m="3"></i></div><span>Jun</span></div>
+          <div class="hw-mo"><div><i class="hw-bk" data-m="4"></i><i class="hw-er" data-m="4"></i></div><span>Jul</span></div>
+          <div class="hw-mo"><div><i class="hw-bk" data-m="5"></i><i class="hw-er" data-m="5"></i></div><span>Aug</span></div>
+          <div class="hw-mo"><div><i class="hw-bk" data-m="6"></i><i class="hw-er" data-m="6"></i></div><span>Sep</span></div>
+        </div>
+      </div>
+      <div class="hw-mt">
+        <p><span>Books: earned</span><b class="hw-m-bk">S$0</b><small>all in March</small></p>
+        <p><span>Really earned</span><b class="hw-m-er">S$0</b><small>class by class</small></p>
+        <p class="is-owe"><span>Still owed</span><b class="hw-m-ow">S$0</b><small class="hw-m-ows">to this member</small></p>
+      </div>
+      <p class="hw-lg-say"><b>× 750 open packs:</b> about <b>S$186,240</b> owed, already counted as sales.</p>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sample member and figures</p>
+  <aside class="notes"><p>Walk it with the arrow key. One member buys a Reformer 10-pack for S$320. The bookkeeper sees S$320 arrive and posts it as March sales: on the books it is all earned on day one. In truth it is earned S$32 at a time: three classes in March, two and a no-show in April, two in June. The no-show credit is taken under the studio’s policy, and the member argues about it. In September the pack expires with two credits left. The booking app quietly zeroes them, the member complains, and a manager promises an extension on WhatsApp that is recorded nowhere. At month-end nobody can say whether that S$64 is owed or earned. Multiply by 750 open packs and the sample says about S$186,240 is owed to members while the books call it sales. This is not a clinical or health matter: it is bookings and money.</p></aside>
+</section>
+
+<!-- 4 · four leaks, one root -->
+<section class="slide" id="leaks" data-steps="4" data-title="Four leaks, one root">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>why it is hard</span>
+      <h2 class="h-m" data-in style="--d:80ms">Four leaks, <span class="hl">one root.</span></h2>
+    </div>
+    <div class="hw-tot" data-in style="--d:160ms"><span>Leaks we can count</span><b class="hw-tot-n">S$0</b><small>a month, sample</small></div>
+  </div>
+  <div class="hw-lk">
+    <div class="hw-lc" data-k="1">
+      <div class="hw-lc-h"><i>1</i><b>A credit has no single price</b><em>S$412,640 unseen</em></div>
+      <div class="hw-px">
+        <p><span>Intro 3</span><b>S$15</b></p>
+        <p><span>10-pack</span><b>S$32</b></p>
+        <p><span>20-pack</span><b>S$28</b></p>
+        <p><span>Comp credit</span><b>S$0</b></p>
+        <p class="is-q"><span>7,420 credits</span><b>= S$ ?</b></p>
+      </div>
+      <small class="hw-lc-n">The app counts credits; the books count dollars. Nothing converts one into the other.</small>
+    </div>
+    <div class="hw-lc" data-k="2">
+      <div class="hw-lc-h"><i>2</i><b>Renewals fail quietly</b><em>S$5,954</em></div>
+      <div class="hw-fn">
+        <p style="--w:100%"><b>1,100</b><span>charged on the 1st</span></p>
+        <p style="--w:94%"><b>1,034</b><span>paid</span></p>
+        <p class="is-bad" style="--w:30%"><b>66</b><span>declined, still booking for 30 days</span></p>
+        <p class="is-bad" style="--w:18%"><b>26</b><span>never pay · 26 × S$229</span></p>
+      </div>
+    </div>
+    <div class="hw-lc" data-k="3">
+      <div class="hw-lc-h"><i>3</i><b>Instructors paid from paper</b><em>S$1,610</em></div>
+      <div class="hw-pp">
+        <p><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>Paper sign-in sheets</span><b>1,263 classes</b></p>
+        <p><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Classes in the booking app</span><b>1,240 classes</b></p>
+        <p class="is-bad"><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Paid twice or at the wrong rate</span><b>23 × S$70</b></p>
+      </div>
+    </div>
+    <div class="hw-lc" data-k="4">
+      <div class="hw-lc-h"><i>4</i><b>Spa rooms sold twice</b><em>S$990</em></div>
+      <div class="hw-dd">
+        <p><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Online booking app</span><span class="hw-dd-t"><i style="left:30%;width:28%">Room 2 · 15:00</i></span></p>
+        <p><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Phone diary at the desk</span><span class="hw-dd-t"><i class="is-clash" style="left:44%;width:28%">Room 2 · 15:30</i></span></p>
+        <small>6 clashes a month · a free treatment each, S$165</small>
+      </div>
+    </div>
+  </div>
+  <p class="hw-root" data-in style="--d:300ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span><b>The root:</b> money, bookings, staff and rooms each live in a different system, so no one record knows what a member paid, used and is still owed.</span></p>
+  <aside class="notes"><p>Press the arrow four times. Leak one is the deepest: a credit has no single price. An intro credit is worth S$15, a 10-pack credit S$32, a 20-pack credit S$28, and a free credit nothing, so the booking app’s 7,420 open credits cannot simply be turned into dollars. Leak two: on the 1st, 1,100 cards are charged; 66 are declined, the app keeps those members booking for 30 days, and 26 never pay. Leak three: instructors are paid from paper sign-in sheets, which never match the app. Leak four: the spa sells the same room from two diaries. The sample adds up to about S$8,554 a month, plus the S$412,640 that no report shows. All four have one root: no single member record.</p></aside>
+</section>
+
+<!-- 5 · the odoo answer: one member record -->
+<section class="slide" id="apps" data-title="One member, one record">
+  <div class="sec-head">
+    <span class="kicker" data-in>the odoo answer</span>
+    <h2 class="h-m" data-in style="--d:80ms">One member, <span class="hl">one record.</span></h2>
+  </div>
+  <div class="hw-ap">
+    <div class="hw-rec win" data-in style="--d:180ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Tidemere Studios · Contacts · M-20418</span></div>
+      <div class="hw-rec-b" data-i>
+        <div class="hw-sb">
+          <button type="button" data-k="sub"><img class="oi" src="assets/img/odoo/sale_subscription.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span><b>1</b>Subscription</span></button>
+          <button type="button" data-k="ew"><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span><b>S$64.00</b>eWallet</span></button>
+          <button type="button" data-k="apt"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span><b>14</b>Appointments</span></button>
+          <button type="button" data-k="shop"><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span><b>3</b>Online orders</span></button>
+          <button type="button" data-k="pos"><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span><b>11</b>POS orders</span></button>
+          <button type="button" data-k="inv"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span><b>S$2,380</b>Invoiced</span></button>
+        </div>
+        <div class="hw-rec-f">
+          <div class="hw-av">M</div>
+          <div class="hw-rec-id">
+            <b class="hw-rec-n">Member M-20418</b>
+            <p class="hw-tags"><span>Reformer</span><span>Monthly Unlimited</span><span>Spa</span></p>
+          </div>
+          <dl>
+            <dt>Home studio</dt><dd>Tanjong Pagar</dd>
+            <dt>Saved card</dt><dd>•••• 4417 · renewals</dd>
+            <dt>Next renewal</dt><dd>1 Oct · S$229.00</dd>
+          </dl>
+        </div>
+        <div class="hw-bk-h">Behind the desk</div>
+        <div class="hw-bd">
+          <button type="button" data-k="plan"><img class="oi" src="assets/img/odoo/planning.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><b>Planning</b></button>
+          <button type="button" data-k="mkt"><img class="oi" src="assets/img/odoo/marketing_automation.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><b>Marketing Automation</b></button>
+          <button type="button" data-k="acc"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><b>Accounting</b></button>
+        </div>
+      </div>
+    </div>
+    <div class="fb-ap hw-dt" data-in data-fx="right" style="--d:260ms" aria-live="polite">
+      <span class="fb-ap-h"><span class="fb-ap-i"></span><span class="fb-ap-place">Click a button</span></span>
+      <h3 class="h-s fb-ap-t">Every button is a standard app.</h3>
+      <p class="fb-ap-d">Each smart button on the member’s record opens what one Odoo app knows about her. Click one.</p>
+      <div class="fb-ap-fix"><span>Replaces</span><b class="fb-ap-r">The booking app, the spa diary, the retail till and paper</b></div>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · simplified Odoo screen, sample member</p>
+  <aside class="notes"><p>The answer is one record per member, with every app hanging off it. Click the smart buttons: the membership is a subscription with a saved card; the pack is an eWallet balance in dollars; bookings are Appointments; packs and mats sold online are eCommerce orders; check-ins and retail are Point of Sale orders; and Accounting holds the invoices. Behind the desk: Planning for instructors and therapists, Marketing Automation for reminders, Accounting for what is owed. Honest notes for the room: Odoo has no object called a class credit. We model packs as eWallet balances in dollars, which carry an expiry date and are redeemed at check-in. If a client wants a credit taken automatically at the moment of booking, that is a customisation we scope. And on failed renewals, Odoo tags the subscription Payment Failure and holds it; there is no multi-step retry schedule like a card-billing service’s dunning, so the front desk works the list, and the plan’s Automatic Closing closes it if it stays unpaid.</p></aside>
+</section>
+
+<!-- 6 · workflow 1: a pack on the books -->
+<section class="slide" id="w1" data-steps="6" data-title="Every credit, a dollar on the books">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 1 · the pack</span>
+      <h2 class="h-m" data-in style="--d:80ms">Every credit, <span class="hl">a dollar on the books.</span></h2>
+    </div>
+    <p class="hint" data-in style="--d:160ms"><kbd>→</kbd> or click a station</p>
+  </div>
+  <ol class="hw-tr" data-in style="--d:200ms">
+    <li data-n="1"><button type="button"><img class="oi" src="assets/img/odoo/website_sale.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span><b>Sold online</b><small>eCommerce</small></span></button></li>
+    <li data-n="2"><button type="button"><img class="oi" src="assets/img/odoo/sale.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span><b>eWallet loaded</b><small>Discount &amp; Loyalty</small></span></button></li>
+    <li data-n="3"><button type="button"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span><b>Owed, not earned</b><small>Accounting</small></span></button></li>
+    <li data-n="4"><button type="button"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span><b>Class booked</b><small>Appointments</small></span></button></li>
+    <li data-n="5"><button type="button"><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span><b>Checked in</b><small>Point of Sale</small></span></button></li>
+    <li data-n="6"><button type="button"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span><b>Expiry settled</b><small>Accounting</small></span></button></li>
+  </ol>
+  <div class="hw-w1">
+    <div class="hw-doc win" data-in style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url hw-doc-u">Tidemere Studios · Odoo</span></div>
+      <div class="hw-doc-b">
+        <p class="hw-doc-ref"><span class="hw-doc-i"></span><b class="hw-doc-r">Press → to start</b><em class="hw-doc-st">—</em></p>
+        <dl class="hw-doc-l">
+          <dt class="hw-d0">Member</dt><dd class="hw-v0">M-20418</dd>
+          <dt class="hw-d1">Product</dt><dd class="hw-v1">Reformer 10-pack · S$320.00</dd>
+          <dt class="hw-d2">Note</dt><dd class="hw-v2">Six stations, one document each</dd>
+          <dt class="hw-d3">Created from</dt><dd class="hw-v3">—</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="hw-ta" data-in data-fx="right" style="--d:320ms">
+      <div class="hw-ta-h"><span>2150 · Class credits owed</span><small>liability · this member</small></div>
+      <ul class="hw-ta-l">
+        <li data-on="3"><span>INV/2026/00418 · pack paid</span><b>+ S$320.00</b></li>
+        <li data-on="5"><span>8 check-ins · 7 classes, 1 no-show</span><b>− S$256.00</b></li>
+        <li data-on="6"><span>MISC/2026/09/0012 · expired balance</span><b>− S$64.00</b></li>
+      </ul>
+      <div class="hw-ta-f"><span>Balance owed</span><b class="hw-ta-n">S$0.00</b></div>
+      <div class="hw-ta-g"><i class="hw-ta-fill"></i></div>
+      <p class="hw-ta-s"><span>Revenue recognised</span><b class="hw-ta-rv">S$0.00</b></p>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample references and account</p>
+  <aside class="notes"><p>Same member, same pack, now in Odoo. Step through it. The pack is sold on the website shop as an eWallet top-up of S$320, and the member’s eWallet carries an expiry date. Because the top-up product posts to a liability account, the S$320 lands as owed, not as sales. She books a Reformer class through Appointments: the studio room is a resource with Manage Capacities, so the class stops at 12 places. At check-in the front desk takes S$32 from her eWallet on the Point of Sale: the liability falls and revenue rises by the same amount, class by class. When the pack expires with S$64 left, the accountant posts one entry to settle it, by the studio’s own policy. Honest limits: the expiry settlement is an entry the accountant posts, not automatic; Odoo’s deferred revenue spreads by date, so we use it for annual memberships paid up front, not for packs, which are used unevenly; and how expired balances are treated is for the client’s accountant to decide.</p></aside>
+</section>
+
+<!-- 7 · workflow 2: rooms -->
+<section class="slide" id="w2" data-title="A room can’t be sold twice">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 2 · the spa</span>
+      <h2 class="h-m" data-in style="--d:80ms">A room <span class="hl">can’t be sold twice.</span></h2>
+    </div>
+    <div class="seg hw-tx" data-in style="--d:160ms" role="group" aria-label="Treatment">
+      <button type="button" data-v="mas" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/><path d="M8 12h2l1.5-2.5 1.5 4 1-1.5H16"/></svg>Massage · 60 min</button>
+      <button type="button" data-v="fac" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6l1.8 4.2L18 12l-4.2 1.8L12 18l-1.8-4.2L6 12l4.2-1.8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>Facial · 60 min</button>
+    </div>
+  </div>
+  <div class="hw-sp">
+    <div class="hw-gd" data-in style="--d:200ms">
+      <div class="hw-gd-h"><span>Fri 16 Oct</span><b>10:00</b><b>11:00</b><b>12:00</b><b>13:00</b><b>14:00</b><b>15:00</b><b>16:00</b><b>17:00</b><b>18:00</b></div>
+      <div class="hw-gd-g" data-i></div>
+      <div class="hw-gd-p"><span><img class="oi" src="assets/img/odoo/planning.svg" alt="" width="22" height="22" style="width:22px;height:22px" loading="lazy" decoding="async">Therapists on shift</span><b>2</b><b>3</b><b>3</b><b>3</b><b>2</b><b>3</b><b>3</b><b>3</b><b>2</b></div>
+      <p class="hw-gd-k"><span><i class="is-tk"></i>Booked</span><span><i class="is-me"></i>New booking</span><span><i class="is-no"></i>Room not set up for it</span><span class="hw-gd-c">Click any hour, any room</span></p>
+    </div>
+    <div class="hw-sd" data-in data-fx="right" style="--d:260ms">
+      <div class="hw-on">
+        <span class="hw-on-h"><img class="oi" src="assets/img/odoo/appointment.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async">What members see online</span>
+        <b class="hw-on-t">Massage · 60 min</b>
+        <div class="hw-on-s"></div>
+        <small>Only hours with a suitable free room are offered.</small>
+      </div>
+      <div class="hw-msg" data-state="idle">
+        <b class="hw-msg-t">Try a booked hour</b>
+        <p class="hw-msg-d">Odoo checks the room before it offers or takes the slot.</p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample rooms and bookings</p>
+  <aside class="notes"><p>The spa’s double bookings came from two diaries selling one room. In Odoo each treatment room is a resource in Appointments, and each treatment is an appointment type that uses only the rooms set up for it: massage in rooms 1 to 3, facials in rooms 3 and 4. Click a booked hour: it is refused, and the website never offered it. Click a free one: it is booked, and the online list updates at once. Switch to Facial to see rooms 1 and 2 drop out. The strip underneath is the therapists on shift, from Planning. Honest limit: a standard appointment type is scheduled on rooms or on staff, not both at once, so here the room is the hard check and the front desk matches the therapist from Planning. Holding a room and a named therapist together in one online booking is a customisation we would scope.</p></aside>
+</section>
+
+<!-- 8 · rollout + next step -->
+<section class="slide" id="rollout" data-title="Four phases, open credits first">
+  <div class="sec-head">
+    <span class="kicker" data-in>how we roll it out</span>
+    <h2 class="h-m" data-in style="--d:80ms">Four phases, <span class="hl">open credits first.</span></h2>
+  </div>
+  <div class="fb-ro">
+    <ol class="fb-ph" data-in style="--d:180ms" data-i>
+      <li><button type="button" data-k="0" class="is-on"><i>1</i><span><b>Books and open balances</b><small>Accounting · Contacts</small></span></button></li>
+      <li><button type="button" data-k="1"><i>2</i><span><b>Memberships and packs</b><small>Subscriptions · eCommerce · eWallet</small></span></button></li>
+      <li><button type="button" data-k="2"><i>3</i><span><b>Pilot studio, then the rest</b><small>Appointments · Point of Sale</small></span></button></li>
+      <li><button type="button" data-k="3"><i>4</i><span><b>People and reminders</b><small>Planning · Marketing Automation</small></span></button></li>
+    </ol>
+    <div class="fb-pd" data-in data-fx="right" style="--d:240ms" aria-live="polite">
+      <p class="fb-pd-w"><span>We do</span><b class="fb-pd-do">Set up a liability account for credits owed, load 1,850 members, and import every open pack, annual membership and spa package from the booking app at the price it was sold.</b></p>
+      <ul class="fb-ba">
+        <li><span class="fb-b">Credits as a number in an app</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><b class="fb-a">Credits owed in S$, on the balance sheet</b></li>
+        <li><span class="fb-b">Packs posted as sales</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><b class="fb-a">Packs posted as owed</b></li>
+      </ul>
+    </div>
+    <div class="fb-cta" data-in data-fx="scale" style="--d:320ms">
+      <div class="fb-qr"><svg aria-hidden="true" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" class="qr"><path class="qr-p" stroke="#1f1f3d" d="M0 0.5h7m1 0h1m1 0h2m1 0h2m3 0h3m1 0h7m-29 1h1m5 0h1m1 0h3m3 0h1m5 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h3m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h3m2 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h3m3 0h4m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m1 0h1m1 0h1m2 0h1m1 0h3m-20 1h1m1 0h2m1 0h3m1 0h1m1 0h2m3 0h3m3 0h1m2 0h1m1 0h2m-28 1h2m4 0h1m2 0h2m1 0h2m1 0h9m3 0h1m-28 1h1m4 0h5m3 0h1m2 0h2m2 0h3m2 0h2m-28 1h5m7 0h5m1 0h1m1 0h1m3 0h1m3 0h1m-29 1h2m4 0h1m1 0h2m1 0h1m3 0h5m5 0h2m-25 1h1m1 0h1m2 0h6m1 0h2m3 0h1m2 0h1m3 0h3m-27 1h1m2 0h2m1 0h4m1 0h1m2 0h4m1 0h4m1 0h3m-29 1h1m1 0h1m4 0h1m1 0h4m2 0h1m4 0h1m3 0h1m2 0h1m-28 1h2m1 0h2m1 0h4m2 0h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m-27 1h5m3 0h2m1 0h1m2 0h2m3 0h2m1 0h1m1 0h3m-28 1h1m1 0h2m2 0h4m1 0h1m1 0h6m1 0h5m1 0h1m-24 1h3m2 0h2m1 0h5m1 0h1m1 0h1m6 0h1m-26 1h2m2 0h2m2 0h1m1 0h4m1 0h3m1 0h7m-19 1h2m2 0h1m3 0h3m1 0h1m3 0h5m-29 1h7m1 0h3m3 0h1m1 0h1m1 0h3m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m1 0h5m2 0h1m1 0h1m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h3m5 0h1m2 0h5m1 0h1m-27 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h1m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h6m3 0h2m1 0h2m1 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m3 0h2m1 0h1m6 0h1m3 0h2m1 0h1m-28 1h7m1 0h1m2 0h1m3 0h1m2 0h1m1 0h1m4 0h1m1 0h1"/></svg></div>
+      <b>Run studios or a spa?</b>
+      <small>30-minute discovery call · online</small>
+      <a href="https://wa.me/6588396998" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>+65 8839 6998</a>
+      <a href="mailto:sales@technext.asia"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>sales@technext.asia</a>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · no client figures</p>
+  <aside class="notes"><p>The order matters. First the books and the open balances: every pack and membership still running in the old booking app comes across at the price it was sold, so on day one the balance sheet shows what is owed. Then memberships on Subscriptions with saved cards, and packs sold online and at the desk as eWallet top-ups. Then one pilot studio on Appointments and Point of Sale; the other studios and the spa follow once it closes a clean month. Last, instructors and therapists in Planning, with classes taught counted for each instructor’s monthly bill, and reminders before packs lapse. Click each phase. We don’t put weeks on this: it depends on how clean the booking app’s export is, which we see in the discovery call. Close on the QR.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v=36"></script>
+<script src="assets/case-study-wellness.js?v=36"></script>
+</body>
+</html>
