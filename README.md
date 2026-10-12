@@ -18,6 +18,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Client deck: Moving JR-Tech onto Odoo ERP (modules, SQL Account migration, invoicing video, support, discovery questions) | `jrtech-odoo-erp.html` | 25 |
 | Client deck: BHD Asia · HummingBeing implementation scope (six workflows, nine modules, phase two, decisions, open items) | `bhdasia-odoo-scope.html` | 19 |
 | Client deck: HST Medical website review (website and catalogue, your direction, feedback, AI for the website, why TechNext, how we build, questions) | `hst-medical-website.html` | 19 |
+| Case study: F&B (composite Singapore group: central kitchen + five outlets; the problem, nine Odoo apps, replenishment flow, plate costing, rollout) | `case-study-fnb.html` | 8 |
 
 Live (unlisted, `noindex`): https://technextsg.github.io/technext-presentations/
 

@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "34"
+ASSET_V = "35"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -98,6 +98,11 @@ DECKS = [
              alt="HST Medical cover: ready for your review.",
              desc="The website and the product catalogue we built for HST Medical (Kowa Subsidiary): the site page by page, the RFP we can build line by line, ideas by direction, the flip-book and seven print fixes, feedback typed in live, then AI for the website (Ask HST today, rules vs AI, five opportunities, AI search), why TechNext (speed, an ERP implementation division, AI) and how we build and show."),
     ]),
+    ("Case studies", [
+        dict(slug="case-study-fnb", tags="odoo", title="Case study · F&B", mins=15, pdf="TechNext-Case-Study-FnB.pdf",
+             alt="F&B case study cover: five outlets, one truth.",
+             desc="An industry case study on a composite Singapore F&B group (a central kitchen, five outlets, two delivery apps): the tangled problem (one price rise found 38 days late, four flows that never meet), nine Odoo apps on one database, replenishment from the central kitchen played step by step, every plate costed as it sells, and a four-phase rollout. Sample data."),
+    ]),
     ("Pricing", [
         dict(slug="erp-tiers", tags="odoo", title="ERP tier list", mins=8, pdf="TechNext-ERP-Tier-List.pdf",
              alt="ERP tier list cover: three tiers, then add exactly what you need.",
@@ -148,6 +153,7 @@ GROUPS = {
     "What we build": ("build", "Every service and every website, shown working."),
     "Odoo": ("odoo", "Odoo from scratch, then one app at a time in a live session."),
     "Client decks": ("client", "Proposals and reviews made for one client. Send them with Share."),
+    "Case studies": ("cases", "One industry, one hard problem, and how Odoo solves it."),
     "Pricing": ("pricing", "Three tiers each, priced as TechNext's service fee."),
 }
 TOPICS = [("odoo", "Odoo"), ("ai", "AI"), ("websites", "Websites"), ("marketing", "Marketing")]

@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E4691">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=35">
+<link rel="stylesheet" href="assets/deck.css?v=35">
+<title>Case study · F&amp;B: one kitchen, five outlets, one Odoo · TechNext</title>
+<meta name="description" content="An industry case study for food and beverage: a composite Singapore group with a central kitchen and five outlets, the tangled problem (stock, recipes, money and people that never meet), and how Odoo 20 joins them: replenishment from the central kitchen, every plate costed as it sells, and a phased rollout.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechNext">
+<meta property="og:title" content="Case study · F&amp;B: one kitchen, five outlets, one Odoo · TechNext">
+<meta property="og:description" content="An industry case study for food and beverage: a composite Singapore group with a central kitchen and five outlets, the tangled problem (stock, recipes, money and people that never meet), and how Odoo 20 joins them: replenishment from the central kitchen, every plate costed as it sells, and a phased rollout.">
+<meta property="og:url" content="https://technextsg.github.io/technext-presentations/case-study-fnb.html">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/case-study-fnb-og.jpg?v=35">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/case-study.css?v=35">
+</head>
+<body data-label="Case study · F&amp;B" data-home="./">
+<main class="deck" aria-label="Case study, food and beverage: one kitchen, five outlets, one Odoo">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="One kitchen, five outlets, one Odoo">
+  <div class="cv-copy fb-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">case study · food &amp; beverage</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Five outlets, <span class="hl">one truth.</span></h1>
+    <p class="lead" data-in style="--d:320ms">A Singapore F&amp;B group with a central kitchen, five outlets and two delivery apps, whose numbers never agreed. The knot, and how Odoo 20 untied it.</p>
+    <nav class="fb-agenda" data-in style="--d:420ms" aria-label="Parts of this case study">
+      <button type="button" data-go="client"><i>01</i>The problem</button>
+      <button type="button" data-go="arch"><i>02</i>The Odoo answer</button>
+      <button type="button" data-go="rollout"><i>03</i>Rollout</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2c-2 3-2 8 0 9v11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M3 2v7a3 3 0 0 0 6 0V2"/><path d="M6 2v20"/><path d="M17 2c-2 3-2 8 0 9v11"/><path d="M21 2c-1 4-1 8-4 9"/></svg>Industry case study · F&amp;B</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="fb-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <svg class="fb-svg" viewBox="0 0 640 700" width="640" height="700">
+      <circle class="fb-orbit" cx="320" cy="350" r="250"></circle>
+      <path class="fb-ln flow" d="M320,100 L320,350"></path>
+      <path class="fb-ln flow" d="M558,273 L320,350"></path>
+      <path class="fb-ln flow" d="M467,552 L320,350"></path>
+      <path class="fb-ln flow" d="M173,552 L320,350"></path>
+      <path class="fb-ln flow" d="M82,273 L320,350"></path>
+      <path class="fb-ln fb-ln--in" d="M590,90 L405,265"></path>
+      <path class="fb-ln fb-ln--in" d="M50,90 L235,265"></path>
+    </svg>
+    <div class="fb-core"><img class="oi" src="assets/img/odoo/mrp.svg" alt="" width="44" height="44" style="width:44px;height:44px" loading="lazy" decoding="async"><b>Central kitchen</b><small>recipes, batches, stock, books</small></div>
+    <span class="fb-n" style="left:320px;top:100px;--k:0"><img class="oi" src="assets/img/odoo/pos_restaurant.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Outlet 1</b></span>
+    <span class="fb-n" style="left:558px;top:273px;--k:1"><img class="oi" src="assets/img/odoo/pos_restaurant.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Outlet 2</b></span>
+    <span class="fb-n" style="left:467px;top:552px;--k:2"><img class="oi" src="assets/img/odoo/pos_restaurant.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Outlet 3</b></span>
+    <span class="fb-n" style="left:173px;top:552px;--k:3"><img class="oi" src="assets/img/odoo/pos_restaurant.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Outlet 4</b></span>
+    <span class="fb-n" style="left:82px;top:273px;--k:4"><img class="oi" src="assets/img/odoo/pos_restaurant.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Outlet 5</b></span>
+    <span class="fb-n fb-n--in" style="left:590px;top:70px;--k:5"><img class="oi" src="assets/img/odoo/purchase.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><b>60 suppliers</b></span>
+    <span class="fb-n fb-n--in" style="left:50px;top:70px;--k:6"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><b>2 delivery apps</b></span>
+  </div>
+  <p class="illus fb-comp"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · sample company and figures</p>
+  <aside class="notes"><p>This is an industry case study, not one named client. It is a composite of what Singapore F&amp;B groups with a central kitchen tell us, built on a sample company we call Saltfern Kitchens. Every figure in the deck is sample data. Three parts: the problem, the Odoo answer, the rollout. The agenda buttons jump to each part.</p></aside>
+</section>
+
+<!-- 2 · the client -->
+<section class="slide" id="client" data-title="A busy group, running on patches">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>meet the client</span>
+      <h2 class="h-m" data-in style="--d:80ms">A busy group, <span class="hl">running on patches.</span></h2>
+    </div>
+    <p class="fb-who" data-in style="--d:160ms"><b>Saltfern Kitchens</b> <span>sample company · Singapore</span></p>
+  </div>
+  <div class="fb-stats" data-in style="--d:200ms">
+    <p><b>1</b><span>central kitchen</span></p>
+    <p><b>5</b><span>outlets, dine-in + takeaway</span></p>
+    <p><b>140</b><span>menu items</span></p>
+    <p><b>60</b><span>suppliers</span></p>
+    <p class="is-red"><b>7</b><span>tools that don’t talk</span></p>
+  </div>
+  <div class="fb-tools">
+    <div class="fb-tl" data-in style="--d:260ms" data-i>
+      <button type="button" data-k="0"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span><b>Three POS brands</b><small>outlets 1–2, 3–4, 5</small></span></button>
+      <button type="button" data-k="1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span><b>Delivery-app tablets</b><small>two apps, two payouts</small></span></button>
+      <button type="button" data-k="2"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span><b>WhatsApp supplier orders</b><small>one chat per supplier</small></span></button>
+      <button type="button" data-k="3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg><span><b>Recipe costing in Excel</b><small>last updated in March</small></span></button>
+      <button type="button" data-k="4"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span><b>Paper stock counts</b><small>Sunday nights</small></span></button>
+      <button type="button" data-k="5"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01"/></svg><span><b>Accounting software</b><small>fed by an accountant, monthly</small></span></button>
+      <button type="button" data-k="6"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><b>Rosters in a group chat</b><small>swaps by message</small></span></button>
+    </div>
+    <div class="fb-td" data-in data-fx="right" style="--d:320ms" aria-live="polite">
+      <span class="fb-td-h">Click a tool</span>
+      <h3 class="h-s fb-td-t">Seven tools, seven versions of the truth.</h3>
+      <div class="fb-td-g">
+        <p><span>It knows</span><b class="fb-td-k">Each tool is good at its own job.</b></p>
+        <p class="is-blind"><span>It can’t see</span><b class="fb-td-b">What every other tool knows.</b></p>
+        <p class="is-cost"><span>So every week</span><b class="fb-td-c">Someone re-keys it by hand.</b></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · sample data</p>
+  <aside class="notes"><p>Saltfern is a sample, but every tool on this list comes from real conversations. Click through them. The point is not that the tools are bad: each POS works, Excel works, WhatsApp works. The problem is that none of them can see the others, so someone re-keys the numbers every week, and nobody trusts the result.</p></aside>
+</section>
+
+<!-- 3 · one price rise -->
+<section class="slide" id="ripple" data-title="One price rise, found 38 days late">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the complicated part</span>
+      <h2 class="h-m" data-in style="--d:80ms">One price rise, <span class="hl">found 38 days late.</span></h2>
+    </div>
+    <p class="hint fb-rp-hint" data-in style="--d:160ms"><kbd>→</kbd> follows the price rise</p>
+  </div>
+  <div class="fb-rp">
+    <div class="fb-rc" data-step="1"><i>Day 0</i><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><b>Chicken thigh up 12%</b><p>The supplier says so in WhatsApp. Purchasing pays the new price.</p></div>
+    <div class="fb-rc" data-step="2"><i>Day 1</i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4H2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4H2z"/></svg><b>The batch costs more</b><p>Chicken rice sets now cost the kitchen S$0.21 more each. No one re-costs the recipe.</p></div>
+    <div class="fb-rc" data-step="3"><i>Day 1</i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><b>Menu price stays</b><p>Five outlets on three POS brands. Nobody owns the price list.</p></div>
+    <div class="fb-rc" data-step="4"><i>Day 2</i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><b>Delivery takes its cut</b><p>The commission is on the selling price, so the thinner margin shrinks further.</p></div>
+    <div class="fb-rc" data-step="5"><i>Day 30</i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><b>Stock count “looks off”</b><p>Paper counts differ from Excel. Put down to waste.</p></div>
+    <div class="fb-rc fb-rc--end" data-step="6"><i>Day 38</i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><b>Month-end close</b><p>The accountant sees food cost jump from 30% to 33%. Why? Nobody can trace it.</p></div>
+  </div>
+  <div class="fb-leak" data-in style="--d:300ms">
+    <div class="fb-leak-l"><span>Unseen margin lost</span><b class="fb-leak-n">S$0</b><small>9,000 sets a month × S$0.21, sample</small></div>
+    <div class="fb-leak-bar"><i class="fb-leak-fill"></i><span class="fb-leak-mk" style="left:0%">day 0</span><span class="fb-leak-mk" style="left:78.9%">day 30</span><span class="fb-leak-mk fb-leak-mk--end" style="left:100%">day 38</span></div>
+    <p class="fb-leak-q"><b>The real problem</b>isn’t the price rise. It’s that the business found out <em>five weeks later</em>, and still can’t say which dish caused it.</p>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sample figures</p>
+  <aside class="notes"><p>Walk this with the arrow key: it is the story every F&amp;B owner recognises. One ingredient goes up. The supplier tells purchasing, purchasing pays, and nothing else in the business hears about it. The recipe cost is in an Excel file no one opens, the menu price is spread across three POS brands, and the delivery apps take their cut of a margin that has already shrunk. Only at month-end does the accountant see food cost go from 30 to 33 percent, and by then nobody can say which dish did it. The sample figures: 9,000 chicken rice sets a month across five outlets, S$0.21 more per set, about S$1,890 a month.</p></aside>
+</section>
+
+<!-- 4 · four flows that never meet -->
+<section class="slide" id="flows" data-title="Four flows that never meet">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>why it is hard</span>
+      <h2 class="h-m" data-in style="--d:80ms">Four flows <span class="hl">that never meet.</span></h2>
+    </div>
+    <div class="seg fb-fl-seg" data-in style="--d:160ms" role="group" aria-label="Before or with Odoo">
+      <button type="button" data-v="before" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>Before</button>
+      <button type="button" data-v="odoo" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>With Odoo</button>
+    </div>
+  </div>
+  <div class="fb-fl" data-mode="before">
+    <div class="fb-lane" data-in style="--d:220ms">
+      <span class="fb-lane-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12v10l7-4a2 2 0 0 0 2-1.73V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>Goods</span>
+      <b class="fb-nd">Supplier</b><span class="fb-gap"><em data-b="WhatsApp order" data-o="Purchase order">WhatsApp order</em><img class="oi" src="assets/img/odoo/purchase.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">Central kitchen</b><span class="fb-gap"><em data-b="Delivery chit" data-o="Resupply transfer">Delivery chit</em><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">Outlet</b><span class="fb-gap"><em data-b="Paper count" data-o="Barcode count">Paper count</em><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">Stock on hand</b>
+    </div>
+    <div class="fb-lane" data-in style="--d:280ms">
+      <span class="fb-lane-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2c-2 3-2 8 0 9v11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M3 2v7a3 3 0 0 0 6 0V2"/><path d="M6 2v20"/><path d="M17 2c-2 3-2 8 0 9v11"/><path d="M21 2c-1 4-1 8-4 9"/></svg>Food</span>
+      <b class="fb-nd">Recipe</b><span class="fb-gap"><em data-b="Excel, March" data-o="Bill of materials">Excel, March</em><img class="oi" src="assets/img/odoo/mrp.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">Batch</b><span class="fb-gap"><em data-b="No batch record" data-o="Lot + expiry date">No batch record</em><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">Plate sold</b><span class="fb-gap"><em data-b="Never linked" data-o="Sale uses ingredients">Never linked</em><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">Food cost</b>
+    </div>
+    <div class="fb-lane" data-in style="--d:340ms">
+      <span class="fb-lane-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 10 6H2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M3 10h18"/><path d="M5 10v9M9 10v9M15 10v9M19 10v9"/><path d="M2 21h20"/><path d="m12 3 10 6H2z"/></svg>Money</span>
+      <b class="fb-nd">Till</b><span class="fb-gap"><em data-b="Z-report photo" data-o="Session posts entries">Z-report photo</em><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">Delivery apps</b><span class="fb-gap"><em data-b="Payout CSV re-keyed" data-o="Payout imported">Payout CSV re-keyed</em><img class="oi" src="assets/img/odoo/account.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">Bank</b><span class="fb-gap"><em data-b="Matched at month-end" data-o="Matched daily">Matched at month-end</em><img class="oi" src="assets/img/odoo/account.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">P&amp;L per outlet</b>
+    </div>
+    <div class="fb-lane" data-in style="--d:400ms">
+      <span class="fb-lane-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>People</span>
+      <b class="fb-nd">Roster</b><span class="fb-gap"><em data-b="Group chat" data-o="Published shifts">Group chat</em><img class="oi" src="assets/img/odoo/planning.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">Clock-in</b><span class="fb-gap"><em data-b="Paper sheet" data-o="Attendance kiosk">Paper sheet</em><img class="oi" src="assets/img/odoo/hr.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">Hours</b><span class="fb-gap"><em data-b="Typed into Excel" data-o="Export to payroll">Typed into Excel</em><img class="oi" src="assets/img/odoo/hr.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"></span>
+      <b class="fb-nd">Payroll</b>
+    </div>
+  </div>
+  <p class="fb-fl-say" data-in style="--d:460ms"><span class="fb-fl-b"><b>12 hand-offs, all by hand.</b> Each dashed link is a person re-keying, so each one is a day late and sometimes wrong.</span><span class="fb-fl-o"><b>12 hand-offs, one database.</b> Each link becomes a document Odoo creates from the one before, so a price change reaches the plate on the same day.</span></p>
+  <aside class="notes"><p>This is why it is hard, and why another tool doesn’t fix it. A business like this runs four flows: goods, food, money and people. Each one crosses three hand-offs, and before, every hand-off is a person with WhatsApp, paper or Excel. Press With Odoo: every dashed link becomes a document Odoo creates from the previous one. Two honest notes: delivery-app payouts come in by import or a connector we confirm per platform, and payroll stays with the client’s payroll provider unless they choose to move it.</p></aside>
+</section>
+
+<!-- 5 · the architecture -->
+<section class="slide" id="arch" data-title="One database, nine apps, three places">
+  <div class="sec-head">
+    <span class="kicker" data-in>the odoo answer</span>
+    <h2 class="h-m" data-in style="--d:80ms">One database, nine apps, <span class="hl">three places.</span></h2>
+  </div>
+  <div class="fb-ar">
+    <div class="fb-ag" data-i>
+      <div class="fb-ac" data-in style="--d:180ms"><span class="fb-ac-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4H2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4H2z"/></svg>Central kitchen</span>
+        <button type="button" data-k="mrp"><img class="oi" src="assets/img/odoo/mrp.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Manufacturing</b></button>
+        <button type="button" data-k="stock"><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Inventory</b></button>
+        <button type="button" data-k="qc"><img class="oi" src="assets/img/odoo/quality_control.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Quality</b></button>
+      </div>
+      <div class="fb-ac" data-in style="--d:240ms"><span class="fb-ac-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2c-2 3-2 8 0 9v11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M3 2v7a3 3 0 0 0 6 0V2"/><path d="M6 2v20"/><path d="M17 2c-2 3-2 8 0 9v11"/><path d="M21 2c-1 4-1 8-4 9"/></svg>Outlets</span>
+        <button type="button" data-k="pos"><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Point of Sale</b></button>
+        <button type="button" data-k="rest"><img class="oi" src="assets/img/odoo/pos_restaurant.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Restaurant</b></button>
+        <button type="button" data-k="plan"><img class="oi" src="assets/img/odoo/planning.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Planning</b></button>
+      </div>
+      <div class="fb-ac" data-in style="--d:300ms"><span class="fb-ac-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>Back office</span>
+        <button type="button" data-k="pur"><img class="oi" src="assets/img/odoo/purchase.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Purchase</b></button>
+        <button type="button" data-k="acc"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Accounting</b></button>
+        <button type="button" data-k="dash"><img class="oi" src="assets/img/odoo/spreadsheet_dashboard.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Dashboards</b></button>
+      </div>
+      <p class="fb-ag-db" data-in style="--d:360ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-1.66 4-3 9-3s9 1.34 9 3v14c0 1.66-4 3-9 3s-9-1.34-9-3z" fill="currentColor" fill-opacity=".2" stroke="none"/><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg><span>Every app reads and writes <b>one database</b>: one product list, one price, one stock figure</span></p>
+    </div>
+    <div class="fb-ap" data-in data-fx="right" style="--d:260ms" aria-live="polite">
+      <span class="fb-ap-h"><span class="fb-ap-i"></span><span class="fb-ap-place">Click an app</span></span>
+      <h3 class="h-s fb-ap-t">Nine standard apps, configured, not coded.</h3>
+      <p class="fb-ap-d">Each app takes over one hand-off from the last slide. Click one to see which.</p>
+      <div class="fb-ap-fix"><span>Replaces</span><b class="fb-ap-r">WhatsApp, Excel, paper and re-keying</b></div>
+    </div>
+  </div>
+  <aside class="notes"><p>The answer is not one big custom system. It is nine standard Odoo 20 apps on one database, grouped by where the work happens: the central kitchen, the outlets and the back office. Click each app. The important line at the bottom: every app reads and writes the same product, the same price and the same stock figure, so the hand-offs from the last slide become documents, not messages. Kitchen Display is part of the Restaurant setup. Delivery-app orders and payouts: by import or a connector we confirm per platform.</p></aside>
+</section>
+
+<!-- 6 · workflow 1: replenishment -->
+<section class="slide" id="w1" data-steps="6" data-title="Low at 3 pm, restocked by 7 am">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 1 · the goods</span>
+      <h2 class="h-m" data-in style="--d:80ms">Low at 3 pm, <span class="hl">restocked by 7 am.</span></h2>
+    </div>
+    <button type="button" class="btn btn-line fb-play" data-in style="--d:160ms"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Play the flow</span></button>
+  </div>
+  <div class="fb-wf">
+    <ol class="fb-steps" data-in style="--d:200ms">
+      <li><button type="button" data-n="1"><i>1</i><span><b>Outlet 3 drops below its minimum</b><small>Inventory · reordering rule</small></span></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span><b>A resupply transfer is created</b><small>Inventory · from the central kitchen</small></span></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span><b>The kitchen is short, so a batch is planned</b><small>Manufacturing · from the bill of materials</small></span></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span><b>One ingredient is short, so an RFQ is drafted</b><small>Purchase · the buyer approves</small></span></button></li>
+      <li><button type="button" data-n="5"><i>5</i><span><b>Batch cooked, checked and labelled</b><small>Quality · lot and expiry date</small></span></button></li>
+      <li><button type="button" data-n="6"><i>6</i><span><b>Van leaves, outlet scans it in</b><small>Inventory · received, stock updated</small></span></button></li>
+    </ol>
+    <div class="fb-sc win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Saltfern Kitchens · Inventory</span></div>
+      <div class="fb-sc-body">
+        <div class="fb-gauge">
+          <span class="fb-g-l"><b>Laksa paste</b> · Outlet 3</span>
+          <div class="fb-g-bar"><i class="fb-g-fill"></i><span class="fb-g-min" style="left:40%">min 8 kg</span><span class="fb-g-max" style="left:100%">max 20 kg</span></div>
+          <span class="fb-g-n" data-t="0:12 kg|1:6 kg|6:20 kg">12 kg</span>
+        </div>
+        <ul class="fb-docs">
+          <li data-on="1"><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Reordering rule</b><small>Outlet 3 · min 8 · max 20 kg</small></span><em data-t="0:Watching|1:Triggered">Watching</em></li>
+          <li data-on="2"><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>CK/INT/00412</b><small>Central kitchen → Outlet 3 · 14 kg</small></span><em data-t="0:—|2:Waiting|6:Done">—</em></li>
+          <li data-on="3"><img class="oi" src="assets/img/odoo/mrp.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>CK/MO/00187</b><small>Laksa paste · 20 kg batch · bill of materials</small></span><em data-t="0:—|3:Confirmed|5:Done">—</em></li>
+          <li data-on="4"><img class="oi" src="assets/img/odoo/purchase.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>P00961</b><small>Dried shrimp 6 kg · preferred supplier</small></span><em data-t="0:—|4:RFQ · approve|5:Received">—</em></li>
+          <li data-on="5"><img class="oi" src="assets/img/odoo/quality_control.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Lot LP-1012-A</b><small>Core temp checked · best before 15 Oct</small></span><em data-t="0:—|5:Passed">—</em></li>
+          <li data-on="6"><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Outlet 3 receipt</b><small>Scanned at 6:52 am · 14 kg in</small></span><em data-t="0:—|6:Received">—</em></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="fb-wf-n">Step <b class="fb-cnt">0</b> of 6 · <span>nothing typed twice, nothing sent on WhatsApp</span></p>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample data</p>
+  <aside class="notes"><p>Press Play or step through it. Laksa paste at Outlet 3 drops below its minimum of 8 kg. A reordering rule creates a resupply transfer from the central kitchen. The kitchen doesn’t have enough paste, so a manufacturing order is planned from the bill of materials, and because one ingredient is short, a request for quotation is drafted to the preferred supplier for the buyer to approve. The batch is cooked, gets a quality check and a lot with an expiry date, and the outlet scans it in the next morning. Every document is created from the one before. Odoo features used: reordering rules, multi-warehouse resupply, manufacturing from a bill of materials, lots and expiration dates, quality control points.</p></aside>
+</section>
+
+<!-- 7 · workflow 2: every plate costed -->
+<section class="slide" id="w2" data-title="Every plate, costed as it sells">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 2 · the food and the money</span>
+      <h2 class="h-m" data-in style="--d:80ms">Every plate, <span class="hl">costed as it sells.</span></h2>
+    </div>
+    <div class="seg fb-ch" data-in style="--d:160ms" role="group" aria-label="Sales channel">
+      <button type="button" data-v="dine" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2c-2 3-2 8 0 9v11z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M3 2v7a3 3 0 0 0 6 0V2"/><path d="M6 2v20"/><path d="M17 2c-2 3-2 8 0 9v11"/><path d="M21 2c-1 4-1 8-4 9"/></svg>Dine-in</button>
+      <button type="button" data-v="del" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Delivery app</button>
+    </div>
+  </div>
+  <div class="fb-cs">
+    <div class="fb-bom win" data-in style="--d:200ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Manufacturing · Bill of materials</span></div>
+      <div class="fb-bom-b">
+        <p class="fb-bom-t"><img class="oi" src="assets/img/odoo/mrp.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><b>Chicken rice set</b><span>1 plate · kit</span></p>
+        <table class="fb-bt">
+          <thead><tr><th>Component</th><th>Qty</th><th>Cost</th></tr></thead>
+          <tbody>
+            <tr class="is-hot"><td>Chicken thigh</td><td>180 g</td><td class="fb-c-ch">S$1.30</td></tr>
+            <tr><td>Fragrant rice</td><td>200 g</td><td>S$0.42</td></tr>
+            <tr><td>Chilli-ginger sauce <small>batch LP</small></td><td>40 g</td><td>S$0.26</td></tr>
+            <tr><td>Soup and greens</td><td>1</td><td>S$0.38</td></tr>
+            <tr><td class="fb-c-pkn">Plate and cutlery wash</td><td>1</td><td class="fb-c-pk">S$0.05</td></tr>
+          </tbody>
+          <tfoot><tr><td>Cost per plate</td><td></td><td class="fb-c-tot">S$2.41</td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+    <div class="fb-ctl" data-in style="--d:260ms">
+      <label class="fb-sl"><span>Chicken thigh from the supplier <b class="fb-sl-v">S$7.20/kg</b></span>
+        <input type="range" min="600" max="900" step="10" value="720" aria-label="Chicken thigh price per kilogram"></label>
+      <div class="fb-kpi">
+        <p><span>Sells at</span><b class="fb-k-px">S$7.80</b><small class="fb-k-pxn">menu price, before GST</small></p>
+        <p><span>Food cost</span><b class="fb-k-fc">30.9%</b><small>target 32%</small></p>
+        <p><span>Margin per plate</span><b class="fb-k-mg">S$5.39</b><small class="fb-k-mgn">after food cost</small></p>
+      </div>
+      <p class="fb-alert" data-state="ok"><span class="fb-al-ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><b>On target.</b> The dashboard stays green.</span><span class="fb-al-bad"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><b>Above target, flagged today.</b> Not at month-end: re-price, re-portion or switch supplier.</span></p>
+      <ol class="fb-strip">
+        <li><img class="oi" src="assets/img/odoo/pos_restaurant.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span>Order at table 12</span></li>
+        <li><img class="oi" src="assets/img/odoo/point_of_sale.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span>Kitchen Display</span></li>
+        <li><img class="oi" src="assets/img/odoo/stock.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span>Components deducted</span></li>
+        <li><img class="oi" src="assets/img/odoo/spreadsheet_dashboard.svg" alt="" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"><span>Food cost by dish</span></li>
+      </ol>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample prices and commission</p>
+  <aside class="notes"><p>This is the slide that answers the price-rise story. The chicken rice set has a bill of materials, so its cost is known to the cent, and the product cost can be computed from it. Drag the chicken price: at S$7.20 the food cost is about 31%, on target. Push it past about S$7.70 and it crosses the 32% target, flagged the same day rather than at month-end. Switch to the delivery app: the sample uses a S$9.40 delivery price, a 30% platform commission and takeaway packaging, and the margin is very different. Underneath, the flow: the order is taken at the table, goes to the Kitchen Display, the sale deducts the components from stock (a kit bill of materials), and the dashboard shows food cost by dish. Commission rates differ by platform and contract: these are sample numbers.</p></aside>
+</section>
+
+<!-- 8 · rollout, what changes, next step -->
+<section class="slide" id="rollout" data-title="Four phases, one pilot outlet first">
+  <div class="sec-head">
+    <span class="kicker" data-in>how we rolled it out</span>
+    <h2 class="h-m" data-in style="--d:80ms">Four phases, <span class="hl">one pilot outlet first.</span></h2>
+  </div>
+  <div class="fb-ro">
+    <ol class="fb-ph" data-in style="--d:180ms" data-i>
+      <li><button type="button" data-k="0" class="is-on"><i>1</i><span><b>Foundation</b><small>Inventory · Purchase · Accounting</small></span></button></li>
+      <li><button type="button" data-k="1"><i>2</i><span><b>Central kitchen</b><small>Manufacturing · Quality</small></span></button></li>
+      <li><button type="button" data-k="2"><i>3</i><span><b>Pilot outlet, then four more</b><small>Point of Sale · Restaurant</small></span></button></li>
+      <li><button type="button" data-k="3"><i>4</i><span><b>People and insight</b><small>Planning · Dashboards</small></span></button></li>
+    </ol>
+    <div class="fb-pd" data-in data-fx="right" style="--d:240ms" aria-live="polite">
+      <p class="fb-pd-w"><span>We do</span><b class="fb-pd-do">Clean the product, supplier and recipe lists, set up six warehouses and the chart of accounts, and connect the bank. Everything else reads these.</b></p>
+      <ul class="fb-ba">
+        <li><span class="fb-b">Supplier prices in WhatsApp</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><b class="fb-a">Purchase orders with today’s price</b></li>
+        <li><span class="fb-b">Books typed in monthly</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><b class="fb-a">Bank matched daily</b></li>
+      </ul>
+    </div>
+    <div class="fb-cta" data-in data-fx="scale" style="--d:320ms">
+      <div class="fb-qr"><svg aria-hidden="true" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" class="qr"><path class="qr-p" stroke="#1f1f3d" d="M0 0.5h7m1 0h1m1 0h2m1 0h2m3 0h3m1 0h7m-29 1h1m5 0h1m1 0h3m3 0h1m5 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h3m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h3m2 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h3m3 0h4m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m1 0h1m1 0h1m2 0h1m1 0h3m-20 1h1m1 0h2m1 0h3m1 0h1m1 0h2m3 0h3m3 0h1m2 0h1m1 0h2m-28 1h2m4 0h1m2 0h2m1 0h2m1 0h9m3 0h1m-28 1h1m4 0h5m3 0h1m2 0h2m2 0h3m2 0h2m-28 1h5m7 0h5m1 0h1m1 0h1m3 0h1m3 0h1m-29 1h2m4 0h1m1 0h2m1 0h1m3 0h5m5 0h2m-25 1h1m1 0h1m2 0h6m1 0h2m3 0h1m2 0h1m3 0h3m-27 1h1m2 0h2m1 0h4m1 0h1m2 0h4m1 0h4m1 0h3m-29 1h1m1 0h1m4 0h1m1 0h4m2 0h1m4 0h1m3 0h1m2 0h1m-28 1h2m1 0h2m1 0h4m2 0h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m-27 1h5m3 0h2m1 0h1m2 0h2m3 0h2m1 0h1m1 0h3m-28 1h1m1 0h2m2 0h4m1 0h1m1 0h6m1 0h5m1 0h1m-24 1h3m2 0h2m1 0h5m1 0h1m1 0h1m6 0h1m-26 1h2m2 0h2m2 0h1m1 0h4m1 0h3m1 0h7m-19 1h2m2 0h1m3 0h3m1 0h1m3 0h5m-29 1h7m1 0h3m3 0h1m1 0h1m1 0h3m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m1 0h5m2 0h1m1 0h1m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h3m5 0h1m2 0h5m1 0h1m-27 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h1m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h6m3 0h2m1 0h2m1 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m3 0h2m1 0h1m6 0h1m3 0h2m1 0h1m-28 1h7m1 0h1m2 0h1m3 0h1m2 0h1m1 0h1m4 0h1m1 0h1"/></svg></div>
+      <b>Run an F&amp;B group?</b>
+      <small>30-minute discovery call · online</small>
+      <a href="https://wa.me/6588396998" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>+65 8839 6998</a>
+      <a href="mailto:sales@technext.asia"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>sales@technext.asia</a>
+    </div>
+  </div>
+  <p class="illus fb-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative composite · no client figures</p>
+  <aside class="notes"><p>The order matters. Foundation first: clean product, supplier and recipe data, and the books, because everything else reads them. Then the central kitchen, because the outlets order from it. Then one pilot outlet, and only when it runs a full week cleanly do the other four go live. People and dashboards last, once the data underneath is trustworthy. Click each phase to see what changes. We don’t put weeks on this slide: the length depends on how clean the recipe and supplier data are, which we see in the discovery call. Close on the QR: a 30-minute discovery call.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v=35"></script>
+<script src="assets/case-study.js?v=35"></script>
+</body>
+</html>
