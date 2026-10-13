@@ -23,6 +23,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Case study: Travel (tour operator: FX and pax margin, deposits before payments) | `case-study-travel.html` | 8 |
 | Case study: Retail (eight stores: size by store, markdowns, one loyalty card) | `case-study-retail.html` | 8 |
 | Case study: Ecommerce (website + Shopee, Lazada, TikTok Shop: 11.11 oversell, payouts) | `case-study-ecommerce.html` | 8 |
+| Case study: Retail & Ecommerce (five stores + website + marketplaces: click and collect, one customer, one ledger) | `case-study-retail-ecommerce.html` | 9 |
 | Case study: Construction (fit-out contractor: hidden overrun, variations, progress claims) | `case-study-construction.html` | 8 |
 | Case study: Manufacturing (sheet-metal shop: breakdown cascade, routing-based quotes) | `case-study-manufacturing.html` | 8 |
 | Case study: Health & Wellness (studios + spa: prepaid credits owed, rooms) | `case-study-wellness.html` | 8 |

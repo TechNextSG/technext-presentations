@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "36"
+ASSET_V = "37"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -114,6 +114,9 @@ DECKS = [
         dict(slug="case-study-ecommerce", tags="odoo", title="Case study · Ecommerce", mins=15, pdf="TechNext-Case-Study-Ecommerce.pdf",
              alt="Ecommerce case study cover: four shops, one shelf.",
              desc="An industry case study on a composite Singapore skincare brand selling on its website, Shopee, Lazada and TikTok Shop from one warehouse: the 11.11 knot (900 sold against 600 on the shelf, gift sets that hide their components, payouts that never match the bank), one Odoo stock figure played against hand updates, every payout matched to the bank, and a four-phase rollout. Sample data."),
+        dict(slug="case-study-retail-ecommerce", tags="odoo", title="Case study · Retail & Ecommerce", mins=20, pdf="TechNext-Case-Study-Retail-Ecommerce.pdf",
+             alt="Retail and ecommerce case study cover: one customer, every counter.",
+             desc="An industry case study on a composite Singapore homeware brand with five stores, a website and two marketplaces, where one customer moves between every channel and the systems don't: paid online and sold at the till, five seams between two businesses; Point of Sale, eCommerce, Inventory, Accounting and CRM on one database, click and collect from a store's live stock, one customer and loyalty card from till to checkout to a corporate deal, every channel in one set of books, and a four-phase rollout. Sample data."),
         dict(slug="case-study-construction", tags="odoo", title="Case study · Construction", mins=15, pdf="TechNext-Case-Study-Construction.pdf",
              alt="Construction case study cover: every job green, red at handover.",
              desc="An industry case study on a composite Singapore fit-out and M&E contractor running twelve projects: margins green every month and red at handover (variations on WhatsApp, materials on the wrong job, late subcontractor invoices, forgotten retention), one project's costs in one place, a variation from site to signature, a progress claim from percent complete, and a four-phase rollout. Sample data."),

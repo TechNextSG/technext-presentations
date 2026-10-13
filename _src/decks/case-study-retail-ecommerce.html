@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>Case study · Retail &amp; Ecommerce: in store, online, one Odoo · TechNext</title>
+<meta name="description" content="An industry case study for retail and ecommerce together: a composite Singapore homeware brand with five stores, a website and two marketplaces, where one customer moves between every channel and the systems don't. How Odoo 20 runs Point of Sale, eCommerce, Inventory, Accounting and CRM on one database: click and collect from a store's live stock, one customer and loyalty card everywhere, every channel in one set of books, and a phased rollout.">
+{{og:case-study-retail-ecommerce}}
+<link rel="stylesheet" href="assets/case-study.css?v={{v}}">
+<link rel="stylesheet" href="assets/case-study-retail-ecommerce.css?v={{v}}">
+</head>
+<body data-label="Case study · Retail &amp; Ecommerce" data-home="./">
+<main class="deck" aria-label="Case study, retail and ecommerce: in store, online, one Odoo">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="In store, online, one Odoo">
+  <div class="cv-copy fb-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">case study · retail &amp; ecommerce</span>
+    <h1 class="h-xl" data-in style="--d:200ms">One customer, <span class="hl">every counter.</span></h1>
+    <p class="lead" data-in style="--d:320ms">A Singapore homeware brand with five stores, a website and two marketplaces. Its shoppers move between all of them; its systems didn’t. How Odoo 20 runs both businesses as one.</p>
+    <nav class="fb-agenda" data-in style="--d:420ms" aria-label="Parts of this case study">
+      <button type="button" data-go="client"><i>01</i>The problem</button>
+      <button type="button" data-go="arch"><i>02</i>The Odoo answer</button>
+      <button type="button" data-go="rollout"><i>03</i>Rollout</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag">{{icon:bag}}Retail</span><span class="tag">{{icon:cart}}Ecommerce</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="fb-art om-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <svg class="fb-svg" viewBox="0 0 640 700" width="640" height="700">
+      <circle class="fb-orbit" cx="320" cy="350" r="230"></circle>
+      <path class="fb-ln flow" d="M320,120 L320,350"></path>
+      <path class="fb-ln flow" d="M539,279 L320,350"></path>
+      <path class="fb-ln flow" d="M455,536 L320,350"></path>
+      <path class="fb-ln flow" d="M185,536 L320,350"></path>
+      <path class="fb-ln flow" d="M101,279 L320,350"></path>
+      <path class="fb-ln fb-ln--in" d="M120,62 L250,112"></path>
+      <path class="fb-ln fb-ln--in" d="M570,70 L545,255"></path>
+      <path class="fb-ln fb-ln--in" d="M600,660 L470,560"></path>
+    </svg>
+    <div class="fb-core om-core">{{icon:database}}<b>One database</b><small>one product, one customer, one stock, one ledger</small></div>
+    <span class="fb-n" style="left:320px;top:120px;--k:0">{{odoo:point_of_sale:30}}<b>Point of Sale</b></span>
+    <span class="fb-n" style="left:539px;top:279px;--k:1">{{odoo:website_sale:30}}<b>eCommerce</b></span>
+    <span class="fb-n" style="left:455px;top:536px;--k:2">{{odoo:stock:30}}<b>Inventory</b></span>
+    <span class="fb-n" style="left:185px;top:536px;--k:3">{{odoo:account:30}}<b>Accounting</b></span>
+    <span class="fb-n" style="left:101px;top:279px;--k:4">{{odoo:crm:30}}<b>CRM</b></span>
+    <span class="fb-n fb-n--in" style="left:70px;top:50px;--k:5">{{icon:building}}<b>5 stores</b></span>
+    <span class="fb-n fb-n--in" style="left:570px;top:50px;--k:6">{{icon:globe}}<b>Website · SG &amp; MY</b></span>
+    <span class="fb-n fb-n--in" style="left:590px;top:660px;--k:7">{{icon:cart}}<b>Shopee · Lazada</b></span>
+  </div>
+  <p class="illus fb-comp">{{icon:check}}Illustrative composite · sample company and figures</p>
+  <aside class="notes"><p>This is an industry case study, not one named client. Across Asia-Pacific, retail and ecommerce are no longer two businesses: the same shopper checks the website on the train, buys in the store, orders the refill on a marketplace and returns it at the counter. This deck is a composite of what Singapore brands with stores and online shops tell us, built on a sample homeware company we call Harrowmere Living. Every figure is sample data. The picture is the whole argument: five Odoo apps, Point of Sale, eCommerce, Inventory, Accounting and CRM, on one database, with every channel feeding it. Three parts; the agenda buttons jump to each.</p></aside>
+</section>
+
+<!-- 2 · the client: one customer, five records -->
+<section class="slide" id="client" data-title="One customer, five strangers">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>meet the client</span>
+      <h2 class="h-m" data-in style="--d:80ms">One customer, <span class="hl">five strangers.</span></h2>
+    </div>
+    <p class="fb-who" data-in style="--d:160ms"><b>Harrowmere Living</b> <span>sample company · Singapore</span></p>
+  </div>
+  <div class="fb-stats om-stats" data-in style="--d:200ms">
+    <p><b>5</b><span>stores</span></p>
+    <p><b>1</b><span>website, ships to SG &amp; MY</span></p>
+    <p><b>2</b><span>marketplaces</span></p>
+    <p><b>860</b><span>products</span></p>
+    <p class="is-red"><b>6</b><span>systems, none linked</span></p>
+  </div>
+  <div class="om-jr">
+    <div class="om-jr-l" data-in style="--d:260ms">
+      <div class="om-jr-top">
+        <span class="om-jr-cap">{{icon:usercheck}}<span><b>Sample customer</b><small>one month, as she lived it</small></span></span>
+        <div class="seg om-jr-seg" role="group" aria-label="Whose view">
+          <button type="button" data-v="her" aria-pressed="true">{{icon:smile}}Her month</button>
+          <button type="button" data-v="sys" aria-pressed="false">{{icon:grid}}Your systems</button>
+        </div>
+      </div>
+      <ol class="om-tp" data-i>
+        <li><button type="button" data-k="0" data-s="web"><i>Day 1</i><b>Browses the website</b><small>saves the dinner set</small><em>Web shop</em></button></li>
+        <li><button type="button" data-k="1" data-s="pos"><i>Day 3</i><b>Buys it in Katong</b><small>S$128 at the till</small><em>Store till</em></button></li>
+        <li><button type="button" data-k="2" data-s="loy"><i>Day 3</i><b>Earns points</b><small>shows the app at the counter</small><em>Loyalty app</em></button></li>
+        <li><button type="button" data-k="3" data-s="web"><i>Day 9</i><b>Orders 4 mugs online</b><small>can’t use her points</small><em>Web shop</em></button></li>
+        <li><button type="button" data-k="4" data-s="mkt"><i>Day 18</i><b>11.11 on Shopee</b><small>a second set, as a gift</small><em>Seller centre</em></button></li>
+        <li><button type="button" data-k="5" data-s="pos"><i>Day 22</i><b>Returns a mug in Bishan</b><small>bought online</small><em>Till · cash slip</em></button></li>
+        <li><button type="button" data-k="6" data-s="xl"><i>Day 26</i><b>Asks for 40 sets</b><small>corporate gifts, by email</small><em>Someone’s inbox</em></button></li>
+      </ol>
+    </div>
+    <div class="om-jr-r" data-in data-fx="right" style="--d:320ms" aria-live="polite">
+      <span class="om-jr-h">Who the business thinks she is</span>
+      <div class="om-rec">
+        <p data-s="web"><i></i><span>Web shop<small>a guest, then an account</small></span></p>
+        <p data-s="pos"><i></i><span>Store tills<small>no customer on the sale</small></span></p>
+        <p data-s="loy"><i></i><span>Loyalty app<small>a phone number</small></span></p>
+        <p data-s="mkt"><i></i><span>Shopee<small>a masked buyer name</small></span></p>
+        <p data-s="xl"><i></i><span>Email + Excel<small>a lead, if someone logs it</small></span></p>
+      </div>
+      <p class="om-jr-say"><b class="om-jr-t">Click a moment</b><span class="om-jr-d">Seven moments, one person. Switch to Your systems to see who each system thinks she is.</span></p>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative composite · sample data</p>
+  <aside class="notes"><p>Harrowmere is a sample, but the shape is common: five stores, a website that ships to Singapore and Malaysia, Shopee and Lazada, around 860 products and one warehouse. Click through one customer’s month. She browses online, buys in Katong, earns points in the store app, orders mugs online where her points don’t work, buys a gift on Shopee during 11.11, returns an online mug in Bishan, and then asks for 40 sets for her company by email. Now switch to Your systems. The business sees five strangers: a web account, two till sales with no customer on them, a phone number in the loyalty app, a masked Shopee buyer and an email nobody logged. Her best moment, the corporate order, is the one most likely to be lost. That is the problem in one line: the customer is omnichannel, the business is not.</p></aside>
+</section>
+
+<!-- 3 · the knot: click and collect, sold twice -->
+<section class="slide" id="knot" data-steps="5" data-title="Paid online, sold at the till">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the complicated part</span>
+      <h2 class="h-m" data-in style="--d:80ms">Paid online, <span class="hl">sold at the till.</span></h2>
+    </div>
+    <p class="hint om-kn-hint" data-in style="--d:160ms"><kbd>→</kbd> plays one Saturday in Katong</p>
+  </div>
+  <div class="om-kn" data-k="0">
+    <div class="om-kn-web om-card" data-in style="--d:200ms">
+      <span class="om-card-h">{{icon:globe}}Website says</span>
+      <p class="om-kn-p"><b>Kiln stoneware dinner set</b><small>16 pieces · S$128.00</small></p>
+      <p class="om-kn-av"><span>Katong · in stock</span><b class="om-kn-wq">2</b></p>
+      <p class="om-kn-src">from last night’s stock file, <b>23:00 Friday</b></p>
+      <ul class="om-kn-ord">
+        <li data-on="1"><b>WEB-4471</b><span>collect in Katong · paid</span></li>
+        <li data-on="3"><b>WEB-4486</b><span>collect in Katong · paid</span></li>
+      </ul>
+    </div>
+    <div class="om-kn-sh" data-in style="--d:240ms">
+      <span class="om-card-h">{{icon:box}}Katong shelf</span>
+      <div class="om-sets"><i></i><i></i></div>
+      <b class="om-kn-sq">2</b>
+      <small>really there</small>
+    </div>
+    <div class="om-kn-pos om-card" data-in style="--d:280ms">
+      <span class="om-card-h">{{icon:receipt}}Katong till says</span>
+      <p class="om-kn-av"><span>Dinner set · on hand</span><b class="om-kn-pq">?</b></p>
+      <p class="om-kn-src">the till sells, it doesn’t count</p>
+      <ul class="om-kn-ord">
+        <li data-on="2"><b>KAT-0912</b><span>walk-in · 2 sets · a wedding gift</span></li>
+        <li data-on="5"><b>BSH-cash</b><span>Bishan · S$18 refunded from the drawer</span></li>
+      </ul>
+    </div>
+    <div class="om-kn-ct" data-in data-fx="right" style="--d:320ms">
+      <p class="is-red"><span>Paid, nothing to collect</span><b class="om-c1">0</b><small>customers</small></p>
+      <p class="is-amb"><span>Refunded by hand</span><b class="om-c2">S$0.00</b><small>outside the books</small></p>
+      <p><span>Systems that saw it all</span><b>0</b><small>of six</small></p>
+    </div>
+    <ol class="om-kn-tl">
+      <li><button type="button" data-n="1"><i>10:04</i>Collect order</button></li>
+      <li><button type="button" data-n="2"><i>11:40</i>Till sells 2</button></li>
+      <li><button type="button" data-n="3"><i>14:15</i>Second order</button></li>
+      <li><button type="button" data-n="4"><i>17:30</i>Empty shelf</button></li>
+      <li><button type="button" data-n="5"><i>Day 4</i>The return</button></li>
+    </ol>
+    <p class="om-kn-say"><span class="om-kn-x">Saturday, 09:00. The website, the shelf and the till each have their own idea of Katong’s stock.</span></p>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Sample figures</p>
+  <aside class="notes"><p>Walk the Saturday with the arrow. The website reads a stock file uploaded at 11 pm on Friday: Katong has two dinner sets. At 10:04 a customer pays online to collect in Katong. The till doesn’t know: website orders live in the web shop. At 11:40 a walk-in buys both sets as a wedding gift. The website still says one is left, so at 14:15 a second customer pays for it. At 17:30 the first customer arrives to an empty shelf; the store refunds both by hand and apologises. Four days later she returns an online mug in Bishan, and the till pays S$18 out of the drawer on a slip. Nobody was careless. Each system was right about its own channel, and none of them saw the other. Sample figures.</p></aside>
+</section>
+
+<!-- 4 · five seams -->
+<section class="slide" id="seams" data-title="Five seams between two businesses">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>why it is hard</span>
+      <h2 class="h-m" data-in style="--d:80ms">Five seams <span class="hl">between two businesses.</span></h2>
+    </div>
+    <div class="seg om-sm-seg" data-in style="--d:160ms" role="group" aria-label="How it runs">
+      <button type="button" data-v="two" aria-pressed="true">{{icon:x}}Store + web, separate</button>
+      <button type="button" data-v="one" aria-pressed="false">{{icon:layers}}One Odoo</button>
+    </div>
+  </div>
+  <div class="om-sm" data-mode="two">
+    <div class="om-sc" data-in style="--d:200ms">
+      <span class="om-sc-i">{{icon:box}}</span><h3>Stock</h3>
+      <p class="om-sc-b">The website reads a nightly file. A store can sell what the web just promised.</p>
+      <p class="om-sc-o">{{odoo:stock:26}}<span>Every store’s stock, live, on the product page.</span></p>
+      <em class="om-sc-w"><span>Fixed today by</span>store manager, on the phone</em>
+    </div>
+    <div class="om-sc" data-in style="--d:260ms">
+      <span class="om-sc-i">{{icon:heart}}</span><h3>Customer</h3>
+      <p class="om-sc-b">Points in the store app, vouchers on the website. Two programmes, two balances.</p>
+      <p class="om-sc-o">{{odoo:crm:26}}<span>One contact and one loyalty card, in store and online.</span></p>
+      <em class="om-sc-w"><span>Fixed today by</span>a customer who gives up</em>
+    </div>
+    <div class="om-sc" data-in style="--d:320ms">
+      <span class="om-sc-i">{{icon:receipt}}</span><h3>Price</h3>
+      <p class="om-sc-b">20% off online this weekend; full price on the rail. The store is asked to match.</p>
+      <p class="om-sc-o">{{odoo:point_of_sale:26}}<span>One promotion, dated, on the till and the site.</span></p>
+      <em class="om-sc-w"><span>Fixed today by</span>a cashier’s override</em>
+    </div>
+    <div class="om-sc" data-in style="--d:380ms">
+      <span class="om-sc-i">{{icon:refresh}}</span><h3>Returns</h3>
+      <p class="om-sc-b">Online orders come back to stores. The till can’t find them, so the drawer pays.</p>
+      <p class="om-sc-o">{{odoo:website_sale:26}}<span>The store finds the web order and books the return.</span></p>
+      <em class="om-sc-w"><span>Fixed today by</span>finance, at month-end</em>
+    </div>
+    <div class="om-sc" data-in style="--d:440ms">
+      <span class="om-sc-i">{{icon:bank}}</span><h3>Money</h3>
+      <p class="om-sc-b">Till reports, payment-gateway payouts, marketplace statements: three ledgers.</p>
+      <p class="om-sc-o">{{odoo:account:26}}<span>Every session, payment and payout in one set of books.</span></p>
+      <em class="om-sc-w"><span>Fixed today by</span>a bookkeeper, monthly</em>
+    </div>
+  </div>
+  <p class="om-sm-say" data-in style="--d:500ms"><span class="om-sm-b">Each seam has an owner who patches it by hand. None of them can fix the next seam, because it lives in someone else’s system.</span><span class="om-sm-o">One product, one customer, one stock figure and one ledger: the seams disappear because there is <b>nothing to join</b>.</span></p>
+  <aside class="notes"><p>Why don’t they just connect the systems? Because there are five seams, not one, and each is patched by a different person. Stock: the website reads a nightly file, so a store can sell what the web just promised. Customer: points in the store app and vouchers online. Price: an online promotion the store is then asked to match. Returns: online orders come back to stores, where the till can’t find them. Money: till reports, gateway payouts and marketplace statements in three places. Switch to One Odoo. Each seam closes for the same reason: the store and the website are two front doors on one database, so there is nothing to sync. That is the selling point of Odoo for this kind of business: Point of Sale, eCommerce, Inventory, Accounting and CRM are one system, not five integrations.</p></aside>
+</section>
+
+<!-- 5 · the answer: five apps, one database -->
+<section class="slide" id="arch" data-title="Five apps, one database">
+  <div class="sec-head">
+    <span class="kicker" data-in>the odoo answer</span>
+    <h2 class="h-m" data-in style="--d:80ms">Five apps, <span class="hl">one database.</span></h2>
+  </div>
+  <div class="om-ar">
+    <ul class="om-ch" data-in style="--d:160ms">
+      <li>{{icon:building}}<span><b>5 stores</b><small>one till each</small></span></li>
+      <li>{{icon:globe}}<span><b>Website</b><small>SG &amp; MY delivery, click &amp; collect</small></span></li>
+      <li>{{icon:cart}}<span><b>Shopee · Lazada</b><small>Odoo connectors</small></span></li>
+      <li>{{icon:users}}<span><b>Corporate buyers</b><small>gifting, bulk orders</small></span></li>
+    </ul>
+    <div class="om-hub" data-i>
+      <svg class="om-hub-svg" viewBox="0 0 560 520" width="560" height="520" aria-hidden="true">
+        <circle class="fb-orbit" cx="280" cy="260" r="190"></circle>
+        <path class="om-sp flow" data-k="pos" d="M280,70 L280,260"></path>
+        <path class="om-sp flow" data-k="web" d="M461,201 L280,260"></path>
+        <path class="om-sp flow" data-k="inv" d="M392,414 L280,260"></path>
+        <path class="om-sp flow" data-k="acc" d="M168,414 L280,260"></path>
+        <path class="om-sp flow" data-k="crm" d="M99,201 L280,260"></path>
+      </svg>
+      <div class="om-hub-c">{{icon:database}}<b>One database</b><small>product · customer · stock · ledger</small></div>
+      <button type="button" class="om-ap" style="left:212px;top:20px" data-k="pos" data-in data-fx="scale">{{odoo:point_of_sale:44}}<b>Point of Sale</b></button>
+      <button type="button" class="om-ap" style="left:393px;top:151px" data-k="web" data-in data-fx="scale">{{odoo:website_sale:44}}<b>eCommerce</b></button>
+      <button type="button" class="om-ap" style="left:324px;top:364px" data-k="inv" data-in data-fx="scale">{{odoo:stock:44}}<b>Inventory</b></button>
+      <button type="button" class="om-ap" style="left:100px;top:364px" data-k="acc" data-in data-fx="scale">{{odoo:account:44}}<b>Accounting</b></button>
+      <button type="button" class="om-ap" style="left:31px;top:151px" data-k="crm" data-in data-fx="scale">{{odoo:crm:44}}<b>CRM</b></button>
+    </div>
+    <div class="fb-ap om-ap-p" data-in data-fx="right" style="--d:300ms" aria-live="polite">
+      <span class="fb-ap-h"><span class="fb-ap-i"></span><span class="fb-ap-place">Click an app</span></span>
+      <h3 class="h-s fb-ap-t">Five standard apps.</h3>
+      <p class="fb-ap-d">Each one reads and writes the same products, customers, stock and books. Click an app to see its part.</p>
+      <p class="om-ap-seam"><span>Closes the seam</span><b class="om-ap-s">All five</b></p>
+      <div class="fb-ap-fix"><span>Replaces</span><b class="fb-ap-r">Six systems and a nightly stock file</b></div>
+    </div>
+  </div>
+  <p class="om-ar-sup" data-in style="--d:420ms"><span>Also on the same database</span>{{odoo:sale:22}}Sales{{odoo:purchase:22}}Purchase{{odoo:mass_mailing:22}}Email Marketing{{odoo:spreadsheet_dashboard:22}}Dashboards</p>
+  <aside class="notes"><p>This is Odoo’s strongest argument for a business that is both retail and ecommerce: the five apps it needs are one product on one database. Click each. Point of Sale runs a till per store on the same product list and prices, and can load website orders for collection. eCommerce sells the stores’ stock, with click and collect from the store that has it. Inventory keeps one stock figure per product per place: the warehouse and each store. Accounting receives every till session, every online payment and every marketplace payout. CRM keeps the one customer, and turns a corporate enquiry into a pipeline. Sales, Purchase, Email Marketing and Dashboards sit on the same data. Honest notes: the Shopee and Lazada connectors are Odoo Enterprise features and sync on a schedule, not instantly; we confirm each marketplace in discovery.</p></aside>
+</section>
+
+<!-- 6 · workflow 1: click and collect -->
+<section class="slide" id="w1" data-steps="5" data-title="Reserved online, held in Katong">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 1 · the stock</span>
+      <h2 class="h-m" data-in style="--d:80ms">Reserved online, <span class="hl">held in Katong.</span></h2>
+    </div>
+    <ol class="om-st" data-in style="--d:160ms">
+      <li><button type="button" data-n="1"><i>1</i>Browse</button></li>
+      <li><button type="button" data-n="2"><i>2</i>Order</button></li>
+      <li><button type="button" data-n="3"><i>3</i>Put aside</button></li>
+      <li><button type="button" data-n="4"><i>4</i>Till sale</button></li>
+      <li><button type="button" data-n="5"><i>5</i>Collect</button></li>
+    </ol>
+  </div>
+  <div class="om-w1" data-k="0">
+    <div class="om-ph" data-in style="--d:200ms">
+      <div class="om-ph-bar"><span>harrowmere.sg</span></div>
+      <div class="om-ph-b">
+        <div class="om-ph-img"><i></i><i></i><i></i></div>
+        <p class="om-ph-t"><b>Kiln stoneware dinner set</b><span>16 pieces · S$128.00</span></p>
+        <p class="om-ph-m">{{icon:pin}}<span>Pick up in store</span></p>
+        <ul class="om-loc">
+          <li data-l="kat"><span>Katong</span><b>2</b></li>
+          <li data-l="bsh"><span>Bishan</span><b>3</b></li>
+          <li data-l="tbr"><span>Tiong Bahru</span><b>1</b></li>
+        </ul>
+        <p class="om-ph-cta" data-t="0:Choose a store|2:Ordered · Pay on Site · Katong|4:Katong out of stock · try Bishan|5:Collected · thank you">Choose a store</p>
+      </div>
+    </div>
+    <div class="om-iw win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url" data-t="0:Harrowmere · Inventory · Katong|5:Harrowmere · Point of Sale · Katong">Harrowmere · Inventory · Katong</span></div>
+      <div class="om-iw-b">
+        <p class="om-iw-p">{{odoo:stock:28}}<span><b>Kiln stoneware dinner set</b><small>HM-KLN-16 · Katong store warehouse</small></span></p>
+        <div class="om-iw-k">
+          <p><span>On the sales floor</span><b data-t="0:2|3:1|4:0|5:0">2</b></p>
+          <p><span>Forecasted</span><b data-t="0:2|2:1|4:0|5:0">2</b></p>
+          <p class="is-hold"><span>On the collect shelf</span><b data-t="0:0|3:1|5:0">0</b></p>
+        </div>
+        <ul class="fb-docs om-docs">
+          <li data-on="2">{{odoo:website_sale:22}}<span><b>S10482 · website · Click &amp; Collect</b><small>Pick up in store: Katong · Pay on Site</small></span><em data-t="0:—|2:Confirmed|5:Paid">—</em></li>
+          <li data-on="2">{{odoo:stock:22}}<span><b>KAT/PICK/00031</b><small>from the floor to the collect shelf</small></span><em data-t="0:—|2:Ready|3:Done">—</em></li>
+          <li data-on="4">{{odoo:point_of_sale:22}}<span><b>Katong/0917 · walk-in</b><small>the last set on the floor</small></span><em data-t="0:—|4:Paid">—</em></li>
+          <li data-on="5">{{odoo:stock:22}}<span><b>KAT/OUT/00031</b><small>handed over at the counter</small></span><em data-t="0:—|5:Done">—</em></li>
+        </ul>
+        <p class="om-iw-say"><b data-t="0:10:00|1:10:02|2:10:04|3:10:20|4:11:40|5:17:30">10:00</b><span data-t="0:Katong holds 2 sets. The website reads this figure, not a file.|1:The product page shows each store’s stock, live.|2:The order reserves one set in Katong. The website now offers 1.|3:Staff get the pick on the store tablet and move the set to the collect shelf.|4:A walk-in buys the other one. The website stops offering Katong.|5:The till loads S10482, takes payment, the set goes home. Points land on her card.">Katong holds 2 sets. The website reads this figure, not a file.</span></p>
+      </div>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative · sample data</p>
+  <aside class="notes"><p>Same Saturday, same shoppers, on one database. Step through. One: the product page shows each store’s stock, because Click and Collect with Show Available Qty reads the stores’ warehouses directly. Two: she chooses Katong and Pay on Site, which Odoo turns on with Click and Collect. The order reserves one set. Three: Katong’s staff get the pick and move the set from the floor to a collect shelf, so it can’t be sold again. Four: a walk-in buys the other set at the till; the website stops offering Katong and suggests Bishan, because a customer can’t pick a store that is out of stock. Five: at 17:30 the cashier opens Quotations/Orders in Point of Sale, loads S10482 and settles it; she pays, earns points on the same card, and the delivery is done. Honest notes: the two-step pick to a collect shelf is a route we configure per store; online pre-payment works too, and Pay on Site is the default Odoo switches on. We confirm the settle flow on the client’s Odoo version in discovery.</p></aside>
+</section>
+
+<!-- 7 · workflow 2: one customer -->
+<section class="slide" id="w2" data-steps="4" data-title="Earned in Katong, spent online, sold to her company">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 2 · the customer</span>
+      <h2 class="h-m" data-in style="--d:80ms">Earned in Katong, spent online, <span class="hl">sold to her company.</span></h2>
+    </div>
+  </div>
+  <div class="om-w2" data-k="0">
+    <div class="om-ct" data-in style="--d:200ms">
+      <div class="om-ct-h">
+        <span class="om-av">{{icon:usercheck}}</span>
+        <span><b>Sample customer · member</b><small>Contacts · one record for every channel</small></span>
+      </div>
+      <div class="om-sb">
+        <p data-on="1"><b data-t="0:0|1:1">0</b><span>PoS orders</span></p>
+        <p data-on="2"><b data-t="0:0|2:1|4:2">0</b><span>Sales</span></p>
+        <p data-on="1"><b data-t="0:152|1:280|2:142">152</b><span>Loyalty points</span></p>
+        <p data-on="3"><b data-t="0:0|3:1">0</b><span>Opportunities</span></p>
+      </div>
+      <ol class="om-tl2">
+        <li data-on="1">{{odoo:point_of_sale:22}}<span><b>Katong till · dinner set</b><small>customer set at the till · +128 points</small></span><em>S$128.00</em></li>
+        <li data-on="2">{{odoo:website_sale:22}}<span><b>Website · 4 mugs</b><small>200 points = S$10 off at checkout · +62 points</small></span><em>S$62.00</em></li>
+        <li data-on="3">{{odoo:crm:22}}<span><b>Website form · corporate gifts</b><small>a lead, with her history attached</small></span><em>Lead</em></li>
+        <li data-on="4">{{odoo:sale:22}}<span><b>Quotation from the opportunity</b><small>40 dinner sets · corporate pricelist</small></span><em>Won</em></li>
+      </ol>
+    </div>
+    <div class="om-pl win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Harrowmere · CRM · Corporate gifting</span></div>
+      <div class="om-pl-b">
+        <div class="om-col"><span>New</span><i></i><i></i></div>
+        <div class="om-col"><span>Qualified</span><i></i></div>
+        <div class="om-col"><span>Proposition</span><i></i><i></i></div>
+        <div class="om-col"><span>Won</span><i></i></div>
+        <div class="om-op">
+          <b>40 dinner sets · staff gifts</b>
+          <small>Sample company · her employer</small>
+          <span class="om-op-v" data-t="0:S$0.00|3:S$5,120.00|4:S$4,480.00">S$0.00</span>
+          <span class="om-op-s">{{icon:star}}<em data-t="0:—|3:Repeat customer, 2 channels|4:12.5% corporate pricelist">—</em></span>
+        </div>
+        <p class="om-pl-o"><i></i>Other opportunities in the pipeline, sample</p>
+      </div>
+    </div>
+    <ol class="om-w2-steps">
+      <li data-step="1"><i>1</i><span><b>Katong, day 3</b>The cashier sets the customer. +128 points on one card.</span></li>
+      <li data-step="2"><i>2</i><span><b>Website, day 9</b>Same card at checkout: 200 points off the mugs.</span></li>
+      <li data-step="3"><i>3</i><span><b>Website form, day 26</b>Her enquiry lands in CRM as a lead.</span></li>
+      <li data-step="4"><i>4</i><span><b>Won, day 31</b>The quotation goes out from the opportunity.</span></li>
+    </ol>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative · sample customer, programme and pricing</p>
+  <aside class="notes"><p>Follow the same customer through the arrow. Day 3 in Katong: the cashier sets her on the order and she earns 128 points on a loyalty card. Day 9 online: the same card works at checkout, because the Discount and Loyalty programme is available on both the Website and Point of Sale; 200 points take S$10 off. Day 26: she fills in the website’s corporate-gifts form and it creates a lead in CRM, on the same contact, so the salesperson sees she has bought in store and online. Day 31: the quotation for 40 sets goes out from the opportunity on a corporate pricelist and is won. Her contact shows PoS orders, Sales, Loyalty Cards and Opportunities as smart buttons. Email Marketing can then reach customers who opted in, by what they bought in any channel. Points rule, pricelist and figures are samples; marketplace buyers stay with the marketplace and are not on this list.</p></aside>
+</section>
+
+<!-- 8 · workflow 3: one set of books -->
+<section class="slide" id="w3" data-steps="4" data-title="Every channel closes into one set of books">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>workflow 3 · the money</span>
+      <h2 class="h-m" data-in style="--d:80ms">Every channel closes <span class="hl">into one set of books.</span></h2>
+    </div>
+    <p class="hint om-w3-hint" data-in style="--d:160ms"><kbd>→</kbd> closes a Saturday</p>
+  </div>
+  <div class="om-w3" data-k="0">
+    <div class="om-cl" data-in style="--d:200ms">
+      <span class="om-cl-h">Saturday 14 Nov · takings by channel</span>
+      <ul>
+        <li data-on="1">{{odoo:point_of_sale:26}}<span><b>5 store sessions closed</b><small>cash, card, PayNow · one entry per store</small></span><em>S$18,420.00</em><i class="om-chk">{{icon:check}}</i></li>
+        <li data-on="2">{{odoo:website_sale:26}}<span><b>Website payments</b><small>matched to the provider’s payout</small></span><em>S$6,380.00</em><i class="om-chk">{{icon:check}}</i></li>
+        <li data-on="3">{{icon:cart}}<span><b>Shopee · Lazada</b><small>settlement report into a clearing account</small></span><em>S$5,390.00</em><i class="om-chk">{{icon:check}}</i></li>
+      </ul>
+      <p class="om-cl-tot"><span>In Accounting, by channel</span><b class="om-cl-n">S$0.00</b></p>
+      <p class="om-cl-say" data-t="0:Three ledgers today: Z-reports, the gateway, two seller centres.|1:Closing a session posts its sales and payments, per store.|2:Online payments land in the same books and are matched to the payout.|3:Marketplace fees and refunds go on their own lines, then to the bank.|4:One report shows what each channel really earns.">Three ledgers today: Z-reports, the gateway, two seller centres.</p>
+    </div>
+    <div class="om-mg" data-in data-fx="right" style="--d:260ms">
+      <div class="om-mg-h"><span>Kiln dinner set · what one sale keeps, by channel</span><small>price S$128.00 · cost S$46.00 · before rent and staff</small></div>
+      <div class="om-bars">
+        <p data-c="store"><span>Store till</span><i><b></b></i><em>—</em></p>
+        <p data-c="cc"><span>Click &amp; collect</span><i><b></b></i><em>—</em></p>
+        <p data-c="web"><span>Website, delivered</span><i><b></b></i><em>—</em></p>
+        <p data-c="mkt"><span>Marketplace</span><i><b></b></i><em>—</em></p>
+      </div>
+      <label class="fb-sl om-sl"><span>Marketplace commission and fees <b class="om-fee">18%</b></span><input type="range" class="om-fee-r" data-drag min="8" max="30" step="1" value="18" aria-label="Marketplace commission and fees"></label>
+      <p class="om-mg-say">Visible only once all four close <b>into one ledger</b>, on the same product cost.</p>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative · sample takings and fees, not any provider’s actual rates</p>
+  <aside class="notes"><p>Step through the close of the same Saturday. One: each store closes its Point of Sale session, and closing posts that store’s sales and payments to Accounting by payment method: cash, card, PayNow. Two: website payments go through an online payment provider and are matched to its payout in Bank Matching. Three: Shopee and Lazada payouts are imported from their settlement reports into a clearing account per marketplace, with commission, fees and refunds on their own lines. Four: because all of it sits on the same product cost, Harrowmere can finally see what one dinner set keeps in each channel. Drag the marketplace fee: at 18 percent plus a seller voucher the marketplace sale keeps much less than click and collect, which is why stores that ship and collect matter. Every rate here is a sample, not any provider’s or marketplace’s actual fee; bank sync depends on the bank being on Odoo’s list, otherwise statements are imported; the GST treatment is confirmed with the client’s accountant.</p></aside>
+</section>
+
+<!-- 9 · rollout, what changes, next step -->
+<section class="slide" id="rollout" data-title="Four phases, one stock from day one">
+  <div class="sec-head">
+    <span class="kicker" data-in>how we rolled it out</span>
+    <h2 class="h-m" data-in style="--d:80ms">Four phases, <span class="hl">one stock from day one.</span></h2>
+  </div>
+  <div class="fb-ro">
+    <ol class="fb-ph" data-in style="--d:180ms" data-i>
+      <li><button type="button" data-k="0" class="is-on"><i>1</i><span><b>One product list, one stock</b><small>Inventory · Purchase · Accounting</small></span></button></li>
+      <li><button type="button" data-k="1"><i>2</i><span><b>Stores on Point of Sale</b><small>pilot store, then four · loyalty</small></span></button></li>
+      <li><button type="button" data-k="2"><i>3</i><span><b>The website on the same stock</b><small>eCommerce · Click &amp; Collect</small></span></button></li>
+      <li><button type="button" data-k="3"><i>4</i><span><b>Customers and marketplaces</b><small>CRM · Email Marketing · connectors</small></span></button></li>
+    </ol>
+    <div class="fb-pd" data-in data-fx="right" style="--d:240ms" aria-live="polite">
+      <p class="fb-pd-w"><span>We do</span><b class="fb-pd-do">Load the 860 products with barcodes, set up the warehouse and five store warehouses, count once, and connect purchasing and the bank to the books.</b></p>
+      <ul class="fb-ba">
+        <li><span class="fb-b">A nightly stock file</span>{{icon:arrow}}<b class="fb-a">One stock figure per store</b></li>
+        <li><span class="fb-b">Six product lists</span>{{icon:arrow}}<b class="fb-a">One product, one barcode</b></li>
+      </ul>
+    </div>
+    <div class="fb-cta" data-in data-fx="scale" style="--d:320ms">
+      <div class="fb-qr">{{qr:meet}}</div>
+      <b>Stores and online?</b>
+      <small>30-minute discovery call · online</small>
+      <a href="https://wa.me/6588396998" target="_blank" rel="noopener">{{icon:whatsapp}}+65 8839 6998</a>
+      <a href="mailto:sales@technext.asia">{{icon:mail}}sales@technext.asia</a>
+    </div>
+  </div>
+  <p class="illus fb-ill">{{icon:check}}Illustrative composite · no client figures</p>
+  <aside class="notes"><p>The order matters. First one product list and one stock: every product with a barcode, the warehouse and each store as its own warehouse, because the tills, the website and the books all read them. Then the stores on Point of Sale, one pilot store first, then the other four together with the loyalty card and the import of members’ balances. Then the website, moved onto the same stock with Click and Collect, so it sells what the stores really hold. Last, CRM, Email Marketing and the marketplace connectors, one marketplace at a time and never during a mega-sale. Click each phase to see what changes. No weeks on this slide: it depends on how clean the product data is and on the current web shop, which we see in the discovery call. Close on the QR.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/case-study-retail-ecommerce.js?v={{v}}"></script>
+</body>
+</html>
