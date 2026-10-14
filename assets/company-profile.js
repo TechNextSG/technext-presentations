@@ -5,6 +5,18 @@
   var APP = {};
   (window.APPS || []).forEach(function (c) { c.apps.forEach(function (a) { APP[a.m] = a; }); });
   function idx(s) { return Deck.slides.indexOf(s); }
+  // motion kit (motion.js): uneven 1-3 frame onsets for siblings; without it, everything simply arrives together
+  function cascade(els, base) { (window.Mx ? Mx.cascade(els, base) : els.map(function () { return base; })).forEach(function (t, i) { els[i].style.setProperty('--od', t + 'ms'); }); }
+  // swap the visible panel: the new one pushes in from the side of travel (dir 1 forward, -1 back), the old one is thrown out
+  function swap(list, k, dir, host) {
+    host.style.setProperty('--dir', dir);
+    list.forEach(function (el, j) {
+      if (j === k) {
+        if (!el.classList.contains('is-on')) { el.style.transition = 'none'; el.classList.remove('is-out'); void el.offsetWidth; el.style.transition = ''; }
+        el.classList.add('is-on');
+      } else if (el.classList.contains('is-on')) { el.classList.remove('is-on'); el.classList.add('is-out'); }
+    });
+  }
 
   /* ---------------------------------------------------------------- 1 · cover: two orbits, a plane leaving a trail */
   function coverOrbits(s) {
@@ -16,6 +28,7 @@
   Deck.on('cover', {
     init: function (s) {
       var o = coverOrbits(s); o[0](0); o[1](0);
+      cascade($$('[data-orbit=inner] .orb', s), 560); cascade($$('[data-orbit=outer] .orb', s), 700);
       $('.cv-plane', s).setAttribute('d', FX.PLANE);
       FX.along($('#cvPath', s), $('.cv-plane', s), .62, false, 1.35);
       $('.cv-trail-m', s).style.strokeDashoffset = .38;
@@ -52,18 +65,19 @@
       $$('.pips i, .stat-ics .ic', s).forEach(function (x) { x.classList.add('is-on'); });
     },
     enter: function (ctx, s) {
-      $$('[data-count]', s).forEach(function (el, i) {
-        el.textContent = '0';
-        ctx.after(420 + i * 110, function () { ctx.count(el, +el.dataset.count, { dur: 1300 }); });
+      // each counter starts as its card lands and steps on every frame; the pips (or the four AI icons) light
+      // as the number passes them, so the count and its picture are one move (softLand, 0.9 s)
+      $$('.stat', s).forEach(function (card, i) {
+        var el = $('[data-count]', card), to = +el.dataset.count, marks = $$('.pips i, .stat-ics .ic', card);
+        el.textContent = '0'; marks.forEach(function (x) { x.classList.remove('is-on'); });
+        ctx.after(340 + i * 70, function () {
+          ctx.tween(to > 4 ? 900 : 640, function (e) {
+            var v = e >= 1 ? to : Math.floor(to * e);
+            el.textContent = v;
+            marks.forEach(function (x, k) { x.classList.toggle('is-on', k < Math.ceil(marks.length * v / to)); });
+          }, Deck.ease.softLand ? 'softLand' : 'out');
+        });
       });
-      $$('.pips', s).forEach(function (p, i) {
-        var pis = [].slice.call(p.children), n = pis.length;
-        pis.forEach(function (x) { x.classList.remove('is-on'); });
-        pis.forEach(function (x, k) { ctx.after(480 + i * 110 + k * (1250 / n), function () { x.classList.add('is-on'); }); });
-      });
-      var ics = $$('.stat-ics .ic', s);
-      ics.forEach(function (x) { x.classList.remove('is-on'); });
-      ics.forEach(function (x, k) { ctx.after(900 + k * 240, function () { x.classList.add('is-on'); }); });
     }
   });
 
@@ -100,14 +114,25 @@
     },
     step: function (n, ctx, s) {
       var sel = OFF[n];
+      ofCamera(s, sel);
       $$('.of-pin', s).forEach(function (p) { p.classList.toggle('is-sel', p.dataset.o === sel); p.classList.toggle('is-dim', !!sel && p.dataset.o !== sel); });
       s._links.forEach(function (l) {
         l.dim = !!sel && l.a !== sel && l.b !== sel;
         l.base.classList.toggle('is-dim', l.dim); l.flow.classList.toggle('is-dim', l.dim);
       });
-    }
+    },
+    // print and the overview: the whole map, no camera
+    settle: function (s) { ofCamera(s, null); }
   });
 
+  // the camera: push in 10% on the chosen office and drift it a fifth of the way toward the map's centre
+  function ofCamera(s, sel) {
+    var map = $('.of-map', s), pin = sel && $('.of-pin[data-o=' + sel + ']', s);
+    if (!pin || !window.Mx) { map.style.scale = ''; map.style.translate = ''; return; }
+    var xy = pin.dataset.xy.split(',').map(Number), k = 1.1;
+    var tx = xy[0] * (1 - k) + (430 - xy[0]) * .2, ty = xy[1] * (1 - k) + (370 - xy[1]) * .2;
+    map.style.scale = k; map.style.translate = tx.toFixed(1) + 'px ' + ty.toFixed(1) + 'px';
+  }
   /* ---------------------------------------------------------------- 5 · partner: two rings of apps, tooltips */
   function ptOrbits(s) {
     return [
@@ -116,7 +141,7 @@
     ];
   }
   Deck.on('partner', {
-    init: function (s) { var o = ptOrbits(s); o[0](0); o[1](0); },
+    init: function (s) { var o = ptOrbits(s); o[0](0); o[1](0); cascade($$('[data-orbit=in] .pt-orb', s), 420); cascade($$('[data-orbit=out] .pt-orb', s), 540); },
     enter: function (ctx, s) {
       var o = ptOrbits(s), wrap = $('.pt-orbit', s), tip = $('.pt-tip', s), t = 0, last = 0, hold = null;
       ctx.frame(function (el, now) {
@@ -157,16 +182,16 @@
     },
     step: function (n, ctx, s, first) {
       var from = s._p, to = s._f[n];
-      enPaint(s, n);
+      enPaint(s, n, to < from ? -1 : 1);
       if (first && from === to) { enAt(s, to); return; }
-      ctx.tween(first ? 900 : 1100, function (e) { enAt(s, from + (to - from) * e); }, 'io');
+      ctx.tween(first ? 760 : 880, function (e) { enAt(s, from + (to - from) * e); }, Deck.ease.softInOut ? 'softInOut' : 'io');
     },
     // print and the overview: the last step, with the plane arrived
     settle: function (s) { var n = s._f.length - 1; enPaint(s, n); enAt(s, s._f[n]); }
   });
-  function enPaint(s, n) {
+  function enPaint(s, n, dir) {
     $$('.en-node', s).forEach(function (el, k) { el.classList.toggle('is-past', k < n); el.classList.toggle('is-cur', k === n); });
-    $$('.en-card', s).forEach(function (el, k) { el.classList.toggle('is-on', k === n); });
+    swap($$('.en-card', s), n, dir || 1, $('.en-cards', s));
     $$('.en-offs span', s).forEach(function (el) { el.classList.toggle('is-on', WHO[n].indexOf(el.dataset.o) >= 0); });
     $('[data-who]', s).textContent = WHO_S[n];
   }
@@ -192,7 +217,12 @@
     init: function (s) { $$('.in-tile', s)[0].setAttribute('aria-selected', 'true'); $$('.in-p', s)[0].classList.add('is-on'); },
     enter: function (ctx, s) {
       var tiles = $$('.in-tile', s), panels = $$('.in-p', s), cur = 0, auto = true;
-      function sel(k) { cur = k; tiles.forEach(function (t, j) { t.setAttribute('aria-selected', j === k ? 'true' : 'false'); }); panels.forEach(function (p, j) { p.classList.toggle('is-on', j === k); }); }
+      function sel(k) {
+        if (k === cur && panels[k].classList.contains('is-on')) return;
+        var dir = k === (cur + 1) % tiles.length || k > cur ? 1 : -1; cur = k;
+        tiles.forEach(function (t, j) { t.setAttribute('aria-selected', j === k ? 'true' : 'false'); });
+        swap(panels, k, dir, $('.in-panel', s));
+      }
       sel(0);
       ctx.every(3800, function () { if (auto) sel((cur + 1) % tiles.length); });
       var grid = $('.in-grid', s);
@@ -204,6 +234,7 @@
   /* ---------------------------------------------------------------- 10 · details: click to copy */
   Deck.on('details', {
     init: function (s) {
+      cascade($$('.dt>div', s), 360);
       var toast = $('.dt-toast', s), tT = 0;
       s.addEventListener('click', function (e) {
         var b = e.target.closest('[data-copy]'); if (!b) return;

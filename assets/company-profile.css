@@ -275,3 +275,84 @@
 .dt-reach a{display:inline-flex;gap:9px;align-items:center;padding:12px 16px;border-radius:12px;background:#fff;border:1px solid var(--line);text-decoration:none;font:650 16px/1 var(--f-display);color:var(--ink);transition:border-color .3s,transform .3s var(--ease)}
 .dt-reach a:hover{border-color:var(--blue-200)}
 .dt-reach .ic{color:var(--blue)}
+
+/* ================================================================ motion kit (body[data-motion], assets/motion.css)
+   Measured motion: arrivals move and decelerate, exits accelerate, siblings overlap on 1-3 frame gaps.
+   Written with the individual `scale` / `translate` properties so they never fight the transforms the slide scripts
+   set every frame (orbits, path followers, parallax). Print, the overview and TV mode show the finished state. */
+/* 1 · cover: the core lands from oversize (the deck's one hero arrival), the rings ripple out of the impact,
+   then the apps spring into orbit on uneven 1-3 frame onsets (the deck's one visible spring) */
+[data-motion] .cv-core{scale:2.3;opacity:0;transition:scale .82s var(--mx-snap-settle) .22s,opacity .14s linear .22s}
+[data-motion] .cv-ring{transform-box:fill-box;transform-origin:center;scale:.62;opacity:0;transition:scale 1s var(--mx-soft-land) .34s,opacity .3s linear .34s}
+[data-motion] .cv-ring--dash{transition-delay:.42s}
+[data-motion] .orb{scale:.3;transition:scale .5s var(--mx-pop-over) var(--od,.5s)}
+[data-motion] .cv-halo{scale:.6;transition:scale 1.4s var(--mx-soft-land) .3s}
+[data-motion] #cover.is-in .cv-core,[data-motion] #cover.is-in .cv-ring{scale:1;opacity:1}
+[data-motion] #cover.is-in .orb,[data-motion] #cover.is-in .cv-halo{scale:1}
+/* 2 · who: pips light as the counter passes them (the script drives both from one tween) */
+[data-motion] .pips i{transition:background .12s linear,transform .3s var(--mx-soft-land)}
+[data-motion] .pips i:not(.is-on){transform:scale(.7)}
+/* 3 · offices: the camera pushes in on the chosen office (scale/translate set by the script) */
+[data-motion] .of-map{transform-origin:0 0;transition:opacity .2s linear,transform .52s var(--mx-soft-land),scale .9s var(--mx-soft-in-out),translate .9s var(--mx-soft-in-out)}
+[data-motion] .of-copy{z-index:2}
+[data-motion] .of-item{transition:border-color .3s,box-shadow .3s,background .3s,opacity .3s,transform .52s var(--mx-soft-land),translate .45s var(--mx-soft-land)}
+[data-motion] #offices[data-cur="1"] .of-item[data-o=sg],[data-motion] #offices[data-cur="2"] .of-item[data-o=ph],[data-motion] #offices[data-cur="3"] .of-item[data-o=vn]{translate:14px 0}
+[data-motion] .of-pin i{transition:transform .45s var(--mx-snap-settle),background .3s}
+/* 4 · practices: each card's picture builds once its card has landed */
+[data-motion] .pr-app{scale:1.5;opacity:0;transition:scale .6s var(--mx-snap-settle),opacity .14s linear}
+[data-motion] .pr-db{translate:0 26px;opacity:0;transition:translate .5s var(--mx-soft-land),opacity .16s linear}
+[data-motion] .pa-q,[data-motion] .pm-win{translate:-36px 0;opacity:0;transition:translate .5s var(--mx-soft-land),opacity .16s linear}
+[data-motion] .pa-a,[data-motion] .pm-cal{translate:36px 0;opacity:0;transition:translate .5s var(--mx-soft-land),opacity .16s linear}
+[data-motion] .pr-grid>.pr:nth-child(1) .pr-art>*{transition-delay:.42s}
+[data-motion] .pr-grid>.pr:nth-child(1) .pr-app:nth-of-type(2){transition-delay:.48s}
+[data-motion] .pr-grid>.pr:nth-child(1) .pr-app:nth-of-type(3){transition-delay:.52s}
+[data-motion] .pr-grid>.pr:nth-child(1) .pr-db{transition-delay:.62s}
+[data-motion] .pr-grid>.pr:nth-child(2) .pr-art>*{transition-delay:.52s}
+[data-motion] .pr-grid>.pr:nth-child(2) .pa-a{transition-delay:.66s}
+[data-motion] .pr-grid>.pr:nth-child(3) .pr-art>*{transition-delay:.62s}
+[data-motion] .pr-grid>.pr:nth-child(3) .pm-cal{transition-delay:.72s}
+[data-motion] #practices.is-in .pr-art>*{scale:1;translate:0 0;opacity:1}
+/* 5 · partner: the badge lands a little oversize, the apps spring into their rings */
+[data-motion] .pt-core{scale:1.28;opacity:0;transition:scale .75s var(--mx-snap-settle) .2s,opacity .14s linear .2s}
+[data-motion] .pt-ring{transform-box:fill-box;transform-origin:center;scale:.7;opacity:0;transition:scale .9s var(--mx-soft-land) .28s,opacity .3s linear .28s}
+[data-motion] .pt-orb{scale:.4;opacity:0;transition:box-shadow .3s,scale .45s var(--mx-soft-land) var(--od,.4s),opacity .14s linear var(--od,.4s)}
+[data-motion] #partner.is-in .pt-core,[data-motion] #partner.is-in .pt-ring,[data-motion] #partner.is-in .pt-orb{scale:1;opacity:1}
+/* 6 · engagement: cards push in the direction of travel (--dir: 1 forward, -1 back); the old card is thrown out */
+[data-motion] .en-card{transform:translateX(calc(var(--dir,1) * 48px));transition:opacity .16s linear,transform .5s var(--mx-soft-land)}
+[data-motion] .en-card.is-on{transform:none}
+[data-motion] .en-card.is-out{transform:translateX(calc(var(--dir,1) * -40px));transition:opacity .14s linear .1s,transform .26s var(--mx-accel-exit)}
+[data-motion] .en-node.is-cur>.ic{animation:mxPress .5s var(--mx-soft-land)}
+@keyframes mxPress{0%{transform:scale(.84)}100%{transform:none}}
+[data-motion] .en-offs span{transition:opacity .25s linear,border-color .3s,background .3s,translate .4s var(--mx-soft-land)}
+[data-motion] .en-offs span:not(.is-on){translate:0 4px}
+/* 8 · industries: the panel pushes in the direction of the pick, its apps follow on 2-frame gaps */
+[data-motion] .in-p{transform:translateX(calc(var(--dir,1) * 44px));transition:opacity .16s linear,transform .5s var(--mx-soft-land)}
+[data-motion] .in-p.is-on{transform:none}
+[data-motion] .in-p.is-out{transform:translateX(calc(var(--dir,1) * -36px));transition:opacity .14s linear .08s,transform .26s var(--mx-accel-exit)}
+[data-motion] .in-apps li{transform:translateX(calc(var(--dir,1) * 22px));transition:opacity .16s linear,transform .45s var(--mx-soft-land)}
+[data-motion] .in-p.is-on .in-apps li{transform:none}
+[data-motion] .in-p.is-on .in-apps li:nth-child(1){transition-delay:.1s}
+[data-motion] .in-p.is-on .in-apps li:nth-child(2){transition-delay:.16s}
+[data-motion] .in-p.is-on .in-apps li:nth-child(3){transition-delay:.2s}
+[data-motion] .in-p.is-on .in-apps li:nth-child(4){transition-delay:.27s}
+[data-motion] .in-p.is-on .in-apps li:nth-child(5){transition-delay:.3s}
+[data-motion] .in-tile[aria-selected=true]>.ic{animation:mxPress .5s var(--mx-soft-land)}
+/* 10 · details: the record's rows file in after the card lands */
+[data-motion] .dt>div{translate:28px 0;opacity:0;transition:translate .45s var(--mx-soft-land),opacity .16s linear;transition-delay:var(--od,.4s)}
+[data-motion] #details.is-in .dt>div{translate:0 0;opacity:1}
+[data-motion] .dt-toast{transition:opacity .14s linear,transform .45s var(--mx-snap-settle)}
+[data-motion] .dt-toast:not(.is-on){transform:translateY(14px) scale(.96)}
+
+/* finished states: the overview and print never play a slide; TV mode keeps only fades */
+.deck.is-overview .cv-core,.deck.is-overview .cv-ring,.deck.is-overview .orb,.deck.is-overview .cv-halo,.deck.is-overview .pr-art>*,
+.deck.is-overview .pt-core,.deck.is-overview .pt-ring,.deck.is-overview .pt-orb,.deck.is-overview .dt>div{scale:1!important;translate:0 0!important;opacity:1!important;transition:none!important}
+.deck.is-tv .cv-core,.deck.is-tv .cv-ring,.deck.is-tv .orb,.deck.is-tv .cv-halo,.deck.is-tv .pr-art>*,.deck.is-tv .pt-core,.deck.is-tv .pt-ring,.deck.is-tv .pt-orb,.deck.is-tv .dt>div{scale:1!important;translate:0 0!important}
+@media print{
+  .cv-core,.cv-ring,.orb,.cv-halo,.pr-art>*,.pt-core,.pt-ring,.pt-orb,.dt>div,.of-map{scale:1!important;translate:0 0!important;opacity:1!important;transition:none!important}
+  .of-item{translate:0 0!important}
+}
+@media (prefers-reduced-motion:reduce){
+  [data-motion] .cv-core,[data-motion] .cv-ring,[data-motion] .orb,[data-motion] .cv-halo,[data-motion] .pr-art>*,[data-motion] .pt-core,[data-motion] .pt-ring,
+  [data-motion] .pt-orb,[data-motion] .dt>div,[data-motion] .of-map,[data-motion] .of-item{scale:1!important;translate:0 0!important}
+  [data-motion] .en-card,[data-motion] .in-p,[data-motion] .in-apps li{transform:none!important}
+}

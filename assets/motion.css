@@ -1,0 +1,66 @@
+/* Motion kit: measured motion for the decks, ported from motionmaxxing (curves fitted to 53 frame-accurate
+   professional films). Opt in per deck with <body data-motion="mx"> and assets/motion.js; decks without it are untouched.
+   The rules it brings: things arrive by MOVING (opacity is a 0.2 s helper, not the move); landings decelerate, exits
+   accelerate; the median move is about 0.4 s; siblings overlap on 1-3 frame gaps; headlines build word by word at
+   speech rhythm; a hero arrives from oversize and settles, it never grows from zero; one visible spring per deck. */
+
+/* the measured eases (cubic fallbacks first, for 2020-21 TV browsers without linear()) */
+:root{
+  --mx-soft-land:cubic-bezier(.16,.86,.3,1);--mx-snap-settle:cubic-bezier(.05,.92,.2,1);--mx-glide:cubic-bezier(.3,.62,.5,1);
+  --mx-whip:cubic-bezier(.22,.8,.38,1);--mx-accel-exit:cubic-bezier(.62,0,.9,.42);--mx-gentle-in:cubic-bezier(.45,0,.8,.5);
+  --mx-soft-in-out:cubic-bezier(.45,0,.55,1);--mx-pop-over:cubic-bezier(.3,.1,.4,1.22)}
+@supports (transition-timing-function:linear(0,1)){:root{
+  --mx-soft-land:linear(0, .0845 2.5%, .1621 5%, .2334 7.5%, .2988 10%, .3589 12.5%, .4483 16.67%, .5259 20.83%, .5933 25%, .6517 29.17%, .7023 33.33%, .7463 37.5%, .7844 41.67%, .8175 45.83%, .8462 50%, .8927 58.33%, .9277 66.67%, .954 75%, .9738 83.33%, .9888 91.67%, 1);
+  --mx-snap-settle:linear(0, .1813 2.5%, .3283 5%, .4475 7.5%, .5443 10%, .6228 12.5%, .7224 16.67%, .7931 20.83%, .8434 25%, .8796 29.17%, .9056 33.33%, .9388 41.67%, .9576 50%, .9693 58.33%, .9775 66.67%, .9841 75%, .9897 83.33%, .995 91.67%, 1);
+  --mx-glide:linear(0, .0835 5%, .164 10%, .2665 16.67%, .3868 25%, .4981 33.33%, .6 41.67%, .6922 50%, .7742 58.33%, .8455 66.67%, .9053 75%, .9525 83.33%, .9854 91.67%, 1);
+  --mx-whip:linear(0, .1213 5%, .2332 10%, .3684 16.67%, .5157 25%, .64 33.33%, .7429 41.67%, .8257 50%, .8899 58.33%, .9372 66.67%, .9696 75%, .9891 83.33%, .9981 91.67%, 1);
+  --mx-accel-exit:linear(0, .0025 10%, .0095 16.67%, .0272 25%, .0575 33.33%, .1027 41.67%, .1649 50%, .2463 58.33%, .3485 66.67%, .4733 75%, .6225 83.33%, .7975 91.67%, 1);
+  --mx-gentle-in:linear(0, .0085 10%, .0245 16.67%, .0567 25%, .1029 33.33%, .1633 41.67%, .2382 50%, .3277 58.33%, .432 66.67%, .5513 75%, .6856 83.33%, .8352 91.67%, 1);
+  --mx-soft-in-out:linear(0, .0151 5%, .0423 10%, .0923 16.67%, .1736 25%, .272 33.33%, .3828 41.67%, .5 50%, .6172 58.33%, .728 66.67%, .8264 75%, .9077 83.33%, .9679 91.67%, 1);
+  --mx-pop-over:linear(0, .028 5%, .1015 10%, .2447 16.67%, .4552 25%, .6601 33.33%, .8318 41.67%, .9574 50%, 1.0355 58.33%, 1.0717 66.67%, 1.0759 75%, 1.059 83.33%, 1.0311 91.67%, 1)}}
+
+/* ------------------------------------------------------------------ slide change: a push, not a cross-fade
+   The old slide accelerates away and is gone at full speed (0.2 s); the new one is already moving when it appears
+   and lands with a long soft tail. Groups that cut (data-group), fade slides, TV and reduced motion keep their rules. */
+[data-motion] .slide{transform:translateX(96px);transition:opacity .12s linear .06s,transform .2s var(--mx-gentle-in),visibility 0s linear .2s}
+[data-motion] .slide.is-before{transform:translateX(-96px)}
+[data-motion] .slide.is-active{transform:none;transition:opacity .12s linear,transform .6s var(--mx-soft-land),visibility 0s}
+
+/* ------------------------------------------------------------------ entrances and builds
+   0.5 s soft land with opacity as a 0.2 s helper; delays tighten to 85% so a slide is built in about a second. */
+[data-motion] [data-in],[data-motion] [data-step]{transition:opacity .2s linear,transform .52s var(--mx-soft-land),filter .26s var(--mx-soft-in-out);transition-delay:calc(var(--d,0ms) * .85)}
+[data-motion] [data-in]{transform:translateY(36px)}
+[data-motion] [data-step]{transform:translateY(22px)}
+[data-motion] [data-fx=left]{transform:translateX(-56px)}
+[data-motion] [data-fx=right]{transform:translateX(56px)}
+[data-motion] [data-fx=scale]{transform:translateY(26px) scale(.92)}
+/* a hero arriving from oversize: it lands decelerating, never grows from zero */
+[data-motion] [data-fx=land]{transform:scale(1.32);transition:opacity .16s linear,transform .7s var(--mx-snap-settle);transition-delay:calc(var(--d,0ms) * .85)}
+[data-motion] .slide.is-in [data-in][data-fx],[data-motion] [data-step].is-shown[data-fx]{transform:none;filter:none}
+
+/* ------------------------------------------------------------------ headlines, word by word (motion.js splits them)
+   Each word rises out of its own mask on a speech-rhythm stagger (--wg, 3-4 frames); the marker stroke draws only
+   after the last word has landed (--hd). The heading itself no longer moves: its words do. */
+[data-motion] .mx-words[data-in]{opacity:1;transform:none}
+/* the mask is a clip-path, not overflow:hidden (that would move an inline-block's baseline and drop the marker band) */
+.mx-w{display:inline-block;clip-path:inset(-.4em -.3em -.14em -.3em)}
+.mx-wi{display:inline-block;transform:translateY(118%);opacity:0;
+  transition:transform .56s var(--mx-soft-land),opacity .14s linear;transition-delay:calc(var(--d,0ms) * .85 + var(--wi,0) * var(--wg,90ms))}
+.slide.is-in .mx-wi{transform:none;opacity:1}
+[data-motion] .mx-words .hl{transition:background-size .6s var(--mx-glide) var(--hd,.6s)}
+/* leaving: the words drop back at once, so a return visit builds again */
+.slide:not(.is-in) .mx-wi{transition-duration:0s;transition-delay:0s}
+
+/* ------------------------------------------------------------------ finished states: overview, print, TV, reduced motion */
+.deck.is-overview .mx-w{clip-path:none}
+.deck.is-overview .mx-wi{opacity:1!important;transform:none!important;transition:none!important}
+.deck.is-tv .mx-wi{transform:none!important}
+.deck.is-tv [data-fx=land]{transform:none!important}
+@media (prefers-reduced-motion:reduce){
+  .mx-wi{transform:none!important;transition:opacity .3s!important;transition-delay:0s!important}
+  [data-motion] .mx-words .hl{transition-delay:.2s}
+}
+@media print{
+  .mx-w{clip-path:none!important}
+  .mx-wi{opacity:1!important;transform:none!important;transition:none!important}
+}
