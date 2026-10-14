@@ -25,6 +25,10 @@
 [data-motion] .slide{transform:translateX(96px);transition:opacity .12s linear .06s,transform .2s var(--mx-gentle-in),visibility 0s linear .2s}
 [data-motion] .slide.is-before{transform:translateX(-96px)}
 [data-motion] .slide.is-active{transform:none;transition:opacity .12s linear,transform .6s var(--mx-soft-land),visibility 0s}
+/* the engine's own exceptions keep their meaning: fade slides fade in place, a data-group (the live Odoo window) cuts */
+[data-motion] .slide[data-transition=fade]{transition:opacity .3s var(--mx-soft-in-out),visibility 0s linear .3s}
+[data-motion] .slide[data-transition=fade].is-active{transition:opacity .3s var(--mx-soft-in-out),visibility 0s}
+[data-motion] .deck.is-cut .slide[data-group],[data-motion] .deck.is-cut .slide[data-group].is-active{transition:none}
 
 /* ------------------------------------------------------------------ entrances and builds
    0.5 s soft land with opacity as a 0.2 s helper; delays tighten to 85% so a slide is built in about a second. */

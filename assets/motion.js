@@ -50,6 +50,9 @@
   }
   Deck.$$('.slide .h-xl[data-in], .slide .h-l[data-in], .slide .h-m[data-in]').forEach(split);
 
+  /* ---------------------------------------------------------------- the close: the booking QR card is the last hero, it lands from oversize */
+  Deck.$$('.slide .ct-qr[data-in]').forEach(function (el) { el.setAttribute('data-fx', 'land'); });
+
   /* ---------------------------------------------------------------- uneven sibling onsets */
   // the measured gaps between siblings (1-3 frames, uneven); returns the onset in ms of each element after `base`
   var GAPS = [0, 2, 3, 2, 1, 3, 2, 2, 1, 2, 3, 2];

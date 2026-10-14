@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
 {{head}}
+<link rel="stylesheet" href="assets/motion.css?v={{v}}">
 <title>TechNext Portfolio</title>
 <meta name="description" content="TechNext portfolio: the clients we have worked with and what we built for each, from websites and social media to Odoo proposals and rollouts.">
 {{og:portfolio}}
 <link rel="stylesheet" href="assets/showcase.css?v={{v}}">
 </head>
-<body data-label="Portfolio" data-home="./">
+<body data-label="Portfolio" data-home="./" data-motion="mx">
 <main class="deck" aria-label="TechNext portfolio">
 <div class="stage">
 
@@ -245,6 +246,7 @@
 </main>
 <script>window.PF = {{pf:data}};</script>
 <script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/motion.js?v={{v}}"></script>
 <script src="assets/showcase.js?v={{v}}"></script>
 <script src="assets/portfolio.js?v={{v}}"></script>
 </body>
