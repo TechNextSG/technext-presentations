@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "40"
+ASSET_V = "41"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -92,42 +92,42 @@ DECKS = [
         dict(slug="jrtech-odoo-erp", tags="odoo", title="JR-Tech Solution", mins=45, pdf="TechNext-JR-Tech-Odoo-ERP.pdf",
              alt="JR-Tech cover: moving JR-Tech onto Odoo ERP.",
              desc="Eleven Odoo apps in three phases, the move from SQL Account to Odoo Accounting with SST and MyInvois, the cut-over runway and go / no-go gate, a narrated invoicing video with chapters, support after go-live, then the 28 accounting and billing questions, marked live in the room."),
-        dict(slug="bhdasia-odoo-scope", tags="odoo", title="BHD Asia Â· HummingBeing", mins=30, pdf="TechNext-BHD-Asia-Implementation-Scope.pdf",
+        dict(slug="bhdasia-odoo-scope", tags="odoo", title="BHD Asia Ã‚Â· HummingBeing", mins=30, pdf="TechNext-BHD-Asia-Implementation-Scope.pdf",
              alt="BHD Asia cover: six workflows, one Odoo.",
              desc="The implementation scope on Odoo Online: six workflows played step by step (event tickets, 1:1 sessions screened once then paid, free bookings, screened sales, waitlists, money and books), the nine go-live modules, phase two as switches, what is decided and settled (books in SGD), then the open items, marked live in the room."),
         dict(slug="hst-medical-website", tags="websites ai", title="HST Medical", mins=40, pdf="TechNext-HST-Medical-Website-Review.pdf",
              alt="HST Medical cover: ready for your review.",
              desc="The website and the product catalogue we built for HST Medical (Kowa Subsidiary): the site page by page, the RFP we can build line by line, ideas by direction, the flip-book and seven print fixes, feedback typed in live, then AI for the website (Ask HST today, rules vs AI, five opportunities, AI search), why TechNext (speed, an ERP implementation division, AI) and how we build and show."),
-        dict(slug="immaculate-connections-website", tags="websites", title="Immaculate Connections", mins=20, pdf="TechNext-Immaculate-Connections-Website.pdf",
+        dict(slug="immaculate-connections-website", tags="websites", title="Immaculate Connections", mins=25, pdf="TechNext-Immaculate-Connections-Website.pdf",
              alt="Immaculate Connections cover: your new website, live.",
-             desc="A walkthrough of immaculateconnectionsph.com for the agency's team and partners: every page on desktop and phone, the home page's own trip photos, a tour finder over the 14 published packages, a package page section by section, the four service documents that fill as you type, inquiry to quotation (and the partner tab), the Ask us assistant's real answers, the trip gallery, how the site is found on Google, and how to share it."),
+             desc="A walkthrough of immaculateconnectionsph.com for the agency's team and partners: every page on desktop and phone, the home page's own trip photos, a tour finder over the 35 published Vietnam and China packages, a package page from its poster down, the four service documents that fill as you type, inquiry to quotation (and the partner tab), the Ask us assistant's real answers, the trip gallery, how the site is found on Google, how to share it, then working together: the client journey for travellers and partners, how new tours go live, and who does what."),
     ]),
     ("Case studies", [
-        dict(slug="case-study-fnb", tags="odoo", title="Case study Â· F&B", mins=15, pdf="TechNext-Case-Study-FnB.pdf",
+        dict(slug="case-study-fnb", tags="odoo", title="Case study Ã‚Â· F&B", mins=15, pdf="TechNext-Case-Study-FnB.pdf",
              alt="F&B case study cover: five outlets, one truth.",
              desc="An industry case study on a composite Singapore F&B group (a central kitchen, five outlets, two delivery apps): the tangled problem (one price rise found 38 days late, four flows that never meet), nine Odoo apps on one database, replenishment from the central kitchen played step by step, every plate costed as it sells, and a four-phase rollout. Sample data."),
-        dict(slug="case-study-medical", tags="odoo", title="Case study Â· Medical", mins=15, pdf="TechNext-Case-Study-Medical.pdf",
+        dict(slug="case-study-medical", tags="odoo", title="Case study Ã‚Â· Medical", mins=15, pdf="TechNext-Case-Study-Medical.pdf",
              alt="Medical case study cover: recall at 9:00, traced by 9:05.",
              desc="An industry case study on a composite Singapore group of six GP and aesthetic clinics that could not trace a recalled vaccine lot, with expired stock written off and panel claims unbilled for months, and how Odoo 20 joins stock, sales and billing: lot traceability in one report, panel claims invoiced every Friday, and a phased rollout. Sample data."),
-        dict(slug="case-study-travel", tags="odoo", title="Case study Â· Travel", mins=15, pdf="TechNext-Case-Study-Travel.pdf",
+        dict(slug="case-study-travel", tags="odoo", title="Case study Ã‚Â· Travel", mins=15, pdf="TechNext-Case-Study-Travel.pdf",
              alt="Travel case study cover: the margin flies home last.",
              desc="An industry case study on a composite Singapore tour operator (group tours to Japan, Korea and Europe plus incentive trips): a price fixed in SGD months ahead, costs in yen, won and euro, pax that change, suppliers paid before guests; every departure as an Odoo project with its own P&L, a booking from enquiry to balance, a yen bill posted and paid with its exchange difference, and a four-stop rollout. Sample data."),
-        dict(slug="case-study-retail", tags="odoo", title="Case study Â· Retail", mins=15, pdf="TechNext-Case-Study-Retail.pdf",
+        dict(slug="case-study-retail", tags="odoo", title="Case study Ã‚Â· Retail", mins=15, pdf="TechNext-Case-Study-Retail.pdf",
              alt="Retail case study cover: right stock, wrong store.",
              desc="An industry case study on a composite Singapore apparel retailer (eight stores, one warehouse, a separate loyalty app): size M sold out in three stores while two sit on dead stock, markdowns that eat the margin and a buy plan that repeats the mistake; the season as one Odoo loop, store-to-store rebalancing step by step, one loyalty card across every store, and a four-phase rollout. Sample data."),
-        dict(slug="case-study-ecommerce", tags="odoo", title="Case study Â· Ecommerce", mins=15, pdf="TechNext-Case-Study-Ecommerce.pdf",
+        dict(slug="case-study-ecommerce", tags="odoo", title="Case study Ã‚Â· Ecommerce", mins=15, pdf="TechNext-Case-Study-Ecommerce.pdf",
              alt="Ecommerce case study cover: four shops, one shelf.",
              desc="An industry case study on a composite Singapore skincare brand selling on its website, Shopee, Lazada and TikTok Shop from one warehouse: the 11.11 knot (900 sold against 600 on the shelf, gift sets that hide their components, payouts that never match the bank), one Odoo stock figure played against hand updates, every payout matched to the bank, and a four-phase rollout. Sample data."),
-        dict(slug="case-study-retail-ecommerce", tags="odoo", title="Case study Â· Retail & Ecommerce", mins=20, pdf="TechNext-Case-Study-Retail-Ecommerce.pdf",
+        dict(slug="case-study-retail-ecommerce", tags="odoo", title="Case study Ã‚Â· Retail & Ecommerce", mins=20, pdf="TechNext-Case-Study-Retail-Ecommerce.pdf",
              alt="Retail and ecommerce case study cover: one customer, every counter.",
              desc="An industry case study on a composite Singapore homeware brand with five stores, a website and two marketplaces, where one customer moves between every channel and the systems don't: paid online and sold at the till, five seams between two businesses; Point of Sale, eCommerce, Inventory, Accounting and CRM on one database, click and collect from a store's live stock, one customer and loyalty card from till to checkout to a corporate deal, every channel in one set of books, and a four-phase rollout. Sample data."),
-        dict(slug="case-study-construction", tags="odoo", title="Case study Â· Construction", mins=15, pdf="TechNext-Case-Study-Construction.pdf",
+        dict(slug="case-study-construction", tags="odoo", title="Case study Ã‚Â· Construction", mins=15, pdf="TechNext-Case-Study-Construction.pdf",
              alt="Construction case study cover: every job green, red at handover.",
              desc="An industry case study on a composite Singapore fit-out and M&E contractor running twelve projects: margins green every month and red at handover (variations on WhatsApp, materials on the wrong job, late subcontractor invoices, forgotten retention), one project's costs in one place, a variation from site to signature, a progress claim from percent complete, and a four-phase rollout. Sample data."),
-        dict(slug="case-study-manufacturing", tags="odoo", title="Case study Â· Manufacturing", mins=15, pdf="TechNext-Case-Study-Manufacturing.pdf",
+        dict(slug="case-study-manufacturing", tags="odoo", title="Case study Ã‚Â· Manufacturing", mins=15, pdf="TechNext-Case-Study-Manufacturing.pdf",
              alt="Manufacturing case study cover: quoted blind, promised late.",
              desc="An industry case study on a composite Singapore precision sheet-metal shop (laser, CNC bending, welding, outsourced coating, 300 part numbers): one breakdown and one late steel sheet make five customers late and a +26% quote ends at -4%; Odoo 20 replans the work centres, keeps the floor on the current revision and quotes from the BoM and routing cost, with a four-phase rollout. Sample data."),
-        dict(slug="case-study-wellness", tags="odoo", title="Case study Â· Health & Wellness", mins=15, pdf="TechNext-Case-Study-Health-Wellness.pdf",
+        dict(slug="case-study-wellness", tags="odoo", title="Case study Ã‚Â· Health & Wellness", mins=15, pdf="TechNext-Case-Study-Health-Wellness.pdf",
              alt="Health & Wellness case study cover: paid today, earned later.",
              desc="An industry case study on a composite Singapore studio and spa group (four pilates and yoga studios, a day spa): money collected up front but earned class by class, S$412,640 owed to members on no report, four leaks from one root; one member record across Odoo apps, a class pack followed from sale to expiry on the books, spa rooms that can't be sold twice, and a four-phase rollout. Sample data."),
     ]),
@@ -355,7 +355,7 @@ def sc_feature(e, kind):
       <div class="bw"><div class="bw-bar"><i></i><i></i><i></i><span class="bw-url">{{{{icon:lock}}}}{_e(e['dom'])}</span></div>
         <div class="bw-view"><img class="scroller" data-src="assets/img/sites/{slug}-d.jpg"{_psrc(slug, "d")} alt="{_e(e['name'])}: the full page" width="900" height="{dh}" style="--travel:{travel}px;--dur:{dur}s"></div></div>
       {phone}
-      <p class="sf-hint">{{{{icon:search}}}}Each page scrolls on its own Â· hover to pause</p>
+      <p class="sf-hint">{{{{icon:search}}}}Each page scrolls on its own Ã‚Â· hover to pause</p>
     </div>
   </div>
   <aside class="notes"><p>{_e(e['what'])}</p></aside>
@@ -474,7 +474,7 @@ def pf_expand(s):
     for c in C:
         tags = " ".join(k for k, v in c["svc"].items() if v)
         cards.append(f'<button type="button" class="pf-c" data-slug="{c["slug"]}" data-svc="{tags}" data-status="{c["status"]}" aria-pressed="false">'
-                     f'<span class="pf-mono" style="--c:{c["c"]}">{c["mono"]}</span><span><b>{_e(c["name"])}</b><small>{_e(c["ind"])} Â· {_e(c["where"])}</small></span></button>')
+                     f'<span class="pf-mono" style="--c:{c["c"]}">{c["mono"]}</span><span><b>{_e(c["name"])}</b><small>{_e(c["ind"])} Ã‚Â· {_e(c["where"])}</small></span></button>')
     s = s.replace("{{pf:cards}}", "\n".join(cards))
     data = [dict(slug=c["slug"], name=c["name"], mono=c["mono"], c=c["c"], ind=c["ind"], where=c["where"], status=PF.STATUS[c["status"]],
                  svc=[lab for k, lab in PF.SERVICES if c["svc"].get(k)], did=c["did"], links=c["links"]) for c in C]

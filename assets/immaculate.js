@@ -93,35 +93,63 @@
     settle: function (s) { snap(s, function () { paintPile(s); }); }
   });
 
-  /* ---------------------------------------------------------------- 5 · tours: the 14 packages on the site (15 Oct 2026), "from" price per pax */
+  /* ---------------------------------------------------------------- 5 · tours: the 35 packages on the site (15 Oct 2026), "from" price per pax as published
+     [id, short name, country, departs (mnl|ceb), days, duration, from, currency, image, departure dates] */
   var TOURS = [
-    ['danang-6d4n-bana-overnight', 'Da Nang 6D4N · Ba Na Hills overnight', 'dn', 6, '6 days 4 nights', 29888, 'vn-danang', 26],
-    ['danang-5d3n-bana-overnight', 'Da Nang 5D3N · Ba Na Hills overnight', 'dn', 5, '5 days 3 nights', 27888, 'vn-golden-bridge-walk', 11],
-    ['danang-6d4n-charter', 'Da Nang 6D4N charter · Sea Garden Hotel', 'dn', 6, '6 days 4 nights', 24888, 'vn-hoian-lanterns', 28],
-    ['danang-5d3n-charter', 'Da Nang 5D3N charter · Sea Garden Hotel', 'dn', 5, '5 days 3 nights', 22888, 'vn-dragon-bridge', 15],
-    ['rose-danang-6d4n', 'Da Nang 6D4N charter · Nagila Hotel', 'dn', 6, '6 days 4 nights', 23888, 'vn-hoian-boats', 54],
-    ['rose-danang-5d3n', 'Da Nang 5D3N charter · Nagila Hotel', 'dn', 5, '5 days 3 nights', 22888, 'vn-danang-beach', 26],
-    ['danang-4d3n', 'Da Nang 4D3N', 'dn', 4, '4 days 3 nights', 23888, 'vn-dragon-bridge-day', 3],
-    ['danang-4d3n-z2', 'Da Nang 4D3N via AirAsia', 'dn', 4, '4 days 3 nights', 26888, 'vn-marble-mountains', 1],
-    ['hanoi-sapa-4d3n', 'Hanoi – Sapa 4D3N', 'hn', 4, '4 days 3 nights', 36888, 'vn-sapa', 3],
-    ['hanoi-sapa-halong-5d4n', 'Hanoi – Sapa – Ha Long 5D4N · shopping stops', 'hn', 5, '5 days 4 nights', 33888, 'vn-hanoi-flags', 3],
-    ['hanoi-sapa-halong-5d3n-charter', 'Ha Long – Hanoi – Sapa 5D3N charter · no shopping', 'hn', 5, '5 days 3 nights', 32888, 'vn-halong-boat', 15],
-    ['hanoi-sapa-halong-5d3n-charter-classic', 'Sapa – Hanoi – Ha Long 5D3N charter · shopping stops', 'hn', 5, '5 days 3 nights', 28888, 'vn-hanoi-train-street', 1],
-    ['hanoi-sapa-halong-6d4n-charter', 'Hanoi – Sapa – Ha Long 6D4N charter · no shopping', 'hn', 6, '6 days 4 nights', 35888, 'vn-fansipan-train', 31],
-    ['hanoi-sapa-halong-6d4n-charter-classic', 'Sapa – Hanoi – Ha Long 6D4N charter · shopping stops', 'hn', 6, '6 days 4 nights', 29888, 'vn-halong', 2]
+    ["danang-6d4n-bana-overnight", "Da Nang 6D4N · Ba Na Hills overnight", "Vietnam", "mnl", 6, "6 days 4 nights", 29888, "PHP", "vn-danang", 26],
+    ["danang-5d3n-bana-overnight", "Da Nang 5D3N · Ba Na Hills overnight", "Vietnam", "mnl", 5, "5 days 3 nights", 27888, "PHP", "vn-golden-bridge-walk", 11],
+    ["danang-6d4n-charter", "Da Nang 6D4N · Sea Garden Hotel", "Vietnam", "mnl", 6, "6 days 4 nights", 24888, "PHP", "vn-hoian-lanterns", 28],
+    ["danang-5d3n-charter", "Da Nang 5D3N · Sea Garden Hotel", "Vietnam", "mnl", 5, "5 days 3 nights", 22888, "PHP", "vn-dragon-bridge", 15],
+    ["rose-danang-6d4n", "Da Nang 6D4N · Nagila Hotel", "Vietnam", "mnl", 6, "6 days 4 nights", 23888, "PHP", "vn-hoian-boats", 54],
+    ["rose-danang-5d3n", "Da Nang 5D3N · Nagila Hotel", "Vietnam", "mnl", 5, "5 days 3 nights", 22888, "PHP", "vn-danang-beach", 26],
+    ["danang-4d3n", "Da Nang 4D3N", "Vietnam", "mnl", 4, "4 days 3 nights", 23888, "PHP", "vn-dragon-bridge-day", 3],
+    ["danang-4d3n-z2", "Da Nang 4D3N via AirAsia", "Vietnam", "mnl", 4, "4 days 3 nights", 26888, "PHP", "vn-marble-mountains", 1],
+    ["hanoi-sapa-4d3n", "Hanoi – Sapa 4D3N", "Vietnam", "mnl", 4, "4 days 3 nights", 36888, "PHP", "vn-sapa", 3],
+    ["hanoi-sapa-halong-5d4n", "Hanoi – Sapa – Ha Long 5D4N · shopping stops", "Vietnam", "mnl", 5, "5 days 4 nights", 33888, "PHP", "vn-hanoi-flags", 3],
+    ["hanoi-sapa-halong-5d3n-charter", "Ha Long – Hanoi – Sapa 5D3N · no shopping", "Vietnam", "mnl", 5, "5 days 3 nights", 32888, "PHP", "vn-halong-boat", 15],
+    ["hanoi-sapa-halong-5d3n-charter-classic", "Sapa – Hanoi – Ha Long 5D3N · shopping stops", "Vietnam", "mnl", 5, "5 days 3 nights", 28888, "PHP", "vn-hanoi-train-street", 1],
+    ["hanoi-sapa-halong-6d4n-charter", "Hanoi – Sapa – Ha Long 6D4N charter · no shopping", "Vietnam", "mnl", 6, "6 days 4 nights", 35888, "PHP", "vn-fansipan-train", 31],
+    ["hanoi-sapa-halong-6d4n-charter-classic", "Sapa – Hanoi – Ha Long 6D4N charter · shopping stops", "Vietnam", "mnl", 6, "6 days 4 nights", 29888, "PHP", "vn-halong", 2],
+    ["danang-5d4n-cebu-charter", "Da Nang 5D4N", "Vietnam", "ceb", 5, "5 days 4 nights", 32888, "PHP", "vn-hoian-boats", 3],
+    ["hanoi-sapa-halong-4d3n", "Hanoi – Sapa – Ha Long 4D3N", "Vietnam", "ceb", 4, "4 days 3 nights", 35888, "PHP", "vn-halong", 16],
+    ["hanoi-sapa-halong-5d3n-cebu", "Hanoi – Sapa – Ha Long 5D3N · no shopping", "Vietnam", "ceb", 5, "5 days 3 nights", 36888, "PHP", "vn-halong-boat", 11],
+    ["hanoi-sapa-halong-6d4n-cebu", "Hanoi – Sapa – Ha Long 6D4N · no shopping", "Vietnam", "ceb", 6, "6 days 4 nights", 38888, "PHP", "vn-fansipan-train", 12],
+    ["shanghai-disneyland-4d3n", "Shanghai Disneyland 4D3N", "China", "ceb", 4, "4 days 3 nights", 519, "USD", "cn-shanghai-disney", 5],
+    ["shanghai-5d3n", "Shanghai 5D3N", "China", "ceb", 5, "5 days 3 nights", 399, "USD", "cn-shanghai", 2],
+    ["shanghai-mini-kyoto-5d4n", "Shanghai – Wuxi Mini Kyoto – Wuzhen 5D4N", "China", "ceb", 5, "5 days 4 nights", 499, "USD", "cn-shanghai", 2],
+    ["shanghai-mini-kyoto-6d4n", "Shanghai – Wuxi Mini Kyoto – Hangzhou 6D4N", "China", "ceb", 6, "6 days 4 nights", 419, "USD", "cn-west-lake", 1],
+    ["shanghai-5d4n-no-shopping", "Shanghai – Suzhou 5D4N · no shopping", "China", "ceb", 5, "5 days 4 nights", 49888, "PHP", "cn-shanghai", 5],
+    ["avatar-shanghai-5d4n", "Zhangjiajie (Avatar) – Shanghai 5D4N", "China", "ceb", 5, "5 days 4 nights", 599, "USD", "cn-zhangjiajie", 3],
+    ["shanghai-hangzhou-wuzhen-5d4n", "Shanghai – Hangzhou – Wuzhen 5D4N", "China", "ceb", 5, "5 days 4 nights", 569, "USD", "cn-wuzhen", 3],
+    ["shanghai-hangzhou-wuxi-6d5n", "Shanghai – Hangzhou – Wuxi 6D5N", "China", "ceb", 6, "6 days 5 nights", 799, "USD", "cn-west-lake", 4],
+    ["adora-cruise-shanghai-5d4n", "Adora Magic City Fly + Cruise 5D4N", "China", "ceb", 5, "5 days 4 nights", 1188, "USD", "cn-cruise-ship", 2],
+    ["beijing-5d4n-no-shopping", "Beijing + Universal Studios 5D4N all-in · no shopping", "China", "ceb", 5, "5 days 4 nights", 49888, "PHP", "cn-great-wall", 6],
+    ["beijing-shanghai-7d6n", "Beijing – Shanghai 7D6N", "China", "ceb", 7, "7 days 6 nights", 888, "USD", "cn-great-wall", 2],
+    ["beijing-shanghai-8d7n", "Beijing – Shanghai 8D7N", "China", "ceb", 8, "8 days 7 nights", 699, "USD", "cn-forbidden-city", 4],
+    ["avatar-furong-chongqing-8d7n", "Zhangjiajie (Avatar) – Furong – Chongqing 8D7N", "China", "ceb", 8, "8 days 7 nights", 659, "USD", "cn-chongqing-night", 6],
+    ["avatar-furong-no-shopping", "Zhangjiajie (Avatar) – Furong 6D5N · no shopping", "China", "ceb", 6, "6 days 5 nights", 1288, "USD", "cn-zhangjiajie", 3],
+    ["avatar-skiing-chongqing-8d7n", "Zhangjiajie (Avatar) Skiing – Chongqing 8D7N", "China", "ceb", 8, "8 days 7 nights", 699, "USD", "cn-chongqing-night", 3],
+    ["charming-yunnan-8d7n", "Charming Yunnan: Kunming – Dali – Lijiang 8D7N", "China", "ceb", 8, "8 days 7 nights", 999, "USD", "cn-yunnan", 7],
+    ["harbin-7d6n", "Harbin Winter 7D6N", "China", "ceb", 7, "7 days 6 nights", 1888, "USD", "cn-harbin-ice", 1]
   ];
-  var F = { dest: 'all', len: 'all', sort: 'price' };
+  var F = { c: 'all', from: 'all', len: 'all' };
+  var money = function (n, cur) { return cur === 'USD' ? 'US$' + n.toLocaleString('en-US') : peso(n); };
+  var SHOW = 14;
   function tours(s, anim) {
-    var list = TOURS.filter(function (t) { return (F.dest === 'all' || t[2] === F.dest) && (F.len === 'all' || t[3] === +F.len); });
-    list.sort(function (a, b) { return F.sort === 'price' ? a[5] - b[5] || b[7] - a[7] : b[7] - a[7] || a[5] - b[5]; });
+    var list = TOURS.filter(function (t) {
+      return (F.c === 'all' || t[2] === F.c) && (F.from === 'all' || t[3] === F.from) && (F.len === 'all' || (F.len === '7' ? t[4] >= 7 : t[4] === +F.len));
+    });
+    list.sort(function (a, b) { return b[9] - a[9] || a[4] - b[4]; });
     var box = $('.im-t-list', s); box.classList.toggle('no-anim', !anim);
-    box.innerHTML = list.map(function (t, k) {
-      return '<div class="im-t-r" style="--k:' + k + '"><img src="' + IMG(t[6] + '.jpg') + '" alt="" width="78" height="46"><span><b>' + esc(t[1]) + '</b><small>' + t[4] + ' · ' + t[7] + (t[7] === 1 ? ' departure' : ' departures') + ' · from Manila</small></span><em><small>From</small>' + peso(t[5]) + '</em></div>';
-    }).join('');
+    var more = list.length > SHOW ? list.length - (SHOW - 1) : 0, shown = more ? list.slice(0, SHOW - 1) : list;
+    box.innerHTML = shown.map(function (t, k) {
+      return '<div class="im-t-r" style="--k:' + k + '"><img src="' + IMG(t[8] + '.jpg') + '" alt="" width="72" height="44"><span><b>' + esc(t[1]) + '</b><small>' + t[5] + ' · ' + t[9] + (t[9] === 1 ? ' departure' : ' departures') + ' · from ' + (t[3] === 'ceb' ? 'Cebu' : 'Manila') + '</small></span><em><small>From</small>' + money(t[6], t[7]) + '</em></div>';
+    }).join('') + (more ? '<div class="im-t-r im-t-more" style="--k:' + SHOW + '"><span><b>+' + more + ' more</b><small>on the Tours page, with every filter</small></span></div>' : '');
     $('[data-im=tn]', s).textContent = list.length;
     var q = [];
-    if (F.dest === 'dn') q.push('q=da+nang'); else if (F.dest === 'hn') q.push('q=sapa');
-    if (F.len !== 'all') q.push('len=' + (F.len === '6' ? '6+' : '4-5'));
+    if (F.c !== 'all') q.push('country=' + F.c.toLowerCase());
+    if (F.from !== 'all') q.push('from=' + (F.from === 'ceb' ? 'cebu' : 'manila'));
+    if (F.len !== 'all') q.push('len=' + (+F.len >= 6 ? '6+' : '4-5'));
     $('[data-im=turl]', s).textContent = 'immaculateconnectionsph.com/tours' + (q.length ? '?' + q.join('&') : '');
   }
   Deck.on('tours', {
@@ -139,7 +167,7 @@
   });
 
   /* ---------------------------------------------------------------- 6 · one package page: scroll the real page to each part */
-  var KY = [0, 1290, 2540, 3380, 4480, 5630];   // section tops on the 1440 px page, less the sticky header
+  var KY = [0, 1374, 2627, 3467, 4567, 5715, 7170];   // section tops on the 1440 px page, less the sticky header
   function pkg(s, k) {
     press($$('.im-k-tabs button', s), $('.im-k-tabs button[data-k="' + k + '"]', s));
     $$('.im-k-p', s).forEach(function (p) { p.classList.toggle('is-on', +p.dataset.k === k); });
@@ -253,7 +281,7 @@
 
   /* ---------------------------------------------------------------- 9 · Ask us: the live assistant's replies (15 Oct 2026), long lists cut */
   var ASK = [
-    { q: 'How much is the Hanoi Sapa tour?', a: 'I found 6 packages:<ul><li><b>Sapa – Hanoi – Ha Long Bay 6D4N Charter Tour</b> (with Shopping Stops)<em>6 days 4 nights · From ₱29,888 · Next: Oct 31–Nov 4</em></li><li><b>Sapa – Hanoi – Ha Long Bay Charter Flight 5D3N Tour</b> (with Shopping Stops)<em>5 days 3 nights · From ₱28,888 · Next: Nov 5–8</em></li><li><b>Ha Long Bay – Hanoi – Sapa Charter Flight 5D3N Tour</b> (No Shopping)<em>5 days 3 nights · From ₱32,888 · Next: Nov 19–22</em></li></ul>', c: ['What’s included?', 'Itinerary', 'Get a quote'] },
+    { q: 'How much is the Hanoi Sapa tour?', a: 'I found 9 packages:<ul><li><b>Sapa – Hanoi – Ha Long Bay 6D4N Charter Tour</b> (with Shopping Stops)<em>6 days 4 nights · From ₱29,888 · Next: Oct 31–Nov 4</em></li><li><b>Sapa – Hanoi – Ha Long Bay Charter Flight 5D3N Tour</b> (with Shopping Stops)<em>5 days 3 nights · From ₱28,888 · Next: Nov 5–8</em></li><li><b>Ha Long Bay – Hanoi – Sapa Charter Flight 5D3N Tour</b> (No Shopping)<em>5 days 3 nights · From ₱32,888 · Next: Nov 19–22</em></li><li>…and 6 more, from Manila and from Cebu</li></ul>', c: ['What’s included?', 'Itinerary', 'Get a quote'] },
     { q: 'Can you rent a van with driver?', a: 'We arrange <b>air-conditioned vehicles with a driver</b> for airport transfers, city tours, out-of-town trips and event shuttles: 4-Seater, Van, Coaster and Bus. Rates depend on the route and how long you need the vehicle, so every trip gets a free quotation. Send the pick-up point, stops and date.', c: ['Car rental', 'Get a free quote'] },
     { q: 'Do you handle seminars?', a: 'We handle <b>meetings and events</b>: conventions and conferences, seminars and trainings, orientation courses for local legislators and LGU staff, reunions and corporate gatherings. We can arrange the venue, accommodation, meals, participant transport and tickets or a tour for participants.', c: ['MICE & events', 'Get a free quote'] },
     { q: 'How do I book?', a: 'Open the package page and tap <b>“Request a quote”</b>, or send an inquiry and choose your package. We confirm availability for your dates and send a quotation with the payment details; your booking is confirmed once payment is received.', c: ['Browse packages', 'Send an inquiry'] },
@@ -300,8 +328,8 @@
 
   /* ---------------------------------------------------------------- 11 · found on Google: each page's own title and description */
   var SERP = [
-    ['', 'Cebu Travel Agency: Tours &amp; Tickets | Immaculate Connections', 'Cebu City travel agency: Da Nang, Hanoi, Sapa and Ha Long Bay tours from Manila, flights, hotels, van and coaster hire, and events. Free quote.', ['Travel agency', 'FAQ']],
-    ['tours', 'Vietnam Tour Packages from Manila | Immaculate Connections', 'Vietnam tour packages from Manila: Da Nang charter tours and Hanoi, Sapa and Ha Long Bay programmes, with departure dates, inclusions and prices per pax.', ['Home › Tour packages', 'FAQ']],
+    ['', 'Cebu Travel Agency: Tours &amp; Tickets | Immaculate Connections', 'Cebu City travel agency: Vietnam tours from Manila, China tours from Cebu, flights, hotels, van and coaster hire, and events. Free quote.', ['Travel agency', 'FAQ']],
+    ['tours', 'Vietnam &amp; China Tours from Manila &amp; Cebu | Immaculate Connections', 'Vietnam tours from Manila and China tours from Cebu: Da Nang, Hanoi, Sapa, Shanghai, Beijing, Zhangjiajie and Yunnan, with dates, inclusions and prices.', ['Home › Tour packages', 'FAQ']],
     ['car-rental', 'Van &amp; Coaster Rental in Cebu | Immaculate Connections', 'Van, coaster, bus and 4-seater hire with driver in Cebu: airport transfers, city tours, out-of-town trips and event shuttles, air-conditioned. Free quote.', ['Home › Services › Vehicle hire']],
     ['mice', 'MICE, Seminars &amp; Events in Cebu | Immaculate Connections', 'Seminars, trainings, conventions, LGU orientation courses, team building and company outings in Cebu: venue, rooms, meals and transport arranged.', ['Home › Services › MICE']],
     ['package-hanoi-sapa-halong-5d3n-charter', 'Ha Long Hanoi Sapa 5D3N Charter | Immaculate Connections', 'Ha Long Bay, Hanoi and Sapa 5D3N charter tour from Manila from ₱32,888 per pax, no shopping stops: bay cruise, Old Quarter and Fansipan.', ['Tourist trip', 'From ₱32,888']]
@@ -326,6 +354,83 @@
         var b = e.target.closest('button[data-copy]'); if (!b) return;
         var url = b.dataset.copy, ok = function (m) { say.textContent = m; say.classList.add('is-on'); clearTimeout(t); t = setTimeout(function () { say.classList.remove('is-on'); }, 2600); };
         if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () { ok('Copied: ' + url); }, function () { ok(url); }); else ok(url);
+      });
+    }
+  });
+
+  /* ---------------------------------------------------------------- 13 · the client journey (what the site and the agency already say; no promised times) */
+  var JOURNEY = {
+    tr: { who: 'The traveller', st: [
+      ['search', 'Finds you', ['Sees your Facebook post, a Google result or a partner\u2019s link.', 'The package page: your poster, the price, the dates. <b>Ask us</b> answers at any hour.', 'Posts the package link on Facebook and Messenger.']],
+      ['chat', 'Asks', ['Taps <b>Request a quote</b>, sends a Messenger message or calls.', 'The inquiry opens with the package and date filled in, and shows a reference straight away.', 'The inquiry lands in Gmail with its <b>ICQ reference</b> in the subject.']],
+      ['file', 'Gets a quote', ['Receives the official quotation with the payment details.', 'Has already shown an estimate. <b>No payment is ever taken on the website.</b>', 'Confirms availability for the dates and sends the quotation.']],
+      ['check', 'Books', ['Pays as the quotation says. The booking is confirmed once payment is received.', 'Closes each departure date on its travel day, so nobody books a trip that has left.', 'Confirms the booking and arranges tickets, hotel and transport.']],
+      ['plane', 'Travels', ['Goes with the group, with the day by day and the Vietnam or China guide on the package page.', 'Keeps the itinerary, inclusions and posters one tap away.', 'Handles the trip: tickets, hotel, air-conditioned vehicles, guides and meals.']],
+      ['camera', 'Comes home', ['Shares the photos and tells friends about the trip.', 'The gallery shows real trips, so the next traveller trusts you sooner.', 'Sends the trip photos and videos to TechNext for the gallery.']]
+    ] },
+    pa: { who: 'The partner', st: [
+      ['briefcase', 'Gets a code', ['Receives a personal partner code from your team.', 'Their link opens the <b>partner quotation</b> tab.', 'Decides who gets a code. TechNext adds new codes on request.']],
+      ['send', 'Requests', ['Sends one request for their group: route, dates, adults, children, tour leaders, rooms.', 'Gives the request its own <b>ICB reference</b> and a printable copy.', 'Receives the request in Gmail, with the partner type.']],
+      ['file', 'Gets rates', ['Gets net or commissionable rates, in the currency they asked for.', 'Never shows a price for a partner request.', 'Prices the group and replies by email.']],
+      ['check', 'Books', ['Confirms for their own clients.', 'Package pages they can send their clients: poster, dates, inclusions.', 'Confirms the booking and arranges the trip.']],
+      ['plane', 'Group travels', ['Their group travels with your team behind them.', 'The itinerary and the country guide stay on the page.', 'Tickets, hotels, transport and guides.']],
+      ['refresh', 'Comes back', ['Shares new package links and filtered lists with their next clients.', 'Every new tour appears for every partner at once.', 'Posts new tours; we put them live.']]
+    ] }
+  };
+  var jw = 'tr', jTok = 0;
+  function journey(s, n) {
+    var J = JOURNEY[jw];
+    $('.im-j-steps', s).innerHTML = J.st.map(function (x, i) {
+      return '<li class="' + (i < n ? 'is-done' : i === n ? 'is-on' : '') + '"><button type="button" data-n="' + i + '"><i>' + (ICONS2[x[0]] || '') + '</i><small>' + (i + 1) + '</small><b>' + esc(x[1]) + '</b></button></li>';
+    }).join('');
+    $('[data-im=jw]', s).textContent = J.who;
+    [0, 1, 2].forEach(function (k) { var el = $('[data-im=j' + k + ']', s); el.innerHTML = J.st[n][2][k]; el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; });
+  }
+  var ICONS2 = {};
+  Deck.on('journey', {
+    init: function (s) {
+      // the build inlines {{icon:*}} as plain SVG; the slide carries the ones it needs in a hidden set
+      $$('.im-j-icons span', s).forEach(function (x) { ICONS2[x.dataset.k] = x.innerHTML; });
+      journey(s, 0);
+    },
+    enter: function (ctx, s) {
+      var n = 0, tok = ++jTok; journey(s, 0);
+      var held = false;
+      ctx.on($('.im-j-steps', s), 'click', function (e) { var b = e.target.closest('button[data-n]'); if (!b) return; held = true; n = +b.dataset.n; journey(s, n); });
+      ctx.on($('.im-j-seg', s), 'click', function (e) { var b = e.target.closest('button[data-w]'); if (!b) return; jw = b.dataset.w; press($$('.im-j-seg button', s), b); n = 0; journey(s, 0); });
+      if (!Deck.reduce) ctx.every(3400, function () { if (held || tok !== jTok) return; n = (n + 1) % 6; journey(s, n); });
+    },
+    leave: function () { jTok++; },
+    settle: function (s) { journey(s, 0); }
+  });
+
+  /* ---------------------------------------------------------------- 14 · you send it, we put it live */
+  function together(s, n) {
+    $$('.im-w-steps li', s).forEach(function (li, i) { li.className = i < n ? 'is-done' : i === n ? 'is-on' : ''; });
+    var st = $('.im-w-stage', s); st.classList.remove('s0', 's1', 's2', 's3'); st.classList.add('s' + n);
+  }
+  var wTok = 0;
+  Deck.on('together', {
+    init: function (s) { together(s, 3); },
+    enter: function (ctx, s) {
+      var tok = ++wTok, n = 0, held = false;
+      ctx.on($('.im-w-steps', s), 'click', function (e) { var li = e.target.closest('li[data-s]'); if (!li) return; held = true; together(s, +li.dataset.s); });
+      if (Deck.reduce) { together(s, 3); return; }
+      together(s, 0);
+      ctx.every(1800, function () { if (held || tok !== wTok) return false; n++; if (n > 3) return false; together(s, n); });
+    },
+    leave: function () { wTok++; },
+    settle: function (s) { wTok++; together(s, 3); }
+  });
+
+  /* ---------------------------------------------------------------- 15 · who does what */
+  Deck.on('roles', {
+    init: function (s) {
+      var seg = $('.im-r-seg', s);
+      seg.addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-r]'); if (!b) return;
+        press($$('button', seg), b); var r = b.dataset.r;
+        $$('.im-r-row', s).forEach(function (row) { row.classList.toggle('is-dim', r !== 'all' && row.dataset.r !== r && row.dataset.r !== 'both'); });
       });
     }
   });
