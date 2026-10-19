@@ -41,6 +41,8 @@
 /* a hero arriving from oversize: it lands decelerating, never grows from zero */
 [data-motion] [data-fx=land]{transform:scale(1.32);transition:opacity .16s linear,transform .7s var(--mx-snap-settle);transition-delay:calc(var(--d,0ms) * .85)}
 [data-motion] .slide.is-in [data-in][data-fx],[data-motion] [data-step].is-shown[data-fx]{transform:none;filter:none}
+/* a shown build lands where it belongs (the rise above outranked deck.css [data-step].is-shown) */
+[data-motion] [data-step].is-shown{transform:none}
 
 /* ------------------------------------------------------------------ headlines, word by word (motion.js splits them)
    Each word rises out of its own mask on a speech-rhythm stagger (--wg, 3-4 frames); the marker stroke draws only

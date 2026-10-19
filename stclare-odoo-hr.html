@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E4691">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=43">
+<link rel="stylesheet" href="assets/deck.css?v=43">
+<link rel="stylesheet" href="assets/motion.css?v=43">
+<title>Proposal for St. Clare College · Timekeeping, attendance and payroll · TechNext</title>
+<meta name="description" content="A TechNext proposal for St. Clare College, Caloocan: timekeeping, attendance and payroll for Basic Education, Senior High and Tertiary on Odoo 20, in three detailed phases, plus a new website designed free.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechNext">
+<meta property="og:title" content="Proposal for St. Clare College · Timekeeping, attendance and payroll · TechNext">
+<meta property="og:description" content="A TechNext proposal for St. Clare College, Caloocan: timekeeping, attendance and payroll for Basic Education, Senior High and Tertiary on Odoo 20, in three detailed phases, plus a new website designed free.">
+<meta property="og:url" content="https://technextsg.github.io/technext-presentations/stclare-odoo-hr.html">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/stclare-odoo-hr-og.jpg?v=43">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/stclare.css?v=43">
+</head>
+<body data-label="Proposal · St. Clare College" data-home="./" data-motion="mx" data-cobrand="assets/img/clients/stclare.png?v=43" data-cobrand-white="assets/img/clients/stclare.png?v=43">
+<main class="deck" aria-label="TechNext proposal for St. Clare College: timekeeping, attendance and payroll">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="Proposal for St. Clare College">
+  <div class="cv-copy sx-copy">
+    <div class="sx-lock" data-in><img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48"><i></i><img class="sx-co" src="assets/img/clients/stclare.png?v=43" alt="St. Clare Online" width="74" height="70"></div>
+    <span class="kicker" data-in style="--d:120ms">a proposal for st. clare college</span>
+    <h1 class="h-xl sx-h1" data-in style="--d:200ms">Every hour counted, <span class="hl">every peso right.</span></h1>
+    <p class="lead" data-in style="--d:320ms">Timekeeping, attendance and payroll for Basic Education, Senior High and Tertiary, on Odoo 20, in three phases. And a new website, designed free.</p>
+    <nav class="sx-agenda" data-in style="--d:420ms" aria-label="Parts of this proposal">
+      <button type="button" data-go="understand"><i>01</i>What we understand</button>
+      <button type="button" data-go="phases"><i>02</i>Three phases</button>
+      <button type="button" data-go="website"><i>03</i>Free website</button>
+    </nav>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Discussion draft · October 2026</span></div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="sx-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <svg class="sx-svg" viewBox="0 0 600 680" width="600" height="680">
+      <circle class="sx-orbit" cx="300" cy="330" r="230"></circle>
+      <path class="sx-ln flow" d="M95,90 C95,200 300,200 300,330"></path>
+      <path class="sx-ln flow" d="M300,90 L300,330"></path>
+      <path class="sx-ln flow" d="M505,90 C505,200 300,200 300,330"></path>
+      <path class="sx-ln flow" d="M300,330 C300,460 95,460 95,560"></path>
+      <path class="sx-ln flow" d="M300,330 L300,560"></path>
+      <path class="sx-ln flow" d="M300,330 C300,460 505,460 505,560"></path>
+    </svg>
+    <span class="sx-n" style="left:95px;top:80px;--k:0"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg><b>Basic Education</b></span>
+    <span class="sx-n" style="left:300px;top:80px;--k:1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><b>Senior High</b></span>
+    <span class="sx-n" style="left:505px;top:80px;--k:2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><b>Tertiary</b></span>
+    <div class="sx-core"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-1.66 4-3 9-3s9 1.34 9 3v14c0 1.66-4 3-9 3s-9-1.34-9-3z" fill="currentColor" fill-opacity=".2" stroke="none"/><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg><b>One Odoo</b><small>every person, hour and payslip</small></div>
+    <span class="sx-n sx-n--app" style="left:95px;top:575px;--k:3"><img class="oi" src="assets/img/odoo/hr_attendance.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Attendances</b></span>
+    <span class="sx-n sx-n--app" style="left:300px;top:575px;--k:4"><img class="oi" src="assets/img/odoo/hr_holidays.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Time Off</b></span>
+    <span class="sx-n sx-n--app" style="left:505px;top:575px;--k:5"><img class="oi" src="assets/img/odoo/hr_payroll.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Payroll</b></span>
+  </div>
+  <aside class="notes"><p>This is a discussion draft for St. Clare College. We start with what is public about the school, then the three phases (timekeeping, attendance, payroll), each in detail, then the website we design for free, and the questions we need answered. Every demo runs on sample data, labelled as such. The agenda buttons jump to each part.</p></aside>
+</section>
+
+<!-- 2 · what we understand -->
+<section class="slide" id="understand" data-title="What we understand">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>what we understand</span>
+      <h2 class="h-m" data-in style="--d:80ms">The School of Life Skills, <span class="hl">already online.</span></h2>
+    </div>
+  </div>
+  <div class="sx-un">
+    <ol class="sx-facts">
+      <li data-in style="--d:160ms"><b class="sx-fn">36th</b><span><strong>Founding anniversary on 31 August 2021, in Caloocan City</strong><small><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>VMS and Contact Us pages</small></span></li>
+      <li data-in style="--d:220ms"><b class="sx-fn">3</b><span><strong>Divisions: Basic Education, Senior High and Tertiary, eight college programmes</strong><small><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>About Us, enrolment</small></span></li>
+      <li data-in style="--d:280ms"><b class="sx-fn">5</b><span><strong>Elements of the St. Clare Online Education System: LMS, CMS, IMS, PMS, VMS</strong><small><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Site menu</small></span></li>
+      <li data-in style="--d:340ms"><b class="sx-fn">2</b><span><strong>Modalities for students: full online or blended</strong><small><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>About Us</small></span></li>
+      <li data-in style="--d:400ms"><b class="sx-fn">3</b><span><strong>Faculty attendance forms, one per division, in the IMS Faculty Corner 2026-2027</strong><small><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>IMS page</small></span></li>
+    </ol>
+    <div class="sx-ims" data-in data-fx="right" style="--d:260ms">
+      <p class="sx-ims-h"><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Faculty time-in today</span><em>as the IMS page links it</em></p>
+      <div class="sx-ims-cols">
+        <div class="sx-ic" data-k="basic"><b>Basic Ed</b><button type="button" class="sx-ic-b" data-i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Online attendance form</button><i class="sx-ic-ar"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></i><div class="sx-sheet"><span class="sx-sheet-h">Responses · Basic Ed</span><ul></ul></div></div>
+        <div class="sx-ic" data-k="shs"><b>Senior High</b><button type="button" class="sx-ic-b" data-i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Online attendance form</button><i class="sx-ic-ar"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></i><div class="sx-sheet"><span class="sx-sheet-h">Responses · SHS</span><ul></ul></div></div>
+        <div class="sx-ic" data-k="ter"><b>Tertiary</b><button type="button" class="sx-ic-b" data-i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Online attendance form</button><i class="sx-ic-ar"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></i><div class="sx-sheet"><span class="sx-sheet-h">Responses · Tertiary</span><ul></ul></div></div>
+      </div>
+      <p class="sx-ims-q"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg><span>Three forms, three response lists. <b>Payroll still has to read all three.</b> Click a form to add a sample time-in.</span></p>
+    </div>
+  </div>
+  <p class="illus sx-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Public facts from stclareonline.com, checked 19 Oct 2026 · form rows are samples</p>
+  <aside class="notes"><p>Only what St. Clare publishes on stclareonline.com, checked on 19 October 2026. The 36th founding anniversary was on 31 August 2021. Three divisions; the tertiary programmes are BEED, BSED (English and Math), BSCS, BSBA, BSHM, BSTM and AB Political Science. The IMS page says faculty "log-in/time-in for their virtual classes' attendance", and links three Google Forms, one per division. Click a form: a sample time-in lands in that division's own response list. That is the starting point we would like to confirm, not a criticism: the forms work, they just live apart from payroll.</p></aside>
+</section>
+
+<!-- 3 · pressure points -->
+<section class="slide" id="pains" data-steps="5" data-title="Five hand-offs we would like to remove">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>where time leaks</span>
+      <h2 class="h-m" data-in style="--d:80ms">Five hand-offs <span class="hl">we would like to remove.</span></h2>
+    </div>
+    <p class="hint sx-hint" data-in style="--d:160ms"><kbd>→</kbd> shows the Odoo answer, one by one</p>
+  </div>
+  <div class="sx-pn">
+    <p class="sx-pn-h" data-in style="--d:180ms"><span>Today · our hypothesis</span><span>With Odoo 20</span></p>
+    <div class="sx-pr" data-in style="--d:220ms"><div class="sx-pb"><i>1</i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg><span><b>Time-in is typed by the teacher</b><small>Three forms; any time can be entered, from anywhere</small></span></div><div class="sx-po" data-step="1"><img class="oi" src="assets/img/odoo/hr_attendance.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span><b>The system stamps the time</b><small>Kiosk at the gate, or check-in inside Odoo for online classes</small></span></div></div>
+    <div class="sx-pr" data-in style="--d:270ms"><div class="sx-pb"><i>2</i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg><span><b>Lates and overtime are counted by hand</b><small>From three response lists, per cut-off</small></span></div><div class="sx-po" data-step="2"><img class="oi" src="assets/img/odoo/hr_attendance.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span><b>Rules count them</b><small>Grace periods and overtime rulesets against each working schedule</small></span></div></div>
+    <div class="sx-pr" data-in style="--d:320ms"><div class="sx-pb"><i>3</i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><span><b>Leave is asked for on paper or by message</b><small>Balances kept in a separate list</small></span></div><div class="sx-po" data-step="3"><img class="oi" src="assets/img/odoo/hr_holidays.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span><b>Leave is a request with a balance</b><small>The division head approves; the balance updates itself</small></span></div></div>
+    <div class="sx-pr" data-in style="--d:370ms"><div class="sx-pb"><i>4</i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01"/></svg><span><b>Payroll re-keys hours every cut-off</b><small>From forms, leave lists and overtime notes</small></span></div><div class="sx-po" data-step="4"><img class="oi" src="assets/img/odoo/hr_payroll.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span><b>The pay run reads approved time</b><small>Attendance and time off already in the same database</small></span></div></div>
+    <div class="sx-pr" data-in style="--d:420ms"><div class="sx-pb"><i>5</i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span><b>BIR and loan figures are rebuilt yearly</b><small>1601-C, 2316, SSS and Pag-IBIG loans by spreadsheet</small></span></div><div class="sx-po" data-step="5"><img class="oi" src="assets/img/odoo/hr_payroll.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><span><b>Reports come from the payslips</b><small>Odoo 20's Philippine payroll: 1601-C, 2316, 1604-C, Alphalist, loan deductions</small></span></div></div>
+  </div>
+  <p class="illus sx-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>Left column: hypotheses to confirm with you · right: Odoo 20 features</p>
+  <aside class="notes"><p>The left column is our hypothesis from the public pages, to confirm in discovery, not a finding. Press the arrow key to show the Odoo answer for each hand-off. Facts behind the right column: Odoo Attendances has a kiosk mode, check-in from inside Odoo, tolerance settings and, in Odoo 20, overtime rulesets with public holiday rates. Odoo 20's release notes add the basic Philippines payroll package, Form 1601-C items, the yearly 2316, 1604-C and Alphalist exports, and automatic loan deductions for SSS and Pag-IBIG loans.</p></aside>
+</section>
+
+<!-- 4 · the answer -->
+<section class="slide" id="apps" data-title="One database, four apps, one website">
+  <div class="sec-head">
+    <span class="kicker" data-in>the odoo answer</span>
+    <h2 class="h-m" data-in style="--d:80ms">One database, four apps, <span class="hl">one website.</span></h2>
+  </div>
+  <div class="sx-ar">
+    <div class="sx-ag" data-i>
+      <div class="sx-ac" data-in style="--d:180ms"><span class="sx-ac-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>People</span>
+        <button type="button" data-k="hr"><img class="oi" src="assets/img/odoo/hr.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Employees</b></button>
+      </div>
+      <div class="sx-ac" data-in style="--d:240ms"><span class="sx-ac-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Time</span>
+        <button type="button" data-k="att"><img class="oi" src="assets/img/odoo/hr_attendance.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Attendances</b></button>
+        <button type="button" data-k="off"><img class="oi" src="assets/img/odoo/hr_holidays.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Time Off</b></button>
+      </div>
+      <div class="sx-ac" data-in style="--d:300ms"><span class="sx-ac-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 10 6H2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M3 10h18"/><path d="M5 10v9M9 10v9M15 10v9M19 10v9"/><path d="M2 21h20"/><path d="m12 3 10 6H2z"/></svg>Pay</span>
+        <button type="button" data-k="pay"><img class="oi" src="assets/img/odoo/hr_payroll.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Payroll</b></button>
+      </div>
+      <div class="sx-ac sx-ac--web" data-in style="--d:360ms"><span class="sx-ac-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Front door · designed free</span>
+        <button type="button" data-k="web"><img class="oi" src="assets/img/odoo/website.svg" alt="" width="40" height="40" style="width:40px;height:40px" loading="lazy" decoding="async"><b>Website</b></button>
+      </div>
+      <p class="sx-ag-db" data-in style="--d:420ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-1.66 4-3 9-3s9 1.34 9 3v14c0 1.66-4 3-9 3s-9-1.34-9-3z" fill="currentColor" fill-opacity=".2" stroke="none"/><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg><span>One record per teacher: <b>schedule, time-ins, leave and payslips</b> in the same place</span></p>
+    </div>
+    <div class="sx-ap" data-in data-fx="right" style="--d:260ms" aria-live="polite">
+      <span class="sx-ap-h"><span class="sx-ap-i"></span><span class="sx-ap-place">Click an app</span></span>
+      <h3 class="h-s sx-ap-t">Standard apps, configured for a school.</h3>
+      <p class="sx-ap-d">Each app takes over one hand-off. Click one to see which.</p>
+      <div class="sx-ap-fix"><span>Phase</span><b class="sx-ap-r">1 · 2 · 3</b></div>
+    </div>
+  </div>
+  <aside class="notes"><p>No custom system. Four standard Odoo 20 apps for the scope, timekeeping, attendance and payroll, on one database, plus Odoo Website for the new stclareonline.com. Click each app: the panel says what it does for St. Clare and which phase brings it in. The line at the bottom is the point: one record per teacher, so the payslip reads the same time-ins and leave the division head approved.</p></aside>
+</section>
+
+<!-- 5 · a teacher's cut-off -->
+<section class="slide" id="day" data-steps="6" data-title="One teacher, time-in to payslip">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>the whole flow, once</span>
+      <h2 class="h-m" data-in style="--d:80ms">One teacher, <span class="hl">time-in to payslip.</span></h2>
+    </div>
+    <button type="button" class="btn btn-line sx-play" data-in style="--d:160ms"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Play the flow</span></button>
+  </div>
+  <div class="sx-wf">
+    <ol class="sx-steps" data-in style="--d:200ms">
+      <li><button type="button" data-n="1"><i>1</i><span><b>Checks in at the campus kiosk, 7:04</b><small>Attendances · kiosk, badge or PIN</small></span></button></li>
+      <li><button type="button" data-n="2"><i>2</i><span><b>Inside the grace period: on time</b><small>Attendances · tolerance on the schedule</small></span></button></li>
+      <li><button type="button" data-n="3"><i>3</i><span><b>Afternoon class online: checks in from home</b><small>Attendances · check-in inside Odoo</small></span></button></li>
+      <li><button type="button" data-n="4"><i>4</i><span><b>Faculty meeting runs late: 1.5 h extra</b><small>Attendances · overtime, approved by the head</small></span></button></li>
+      <li><button type="button" data-n="5"><i>5</i><span><b>Files one sick day for Friday</b><small>Time Off · approved, balance 5 → 4</small></span></button></li>
+      <li><button type="button" data-n="6"><i>6</i><span><b>Cut-off: the payslip reads it all</b><small>Payroll · draft for review</small></span></button></li>
+    </ol>
+    <div class="sx-sc win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">St. Clare College · Attendances</span></div>
+      <div class="sx-sc-body">
+        <div class="sx-who"><span class="sx-av">AR</span><span><b>Ana Reyes</b><small>sample · Senior High · full-time · 7:00 to 16:00</small></span><em class="sx-who-s" data-t="0:Not in|1:Checked in|3:Checked in · online|4:Checked out 17:30|6:Cut-off 15 Oct">Not in</em></div>
+        <div class="sx-day">
+          <span class="sx-day-ax"><i style="left:0">6:00</i><i style="left:25%">9:00</i><i style="left:50%">12:00</i><i style="left:75%">15:00</i><i style="left:100%">18:00</i></span>
+          <i class="sx-day-sch" title="Schedule"></i>
+          <i class="sx-day-b sx-day-b--am" data-on="1"></i>
+          <i class="sx-day-b sx-day-b--pm" data-on="3"></i>
+          <i class="sx-day-b sx-day-b--ot" data-on="4"></i>
+        </div>
+        <ul class="sx-docs">
+          <li data-on="1"><img class="oi" src="assets/img/odoo/hr_attendance.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Check-in 07:04</b><small>Kiosk · main gate</small></span><em data-t="0:—|1:Recorded">—</em></li>
+          <li data-on="2"><img class="oi" src="assets/img/odoo/hr_attendance.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>4 min after 7:00</b><small>Grace period 10 min · sample rule</small></span><em data-t="0:—|2:On time">—</em></li>
+          <li data-on="3"><img class="oi" src="assets/img/odoo/hr_attendance.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Check-in 13:00 · online</b><small>From the Odoo check-in button</small></span><em data-t="0:—|3:Recorded">—</em></li>
+          <li data-on="4"><img class="oi" src="assets/img/odoo/hr_attendance.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Extra hours 1.5 h</b><small>Approver: SHS principal</small></span><em data-t="0:—|4:To approve|5:Approved">—</em></li>
+          <li data-on="5"><img class="oi" src="assets/img/odoo/hr_holidays.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Sick leave · Fri 17 Oct</b><small>Balance 5 → 4 days</small></span><em data-t="0:—|5:Approved">—</em></li>
+          <li data-on="6"><img class="oi" src="assets/img/odoo/hr_payroll.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><span><b>Payslip 1–15 Oct</b><small>Worked days, overtime, leave, deductions</small></span><em data-t="0:—|6:Draft">—</em></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="sx-wf-n">Step <b class="sx-cnt">0</b> of 6 · <span>no form, no re-keying, nothing counted by hand</span></p>
+  <p class="illus sx-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample teacher, schedule and rules</p>
+  <aside class="notes"><p>Press Play or step through. Ana Reyes is a sample teacher in Senior High. She checks in at a kiosk at the gate at 7:04, inside a sample 10-minute grace period, so she is on time. Her afternoon class is online, so she checks in from the Odoo check-in button at home. A faculty meeting runs to 17:30: 1.5 hours extra, which go to her approver, the SHS principal. She files a sick day for Friday; once approved, her balance drops from 5 to 4. At the cut-off the payslip reads all of it. The three phases build exactly this, one layer at a time.</p></aside>
+</section>
+
+<!-- 6 · three phases -->
+<section class="slide" id="phases" data-title="Three phases, each one live before the next">
+  <div class="sec-head">
+    <span class="kicker" data-in>how we get there</span>
+    <h2 class="h-m" data-in style="--d:80ms">Three phases, <span class="hl">each one live before the next.</span></h2>
+  </div>
+  <div class="sx-rm">
+    <button type="button" class="sx-ph" data-go="p1" data-in style="--d:180ms">
+      <span class="sx-ph-n">Phase 1</span>
+      <span class="sx-ph-ic"><img class="oi" src="assets/img/odoo/hr.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"><img class="oi" src="assets/img/odoo/hr_holidays.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"></span>
+      <b>Timekeeping</b>
+      <small>Every person, schedule and leave balance in Odoo</small>
+      <ul class="sx-ph-do"><li>Faculty and staff by division</li><li>Bell times and part-time loads</li><li>Leave types, holidays, approvers</li></ul>
+      <span class="sx-ph-gate"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live when every teacher has a schedule, an approver and a balance</span>
+      <span class="sx-ph-go">See phase 1 <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    </button>
+    <i class="sx-rm-ar" data-in style="--d:230ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></i>
+    <button type="button" class="sx-ph" data-go="p2" data-in style="--d:260ms">
+      <span class="sx-ph-n">Phase 2</span>
+      <span class="sx-ph-ic"><img class="oi" src="assets/img/odoo/hr_attendance.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"></span>
+      <b>Attendance</b>
+      <small>Time-ins stamped by the system, on campus and online</small>
+      <ul class="sx-ph-do"><li>Kiosk at the gate, badge or PIN</li><li>Check-in inside Odoo for online classes</li><li>Lates and overtime counted by rule</li></ul>
+      <span class="sx-ph-gate"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live when one month in Odoo matches the forms, then the forms retire</span>
+      <span class="sx-ph-go">See phase 2 <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    </button>
+    <i class="sx-rm-ar" data-in style="--d:310ms"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></i>
+    <button type="button" class="sx-ph" data-go="p3" data-in style="--d:340ms">
+      <span class="sx-ph-n">Phase 3</span>
+      <span class="sx-ph-ic"><img class="oi" src="assets/img/odoo/hr_payroll.svg" alt="" width="34" height="34" style="width:34px;height:34px" loading="lazy" decoding="async"></span>
+      <b>Payroll</b>
+      <small>Payslips from approved time, with Philippine reports</small>
+      <ul class="sx-ph-do"><li>Full-time and part-time pay rules</li><li>SSS and Pag-IBIG loan deductions</li><li>1601-C, 2316, 1604-C, Alphalist</li></ul>
+      <span class="sx-ph-gate"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live when two parallel cut-offs match your current payroll</span>
+      <span class="sx-ph-go">See phase 3 <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    </button>
+  </div>
+  <div class="sx-web-lane" data-in style="--d:420ms">
+    <span class="sx-wl-h"><img class="oi" src="assets/img/odoo/website.svg" alt="" width="28" height="28" style="width:28px;height:28px" loading="lazy" decoding="async"><b>Alongside · free website design</b></span>
+    <span class="sx-wl-bar"><i style="left:0;width:30%">Sitemap and look</i><i style="left:31%;width:38%">Pages built on Odoo Website</i><i style="left:70%;width:30%">Review, then launch</i></span>
+    <button type="button" class="sx-wl-go" data-go="website">See the website <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+  </div>
+  <aside class="notes"><p>Three phases, in the order the data depends on: payroll reads attendance, and attendance reads the schedules and people set up in phase 1. Each phase has a gate, written on its card: it goes live, and is checked against what St. Clare does today, before the next one starts. We don't put weeks on this slide; the length depends on headcount, schedules and the payroll rules we confirm in discovery. The website runs alongside, so the school sees progress from the start. Click a card to open its phase.</p></aside>
+</section>
+
+<!-- 7 · phase 1 -->
+<section class="slide" id="p1" data-title="Phase 1 · Timekeeping">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>phase 1 · timekeeping</span>
+      <h2 class="h-m" data-in style="--d:80ms">Every person, every schedule, <span class="hl">in one place.</span></h2>
+    </div>
+    <span class="sx-pp" data-in style="--d:160ms"><img class="oi" src="assets/img/odoo/hr.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><img class="oi" src="assets/img/odoo/hr_holidays.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Employees · Time Off</b></span>
+  </div>
+  <div class="sx-pg">
+    <ol class="sx-do" data-in style="--d:200ms">
+      <li><i>1</i><span><b>Discovery per division</b><small>Basic Ed, SHS and Tertiary: who works when, who approves</small></span></li>
+      <li><i>2</i><span><b>Faculty and staff into Employees</b><small>Division, department, position, full- or part-time</small></span></li>
+      <li><i>3</i><span><b>Working schedules</b><small>Bell times per division, part-time loads, breaks</small></span></li>
+      <li><i>4</i><span><b>Holidays and the school calendar</b><small>Philippine public holidays and school breaks</small></span></li>
+      <li><i>5</i><span><b>Leave types and balances</b><small>Allocations per type, carried over from your records</small></span></li>
+      <li><i>6</i><span><b>Approvers and access</b><small>Division heads approve; HR sees all; staff see their own</small></span></li>
+    </ol>
+    <div class="sx-sb win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Employees · Working schedules</span></div>
+      <div class="sx-sb-body">
+        <div class="sx-sb-ctl">
+          <div class="seg sx-sb-div" role="group" aria-label="Division"><button type="button" data-v="basic" aria-pressed="true">Basic Ed</button><button type="button" data-v="shs" aria-pressed="false">Senior High</button><button type="button" data-v="ter" aria-pressed="false">Tertiary</button></div>
+          <div class="seg sx-sb-typ" role="group" aria-label="Employment"><button type="button" data-v="ft" aria-pressed="true">Full-time</button><button type="button" data-v="pt" aria-pressed="false">Part-time</button></div>
+        </div>
+        <div class="sx-wk">
+          <span class="sx-wk-ax"><i style="top:0">6:00</i><i style="top:25%">9:00</i><i style="top:50%">12:00</i><i style="top:75%">15:00</i><i style="top:100%">18:00</i></span>
+          <div class="sx-wk-d"><b>Mon</b><i></i></div><div class="sx-wk-d"><b>Tue</b><i></i></div><div class="sx-wk-d"><b>Wed</b><i></i></div><div class="sx-wk-d"><b>Thu</b><i></i></div><div class="sx-wk-d"><b>Fri</b><i></i></div><div class="sx-wk-d"><b>Sat</b><i></i></div>
+        </div>
+        <p class="sx-sb-sum"><span class="sx-sb-name">Basic Ed · full-time</span><b class="sx-sb-h">40 h a week</b></p>
+      </div>
+    </div>
+  </div>
+  <div class="sx-gx" data-in style="--d:340ms">
+    <p><span>You give us</span><b>Staff list, bell times, leave rules, current balances</b></p>
+    <p><span>You get</span><b>One employee list and a schedule for every teacher</b></p>
+    <p class="is-gate"><span>Done when</span><b>Every teacher has a schedule, an approver and a balance</b></p>
+  </div>
+  <p class="illus sx-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample schedules</p>
+  <aside class="notes"><p>Phase 1 is the foundation: nothing in attendance or payroll works without it. We run a short discovery per division, because Basic Ed, Senior High and Tertiary keep different hours. Everyone goes into Employees with their division and employment type. Each gets a working schedule: try the switches, these are sample schedules, not St. Clare's. Then public holidays and the school calendar, leave types with their balances, and the approvers: each division head approves their own people. Done when every teacher has a schedule, an approver and a leave balance, and HR has checked the list.</p></aside>
+</section>
+
+<!-- 8 · phase 2 -->
+<section class="slide" id="p2" data-title="Phase 2 · Attendance">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>phase 2 · attendance</span>
+      <h2 class="h-m" data-in style="--d:80ms">The system stamps the time, <span class="hl">not the teacher.</span></h2>
+    </div>
+    <span class="sx-pp" data-in style="--d:160ms"><img class="oi" src="assets/img/odoo/hr_attendance.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Attendances</b></span>
+  </div>
+  <div class="sx-pg">
+    <ol class="sx-do" data-in style="--d:200ms">
+      <li><i>1</i><span><b>A kiosk at the gate</b><small>A tablet in kiosk mode: badge or PIN, photo on camera devices</small></span></li>
+      <li><i>2</i><span><b>Online classes</b><small>Check-in from inside Odoo, recorded against the schedule</small></span></li>
+      <li><i>3</i><span><b>Biometric devices, if you have them</b><small>Odoo 20 connects eSSL and Mantra; we check yours</small></span></li>
+      <li><i>4</i><span><b>Grace periods and overtime rules</b><small>Who approves extra hours; holiday rates</small></span></li>
+      <li><i>5</i><span><b>A view per division</b><small>Lates, absences and extra hours, by schedule and day</small></span></li>
+      <li><i>6</i><span><b>One month side by side</b><small>Forms and Odoo in parallel, then the forms retire</small></span></li>
+    </ol>
+    <div class="sx-kb">
+      <div class="sx-kiosk" data-in data-fx="right" style="--d:260ms">
+        <p class="sx-k-top"><img src="assets/img/clients/stclare.png?v=43" alt="" width="32" height="30"><b>St. Clare College</b><span class="sx-k-clock">07:12</span></p>
+        <div class="sx-k-scr">
+          <span class="sx-av sx-av--lg">AR</span>
+          <b class="sx-k-hi">Good morning, Ana</b>
+          <span class="sx-k-st" data-state="ok">On time</span>
+          <small class="sx-k-d">Checked in 07:12 · schedule 07:00 · grace 10 min</small>
+        </div>
+        <label class="sx-k-sl"><span>Arrives at <b class="sx-k-v">07:12</b></span><input type="range" min="0" max="50" step="1" value="12" aria-label="Arrival time after 6:50"></label>
+      </div>
+      <div class="sx-board" data-in data-fx="right" style="--d:320ms">
+        <p class="sx-bd-h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><b>Senior High · today</b><span class="sx-bd-c"><b class="sx-bd-late">1</b> late</span></p>
+        <ul>
+          <li><span>B. Santos</span><em>06:51</em><i class="ok">On time</i></li>
+          <li><span>C. Dela Cruz</span><em>06:58</em><i class="ok">On time</i></li>
+          <li class="is-me"><span>A. Reyes</span><em class="sx-bd-t">07:12</em><i class="sx-bd-s ok">On time</i></li>
+          <li><span>D. Garcia</span><em>07:21</em><i class="late">Late 21 min</i></li>
+          <li><span>E. Ramos</span><em>13:00</em><i class="on">Online</i></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sx-gx" data-in style="--d:340ms">
+    <p><span>You give us</span><b>Gate and device locations, grace and overtime rules</b></p>
+    <p><span>You get</span><b>Time-ins nobody types, lates counted by rule</b></p>
+    <p class="is-gate"><span>Done when</span><b>A full month in Odoo matches the forms; heads approve in Odoo</b></p>
+  </div>
+  <p class="illus sx-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample names, times and grace period</p>
+  <aside class="notes"><p>Phase 2 replaces the three forms. On campus, a tablet at the gate runs Odoo's attendance kiosk: badge or PIN, and in Odoo 20 a device with a camera can take a photo at check-in. For online classes, teachers check in from inside Odoo. If St. Clare already has biometric devices, Odoo 20 connects eSSL and Mantra devices; any other brand we check first. Drag the arrival time: past the sample 10-minute grace period Ana turns late, and the division's board updates. Overtime goes to the approver, and Odoo 20 rulesets can carry public holiday rates. For one month the forms and Odoo run side by side; when they match, the forms retire.</p></aside>
+</section>
+
+<!-- 9 · phase 3 -->
+<section class="slide" id="p3" data-title="Phase 3 · Payroll">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>phase 3 · payroll</span>
+      <h2 class="h-m" data-in style="--d:80ms">Approved time in, <span class="hl">payslips out.</span></h2>
+    </div>
+    <span class="sx-pp" data-in style="--d:160ms"><img class="oi" src="assets/img/odoo/hr_payroll.svg" alt="" width="30" height="30" style="width:30px;height:30px" loading="lazy" decoding="async"><b>Payroll · Philippines</b></span>
+  </div>
+  <div class="sx-pg">
+    <ol class="sx-do" data-in style="--d:200ms">
+      <li><i>1</i><span><b>Odoo 20's Philippine payroll package</b><small>Salary structures for full-time and part-time faculty</small></span></li>
+      <li><i>2</i><span><b>Pay schedule and cut-offs</b><small>Your pay dates, set once, used every run</small></span></li>
+      <li><i>3</i><span><b>Contributions, tax and loans</b><small>Automatic SSS and Pag-IBIG loan deductions</small></span></li>
+      <li><i>4</i><span><b>Two parallel cut-offs</b><small>Odoo and your current payroll, line by line</small></span></li>
+      <li><i>5</i><span><b>Payslips to every employee</b><small>In their own Odoo, in a payslips folder</small></span></li>
+      <li><i>6</i><span><b>BIR reports from the payslips</b><small>1601-C monthly, 2316 yearly, 1604-C and Alphalist</small></span></li>
+    </ol>
+    <div class="sx-ps win" data-in data-fx="right" style="--d:260ms">
+      <div class="win-bar"><i></i><i></i><i></i><span class="win-url">Payroll · Payslip 1–15 Oct</span></div>
+      <div class="sx-ps-body">
+        <div class="sx-ps-ctl">
+          <div class="seg sx-ps-typ" role="group" aria-label="Employment"><button type="button" data-v="ft" aria-pressed="true">Full-time</button><button type="button" data-v="pt" aria-pressed="false">Part-time</button></div>
+          <label class="sx-ps-sl"><span class="sx-ps-sl-l">Approved extra hours</span><b class="sx-ps-v">1.5 h</b><input type="range" min="0" max="20" step="1" value="3" aria-label="Hours"></label>
+        </div>
+        <table class="sx-pt">
+          <tbody>
+            <tr><td class="sx-l-bn">Basic pay · half month</td><td class="sx-l-b">&#8369;14,000.00</td></tr>
+            <tr><td class="sx-l-on">Overtime · 1.5 h approved</td><td class="sx-l-o">&#8369;300.00</td></tr>
+            <tr class="is-ded"><td>Government contributions</td><td class="sx-l-g">−&#8369;1,180.00</td></tr>
+            <tr class="is-ded sx-r-loan"><td>SSS loan · auto deduction</td><td>−&#8369;800.00</td></tr>
+            <tr class="is-ded"><td>Withholding tax</td><td class="sx-l-t">−&#8369;540.00</td></tr>
+          </tbody>
+          <tfoot><tr><td>Net pay</td><td class="sx-l-n">&#8369;11,780.00</td></tr></tfoot>
+        </table>
+        <p class="sx-bir"><span>Feeds</span><i>1601-C</i><i>2316</i><i>1604-C</i><i>Alphalist</i></p>
+      </div>
+    </div>
+  </div>
+  <div class="sx-gx" data-in style="--d:340ms">
+    <p><span>You give us</span><b>Pay rules, rates, loans and two past cut-offs</b></p>
+    <p><span>You get</span><b>Payslips from approved time, BIR reports ready</b></p>
+    <p class="is-gate"><span>Done when</span><b>Two parallel cut-offs match, every difference explained</b></p>
+  </div>
+  <p class="illus sx-ill"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Illustrative · sample rates and deductions, not St. Clare's</p>
+  <aside class="notes"><p>Phase 3 is payroll, and it only starts when attendance is trusted. Odoo 20 adds a basic Philippines payroll package: Form 1601-C items for monthly BIR reporting, the yearly 2316, 1604-C and Alphalist exports, and automatic loan deductions for SSS and Pag-IBIG loans. Switch between full-time and part-time and drag the hours: full-time pay grows with approved overtime, part-time pay with hours taught. All rates and deductions here are samples; St. Clare's own rates, contributions and tax are set up from your current payroll and checked line by line in two parallel cut-offs before the first real pay run. How part-time faculty are paid (per hour, per unit or per load) is one of our questions at the back.</p></aside>
+</section>
+
+<!-- 10 · free website -->
+<section class="slide" id="website" data-title="A new stclareonline.com, designed free">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>and one more thing</span>
+      <h2 class="h-m" data-in style="--d:80ms">A new stclareonline.com, <span class="hl">designed free.</span></h2>
+    </div>
+    <div class="seg sx-ws-seg" data-in style="--d:160ms" role="group" aria-label="Menu"><button type="button" data-v="now" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>Today's menu</button><button type="button" data-v="new" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="9" width="6" height="12" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>A proposed sitemap</button></div>
+  </div>
+  <div class="sx-ws" data-mode="new">
+    <div class="sx-ws-now" data-in style="--d:200ms">
+      <p class="sx-ws-h">Today · 12 menu items</p>
+      <ul><li>Home</li><li>About Us</li><li>News</li><li>LMS</li><li>CMS</li><li>IMS</li><li>PMS</li><li>VMS</li><li>Downloadable Forms</li><li>Contact Us</li><li>Calendar</li><li>Digital Citizenship</li></ul>
+    </div>
+    <div class="sx-ws-new" data-in style="--d:240ms">
+      <div class="sx-sm"><b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Enrol</b><span>Programmes by division</span><span>How to enrol · full online or blended</span><span>Downloadable forms</span></div>
+      <div class="sx-sm"><b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Students and parents</b><span>Calendar</span><span>Digital citizenship</span><span>Document requests</span></div>
+      <div class="sx-sm"><b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>Online Education System</b><span>LMS · CMS · IMS</span><span>PMS · VMS</span><span>One page explains all five</span></div>
+      <div class="sx-sm"><b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg>Faculty corner</b><span>Time-in moves to Odoo</span><span>Careers</span><span>Staff sign-in</span></div>
+      <div class="sx-sm"><b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>About and news</b><span>School of Life Skills</span><span>Commencements, broadcasts</span><span>Contact, Caloocan</span></div>
+    </div>
+    <div class="sx-ws-inc" data-in data-fx="right" style="--d:300ms">
+      <p class="sx-ws-h">What you get</p>
+      <ul>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="9" width="6" height="12" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg><span><b>A fresh design</b> in your red, on every screen</span></li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><b>Mobile first</b>, for parents on phones</span></li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg><span><b>Found on Google</b> for enrolment searches</span></li>
+        <li><img class="oi" src="assets/img/odoo/website.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async"><span><b>On Odoo Website</b>, in the same database</span></li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span><b>Your team edits it</b>, drag and drop</span></li>
+      </ul>
+      <p class="sx-ws-free"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6l1.8 4.2L18 12l-4.2 1.8L12 18l-1.8-4.2L6 12l4.2-1.8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg><span>Our design work is <b>free</b> with this project. The site runs on your Odoo subscription.</span></p>
+    </div>
+  </div>
+  <aside class="notes"><p>The website is our gift with the project: we design and build the new stclareonline.com at no charge for our work. It runs on Odoo Website inside the same Odoo subscription, so there is no separate website platform to look after. Toggle Today's menu: twelve items, five of them acronyms a parent has to learn. The proposed sitemap is a starting point for discussion, grouped by who visits: families enrolling, students and parents, the Online Education System, faculty, and the school itself. The faculty corner is also where the old time-in forms are replaced by Odoo. Content stays St. Clare's; we redesign around it.</p></aside>
+</section>
+
+<!-- 11 · questions -->
+<section class="slide" id="questions" data-title="Questions for St. Clare">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>before we start</span>
+      <h2 class="h-m" data-in style="--d:80ms">Twelve questions <span class="hl">to answer together.</span></h2>
+    </div>
+    <div class="sx-q-tools" data-in style="--d:160ms">
+      <span class="sx-q-c"><b class="sx-q-a">0</b> answered · <b class="sx-q-f">0</b> to follow up</span>
+      <button type="button" class="btn btn-line sx-q-copy"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg><span>Copy follow-ups</span></button>
+    </div>
+  </div>
+  <div class="sx-qs">
+    <div class="sx-qg" data-in style="--d:200ms">
+      <p class="sx-qg-h"><img class="oi" src="assets/img/odoo/hr.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async">Timekeeping</p>
+      <button type="button" data-q="1"><i>1</i><span>How many faculty and staff per division, and how many are part-time?</span></button>
+      <button type="button" data-q="2"><i>2</i><span>What are the bell times per division? Does Tertiary run on Saturdays?</span></button>
+      <button type="button" data-q="3"><i>3</i><span>Which leave types and yearly allocations do you give today?</span></button>
+    </div>
+    <div class="sx-qg" data-in style="--d:250ms">
+      <p class="sx-qg-h"><img class="oi" src="assets/img/odoo/hr_attendance.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async">Attendance</p>
+      <button type="button" data-q="4"><i>4</i><span>Do you have biometric devices today, and which brand?</span></button>
+      <button type="button" data-q="5"><i>5</i><span>How should an online-class time-in be checked?</span></button>
+      <button type="button" data-q="6"><i>6</i><span>What grace period for lates, and who approves extra hours?</span></button>
+    </div>
+    <div class="sx-qg" data-in style="--d:300ms">
+      <p class="sx-qg-h"><img class="oi" src="assets/img/odoo/hr_payroll.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async">Payroll</p>
+      <button type="button" data-q="7"><i>7</i><span>Which payroll tool or spreadsheet do you use today?</span></button>
+      <button type="button" data-q="8"><i>8</i><span>Your pay frequency and cut-off dates?</span></button>
+      <button type="button" data-q="9"><i>9</i><span>Are part-time instructors paid per hour, per unit or per load?</span></button>
+    </div>
+    <div class="sx-qg" data-in style="--d:350ms">
+      <p class="sx-qg-h"><img class="oi" src="assets/img/odoo/website.svg" alt="" width="24" height="24" style="width:24px;height:24px" loading="lazy" decoding="async">Payroll and website</p>
+      <button type="button" data-q="10"><i>10</i><span>Which loans are deducted: SSS, Pag-IBIG, school loans?</span></button>
+      <button type="button" data-q="11"><i>11</i><span>Who files the 1601-C and 2316 today?</span></button>
+      <button type="button" data-q="12"><i>12</i><span>Who updates the website, and which pages matter most for enrolment?</span></button>
+    </div>
+  </div>
+  <p class="hint sx-q-hint" data-in style="--d:400ms">Click once: <b class="ok">answered</b> · twice: <b class="fu">follow up</b> · three times: clear</p>
+  <textarea class="sx-q-ta" aria-label="Follow-up list" readonly hidden></textarea>
+  <aside class="notes"><p>Ask these in the room and mark them as you go: one click for answered, two for follow up. The marks stay while this tab is open. Copy follow-ups puts the open ones on the clipboard for the meeting notes. The answers set the length of each phase: headcount and schedules for phase 1, devices and rules for phase 2, pay rules and loans for phase 3.</p></aside>
+</section>
+
+<!-- 12 · next step -->
+<section class="slide dark" id="contact" data-title="Next step" data-chrome="foot">
+  <div class="split split--narrow">
+    <div>
+      <div class="sx-lock sx-lock--sm" data-in><img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40"><i></i><img class="sx-co" src="assets/img/clients/stclare.png?v=43" alt="St. Clare Online" width="60" height="56"></div>
+      <span class="kicker" data-in style="--d:80ms">next step</span>
+      <h2 class="h-xl ct-h" data-in style="--d:140ms">Let's follow one cut-off, <span class="hl">end to end.</span></h2>
+      <p class="lead" data-in style="--d:220ms">A discovery session at St. Clare in Caloocan: we walk one teacher's cut-off from time-in to payslip on your real rules, then show it running in Odoo 20.</p>
+      <div class="ct-actions" data-in style="--d:320ms">
+        <a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Book the session</a>
+        <a class="btn btn-ghost" href="https://wa.me/6588396998" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>+65 8839 6998</a>
+      </div>
+      <div class="ct-links" data-in style="--d:400ms"><a href="mailto:sales@technext.asia"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>sales@technext.asia</a><a href="https://technext.asia/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>technext.asia</a><span class="sx-team"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Taguig City, Metro Manila</span></div>
+    </div>
+    <div class="ct-qr" data-in data-fx="scale" style="--d:300ms"><div class="ct-qr-card"><svg aria-hidden="true" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" class="qr"><path class="qr-p" stroke="#1f1f3d" d="M0 0.5h7m1 0h1m1 0h2m1 0h2m3 0h3m1 0h7m-29 1h1m5 0h1m1 0h3m3 0h1m5 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h3m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h3m2 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h3m3 0h4m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m1 0h1m1 0h1m2 0h1m1 0h3m-20 1h1m1 0h2m1 0h3m1 0h1m1 0h2m3 0h3m3 0h1m2 0h1m1 0h2m-28 1h2m4 0h1m2 0h2m1 0h2m1 0h9m3 0h1m-28 1h1m4 0h5m3 0h1m2 0h2m2 0h3m2 0h2m-28 1h5m7 0h5m1 0h1m1 0h1m3 0h1m3 0h1m-29 1h2m4 0h1m1 0h2m1 0h1m3 0h5m5 0h2m-25 1h1m1 0h1m2 0h6m1 0h2m3 0h1m2 0h1m3 0h3m-27 1h1m2 0h2m1 0h4m1 0h1m2 0h4m1 0h4m1 0h3m-29 1h1m1 0h1m4 0h1m1 0h4m2 0h1m4 0h1m3 0h1m2 0h1m-28 1h2m1 0h2m1 0h4m2 0h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m-27 1h5m3 0h2m1 0h1m2 0h2m3 0h2m1 0h1m1 0h3m-28 1h1m1 0h2m2 0h4m1 0h1m1 0h6m1 0h5m1 0h1m-24 1h3m2 0h2m1 0h5m1 0h1m1 0h1m6 0h1m-26 1h2m2 0h2m2 0h1m1 0h4m1 0h3m1 0h7m-19 1h2m2 0h1m3 0h3m1 0h1m3 0h5m-29 1h7m1 0h3m3 0h1m1 0h1m1 0h3m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m1 0h5m2 0h1m1 0h1m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h3m5 0h1m2 0h5m1 0h1m-27 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h1m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h6m3 0h2m1 0h2m1 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m3 0h2m1 0h1m6 0h1m3 0h2m1 0h1m-28 1h7m1 0h1m2 0h1m3 0h1m2 0h1m1 0h1m4 0h1m1 0h1"/></svg><b>Scan to book a time</b><small>Discovery call with TechNext · 30 min online</small></div></div>
+  </div>
+  <aside class="notes"><p>Close on the discovery session. Our Philippine team works from Taguig City, so we can come to Caloocan. We take one teacher's cut-off and follow it on St. Clare's real rules, then show it running in Odoo 20. The QR books a 30-minute call if they prefer to start online.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v=43"></script>
+<script src="assets/motion.js?v=43"></script>
+<script src="assets/stclare.js?v=43"></script>
+</body>
+</html>

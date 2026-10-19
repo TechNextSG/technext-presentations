@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "41"
+ASSET_V = "43"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -101,6 +101,9 @@ DECKS = [
         dict(slug="immaculate-connections-website", tags="websites", title="Immaculate Connections", mins=25, pdf="TechNext-Immaculate-Connections-Website.pdf",
              alt="Immaculate Connections cover: your new website, live.",
              desc="A walkthrough of immaculateconnectionsph.com for the agency's team and partners: every page on desktop and phone, the home page's own trip photos, a tour finder over the 35 published Vietnam and China packages, a package page from its poster down, the four service documents that fill as you type, inquiry to quotation (and the partner tab), the Ask us assistant's real answers, the trip gallery, how the site is found on Google, how to share it, then working together: the client journey for travellers and partners, how new tours go live, and who does what."),
+        dict(slug="stclare-odoo-hr", tags="odoo websites", title="St. Clare College", mins=30, pdf="TechNext-Proposal-St-Clare-College.pdf",
+             alt="St. Clare College cover: every hour counted, every peso right.",
+             desc="Timekeeping, attendance and payroll on Odoo 20 for Basic Education, Senior High and Tertiary, in three detailed phases: schedules and leave, time-ins stamped at a kiosk or online, then Philippine payroll with BIR reports, each with its gate; one teacher followed from time-in to payslip, a new stclareonline.com designed free, and twelve questions marked live in the room."),
     ]),
     ("Case studies", [
         dict(slug="case-study-fnb", tags="odoo", title="Case study Ã‚Â· F&B", mins=15, pdf="TechNext-Case-Study-FnB.pdf",
