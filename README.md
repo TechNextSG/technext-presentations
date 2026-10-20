@@ -5,7 +5,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Deck | File | Slides |
 |---|---|---|
 | Company profile | `company-profile.html` | 11 |
-| Our talent | `technext-talent.html` | 9 |
+| Our talent | `technext-talent.html` | 10 |
 | Portfolio: clients and what we built | `portfolio.html` | 10 |
 | Service showcase | `service-showcase.html` | 15 |
 | Marketing showcase: live sites, concepts, pitch microsites | `marketing-showcase.html` | 15 |

@@ -105,7 +105,19 @@
     settle: function (s) { roPaint(s, 0); s._n = 0; }
   });
 
-  /* ---------------------------------------------------------------- 5 · team: problems light the advisers and the people behind them */
+  /* ---------------------------------------------------------------- 5 · people: click a profile to turn it over */
+  Deck.on('people', {
+    init: function (s) {
+      s.addEventListener('click', function (e) {
+        var b = e.target.closest('.ta-pc'); if (!b) return;
+        b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      });
+    },
+    leave: function (s) { $$('.ta-pc', s).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); }); },
+    settle: function (s) { $$('.ta-pc', s).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); }); }
+  });
+
+  /* ---------------------------------------------------------------- 6 · team: problems light the advisers and the people behind them */
   var PROB = [
     { a: [0], c: ['ph'], t: 'A finance adviser, with consultants in Taguig City: books, banks and tax in one database.' },
     { a: [1], c: ['ph'], t: 'A sales adviser: pipeline stages, pricelists and approval rules that match how you sell.' },
