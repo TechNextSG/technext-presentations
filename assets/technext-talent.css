@@ -252,3 +252,23 @@
 .ta-pp-note{display:flex;align-items:center;gap:10px;margin:18px 0 0;font:500 15px/1 var(--f-body);color:var(--muted)}
 .ta-pp-note .ic{width:18px;height:18px;color:var(--amber)}
 @media (prefers-reduced-motion:reduce){.ta-pc-in{transition:none}}
+/* ---------------------------------------------------------------- 2 · pillars: trusted, reliable, expert, each with its proof */
+.ta-pl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.ta-pl-c{padding:28px 28px 24px;transition:opacity .4s,translate .5s var(--ease),border-color .4s,box-shadow .4s}
+.ta-pl-ic{display:grid;place-items:center;width:58px;height:58px;border-radius:16px;background:var(--blue-050);color:var(--blue);transition:background .4s,color .4s}
+.ta-pl-ic .ic{width:30px;height:30px}
+.ta-pl-k{display:block;margin:18px 0 4px;font:800 40px/1 var(--f-display);color:var(--blue);letter-spacing:-.02em}
+.ta-pl-c h3{font-size:22px!important;margin-bottom:16px!important}
+.ta-pl-c ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.ta-pl-c li{display:flex;gap:10px;align-items:flex-start;font-size:16.5px;line-height:1.45}
+.ta-pl-c li .ic{width:20px;height:20px;flex:none;color:var(--ok);margin-top:2px}
+.ta-pl-c li b{color:var(--ink)}
+#pillars[data-hi] .ta-pl-c{opacity:.45}
+#pillars[data-hi="1"] .ta-pl-c[data-n="1"],#pillars[data-hi="2"] .ta-pl-c[data-n="2"],#pillars[data-hi="3"] .ta-pl-c[data-n="3"]{opacity:1;translate:0 -8px;border-color:var(--blue);box-shadow:0 0 0 4px rgba(49,103,202,.1),var(--sh-2)}
+#pillars[data-hi="1"] .ta-pl-c[data-n="1"] .ta-pl-ic,#pillars[data-hi="2"] .ta-pl-c[data-n="2"] .ta-pl-ic,#pillars[data-hi="3"] .ta-pl-c[data-n="3"] .ta-pl-ic{background:var(--blue);color:#fff}
+.ta-pl-proof{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.ta-pl-proof span{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);font:600 16px/1 var(--f-display);color:var(--body)}
+.ta-pl-proof b{color:var(--blue);font-weight:800}
+.ta-pl-proof img{height:22px;width:auto}
+.ta-pl-proof .ic{width:18px;height:18px;color:var(--blue)}
+@media print{.ta-pl-c{opacity:1!important;translate:0 0!important}}

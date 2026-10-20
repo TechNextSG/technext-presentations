@@ -41,6 +41,14 @@
     settle: function (s) { cvPlace(s, 0, 0, 0); }
   });
 
+  /* ---------------------------------------------------------------- 2 · pillars: each build brings one word forward */
+  Deck.on('pillars', {
+    init: function (s) { s.addEventListener('click', function (e) { var c = e.target.closest('.ta-pl-c'); if (c) Deck.go(idx(s), +c.dataset.n); }); },
+    step: function (n, ctx, s) { if (n) s.dataset.hi = n; else delete s.dataset.hi; },
+    leave: function (s) { delete s.dataset.hi; },
+    settle: function (s) { delete s.dataset.hi; }
+  });
+
   /* ---------------------------------------------------------------- 3 · offices: arcs between the three, planes on them */
   var OFF = [null, 'sg', 'ph', 'vn'];
   Deck.on('offices', {
