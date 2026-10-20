@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "43"
+ASSET_V = "44"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -57,16 +57,16 @@ _maps = {}
 DECKS = [
     ("About TechNext", [
         dict(slug="company-profile", tags="odoo ai", title="Company profile", mins=10, pdf="TechNext-Company-Profile.pdf",
-             alt="Company profile cover: We automate what slows you down.",
+             alt="Company profile cover: We advise first, then deliver the whole solution.",
              desc="Who TechNext is: three offices on a live map, the three practices, the Odoo partnership, how an engagement runs, the four AI disciplines and the company details."),
         dict(slug="portfolio", tags="odoo websites marketing", title="Portfolio", mins=10, pdf="TechNext-Portfolio.pdf",
              alt="Portfolio cover: the clients TechNext has served.",
              desc="The clients we have served and what we built for each: websites, Odoo proposals and rollouts, social, video and brand work, on a map and client by client."),
     ]),
-    ("What we build", [
+    ("What we solve", [
         dict(slug="service-showcase", tags="odoo ai websites", title="Service showcase", mins=15, pdf="TechNext-Service-Showcase.pdf",
-             alt="Service showcase cover: What we build, and how it works.",
-             desc="All fourteen services, each shown working: the implementation plan, a live CRM pipeline, multi-company Odoo, integrations with outages, and four AI demos."),
+             alt="Service showcase cover: What we solve, and how it works.",
+             desc="All fourteen solutions, each shown working: the implementation plan, a live CRM pipeline, multi-company Odoo, integrations with outages, and four AI demos."),
         dict(slug="marketing-showcase", tags="websites marketing", title="Marketing showcase", mins=10, pdf="TechNext-Marketing-Showcase.pdf",
              alt="Marketing showcase cover: websites TechNext has built.",
              desc="Every live website we have built, and the concepts we have mocked up, with each full page scrolling in a browser and on a phone."),
@@ -181,7 +181,7 @@ WORDS = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Sev
 # One line under each launcher group's heading, and its key for the filter (the URL keeps it: #g=odoo).
 GROUPS = {
     "About TechNext": ("about", "Who we are and who we have worked for."),
-    "What we build": ("build", "Every service and every website, shown working."),
+    "What we solve": ("build", "Every solution and every website, shown working."),
     "Odoo": ("odoo", "Odoo from scratch, then one app at a time in a live session."),
     "Client decks": ("client", "Proposals and reviews made for one client. Send them with Share."),
     "Case studies": ("cases", "One industry, one hard problem, and how Odoo solves it."),
