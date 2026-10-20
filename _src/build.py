@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "44"
+ASSET_V = "45"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -59,6 +59,9 @@ DECKS = [
         dict(slug="company-profile", tags="odoo ai", title="Company profile", mins=10, pdf="TechNext-Company-Profile.pdf",
              alt="Company profile cover: We advise first, then deliver the whole solution.",
              desc="Who TechNext is: three offices on a live map, the three practices, the Odoo partnership, how an engagement runs, the four AI disciplines and the company details."),
+        dict(slug="technext-talent", tags="odoo ai websites", title="Our talent", mins=10, pdf="TechNext-Talent.pdf",
+             alt="Our talent cover: the people behind the whole solution.",
+             desc="The people clients work with: six kinds of adviser and the first-call question each one asks, where the consultants, developers and AI engineers sit, a picker that shows who joins for your problems, Listen · Advise · Implement · Stay, and the four rules our advisers keep."),
         dict(slug="portfolio", tags="odoo websites marketing", title="Portfolio", mins=10, pdf="TechNext-Portfolio.pdf",
              alt="Portfolio cover: the clients TechNext has served.",
              desc="The clients we have served and what we built for each: websites, Odoo proposals and rollouts, social, video and brand work, on a map and client by client."),
