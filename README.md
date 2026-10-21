@@ -21,6 +21,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Client deck: HST Medical website review (website and catalogue, your direction, feedback, AI for the website, why TechNext, how we build, questions) | `hst-medical-website.html` | 19 |
 | Client deck: Immaculate Connections website walkthrough (pages, home photos, tour finder, package page, service documents, inquiry and partner quotations, Ask us, gallery, Google, sharing, working together: client journey, new tours, who does what) | `immaculate-connections-website.html` | 16 |
 | Client deck: St. Clare College proposal (timekeeping, attendance and payroll on Odoo 20 in three detailed phases, one teacher from time-in to payslip, free website design, questions marked live) | `stclare-odoo-hr.html` | 12 |
+| Client deck: Moneybees Forex Corporation proposal (Odoo CAS customisation: six Excel books, SI and AR print and reprint, deployment, tutorials, BIR CAS registration pack, fee breakdown, questions marked live) | `moneybees-odoo-cas.html` | 13 |
 | Case study: F&B (composite Singapore group: central kitchen + five outlets; the problem, nine Odoo apps, replenishment flow, plate costing, rollout) | `case-study-fnb.html` | 8 |
 | Case study: Medical (clinic group: recalled lot traced, panel claims) | `case-study-medical.html` | 8 |
 | Case study: Travel (tour operator: FX and pax margin, deposits before payments) | `case-study-travel.html` | 8 |

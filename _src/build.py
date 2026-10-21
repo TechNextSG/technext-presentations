@@ -26,7 +26,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "49"
+ASSET_V = "50"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -107,6 +107,9 @@ DECKS = [
         dict(slug="stclare-odoo-hr", tags="odoo websites", title="St. Clare College", mins=30, pdf="TechNext-Proposal-St-Clare-College.pdf",
              alt="St. Clare College cover: every hour counted, every peso right.",
              desc="Timekeeping, attendance and payroll on Odoo 20 for Basic Education, Senior High and Tertiary, in three detailed phases: schedules and leave, time-ins stamped at a kiosk or online, then Philippine payroll with BIR reports, each with its gate; one teacher followed from time-in to payslip, a new stclareonline.com designed free, and twelve questions marked live in the room."),
+        dict(slug="moneybees-odoo-cas", tags="odoo", title="Moneybees", mins=30, pdf="TechNext-Proposal-Moneybees-Odoo-CAS.pdf",
+             alt="Moneybees cover: keep your Odoo, add what CAS needs.",
+             desc="An answer to Moneybees Forex Corporation's request for quotation: keep the existing Odoo and build only the gap for a computerised accounting system: the six books as Excel (with a downloadable sample workbook), Sales Invoices and Acknowledgement Receipts that print once and reprint under control, deployment on a staging copy, three recorded tutorials, the BIR CAS documentation pack and who signs what, the order of work, the five-line fee breakdown they asked for, and twelve questions marked live in the room."),
     ]),
     ("Case studies", [
         dict(slug="case-study-fnb", tags="odoo", title="Case study · F&B", mins=15, pdf="TechNext-Case-Study-FnB.pdf",
