@@ -100,6 +100,14 @@ CLIENTS = [
               "An inquiry-to-payment flowchart deck and an implementation proposal",
               "An admin dashboard mockup for packages, departures and transport"],
          links=[("Redesign", "https://technextmarketing.github.io/immaculateconnectionsph/")]),
+    dict(slug="stc", name="St. Clare College of Caloocan", mono="SC", c="#8C1D2B", ind="Education", where="Caloocan, Philippines", cc="PH", status="progress",
+         site=None, url="",
+         svc=dict(odoo=2, web=1, pitch=2),
+         did=["A faculty attendance and timekeeping dashboard on Odoo 20, with email sign-in and a campus kiosk PIN",
+              "Leave requests, class schedules and late rules set up for a school",
+              "A timekeeping, attendance and payroll proposal deck in three phases",
+              "A website design concept for the college"],
+         links=[]),
 ]
 
 STATUS = {"live": "Live", "progress": "In progress", "proposal": "Proposal", "concept": "Concept", "paused": "Paused"}
@@ -107,7 +115,7 @@ STATUS = {"live": "Live", "progress": "In progress", "proposal": "Proposal", "co
 # the map: pins for countries with clients (solid) and with proposals only (hollow)
 PINS = [
     ("SG", 103.82, 1.35, "Singapore", "BHD Asia · HummingBeing\nTRE™ in Singapore", True, "r"),
-    ("PH", 121.0, 13.2, "Philippines", "Casa Escondida\nImmaculate Connections", True, "t"),
+    ("PH", 121.0, 13.2, "Philippines", "Casa Escondida · St. Clare\nImmaculate Connections", True, "t"),
     ("MY", 100.33, 5.41, "Malaysia", "JR-Tech Solution", True, "l"),
     ("ID", 115.19, -8.41, "Indonesia", "TRE Worldwide\nConference 2027", True, "b"),
     ("CH", 8.23, 46.8, "Switzerland", "nivellipso® · HDH AG", True, "b"),

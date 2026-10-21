@@ -36,6 +36,19 @@
 .stat-ics .ic{opacity:.3;transition:opacity .4s}
 .stat-ics .ic.is-on{opacity:1}
 
+/* ---------------------------------------------------------------- 2b · why trust us */
+.tr-grid{display:grid;grid-template-columns:600px 1fr;gap:64px;align-items:start}
+.tr-pts{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:22px}
+.tr-pts li{display:grid;grid-template-columns:34px 1fr;gap:16px;align-items:start}
+.tr-pts .ic{width:30px;height:30px;color:var(--blue);margin-top:2px}
+.tr-pts b{display:block;font:750 22px/1.25 var(--f-display);color:var(--ink);margin-bottom:4px}
+.tr-pts span{font-size:18px;line-height:1.45;color:var(--body)}
+.tr-h{margin:6px 0 16px;font:700 15px/1.3 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tr-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tr-list li{padding:13px 16px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.tr-list b{display:block;font:700 18px/1.25 var(--f-display);color:var(--ink)}
+.tr-list span{display:block;margin-top:3px;font-size:14.5px;line-height:1.35;color:var(--muted)}
+
 /* ---------------------------------------------------------------- 3 · offices */
 .of-copy{position:absolute;left:120px;top:118px;width:520px}
 .of-lead{font-size:21px;margin:12px 0 22px;color:var(--body)}
