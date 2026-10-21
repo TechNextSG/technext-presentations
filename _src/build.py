@@ -58,7 +58,7 @@ DECKS = [
     ("About TechNext", [
         dict(slug="company-profile", tags="odoo ai", title="Company profile", mins=10, pdf="TechNext-Company-Profile.pdf",
              alt="Company profile cover: We advise first, then deliver the whole solution.",
-             desc="Who TechNext is: three offices on a live map, the three practices, the Odoo partnership, how an engagement runs, the four AI disciplines and the company details."),
+             desc="Who TechNext is: why clients trust us and the companies we've worked with, three offices on a live map, the three practices, the Odoo partnership, how an engagement runs, our ERP experience by industry and the company details."),
         dict(slug="technext-talent", tags="odoo ai websites", title="Our talent", mins=10, pdf="TechNext-Talent.pdf",
              alt="Our talent cover: the people behind the whole solution.",
              desc="Trusted, reliable, expert, and the people behind it: six kinds of adviser and the first-call question each one asks, where the consultants, developers and AI engineers sit, three featured profiles (placeholders until the CVs), a picker that shows who joins for your problems, Listen · Advise · Implement · Stay, and the four rules our advisers keep."),
