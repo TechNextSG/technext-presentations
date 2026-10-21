@@ -254,27 +254,7 @@
   <aside class="notes"><p>Press → to move the plane along the five steps, or click a step. The point: the people who map your processes are the people who train your team and answer the support tickets.</p></aside>
 </section>
 
-<!-- 7 · enterprise AI -->
-<section class="slide" id="ai" data-title="Enterprise AI">
-  <div class="ai-left">
-    <span class="kicker" data-in>enterprise ai</span>
-    <h2 class="h-m" data-in style="--d:80ms">Four AI disciplines, <span class="hl">grounded in your data.</span></h2>
-    <div class="ai-tabs" role="tablist" aria-label="AI disciplines">
-      <button type="button" role="tab" data-k="rag" data-in style="--d:180ms"><span class="ai-ic">{{icon:database}}</span><span><b>RAG knowledge assistants</b><small>Answers from your documents, with the source cited</small></span><i class="ai-tick"></i></button>
-      <button type="button" role="tab" data-k="odoo" data-in style="--d:240ms"><span class="ai-ic">{{icon:cpu}}</span><span><b>AI inside Odoo</b><small>Bills read and matched, replies drafted, records summarised</small></span><i class="ai-tick"></i></button>
-      <button type="button" role="tab" data-k="auto" data-in style="--d:300ms"><span class="ai-ic">{{icon:zap}}</span><span><b>Workflow automation agents</b><small>Multi-step tasks on a trigger, with approvals</small></span><i class="ai-tick"></i></button>
-      <button type="button" role="tab" data-k="chat" data-in style="--d:360ms"><span class="ai-ic">{{icon:bot}}</span><span><b>AI chatbots</b><small>Web, WhatsApp and in-app, with a clean hand-off</small></span><i class="ai-tick"></i></button>
-    </div>
-  </div>
-  <div class="ai-stage" data-i data-in data-fx="fade" style="--d:200ms">
-    <div class="ai-host"></div>
-    <p class="ai-illus">{{icon:check}}Illustrative · sample data</p>
-  </div>
-  <div class="ai-rails" data-in style="--d:460ms">
-    <span>{{icon:database}}Grounded in your own data</span><span>{{icon:file}}Sources cited</span><span>{{icon:usercheck}}Human approval before anything irreversible</span><span>{{icon:shield}}Every action logged</span>
-  </div>
-  <aside class="notes"><p>The demo cycles through the four disciplines; click one to jump to it. In the Odoo example the Approve button is live: click it, or it approves itself after a moment.</p></aside>
-</section>
+<!-- 7 · enterprise AI: HIDDEN 21 Oct 2026 on the owner's request (restore from git 70c95b1) -->
 
 <!-- 8 · industries -->
 <section class="slide" id="industries" data-title="Industries">
@@ -333,16 +313,33 @@
       <p>Configuration over code. Custom modules only where the process genuinely differs, and built to survive upgrades.</p>
     </article>
     <article class="card ru" data-in style="--d:380ms">
-      <div class="ru-art ru-art--team" aria-hidden="true">
-        <div class="rt-track"><i class="rt-line"></i>
-          <span class="rt-m" style="--x:0%">Discovery</span><span class="rt-m" style="--x:50%">Go-live</span><span class="rt-m" style="--x:100%">Support</span>
-          <span class="rt-crew"><i>SG</i><i>PH</i><i>VN</i></span></div>
+      <div class="ru-art ru-art--sup" aria-hidden="true">
+        <div class="rd-card"><span class="rd-av">{{icon:lifebuoy}}</span><span class="rd-who"><b>Your dedicated support</b><small><i class="rd-dot"></i>Available &middot; on your team</small></span></div>
+        <div class="rd-chips"><i>Month-end</i><i>Upgrades</i><i>Small changes</i></div>
       </div>
-      <span class="ru-n">03</span><h3>Same team after go-live</h3>
-      <p>The people who configured your system support it. Month-end, upgrades and small changes stay with us.</p>
+      <span class="ru-n">03</span><h3>Dedicated support, on your team</h3>
+      <p>After go-live you have a dedicated support person who knows your system. Month-end, upgrades and small changes stay with us.</p>
     </article>
   </div>
-  <aside class="notes"><p>Three rules. Discovery before any proposal; configuration before code; and no hand-off to a stranger after go-live.</p></aside>
+  <aside class="notes"><p>Three rules. Discovery before any proposal; configuration before code; and dedicated support on your team after go-live, from people who know your system.</p></aside>
+</section>
+
+<!-- 9b · ERP experience by industry (21 Oct 2026). PLACEHOLDERS: consultant + skills per industry, filled in by the owner -->
+<section class="slide" id="experience" data-title="ERP experience by industry">
+  <div class="sec-head">
+    <span class="kicker" data-in>our team's erp experience</span>
+    <h2 class="h-m" data-in style="--d:80ms">Odoo projects, <span class="hl">industry by industry.</span></h2>
+  </div>
+  <div class="xp">
+    <div class="xp-r xp-hd" data-in style="--d:140ms"><span>Industry</span><span>Company and scope</span><span>Odoo apps</span><span>Status</span><span>Consultant</span><span>Skills</span></div>
+      <div class="xp-r" data-in style="--d:200ms"><span class="xp-ind"><b>Hospitality &amp; resorts</b><small>Philippines</small></span><span class="xp-co"><b>Casa Escondida Anilao</b><small>Odoo ERP rollout, starting with Accounting</small></span><span class="xp-apps">{{odoo:accountant:30}}{{odoo:sale:30}}</span><span class="xp-st is-progress">In progress</span><span class="xp-ph" data-ph>Consultant: to be added</span><span class="xp-ph" data-ph>Skills: to be added</span></div>
+      <div class="xp-r" data-in style="--d:270ms"><span class="xp-ind"><b>Education</b><small>Philippines</small></span><span class="xp-co"><b>St. Clare College of Caloocan</b><small>Attendance, timekeeping and leave on Odoo 20</small></span><span class="xp-apps">{{odoo:hr_attendance:30}}{{odoo:hr_holidays:30}}</span><span class="xp-st is-progress">In progress</span><span class="xp-ph" data-ph>Consultant: to be added</span><span class="xp-ph" data-ph>Skills: to be added</span></div>
+      <div class="xp-r" data-in style="--d:340ms"><span class="xp-ind"><b>Events &amp; coaching</b><small>Singapore &middot; Indonesia</small></span><span class="xp-co"><b>HummingBeing &middot; BHD Asia &middot; TRE Worldwide Conference</b><small>Events webshop, tiered tickets, CRM lead capture</small></span><span class="xp-apps">{{odoo:event:30}}{{odoo:crm:30}}</span><span class="xp-st is-progress">In progress</span><span class="xp-ph" data-ph>Consultant: to be added</span><span class="xp-ph" data-ph>Skills: to be added</span></div>
+      <div class="xp-r" data-in style="--d:410ms"><span class="xp-ind"><b>Dental &amp; medical OEM</b><small>Switzerland</small></span><span class="xp-co"><b>HDH AG</b><small>Odoo stabilisation and Odoo 20 readiness</small></span><span class="xp-apps">{{odoo:stock:30}}{{odoo:mrp:30}}</span><span class="xp-st is-progress">In progress</span><span class="xp-ph" data-ph>Consultant: to be added</span><span class="xp-ph" data-ph>Skills: to be added</span></div>
+      <div class="xp-r" data-in style="--d:480ms"><span class="xp-ind"><b>Commercial kitchens</b><small>Malaysia</small></span><span class="xp-co"><b>JR-Tech Solution</b><small>CRM, Accounting with SST and MyInvois, Field Service, Inventory, POS</small></span><span class="xp-apps">{{odoo:crm:30}}{{odoo:industry_fsm:30}}</span><span class="xp-st is-scoped">Scoped</span><span class="xp-ph" data-ph>Consultant: to be added</span><span class="xp-ph" data-ph>Skills: to be added</span></div>
+      <div class="xp-r" data-in style="--d:550ms"><span class="xp-ind"><b>Travel</b><small>Philippines</small></span><span class="xp-co"><b>Immaculate Connections</b><small>Accounting with BIR and VAT, inquiry to payment</small></span><span class="xp-apps">{{odoo:accountant:30}}{{odoo:sale:30}}</span><span class="xp-st is-scoped">Scoped</span><span class="xp-ph" data-ph>Consultant: to be added</span><span class="xp-ph" data-ph>Skills: to be added</span></div>
+  </div>
+  <aside class="notes"><p>The ERP work our team has delivered or is delivering, by industry. Consultant names and their industry skills are placeholders until the owner fills them in: do not present those columns to a client before then. "Scoped" means the Odoo scope is agreed or proposed, not yet implemented.</p></aside>
 </section>
 
 <!-- 10 · details -->
