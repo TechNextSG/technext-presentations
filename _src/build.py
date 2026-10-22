@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "55"
+ASSET_V = "56"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -62,10 +62,10 @@ DECKS = [
              desc="Who TechNext is: why clients trust us and the companies we've worked with, three offices on a live map, the three practices, the Odoo partnership, how an engagement runs and the company details."),
         dict(slug="technext-talent", tags="odoo ai websites", title="Our talent", mins=10, pdf="TechNext-Talent.pdf",
              alt="Our talent cover: the people behind the whole solution.",
-             desc="Trusted, reliable, expert, and the people behind it: six kinds of adviser and the first-call question each one asks, where the consultants, developers and AI engineers sit, five people with their skill groups, a picker that shows who joins for your problems, Listen · Advise · Implement · Stay, and the four rules our advisers keep."),
-        dict(slug="technext-people", tags="odoo", title="People", mins=8, pdf="TechNext-People.pdf",
+             desc="Trusted, reliable, expert, and the people behind it: six kinds of adviser and the first-call question each one asks, where the consultants, developers and AI engineers sit, six people with their skill groups, a picker that shows who joins for your problems, Listen · Advise · Implement · Stay, and the four rules our advisers keep."),
+        dict(slug="technext-people", tags="odoo", title="People", mins=9, pdf="TechNext-People.pdf",
              alt="People cover: meet the people who advise, then deliver.",
-             desc="The five people behind the advice, by skill: the CEO in Singapore, a project manager, two Odoo developers and a business developer in Taguig City. One profile each with the role, office, highlights and every skill grouped, click a group to focus it, then the discovery-call close."),
+             desc="The six people behind the advice, by skill: the CEO in Singapore, and a senior functional lead, a project manager, two Odoo developers and a business developer in Taguig City. One profile each with the role, office, highlights and every skill grouped, click a group to focus it, then the discovery-call close."),
         dict(slug="portfolio", tags="odoo websites marketing", title="Portfolio", mins=10, pdf="TechNext-Portfolio.pdf",
              alt="Portfolio cover: the clients TechNext has served.",
              desc="The clients we have served and what we built for each: websites, Odoo proposals and rollouts, social, video and brand work, on a map and client by client."),

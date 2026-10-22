@@ -217,35 +217,38 @@
   [data-motion] .en-card,.ta-ro-p{transform:none!important}
   .ta-cv-spokes line{animation:none}
 }
-/* ---------------------------------------------------------------- 6 · people: five profiles (people_data.py), click to turn over. Avatar: people.css */
-.ta-pp{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+/* ---------------------------------------------------------------- 6 · people: six slim profiles (people_data.py), click to turn over. Avatar: people.css */
+.ta-pp{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
 .ta-pc{display:block;height:566px;padding:0;border:0;background:none;cursor:pointer;perspective:1600px;text-align:left;font:inherit;color:inherit}
 .ta-pc-in{display:block;position:relative;height:100%;transform-style:preserve-3d;transition:transform .8s var(--ease)}
 .ta-pc[aria-pressed=true] .ta-pc-in{transform:rotateY(180deg)}
 .ta-pc-f,.ta-pc-b{position:absolute;top:0;right:0;bottom:0;left:0;display:flex;flex-direction:column;border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);box-shadow:var(--sh-2);overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden}
-.ta-pc-f{align-items:center;text-align:center;padding:0 18px 16px}
-.ta-pc-band{flex:none;align-self:stretch;margin:0 -18px;height:86px;padding:14px 14px;display:flex;justify-content:flex-start;align-items:flex-start;background:linear-gradient(135deg,var(--blue-700),var(--blue) 60%,var(--blue-300))}
-.ta-pc-off{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.18);color:#fff;font:700 12px/1 var(--f-display);letter-spacing:.06em;text-transform:uppercase}
-.ta-pc-off .ic{width:13px;height:13px}
-.ta-pc .pp-av{margin-top:-44px;box-shadow:0 0 0 5px #fff}
-.ta-pc-name{margin-top:16px;font:800 23px/1.15 var(--f-display);color:var(--ink);letter-spacing:-.015em}
-.ta-pc-role{margin-top:5px;font:650 16px/1.3 var(--f-display);color:var(--blue)}
-.ta-pc-line{margin-top:12px;font:400 14.5px/1.45 var(--f-body);color:var(--body)}
-.ta-pc-sk{margin-top:14px;width:100%}
-.ta-pc-sk small{display:block;margin-bottom:8px;font:700 11.5px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ta-pc-f{align-items:center;text-align:center;padding:0 14px 14px}
+.ta-pc-band{flex:none;align-self:stretch;margin:0 -14px;height:82px;padding:12px 10px;display:flex;justify-content:flex-start;align-items:flex-start;background:linear-gradient(135deg,var(--blue-700),var(--blue) 60%,var(--blue-300))}
+.ta-pc-off{display:inline-flex;align-items:center;gap:5px;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.18);color:#fff;font:700 11.5px/1 var(--f-display);letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.ta-pc-off .ic{width:12px;height:12px}
+.ta-pc .pp-av{margin-top:-42px;box-shadow:0 0 0 5px #fff}
+.ta-pc-name{margin-top:14px;font:800 20px/1.15 var(--f-display);color:var(--ink);letter-spacing:-.015em}
+.ta-pc-role{margin-top:5px;font:650 15px/1.3 var(--f-display);color:var(--blue)}
+.ta-pc-line{margin-top:11px;font:400 14px/1.45 var(--f-body);color:var(--body)}
+.ta-pc-sk{margin-top:12px;width:100%}
+.ta-pc-sk small{display:block;margin-bottom:7px;font:700 11px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .ta-pc-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:5px}
-.ta-pc-tags i{font:600 12.5px/1 var(--f-display);font-style:normal;padding:5px 10px;border-radius:999px;background:var(--blue-050);color:var(--blue-700)}
+.ta-pc-tags i{font:600 12px/1.1 var(--f-display);font-style:normal;padding:5px 9px;border-radius:999px;background:var(--blue-050);color:var(--blue-700)}
 .ta-pc-tags i.is-more{background:none;border:1px dashed var(--blue-200);color:var(--muted)}
-.ta-pc-st{margin-top:auto;align-self:stretch;display:flex;gap:6px;padding-top:14px}
-.ta-pc-b{transform:rotateY(180deg);padding:20px 20px 16px;gap:12px;background:var(--alt)}
-.ta-pc-bh{font:800 20px/1.2 var(--f-display);color:var(--ink);padding-bottom:12px;border-bottom:1px solid var(--line)}
-.ta-pc-bh small{display:block;margin-top:4px;font:500 13.5px/1.3 var(--f-body);color:var(--muted)}
-.ta-pc-bs{flex:1 1 0;min-width:0;padding:9px 5px 8px;border-radius:12px;background:var(--blue-050);text-align:center}
-.ta-pc-bs b{display:block;font:800 19px/1 var(--f-display);color:var(--blue);letter-spacing:-.02em}
-.ta-pc-bs small{display:block;margin-top:5px;font:500 11.5px/1.2 var(--f-body);color:var(--body)}
-.ta-pc-row{display:block;font-size:13.5px;line-height:1.4}
-.ta-pc-row small{display:block;font:700 11.5px/1.2 var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
-.ta-pc-row em{font-style:normal;font-size:13.5px;line-height:1.4;color:var(--ink)}
+.ta-pc-st{margin-top:auto;align-self:stretch;display:flex;align-items:center;justify-content:center;gap:8px;padding-top:12px;border-top:1px solid var(--line)}
+.ta-pc-st b{font:800 22px/1 var(--f-display);color:var(--blue);letter-spacing:-.02em}
+.ta-pc-st em{font:500 12.5px/1.25 var(--f-body);font-style:normal;color:var(--body);text-align:left}
+.ta-pc-b{transform:rotateY(180deg);padding:16px 16px 14px;gap:11px;background:var(--alt)}
+.ta-pc-bh{font:800 19px/1.2 var(--f-display);color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--line)}
+.ta-pc-bh small{display:block;margin-top:4px;font:500 13px/1.3 var(--f-body);color:var(--muted)}
+.ta-pc-bstats{display:flex;flex-direction:column;gap:5px}
+.ta-pc-bs{display:flex;align-items:baseline;gap:8px;padding:6px 9px;border-radius:10px;background:var(--blue-050)}
+.ta-pc-bs b{flex:none;min-width:50px;font:800 17px/1 var(--f-display);color:var(--blue);letter-spacing:-.02em}
+.ta-pc-bs small{font:500 12px/1.25 var(--f-body);color:var(--body)}
+.ta-pc-row{display:block;font-size:13px;line-height:1.4}
+.ta-pc-row small{display:block;font:700 11px/1.2 var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:3px}
+.ta-pc-row em{font-style:normal;color:var(--ink)}
 .ta-pc-row u{text-decoration:none;color:var(--muted)}
 .ta-pc-rest{margin-top:auto}
 .ta-pc:hover .ta-pc-f,.ta-pc:hover .ta-pc-b{border-color:var(--blue-200)}

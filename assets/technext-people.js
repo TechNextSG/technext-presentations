@@ -59,8 +59,8 @@
   function finals(s, show) {
     $$('.pe-st b', s).forEach(function (b) { if (b._final != null) b.textContent = b._final; });
   }
-  ['clement', 'rj', 'philip', 'aj', 'jeric'].forEach(function (k) {
-    Deck.on('p-' + k, {
+  $$('.slide[id^="p-"]', document).forEach(function (sl) {
+    Deck.on(sl.id, {
       init: function (s) {
         $$('.pe-st b', s).forEach(function (b) { b._final = b.textContent; });
         s.addEventListener('click', function (e) {

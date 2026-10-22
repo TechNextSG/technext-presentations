@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """HTML for the people slides, from people_data.PEOPLE. build.py calls people_expand() for these tokens:
 
+  {{people:Count}} / {{people:count}}   the number of people in words (Six / six)
   {{people:cards}}     talent deck, slide "people": one flip card per person
   {{people:cover}}     People deck, cover: one initials disc per person, orbiting the plane
   {{people:roster}}    People deck, slide "team": the people grouped by office
@@ -55,29 +56,31 @@ def cards():
     out = []
     for i, p in enumerate(P):
         off = D.OFFICES[p["office"]]
+        v0, l0 = p["stats"][0]
         stats = "".join(f'<span class="ta-pc-bs"><b>{e(sv)}</b><small>{e(sl)}</small></span>' for sv, sl in p["stats"])
         back = ""
-        for g, sk in p["groups"][:4]:
+        for g, sk in p["groups"][:3]:
             extra = len(sk) - 3
             back += (f'<span class="ta-pc-row"><small>{e(g)}</small><em>{e(" · ".join(sk[:3]))}'
                      + (f' <u>+{extra}</u>' if extra > 0 else "") + "</em></span>")
-        rest = len(p["groups"]) - 4
+        rest = len(p["groups"]) - 3
         if rest > 0:
             back += f'<span class="ta-pc-row ta-pc-rest"><em><u>+{rest} more group{"s" if rest > 1 else ""}</u></em></span>'
         out.append(
-            f'<button type="button" class="ta-pc" data-in data-fx="land" style="--d:{180 + i * 70}ms" aria-pressed="false" data-p="{p["slug"]}">'
+            f'<button type="button" class="ta-pc" data-in data-fx="land" style="--d:{180 + i * 60}ms" aria-pressed="false" data-p="{p["slug"]}">'
             f'<span class="ta-pc-in">'
             f'<span class="ta-pc-f">'
             f'<span class="ta-pc-band"><span class="ta-pc-off">{{{{icon:pin}}}}{e(off)}</span></span>'
-            f'{av(p, 92)}'
+            f'{av(p, 88)}'
             f'<b class="ta-pc-name">{e(p["name"])}</b>'
             f'<span class="ta-pc-role">{e(p["role"])}</span>'
             f'<span class="ta-pc-line">{e(p["line"])}</span>'
             f'<span class="ta-pc-sk"><small>Skill groups</small><span class="ta-pc-tags">{group_pills(p)}</span></span>'
-            f'<span class="ta-pc-st">{stats}</span>'
+            f'<span class="ta-pc-st"><b>{e(v0)}</b><em>{e(l0)}</em></span>'
             f'</span>'
             f'<span class="ta-pc-b">'
             f'<span class="ta-pc-bh">{e(p["name"])}<small>{e(p["role"])} · {e(off)}</small></span>'
+            f'<span class="ta-pc-bstats">{stats}</span>'
             f'{back}'
             f'</span>'
             f'</span></button>')
@@ -121,6 +124,7 @@ def roster():
 # ---------------------------------------------------------------- People deck: profile slides
 NOTES = {
     "clement": "Open on the range: strategy for Singapore regional headquarters, then automation and digital twins, then people and set-up. The figures (1,000+ staff hired and trained, a 724-staff BPO set-up, 10+ network projects) come from the profile sent on 22 October 2026. Check each figure with Clement before it is quoted anywhere else.",
+    "astroneil": "Start with the two numbers: 24 years in ERP and CRM, and 10 years on Odoo. The groups then answer one question: who leads the discovery workshops and the process redesign, and who plans the data migration. Use the Industries row if the room names a sector. Figures and lists from the profile sent on 22 October 2026; the platforms are shown as skills only.",
     "rj": "The ERP years are the point: 17 years across Dynamics, Oracle and NetSuite, with the BIR and mall POS accreditation work on top. Use the groups to answer one question: who writes the scope, and who keeps the sprint on target. Figures from the CV sent on 22 October 2026.",
     "philip": "The densest profile: 66 skills in nine groups. Do not read the list out. Pick the group the room cares about (Odoo itself, integrations, or deployment) and click it to dim the rest. Skill list as sent on 22 October 2026; no credentials were supplied, so none are shown.",
     "aj": "Start with the work for Odoo clients: solution design, needs analysis, support and maintenance, and training for partner teams. The development stack is Python, JavaScript and PostgreSQL. Details from the CV sent on 22 October 2026.",
@@ -142,6 +146,8 @@ def _block(chips, width, fs=13.5, pad=8, extra=0, gap=4):
     n, x = 1, 0
     for c in chips:
         cw = _tw(c, fs) + 2 * pad + 2 + extra
+        if cw > width:
+            n, x, cw = n + 1, 0, width
         if x and x + cw > width:
             n, x = n + 1, 0
         x += cw + gap
@@ -162,12 +168,23 @@ def _split(heights, gap=8):
     return pick
 
 
+def _cols_est(p, fs, pad):
+    """Estimated height of the taller of the two skill columns at this chip size."""
+    hs = [_block(sk, 394, fs, pad) for _, sk in p["groups"]]
+    if p["creds"]:
+        hs.append(_block(p["creds"], 394, fs, pad, extra=20))
+    ia, ib = _split(hs)
+    return max(sum(hs[i] for i in ia) + 8 * (len(ia) - 1), sum(hs[i] for i in ib) + 8 * max(0, len(ib) - 1))
+
+
 def profile(i, p):
     off = D.OFFICES[p["office"]]
     n = n_skills(p)
     total = n + len(p["creds"])
     mode = "cols" if total > 32 else ("m" if total > 20 else "s")
-    fs, pad = (13.5, 8) if total > 45 else (15, 10)      # the longest list gets the smallest chips
+    fs, pad = 15, 10
+    if mode == "cols" and _cols_est(p, 15, 10) > 600:     # the longest lists get the smallest chips
+        fs, pad = 13.5, 8
     stats = "".join(
         f'<div class="pe-st" data-in style="--d:{300 + k * 70}ms"><b{count_attrs(v)}>{e(v)}</b><span>{e(l)}</span></div>'
         for k, (v, l) in enumerate(p["stats"]))
@@ -184,7 +201,7 @@ def profile(i, p):
         heights.append(_block(p["creds"], 394, fs, pad, extra=20))
     if mode == "cols":
         ia, ib = _split(heights)
-        body = f'<div class="pe-sk pe-sk--cols pe-sk--c{"135" if total > 45 else "15"}"><div class="pe-sk-col">{"".join(blocks[i] for i in ia)}</div><div class="pe-sk-col">{"".join(blocks[i] for i in ib)}</div></div>'
+        body = f'<div class="pe-sk pe-sk--cols pe-sk--c{"135" if fs < 15 else "15"}"><div class="pe-sk-col">{"".join(blocks[i] for i in ia)}</div><div class="pe-sk-col">{"".join(blocks[i] for i in ib)}</div></div>'
     else:
         body = f'<div class="pe-sk pe-sk--{mode}">{"".join(blocks)}</div>'
     return f'''<!-- {i + 3} · {p["name"]} -->
@@ -214,7 +231,12 @@ def profiles():
     return "\n".join(profile(i, p) for i, p in enumerate(P))
 
 
+WORDS = {3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight"}
+
+
 def people_expand(s):
+    word = WORDS.get(len(P), str(len(P)))
+    s = s.replace("{{people:Count}}", word.capitalize()).replace("{{people:count}}", word)
     s = s.replace("{{people:cards}}", cards())
     s = s.replace("{{people:cover}}", cover())
     s = s.replace("{{people:roster}}", roster())
