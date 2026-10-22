@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """HTML for the people slides, from people_data.PEOPLE. build.py calls people_expand() for these tokens:
 
-  {{people:Count}} / {{people:count}}   the number of people in words (Six / six)
+  {{people:Count}} / {{people:count}}   the number of people in words (Nine / nine); {{people:cols}} the cards per row
   {{people:cards}}     talent deck, slide "people": one flip card per person
   {{people:cover}}     People deck, cover: one initials disc per person, orbiting the plane
   {{people:roster}}    People deck, slide "team": the people grouped by office
@@ -16,6 +16,18 @@ import re
 import people_data as D
 
 P = D.PEOPLE
+
+GAP = 14
+
+
+def cols_for(n):
+    """Cards per row: two rows of ceil(n / 2), at least 4 (so 8 -> 4, 9 or 10 -> 5, 11 or 12 -> 6)."""
+    return max(4, -(-n // 2))
+
+
+COLS = cols_for(len(P))
+CARD_W = (1360 - (COLS - 1) * GAP) / COLS       # a card's width in stage px: the grids are flex rows of equal cards
+PILL_W = int(CARD_W - 36)                       # the room for group pills inside a card
 
 
 def e(s):
@@ -50,8 +62,9 @@ def office_of(p):
     return D.OFFICES.get(p["office"]) if p.get("office") else None
 
 
-def group_pills(p, width=290, rows=2, fs=12):
+def group_pills(p, width=None, rows=2, fs=12):
     """Group names as pills: as many as fit in `rows` rows (long names wrap), then a "+N more" pill."""
+    width = width or PILL_W
     labels = [g for g, _ in p["groups"]]
 
     def pw(t):
@@ -107,7 +120,7 @@ def cards():
             f'<button type="button" class="ta-pc" data-in data-fx="land" style="--d:{160 + i * 50}ms" aria-pressed="false" data-p="{p["slug"]}">'
             f'<span class="ta-pc-in">'
             f'<span class="ta-pc-f">'
-            f'<span class="ta-pc-top">{av(p, 68)}<span class="ta-pc-id"><b class="ta-pc-name">{e(p["name"])}</b>'
+            f'<span class="ta-pc-top">{av(p, 68 if COLS < 5 else 58)}<span class="ta-pc-id"><b class="ta-pc-name">{e(p["name"])}</b>'
             f'<span class="ta-pc-role">{e(p["role"])}</span>{pill}</span></span>'
             f'<span class="ta-pc-line">{e(p["line"])}</span>'
             f'<span class="ta-pc-tags">{group_pills(p)}</span>'
@@ -125,7 +138,7 @@ def cards():
 # ---------------------------------------------------------------- People deck: cover
 def cover():
     return "\n      ".join(
-        f'<span class="pe-cv-p">{av(p, 92)}<b>{e(p["name"])}</b><small>{e(p["role"])}</small></span>' for p in P)
+        f'<span class="pe-cv-p">{av(p, 84)}<b>{e(p["name"])}</b><small>{e(p["role"])}</small></span>' for p in P)
 
 
 # ---------------------------------------------------------------- People deck: roster by office
@@ -137,7 +150,7 @@ def roster():
         pill = f'<span class="pe-rc-off">{{{{icon:pin}}}}{e(off)}</span>' if off else ""
         out.append(
             f'<button type="button" class="pe-rc" data-go="p-{p["slug"]}" data-o="{p.get("office") or ""}" data-in style="--d:{d}ms">'
-            f'<span class="pe-rc-top">{av(p, 64)}<span class="pe-rc-id"><b class="pe-rc-name">{e(p["name"])}</b>'
+            f'<span class="pe-rc-top">{av(p, 64 if COLS < 5 else 56)}<span class="pe-rc-id"><b class="pe-rc-name">{e(p["name"])}</b>'
             f'<span class="pe-rc-role">{e(p["role"])}</span>{pill}</span></span>'
             f'<span class="pe-rc-line">{e(p["line"])}</span>'
             f'<span class="pe-rc-groups">{group_pills(p)}</span>'
@@ -152,6 +165,7 @@ NOTES = {
     "clement": "Open on the range: strategy for Singapore regional headquarters, then automation and digital twins, then people and set-up. The figures (1,000+ staff hired and trained, a 724-staff BPO set-up, 10+ network projects) come from the profile sent on 22 October 2026. Check each figure with Clement before it is quoted anywhere else.",
     "pia": "Open on the one line: strategy turned into structure, plans and KPIs. The five groups run from organisational design and planning to governance and management systems. The profile gives no office, so none is shown, and the two figures (5 areas, 23 skills) are counts of the groups and skills on the slide. Details from the profile sent on 22 October 2026.",
     "rico": "Marketing end to end: website design and SEO, AI in the content workflow, brand and design, social media, email. Since 2019 in social media, 15 digital and AI tools and 5 social accounts at once come from the profile sent on 22 October 2026. Tools are named as skills only.",
+    "jett": "Jett sits between your team and the developers: requirements, process documents, configuration, user acceptance testing and training before go-live. The three figures (8 weeks per roll-out, from 12; 40% less manual configuration time; 50% faster team onboarding) are from the profile sent on 22 October 2026, so confirm them before quoting beyond this slide. The profile gives no office, so none is shown. Platforms and tools are named as skills only.",
     "astroneil": "Start with the two numbers: 24 years in ERP and CRM, and 10 years on Odoo. The groups then answer one question: who leads the discovery workshops and the process redesign, and who plans the data migration. Use the Industries row if the room names a sector. Figures and lists from the profile sent on 22 October 2026; the platforms are shown as skills only.",
     "rj": "The ERP years are the point: 17 years across Dynamics, Oracle and NetSuite, with the BIR and mall POS accreditation work on top. Use the groups to answer one question: who writes the scope, and who keeps the sprint on target. Figures from the CV sent on 22 October 2026.",
     "philip": "The densest profile: 66 skills in nine groups. Do not read the list out. Pick the group the room cares about (Odoo itself, integrations, or deployment) and click it to dim the rest. Skill list as sent on 22 October 2026; no credentials were supplied, so none are shown.",
@@ -261,12 +275,13 @@ def profiles():
     return "\n".join(profile(i, p) for i, p in enumerate(P))
 
 
-WORDS = {3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight"}
+WORDS = {3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
 
 
 def people_expand(s):
     word = WORDS.get(len(P), str(len(P)))
     s = s.replace("{{people:Count}}", word.capitalize()).replace("{{people:count}}", word)
+    s = s.replace("{{people:cols}}", str(COLS))
     s = s.replace("{{people:cards}}", cards())
     s = s.replace("{{people:cover}}", cover())
     s = s.replace("{{people:roster}}", roster())

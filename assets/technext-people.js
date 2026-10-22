@@ -8,7 +8,7 @@
   function cvPlace(s, t, px, py) {
     var C = 380, ps = $$('.pe-cv-p', s), offs = $$('.pe-cv-o', s), lines = $$('.pe-cv-spokes line', s);
     ps.forEach(function (el, i) {
-      var a = -Math.PI / 2 + i * 2 * Math.PI / ps.length + t * .05, x = C + Math.cos(a) * 275 + px * 18, y = C + Math.sin(a) * 275 + py * 14;
+      var a = -Math.PI / 2 + i * 2 * Math.PI / ps.length + t * .05, x = C + Math.cos(a) * 280 + px * 18, y = C + Math.sin(a) * 280 + py * 14;
       el.style.setProperty('--x', x.toFixed(1) + 'px'); el.style.setProperty('--y', y.toFixed(1) + 'px');
       if (lines[i]) { lines[i].setAttribute('x2', x.toFixed(1)); lines[i].setAttribute('y2', y.toFixed(1)); }
     });

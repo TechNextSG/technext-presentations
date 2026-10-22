@@ -3,7 +3,7 @@
 <head>
 {{head}}
 <title>TechNext People: Meet the Team</title>
-<meta name="description" content="The people who advise, then deliver: the CEO and the general manager, a senior functional lead, a project manager, two Odoo developers, a business developer and a marketing officer, with every skill grouped.">
+<meta name="description" content="The people who advise, then deliver: the CEO and the general manager, a senior functional lead, a project manager, two Odoo developers, a business systems analyst, a business developer and a marketing officer, with every skill grouped.">
 {{og:technext-people}}
 <link rel="stylesheet" href="assets/motion.css?v={{v}}">
 <link rel="stylesheet" href="assets/people.css?v={{v}}">
@@ -28,7 +28,7 @@
   <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
   <div class="pe-cv" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
     <svg class="pe-cv-svg" viewBox="0 0 760 760">
-      <circle class="pe-cv-ring" cx="380" cy="380" r="275"/>
+      <circle class="pe-cv-ring" cx="380" cy="380" r="280"/>
       <circle class="pe-cv-ring pe-cv-ring--in" cx="380" cy="380" r="132"/>
       <g class="pe-cv-spokes"></g>
     </svg>
@@ -38,7 +38,7 @@
     <div class="pe-cv-offs"><span class="pe-cv-o">SG</span><span class="pe-cv-o">PH</span></div>
     <div class="pe-cv-core"><img src="assets/img/logo-plane.png" alt="" width="96" height="81"></div>
   </div>
-  <aside class="notes"><p>This deck is about who sits behind the advice. {{people:Count}} people: the CEO and the general manager, a senior functional lead, a project manager, two Odoo developers, a business developer and a marketing officer. The CEO is in Singapore and the Odoo, project and sales people are in Taguig City; the general manager's profile names no office, so none is shown. Every slide after this one is about skills, not about where anyone has worked.</p><p>The profiles come from the CVs and skill lists sent on 22 October 2026. No photos yet: initials stand in.</p></aside>
+  <aside class="notes"><p>This deck is about who sits behind the advice. {{people:Count}} people: the CEO and the general manager, a senior functional lead, a project manager, two Odoo developers, a business systems analyst, a business developer and a marketing officer. The CEO is in Singapore and the Odoo, project and sales people are in Taguig City; the general manager's profile names no office, so none is shown. Every slide after this one is about skills, not about where anyone has worked.</p><p>The profiles come from the CVs and skill lists sent on 22 October 2026. No photos yet: initials stand in.</p></aside>
 </section>
 
 <!-- 2 · the team, by office -->
@@ -50,7 +50,7 @@
     </div>
     <p class="hint" data-in style="--d:200ms">Click a person to open the profile <span class="cv-hint-sep">·</span> <kbd>→</kbd> walks the offices</p>
   </div>
-  <div class="pe-ro">
+  <div class="pe-ro" data-cols="{{people:cols}}" style="--cols:{{people:cols}}">
     {{people:roster}}
   </div>
   <aside class="notes"><p>Press → once for Singapore, again for Taguig City (the general manager's card dims on both: no office is given), or click a person to open the profile. Singapore is the headquarters: sales, discovery and on-site work. Taguig City is the main development and consulting hub.</p><p>The line under each name is the whole story in one sentence; the profiles carry the detail.</p></aside>

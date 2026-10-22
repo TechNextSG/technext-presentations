@@ -7,7 +7,7 @@
 .pe-cv-ring--in{stroke-dasharray:3 9;stroke:rgba(169,200,255,.4)}
 .pe-cv-spokes line{stroke:rgba(169,200,255,.35);stroke-width:1.5;stroke-dasharray:4 10;animation:flow 1.8s linear infinite}
 .pe-cv-p,.pe-cv-o{position:absolute;left:0;top:0;translate:var(--x,380px) var(--y,380px)}
-.pe-cv-p{width:190px;margin:-52px 0 0 -95px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.pe-cv-p{width:176px;margin:-46px 0 0 -88px;display:flex;flex-direction:column;align-items:center;text-align:center}
 .pe-cv-p .pp-av{box-shadow:0 0 0 6px rgba(255,255,255,.12),0 18px 40px -18px rgba(0,0,0,.6)}
 .pe-cv-p b{margin-top:16px;font:750 18px/1.15 var(--f-display);color:#fff}
 .pe-cv-p small{margin-top:4px;font:500 14px/1.25 var(--f-body);color:rgba(255,255,255,.74)}
@@ -16,8 +16,8 @@
 .pe-cv-core img{width:96px;height:auto}
 
 /* ---------------------------------------------------------------- 2 · team: the five, grouped by office */
-.pe-ro{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,272px);gap:14px;margin-top:-12px}
-.pe-rc{display:flex;flex-direction:column;align-items:stretch;text-align:left;padding:16px 16px 12px;border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);box-shadow:var(--sh-1);cursor:pointer;font:inherit;color:inherit;transition:border-color .3s,opacity .35s}
+.pe-ro{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:-12px}
+.pe-rc{flex:0 0 calc((100% - (var(--cols,4) - 1) * 14px) / var(--cols,4));height:272px;display:flex;flex-direction:column;align-items:stretch;text-align:left;padding:16px 16px 12px;border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);box-shadow:var(--sh-1);cursor:pointer;font:inherit;color:inherit;transition:border-color .3s,opacity .35s}
 .pe-rc:hover{border-color:var(--blue-300)}
 .pe-rc-top{display:flex;align-items:center;gap:16px;padding-left:5px}
 .pe-rc-id{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
@@ -32,6 +32,12 @@
 .pe-rc-groups i.is-more{background:none;border:1px dashed var(--blue-200);color:var(--muted)}
 .pe-rc-n{margin-top:auto;padding-top:8px;display:flex;align-items:center;gap:5px;font:650 13.5px/1 var(--f-display);color:var(--blue-700)}
 .pe-rc-n .ic{width:16px;height:16px}
+.pe-ro[data-cols="5"] .pe-rc{padding:14px 14px 10px}
+.pe-ro[data-cols="5"] .pe-rc-top{gap:12px;padding-left:4px}
+.pe-ro[data-cols="5"] .pe-rc-name{font-size:18px}
+.pe-ro[data-cols="5"] .pe-rc-role{font-size:13.5px}
+.pe-ro[data-cols="5"] .pe-rc-line{margin-top:10px;font-size:13px}
+.pe-ro[data-cols="5"] .pe-rc-n{font-size:12.5px}
 #team[data-cur="1"] .pe-rc:not([data-o="sg"]),#team[data-cur="2"] .pe-rc:not([data-o="ph"]){opacity:.4}
 
 /* ---------------------------------------------------------------- 3-7 · profiles: who (left), skills by group (right) */

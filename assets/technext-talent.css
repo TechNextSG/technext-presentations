@@ -218,8 +218,8 @@
   .ta-cv-spokes line{animation:none}
 }
 /* ---------------------------------------------------------------- 6 · people: eight profiles in a 4 x 2 grid (people_data.py), click to turn over. Avatar: people.css */
-.ta-pp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,278px);gap:14px;margin-top:-16px}
-.ta-pc{display:block;height:278px;padding:0;border:0;background:none;cursor:pointer;perspective:1600px;text-align:left;font:inherit;color:inherit}
+.ta-pp{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:-16px}
+.ta-pc{display:block;flex:0 0 calc((100% - (var(--cols,4) - 1) * 14px) / var(--cols,4));height:278px;padding:0;border:0;background:none;cursor:pointer;perspective:1600px;text-align:left;font:inherit;color:inherit}
 .ta-pc-in{display:block;position:relative;height:100%;transform-style:preserve-3d;transition:transform .8s var(--ease)}
 .ta-pc[aria-pressed=true] .ta-pc-in{transform:rotateY(180deg)}
 .ta-pc-f,.ta-pc-b{position:absolute;top:0;right:0;bottom:0;left:0;display:flex;flex-direction:column;border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);box-shadow:var(--sh-2);overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden}
@@ -251,6 +251,18 @@
 .ta-pc-row u{text-decoration:none;color:var(--muted)}
 .ta-pc-rest{margin-top:auto}
 .ta-pc:hover .ta-pc-f,.ta-pc:hover .ta-pc-b{border-color:var(--blue-200)}
+.ta-pp[data-cols="5"] .ta-pc-f{padding:14px 14px 10px}
+.ta-pp[data-cols="5"] .ta-pc-top{gap:12px;padding-left:4px}
+.ta-pp[data-cols="5"] .ta-pc-name{font-size:18px}
+.ta-pp[data-cols="5"] .ta-pc-role{font-size:13.5px}
+.ta-pp[data-cols="5"] .ta-pc-line{margin-top:10px;font-size:13px}
+.ta-pp[data-cols="5"] .ta-pc-st b{font-size:19px}
+.ta-pp[data-cols="5"] .ta-pc-st em{font-size:12px}
+.ta-pp[data-cols="5"] .ta-pc-b{padding:12px 14px 10px;gap:6px}
+.ta-pp[data-cols="5"] .ta-pc-bh{padding-bottom:6px;font-size:17px}
+.ta-pp[data-cols="5"] .ta-pc-bs{padding:5px 4px 4px}
+.ta-pp[data-cols="5"] .ta-pc-bs small{font-size:10.5px}
+.ta-pp[data-cols="5"] .ta-pc-row{font-size:12.5px;line-height:1.35}
 @media (prefers-reduced-motion:reduce){.ta-pc-in{transition:none}}
 /* Chrome's PDF output ignores backface-visibility: print only the front of every card */
 @media print{.ta-pc-b{display:none!important}.ta-pc-in{transform:none!important;transition:none!important}}
