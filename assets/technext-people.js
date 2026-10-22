@@ -8,13 +8,13 @@
   function cvPlace(s, t, px, py) {
     var C = 380, ps = $$('.pe-cv-p', s), offs = $$('.pe-cv-o', s), lines = $$('.pe-cv-spokes line', s);
     ps.forEach(function (el, i) {
-      var a = -Math.PI / 2 + i * 2 * Math.PI / ps.length + t * .05, x = C + Math.cos(a) * 290 + px * 18, y = C + Math.sin(a) * 290 + py * 14;
+      var a = -Math.PI / 2 + i * 2 * Math.PI / ps.length + t * .05, x = C + Math.cos(a) * 275 + px * 18, y = C + Math.sin(a) * 275 + py * 14;
       el.style.setProperty('--x', x.toFixed(1) + 'px'); el.style.setProperty('--y', y.toFixed(1) + 'px');
       if (lines[i]) { lines[i].setAttribute('x2', x.toFixed(1)); lines[i].setAttribute('y2', y.toFixed(1)); }
     });
     offs.forEach(function (el, i) {
       var a = -Math.PI / 2 + i * Math.PI - t * .1;
-      el.style.setProperty('--x', (C + Math.cos(a) * 150 + px * 8).toFixed(1) + 'px'); el.style.setProperty('--y', (C + Math.sin(a) * 150 + py * 6).toFixed(1) + 'px');
+      el.style.setProperty('--x', (C + Math.cos(a) * 132 + px * 8).toFixed(1) + 'px'); el.style.setProperty('--y', (C + Math.sin(a) * 132 + py * 6).toFixed(1) + 'px');
     });
   }
   Deck.on('cover', {
@@ -34,10 +34,6 @@
   /* ---------------------------------------------------------------- 2 · team: → walks the offices, a click opens a profile */
   Deck.on('team', {
     init: function (s) {
-      s.addEventListener('click', function (e) {
-        var h = e.target.closest('.pe-og-h');
-        if (h && s.contains(h)) { var n = h.parentNode.dataset.o === 'sg' ? 1 : 2; Deck.go(idx(s), +s.dataset.cur === n ? 0 : n); }
-      });
     },
     step: function (n, ctx, s) { s.dataset.cur = n; },
     leave: function (s) { s.dataset.cur = 0; },

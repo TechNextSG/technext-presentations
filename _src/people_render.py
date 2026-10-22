@@ -45,41 +45,76 @@ def count_attrs(v):
     return f' data-to="{n}"' + (' data-suf="+"' if m.group(2) else "")
 
 
-def group_pills(p, cls=""):
+def office_of(p):
+    """The office label, or None when the profile gives no office (nothing is shown then)."""
+    return D.OFFICES.get(p["office"]) if p.get("office") else None
+
+
+def group_pills(p, width=290, rows=2, fs=12):
+    """Group names as pills: as many as fit in `rows` rows (long names wrap), then a "+N more" pill."""
     labels = [g for g, _ in p["groups"]]
-    shown, more = labels[:4], len(labels) - 4
-    return "".join(f"<i>{e(g)}</i>" for g in shown) + (f'<i class="is-more">+{more} more</i>' if more > 0 else "")
+
+    def pw(t):
+        return _tw(t, fs) * 1.1 + 20
+
+    def rows_of(w):          # a pill wider than the row wraps inside itself
+        return 1 if w <= width else int(-(-w // (width - 24)))
+
+    def used(items):
+        n, x = 1, 0
+        for w in items:
+            if w > width:
+                n, x = (n if x == 0 else n + 1) + rows_of(w) - 1, width
+                continue
+            if x and x + w > width:
+                n, x = n + 1, 0
+            x += w + 5
+        return n
+    shown = 1
+    for k in range(len(labels)):
+        items = [pw(g) for g in labels[:k + 1]]
+        rem = len(labels) - k - 1
+        if rem:
+            items.append(pw(f"+{rem} more"))
+        if used(items) <= rows:
+            shown = k + 1
+        else:
+            break
+    more = len(labels) - shown
+    if shown == 1 and more and pw(labels[0]) > width:   # one long name: fold the count into it instead of adding a row
+        return f"<i>{e(labels[0])} <u>+{more}</u></i>"
+    return "".join(f"<i>{e(g)}</i>" for g in labels[:shown]) + (f'<i class="is-more">+{more} more</i>' if more > 0 else "")
 
 
 # ---------------------------------------------------------------- talent deck: flip cards
 def cards():
     out = []
     for i, p in enumerate(P):
-        off = D.OFFICES[p["office"]]
+        off = office_of(p)
         v0, l0 = p["stats"][0]
         stats = "".join(f'<span class="ta-pc-bs"><b>{e(sv)}</b><small>{e(sl)}</small></span>' for sv, sl in p["stats"])
         back = ""
-        for g, sk in p["groups"][:3]:
+        for g, sk in p["groups"][:1]:
             extra = len(sk) - 3
             back += (f'<span class="ta-pc-row"><small>{e(g)}</small><em>{e(" · ".join(sk[:3]))}'
                      + (f' <u>+{extra}</u>' if extra > 0 else "") + "</em></span>")
-        rest = len(p["groups"]) - 3
+        rest = len(p["groups"]) - 1
         if rest > 0:
             back += f'<span class="ta-pc-row ta-pc-rest"><em><u>+{rest} more group{"s" if rest > 1 else ""}</u></em></span>'
+        pill = f'<span class="ta-pc-off">{{{{icon:pin}}}}{e(off)}</span>' if off else ""
+        sub = e(p["role"]) + (f" · {e(off)}" if off else "")
         out.append(
-            f'<button type="button" class="ta-pc" data-in data-fx="land" style="--d:{180 + i * 60}ms" aria-pressed="false" data-p="{p["slug"]}">'
+            f'<button type="button" class="ta-pc" data-in data-fx="land" style="--d:{160 + i * 50}ms" aria-pressed="false" data-p="{p["slug"]}">'
             f'<span class="ta-pc-in">'
             f'<span class="ta-pc-f">'
-            f'<span class="ta-pc-band"><span class="ta-pc-off">{{{{icon:pin}}}}{e(off)}</span></span>'
-            f'{av(p, 88)}'
-            f'<b class="ta-pc-name">{e(p["name"])}</b>'
-            f'<span class="ta-pc-role">{e(p["role"])}</span>'
+            f'<span class="ta-pc-top">{av(p, 68)}<span class="ta-pc-id"><b class="ta-pc-name">{e(p["name"])}</b>'
+            f'<span class="ta-pc-role">{e(p["role"])}</span>{pill}</span></span>'
             f'<span class="ta-pc-line">{e(p["line"])}</span>'
-            f'<span class="ta-pc-sk"><small>Skill groups</small><span class="ta-pc-tags">{group_pills(p)}</span></span>'
+            f'<span class="ta-pc-tags">{group_pills(p)}</span>'
             f'<span class="ta-pc-st"><b>{e(v0)}</b><em>{e(l0)}</em></span>'
             f'</span>'
             f'<span class="ta-pc-b">'
-            f'<span class="ta-pc-bh">{e(p["name"])}<small>{e(p["role"])} · {e(off)}</small></span>'
+            f'<span class="ta-pc-bh">{e(p["name"])}<small>{sub}</small></span>'
             f'<span class="ta-pc-bstats">{stats}</span>'
             f'{back}'
             f'</span>'
@@ -90,40 +125,33 @@ def cards():
 # ---------------------------------------------------------------- People deck: cover
 def cover():
     return "\n      ".join(
-        f'<span class="pe-cv-p">{av(p, 104)}<b>{e(p["name"])}</b><small>{e(p["role"])}</small></span>' for p in P)
+        f'<span class="pe-cv-p">{av(p, 92)}<b>{e(p["name"])}</b><small>{e(p["role"])}</small></span>' for p in P)
 
 
 # ---------------------------------------------------------------- People deck: roster by office
-OFFICE_LINE = {"sg": "Headquarters: sales, discovery and on-site work.", "ph": "The main development and consulting hub."}
-
-
 def roster():
-    cols = []
-    d = 160
-    for key in ("sg", "ph"):
-        group = [p for p in P if p["office"] == key]
-        cs = []
-        for p in group:
-            cs.append(
-                f'<button type="button" class="pe-rc" data-go="p-{p["slug"]}" data-in style="--d:{d}ms">'
-                f'{av(p, 66)}'
-                f'<b class="pe-rc-name">{e(p["name"])}</b>'
-                f'<span class="pe-rc-role">{e(p["role"])}</span>'
-                f'<span class="pe-rc-line">{e(p["line"])}</span>'
-                f'<span class="pe-rc-groups">{group_pills(p)}</span>'
-                f'<span class="pe-rc-n">{n_skills(p)} skills in {len(p["groups"])} groups{{{{icon:arrow}}}}</span>'
-                f'</button>')
-            d += 60
-        cols.append(
-            f'<div class="pe-og" data-o="{key}" data-n="{len(group)}">'
-            f'<div class="pe-og-h">{{{{icon:pin}}}}<span><b>{e(D.OFFICES[key])}</b><small>{e(OFFICE_LINE[key])}</small></span></div>'
-            f'<div class="pe-og-c">{"".join(cs)}</div></div>')
-    return "\n    ".join(cols)
+    out = []
+    d = 150
+    for p in P:
+        off = office_of(p)
+        pill = f'<span class="pe-rc-off">{{{{icon:pin}}}}{e(off)}</span>' if off else ""
+        out.append(
+            f'<button type="button" class="pe-rc" data-go="p-{p["slug"]}" data-o="{p.get("office") or ""}" data-in style="--d:{d}ms">'
+            f'<span class="pe-rc-top">{av(p, 64)}<span class="pe-rc-id"><b class="pe-rc-name">{e(p["name"])}</b>'
+            f'<span class="pe-rc-role">{e(p["role"])}</span>{pill}</span></span>'
+            f'<span class="pe-rc-line">{e(p["line"])}</span>'
+            f'<span class="pe-rc-groups">{group_pills(p)}</span>'
+            f'<span class="pe-rc-n">{n_skills(p)} skills in {len(p["groups"])} groups{{{{icon:arrow}}}}</span>'
+            f'</button>')
+        d += 45
+    return "\n    ".join(out)
 
 
 # ---------------------------------------------------------------- People deck: profile slides
 NOTES = {
     "clement": "Open on the range: strategy for Singapore regional headquarters, then automation and digital twins, then people and set-up. The figures (1,000+ staff hired and trained, a 724-staff BPO set-up, 10+ network projects) come from the profile sent on 22 October 2026. Check each figure with Clement before it is quoted anywhere else.",
+    "pia": "Open on the one line: strategy turned into structure, plans and KPIs. The five groups run from organisational design and planning to governance and management systems. The profile gives no office, so none is shown, and the two figures (5 areas, 23 skills) are counts of the groups and skills on the slide. Details from the profile sent on 22 October 2026.",
+    "rico": "Marketing end to end: website design and SEO, AI in the content workflow, brand and design, social media, email. Since 2019 in social media, 15 digital and AI tools and 5 social accounts at once come from the profile sent on 22 October 2026. Tools are named as skills only.",
     "astroneil": "Start with the two numbers: 24 years in ERP and CRM, and 10 years on Odoo. The groups then answer one question: who leads the discovery workshops and the process redesign, and who plans the data migration. Use the Industries row if the room names a sector. Figures and lists from the profile sent on 22 October 2026; the platforms are shown as skills only.",
     "rj": "The ERP years are the point: 17 years across Dynamics, Oracle and NetSuite, with the BIR and mall POS accreditation work on top. Use the groups to answer one question: who writes the scope, and who keeps the sprint on target. Figures from the CV sent on 22 October 2026.",
     "philip": "The densest profile: 66 skills in nine groups. Do not read the list out. Pick the group the room cares about (Odoo itself, integrations, or deployment) and click it to dim the rest. Skill list as sent on 22 October 2026; no credentials were supplied, so none are shown.",
@@ -178,12 +206,12 @@ def _cols_est(p, fs, pad):
 
 
 def profile(i, p):
-    off = D.OFFICES[p["office"]]
+    off = office_of(p)
     n = n_skills(p)
     total = n + len(p["creds"])
-    mode = "cols" if total > 32 else ("m" if total > 20 else "s")
+    mode = "cols" if total > 30 else ("m" if total > 20 else "s")
     fs, pad = 15, 10
-    if mode == "cols" and _cols_est(p, 15, 10) > 600:     # the longest lists get the smallest chips
+    if mode == "cols" and _cols_est(p, 15, 10) > 570:     # the longest lists get the smallest chips
         fs, pad = 13.5, 8
     stats = "".join(
         f'<div class="pe-st" data-in style="--d:{300 + k * 70}ms"><b{count_attrs(v)}>{e(v)}</b><span>{e(l)}</span></div>'
@@ -204,12 +232,13 @@ def profile(i, p):
         body = f'<div class="pe-sk pe-sk--cols pe-sk--c{"135" if fs < 15 else "15"}"><div class="pe-sk-col">{"".join(blocks[i] for i in ia)}</div><div class="pe-sk-col">{"".join(blocks[i] for i in ib)}</div></div>'
     else:
         body = f'<div class="pe-sk pe-sk--{mode}">{"".join(blocks)}</div>'
+    off_pill = f'<span class="pe-off">{{{{icon:pin}}}}{e(off)}</span>' if off else ""
     photo_note = "" if p.get("photo") else "<p>No photo yet: the initials stand in until a square JPEG is added to assets/img/team/ and the person's photo field is set in _src/people_data.py.</p>"
     return f'''<!-- {i + 3} · {p["name"]} -->
 <section class="slide" id="p-{p["slug"]}" data-title="{e(p["name"])}, {e(p["role"])}">
   <div class="pe-pf">
     <div class="pe-id">
-      <div class="pe-id-top" data-in data-fx="land">{av(p, 120)}<span class="pe-off">{{{{icon:pin}}}}{e(off)}</span></div>
+      <div class="pe-id-top" data-in data-fx="land">{av(p, 120)}{off_pill}</div>
       <div class="pe-who">
         <span class="kicker" data-in style="--d:60ms">profile {i + 1} of {len(P)}</span>
         <h2 class="h-m pe-name" data-in style="--d:100ms"><span class="hl">{e(p["name"])}</span></h2>

@@ -1,7 +1,7 @@
 /* TechNext People deck (technext-people): five profiles by skill. Avatar: people.css. Prefix pe- */
 
 /* ---------------------------------------------------------------- 1 · cover: five people orbit the plane, two offices turn the other way */
-.pe-cv{position:absolute;left:830px;top:70px;width:760px;height:760px}
+.pe-cv{position:absolute;left:820px;top:70px;width:760px;height:760px}
 .pe-cv-svg{position:absolute;top:0;right:0;bottom:0;left:0;overflow:visible}
 .pe-cv-ring{fill:none;stroke:rgba(169,200,255,.28);stroke-width:1.5}
 .pe-cv-ring--in{stroke-dasharray:3 9;stroke:rgba(169,200,255,.4)}
@@ -16,29 +16,23 @@
 .pe-cv-core img{width:96px;height:auto}
 
 /* ---------------------------------------------------------------- 2 · team: the five, grouped by office */
-.pe-ro{display:flex;gap:16px;align-items:stretch;margin-top:-4px}
-.pe-og{display:flex;flex-direction:column;gap:12px;padding:14px 10px 12px;border-radius:var(--r-xl);background:var(--alt);border:1px solid var(--line);transition:opacity .4s,border-color .4s,background .4s}
-.pe-og[data-n="1"]{flex:1 1 0}
-.pe-og[data-n="5"]{flex:5 1 0}
-.pe-og-h{display:flex;gap:12px;align-items:center}
-.pe-og-h>.ic{width:40px;height:40px;padding:10px;border-radius:12px;background:var(--blue-050);color:var(--blue);flex:none;transition:background .4s,color .4s}
-.pe-og-h b{display:block;font:750 20px/1.2 var(--f-display);color:var(--ink)}
-.pe-og-h small{display:block;margin-top:2px;font:500 15px/1.3 var(--f-body);color:var(--body)}
-.pe-og-c{display:flex;gap:10px;flex:1}
-.pe-rc{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:14px 10px 12px;border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);cursor:pointer;font:inherit;color:inherit;transition:border-color .3s}
+.pe-ro{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,272px);gap:14px;margin-top:-12px}
+.pe-rc{display:flex;flex-direction:column;align-items:stretch;text-align:left;padding:16px 16px 12px;border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);box-shadow:var(--sh-1);cursor:pointer;font:inherit;color:inherit;transition:border-color .3s,opacity .35s}
 .pe-rc:hover{border-color:var(--blue-300)}
-.pe-rc .pp-av{margin-bottom:4px}
-.pe-rc-name{margin-top:9px;font:800 19.5px/1.15 var(--f-display);color:var(--ink);letter-spacing:-.015em}
-.pe-rc-role{margin-top:4px;font:650 15px/1.3 var(--f-display);color:var(--blue)}
-.pe-rc-line{margin-top:9px;font:400 14px/1.42 var(--f-body);color:var(--body)}
-.pe-rc-groups{margin-top:10px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px}
-.pe-rc-groups i{font:600 12px/1.1 var(--f-display);font-style:normal;padding:5px 9px;border-radius:999px;background:var(--blue-050);color:var(--blue-700)}
+.pe-rc-top{display:flex;align-items:center;gap:16px;padding-left:5px}
+.pe-rc-id{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
+.pe-rc-name{font:800 21px/1.15 var(--f-display);color:var(--ink);letter-spacing:-.015em}
+.pe-rc-role{font:650 15px/1.25 var(--f-display);color:var(--blue)}
+.pe-rc-off{display:inline-flex;align-items:center;gap:5px;margin-top:5px;padding:4px 9px;border-radius:999px;background:var(--blue-050);color:var(--blue-700);font:700 11px/1 var(--f-display);letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.pe-rc-off .ic{width:12px;height:12px}
+.pe-rc-line{margin-top:12px;font:400 14px/1.42 var(--f-body);color:var(--body)}
+.pe-rc-groups{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.pe-rc-groups i{max-width:100%;font:600 12px/1.15 var(--f-display);font-style:normal;padding:4px 9px;border-radius:12px;background:var(--blue-050);color:var(--blue-700)}
+.pe-rc-groups i u{text-decoration:none;color:var(--muted)}
 .pe-rc-groups i.is-more{background:none;border:1px dashed var(--blue-200);color:var(--muted)}
-.pe-rc-n{margin-top:auto;padding-top:12px;display:flex;align-items:center;gap:5px;font:650 13.5px/1 var(--f-display);color:var(--blue-700)}
+.pe-rc-n{margin-top:auto;padding-top:8px;display:flex;align-items:center;gap:5px;font:650 13.5px/1 var(--f-display);color:var(--blue-700)}
 .pe-rc-n .ic{width:16px;height:16px}
-#team[data-cur="1"] .pe-og[data-o="ph"],#team[data-cur="2"] .pe-og[data-o="sg"]{opacity:.45}
-#team[data-cur="1"] .pe-og[data-o="sg"],#team[data-cur="2"] .pe-og[data-o="ph"]{border-color:var(--blue);background:#fff}
-#team[data-cur="1"] .pe-og[data-o="sg"] .pe-og-h>.ic,#team[data-cur="2"] .pe-og[data-o="ph"] .pe-og-h>.ic{background:var(--blue);color:#fff}
+#team[data-cur="1"] .pe-rc:not([data-o="sg"]),#team[data-cur="2"] .pe-rc:not([data-o="ph"]){opacity:.4}
 
 /* ---------------------------------------------------------------- 3-7 · profiles: who (left), skills by group (right) */
 .pe-pf{display:grid;grid-template-columns:394px minmax(0,1fr);gap:40px;height:696px}
