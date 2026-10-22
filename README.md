@@ -6,6 +6,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 |---|---|---|
 | Company profile | `company-profile.html` | 11 |
 | Our talent | `technext-talent.html` | 11 |
+| People (the five people behind the advice: roster by office, one profile each with highlights and every skill grouped, discovery-call close) | `technext-people.html` | 8 |
 | Portfolio: clients and what we built | `portfolio.html` | 10 |
 | Service showcase | `service-showcase.html` | 15 |
 | Marketing showcase: live sites, concepts, pitch microsites | `marketing-showcase.html` | 15 |
@@ -82,6 +83,7 @@ python -B _src/build.py
 - `_src/decks/*.html`: deck sources. Tokens: `{{head}}`, `{{icon:name}}`, `{{odoo:module[:size]}}`, `{{qr:meet}}`, `{{seamap:W:H}}`, `{{mapxy:sg:W:H}}` (SVG x,y), `{{mappx:sg:W:H}}` (`--x`/`--y` for HTML pins), `{{worldmap:W:H}}`, `{{apps_json}}`, `{{include:partial}}`, `{{og:name}}`, `{{launcher}}`; showcase `{{sc:*}}`, portfolio `{{pf:*}}`, `{{scroll:slug:W:H[:m]}}`, `{{thumb:slug}}`.
 - `_src/partials/`: the AI vignettes and the walkthrough screens, shared between decks.
 - `_src/showcase_data.py`, `_src/portfolio_data.py`: the sites and clients behind the two showcase decks.
+- `_src/people_data.py`, `_src/people_render.py`: the five people (talent slide 6 and the whole People deck); tokens `{{people:cards|cover|roster|profiles}}`. Photos: add a square JPEG to `assets/img/team/` and set `photo` in `people_data.py`.
 - `assets/deck.css`, `assets/deck.js`: the engine (1600 × 900 stage scaled to the window, builds, overview, notes, kiosk, print, the phone turn). Slide scripts read positions through `Deck.rect(el)` and `Deck.point(event)`, which stay correct when the deck is turned.
 - `assets/<deck>.css|js`: each deck's own slides. `assets/ai-demos.*`, `assets/fx.js`: shared demos and motion helpers.
 - `_src/icons.json` is the technext.asia icon set; `_src/land-50m.json` is Natural Earth land (world-atlas, ISC) for the dot maps.

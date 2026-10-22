@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<title>TechNext People: Meet the Team</title>
+<meta name="description" content="The people who advise, then deliver: the CEO in Singapore and a project manager, two Odoo developers and a business developer in Taguig City, with every skill grouped.">
+{{og:technext-people}}
+<link rel="stylesheet" href="assets/motion.css?v={{v}}">
+<link rel="stylesheet" href="assets/people.css?v={{v}}">
+<link rel="stylesheet" href="assets/technext-people.css?v={{v}}">
+</head>
+<body data-label="People" data-home="./" data-motion="mx">
+<main class="deck" aria-label="TechNext people: the team and its skills">
+<div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="Meet the team">
+  <div class="cv-copy">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="260" height="52" data-in>
+    <span class="kicker" data-in style="--d:120ms">our people</span>
+    <h1 class="h-xl" data-in style="--d:200ms">Meet the people who <span class="hl">advise, then deliver.</span></h1>
+    <p class="lead" data-in style="--d:320ms">Five profiles, grouped by skill: what each person knows, builds and has set up for Odoo clients, from strategy in Singapore to development in Taguig City.</p>
+    <div class="cv-tags" data-in style="--d:440ms">
+      <span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span>
+      <span class="tag">{{icon:pin}}Singapore · Taguig City</span>
+    </div>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <div class="pe-cv" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
+    <svg class="pe-cv-svg" viewBox="0 0 760 760">
+      <circle class="pe-cv-ring" cx="380" cy="380" r="290"/>
+      <circle class="pe-cv-ring pe-cv-ring--in" cx="380" cy="380" r="150"/>
+      <g class="pe-cv-spokes"></g>
+    </svg>
+    <div class="pe-cv-people">
+      {{people:cover}}
+    </div>
+    <div class="pe-cv-offs"><span class="pe-cv-o">SG</span><span class="pe-cv-o">PH</span></div>
+    <div class="pe-cv-core"><img src="assets/img/logo-plane.png" alt="" width="96" height="81"></div>
+  </div>
+  <aside class="notes"><p>This deck is about who sits behind the advice. Five people, in two offices: the CEO in Singapore, and a project manager, two Odoo developers and a business developer in Taguig City. Every slide after this one is about skills, not about where anyone has worked.</p><p>The profiles come from the CVs and skill lists sent on 22 October 2026. No photos yet: initials stand in.</p></aside>
+</section>
+
+<!-- 2 · the team, by office -->
+<section class="slide" id="team" data-title="Five people, two offices" data-steps="2">
+  <div class="sec-head sec-head--row">
+    <div>
+      <span class="kicker" data-in>who you will work with</span>
+      <h2 class="h-m" data-in style="--d:80ms">Five people, <span class="hl">two offices, one team.</span></h2>
+    </div>
+    <p class="hint" data-in style="--d:200ms">Click a person to open the profile <span class="cv-hint-sep">·</span> <kbd>→</kbd> walks the offices</p>
+  </div>
+  <div class="pe-ro">
+    {{people:roster}}
+  </div>
+  <aside class="notes"><p>Press → once for Singapore, again for Taguig City, or click a person to open the profile. Singapore is the headquarters: sales, discovery and on-site work. Taguig City is the main development and consulting hub.</p><p>The line under each name is the whole story in one sentence; the profiles carry the detail.</p></aside>
+</section>
+
+{{people:profiles}}
+<!-- 8 · close -->
+<section class="slide dark" id="contact" data-title="Book a discovery call" data-chrome="foot">
+  <div class="split split--narrow">
+    <div>
+      <img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="200" height="40" data-in>
+      <span class="kicker" data-in style="--d:80ms">next step</span>
+      <h2 class="h-xl ct-h" data-in style="--d:140ms">Book a <span class="hl">discovery call.</span></h2>
+      <p class="lead" data-in style="--d:220ms">Thirty minutes online with an adviser. Tell us the problem, and we'll recommend who from the team fits, and say why.</p>
+      <div class="ct-actions" data-in style="--d:320ms">
+        <a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener">{{icon:calendar}}Book a discovery call</a>
+      </div>
+      <div class="ct-links" data-in style="--d:400ms">
+        <a href="https://technext.asia/" target="_blank" rel="noopener">{{icon:globe}}technext.asia</a>
+      </div>
+    </div>
+    <div class="ct-qr" data-in data-fx="land" style="--d:300ms">
+      <div class="ct-qr-card">
+        {{qr:meet}}
+        <b>Scan to book a call</b>
+        <small>Discovery Call with TechNext · 30 min online</small>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><p>Close on the discovery call. The QR code opens the Odoo booking page. If the room named a problem during the profiles (a BIR or POS question, an integration, a sales pipeline), repeat it here and say which of the five would join.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/motion.js?v={{v}}"></script>
+<script src="assets/fx.js?v={{v}}"></script>
+<script src="assets/technext-people.js?v={{v}}"></script>
+</body>
+</html>

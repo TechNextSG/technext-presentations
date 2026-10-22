@@ -1,0 +1,14 @@
+/* Shared by technext-talent and technext-people: the person's avatar.
+   Initials on a blue disc inside a dashed ring (the slot for a photo, with a small camera badge). Once a person has a photo
+   (people_data.py: photo = "file.jpg" in assets/img/team/) the build writes an <img> and the ring turns solid. Size: --s. */
+.pp-av{--s:96px;position:relative;display:inline-grid;place-items:center;flex:none;width:var(--s);height:var(--s);border-radius:50%;
+  background:linear-gradient(145deg,var(--blue-700),var(--blue) 62%,var(--blue-300));color:#fff}
+.pp-av::before{content:"";position:absolute;top:calc(var(--s) * -.075);right:calc(var(--s) * -.075);bottom:calc(var(--s) * -.075);left:calc(var(--s) * -.075);
+  border-radius:50%;border:2px dashed var(--blue-300)}
+.pp-av b{font:800 calc(var(--s) * .36)/1 var(--f-display);letter-spacing:.02em}
+.pp-cam{position:absolute;right:calc(var(--s) * -.03);bottom:calc(var(--s) * -.03);width:calc(var(--s) * .3);height:calc(var(--s) * .3);border-radius:50%;
+  display:grid;place-items:center;background:#fff;color:var(--blue);box-shadow:0 2px 8px rgba(30,70,145,.28)}
+.pp-cam .ic{width:56%;height:56%}
+.pp-av img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover}
+.pp-av.has-photo::before{border-style:solid;border-color:var(--blue-200)}
+.dark .pp-av::before{border-color:rgba(255,255,255,.42)}

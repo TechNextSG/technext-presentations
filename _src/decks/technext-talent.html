@@ -6,6 +6,7 @@
 <meta name="description" content="The people behind TechNext's solutions: six kinds of adviser, consultants, developers and architects in Taguig City, AI engineers in Ho Chi Minh City and on-site work from Singapore.">
 {{og:technext-talent}}
 <link rel="stylesheet" href="assets/motion.css?v={{v}}">
+<link rel="stylesheet" href="assets/people.css?v={{v}}">
 <link rel="stylesheet" href="assets/technext-talent.css?v={{v}}">
 </head>
 <body data-label="Our talent" data-home="./" data-motion="mx">
@@ -202,82 +203,19 @@
   <aside class="notes"><p>Press → or click a role. Each adviser knows one part of the business as well as they know Odoo. Ask the room which of the six first-call questions they would struggle to answer: that is usually where to start.</p></aside>
 </section>
 
-<!-- 6 · people (PLACEHOLDERS: fill from the CVs; keep data-ph on any field still unconfirmed) -->
+<!-- 6 · people: five profiles, generated from _src/people_data.py ({{people:cards}}); photos later (initials until then) -->
 <section class="slide" id="people" data-title="Meet some of our best">
   <div class="sec-head sec-head--row">
     <div>
-      <span class="kicker" data-in>meet the trusted advisers</span>
+      <span class="kicker" data-in>the people behind the advice</span>
       <h2 class="h-m" data-in style="--d:80ms">Meet some of <span class="hl">our best.</span></h2>
     </div>
     <p class="hint" data-in style="--d:200ms">Click a profile to turn it over</p>
   </div>
   <div class="ta-pp">
-    <button type="button" class="ta-pc" data-in data-fx="land" style="--d:200ms" aria-pressed="false">
-      <span class="ta-pc-in">
-        <span class="ta-pc-f">
-          <span class="ta-pc-band"><span class="ta-pc-star">{{icon:star}}Featured adviser</span><span class="ta-pc-off">SG</span></span>
-          <span class="ta-pc-ph" data-ph>{{icon:users}}<small>Photo</small></span>
-          <b class="ta-pc-name" data-ph>Adviser name</b>
-          <span class="ta-pc-role">Finance &amp; accounting adviser</span>
-          <span class="ta-pc-meta">{{icon:pin}}Singapore HQ <i></i>{{icon:clock}}<em data-ph>Years: to confirm</em></span>
-          <span class="ta-pc-apps">{{odoo:accountant:34}}{{odoo:account:34}}</span>
-          <span class="ta-pc-tags"><i data-ph>Strength</i><i data-ph>Strength</i><i data-ph>Strength</i></span>
-          <span class="ta-pc-q" data-ph>&ldquo;One line on how they work with clients.&rdquo;</span>
-        </span>
-        <span class="ta-pc-b">
-          <span class="ta-pc-bh">Finance &amp; accounting adviser</span>
-          <span class="ta-pc-row"><small>Known for</small><em data-ph>Two or three strengths from the CV</em></span>
-          <span class="ta-pc-row"><small>Credentials</small><em data-ph>Qualifications and Odoo certifications, as on the CV</em></span>
-          <span class="ta-pc-row"><small>Industries</small><em data-ph>Industries worked in</em></span>
-          <span class="ta-pc-row"><small>Languages</small><em data-ph>Languages spoken</em></span>
-        </span>
-      </span>
-    </button>
-    <button type="button" class="ta-pc" data-in data-fx="land" style="--d:300ms" aria-pressed="false">
-      <span class="ta-pc-in">
-        <span class="ta-pc-f">
-          <span class="ta-pc-band"><span class="ta-pc-star">{{icon:star}}Featured consultant</span><span class="ta-pc-off">PH</span></span>
-          <span class="ta-pc-ph" data-ph>{{icon:users}}<small>Photo</small></span>
-          <b class="ta-pc-name" data-ph>Consultant name</b>
-          <span class="ta-pc-role">Lead Odoo consultant</span>
-          <span class="ta-pc-meta">{{icon:pin}}Taguig City hub <i></i>{{icon:clock}}<em data-ph>Years: to confirm</em></span>
-          <span class="ta-pc-apps">{{odoo:sale:34}}{{odoo:stock:34}}{{odoo:purchase:34}}</span>
-          <span class="ta-pc-tags"><i data-ph>Strength</i><i data-ph>Strength</i><i data-ph>Strength</i></span>
-          <span class="ta-pc-q" data-ph>&ldquo;One line on how they work with clients.&rdquo;</span>
-        </span>
-        <span class="ta-pc-b">
-          <span class="ta-pc-bh">Lead Odoo consultant</span>
-          <span class="ta-pc-row"><small>Known for</small><em data-ph>Two or three strengths from the CV</em></span>
-          <span class="ta-pc-row"><small>Credentials</small><em data-ph>Qualifications and Odoo certifications, as on the CV</em></span>
-          <span class="ta-pc-row"><small>Industries</small><em data-ph>Industries worked in</em></span>
-          <span class="ta-pc-row"><small>Languages</small><em data-ph>Languages spoken</em></span>
-        </span>
-      </span>
-    </button>
-    <button type="button" class="ta-pc" data-in data-fx="land" style="--d:400ms" aria-pressed="false">
-      <span class="ta-pc-in">
-        <span class="ta-pc-f">
-          <span class="ta-pc-band"><span class="ta-pc-star">{{icon:star}}Featured engineer</span><span class="ta-pc-off">VN</span></span>
-          <span class="ta-pc-ph" data-ph>{{icon:users}}<small>Photo</small></span>
-          <b class="ta-pc-name" data-ph>Engineer name</b>
-          <span class="ta-pc-role">AI engineer</span>
-          <span class="ta-pc-meta">{{icon:pin}}Ho Chi Minh City hub <i></i>{{icon:clock}}<em data-ph>Years: to confirm</em></span>
-          <span class="ta-pc-apps">{{odoo:ai_app:34}}{{odoo:documents:34}}</span>
-          <span class="ta-pc-tags"><i data-ph>Strength</i><i data-ph>Strength</i><i data-ph>Strength</i></span>
-          <span class="ta-pc-q" data-ph>&ldquo;One line on how they work with clients.&rdquo;</span>
-        </span>
-        <span class="ta-pc-b">
-          <span class="ta-pc-bh">AI engineer</span>
-          <span class="ta-pc-row"><small>Known for</small><em data-ph>Two or three strengths from the CV</em></span>
-          <span class="ta-pc-row"><small>Credentials</small><em data-ph>Qualifications and certifications, as on the CV</em></span>
-          <span class="ta-pc-row"><small>Industries</small><em data-ph>Industries worked in</em></span>
-          <span class="ta-pc-row"><small>Languages</small><em data-ph>Languages spoken</em></span>
-        </span>
-      </span>
-    </button>
+    {{people:cards}}
   </div>
-  <p class="ta-pp-note" data-in style="--d:520ms">{{icon:alert}}Placeholder profiles: names, photos and details follow from the CVs.</p>
-  <aside class="notes"><p>PLACEHOLDERS. Three featured profiles, one per office: a finance adviser in Singapore, a lead Odoo consultant in Taguig City, an AI engineer in Ho Chi Minh City. Click a card to turn it over. Do not present this slide to a client until the names, photos and details are filled in from the CVs.</p></aside>
+  <aside class="notes"><p>Five profiles: the CEO in Singapore, and a project manager, two Odoo developers and a business developer in Taguig City. Each card shows the role, the office, one line on the work and the skill groups; click a card to turn it over for the highlights and the skills in each group. No photos yet, so initials stand in.</p><p>Skills only: no employers and no contact details by design. The same five people, in full, are in the People deck.</p></aside>
 </section>
 
 <!-- 7 · assemble -->

@@ -1,0 +1,98 @@
+/* TechNext People deck (technext-people): five profiles by skill. Avatar: people.css. Prefix pe- */
+
+/* ---------------------------------------------------------------- 1 · cover: five people orbit the plane, two offices turn the other way */
+.pe-cv{position:absolute;left:830px;top:70px;width:760px;height:760px}
+.pe-cv-svg{position:absolute;top:0;right:0;bottom:0;left:0;overflow:visible}
+.pe-cv-ring{fill:none;stroke:rgba(169,200,255,.28);stroke-width:1.5}
+.pe-cv-ring--in{stroke-dasharray:3 9;stroke:rgba(169,200,255,.4)}
+.pe-cv-spokes line{stroke:rgba(169,200,255,.35);stroke-width:1.5;stroke-dasharray:4 10;animation:flow 1.8s linear infinite}
+.pe-cv-p,.pe-cv-o{position:absolute;left:0;top:0;translate:var(--x,380px) var(--y,380px)}
+.pe-cv-p{width:190px;margin:-52px 0 0 -95px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.pe-cv-p .pp-av{box-shadow:0 0 0 6px rgba(255,255,255,.12),0 18px 40px -18px rgba(0,0,0,.6)}
+.pe-cv-p b{margin-top:16px;font:750 18px/1.15 var(--f-display);color:#fff}
+.pe-cv-p small{margin-top:4px;font:500 14px/1.25 var(--f-body);color:rgba(255,255,255,.74)}
+.pe-cv-o{width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff;font:800 15px/1 var(--f-display);letter-spacing:.04em;box-shadow:0 0 0 6px rgba(49,103,202,.25)}
+.pe-cv-core{position:absolute;left:380px;top:380px;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:0 0 0 14px rgba(255,255,255,.08),0 0 0 30px rgba(255,255,255,.04),0 30px 60px -20px rgba(0,0,0,.6)}
+.pe-cv-core img{width:96px;height:auto}
+
+/* ---------------------------------------------------------------- 2 · team: the five, grouped by office */
+.pe-ro{display:flex;gap:24px;align-items:stretch;margin-top:-4px}
+.pe-og{display:flex;flex-direction:column;gap:14px;padding:18px 18px 18px;border-radius:var(--r-xl);background:var(--alt);border:1px solid var(--line);transition:opacity .4s,border-color .4s,background .4s}
+.pe-og[data-n="1"]{flex:1 1 0}
+.pe-og[data-n="4"]{flex:4 1 0}
+.pe-og-h{display:flex;gap:12px;align-items:center}
+.pe-og-h>.ic{width:40px;height:40px;padding:10px;border-radius:12px;background:var(--blue-050);color:var(--blue);flex:none;transition:background .4s,color .4s}
+.pe-og-h b{display:block;font:750 20px/1.2 var(--f-display);color:var(--ink)}
+.pe-og-h small{display:block;margin-top:2px;font:500 15px/1.3 var(--f-body);color:var(--body)}
+.pe-og-c{display:flex;gap:14px;flex:1}
+.pe-rc{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:16px 14px 14px;border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);cursor:pointer;font:inherit;color:inherit;transition:border-color .3s}
+.pe-rc:hover{border-color:var(--blue-300)}
+.pe-rc .pp-av{margin-bottom:4px}
+.pe-rc-name{margin-top:10px;font:800 22px/1.15 var(--f-display);color:var(--ink);letter-spacing:-.015em}
+.pe-rc-role{margin-top:5px;font:650 16.5px/1.3 var(--f-display);color:var(--blue)}
+.pe-rc-line{margin-top:10px;font:400 15px/1.45 var(--f-body);color:var(--body)}
+.pe-rc-groups{margin-top:12px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.pe-rc-groups i{font:600 12.5px/1 var(--f-display);font-style:normal;padding:6px 10px;border-radius:999px;background:var(--blue-050);color:var(--blue-700)}
+.pe-rc-groups i.is-more{background:none;border:1px dashed var(--blue-200);color:var(--muted)}
+.pe-rc-n{margin-top:auto;padding-top:14px;display:flex;align-items:center;gap:6px;font:650 14.5px/1 var(--f-display);color:var(--blue-700)}
+.pe-rc-n .ic{width:16px;height:16px}
+#team[data-cur="1"] .pe-og[data-o="ph"],#team[data-cur="2"] .pe-og[data-o="sg"]{opacity:.45}
+#team[data-cur="1"] .pe-og[data-o="sg"],#team[data-cur="2"] .pe-og[data-o="ph"]{border-color:var(--blue);background:#fff}
+#team[data-cur="1"] .pe-og[data-o="sg"] .pe-og-h>.ic,#team[data-cur="2"] .pe-og[data-o="ph"] .pe-og-h>.ic{background:var(--blue);color:#fff}
+
+/* ---------------------------------------------------------------- 3-7 · profiles: who (left), skills by group (right) */
+.pe-pf{display:grid;grid-template-columns:394px minmax(0,1fr);gap:40px;height:696px}
+.pe-id{display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.pe-id-top{display:flex;align-items:center;gap:26px;padding:8px 0 0 8px}
+.pe-off{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:var(--blue-050);color:var(--blue-700);font:600 16px/1 var(--f-display);white-space:nowrap}
+.pe-off .ic{width:18px;height:18px}
+.pe-who{display:block;margin-top:14px}
+.pe-who .kicker{display:block}
+.pe-name{margin:2px 0 0}
+.pe-role{margin:10px 0 0;font:650 25px/1.25 var(--f-display);color:var(--blue)}
+.pe-bio{margin:16px 0 0;font-size:18px;line-height:1.55;color:var(--body)}
+.pe-stats{display:flex;gap:10px}
+.pe-st{flex:1 1 auto;padding:15px 14px 13px;border-radius:16px;background:var(--blue-050);border:1px solid var(--blue-100)}
+.pe-st b{display:block;font:800 34px/1 var(--f-display);color:var(--blue);letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pe-st span{display:block;margin-top:9px;font:500 14.5px/1.3 var(--f-body);color:var(--body)}
+.pe-sk-wrap{display:flex;flex-direction:column;padding:20px 28px 16px;min-height:0}
+.pe-sk-h{display:flex;align-items:baseline;gap:18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.pe-sk-h .eyebrow{margin:0}
+.pe-sk-n{font:600 16px/1 var(--f-display);color:var(--body)}
+.pe-sk-h .hint{margin:0 0 0 auto;font-size:15px}
+.pe-sk{flex:1;display:flex;flex-direction:column;min-height:0}
+.pe-g{flex:1 1 auto;display:grid;grid-template-columns:190px minmax(0,1fr);gap:22px;align-items:center;padding:12px 12px;margin:0 -12px;border:0;border-bottom:1px solid var(--line);border-radius:14px;background:none;text-align:left;font:inherit;color:inherit;cursor:pointer;transition:opacity .35s,background .35s}
+.pe-g:last-child{border-bottom:0}
+.pe-g-l{font:750 13.5px/1.35 var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--blue-700)}
+.pe-g-c{display:flex;flex-wrap:wrap;gap:8px}
+.pe-g-c i{display:inline-flex;align-items:center;gap:6px;font:550 17px/1.15 var(--f-body);font-style:normal;padding:8px 13px;border-radius:999px;background:#fff;border:1px solid var(--blue-100);color:var(--ink)}
+.pe-g-c i .ic{width:16px;height:16px;color:var(--ok)}
+.pe-g--cred{cursor:default}
+.pe-g--cred .pe-g-l{color:var(--muted)}
+.pe-g--cred .pe-g-c i{background:var(--alt);border-color:var(--line)}
+.pe-sk[data-focus] .pe-g{opacity:.36}
+.pe-sk[data-focus] .pe-g.is-focus{opacity:1;background:var(--blue-050)}
+.pe-sk[data-focus] .pe-g.is-focus .pe-g-c i{border-color:var(--blue-200)}
+/* medium lists (Clement, Jeric): the same rows, smaller chips */
+.pe-sk--m .pe-g{padding:9px 12px}
+.pe-sk--m .pe-g-c{gap:7px}
+.pe-sk--m .pe-g-c i{font-size:15px;padding:6px 11px}
+.pe-sk--m .pe-g-c i .ic{width:14px;height:14px}
+/* the long lists (Philip, RJ): two columns of group blocks (split in people_render.py), smaller chips */
+.pe-sk--cols{flex-direction:row;gap:26px;padding-top:12px}
+.pe-sk-col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:8px}
+.pe-sk--cols .pe-g{display:block;flex:none;width:100%;margin:0;padding:7px 10px 7px;border:0;border-top:1px solid var(--line);border-radius:12px}
+.pe-sk--cols .pe-g:first-child{border-top:0}
+.pe-sk--cols .pe-g:last-child{border-bottom:0}
+.pe-sk--cols .pe-g-l{display:block;margin-bottom:5px;font-size:12px;line-height:1.3}
+.pe-sk--cols .pe-g-c{gap:4px}
+.pe-sk--c135 .pe-g-c i{font-size:13.5px;line-height:1.15;padding:4px 8px}
+.pe-sk--c15 .pe-g-c{gap:5px}
+.pe-sk--c15 .pe-g-c i{font-size:15px;line-height:1.15;padding:5px 10px}
+.pe-sk--c15 .pe-g-l{font-size:13px;margin-bottom:7px}
+.pe-sk--c15 .pe-g{padding:9px 10px 9px}
+.pe-sk--cols .pe-g-c i .ic{width:14px;height:14px}
+
+/* finished states: the overview, print, TV and reduced motion show everything settled */
+.deck.is-tv .pe-cv-spokes line{animation:none!important}
+@media (prefers-reduced-motion:reduce){.pe-cv-spokes line{animation:none}}

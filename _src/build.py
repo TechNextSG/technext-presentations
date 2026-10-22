@@ -13,6 +13,7 @@ Sources live in _src/decks/*.html and are written to the repo root with these to
   {{phxy:lon,lat:W:H}}          x,y of a place on that map; {{phpx:lon,lat:W:H}} gives --x/--y for HTML pins
   {{apps_json}}                 the Odoo app catalogue (assets/apps.json) inline, for scripts
   {{include:name}}              the contents of _src/partials/name.html
+  {{people:cards|cover|roster|profiles}}   the people slides, from people_data.py (people_render.py)
 Run: python -B _src/build.py
 """
 import json, pathlib, re, sys, io, secrets
@@ -26,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "51"
+ASSET_V = "55"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -61,7 +62,10 @@ DECKS = [
              desc="Who TechNext is: why clients trust us and the companies we've worked with, three offices on a live map, the three practices, the Odoo partnership, how an engagement runs and the company details."),
         dict(slug="technext-talent", tags="odoo ai websites", title="Our talent", mins=10, pdf="TechNext-Talent.pdf",
              alt="Our talent cover: the people behind the whole solution.",
-             desc="Trusted, reliable, expert, and the people behind it: six kinds of adviser and the first-call question each one asks, where the consultants, developers and AI engineers sit, three featured profiles (placeholders until the CVs), a picker that shows who joins for your problems, Listen · Advise · Implement · Stay, and the four rules our advisers keep."),
+             desc="Trusted, reliable, expert, and the people behind it: six kinds of adviser and the first-call question each one asks, where the consultants, developers and AI engineers sit, five people with their skill groups, a picker that shows who joins for your problems, Listen · Advise · Implement · Stay, and the four rules our advisers keep."),
+        dict(slug="technext-people", tags="odoo", title="People", mins=8, pdf="TechNext-People.pdf",
+             alt="People cover: meet the people who advise, then deliver.",
+             desc="The five people behind the advice, by skill: the CEO in Singapore, a project manager, two Odoo developers and a business developer in Taguig City. One profile each with the role, office, highlights and every skill grouped, click a group to focus it, then the discovery-call close."),
         dict(slug="portfolio", tags="odoo websites marketing", title="Portfolio", mins=10, pdf="TechNext-Portfolio.pdf",
              alt="Portfolio cover: the clients TechNext has served.",
              desc="The clients we have served and what we built for each: websites, Odoo proposals and rollouts, social, video and brand work, on a map and client by client."),
@@ -439,6 +443,7 @@ def sc_expand(s):
 
 # ---------------------------------------------------------------- Portfolio: generated from portfolio_data (+ sites_meta for pictures)
 import portfolio_data as PF
+from people_render import people_expand  # noqa: E402
 
 
 def _scroll(slug, W, H, kind="d"):
@@ -510,6 +515,8 @@ def expand(s, page=""):
         s = sc_expand(s)
     if "{{pf:" in s or "{{scroll:" in s or "{{thumb:" in s:
         s = pf_expand(s)
+    if "{{people:" in s:
+        s = people_expand(s)
     for _ in range(3):   # partials may include partials
         s = re.sub(r"\{\{include:([a-z0-9_-]+)\}\}", lambda m: (SRC / "partials" / (m.group(1) + ".html")).read_text(encoding="utf-8"), s)
     s = s.replace("{{head}}", HEAD).replace("{{v}}", ASSET_V)
