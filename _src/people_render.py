@@ -120,7 +120,7 @@ def roster():
 
 # ---------------------------------------------------------------- People deck: profile slides
 NOTES = {
-    "clement": "Open on the range: strategy for Singapore regional headquarters, then automation and digital twins, then people and set-up. The figures (1,000+ staff hired and trained, a 724-staff BPO set-up, 10+ network projects) come from the profile sent on 22 October 2026. Check the figures with Clement before any of them is quoted anywhere else.",
+    "clement": "Open on the range: strategy for Singapore regional headquarters, then automation and digital twins, then people and set-up. The figures (1,000+ staff hired and trained, a 724-staff BPO set-up, 10+ network projects) come from the profile sent on 22 October 2026. Check each figure with Clement before it is quoted anywhere else.",
     "rj": "The ERP years are the point: 17 years across Dynamics, Oracle and NetSuite, with the BIR and mall POS accreditation work on top. Use the groups to answer one question: who writes the scope, and who keeps the sprint on target. Figures from the CV sent on 22 October 2026.",
     "philip": "The densest profile: 66 skills in nine groups. Do not read the list out. Pick the group the room cares about (Odoo itself, integrations, or deployment) and click it to dim the rest. Skill list as sent on 22 October 2026; no credentials were supplied, so none are shown.",
     "aj": "Start with the work for Odoo clients: solution design, needs analysis, support and maintenance, and training for partner teams. The development stack is Python, JavaScript and PostgreSQL. Details from the CV sent on 22 October 2026.",
