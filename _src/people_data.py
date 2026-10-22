@@ -18,7 +18,7 @@ PEOPLE = [{'slug': 'clement',
   'initials': 'CK',
   'role': 'CEO',
   'office': 'sg',
-  'photo': None,
+  'photo': 'clement-kho.jpg',
   'line': 'Clement builds companies across borders and has hired and trained more than 1,000 people.',
   'bio': 'Clement builds companies across borders, from regional headquarters in Singapore to European operations and manufacturing in '
          'China and Hong Kong. Along the way Clement has hired and trained more than 1,000 people, and led automation projects where '
