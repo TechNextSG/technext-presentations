@@ -204,6 +204,7 @@ def profile(i, p):
         body = f'<div class="pe-sk pe-sk--cols pe-sk--c{"135" if fs < 15 else "15"}"><div class="pe-sk-col">{"".join(blocks[i] for i in ia)}</div><div class="pe-sk-col">{"".join(blocks[i] for i in ib)}</div></div>'
     else:
         body = f'<div class="pe-sk pe-sk--{mode}">{"".join(blocks)}</div>'
+    photo_note = "" if p.get("photo") else "<p>No photo yet: the initials stand in until a square JPEG is added to assets/img/team/ and the person's photo field is set in _src/people_data.py.</p>"
     return f'''<!-- {i + 3} · {p["name"]} -->
 <section class="slide" id="p-{p["slug"]}" data-title="{e(p["name"])}, {e(p["role"])}">
   <div class="pe-pf">
@@ -222,7 +223,7 @@ def profile(i, p):
       {body}
     </div>
   </div>
-  <aside class="notes"><p>{e(NOTES[p["slug"]])}</p><p>No photo yet: the initials stand in until a square JPEG is added to assets/img/team/ and the person's photo field is set in _src/people_data.py.</p></aside>
+  <aside class="notes"><p>{e(NOTES[p["slug"]])}</p>{photo_note}</aside>
 </section>
 '''
 

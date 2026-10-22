@@ -51,7 +51,7 @@ PEOPLE = [{'slug': 'clement',
   'initials': 'AM',
   'role': 'Senior Functional Lead',
   'office': 'ph',
-  'photo': None,
+  'photo': 'astroneil-matan.jpg',
   'line': 'Astroneil has helped companies move onto ERP for 24 years, ten of them on Odoo.',
   'bio': 'Astroneil has spent 24 years helping companies move onto ERP and CRM systems, ten of them on Odoo. Astroneil sits down with your '
          'finance and operations teams, maps how the work really happens, and turns it into a set-up that fits, from data migration to '
@@ -100,7 +100,7 @@ PEOPLE = [{'slug': 'clement',
   'initials': 'RS',
   'role': 'Project Manager',
   'office': 'ph',
-  'photo': None,
+  'photo': 'rj-sarreal.jpg',
   'line': 'RJ has run ERP projects for 17 years and keeps every sprint on track.',
   'bio': 'RJ has run ERP projects for 17 years, on Microsoft Dynamics, Oracle and NetSuite. RJ writes down exactly what you need, agrees '
          'the scope and timeline with you, and keeps every sprint on track, so you always know where your project stands. RJ has also '
@@ -146,7 +146,7 @@ PEOPLE = [{'slug': 'clement',
   'initials': 'PG',
   'role': 'Odoo Developer Expert',
   'office': 'ph',
-  'photo': None,
+  'photo': 'philip-gallan.jpg',
   'line': 'Philip builds and connects Odoo on every version from 14 to 19.',
   'bio': "Philip builds the parts of Odoo you can't get off the shelf, on every version from 14 to 19. When your Odoo needs to talk to "
          'another system, through an API or an EDI feed, Philip connects it, deploys it and keeps it running.',
@@ -212,7 +212,7 @@ PEOPLE = [{'slug': 'clement',
   'initials': 'AC',
   'role': 'Odoo Developer Expert',
   'office': 'ph',
-  'photo': None,
+  'photo': 'aj-cubilla.jpg',
   'line': 'AJ builds and supports Odoo solutions for clients across many industries.',
   'bio': 'AJ works hand in hand with Odoo clients across many industries, listening to what each team needs, building the solution, and '
          'staying on to support it. AJ codes in Python, JavaScript and PostgreSQL, and trains partner teams to run their systems day to '
@@ -234,7 +234,7 @@ PEOPLE = [{'slug': 'clement',
   'initials': 'JB',
   'role': 'Business Development',
   'office': 'ph',
-  'photo': None,
+  'photo': 'jeric-bulayungan.jpg',
   'line': 'Jeric has helped Philippine businesses choose their software since 2016.',
   'bio': 'Jeric has helped Philippine businesses choose their business software since 2016, from SAP and QuickBooks to point-of-sale '
          'systems. Jeric is often your first conversation with TechNext: listening to how your business runs today, then bringing in the '
