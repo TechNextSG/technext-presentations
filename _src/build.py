@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "63"
+ASSET_V = "65"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -114,6 +114,9 @@ DECKS = [
         dict(slug="moneybees-odoo-cas", tags="odoo", title="Moneybees", mins=30, pdf="TechNext-Proposal-Moneybees-Odoo-CAS.pdf",
              alt="Moneybees cover: keep your Odoo, add what CAS needs.",
              desc="An answer to Moneybees Forex Corporation's request for quotation: keep the existing Odoo and build only the gap for a computerised accounting system: the six books as Excel (with a downloadable sample workbook), Sales Invoices and Acknowledgement Receipts that print once and reprint under control, deployment on a staging copy, three recorded tutorials, the BIR CAS documentation pack and who signs what, the order of work, the five-line fee breakdown they asked for, and twelve questions marked live in the room."),
+        dict(slug="cottoncentral-e-invoicing", tags="odoo", title="Cotton Central", mins=30, pdf="TechNext-Cotton-Central-E-Invoicing.pdf",
+             alt="Cotton Central cover: every order, an e-invoice.",
+             desc="A discovery deck for Cotton Central, Inc. on BIR e-invoicing: the rules in plain words (RR 26-2025, RMC 98-2026, the Permit to Issue, 31 December 2026, no edits after issue) with a live day counter, who the rules cover, a sample day of orders from cottoncentral.com, Shopee, Lazada, edamama and TikTok becoming invoices in one Odoo, one invoice confirmed, locked and corrected by a credit note, what Odoo 20 does, what we add and what we assess (the EIS connection), who does what, the order of work, and twelve questions marked live on the call."),
     ]),
     ("Case studies", [
         dict(slug="case-study-fnb", tags="odoo", title="Case study · F&B", mins=15, pdf="TechNext-Case-Study-FnB.pdf",
