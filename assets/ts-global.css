@@ -32,7 +32,7 @@
 .tg-r b{display:block;font:700 17px/1.2 var(--f-display);color:var(--bm-muted)}
 .tg-r span{display:block;font:500 15px/1.25 var(--f-body);color:transparent}
 .tg-ck{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:2px dashed #CFCBD6;color:transparent;font-size:16px}
-.tg-r.is-on{border:1.5px solid var(--bm-ok-line);background:var(--ok-050)}
+.tg-tote.has-any .tg-r.is-on{border:1.5px solid var(--bm-ok-line);background:var(--ok-050)}  /* must outrank the empty-slot rule above, or landed rows stay dashed */
 .tg-r.is-on b{color:var(--ink)}
 .tg-r.is-on span{color:var(--body)}
 .tg-r.is-on .tg-ck{background:var(--ok);border:2px solid var(--ok);color:#fff}
