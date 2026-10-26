@@ -231,7 +231,7 @@
   var swOK = 'serviceWorker' in navigator && location.protocol === 'https:';
   if (off && !swOK) { off.hidden = true; if (st) st.textContent = 'Saving for offline works on the live site (https).'; }
   if (swOK) {
-    navigator.serviceWorker.register('sw.js').catch(function () {});
+    navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(function () {});
     navigator.serviceWorker.addEventListener('message', function (e) {
       if (e.data && e.data.warmed && st) { st.textContent = 'Saved: ' + Math.max(1, e.data.warmed - 1) + ' decks open on this device with no internet.'; if (off) off.disabled = false; }
     });

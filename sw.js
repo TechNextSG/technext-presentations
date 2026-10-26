@@ -1,11 +1,12 @@
 /* TechNext decks, offline copies. A deck opened once while online keeps opening and running with no connection on that
    device: venue Wi-Fi down, flight mode, a TV that loses the network. Registered by deck.js and index.js on the live site.
-   Pages: network first, so an update shows as soon as there is a connection; the saved copy when there is none.
-   Versioned files (?v=): the saved copy. Other files (pictures, PDFs, fonts): the saved copy at once, refreshed behind it.
+   Pages and PDFs: network first, asked of the server itself (cache: 'no-cache', a cheap 304 when nothing changed), so an update shows
+   on the very next open, never a 10-minute-old browser copy; the saved copy only when there is no connection.
+   Versioned files (?v=): the saved copy. Other files (pictures, fonts): the saved copy at once, refreshed behind it.
    A page asks for itself to be saved in full ({warm: [urls]}): the HTML, every file it points at, and what its CSS points at.
    Video asks for byte ranges: the network answers them while there is one (Chrome rejects a video whose pieces come from two
    sources, so a stream never switches mid-way); with no connection they are cut from the saved copy (206). */
-var CACHE = 'tn-decks-1';
+var CACHE = 'tn-decks-2';   // renamed 26 Oct: every browser drops the copies saved by the old worker
 
 self.addEventListener('install', function () { self.skipWaiting(); });
 self.addEventListener('activate', function (e) {
@@ -15,7 +16,7 @@ self.addEventListener('activate', function (e) {
 });
 
 function pageKey(href) { var u = new URL(href); u.search = ''; u.hash = ''; return u.href; }
-function isPage(req, url) { return req.mode === 'navigate' || /\.html$/.test(url.pathname) || /\/$/.test(url.pathname); }
+function isPage(req, url) { return req.mode === 'navigate' || /\.(html|pdf)$/.test(url.pathname) || /\/$/.test(url.pathname); }
 
 self.addEventListener('fetch', function (e) {
   var req = e.request;
@@ -31,7 +32,7 @@ self.addEventListener('fetch', function (e) {
     return;
   }
   if (isPage(req, url)) {
-    e.respondWith(fetch(req).then(function (res) {
+    e.respondWith(fetch(req.url, { cache: 'no-cache', credentials: 'same-origin' }).then(function (res) {
       if (res.ok) { var copy = res.clone(); caches.open(CACHE).then(function (k) { k.put(pageKey(req.url), copy); }); }
       return res;
     }).catch(function () {
@@ -70,7 +71,7 @@ function save(k, href) {
 }
 function warmPage(k, href) {
   var key = pageKey(href);
-  return fetch(key).then(function (res) {
+  return fetch(key, { cache: 'no-cache' }).then(function (res) {
     if (!res.ok) return;
     return k.put(key, res.clone()).then(function () { return res.text(); }).then(function (html) {
       var urls = {}, m;
