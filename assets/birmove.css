@@ -420,3 +420,11 @@ body[data-shared] .bm-g{grid-template-columns:38px minmax(0,1fr)}
 
 /* print: Chrome counted the camera world's clipped stations as page width and shrank every PDF page to 66%; strict containment keeps the world inside the view */
 .bm-view{contain:strict}
+
+/* the hand-off: an order line in flight to its invoice row (world coordinates, inside the camera) */
+.bm-fly{position:absolute;left:0;top:0;z-index:6;padding:6px 12px;border-radius:10px;background:#fff;border:1.5px solid var(--bm-a-ink);box-shadow:0 10px 24px rgba(31,31,61,.16);font:600 15.5px/1.2 var(--f-body);color:var(--ink);white-space:nowrap;pointer-events:none;will-change:transform,opacity}
+.bm-o-ls li{transition:color .3s ease}
+.bm-o-ls li.is-sent{color:var(--bm-muted)}
+.bm-od-t tbody tr.is-land td{animation:bm-land 1s ease-out}
+@keyframes bm-land{0%{background:var(--ok-050)}100%{background:transparent}}
+@media (prefers-reduced-motion:reduce){.bm-od-t tbody tr.is-land td{animation:none}}

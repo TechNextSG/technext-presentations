@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Build the TechNext HTML decks.
 
 Sources live in _src/decks/*.html and are written to the repo root with these tokens expanded:
@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "70"
+ASSET_V = "72"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {

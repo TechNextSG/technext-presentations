@@ -687,6 +687,66 @@
     var l = $('.bm-od-lock', st.s); l.classList.remove('is-shake'); void l.offsetWidth; l.classList.add('is-shake');
     cap(st, 'Try to edit: the posted invoice stays locked. It can no longer be edited or deleted.');
   }
+  /* The hand-off (Draft, on arrival): the order's lines lift off the order card, travel the "invoice created" connector and land as the invoice rows;
+     the totals count up line by line. World coordinates (inside the camera), so no screen maths and phone rotation does not matter.
+     Any step press, leave or settle finishes it at once (handDone): rows shown, totals exact, ghosts removed. */
+  function worldXY(el, objs) { var x = 0, y = 0; while (el && el !== objs) { x += el.offsetLeft; y += el.offsetTop; el = el.offsetParent; } return { x: x, y: y }; }
+  function handDone(st) {
+    var s = st.s; st.handTok = (st.handTok || 0) + 1;
+    $$('.bm-fly', s).forEach(function (g) { g.remove(); });
+    $$('.bm-od-t tbody tr', s).forEach(function (r) { r.style.opacity = ''; r.style.transform = ''; r.classList.remove('is-land'); });
+    var a = $('.bm-ord-arrow', s), t = $('.bm-ord-to', s); if (a) $$('path', a).forEach(function (p) { p.style.strokeDashoffset = ''; p.style.opacity = ''; }); if (t) t.style.opacity = '';
+    sums(s, M.sub, M.zr, M.vat, M.tot);
+  }
+  function sums(s, sub, zr, vat, tot) {
+    var b = $$('.bm-od-sum b', s), v = ZERO ? [sub, zr, vat, tot] : [sub, vat, tot];
+    b.forEach(function (e, i) { e.textContent = peso(v[i]); });
+  }
+  function handOff(st) {
+    var s = st.s, objs = $('.bm-objs', s), tok = st.handTok = (st.handTok || 0) + 1, ctx = st.ctx;
+    if (!live() || !window.Motion || !ctx) { handDone(st); return; }
+    var lis = $$('.bm-o-ord .bm-o-ls li', s), rows = $$('.bm-od-t tbody tr', s).filter(function (r) { return !r.classList.contains('bm-od-z'); }), zrow = $('.bm-od-z', s);
+    var arrow = $('.bm-ord-arrow', s), lab = $('.bm-ord-to', s), paths = arrow ? $$('path', arrow) : [];
+    function ok() { return st.handTok === tok && ctx.alive; }
+    // the empty draft: rows hidden, totals at zero, the connector not drawn yet
+    rows.concat(zrow ? [zrow] : []).forEach(function (r) { r.style.opacity = 0; r.style.transform = 'translateX(-14px)'; });
+    sums(s, 0, 0, 0, 0);
+    paths.forEach(function (p) { p.style.opacity = 0; });
+    if (lab) lab.style.opacity = 0;
+    var t0 = Math.max(250, (st.panMs || 0) * .7), run = { sub: 0, zr: 0 };
+    ctx.after(t0, function () {
+      if (!ok()) return;
+      paths.forEach(function (p) { tw(st, 380, function (q) { if (ok()) p.style.opacity = q; }); });
+      if (lab) tw(st, 380, function (q) { if (ok()) lab.style.opacity = q; });
+    });
+    rows.forEach(function (row, i) {
+      var li = lis[i] || lis[lis.length - 1], line = INV.lines[i];
+      ctx.after(t0 + 360 + i * 300, function () {
+        if (!ok()) return;
+        var a = worldXY(li, objs), b = worldXY(row, objs), g = doc.createElement('div');
+        g.className = 'bm-fly'; g.textContent = li.textContent; objs.appendChild(g);
+        var x0 = a.x - 8, y0 = a.y - 4, x1 = b.x + 2, y1 = b.y - 2, gx = 548;   // out along the connector, down the gap between the cards, then in along the row: it never crosses the invoice's header
+        li.classList.add('is-sent');
+        tw(st, 720, function (p) {
+          if (!ok()) return;
+          var u = 1 - p, x = u * u * u * x0 + 3 * u * u * p * gx + 3 * u * p * p * gx + p * p * p * x1, y = u * u * u * y0 + 3 * u * u * p * y0 + 3 * u * p * p * y1 + p * p * p * y1;
+          g.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) scale(' + lerp(1, .94, p).toFixed(3) + ')';
+          g.style.opacity = p < .82 ? 1 : clamp((1 - p) / .18, 0, 1);
+        }, [.5, 0, .25, 1]);
+        ctx.after(600, function () {
+          if (!ok()) return;
+          row.classList.add('is-land');
+          drive(st, function (p) { row.style.opacity = clamp(p * 2, 0, 1); row.style.transform = 'translateX(' + lerp(-14, 0, p).toFixed(2) + 'px)'; }, { stiffness: 320, damping: 26 });
+          var from = { sub: run.sub, zr: run.zr };
+          if (isZero(line)) run.zr += line[1] * line[2]; else run.sub += line[1] * line[2];
+          var to = { sub: run.sub, zr: run.zr };
+          tw(st, 420, function (p) { if (!ok()) return; var sb = lerp(from.sub, to.sub, p), z = lerp(from.zr, to.zr, p), v = r2(sb * .12); sums(s, sb, z, v, sb + z + v); });
+          if (i === rows.length - 1) ctx.after(460, function () { if (!ok()) return; if (zrow) drive(st, function (p) { zrow.style.opacity = clamp(p * 2, 0, 1); zrow.style.transform = 'translateX(' + lerp(-14, 0, p).toFixed(2) + 'px)'; }, { stiffness: 320, damping: 26 }); sums(s, M.sub, M.zr, M.vat, M.tot); lis.forEach(function (l) { l.classList.remove('is-sent'); }); });
+        });
+        ctx.after(760, function () { g.remove(); });
+      });
+    });
+  }
   // the camera follows the step: Confirm pushes in (0.8 s), Credit note pulls back and shifts, stepping back reverses
   function invCam(st, n, first) {
     var to = INVP[n];
@@ -937,9 +997,9 @@
     var stI = initPipe('invoice'); invInit(stI);
     Deck.on(S['pipe-invoice'].id, {
       enter: function (ctx, s) { pipeEnter(stI, ctx, s); litAll(stI, true); paintInv(stI, 0, false); callExt('pipe-invoice', 'enter', ctx, s); },
-      step: function (n, ctx, s, first) { paintInv(stI, n, !first); invCam(stI, n, first); },
-      leave: function (s) { pipeLeave(stI); callExt('pipe-invoice', 'leave', s); },
-      settle: function (s) { rest(stI, poseOf('invoice')); paintInv(stI, 2, false); $('.bm-od-lock', s).classList.remove('is-shake'); litAll(stI, true); callExt('pipe-invoice', 'settle', s); }
+      step: function (n, ctx, s, first) { handDone(stI); paintInv(stI, n, !first); invCam(stI, n, first); if (first && n === 0) handOff(stI); },
+      leave: function (s) { handDone(stI); pipeLeave(stI); callExt('pipe-invoice', 'leave', s); },
+      settle: function (s) { handDone(stI); rest(stI, poseOf('invoice')); paintInv(stI, 2, false); $('.bm-od-lock', s).classList.remove('is-shake'); litAll(stI, true); callExt('pipe-invoice', 'settle', s); }
     });
   }
   if (S['pipe-books']) {
