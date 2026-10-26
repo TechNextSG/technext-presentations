@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<link rel="stylesheet" href="assets/motion.css?v={{v}}">
+<title>TTI Laguna Philippines · Odoo and BIR compliance · TechNext</title>
+<meta name="description" content="A discovery deck for TTI Laguna Philippines (manufacturing and import/export, on SAP Business One), built around the 31 December 2026 date: a live countdown, the compliance flow as one camera journey through Odoo, a compressed plan from this week to December, import/export notes for later, questions marked live, and the next step.">
+{{og:tti-laguna-odoo-bir}}
+<link rel="stylesheet" href="assets/birmove.css?v={{v}}">
+<link rel="stylesheet" href="assets/tti-laguna.css?v={{v}}">
+</head>
+<body data-label="TTI Laguna Philippines · Odoo + BIR" data-home="./" data-motion="mx">
+{{include:bm-kit}}
+<main class="deck" aria-label="TechNext discovery deck for TTI Laguna Philippines: Odoo and BIR compliance"><div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-kit="cover" data-chrome="none" data-title="31 December is close. Let’s start now.">
+  <aside class="notes"><p>Welcome TTI Laguna Philippines. Everything in this deck comes from the scope we have so far: a manufacturing and import/export company that runs on SAP Business One and wants an ERP set up for BIR requirements, with 31 December 2026 getting close. Nothing here is a finding about the company; the next slide says so plainly. On the right, SAP Business One ledgers travel along the track into Odoo Accounting, one bucket at a time (sample movement, not their data). The red badge above Odoo is the live count of days to 31 December 2026. Say the date once, plainly, and move on: the point of this deck is a short plan in the right order, not pressure. Four parts: what we understand, the rules, the pipeline, next steps. Use the buttons to jump. We advise first, then deliver the whole solution.</p></aside>
+</section>
+
+<!-- 2 · what we understand -->
+<section class="slide" id="heard" data-kit="understand" data-title="What we understand">
+  <aside class="notes"><p>Say it back in three lines: a manufacturing and import/export company, on SAP Business One, that needs an ERP set up for BIR requirements. That is all we know. The three cards on the right are guesses, not findings: ask which are true and click True or Not us for each (click again to clear). Do not push: &ldquo;Not us&rdquo; is a good answer, it tells us where to look. The marks stay while this tab is open. Guess 3 is about timing and is worth a pause: if December is already full, that is the reason to start the set-up early and in a set order.</p></aside>
+</section>
+
+<!-- 3 · the rules -->
+<section class="slide" id="rules" data-kit="rules" data-title="The date, and who it covers">
+  <aside class="notes"><p>The number is the whole slide, and it is live: it counts the days from today to 31 December 2026. State it calmly. RR 26-2025 sets the date: covered taxpayers issue compliant e-invoices on or before 31 December 2026. RMC 98-2026, issued 22 September 2026, sets the working rules: a Permit to Issue (PTI) before the first e-invoice, and EIS Certification within six months of the PTI. An issued e-invoice can&rsquo;t be deleted or changed: a credit note lowers an amount, a new e-invoice raises it. If the system is down, a BIR-authorised manual invoice is issued, then an e-invoice that refers to it. The system sends the required sales data to the BIR&rsquo;s EIS. Click any dot on the line for its rule; the pin shows today. Who is covered: sellers through e-commerce or internet transactions, Large Taxpayers Service, large taxpayers (RA 11976, RR 8-2024), and CAS or CBA users with invoicing software; micro taxpayers are exempt; head office and branches are covered. Click a group to mark it for the accountant to check: we do not decide which group TTI Laguna is in, their accountant or RDO confirms. General guidance, not tax advice. Source: technext.asia/bir-e-invoicing.</p></aside>
+</section>
+
+<!-- 4 · pipeline: the map -->
+<section class="slide" id="pipe" data-kit="pipe-map" data-group="pipe" data-title="Your compliance flow, in one Odoo">
+  <aside class="notes"><p>The camera journey starts zoomed out: the whole compliance flow as one pipeline, six stations: Order, Invoice, EIS, Books, BIR forms, Audit trail. They light up in sequence. Click any station (or the buttons) and the camera flies there; click it again, press Back, or Esc to return. The dashed amber station is the honest one: the BIR&rsquo;s EIS. Odoo has no built-in connection to it and TechNext has not built one, so we assess it with them and quote it separately. Everything lit is part of the Odoo set-up. Press &rarr; to start the journey at the invoice.</p></aside>
+</section>
+
+<!-- 5 · pipeline: order to invoice -->
+<section class="slide" id="invoice" data-kit="pipe-invoice" data-group="pipe" data-steps="2" data-title="One invoice, issued once">
+  <aside class="notes"><p>Order to invoice. A sample order for finished parts becomes a draft invoice. The invoice has two local lines at 12% VAT and one export line at 0%, labelled &ldquo;export sale, zero-rated&rdquo;: it is a sample, and the treatment of a real export sale is for their accountant to confirm, so do not state a rule here. Step 1, press &rarr; or click the Confirm button: the invoice takes the next number in the series and gets the Posted stamp; from here it is locked, which matches the rule that an issued e-invoice can&rsquo;t be deleted or changed. Click Try to edit to show it. Step 2: a customer returns some parts. The posted invoice is not touched: a credit note lowers it and refers to it. To raise an amount, a new invoice is issued. Every name, number and price is a sample, and the fields we set up are checked with their accountant.</p></aside>
+</section>
+
+<!-- 6 · pipeline: EIS and the books -->
+<section class="slide" id="books" data-kit="pipe-books" data-group="pipe" data-title="The EIS we assess, the books we set up">
+  <aside class="notes"><p>Two stations. First the EIS, dashed and amber on purpose: the BIR&rsquo;s e-invoicing system takes the required sales data, and Odoo has no built-in connection to it; TechNext has not built one. If they are covered we assess the options with them and quote any connection separately. Say the line out loud: no software is BIR-accredited, and TechNext is an Odoo Ready Partner, not affiliated with or acting for the BIR. Then the books: every posted entry lands in Odoo&rsquo;s Book of Accounts for CAS and CBA. The six lines are the sample invoice (export line included, so sales are local plus export) and its credit note from the last slide, as journal entries. The business registers its own CAS or CBA at its RDO; we prepare the documentation pack with them (system description, sample printouts, audit trail, report specifications) and they sign and file it. Press Replay to watch the ledger fill again.</p></aside>
+</section>
+
+<!-- 7 · pipeline: BIR forms and the audit trail -->
+<section class="slide" id="forms" data-kit="pipe-forms" data-group="pipe" data-title="BIR forms and the audit trail">
+  <aside class="notes"><p>The last two stations. From the same books, Odoo 20&rsquo;s Philippine localisation produces the 2307 certificates on supplier bills, the SLSP list, SAWT and QAP with DAT exports, and the 2550Q VAT summary. Click a form for one line on what it is. These are outputs for their accountant to review; nothing is filed from here. Then the audit trail: who posted, changed or exported what, and when, kept with the record. The lines are sample. Next slide: the plan from this week to 31 December, in order.</p></aside>
+</section>
+
+<!-- 8 · from this week to 31 December -->
+<section class="slide" id="move" data-title="From this week to 31 December">
+  <aside class="notes"><p>This is the slide for the date. The timeline runs from today (the pin shows today&rsquo;s real date) to 31 December 2026, and the day count is live. Four milestones sit between them, in the order the work happens: discovery and data review; Odoo set-up and the BIR outputs; a parallel run beside SAP Business One; and one cut-over. The spacing shows ORDER only, not durations: read the footnote under the slide aloud. Dates are fixed in the proposal after discovery, so do not quote a day or a number of weeks here. Click a milestone to move the plan to it. The line &ldquo;Starting now keeps December calm&rdquo; is the argument: a short plan started early has room in it. Odoo has no native connector for SAP Business One, so the move is TechNext&rsquo;s service: export, map, import, reconcile. The chips on the right are for later, because TTI imports and exports: multi-currency in Accounting, landed costs on imported stock in Inventory, plus Purchase and Inventory. They are options, not part of the first proposal.</p></aside>
+</section>
+
+<!-- 9 · later -->
+<section class="slide" id="later" data-kit="later" data-title="Accounting first, more when you are ready">
+  <aside class="notes"><p>Phase 1 is Accounting with the BIR compliance services: the lit centre. The five apps around it are options for later, for a manufacturer that also imports and exports: Inventory, Purchase, Manufacturing, Quality and Maintenance (for their own equipment). The two dashed labels are the import/export pieces: multi-currency, which lives in Accounting, and landed costs on imported stock, which live in Inventory. None of it is part of the first proposal. Hover or click an app to light it and read one line on what it does. Say it is their order and their pace: we recommend what fits, and say why.</p></aside>
+</section>
+
+<!-- 10 · questions -->
+<section class="slide" id="questions" data-kit="questions" data-title="Questions for the call">
+  <aside class="notes"><p>Ask these on the call and mark them as you go: one click for answered, two for follow up, three to clear. The marks stay while this tab is open; Copy follow-ups puts the open ones on the clipboard for the minutes. Questions 1, 2 and 8 shape the timing: what their accountant says about coverage and date, when the SAP Business One licence or support renews, and who decides and by when. Questions 5 and 6 tell us how much of the import/export side belongs in a later phase.</p></aside>
+</section>
+
+<!-- 11 · next step -->
+<section class="slide dark" id="close" data-kit="close" data-chrome="foot" data-title="Next step">
+  <aside class="notes"><p>Thank them. The next step is a 30-minute call with an adviser: we recommend what fits, and say why. The booking link and QR are for that call; sales@technext.asia for anything in between. technext.asia/bir-e-invoicing has the rules and the sources in writing. Do not promise dates, prices or durations: those come in the proposal after discovery.</p></aside>
+</section>
+
+</div></main>
+<script src="assets/deck.js?v={{v}}"></script>
+<script src="assets/motion.js?v={{v}}"></script>
+<script src="assets/vendor/motion-11.11.17.js?v={{v}}"></script>
+<script>
+window.BM = {
+  slug: 'tti-laguna-odoo-bir',
+  urgent: true,
+  client: { name: 'TTI Laguna Philippines', short: 'TTI Laguna', accent: '#C2410C', industry: 'Manufacturing and import/export', system: 'SAP Business One', need: 'BIR requirements, with 31 December 2026 close' },
+  kickers: { rules: 'the date, in plain words', later: 'later phases · import and export' },
+  cover: {
+    kicker: 'for tti laguna philippines',
+    h1: '31 December is close. <span class="hl">Let’s start now.</span>',
+    lead: 'Invoices, books and BIR forms in one Odoo, and a short plan from this week to 31 December, in order.',
+    system: 'SAP Business One'
+  },
+  understand: {
+    lines: [['industry', 'Manufacturing and import/export', 'import/export'], ['today', 'Running on SAP Business One', 'SAP Business One'], ['need', 'An ERP set up for BIR requirements', 'BIR requirements']],
+    guesses: ['BIR forms are built outside SAP Business One', 'Import costs are tracked in spreadsheets', 'December is already a busy month'],
+    illus: 'From our call notes · guesses to confirm with you'
+  },
+  invoice: { orderLabel: 'Sales order', buyer: 'Sample customer 01', zeroWord: 'export', lines: [['Finished part, type A', 120, 85], ['Finished part, type B', 60, 140], ['Finished part, type C', 40, 95, 'zero']] },
+  later: {
+    apps: ['stock', 'purchase', 'mrp', 'quality_control', 'maintenance'],
+    extras: [
+      { n: 'Multi-currency', at: 'account', u: 'Quote, invoice and pay in more than one currency, with the rates kept in Accounting. Useful where export sales are invoiced in a foreign currency.' },
+      { n: 'Landed costs on imported stock', at: 'stock', u: 'Freight, duties and handling added to the cost of the stock you import, in Inventory, so the cost of each item reflects them.' }
+    ],
+    lead: 'Phase 1: invoices, books and BIR forms in one Odoo, as in the flow you just saw. Import and export pieces, and the factory apps, follow when you are ready.'
+  },
+  questions: { items: [
+    'What has your accountant or RDO said about e-invoicing coverage and the date?',
+    'When does your SAP Business One licence or support renew, and does that shape the timing?',
+    'Which BIR forms and books do you produce today, and who prepares them?',
+    'Where do you stand with CAS, CBA and a Permit to Issue?',
+    'Roughly how do your sales split between export and local?',
+    'How are import costs handled today: freight, duties, handling and the cost of each item?',
+    'How many years of history do you want to bring across from SAP Business One?',
+    'Who decides, and by when would you need a decision to start in good time for 31 December?'
+  ] },
+  close: { h2: 'Let’s start now, <span class="hl">with one call.</span>', lead: 'Pick a time for a 30-minute call with an adviser. We recommend what fits, and say why.' }
+};
+</script>
+<script src="assets/birmove.js?v={{v}}"></script>
+<script src="assets/tti-laguna.js?v={{v}}"></script>
+</body>
+</html>

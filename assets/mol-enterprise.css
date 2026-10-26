@@ -1,0 +1,78 @@
+/* MOL Enterprise Philippines: slide 8 only (prefix ml-). A calendar strip Oct 2026 to Mar 2027: the Autocount subscription bar ends in December,
+   the Odoo bar starts before it (overlap = parallel run) or, "without a plan", starts after it (a January gap). The kit (birmove.css) owns everything else.
+   MOL navy #005396 is the one accent (via --bm-a). Content y 226-790; the calendar card is the only lifted object. Month column = 188px, 6 columns.
+   No fields, fades or tinted bands: bars are solid, the bands are dashed outlines. */
+.ml-tg{position:absolute;left:120px;top:238px;right:120px;display:flex;align-items:center;gap:18px;z-index:3}
+.ml-tg-l{font:700 18px/1.2 var(--f-display);color:var(--ink)}
+.ml-seg{display:inline-flex;gap:4px;padding:5px;border-radius:14px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1)}
+.ml-seg button{min-height:46px;min-width:150px;padding:0 20px;border:0;border-radius:10px;background:none;font:700 17px/1 var(--f-display);color:var(--body);cursor:pointer;transition:background .3s,color .3s}
+.ml-seg button:hover{color:var(--ink)}
+.ml-seg button[aria-pressed=true]{background:var(--bm-a-ink);color:#fff}
+.ml-seg button[data-k="0"][aria-pressed=true]{background:var(--bm-amber-fill)}
+
+/* the calendar card */
+.ml-cal{position:absolute;left:120px;top:300px;width:1360px;height:306px;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-2);overflow:hidden;z-index:2}
+.ml-mh{position:absolute;left:0;right:0;top:0;height:54px;display:grid;grid-template-columns:232px repeat(6,188px);background:var(--alt);border-bottom:1px solid var(--line)}
+.ml-mh span{display:flex;align-items:center;padding-left:18px;border-left:1px solid var(--line);font:500 15px/1 var(--f-body);color:var(--bm-muted)}
+.ml-mh span:first-child{border-left:0;padding-left:24px;font:700 14px/1 var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--bm-a-ink)}
+.ml-mh b{margin-right:7px;font:800 19px/1 var(--f-display);color:var(--ink)}
+.ml-lab{position:absolute;left:24px;width:196px;height:58px;display:flex;align-items:center;gap:12px}
+.ml-lab .ic{flex:none;font-size:26px;color:var(--bm-muted)}
+.ml-lab .bm-oi{flex:none}
+.ml-lab p{margin:0}
+.ml-lab b{display:block;font:800 19px/1.15 var(--f-display);color:var(--ink)}
+.ml-lab small{display:block;margin-top:2px;font:500 14.5px/1.2 var(--f-body);color:var(--bm-muted)}
+.ml-plot{position:absolute;left:232px;right:0;top:54px;bottom:0;overflow:hidden;background-image:linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:188px 100%}
+
+/* bars */
+.ml-bar{position:absolute;display:flex;align-items:center;height:58px;z-index:2;border-radius:12px;color:#fff}
+.ml-bar b{display:block;font:800 18px/1.15 var(--f-display)}
+.ml-bar small{display:block;margin-top:2px;font:500 14.5px/1.2 var(--f-body);color:rgba(255,255,255,.92)}
+.ml-ac{left:0;top:58px;width:564px;padding:0 0 0 18px}
+.ml-ac > span{position:relative;z-index:1}
+.ml-ac-s{position:absolute;left:0;top:0;bottom:0;width:376px;background:#646B83;border-radius:0}
+.ml-ac-d{position:absolute;left:376px;right:0;top:0;bottom:0;border:2px dashed #646B83;border-left:0;border-radius:0 12px 12px 0}
+.ml-ob{left:244px;top:130px;width:1500px;padding:0 0 0 14px;gap:12px;background:var(--bm-a);border-radius:12px 0 0 12px;will-change:transform}
+.ml-ob .bm-oi{flex:none;padding:3px;border-radius:9px;background:#fff;box-sizing:content-box}
+
+/* parallel run and the January gap */
+.ml-band{position:absolute;top:40px;height:198px;z-index:1;border-radius:14px;opacity:0;transform:translateY(10px);transition:opacity .55s var(--mx-soft-land,var(--ease)),transform .55s var(--mx-soft-land,var(--ease))}
+.ml-band .ml-pill{position:absolute;left:0;right:0;bottom:10px;margin:auto;width:max-content;max-width:calc(100% - 16px);display:flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;font:750 15px/1 var(--f-display);white-space:nowrap}
+.ml-band .ml-pill .ic{font-size:17px}
+.ml-par{left:244px;width:306px;border:2px dashed var(--bm-a)}
+.ml-par .ml-pill{background:var(--bm-a-ink);color:#fff}
+.ml-gap{left:564px;width:188px;border:2px dashed var(--bm-amber-mid)}
+.ml-gap .ml-pill{background:#fff;border:1.5px solid var(--bm-amber-mid);color:var(--bm-amber-ink)}
+.ml-plot.is-plan .ml-par{opacity:1;transform:none}
+.ml-plot:not(.is-plan) .ml-gap{opacity:1;transform:none}
+.ml-plot.is-pre .ml-ob,.ml-plot.is-pre .ml-gap,.ml-plot.is-pre .ml-par{opacity:0!important}
+
+/* the 31 December marker and today */
+.ml-ef{position:absolute;left:564px;top:0;bottom:0;width:0;border-left:2px dashed var(--bm-amber-mid);z-index:3;pointer-events:none}
+.ml-ef em{position:absolute;right:9px;top:7px;padding:7px 11px;border-radius:999px;background:var(--bm-amber-fill);color:#fff;font:700 14px/1 var(--f-display);font-style:normal;white-space:nowrap}
+.ml-today{position:absolute;top:7px;z-index:1;transform:translateX(-50%);pointer-events:none}
+.ml-today em{display:block;position:relative;padding:7px 12px;border-radius:999px;background:var(--ink);color:#fff;font:700 14px/1 var(--f-display);font-style:normal;white-space:nowrap}
+.ml-today em::after{content:"";position:absolute;left:50%;top:100%;margin-left:-6px;width:12px;height:7px;background:var(--ink);clip-path:polygon(0 0,100% 0,50% 100%)}
+.ml-today::after{content:"";position:absolute;left:50%;top:38px;height:206px;width:0;border-left:2px solid rgba(31,31,61,.28)}
+
+/* the four-step plan */
+.ml-st{position:absolute;top:626px;width:319px;height:96px;padding:15px 14px 0 64px;border-radius:16px;border:1.5px dashed #CFCBD6;background:transparent;transition:background .35s,border-color .35s,box-shadow .35s;z-index:2}
+.ml-st[data-i="0"]{left:120px}.ml-st[data-i="1"]{left:467px}.ml-st[data-i="2"]{left:814px}.ml-st[data-i="3"]{left:1161px}
+.ml-st i{position:absolute;left:16px;top:16px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:2px dashed #AEB7C4;font:800 16px/1 var(--f-display);font-style:normal;color:var(--bm-muted);transition:background .35s,border-color .35s,color .35s}
+.ml-st b{display:block;font:750 18px/1.2 var(--f-display);color:var(--bm-muted);transition:color .35s}
+.ml-st small{display:block;margin-top:5px;font:500 15px/1.3 var(--f-body);color:var(--bm-muted)}
+.ml-st:not([data-i="3"])::after{content:"";position:absolute;right:-22px;top:50%;width:10px;height:10px;margin-top:-5px;border-top:3px solid var(--bm-a);border-right:3px solid var(--bm-a);transform:rotate(45deg);opacity:.4;transition:opacity .35s}
+.ml-st.is-lit{background:#fff;border:1.5px solid var(--bm-a);box-shadow:var(--sh-1)}
+.ml-st.is-lit b{color:var(--ink)}
+.ml-st.is-lit i{background:var(--bm-a-ink);border:2px solid var(--bm-a-ink);color:#fff}
+.ml-st.is-lit:not([data-i="3"])::after{opacity:1}
+.ml-st[data-i="3"].is-lit i{background:var(--bm-amber-fill);border-color:var(--bm-amber-fill)}
+
+/* caption bar */
+.ml-cap{display:flex;align-items:center;gap:12px}
+.ml-cap .ic{flex:none;font-size:22px;color:var(--ok)}
+.ml-cap.is-warn .ic{color:var(--amber)}
+
+.deck.is-tv .ml-band,.deck.is-tv .ml-st,.deck.is-tv .ml-st i,.deck.is-tv .ml-st b,.deck.is-tv .ml-st::after,.deck.is-overview .ml-band{transition:none}
+.deck.is-tv .bm-swap{animation:none!important}
+@media (prefers-reduced-motion:reduce){.ml-band,.ml-st,.ml-st i,.ml-st b,.ml-st::after,.ml-seg button{transition:none!important}}

@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "66"
+ASSET_V = "67"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -117,6 +117,18 @@ DECKS = [
         dict(slug="cottoncentral-e-invoicing", tags="odoo", title="Cotton Central", mins=30, pdf="TechNext-Cotton-Central-E-Invoicing.pdf",
              alt="Cotton Central cover: every order, an e-invoice.",
              desc="A discovery deck for Cotton Central, Inc. on BIR e-invoicing: the rules in plain words (RR 26-2025, RMC 98-2026, the Permit to Issue, 31 December 2026, no edits after issue) with a live day counter, who the rules cover, a sample day of orders from cottoncentral.com, Shopee, Lazada, edamama and TikTok becoming invoices in one Odoo, one invoice confirmed, locked and corrected by a credit note, what Odoo 20 does, what we add and what we assess (the EIS connection), who does what, the order of work, and twelve questions marked live on the call."),
+        dict(slug="ts-global-odoo-bir", tags="odoo", title="T&S Global Services", mins=20, pdf="TechNext-Proposal-TS-Global-Services-Odoo-BIR.pdf",
+             alt="T&S Global Services cover: from QuickBooks to books set up for the BIR.",
+             desc="A discovery deck for T&S Global Services (manufacturing, on QuickBooks): the BIR e-invoicing and CAS rules with a live day counter, the whole compliance flow as one camera journey through Odoo (invoice, EIS, books, BIR forms, audit trail), moving off QuickBooks bucket by bucket, Odoo apps for later phases, questions marked live, and the next step."),
+        dict(slug="mol-enterprise-odoo-bir", tags="odoo", title="MOL Enterprise Philippines", mins=20, pdf="TechNext-Proposal-MOL-Enterprise-Odoo-BIR.pdf",
+             alt="MOL Enterprise cover: Autocount ends in December, your books carry on.",
+             desc="A discovery deck for MOL Enterprise Philippines (logistics, Autocount subscription ending December 2026): the BIR rules with a live day counter, the compliance flow as one camera journey through Odoo, a calendar that overlaps Odoo with the last Autocount months, Odoo apps for logistics later, questions marked live, and the next step."),
+        dict(slug="laguna-metts-odoo-bir", tags="odoo", title="Laguna Metts Corporation", mins=20, pdf="TechNext-Proposal-Laguna-Metts-Odoo-BIR.pdf",
+             alt="Laguna Metts cover: built for Thailand, set up for the BIR.",
+             desc="A discovery deck for Laguna Metts Corporation (manufacturing, on an ERP from Thailand): the BIR rules with a live day counter, the compliance flow as one camera journey through Odoo, a localisation fit table to confirm together, Odoo apps for manufacturing later, questions marked live, and the next step."),
+        dict(slug="tti-laguna-odoo-bir", tags="odoo", title="TTI Laguna Philippines", mins=20, pdf="TechNext-Proposal-TTI-Laguna-Odoo-BIR.pdf",
+             alt="TTI Laguna cover: 31 December is close, let us start now.",
+             desc="A discovery deck for TTI Laguna Philippines (manufacturing and import/export, on SAP Business One), built around the 31 December 2026 date: a live countdown, the compliance flow as one camera journey through Odoo, a compressed plan from this week to December, import/export notes for later, questions marked live, and the next step."),
     ]),
     ("Case studies", [
         dict(slug="case-study-fnb", tags="odoo", title="Case study · F&B", mins=15, pdf="TechNext-Case-Study-FnB.pdf",

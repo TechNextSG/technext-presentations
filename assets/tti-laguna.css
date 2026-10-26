@@ -1,0 +1,49 @@
+/* TTI Laguna Philippines (prefix tt-): slide 8 "From this week to 31 December" only. The cover countdown badge, the zero-rated export line, the long ledger
+   name and the five-app ring are kit options now (birmove.css / birmove.js): this file overrides nothing of the kit. Amber-red #C2410C is the one accent
+   (via --bm-a). Slide 8 content y 262-770: a runway from today to 31 December, four milestones in order, then "Starting now keeps December calm." and the
+   later-phase chips. No fields, no stripes, no halos, no loops. */
+.tt-run{position:absolute;left:120px;top:262px;width:1360px;height:340px;z-index:2}
+.tt-trk{position:absolute;left:36px;right:36px;top:102px;height:10px;border-radius:5px;background:rgba(var(--bm-a-rgb),.28);overflow:hidden}
+.tt-fill{position:absolute;left:0;top:0;bottom:0;width:100%;border-radius:5px;background:linear-gradient(90deg,var(--blue),var(--bm-a));transform:scaleX(1);transform-origin:left}
+
+.tt-today{position:absolute;left:0;top:18px;z-index:3}
+.tt-today em{display:block;position:relative;padding:9px 14px;border-radius:999px;background:var(--ink);color:#fff;font:700 15px/1 var(--f-display);font-style:normal;white-space:nowrap}
+.tt-today em::after{content:"";position:absolute;left:30px;top:100%;width:12px;height:8px;background:var(--ink);clip-path:polygon(0 0,100% 0,50% 100%)}
+.tt-tn{position:absolute;left:36px;top:92px;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:var(--ink);border:5px solid #fff;box-shadow:0 8px 18px -8px rgba(31,31,61,.55);z-index:3}
+
+.tt-end{position:absolute;right:0;top:0;z-index:3;display:flex;align-items:center;gap:14px;height:60px;padding:0 20px 0 16px;border-radius:16px;background:var(--bm-a);color:#fff;border:0;cursor:pointer;text-align:left;box-shadow:0 18px 36px -22px rgba(var(--bm-a-rgb),.9)}
+.tt-end::after{content:"";position:absolute;right:28px;top:100%;width:16px;height:9px;background:var(--bm-a);clip-path:polygon(0 0,100% 0,50% 100%)}
+.tt-end .ic{font-size:28px}
+.tt-end small{display:block;font:700 14px/1 var(--f-display);letter-spacing:.07em;text-transform:uppercase;opacity:.92}
+.tt-end b{display:block;margin-top:5px;font:800 23px/1 var(--f-display);letter-spacing:-.01em}
+.tt-end b i{font-style:normal;font-variant-numeric:tabular-nums}
+.tt-en{position:absolute;left:calc(100% - 36px);top:81px;width:52px;height:52px;margin-left:-26px;border-radius:50%;background:#fff;border:5px solid var(--bm-a);z-index:3;transition:background .35s}
+.tt-en::before{content:"";position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--bm-a)}
+.tt-run.is-end .tt-en{background:var(--bm-a)}
+.tt-run.is-end .tt-en::before{background:#fff}
+
+.tt-m{position:absolute;top:78px;left:var(--x);width:248px;margin-left:-124px;display:flex;flex-direction:column;align-items:center;padding:0;border:0;background:none;cursor:pointer;text-align:left;border-radius:18px}
+.tt-disc{position:relative;display:grid;place-items:center;flex:none;width:58px;height:58px;border-radius:50%;background:#fff;border:3px solid var(--bm-a);font-size:26px;color:var(--bm-a-ink);box-shadow:0 10px 24px -14px rgba(31,31,61,.45);transition:background .35s,color .35s,box-shadow .35s,scale .35s var(--mx-soft-land,var(--ease))}
+.tt-disc em{position:absolute;right:-8px;top:-8px;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;border:2.5px solid #fff;font:800 14px/1 var(--f-display);font-style:normal}
+.tt-card{position:relative;width:100%;min-height:146px;margin-top:16px;padding:16px 16px 14px;border-radius:16px;background:#fff;border:1.5px solid var(--line);box-shadow:var(--sh-1);transition:border-color .3s,box-shadow .3s}
+.tt-card::before{content:"";position:absolute;left:50%;top:-17px;height:17px;border-left:2px dashed rgba(var(--bm-a-rgb),.6)}
+.tt-card b{display:block;font:750 18px/1.2 var(--f-display);color:var(--ink);letter-spacing:-.005em}
+.tt-card small{display:block;margin-top:8px;font:500 15px/1.4 var(--f-body);color:var(--bm-muted)}
+.tt-m:hover .tt-card{border-color:var(--bm-a)}
+.tt-m.is-lit .tt-disc{background:var(--bm-a-ink);border-color:var(--bm-a-ink);color:#fff}
+.tt-m.is-lit .tt-card{border-color:rgba(var(--bm-a-rgb),.55)}
+.tt-m[aria-pressed=true] .tt-disc{scale:1.1;box-shadow:0 0 0 5px #fff,0 0 0 8px var(--bm-a),0 10px 24px -14px rgba(31,31,61,.45)}
+.tt-m[aria-pressed=true] .tt-card{border-color:var(--bm-a-ink);box-shadow:var(--sh-2)}
+
+.tt-calm{position:absolute;left:120px;top:640px;width:700px;padding:18px 24px 20px;border:1.5px solid var(--bm-a);border-radius:16px;background:#fff}
+.tt-calm p{margin:0}
+.tt-calm b{display:block;font:800 36px/1.08 var(--f-display);letter-spacing:-.025em;color:var(--ink);text-wrap:balance}
+.tt-calm span{display:block;margin-top:12px;font:500 18px/1.4 var(--f-body);color:var(--bm-muted)}
+.tt-later{position:absolute;left:860px;right:120px;top:646px}
+.tt-lab{margin:0 0 12px;font:700 15px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--bm-a-ink)}
+.tt-chips{display:flex;flex-wrap:wrap;gap:10px}
+.tt-chip{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 16px 0 10px;border-radius:999px;border:1.5px dashed var(--bm-a);background:#fff;font:650 16px/1 var(--f-display);color:var(--ink)}
+.tt-chip .bm-oi{opacity:.85}
+.tt-later small{display:block;margin-top:12px;font:500 15px/1.35 var(--f-body);color:var(--bm-muted)}
+
+@media (prefers-reduced-motion:reduce){.tt-disc,.tt-card,.tt-en{transition:none!important}}

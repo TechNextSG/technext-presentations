@@ -1,0 +1,67 @@
+/* Laguna Metts Corporation: slide 8 only (prefix lm-). A localisation fit table: six Philippine requirements down the left, the client's
+   current ERP in the middle (a chip per row that the presenter cycles: To confirm, Has it, Partly, Missing), Odoo 20 PH localisation on the right.
+   Plum #7A3E6E is the one accent (via --bm-a). Content y 226-790. No fields, no stripes. The kit (birmove.css) owns everything else. */
+.lm-t{position:absolute;left:120px;top:244px;width:1360px;z-index:2}
+.lm-hd,.lm-r{display:grid;grid-template-columns:540px 320px minmax(0,1fr);column-gap:12px}
+.lm-hd{height:56px;margin-bottom:8px}
+.lm-hd > div{display:flex;align-items:center;gap:12px;padding:0 20px;min-width:0}
+.lm-hd b{display:block;font:750 15px/1.2 var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--bm-a-ink)}
+.lm-hd small{display:block;margin-top:3px;font:500 15px/1.2 var(--f-body);color:var(--bm-muted)}
+.lm-hd .lm-hdo{padding-left:16px}
+.lm-r{height:60px;margin-bottom:8px}
+.lm-r:last-child{margin-bottom:0}
+.lm-c{display:flex;align-items:center;gap:14px;min-width:0;padding:0 20px;border-radius:14px;border:1.5px solid var(--line);background:#fff;box-shadow:var(--sh-1);transition:border-color .3s,box-shadow .3s,background .3s}
+.lm-r:hover .lm-c-n{border-color:var(--bm-a)}
+.lm-ri{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:var(--bm-a-tint2);color:var(--bm-a-ink);font-size:19px}
+.lm-c-n b{font:700 20px/1.2 var(--f-display);color:var(--ink);text-wrap:balance}
+
+/* column A: the chip the presenter cycles */
+.lm-c-a{padding:0;border:0;background:none;box-shadow:none}
+.lm-chip{position:relative;display:grid;grid-template-columns:30px minmax(0,1fr) 22px;column-gap:12px;align-items:center;width:100%;height:60px;padding:0 14px 0 14px;border-radius:14px;border:2px dashed #BDB7C9;background:#fff;color:var(--bm-muted);text-align:left;cursor:pointer;font:700 18px/1 var(--f-display);transition:background .3s,border-color .3s,color .3s}
+.lm-chip:hover{border-color:var(--bm-a-ink)}
+.lm-chip b{font:inherit}
+.lm-cy{display:grid;place-items:center;font-size:18px;color:#A29DB2;transition:color .3s}
+.lm-chip:hover .lm-cy{color:var(--bm-a-ink)}
+.lm-g{position:relative;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:2px dashed #AAA5B8;box-sizing:border-box;transition:background .3s,border-color .3s}
+.lm-g > *{display:none;font-style:normal}
+.lm-g .lm-gq{display:block;font:800 16px/1 var(--f-display);color:var(--bm-muted)}
+.lm-g .ic{font-size:17px;color:#fff}
+.lm-chip[data-s="has"]{border:2px solid var(--bm-ok-line);background:var(--ok-050);color:var(--ok)}
+.lm-chip[data-s="has"] .lm-g{background:var(--ok);border:2px solid var(--ok)}
+.lm-chip[data-s="has"] .lm-gq,.lm-chip[data-s="part"] .lm-gq,.lm-chip[data-s="miss"] .lm-gq{display:none}
+.lm-chip[data-s="has"] .lm-gc{display:block}
+.lm-chip[data-s="part"]{border:2px solid var(--bm-amber-mid);background:var(--amber-050);color:var(--bm-amber-ink)}
+.lm-chip[data-s="part"] .lm-g{border:2px solid var(--amber);background:linear-gradient(90deg,var(--amber) 50%,#fff 50%)}
+.lm-chip[data-s="miss"]{border:2px solid #E7B5AE;background:var(--red-050);color:var(--red)}
+.lm-chip[data-s="miss"] .lm-g{background:var(--red);border:2px solid var(--red)}
+.lm-chip[data-s="miss"] .lm-gx{display:block}
+
+/* column B: Odoo 20 PH localisation */
+.lm-c-o{background:#fff}
+.lm-ck{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;background:var(--ok);color:#fff;font-size:17px}
+.lm-c-o b{font:600 19px/1.25 var(--f-display);color:var(--ink);text-wrap:balance}
+.lm-r[data-s="part"] .lm-c-o,.lm-r[data-s="miss"] .lm-c-o{border:1.5px solid var(--bm-a);background:var(--bm-a-tint2)}
+
+/* the count bar */
+.lm-bar{gap:22px}
+.lm-n{margin:0;flex:none;display:flex;align-items:baseline;gap:9px;font:650 18px/1 var(--f-display);color:var(--ink)}
+.lm-n b{display:inline-block;min-width:24px;text-align:center;font:800 36px/1 var(--f-display);color:var(--bm-a-ink);transition:color .3s}
+.lm-bar.is-full .lm-n b{color:var(--ok)}
+.lm-lg{display:flex;align-items:center;gap:8px;flex:none}
+.lm-lg span{display:inline-flex;align-items:center;gap:7px;padding:0 12px 0 10px;min-height:34px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font:700 15px/1 var(--f-display);color:var(--bm-muted)}
+.lm-lg span i{width:12px;height:12px;border-radius:50%;flex:none}
+.lm-lg span b{font:800 16px/1 var(--f-display);color:var(--ink)}
+.lm-lg [data-k="has"] i{background:var(--ok)}
+.lm-lg [data-k="part"] i{background:linear-gradient(90deg,var(--amber) 50%,#fff 50%);box-shadow:inset 0 0 0 1.5px var(--amber)}
+.lm-lg [data-k="miss"] i{background:var(--red)}
+.lm-clear{margin-left:auto}
+.lm-clear[aria-disabled=true]{color:var(--bm-muted);cursor:default}
+.lm-clear[aria-disabled=true]:hover{border-color:var(--line)}
+
+/* share copies are statements: no cycling, no presenter tools */
+body[data-shared] .lm-chip{pointer-events:none}
+body[data-shared] .lm-cy,body[data-shared] .lm-lg,body[data-shared] .lm-clear{display:none}
+body[data-shared] .lm-chip{grid-template-columns:30px minmax(0,1fr)}
+
+@media (prefers-reduced-motion:reduce){.lm-c,.lm-chip,.lm-g,.lm-cy,.lm-n b{transition:none!important}}
+.deck.is-tv .lm-c,.deck.is-tv .lm-chip,.deck.is-tv .lm-g,.deck.is-tv .lm-cy,.deck.is-tv .lm-n b{transition:none!important}

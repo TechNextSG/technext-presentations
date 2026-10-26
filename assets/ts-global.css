@@ -1,0 +1,56 @@
+/* T&S Global Services: slide 8 only (prefix tg-). Five QuickBooks buckets move into an Odoo bucket. The kit (birmove.css) owns everything else.
+   Deep green #2F6B4F is the one accent (via --bm-a). Content y 190-780; the tote and the crates are the only lifted objects. No fields, no stripes. */
+.tg-shelf{position:absolute;left:120px;top:246px;width:540px;z-index:3}
+.tg-lab{margin:0 0 14px;font:700 15px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--bm-a-ink)}
+.tg-b{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:14px;align-items:center;width:100%;height:70px;margin:0 0 10px;padding:0 18px;border-radius:14px;border:1.5px solid rgba(var(--bm-a-rgb),.55);background:#fff;box-shadow:var(--sh-1);text-align:left;cursor:grab;overflow:hidden}
+.tg-bi{grid-row:1 / span 2;display:grid;place-items:center;font-size:30px;color:var(--bm-a-ink)}
+.tg-b b{align-self:end;font:750 20px/1.15 var(--f-display);color:var(--ink)}
+.tg-b small{align-self:start;margin-top:3px;font:500 15px/1.2 var(--f-body);color:var(--bm-muted)}
+.tg-b:hover{border-color:var(--bm-a)}
+.tg-b.is-drag,.tg-b.is-fly,.tg-b.is-moved{transition:none!important}
+.tg-b.is-drag{cursor:grabbing;z-index:30;box-shadow:var(--sh-2);border-color:var(--bm-a-ink)}
+.tg-b.is-fly{z-index:30;pointer-events:none}
+.tg-b.is-moved{background:transparent;border:1.5px dashed #AEB7C4;box-shadow:none;cursor:default}
+.tg-b.is-moved b,.tg-b.is-moved .tg-bi{color:var(--bm-muted)}
+/* final state: the moved rows collapse to compact ghost slots */
+.tg-shelf.is-all .tg-b{height:46px;margin-bottom:8px}
+.tg-shelf.is-all .tg-b small{display:none}
+.tg-shelf.is-all .tg-b b{align-self:center;font-size:17px}
+.tg-shelf.is-all .tg-bi{grid-row:auto;font-size:22px}
+.tg-lane{position:absolute;left:670px;top:430px;width:220px;height:60px;z-index:2}
+.tg-lane path{fill:none;stroke:var(--bm-a-ink);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3 12}
+.tg-lane path.tg-hd{stroke-dasharray:none}
+.tg-tote{position:absolute;left:900px;top:236px;width:580px;height:440px;border-radius:20px;background:#fff;box-shadow:var(--sh-2);border:1px solid var(--line);overflow:hidden;z-index:2;transition:box-shadow .3s,border-color .3s}
+.tg-tote.is-over{border-color:var(--bm-a);box-shadow:inset 0 0 0 2px var(--bm-a),var(--sh-2)}
+.tg-th{display:flex;align-items:center;gap:12px;height:56px;padding:0 20px;background:var(--alt);border-bottom:1px solid var(--line)}
+.tg-th b{font:800 20px/1 var(--f-display);color:var(--ink)}
+.tg-cnt{margin-left:auto;font:500 15px/1 var(--f-body);color:var(--bm-muted)}
+.tg-cnt b{font:800 18px/1 var(--f-display);color:var(--bm-a-ink)}
+.tg-tb{position:relative;padding:12px 18px 0;height:332px}
+.tg-tote.has-any .tg-r{display:grid;grid-template-columns:34px minmax(0,1fr);column-gap:14px;align-items:center;height:56px;margin-bottom:8px;padding:0 14px;border-radius:12px;border:1.5px dashed #BDB9C8;background:transparent}
+.tg-r p{margin:0}
+.tg-r b{display:block;font:700 17px/1.2 var(--f-display);color:var(--bm-muted)}
+.tg-r span{display:block;font:500 15px/1.25 var(--f-body);color:transparent}
+.tg-ck{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:2px dashed #CFCBD6;color:transparent;font-size:16px}
+.tg-r.is-on{border:1.5px solid var(--bm-ok-line);background:var(--ok-050)}
+.tg-r.is-on b{color:var(--ink)}
+.tg-r.is-on span{color:var(--body)}
+.tg-r.is-on .tg-ck{background:var(--ok);border:2px solid var(--ok);color:#fff}
+.tg-done{position:absolute;left:0;right:0;bottom:0;margin:0;height:52px;display:flex;align-items:center;gap:10px;padding:0 20px;background:var(--ok-050);border-top:1px solid var(--bm-ok-line);font:650 15.5px/1.3 var(--f-display);color:var(--ok);opacity:0;transition:opacity .35s}
+.tg-done .ic{flex:none;font-size:19px}
+.tg-tote.is-full .tg-done{opacity:1}
+/* the cut-over line ends at y 780: >= 24px above the footnote */
+.tg-cut{position:absolute;left:120px;right:120px;top:692px;height:86px;z-index:2}
+.tg-cut-t{position:absolute;left:12px;right:12px;top:10px;height:8px;border-radius:4px;background:rgba(var(--bm-a-rgb),.28);overflow:hidden}
+.tg-cut-f{position:absolute;left:0;top:0;bottom:0;width:100%;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--bm-a));transform:scaleX(0);transform-origin:left;transition:transform .6s var(--mx-soft-land,var(--ease))}
+.tg-stop{position:absolute;top:0;width:300px;display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.tg-stop[data-i="0"]{left:0}.tg-stop[data-i="1"]{left:33%}.tg-stop[data-i="2"]{left:62%}
+.tg-stop--end{right:0;align-items:flex-end;text-align:right}
+.tg-stop i{position:relative;z-index:1;width:28px;height:28px;margin-top:-1px;border-radius:50%;background:#fff;border:3px solid var(--bm-a);transition:background .35s,border-color .35s}
+.tg-stop--end i{border-style:dashed;border-color:var(--bm-amber-mid)}
+.tg-stop b{margin-top:6px;font:750 17px/1.15 var(--f-display);color:var(--ink)}
+.tg-stop small{font:500 14.5px/1.25 var(--f-body);color:var(--bm-muted)}
+.tg-stop.is-lit i{background:var(--bm-a-ink);border-color:var(--bm-a-ink)}
+.tg-stop--end.is-lit i{background:var(--amber);border-color:var(--amber)}
+.tg-stop--end i{margin-top:-1px}
+@media (prefers-reduced-motion:reduce){.tg-cut-f,.tg-tote,.tg-done{transition:none!important}}

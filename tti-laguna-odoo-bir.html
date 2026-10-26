@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E4691">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=67">
+<link rel="stylesheet" href="assets/deck.css?v=67">
+<link rel="stylesheet" href="assets/motion.css?v=67">
+<title>TTI Laguna Philippines · Odoo and BIR compliance · TechNext</title>
+<meta name="description" content="A discovery deck for TTI Laguna Philippines (manufacturing and import/export, on SAP Business One), built around the 31 December 2026 date: a live countdown, the compliance flow as one camera journey through Odoo, a compressed plan from this week to December, import/export notes for later, questions marked live, and the next step.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechNext">
+<meta property="og:title" content="TTI Laguna Philippines · Odoo and BIR compliance · TechNext">
+<meta property="og:description" content="A discovery deck for TTI Laguna Philippines (manufacturing and import/export, on SAP Business One), built around the 31 December 2026 date: a live countdown, the compliance flow as one camera journey through Odoo, a compressed plan from this week to December, import/export notes for later, questions marked live, and the next step.">
+<meta property="og:url" content="https://technextsg.github.io/technext-presentations/tti-laguna-odoo-bir.html">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/tti-laguna-odoo-bir-og.jpg?v=67">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/birmove.css?v=67">
+<link rel="stylesheet" href="assets/tti-laguna.css?v=67">
+</head>
+<body data-label="TTI Laguna Philippines · Odoo + BIR" data-home="./" data-motion="mx">
+<!-- birmove kit: icon + QR templates read by assets/birmove.js (BMK.ico, BMK.qr). Include once per deck with the include token -->
+<template id="bm-ico">
+<i data-n="alert"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></i>
+<i data-n="arrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></i>
+<i data-n="bank"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 10 6H2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M3 10h18"/><path d="M5 10v9M9 10v9M15 10v9M19 10v9"/><path d="M2 21h20"/><path d="m12 3 10 6H2z"/></svg></i>
+<i data-n="building"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></i>
+<i data-n="calculator"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01"/></svg></i>
+<i data-n="calendar"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></i>
+<i data-n="cart"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h17l-1.6 8.4a2 2 0 0 1-2 1.6H9.7a2 2 0 0 1-2-1.6z" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></i>
+<i data-n="check"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>
+<i data-n="clock"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></i>
+<i data-n="database"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-1.66 4-3 9-3s9 1.34 9 3v14c0 1.66-4 3-9 3s-9-1.34-9-3z" fill="currentColor" fill-opacity=".2" stroke="none"/><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></i>
+<i data-n="factory"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4H2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4H2z"/></svg></i>
+<i data-n="file"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></i>
+<i data-n="globe"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></i>
+<i data-n="layers"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></i>
+<i data-n="link"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></i>
+<i data-n="lock"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></i>
+<i data-n="mail"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></i>
+<i data-n="pen"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></i>
+<i data-n="pin"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></i>
+<i data-n="plug"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8H6v4a6 6 0 0 0 12 0z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8H6v4a6 6 0 0 0 12 0V8z"/></svg></i>
+<i data-n="receipt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></i>
+<i data-n="refresh"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></i>
+<i data-n="search"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg></i>
+<i data-n="shield"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></i>
+<i data-n="target"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 1 0 0-12zm0 4a2 2 0 1 1 0 4 2 2 0 1 1 0-4z" fill-rule="evenodd" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></i>
+<i data-n="truck"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></i>
+<i data-n="usercheck"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></i>
+<i data-n="users"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></i>
+<i data-n="x"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></i>
+<i data-n="box"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12v10l7-4a2 2 0 0 0 2-1.73V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></i>
+<i data-n="play"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></i>
+</template>
+<template id="bm-qr"><svg aria-hidden="true" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" class="qr"><path class="qr-p" stroke="#1f1f3d" d="M0 0.5h7m1 0h1m1 0h2m1 0h2m3 0h3m1 0h7m-29 1h1m5 0h1m1 0h3m3 0h1m5 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h3m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h3m2 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h3m3 0h4m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m1 0h1m1 0h1m2 0h1m1 0h3m-20 1h1m1 0h2m1 0h3m1 0h1m1 0h2m3 0h3m3 0h1m2 0h1m1 0h2m-28 1h2m4 0h1m2 0h2m1 0h2m1 0h9m3 0h1m-28 1h1m4 0h5m3 0h1m2 0h2m2 0h3m2 0h2m-28 1h5m7 0h5m1 0h1m1 0h1m3 0h1m3 0h1m-29 1h2m4 0h1m1 0h2m1 0h1m3 0h5m5 0h2m-25 1h1m1 0h1m2 0h6m1 0h2m3 0h1m2 0h1m3 0h3m-27 1h1m2 0h2m1 0h4m1 0h1m2 0h4m1 0h4m1 0h3m-29 1h1m1 0h1m4 0h1m1 0h4m2 0h1m4 0h1m3 0h1m2 0h1m-28 1h2m1 0h2m1 0h4m2 0h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m-27 1h5m3 0h2m1 0h1m2 0h2m3 0h2m1 0h1m1 0h3m-28 1h1m1 0h2m2 0h4m1 0h1m1 0h6m1 0h5m1 0h1m-24 1h3m2 0h2m1 0h5m1 0h1m1 0h1m6 0h1m-26 1h2m2 0h2m2 0h1m1 0h4m1 0h3m1 0h7m-19 1h2m2 0h1m3 0h3m1 0h1m3 0h5m-29 1h7m1 0h3m3 0h1m1 0h1m1 0h3m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m1 0h5m2 0h1m1 0h1m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h3m5 0h1m2 0h5m1 0h1m-27 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h1m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h6m3 0h2m1 0h2m1 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m3 0h2m1 0h1m6 0h1m3 0h2m1 0h1m-28 1h7m1 0h1m2 0h1m3 0h1m2 0h1m1 0h1m4 0h1m1 0h1"/></svg></template>
+
+<main class="deck" aria-label="TechNext discovery deck for TTI Laguna Philippines: Odoo and BIR compliance"><div class="stage">
+
+<!-- 1 · cover -->
+<section class="slide dark cover" id="cover" data-kit="cover" data-chrome="none" data-title="31 December is close. Let’s start now.">
+  <aside class="notes"><p>Welcome TTI Laguna Philippines. Everything in this deck comes from the scope we have so far: a manufacturing and import/export company that runs on SAP Business One and wants an ERP set up for BIR requirements, with 31 December 2026 getting close. Nothing here is a finding about the company; the next slide says so plainly. On the right, SAP Business One ledgers travel along the track into Odoo Accounting, one bucket at a time (sample movement, not their data). The red badge above Odoo is the live count of days to 31 December 2026. Say the date once, plainly, and move on: the point of this deck is a short plan in the right order, not pressure. Four parts: what we understand, the rules, the pipeline, next steps. Use the buttons to jump. We advise first, then deliver the whole solution.</p></aside>
+</section>
+
+<!-- 2 · what we understand -->
+<section class="slide" id="heard" data-kit="understand" data-title="What we understand">
+  <aside class="notes"><p>Say it back in three lines: a manufacturing and import/export company, on SAP Business One, that needs an ERP set up for BIR requirements. That is all we know. The three cards on the right are guesses, not findings: ask which are true and click True or Not us for each (click again to clear). Do not push: &ldquo;Not us&rdquo; is a good answer, it tells us where to look. The marks stay while this tab is open. Guess 3 is about timing and is worth a pause: if December is already full, that is the reason to start the set-up early and in a set order.</p></aside>
+</section>
+
+<!-- 3 · the rules -->
+<section class="slide" id="rules" data-kit="rules" data-title="The date, and who it covers">
+  <aside class="notes"><p>The number is the whole slide, and it is live: it counts the days from today to 31 December 2026. State it calmly. RR 26-2025 sets the date: covered taxpayers issue compliant e-invoices on or before 31 December 2026. RMC 98-2026, issued 22 September 2026, sets the working rules: a Permit to Issue (PTI) before the first e-invoice, and EIS Certification within six months of the PTI. An issued e-invoice can&rsquo;t be deleted or changed: a credit note lowers an amount, a new e-invoice raises it. If the system is down, a BIR-authorised manual invoice is issued, then an e-invoice that refers to it. The system sends the required sales data to the BIR&rsquo;s EIS. Click any dot on the line for its rule; the pin shows today. Who is covered: sellers through e-commerce or internet transactions, Large Taxpayers Service, large taxpayers (RA 11976, RR 8-2024), and CAS or CBA users with invoicing software; micro taxpayers are exempt; head office and branches are covered. Click a group to mark it for the accountant to check: we do not decide which group TTI Laguna is in, their accountant or RDO confirms. General guidance, not tax advice. Source: technext.asia/bir-e-invoicing.</p></aside>
+</section>
+
+<!-- 4 · pipeline: the map -->
+<section class="slide" id="pipe" data-kit="pipe-map" data-group="pipe" data-title="Your compliance flow, in one Odoo">
+  <aside class="notes"><p>The camera journey starts zoomed out: the whole compliance flow as one pipeline, six stations: Order, Invoice, EIS, Books, BIR forms, Audit trail. They light up in sequence. Click any station (or the buttons) and the camera flies there; click it again, press Back, or Esc to return. The dashed amber station is the honest one: the BIR&rsquo;s EIS. Odoo has no built-in connection to it and TechNext has not built one, so we assess it with them and quote it separately. Everything lit is part of the Odoo set-up. Press &rarr; to start the journey at the invoice.</p></aside>
+</section>
+
+<!-- 5 · pipeline: order to invoice -->
+<section class="slide" id="invoice" data-kit="pipe-invoice" data-group="pipe" data-steps="2" data-title="One invoice, issued once">
+  <aside class="notes"><p>Order to invoice. A sample order for finished parts becomes a draft invoice. The invoice has two local lines at 12% VAT and one export line at 0%, labelled &ldquo;export sale, zero-rated&rdquo;: it is a sample, and the treatment of a real export sale is for their accountant to confirm, so do not state a rule here. Step 1, press &rarr; or click the Confirm button: the invoice takes the next number in the series and gets the Posted stamp; from here it is locked, which matches the rule that an issued e-invoice can&rsquo;t be deleted or changed. Click Try to edit to show it. Step 2: a customer returns some parts. The posted invoice is not touched: a credit note lowers it and refers to it. To raise an amount, a new invoice is issued. Every name, number and price is a sample, and the fields we set up are checked with their accountant.</p></aside>
+</section>
+
+<!-- 6 · pipeline: EIS and the books -->
+<section class="slide" id="books" data-kit="pipe-books" data-group="pipe" data-title="The EIS we assess, the books we set up">
+  <aside class="notes"><p>Two stations. First the EIS, dashed and amber on purpose: the BIR&rsquo;s e-invoicing system takes the required sales data, and Odoo has no built-in connection to it; TechNext has not built one. If they are covered we assess the options with them and quote any connection separately. Say the line out loud: no software is BIR-accredited, and TechNext is an Odoo Ready Partner, not affiliated with or acting for the BIR. Then the books: every posted entry lands in Odoo&rsquo;s Book of Accounts for CAS and CBA. The six lines are the sample invoice (export line included, so sales are local plus export) and its credit note from the last slide, as journal entries. The business registers its own CAS or CBA at its RDO; we prepare the documentation pack with them (system description, sample printouts, audit trail, report specifications) and they sign and file it. Press Replay to watch the ledger fill again.</p></aside>
+</section>
+
+<!-- 7 · pipeline: BIR forms and the audit trail -->
+<section class="slide" id="forms" data-kit="pipe-forms" data-group="pipe" data-title="BIR forms and the audit trail">
+  <aside class="notes"><p>The last two stations. From the same books, Odoo 20&rsquo;s Philippine localisation produces the 2307 certificates on supplier bills, the SLSP list, SAWT and QAP with DAT exports, and the 2550Q VAT summary. Click a form for one line on what it is. These are outputs for their accountant to review; nothing is filed from here. Then the audit trail: who posted, changed or exported what, and when, kept with the record. The lines are sample. Next slide: the plan from this week to 31 December, in order.</p></aside>
+</section>
+
+<!-- 8 · from this week to 31 December -->
+<section class="slide" id="move" data-title="From this week to 31 December">
+  <aside class="notes"><p>This is the slide for the date. The timeline runs from today (the pin shows today&rsquo;s real date) to 31 December 2026, and the day count is live. Four milestones sit between them, in the order the work happens: discovery and data review; Odoo set-up and the BIR outputs; a parallel run beside SAP Business One; and one cut-over. The spacing shows ORDER only, not durations: read the footnote under the slide aloud. Dates are fixed in the proposal after discovery, so do not quote a day or a number of weeks here. Click a milestone to move the plan to it. The line &ldquo;Starting now keeps December calm&rdquo; is the argument: a short plan started early has room in it. Odoo has no native connector for SAP Business One, so the move is TechNext&rsquo;s service: export, map, import, reconcile. The chips on the right are for later, because TTI imports and exports: multi-currency in Accounting, landed costs on imported stock in Inventory, plus Purchase and Inventory. They are options, not part of the first proposal.</p></aside>
+</section>
+
+<!-- 9 · later -->
+<section class="slide" id="later" data-kit="later" data-title="Accounting first, more when you are ready">
+  <aside class="notes"><p>Phase 1 is Accounting with the BIR compliance services: the lit centre. The five apps around it are options for later, for a manufacturer that also imports and exports: Inventory, Purchase, Manufacturing, Quality and Maintenance (for their own equipment). The two dashed labels are the import/export pieces: multi-currency, which lives in Accounting, and landed costs on imported stock, which live in Inventory. None of it is part of the first proposal. Hover or click an app to light it and read one line on what it does. Say it is their order and their pace: we recommend what fits, and say why.</p></aside>
+</section>
+
+<!-- 10 · questions -->
+<section class="slide" id="questions" data-kit="questions" data-title="Questions for the call">
+  <aside class="notes"><p>Ask these on the call and mark them as you go: one click for answered, two for follow up, three to clear. The marks stay while this tab is open; Copy follow-ups puts the open ones on the clipboard for the minutes. Questions 1, 2 and 8 shape the timing: what their accountant says about coverage and date, when the SAP Business One licence or support renews, and who decides and by when. Questions 5 and 6 tell us how much of the import/export side belongs in a later phase.</p></aside>
+</section>
+
+<!-- 11 · next step -->
+<section class="slide dark" id="close" data-kit="close" data-chrome="foot" data-title="Next step">
+  <aside class="notes"><p>Thank them. The next step is a 30-minute call with an adviser: we recommend what fits, and say why. The booking link and QR are for that call; sales@technext.asia for anything in between. technext.asia/bir-e-invoicing has the rules and the sources in writing. Do not promise dates, prices or durations: those come in the proposal after discovery.</p></aside>
+</section>
+
+</div></main>
+<script src="assets/deck.js?v=67"></script>
+<script src="assets/motion.js?v=67"></script>
+<script src="assets/vendor/motion-11.11.17.js?v=67"></script>
+<script>
+window.BM = {
+  slug: 'tti-laguna-odoo-bir',
+  urgent: true,
+  client: { name: 'TTI Laguna Philippines', short: 'TTI Laguna', accent: '#C2410C', industry: 'Manufacturing and import/export', system: 'SAP Business One', need: 'BIR requirements, with 31 December 2026 close' },
+  kickers: { rules: 'the date, in plain words', later: 'later phases · import and export' },
+  cover: {
+    kicker: 'for tti laguna philippines',
+    h1: '31 December is close. <span class="hl">Let’s start now.</span>',
+    lead: 'Invoices, books and BIR forms in one Odoo, and a short plan from this week to 31 December, in order.',
+    system: 'SAP Business One'
+  },
+  understand: {
+    lines: [['industry', 'Manufacturing and import/export', 'import/export'], ['today', 'Running on SAP Business One', 'SAP Business One'], ['need', 'An ERP set up for BIR requirements', 'BIR requirements']],
+    guesses: ['BIR forms are built outside SAP Business One', 'Import costs are tracked in spreadsheets', 'December is already a busy month'],
+    illus: 'From our call notes · guesses to confirm with you'
+  },
+  invoice: { orderLabel: 'Sales order', buyer: 'Sample customer 01', zeroWord: 'export', lines: [['Finished part, type A', 120, 85], ['Finished part, type B', 60, 140], ['Finished part, type C', 40, 95, 'zero']] },
+  later: {
+    apps: ['stock', 'purchase', 'mrp', 'quality_control', 'maintenance'],
+    extras: [
+      { n: 'Multi-currency', at: 'account', u: 'Quote, invoice and pay in more than one currency, with the rates kept in Accounting. Useful where export sales are invoiced in a foreign currency.' },
+      { n: 'Landed costs on imported stock', at: 'stock', u: 'Freight, duties and handling added to the cost of the stock you import, in Inventory, so the cost of each item reflects them.' }
+    ],
+    lead: 'Phase 1: invoices, books and BIR forms in one Odoo, as in the flow you just saw. Import and export pieces, and the factory apps, follow when you are ready.'
+  },
+  questions: { items: [
+    'What has your accountant or RDO said about e-invoicing coverage and the date?',
+    'When does your SAP Business One licence or support renew, and does that shape the timing?',
+    'Which BIR forms and books do you produce today, and who prepares them?',
+    'Where do you stand with CAS, CBA and a Permit to Issue?',
+    'Roughly how do your sales split between export and local?',
+    'How are import costs handled today: freight, duties, handling and the cost of each item?',
+    'How many years of history do you want to bring across from SAP Business One?',
+    'Who decides, and by when would you need a decision to start in good time for 31 December?'
+  ] },
+  close: { h2: 'Let’s start now, <span class="hl">with one call.</span>', lead: 'Pick a time for a 30-minute call with an adviser. We recommend what fits, and say why.' }
+};
+</script>
+<script src="assets/birmove.js?v=67"></script>
+<script src="assets/tti-laguna.js?v=67"></script>
+</body>
+</html>
