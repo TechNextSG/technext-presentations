@@ -1,5 +1,5 @@
-/* TTI Laguna Philippines: slide 8 only, "From this week to 31 December" (prefix tt-). Everything else this deck needs (the cover day-count badge, the zero-rated
-   export line, five apps spaced evenly, the long system name on the ledgers) is a kit option now: BM.urgent, a 'zero' VAT code on an invoice line, 360/n spacing.
+/* TTI Laguna Philippines: slide 8 only, "From this week to 31 December" (prefix tt-). Everything else this deck needs (the cover with its day-count badge, the zero-rated
+   export line, five apps spaced evenly) is a kit feature now: BM.urgent, a 'zero' VAT code on an invoice line, 360/n spacing.
    Slide 8: a runway from today (the live date) to 31 December 2026 (live day count) with four milestones in ORDER (spacing is order, not duration).
    It plays once on enter (the fill travels and lights each milestone in turn); click a milestone, today or 31 December to move the plan there.
    Every timer goes through ctx, every Motion control is stored and stopped in leave, settle paints the finished state (print, overview, reduced motion, TV). */

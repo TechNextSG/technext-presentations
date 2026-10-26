@@ -1,5 +1,5 @@
-/* TTI Laguna Philippines (prefix tt-): slide 8 "From this week to 31 December" only. The cover countdown badge, the zero-rated export line, the long ledger
-   name and the five-app ring are kit options now (birmove.css / birmove.js): this file overrides nothing of the kit. Amber-red #C2410C is the one accent
+/* TTI Laguna Philippines (prefix tt-): slide 8 "From this week to 31 December" only. The cover (day-count badge, Today card, mini pipeline), the zero-rated export
+   line and the five-app ring are kit features now (birmove.css / birmove.js): this file overrides nothing of the kit. Amber-red #C2410C is the one accent
    (via --bm-a). Slide 8 content y 262-770: a runway from today to 31 December, four milestones in order, then "Starting now keeps December calm." and the
    later-phase chips. No fields, no stripes, no halos, no loops. */
 .tt-run{position:absolute;left:120px;top:262px;width:1360px;height:340px;z-index:2}

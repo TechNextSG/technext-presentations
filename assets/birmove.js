@@ -32,9 +32,10 @@
        accent: '#4F6D8A',                         // the ONE client accent: track tail, fields (22% tint), highlights
        industry, system, need                     // free text, available to your own slide 8
      },
-     cover: { kicker: 'for t&s global services', h1: 'From QuickBooks to <span class="hl">books set up for the BIR.</span>',
-              lead: 'one sentence', system: 'QuickBooks',            // the name on the ledger cards in the hero
-              buckets: ['Chart of accounts','Customers and suppliers','Open invoices and bills','Opening balances'],   // optional (4)
+     cover: { h1: 'From QuickBooks to <span class="hl">books set up for the BIR.</span>',
+              lead: 'one sentence (two lines at most)', system: 'QuickBooks',   // the name on the "Today" card of the hero
+              today: 'QuickBooks, with BIR forms built around it',               // the line under it (default: "Running on <system>")
+              kicker: 'optional override of the house line "prepared for our discovery call"',   // a kicker that repeats the client name is ignored: the nameplate says it
               date: 'Discovery draft · October 2026' },               // optional
      understand: { h2: 'optional HTML override (default: "Three guesses about <short>. <hl>Tell us which are wrong.</hl>")',
               lines: [['industry','Manufacturing','Manufacturing'], ['today','Running on QuickBooks','QuickBooks'], ['need','Needs BIR EIS and CAS compliance','BIR EIS and CAS compliance']],
@@ -209,12 +210,16 @@
 
   /* ================================================================ 1 · cover */
   var CV = BM.cover || {};
-  var BUCKETS = CV.buckets || ['Chart of accounts', 'Customers and suppliers', 'Open invoices and bills', 'Opening balances'];
+  // the nameplate already says who the deck is for: a kicker that repeats the client name falls back to the house line
+  function coverKicker() {
+    var k = CV.kicker || '', nm = (C.name || '').toLowerCase();
+    return (!k || (nm && k.toLowerCase().indexOf(nm) >= 0)) ? 'prepared for our discovery call' : k;
+  }
   function coverHTML() {
-    var sys = CV.system || C.system || 'Your current system';
+    var sys = CV.system || C.system || 'Your current system', today = CV.today || ('Running on ' + sys);
     var h = '<div class="cv-copy bm-cv">' +
       '<div class="bm-lock"' + inz(0) + '>' + lockup(false) + '</div>' +
-      '<span class="kicker"' + inz(120) + '>' + esc(CV.kicker || 'for ' + (C.name || '').toLowerCase()) + '</span>' +
+      '<span class="kicker"' + inz(120) + '>' + esc(coverKicker()) + '</span>' +
       '<h1 class="h-xl bm-h1"' + inz(200) + '>' + CV.h1 + '</h1>' +
       '<p class="lead"' + inz(320) + '>' + esc(CV.lead || '') + '</p>' +
       '<nav class="bm-agenda"' + inz(420) + ' aria-label="Parts of this deck">' +
@@ -225,59 +230,76 @@
       '<div class="cv-tags"' + inz(500) + '><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag">' + ico('calendar') + esc(CV.date || 'Discovery draft · October 2026') + '</span></div>' +
       '</div>' +
       '<p class="hint cv-hint"' + inz(760) + '><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>';
-    // hero: the current system's ledgers travel a curved track into Odoo Accounting
-    h += '<div class="bm-hero" aria-hidden="true"' + inz(160, 'fade') + '>' +
-      '<svg class="bm-hero-svg" viewBox="0 0 640 600" width="640" height="600"><defs><linearGradient id="bm-hg" x1="0" x2="1" y1="0" y2="0"><stop offset="0" style="stop-color:#6FA0F5"/><stop offset="1" style="stop-color:var(--bm-a-lite)"/></linearGradient></defs>' +
-      '<path class="bm-hero-tie" d="M130 470 C 250 470, 250 300, 440 300"/><path class="bm-hero-path" d="M130 470 C 250 470, 250 300, 440 300"/>' +
-      '<circle cx="130" cy="470" r="9" class="bm-hero-dot"/></svg>';
-    var long = sys.length > 12;   // a long system name ("SAP Business One") takes the whole card header: no "ledger" tag beside it
-    for (var i = 0; i < 4; i++) h += '<div class="bm-lg' + (long ? ' bm-lg--long' : '') + '" data-i="' + i + '"><header><b>' + esc(sys) + '</b>' + (long ? '' : '<small>ledger</small>') + '</header><p>' + esc(BUCKETS[i]) + '</p><i></i><i></i><i></i></div>';
-    h += '<div class="bm-oc"><header>' + odoo('account', 34) + '<b>Odoo Accounting</b></header><ul>';
-    for (var k = 0; k < 4; k++) h += '<li data-r="' + k + '"><span>' + ico('check') + '</span>' + esc(BUCKETS[k]) + '</li>';
-    h += '</ul><footer>Invoices, books and BIR forms in one Odoo</footer></div>';
-    // urgent decks: the live day count sits on top of Odoo Accounting
+    // the hero, one object top to bottom: their system today -> a line that draws down -> the same six stations as slides 4-7, in miniature, in one Odoo
+    h += '<div class="bm-hero" aria-hidden="true">';
     if (BM.urgent) h += '<div class="bm-cd"><b class="bm-cd-n">' + daysLeft() + '</b><span>days to<small>31 December 2026</small></span></div>';
-    h += '<p class="bm-hero-cap">sample movement of ' + esc(sys) + ' data into Odoo</p></div>';
+    var tline = today; if (tline.toLowerCase().indexOf(sys.toLowerCase()) === 0) { tline = tline.slice(sys.length).replace(/^[\s,:;\u2013\u2014-]+/, ''); tline = tline.charAt(0).toUpperCase() + tline.slice(1); }
+    h += '<div class="bm-td"><span class="bm-td-l">Today</span><b>' + esc(sys) + '</b>' + (tline ? '<p>' + esc(tline) + '</p>' : '') + '</div>' +
+      '<svg class="bm-wire" viewBox="0 0 24 72" width="24" height="72"><path class="bm-wire-p" d="M12 0 V67" pathLength="1"/><circle class="bm-wire-d" cx="12" cy="67" r="5"/></svg>' +
+      '<div class="bm-wo"><span class="bm-wo-l">With Odoo</span><div class="bm-mini"><div class="bm-mt"><i class="bm-mt-a"></i><i class="bm-mt-e"></i><i class="bm-mt-b"></i></div><i class="bm-mdot"></i>';
+    STN.forEach(function (d, i) {
+      h += '<div class="bm-md' + (i === 2 ? ' bm-md--eis' : '') + '" style="left:' + ((i + .5) / 6 * 100).toFixed(3) + '%;--c:' + stc(i) + '"><span class="bm-mdisc">' + ico(d.i) + '</span><b>' + esc(d.n) + '</b></div>';
+    });
+    h += '</div><footer>' + odoo('account', 34) + '<span>Invoices, books and BIR forms in one Odoo</span></footer></div></div>';
     return h;
   }
-  // SET = a finished moment of the loop: all four ledgers have landed and ticked, none is left mid-flight behind the Odoo card (print, overview, reduced motion)
-  var HERO = { CYC: 6600, T0: 300, GAP: 1250, TR: 1150, SET: 5700 };
-  function initHero(s) {
-    var art = $('.bm-hero', s), path = $('.bm-hero-path', art), L = path.getTotalLength(), cards = $$('.bm-lg', art), rows = $$('.bm-oc li', art), oc = $('.bm-oc', art);
-    var last = { t: -1, r: [] };
-    function pt(len) { var p = path.getPointAtLength(len); return p; }
-    s._hero = function (t) {
-      t = t % HERO.CYC;
-      var p = cards.map(function (c, i) { return (t - (HERO.T0 + i * HERO.GAP)) / HERO.TR; });
-      var pulse = 0;
-      cards.forEach(function (c, i) {
-        var pi = p[i], d = [], rank = 0, j;
-        for (j = 0; j < i; j++) rank += 1 - clamp(p[j] * 3, 0, 1);
-        var x, y, sc = 1, rot = -2 + rank * 0.8, op = 1;
-        if (pi <= 0) {
-          var o = pt(0); x = o.x - rank * 9; y = o.y - rank * 11; op = clamp(t / 420, 0, 1);
-        } else if (pi < 1) {
-          var e = eio(pi), q = pt(L * e); x = q.x; y = q.y; sc = lerp(1, .8, e); rot = lerp(rot, 0, e); op = pi > .7 ? 1 - (pi - .7) / .3 : 1;
-        } else { x = 440; y = 300; op = 0; }
-        if (pi >= 1) pulse = Math.max(pulse, Math.exp(-(pi - 1) * HERO.TR / 260));
-        c.style.transform = 'translate(' + (x - 105) + 'px,' + (y - 62) + 'px) rotate(' + rot + 'deg) scale(' + sc + ')';
-        c.style.opacity = op; c.style.zIndex = 10 - i;
+  /* cover motion (the headline builds as on every slide). Today card lands from the left, the line draws, the panel lands, then the six discs land one by one on a soft spring
+     (no bounce past 1.04) while the track fills left to right behind them. Idle: a dot travels the track every 5 s and each disc lights as it passes (live only, never in
+     TV / reduced / print). Every control sits in s._cv and is stopped in leave; settle paints the finished picture with no dot. */
+  var CVT = { CARD: 280, WIRE: 900, WIRED: 600, PANEL: 1300, DISC: 1800, GAP: 90, LOOP: 3300, PERIOD: 5000, RUN: 2600 };
+  var SOFT = [.16, .86, .3, 1];
+  function tw(K, ms, fn, ease) {
+    if (!window.Motion || !Motion.animate) { fn(1); return; }
+    K.mo.push(Motion.animate(0, 1, { duration: ms / 1000, ease: ease || SOFT, onUpdate: fn }));
+  }
+  function coverClear(s) {
+    var K = s._cv; if (K) stopMo(K);
+    ['.bm-td', '.bm-cd', '.bm-wire-d', '.bm-wo', '.bm-mdot'].forEach(function (q) { var e = $(q, s); if (e) { e.style.opacity = ''; e.style.transform = ''; } });
+    var w = $('.bm-wire-p', s); if (w) w.style.strokeDashoffset = '';
+    var m = $('.bm-mt', s); if (m) m.style.clipPath = '';
+    $$('.bm-md', s).forEach(function (d) { d.style.opacity = ''; d.style.transform = ''; d.classList.remove('is-pass'); });
+  }
+  function coverEnter(ctx, s) {
+    var K = s._cv; coverClear(s);
+    if (!live() || !window.Motion) return;
+    var td = $('.bm-td', s), cd = $('.bm-cd', s), wp = $('.bm-wire-p', s), wd = $('.bm-wire-d', s), wo = $('.bm-wo', s), mt = $('.bm-mt', s), mini = $('.bm-mini', s), dot = $('.bm-mdot', s), ds = $$('.bm-md', s);
+    // starting poses (the finished picture is the CSS default)
+    [td, cd].forEach(function (e) { if (e) { e.style.opacity = 0; e.style.transform = 'translateX(-110px)'; } });
+    wp.style.strokeDashoffset = 1; wd.style.opacity = 0; wo.style.opacity = 0; wo.style.transform = 'translateY(38px)'; mt.style.clipPath = 'inset(0 100% 0 0)';
+    ds.forEach(function (d) { d.style.opacity = 0; d.style.transform = 'scale(.6)'; });
+    function land(e, delay) { ctx.after(delay, function () { tw(K, 750, function (p) { e.style.opacity = clamp(p * 2.4, 0, 1); e.style.transform = 'translateX(' + lerp(-110, 0, p).toFixed(2) + 'px)'; }); }); }
+    land(td, CVT.CARD); if (cd) land(cd, CVT.CARD + 70);
+    ctx.after(CVT.WIRE, function () { tw(K, CVT.WIRED, function (p) { wp.style.strokeDashoffset = (1 - p).toFixed(4); wd.style.opacity = p > .96 ? 1 : 0; }, [.45, 0, .55, 1]); });
+    ctx.after(CVT.PANEL, function () { tw(K, 700, function (p) { wo.style.opacity = clamp(p * 2.4, 0, 1); wo.style.transform = 'translateY(' + lerp(38, 0, p).toFixed(2) + 'px)'; }); });
+    ctx.after(CVT.DISC, function () {
+      tw(K, CVT.GAP * 5, function (p) { mt.style.clipPath = p >= 1 ? '' : 'inset(0 ' + ((1 - p) * 100).toFixed(2) + '% 0 0)'; }, 'linear');   // the track's leading edge reaches disc i just as it lands
+    });
+    ds.forEach(function (d, i) {
+      ctx.after(CVT.DISC + i * CVT.GAP, function () {
+        drive(K, function (p) { d.style.opacity = clamp(p * 3, 0, 1); d.style.transform = 'scale(' + lerp(.6, 1, p).toFixed(4) + ')'; }, { stiffness: 230, damping: 25 });
       });
-      rows.forEach(function (r, i) { var on = p[i] >= .97; if (last.r[i] !== on) { last.r[i] = on; r.classList.toggle('is-on', on); } });
-      oc.style.transform = 'scale(' + (1 + .022 * pulse) + ')';
-    };
+    });
+    // idle: the dot rides the track, each disc lights as it passes
+    var W = mini.offsetWidth, x0 = W / 12, x1 = W * 11 / 12, on = [];
+    ctx.frame(function (t) {
+      if (t < CVT.LOOP) return;
+      var q = (t - CVT.LOOP) % CVT.PERIOD, run = q < CVT.RUN, x = lerp(x0, x1, run ? q / CVT.RUN : 1);
+      dot.style.opacity = run ? Math.min(1, q / 180, (CVT.RUN - q) / 180).toFixed(3) : 0;
+      dot.style.transform = 'translateX(' + x.toFixed(1) + 'px)';
+      ds.forEach(function (d, i) { var near = run && Math.abs(x - W * (i + .5) / 6) < 24; if (on[i] !== near) { on[i] = near; d.classList.toggle('is-pass', near); } });
+    });
   }
   function countOpts(n) { return { from: n + 90, dur: 1300, ease: Deck.ease && Deck.ease.softLand ? 'softLand' : 'out' }; }
   Deck.on(S.cover && S.cover.id || '_none', {
-    init: function (s) { initHero(s); },
+    init: function (s) { s._cv = { mo: [] }; },
     enter: function (ctx, s) {
-      if (live()) ctx.frame(function (t) { s._hero(t); }); else s._hero(HERO.SET);
+      coverEnter(ctx, s);
       var cd = $('.bm-cd-n', s);
       if (cd) { var d = daysLeft(); if (live()) ctx.count(cd, d, countOpts(d)); else cd.textContent = d; }
       callExt('cover', 'enter', ctx, s);
     },
-    leave: function (s) { callExt('cover', 'leave', s); },
-    settle: function (s) { s._hero(HERO.SET); var cd = $('.bm-cd-n', s); if (cd) cd.textContent = daysLeft(); callExt('cover', 'settle', s); }
+    leave: function (s) { stopMo(s._cv); callExt('cover', 'leave', s); },
+    settle: function (s) { coverClear(s); var cd = $('.bm-cd-n', s); if (cd) cd.textContent = daysLeft(); callExt('cover', 'settle', s); }
   });
 
   /* ================================================================ 2 · understand */
@@ -447,15 +469,28 @@
   }
 
   /* camera poses */
-  var MAPP = { x: -28, y: 232, s: .46 };
+  var MAPP = { x: 156, y: 232, s: .39 };
   var PAIR = { invoice: 600, books: 1800, forms: 3000 };
-  function poseOf(kind) { return kind === 'map' ? MAPP : { x: 800 - .92 * PAIR[kind], y: 43, s: .92 }; }
+  function poseOf(kind) { return kind === 'map' ? MAPP : { x: 800 - .92 * PAIR[kind], y: kind === 'invoice' && ZERO ? 37 : 43, s: .92 }; }   // a zero-rated invoice is 48px taller: lift it so it clears the step bar
   function flown(i) { return { x: 800 - .94 * X[i], y: 39, s: .94 }; }
-  function put2(cam, p) { cam.style.transform = 'translate(' + p.x + 'px,' + p.y + 'px) scale(' + p.s + ')';  cullCam(cam, p); }
+  // step poses. Invoice: 0 Draft = the pair (Order + Invoice) | 1 Confirm = push in on the invoice card | 2 Credit note = pull back and shift, so the credit note and the invoice are both framed.
+  // Books: Replay pushes in on the ledger and settles back to the pair. Forms: picking a form leans the camera toward the list.
+  var INVP = [poseOf('invoice'), pushPose(900, ZERO ? 392 : 344), { x: 170, y: 47, s: .9 }];
+  var BOOKP = pushPose(2100, 344), FORMP = { x: 800 - .94 * 2860, y: 39, s: .94 };
+  // the step poses of the close-ups: centre a card on screen as big as the vertical budget allows (headline above y 236, step bar from y 744)
+  function pushPose(cx, h) {
+    var s = clamp(502 / (162 + h), .92, .98);
+    return { x: 800 - s * cx, y: Math.min(236 - 210 * s, 740 - s * (372 + h)), s: s, m: 100 };   // m: a wider cull margin, so a card half cut by the edge is hidden, not left hanging
+  }
+  var SIDE = 4;
+  function worldKids(cam) { var objs = cam.querySelector('.bm-objs'); return [].slice.call(cam.children).concat(objs ? [].slice.call(objs.children) : []); }
+  // the camera's pose is always written here (never read back from the matrix), so a pan that is cut short, or a slide that is left, knows exactly where the camera is
+  function setCam(cam, p) { cam._p = p; cam.style.transform = 'translate(' + p.x.toFixed(2) + 'px,' + p.y.toFixed(2) + 'px) scale(' + p.s.toFixed(4) + ')'; }
+  function put2(cam, p) { setCam(cam, p); cullCam(cam, p); }
   // no edge masks (user, 26 Oct): world objects that would be cut by the stage edge in a pose are hidden instead
   function cullCam(cam, p) {
-    var x0 = -p.x / p.s + 4, x1 = (1600 - p.x) / p.s - 4;
-    var objs = cam.querySelector('.bm-objs'), list = [].slice.call(cam.children).concat(objs ? [].slice.call(objs.children) : []);
+    var m = p.m || SIDE, x0 = -p.x / p.s + m, x1 = (1600 - p.x) / p.s - m;
+    var list = worldKids(cam);
     list.forEach(function (el) {
       var cls = ' ' + (el.getAttribute('class') || '') + ' ';
       if (/ bm-(ties|trk|objs) /.test(cls)) return;   // the track and the world itself always show
@@ -464,27 +499,61 @@
       else { if (!el.offsetWidth) return; l = el.offsetLeft; w = el.offsetWidth; }
       el.classList.toggle('bm-off', l < x0 || l + w > x1);
     });
+    // an arrow or label that belongs to a card goes with it (no orphan "invoice created" once the order card is out of frame)
+    [['.bm-o-ord', '.bm-ord-arrow,.bm-ord-to'], ['.bm-o-cn', '.bm-cn-arrow']].forEach(function (t) {
+      var host = cam.querySelector(t[0]); if (!host || !host.classList.contains('bm-off')) return;
+      [].slice.call(cam.querySelectorAll(t[1])).forEach(function (e) { e.classList.add('bm-off'); });
+    });
   }
 
-  function readPose(cam) {
-    var m = getComputedStyle(cam).transform; if (!m || m === 'none') return null;
-    var v = m.match(/matrix\(([^)]+)\)/); if (!v) return null;
-    var a = v[1].split(',').map(parseFloat); return { x: a[4], y: a[5], s: a[0] };
-  }
   function startFor(to) {
     var s = to.s * .86, wx = (800 - to.x) / to.s, wy = (450 - to.y) / to.s;
     return { x: 800 - wx * s, y: 450 - wy * s, s: s };
   }
-  var CAMSPRING = { type: 'spring', stiffness: 110, damping: 20 };
-  var lastPose = null, lastKind = '', lastAt = 0;
-  function flyTo(st, from, to) {
-    var cam = st.cam;
-    stopMo(st.cams);
-    if (!live() || !window.Motion || !Motion.animate) { put2(cam, to); return; }
-    put2(cam, from); cullCam(cam, to);
-    var a = Motion.animate(cam, { x: [from.x, to.x], y: [from.y, to.y], scale: [from.s, to.s] }, CAMSPRING);
-    st.cams.mo.push(a);
+
+  /* ONE camera across slides 4-7. A move is a tween (never a spring: no wobble) on a cinematic ease, 0.9 s for a short hop up to 1.4 s for a long one.
+     The screen-centre point travels in a straight line across the world, and a long move dollies: the scale dips to 0.86 x the smaller end at the middle
+     of the move (a quadratic curve in log scale, so the zoom never kinks), then lands on the target. */
+  var EASE_CAM = [.65, 0, .35, 1];
+  function wc(p) { return { x: (800 - p.x) / p.s, y: (450 - p.y) / p.s }; }
+  function camPlan(a, b, dur) {
+    var wa = wc(a), wb = wc(b), dx = wb.x - wa.x, dy = wb.y - wa.y, dw = Math.sqrt(dx * dx + dy * dy);
+    var la = Math.log(a.s), lb = Math.log(b.s), mid = Math.min(a.s, b.s) * (1 - .14 * clamp((dw - 120) / 780, 0, 1));
+    var lm = Math.log(mid), lc = 2 * lm - (la + lb) / 2;
+    var far = dw * (a.s + b.s) / 2 + Math.abs(lb - la) * 420;
+    return { wa: wa, wb: wb, la: la, lb: lb, lc: lc, dur: dur || clamp(.9 + .5 * far / 1300, .9, 1.4), m: b.m };
   }
+  function camAt(pl, e) {
+    var u = 1 - e, s = Math.exp(u * u * pl.la + 2 * u * e * pl.lc + e * e * pl.lb);
+    var wx = lerp(pl.wa.x, pl.wb.x, e), wy = lerp(pl.wa.y, pl.wb.y, e);
+    return { x: 800 - wx * s, y: 450 - wy * s, s: s };
+  }
+  function same(a, b) { return Math.abs(a.x - b.x) < .5 && Math.abs(a.y - b.y) < .5 && Math.abs(a.s - b.s) < .002; }
+  // from the first frame of a move every object shows (nothing pops in mid-move); the neighbours arrive with a short fade as the camera gathers speed
+  function wake(cam) {
+    worldKids(cam).forEach(function (el) {
+      if (!el.classList.contains('bm-off')) return;
+      el.classList.remove('bm-off', 'bm-wake'); void el.getBoundingClientRect(); el.classList.add('bm-wake');
+    });
+  }
+  // the one camera move. from defaults to where the camera is now. Returns the plan (its dur is the time the move takes), or null when there is nothing to animate.
+  function panTo(st, to, o) {
+    o = o || {};
+    var cam = st.cam, from = o.from || cam._p || to, tok = st.panTok = (st.panTok || 0) + 1;
+    stopMo(st.cams);
+    if (!live() || !window.Motion || !Motion.animate || same(from, to)) { put2(cam, to); return null; }
+    var pl = camPlan(from, to, o.dur);
+    setCam(cam, from); wake(cam);
+    st.cams.mo.push(Motion.animate(0, 1, {
+      duration: pl.dur, ease: EASE_CAM,
+      onUpdate: function (e) { setCam(cam, camAt(pl, e)); },
+      onComplete: function () { if (st.panTok === tok) put2(cam, to); }   // the final pose, with the objects the stage edge would cut hidden again (fade 200 ms)
+    }));
+    return pl;
+  }
+  // what the camera did when the last pipeline slide was left: the next pipeline slide pans on from there (set in pipeLeave, cleared by every slide change)
+  var LEFT = null;
+  root.addEventListener('deck:slide', function () { LEFT = null; });
 
   var ST = {};   // per pipeline slide: {kind, s, cam, mo:[], cams:{mo:[]}, ctx}
   function pipeSlide(kind, bar, extra, headHTML, lead) {
@@ -514,18 +583,28 @@
     if (kind === 'invoice') here(st, 0, 1); else if (kind === 'books') here(st, 2, 3); else if (kind === 'forms') here(st, 4, 5);
     return st;
   }
-  function pipeEnter(st, ctx, s) {
+  // park the camera at a pose with no move (settle, reduced motion, TV): it also stops any move still running
+  function rest(st, p) { st.panTok = (st.panTok || 0) + 1; stopMo(st.cams); put2(st.cam, p); }
+  // Entering a pipeline slide: from another pipeline slide the camera pans on from the pose it left; from anywhere else it starts at the overview (map) pose and
+  // dollies in, the stations growing out of their overview size. Returns nothing; st.entryFrom and st.panMs say where the move began and how long it takes.
+  function pipeEnter(st, ctx, s, to) {
     st.ctx = ctx; stopMo(st); stopMo(st.cams);
-    var to = poseOf(st.kind), from = null;
-    if (live()) {
-      from = (lastPose && /^pipe/.test(lastKind) && Date.now() - lastAt < 2500) ? lastPose : startFor(to);
-      flyTo(st, from, to);
-    } else put2(st.cam, to);
+    var cam = st.cam, map = st.kind === 'map', dest = to || poseOf(st.kind), L = LEFT, from, far, pl;
+    LEFT = null; st.entryFrom = null; st.panMs = 0;
+    if (!live()) { cam.classList.toggle('is-far', map); rest(st, dest); return; }
+    if (L) { from = L.pose; far = L.far; } else { from = map ? startFor(dest) : MAPP; far = true; }
+    if (map) { if (far) cam.classList.add('is-far'); else cam.classList.remove('is-far'); }
+    else if (far) { cam.classList.add('is-far'); void cam.offsetWidth; cam.classList.remove('is-far'); }   // the stations grow out of their overview size as the camera comes in
+    else cam.classList.remove('is-far');
+    pl = panTo(st, dest, { from: from });
+    st.entryFrom = from; st.panMs = pl ? Math.round(pl.dur * 1000) : 0;
+    if (map && !far) {   // pulling back to the overview: the stations swell and the cards fall away as the camera backs out
+      if (pl) ctx.after(pl.dur * 380, function () { cam.classList.add('is-far'); }); else cam.classList.add('is-far');
+    }
   }
   function pipeLeave(st) {
-    var p = readPose(st.cam); if (p) lastPose = p;
-    lastKind = 'pipe-' + st.kind; lastAt = Date.now();
-    stopMo(st); stopMo(st.cams);
+    LEFT = { pose: st.cam._p || poseOf(st.kind), far: st.cam.classList.contains('is-far') };
+    stopMo(st); stopMo(st.cams); st.panTok = (st.panTok || 0) + 1;
   }
 
   /* map (slide 4) */
@@ -540,13 +619,13 @@
       cap(st, STN[i].cap);
     };
     st.back = function (quiet) {
-      st.flown = null; st.cam.classList.add('is-far'); if (!quiet) st.fly(MAPP); else put2(st.cam, MAPP);
+      st.flown = null; st.cam.classList.add('is-far'); if (!quiet) st.fly(MAPP); else rest(st, MAPP);
       $$('.bm-rail button', s).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
       $$('.bm-st', s).forEach(function (e) { e.classList.remove('is-here'); });
       s.classList.remove('is-flown');
       cap(st, MAPCAP, quiet);
     };
-    st.fly = function (to) { var from = readPose(st.cam) || MAPP; flyTo(st, from, to); };
+    st.fly = function (to) { panTo(st, to); };   // the same pan and dolly as every other move, there and back
     $('.bm-rail', s).addEventListener('click', function (e) { var b = e.target.closest('button[data-i]'); if (b) st.pick(+b.getAttribute('data-i')); });
     $('.bm-cam', s).addEventListener('click', function (e) { var b = e.target.closest('.bm-st'); if (b) st.pick(+b.getAttribute('data-i')); });
     $('.bm-back', s).addEventListener('click', function () { st.back(); });
@@ -576,16 +655,18 @@
     $('.bm-od-lt', card).textContent = n >= 2 ? 'Credited by ' + CNO + '. The invoice is unchanged.' : 'Posted: it can no longer be edited or deleted.';
     cn.classList.toggle('is-hid', n < 2); arrow.classList.toggle('is-hid', n < 2);
     ord.classList.toggle('is-done', n >= 1);
-    // the stamp: one spring
+    // the stamp lands as the camera pushes in on the card; the credit note arrives as it pulls back (a later step press cancels both: the token)
+    var tok = st.invTok = (st.invTok || 0) + 1;
+    function later(ms, fn) { if (st.ctx && st.ctx.alive) st.ctx.after(ms, function () { if (st.invTok === tok) fn(); }); else fn(); }
     if (n >= 1) {
       if (anim && was < 1 && live() && window.Motion) {
         stamp.style.opacity = 0;
-        drive(st, function (p) { stamp.style.opacity = clamp(p * 3, 0, 1); stamp.style.transform = 'rotate(' + lerp(-26, -8, p) + 'deg) scale(' + lerp(2.1, 1, p) + ')'; }, { stiffness: 340, damping: 15 });
+        later(430, function () { drive(st, function (p) { stamp.style.opacity = clamp(p * 3, 0, 1); stamp.style.transform = 'rotate(' + lerp(-26, -8, p) + 'deg) scale(' + lerp(2.1, 1, p) + ')'; }, { stiffness: 340, damping: 15 }); });
       } else { stamp.style.opacity = 1; stamp.style.transform = 'rotate(-8deg)'; }
     } else { stamp.style.opacity = 0; stamp.style.transform = 'rotate(-8deg)'; }
     if (n >= 2 && anim && was < 2 && live() && window.Motion) {
       cn.style.opacity = 0;
-      drive(st, function (p) { cn.style.opacity = clamp(p * 2, 0, 1); cn.style.transform = 'translate(' + lerp(-30, 0, p) + 'px,' + lerp(34, 0, p) + 'px)'; }, { stiffness: 190, damping: 22 });
+      later(300, function () { drive(st, function (p) { cn.style.opacity = clamp(p * 2, 0, 1); cn.style.transform = 'translate(' + lerp(-30, 0, p) + 'px,' + lerp(34, 0, p) + 'px)'; }, { stiffness: 190, damping: 22 }); });
     } else if (n >= 2) { cn.style.opacity = 1; cn.style.transform = 'none'; }
     else { cn.style.opacity = ''; cn.style.transform = ''; }
     // foreground step bar
@@ -605,6 +686,13 @@
   function tryEdit(st) {
     var l = $('.bm-od-lock', st.s); l.classList.remove('is-shake'); void l.offsetWidth; l.classList.add('is-shake');
     cap(st, 'Try to edit: the posted invoice stays locked. It can no longer be edited or deleted.');
+  }
+  // the camera follows the step: Confirm pushes in (0.8 s), Credit note pulls back and shifts, stepping back reverses
+  function invCam(st, n, first) {
+    var to = INVP[n];
+    if (!live()) { rest(st, to); return; }
+    if (first) { if (n > 0) panTo(st, to, { from: st.entryFrom || poseOf('invoice') }); return; }   // arriving on a later step: the same entry move, aimed at that step's pose
+    panTo(st, to, { dur: n === 1 ? .8 : n === 2 ? 1.05 : .95 });
   }
   function invInit(st) {
     var s = st.s;
@@ -627,13 +715,17 @@
     $('.bm-bk-n', st.s).textContent = n;
     $('.bm-bk-ok', st.s).classList.toggle('is-ok', n >= rows.length);
   }
-  function playBooks(st) {
-    var ctx = st.ctx, n = 0, run = st.run = (st.run || 0) + 1;
+  // The ledger close-up. Arriving on the slide the camera pans straight onto the ledger (one move from where it was); Replay pushes in from the pair (0.8 s).
+  // Either way the entries tick in, then the camera settles back to the pair (1.0 s) so the EIS station beside the books is in frame again.
+  function playBooks(st, arriving) {
+    var ctx = st.ctx, n = 0, run = st.run = (st.run || 0) + 1, wait = arriving ? st.panMs || 0 : 0;
+    st.panMs = 0;
     if (!ctx || !ctx.alive || !live()) { paintBooks(st, 6, false); return; }
     paintBooks(st, 0, false);
     // a chain of one-shot timers (no interval): a second Replay bumps st.run and the old chain simply stops
-    function tick() { if (st.run !== run || !ctx.alive) return; n++; paintBooks(st, n, true); if (n < 6) ctx.after(420, tick); }
-    ctx.after(900, tick);
+    function tick() { if (st.run !== run || !ctx.alive) return; n++; paintBooks(st, n, true); if (n < 6) ctx.after(420, tick); else ctx.after(650, function () { if (st.run === run) panTo(st, poseOf('books'), { dur: 1 }); }); }
+    if (!arriving) ctx.after(100, function () { if (st.run === run) panTo(st, BOOKP, { dur: .8 }); });
+    ctx.after(arriving ? wait + 250 : 900, tick);
   }
 
   /* forms + audit (slide 7) */
@@ -648,8 +740,9 @@
     if (!ctx || !ctx.alive || !live() || !window.Motion) { chips.forEach(function (c) { c.style.opacity = 1; c.style.transform = 'none'; }); rows.forEach(function (r) { r.classList.remove('is-hid'); }); return; }
     chips.forEach(function (c) { c.style.opacity = 0; });
     rows.forEach(function (r) { r.classList.add('is-hid'); });
-    chips.forEach(function (c, i) { ctx.after(760 + i * 170, function () { drive(st, function (p) { c.style.opacity = clamp(p * 3, 0, 1); c.style.transform = 'translateY(' + lerp(-260, 0, p) + 'px)'; }, { stiffness: 230, damping: 17 }); }); });
-    rows.forEach(function (r, i) { ctx.after(1100 + i * 380, function () { r.classList.remove('is-hid'); }); });
+    var b = Math.max(0, (st.panMs || 0) * .55 - 200);   // the cards start dropping as the camera is coming to rest
+    chips.forEach(function (c, i) { ctx.after(760 + b + i * 170, function () { drive(st, function (p) { c.style.opacity = clamp(p * 3, 0, 1); c.style.transform = 'translateY(' + lerp(-260, 0, p) + 'px)'; }, { stiffness: 230, damping: 17 }); }); });
+    rows.forEach(function (r, i) { ctx.after(1100 + b + i * 380, function () { r.classList.remove('is-hid'); }); });
   }
 
   /* ================================================================ 9 · later: the constellation */
@@ -844,9 +937,9 @@
     var stI = initPipe('invoice'); invInit(stI);
     Deck.on(S['pipe-invoice'].id, {
       enter: function (ctx, s) { pipeEnter(stI, ctx, s); litAll(stI, true); paintInv(stI, 0, false); callExt('pipe-invoice', 'enter', ctx, s); },
-      step: function (n, ctx, s, first) { paintInv(stI, n, !first); },
+      step: function (n, ctx, s, first) { paintInv(stI, n, !first); invCam(stI, n, first); },
       leave: function (s) { pipeLeave(stI); callExt('pipe-invoice', 'leave', s); },
-      settle: function (s) { put2(stI.cam, poseOf('invoice')); paintInv(stI, 2, false); $('.bm-od-lock', s).classList.remove('is-shake'); litAll(stI, true); callExt('pipe-invoice', 'settle', s); }
+      settle: function (s) { rest(stI, poseOf('invoice')); paintInv(stI, 2, false); $('.bm-od-lock', s).classList.remove('is-shake'); litAll(stI, true); callExt('pipe-invoice', 'settle', s); }
     });
   }
   if (S['pipe-books']) {
@@ -855,9 +948,9 @@
     $('.bm-replay', S['pipe-books']).addEventListener('click', function () { playBooks(stB); });
     $('.bm-o-eis', S['pipe-books']).addEventListener('click', function () { var e = $('.bm-o-eis', S['pipe-books']); e.classList.remove('is-pulse'); void e.offsetWidth; e.classList.add('is-pulse'); });
     Deck.on(S['pipe-books'].id, {
-      enter: function (ctx, s) { pipeEnter(stB, ctx, s); litAll(stB, true); playBooks(stB); callExt('pipe-books', 'enter', ctx, s); },
+      enter: function (ctx, s) { pipeEnter(stB, ctx, s, live() ? BOOKP : null); litAll(stB, true); playBooks(stB, true); callExt('pipe-books', 'enter', ctx, s); },
       leave: function (s) { stB.run = (stB.run || 0) + 1; pipeLeave(stB); callExt('pipe-books', 'leave', s); },
-      settle: function (s) { stB.run = (stB.run || 0) + 1; put2(stB.cam, poseOf('books')); paintBooks(stB, 6, false); litAll(stB, true); $('.bm-o-eis', s).classList.remove('is-pulse'); callExt('pipe-books', 'settle', s); }
+      settle: function (s) { stB.run = (stB.run || 0) + 1; rest(stB, poseOf('books')); paintBooks(stB, 6, false); litAll(stB, true); $('.bm-o-eis', s).classList.remove('is-pulse'); callExt('pipe-books', 'settle', s); }
     });
   }
   if (S['pipe-forms']) {
@@ -866,13 +959,14 @@
     var fh = function (e) {
       var b = e.target.closest('[data-f]'); if (!b) return;
       var k = b.getAttribute('data-f'); stF.sel = stF.sel === k ? null : k; selForm(stF, stF.sel);
+      panTo(stF, stF.sel ? FORMP : poseOf('forms'), { dur: .8 });   // a picked form leans the camera toward the list; clearing it eases back
     };
     $('.bm-fb', S['pipe-forms']).addEventListener('click', fh); $('.bm-fm', S['pipe-forms']).addEventListener('click', fh);
     Deck.on(S['pipe-forms'].id, {
       enter: function (ctx, s) { pipeEnter(stF, ctx, s); litAll(stF, true); stF.sel = null; selForm(stF, null, true); playForms(stF); callExt('pipe-forms', 'enter', ctx, s); },
       leave: function (s) { pipeLeave(stF); callExt('pipe-forms', 'leave', s); },
       settle: function (s) {
-        put2(stF.cam, poseOf('forms')); stF.sel = null; selForm(stF, null, true); litAll(stF, true);
+        rest(stF, poseOf('forms')); stF.sel = null; selForm(stF, null, true); litAll(stF, true);
         $$('.bm-fc', s).forEach(function (c) { c.style.opacity = 1; c.style.transform = 'none'; }); $$('.bm-au-r', s).forEach(function (r) { r.classList.remove('is-hid'); });
         callExt('pipe-forms', 'settle', s);
       }

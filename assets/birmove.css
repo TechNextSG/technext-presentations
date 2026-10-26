@@ -1,7 +1,7 @@
 /* birmove: shared kit for the four BIR client decks (prefix bm-). See assets/birmove.js for the data schema.
    One world: TechNext paper + navy covers, a pipeline drawn as a thick rounded track (blue to the client's ONE accent), stations as discs.
    NO fields, bands, washes, masks, blurs or greyed icons anywhere (user rule, 26 Oct): content sits on the plain paper; the accent shows in the track,
-   the discs, the headline marker and the controls. The camera is a 3600px world moved with springs (birmove.js); every slide's finished
+   the discs, the headline marker and the controls. The camera is a 3600px world moved by one cinematic tween with a slight dolly (birmove.js); every slide's finished
    state is designed because print and the overview show it. Text floor 14px (everything inside the camera world is >= 15.5px, so it renders >= 14px at the
    pair scale .92), secondary text #5F5F78, content y 118-790, touch targets >= 46px. Radii: 6 Odoo buttons, 12 controls, 20 windows, pills full-round.
    Only transform / opacity / translate / scale are animated (no layout properties). */
@@ -49,40 +49,43 @@
 .bm-lock--sm > i{height:48px}
 
 /* ---------------------------------------------------------------- 1 · cover */
-.bm-cv{width:800px;top:124px}
 .bm-cv .bm-h1{font-size:66px;line-height:1.04}
 .bm-cv .lead{max-width:700px;font-size:23px}
 .bm-agenda{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
 .bm-agenda button{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px 0 14px;border-radius:12px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.07);color:#fff;font:650 16px/1 var(--f-display);cursor:pointer;transition:background .25s,border-color .25s}
 .bm-agenda button:hover,.bm-agenda button:focus-visible{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.45)}
 .bm-agenda i{font:800 14px/1 var(--f-display);font-style:normal;color:#C9DCFF}
-.bm-hero{position:absolute;left:900px;top:150px;width:640px;height:600px}
-.bm-hero-svg{position:absolute;left:0;top:0;overflow:visible}
-.bm-hero-tie{fill:none;stroke:rgba(255,255,255,.13);stroke-width:30;stroke-linecap:round}
-.bm-hero-path{fill:none;stroke:url(#bm-hg);stroke-width:12;stroke-linecap:round}
-.bm-hero-dot{fill:#6FA0F5}
-.bm-lg{position:absolute;left:0;top:0;width:226px;height:124px;padding:14px 16px;border-radius:14px;background:#fff;color:#1F1F3D;box-shadow:0 22px 40px -22px rgba(0,0,0,.7);transform-origin:50% 50%}
-.bm-lg header{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.bm-lg header b{font:800 20px/1 var(--f-display);letter-spacing:-.01em}
-.bm-lg--long header b{font-size:19px}
-.bm-lg header small{font:700 14px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:#6C6C80}
-.bm-lg p{margin:7px 0 8px;font:650 15px/1.2 var(--f-display);color:var(--bm-a-ink);white-space:nowrap}
-.bm-lg i{display:block;height:8px;border-radius:4px;background:#E7E4E9;margin-top:8px}
-.bm-lg i:nth-of-type(2){width:72%}.bm-lg i:nth-of-type(3){width:46%}
-.bm-oc{position:absolute;left:372px;top:84px;width:268px;height:420px;padding:20px 20px 0;border-radius:20px;background:#fff;color:#1F1F3D;box-shadow:0 40px 80px -30px rgba(0,0,0,.65);z-index:20}
-.bm-oc header{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid #E7E4E9}
-.bm-oc header b{font:800 20px/1 var(--f-display)}
-.bm-oc ul{list-style:none;margin:6px 0 0;padding:0}
-.bm-oc li{display:flex;align-items:center;gap:12px;min-height:66px;border-bottom:1px solid #F0EDF2;font:650 16px/1.2 var(--f-display);color:#5F5F78;transition:color .3s}
-.bm-oc li span{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;border:2px dashed #CFCBD6;color:transparent;font-size:16px;transition:background .3s,border-color .3s,color .3s}
-.bm-oc li.is-on{color:#1F1F3D}
-.bm-oc li.is-on span{background:var(--ok);border:2px solid var(--ok);color:#fff}
-.bm-oc footer{position:absolute;left:20px;right:20px;bottom:18px;font:650 15px/1.35 var(--f-display);color:var(--odoo)}
+.bm-cv{width:760px;top:124px}
+/* the cover hero: ONE object, three parts (Today card, a connector that draws down, the With Odoo panel with the deck's own six stations in miniature). No shape behind it. */
+.bm-hero{position:absolute;left:920px;top:170px;width:560px;height:590px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.bm-td{width:420px;padding:22px 28px 24px;border-radius:16px;background:#EEF1F7;color:#1F1F3D;box-shadow:0 18px 36px -24px rgba(0,0,0,.6)}
+.bm-td-l{display:block;font:750 15px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:#5F5F78}
+.bm-td b{display:block;margin-top:12px;font:800 36px/1.1 var(--f-display);letter-spacing:-.02em}
+.bm-td p{margin:8px 0 0;font:600 18px/1.3 var(--f-body);color:#5F5F78;text-wrap:balance}
+.bm-wire{display:block;flex:none;margin:0;overflow:visible}
+.bm-wire-p{fill:none;stroke:rgba(255,255,255,.78);stroke-width:3;stroke-linecap:round;stroke-dasharray:1 1}
+.bm-wire-d{fill:#fff}
+.bm-wo{width:560px;padding:26px 24px 22px;border-radius:20px;background:#fff;color:#1F1F3D;box-shadow:0 40px 80px -30px rgba(0,0,0,.65)}
+.bm-wo-l{display:block;font:800 15px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--odoo)}
+.bm-mini{position:relative;height:98px;margin-top:26px}
+.bm-mt{position:absolute;left:8.3333%;width:83.3333%;top:23px;height:10px}
+.bm-mt i{position:absolute;top:0;height:10px;border-radius:5px}
+.bm-mt-a{left:0;width:30%;background-image:linear-gradient(90deg,#3167CA 0,#3167CA 22%,var(--bm-a) 100%);background-size:333.333% 100%}
+.bm-mt-e{left:30%;width:20%;border-radius:0;background:repeating-linear-gradient(90deg,var(--bm-amber-mid) 0 10px,transparent 10px 18px)}
+.bm-mt-b{left:50%;width:50%;background-image:linear-gradient(90deg,#3167CA 0,#3167CA 22%,var(--bm-a) 100%);background-size:200% 100%;background-position:100% 0}
+.bm-mdot{position:absolute;left:0;top:20px;z-index:3;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:#fff;border:3px solid var(--odoo);opacity:0;pointer-events:none}
+.deck.is-overview .bm-mdot{opacity:0!important}
+.bm-md{position:absolute;top:0;width:86px;margin-left:-43px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;transform-origin:50% 28px}
+.bm-mdisc{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--c);border:4px solid var(--c);color:#fff;font-size:22px;box-shadow:0 10px 20px -12px rgba(31,31,61,.5);transition:scale .3s var(--mx-soft-land,var(--ease)),box-shadow .3s}
+.bm-md b{margin-top:2px;font:700 15px/1.1 var(--f-display);color:#1F1F3D;white-space:nowrap}
+.bm-md--eis .bm-mdisc{background:var(--amber-050);border:4px dashed var(--bm-amber-mid);color:var(--amber)}
+.bm-md.is-pass .bm-mdisc{scale:1.1;box-shadow:0 0 0 3px #fff,0 0 0 6px var(--c),0 10px 20px -12px rgba(31,31,61,.5)}
+.bm-md--eis.is-pass .bm-mdisc{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--bm-amber-mid),0 10px 20px -12px rgba(31,31,61,.5)}
+.bm-wo footer{display:flex;align-items:center;gap:14px;margin-top:20px;padding-top:18px;border-top:1px solid #E7E4E9;font:650 18px/1.3 var(--f-display);color:var(--odoo)}
 .deck .slide.dark .cv-hint-sep{color:#fff}
-.bm-hero-cap{position:absolute;left:0;top:560px;margin:0;font:500 15px/1.3 var(--f-body);color:rgba(255,255,255,.72)}
-/* urgent decks: the live day count rides on top of Odoo Accounting */
-.bm-cd{position:absolute;left:372px;top:-2px;z-index:25;width:268px;height:76px;display:flex;align-items:center;gap:14px;padding:0 18px;border-radius:18px;background:var(--bm-a);color:#fff;box-shadow:0 26px 50px -26px rgba(0,0,0,.7)}
-.bm-cd-n{font:800 54px/1 var(--f-display);letter-spacing:-.03em;font-variant-numeric:tabular-nums;min-width:2.1ch;text-align:right}
+/* urgent decks: the live day count sits just above the Today card, the same width */
+.bm-cd{width:420px;height:68px;margin-bottom:14px;display:flex;align-items:center;gap:14px;padding:0 20px;border-radius:16px;background:var(--bm-a);color:#fff;box-shadow:0 22px 44px -26px rgba(0,0,0,.7)}
+.bm-cd-n{font:800 48px/1 var(--f-display);letter-spacing:-.03em;font-variant-numeric:tabular-nums;min-width:2.1ch;text-align:right}
 .bm-cd span{font:700 16px/1.25 var(--f-display)}
 .bm-cd span small{display:block;font:600 14px/1.2 var(--f-body);opacity:.92}
 
@@ -159,14 +162,17 @@
 
 /* ---------------------------------------------------------------- 4-7 · the pipeline world (camera) */
 .bm-view{position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;z-index:0}
-.bm-cam .bm-off{opacity:0!important;visibility:hidden;transition:opacity .25s,visibility 0s .25s}
+.bm-cam .bm-off{opacity:0!important;visibility:hidden;transition:opacity .2s,visibility 0s .2s}
+/* a camera move un-hides the neighbours up front (nothing pops in mid-move); they arrive with a short fade just as the camera gathers speed */
+.bm-cam .bm-wake{animation:bm-wake .3s var(--mx-soft-land,var(--ease)) .1s backwards}
+@keyframes bm-wake{from{opacity:0}}
 .bm-cam{position:absolute;left:0;top:0;width:3600px;height:900px;transform-origin:0 0}
 .bm-ties{position:absolute;left:120px;top:274px;width:3360px;height:9px;background:repeating-linear-gradient(90deg,rgba(31,31,61,.16) 0 4px,transparent 4px 26px)}
 .bm-trk{position:absolute;top:256px;height:12px;border-radius:6px;background-image:linear-gradient(90deg,#3167CA 0%,#3167CA 22%,var(--bm-a) 100%);background-size:3360px 12px}
 .bm-trk--a{left:120px;width:1140px;background-position:0 0}
 .bm-trk--eis{left:1260px;width:480px;background:repeating-linear-gradient(90deg,var(--bm-amber-mid) 0 22px,transparent 22px 40px);border-radius:0}
 .bm-trk--b{left:1740px;width:1740px;background-position:-1620px 0}
-.bm-stem{position:absolute;top:360px;width:0;height:12px;border-left:3px dashed rgba(31,31,61,.22)}
+.bm-stem{display:none}
 /* a station: the disc's centre is at 52px, on the track. In the far (map) pose the whole station is scaled about that centre (scale, not layout) */
 .bm-st{position:absolute;top:210px;width:280px;margin:0 0 0 -140px;padding:0;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;color:var(--ink);cursor:default;transform-origin:50% 52px;transition:scale .5s var(--mx-soft-land,var(--ease))}
 button.bm-st{cursor:pointer;height:186px}
@@ -401,10 +407,12 @@ body[data-shared] .bm-g{grid-template-columns:38px minmax(0,1fr)}
 .deck.is-overview .bm-tl-fill{transform:none;transition:none}
 .deck.is-tv .bm-ob.is-ready::after,.deck.is-tv .bm-swap,.deck.is-tv .bm-o-eis.is-pulse,.deck.is-tv .bm-od-lock.is-shake{animation:none!important}
 .deck.is-tv .bm-tl-fill{transform:none}
-.deck.is-tv .bm-tl-fill,.deck.is-tv .bm-rl-x::before,.deck.is-tv .bm-st,.deck.is-tv .bm-bar--map{transition:none}
+.deck.is-tv .bm-tl-fill,.deck.is-tv .bm-rl-x::before,.deck.is-tv .bm-st,.deck.is-tv .bm-bar--map,.deck.is-tv .bm-mdisc{transition:none}
+.deck.is-tv .bm-cam .bm-wake{animation:none}
 @media (prefers-reduced-motion:reduce){
   .bm-ob.is-ready::after,.bm-swap,.bm-o-eis.is-pulse,.bm-od-lock.is-shake{animation:none!important}
-  .bm-tl-fill,.bm-rl-x::before,.bm-bk-r,.bm-au-r,.bm-ap span,.bm-tn > i,.bm-disc,.bm-st,.bm-bar--map{transition:none!important}
+  .bm-tl-fill,.bm-rl-x::before,.bm-bk-r,.bm-au-r,.bm-ap span,.bm-tn > i,.bm-disc,.bm-st,.bm-bar--map,.bm-mdisc{transition:none!important}
+  .bm-cam .bm-wake{animation:none}
 }
 
 /* user 26 Oct: no background masking on any page: the engine's drifting corner glows are off in these decks (the dot grid stays) */
