@@ -13,7 +13,7 @@
   var count = document.querySelector('[data-count]'), clear = document.querySelector('.ix-clear');
   var st = { g: '', t: [], len: '', q: '', sort: '' };
   var LEN = { s: function (m) { return m <= 10; }, m: function (m) { return m > 10 && m < 30; }, l: function (m) { return m >= 30; } };
-  var total = cards.length;
+  var total = cards.length, CAP = 8;   // default view: newest 8 per category; any filter shows every match
 
   function press(sel, on) { [].forEach.call(bar.querySelectorAll(sel), function (b) { b.setAttribute('aria-pressed', on(b) ? 'true' : 'false'); }); }
   function match(c) {
@@ -31,7 +31,7 @@
     if (st.sort === 'az') return c.dataset.title;
     if (st.sort === 'short') return ('000' + c.dataset.mins).slice(-3) + c.dataset.title;
     if (st.sort === 'long') return ('000' + (999 - c.dataset.mins)).slice(-3) + c.dataset.title;
-    return ('000' + c.dataset.order).slice(-3);
+    return ('0000000000' + (9999999999 - +c.dataset.added)).slice(-10) + ('000' + c.dataset.order).slice(-3);   // default: newest first
   }
   var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var EASE = 'cubic-bezier(.2,.8,.2,1)';
@@ -64,7 +64,9 @@
     var grouped = !st.t.length && !st.len && !st.q && !st.sort;
     var shown = cards.filter(match);
     if (grouped) {
-      cards.forEach(function (c, i) { home[i].appendChild(c); c.hidden = !match(c); });
+      var seen = {};
+      cards.forEach(function (c, i) { home[i].appendChild(c); var g = c.dataset.g; seen[g] = (seen[g] || 0) + (match(c) ? 1 : 0); c.hidden = !match(c) || (!st.g && seen[g] > CAP); });
+      groups.forEach(function (g) { var m = g.querySelector('.ix-gmore'); if (m) m.hidden = !!st.g; });
       groups.forEach(function (g) { g.hidden = !st.g ? false : g.dataset.g !== st.g; });
       flat.hidden = true;
     } else {
@@ -127,6 +129,7 @@
   var tq = 0;
   q.addEventListener('input', function () { clearTimeout(tq); tq = setTimeout(function () { st.q = q.value.trim(); update(true, true); }, 160); });
   q.addEventListener('keydown', function (e) { if (e.key === 'Escape' && q.value) { e.stopPropagation(); st.q = ''; update(true, true); } });
+  res.addEventListener('click', function (e) { var b = e.target.closest('.ix-gall'); if (!b) return; st.g = b.dataset.g; update(true, true); });
   sort.addEventListener('change', function () { st.sort = sort.value; update(true, true); });
   [].forEach.call(document.querySelectorAll('[data-clear]'), function (b) {
     b.addEventListener('click', function () { st = { g: '', t: [], len: '', q: '', sort: '' }; update(true, true); q.focus({ preventScroll: true }); });

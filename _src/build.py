@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "69"
+ASSET_V = "70"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -215,11 +215,36 @@ GROUPS = {
 TOPICS = [("odoo", "Odoo"), ("ai", "AI"), ("websites", "Websites"), ("marketing", "Marketing")]
 
 
+GROUP_CAP = 8   # cards per category in the default launcher view; any filter shows every match
+
+
+def deck_added():
+    """{slug: unix time the deck's source was first committed}; decks not yet committed count as now (newest)."""
+    import subprocess, time
+    out = {}
+    try:
+        log = subprocess.run(["git", "log", "--diff-filter=A", "--format=@%ct", "--name-only", "--", "_src/decks"],
+                             cwd=str(ROOT), capture_output=True, text=True, timeout=60).stdout
+    except Exception:
+        log = ""
+    t = 0
+    for line in log.splitlines():
+        line = line.strip()
+        if line.startswith("@"):
+            t = int(line[1:])
+        elif line.startswith("_src/decks/") and line.endswith(".html"):
+            out.setdefault(line[len("_src/decks/"):-5], t)   # git log is newest first: keep the oldest add
+    return out, int(time.time())
+
+
 def launcher():
     groups, tabs, n, slides_all, mins_all = [], [], 0, 0, 0
+    added, now = deck_added()
     for gname, decks in DECKS:
         gkey, blurb = GROUPS[gname]
         cards = []
+        # newest first: the deck added most recently (git) leads its category; not yet committed = newest
+        decks = sorted(decks, key=lambda d: -added.get(d["slug"], now))
         for d in decks:
             html = ROOT / (d["slug"] + ".html")
             if not html.exists():
@@ -236,7 +261,7 @@ def launcher():
             tags = d.get("tags", "").split()
             chips = "".join(f'<span class="ix-tag">{label}</span>' for key, label in TOPICS if key in tags)
             words = " ".join([d["title"], d["desc"], gname] + [label for key, label in TOPICS if key in tags]).lower()
-            cards.append(f"""    <article class="ix-card" data-g="{gkey}" data-tags="{' '.join(tags)}" data-mins="{d['mins']}" data-slides="{slides}" data-order="{n}" data-title="{_html.escape(d['title'].lower())}" data-words="{_html.escape(words)}">
+            cards.append(f"""    <article class="ix-card" data-g="{gkey}" data-tags="{' '.join(tags)}" data-mins="{d['mins']}" data-slides="{slides}" data-order="{n}" data-added="{added.get(d["slug"], now)}" data-title="{_html.escape(d['title'].lower())}" data-words="{_html.escape(words)}">
       <a class="ix-thumb" href="{d['slug']}.html" aria-label="Open {d['title']}" tabindex="-1">
         <img src="{th}.jpg" alt="{d['alt']}" width="960" height="540" loading="lazy">{second}
         <span class="ix-len">{d['mins']} min</span>
@@ -259,7 +284,9 @@ def launcher():
             tabs.append(f'<button type="button" class="ix-tab" data-g="{gkey}" aria-pressed="false">{gname}<span>{len(cards)}</span></button>')
             groups.append(f'  <section class="ix-group" data-g="{gkey}" style="--n:{min(len(cards), 4)}" aria-labelledby="g-{gkey}">\n'
                           f'    <header class="ix-gh"><h2 id="g-{gkey}">{gname}</h2><span class="ix-gn">{len(cards)}</span><p>{blurb}</p></header>\n'
-                          f'    <div class="ix-grid">\n' + "\n".join(cards) + "\n    </div>\n  </section>")
+                          f'    <div class="ix-grid">\n' + "\n".join(cards) + "\n    </div>\n"
+                          + (f'    <p class="ix-gmore"><button type="button" class="ix-btn ix-gall" data-g="{gkey}">Show all {len(cards)} {gname.lower()}</button></p>\n' if len(cards) > GROUP_CAP else "")
+                          + "  </section>")
     topics = "".join(f'<button type="button" class="ix-chip" data-t="{k}" aria-pressed="false">{v}</button>' for k, v in TOPICS)
     bar = f"""  <div class="ix-bar" id="decks" role="search" aria-label="Find a presentation">
     <div class="ix-bar-1">
