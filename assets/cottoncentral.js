@@ -80,7 +80,9 @@
   function paintOrders(s, n, isNew) {
     var rows = [], counts = { web: 0, shp: 0, lzd: 0, eda: 0, tik: 0 }, tot = 0;
     for (var i = 0; i < n; i++) { counts[ORDERS[i][0]]++; tot += ORDERS[i][2]; rows.push(rowHtml(i, isNew && i === n - 1)); }
-    $('.cc-od-rows', s).innerHTML = rows.join('');
+    var box = $('.cc-od-rows', s);
+    if (isNew && n && box.children.length === n - 1) { var old = $('.is-new', box); if (old) old.classList.remove('is-new'); box.insertAdjacentHTML('beforeend', rows[n - 1]); }
+    else box.innerHTML = rows.join('');
     $$('.cc-s', s).forEach(function (b) { var k = counts[b.dataset.c]; $('.cc-s-n', b).textContent = k + (k === 1 ? ' order' : ' orders'); });
     $('.cc-od-c', s).textContent = n; $('.cc-od-t', s).textContent = peso(tot);
     if (isNew && n) { var b = $('.cc-s[data-c="' + ORDERS[n - 1][0] + '"]', s); b.classList.remove('is-ping'); void b.offsetWidth; b.classList.add('is-ping'); }
@@ -88,12 +90,12 @@
   Deck.on('channels', {
     init: function (s) {
       var btn = $('.cc-play', s);
-      s._stop = function () { s._run = (s._run || 0) + 1; if (s._tid) { clearInterval(s._tid); s._tid = 0; } btn.classList.remove('is-on'); $('span', btn).textContent = 'Replay the day'; };
+      s._stop = function () { s._run = (s._run || 0) + 1; if (s._tid) { clearInterval(s._tid); s._tid = 0; } btn.classList.remove('is-on'); btn.setAttribute('aria-pressed', 'false'); $('span', btn).textContent = 'Replay the day'; };
       s._play = function () {
         s._stop();
         var run = s._run, n = 0;
         if (Deck.reduce || !s._ctx || !s._ctx.alive) { paintOrders(s, ORDERS.length); return; }
-        btn.classList.add('is-on'); $('span', btn).textContent = 'Replaying…';
+        btn.classList.add('is-on'); btn.setAttribute('aria-pressed', 'true'); $('span', btn).textContent = 'Replaying…';
         paintOrders(s, 0);
         s._tid = s._ctx.every(650, function () {
           if (s._run !== run) return;
@@ -111,7 +113,9 @@
       $('.cc-src', s).addEventListener('click', function (e) { var b = e.target.closest('.cc-s'); if (b) s._how(b.dataset.c); });
     },
     enter: function (ctx, s) {
-      s._ctx = ctx; s._stop(); s._how(null, true); paintOrders(s, ORDERS.length);
+      s._ctx = ctx; s._stop(); s._how(null, true);
+      // the day plays on arrival (26 Oct): orders arrive one by one from the five shops; reduced motion and TV show the finished day
+      if (Deck.reduce || Deck.tv) paintOrders(s, ORDERS.length); else { paintOrders(s, 0); ctx.after(700, function () { s._play(); }); }
     },
     leave: function (s) { s._stop(); },
     settle: function (s) { s._stop(); s._how(null, true); paintOrders(s, ORDERS.length); }
@@ -132,13 +136,74 @@
     var w = $('.cc-why-x', s), t = stepText(w.dataset.t, n);
     if (w.textContent !== t) { w.textContent = t; swap(w); }
   }
+  /* the hand-off (26 Oct): arriving on Draft, the table starts empty, each line lifts off the Source field (the Shopee order) and lands as
+     its row, and the totals add up line by line (the amounts are VAT-inclusive: 1,400.00 = 1,250.00 + 150.00). Coordinates are measured
+     inside the slide's own layout (offsets), so the deck's scale and phone rotation do not matter. Any step, leave or settle finishes it. */
+  var LINES = [900, 500], TOT = 1400;
+  function live() { return !(Deck.reduce || Deck.tv); }
+  function sums(s, tot) { var vs = Math.round(tot / 1.12 * 100) / 100, b = $$('.cc-sum b', s); b[0].textContent = peso(vs); b[1].textContent = peso(Math.round((tot - vs) * 100) / 100); b[2].textContent = peso(tot); }
+  function xy(el, top) { var x = 0, y = 0; while (el && el !== top) { x += el.offsetLeft; y += el.offsetTop; el = el.offsetParent; } return { x: x, y: y }; }
+  function handDone(s) {
+    s._hand = (s._hand || 0) + 1;
+    $$('.cc-fly', s).forEach(function (g) { g.remove(); });
+    $$('.cc-lines tbody tr', s).forEach(function (r) { r.style.opacity = ''; r.style.transform = ''; r.classList.remove('is-land'); });
+    $('.cc-src-o', s).classList.remove('is-send');
+    sums(s, TOT);
+  }
+  function lin(p) { return p; }
+  function tween(ctx, ms, fn, ease) { return ctx.tween(ms, fn, ease || lin); }   // the engine's frame loop: cancelled with the slide
+  function eio(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function eout(t) { return 1 - Math.pow(1 - t, 3); }
+  function handOff(s, ctx) {
+    handDone(s);
+    if (!live()) return;
+    var tok = s._hand, hero = $('.cc-hero--inv', s), src = $('.cc-src-o', s), rows = $$('.cc-lines tbody tr', s), run = 0;
+    function ok() { if (s._hand === tok && ctx.alive && !live()) handDone(s); return s._hand === tok && ctx.alive; }
+    rows.forEach(function (r) { r.style.opacity = 0; r.style.transform = 'translateX(-14px)'; });
+    sums(s, 0);
+    ctx.after(950, function () { if (ok()) src.classList.add('is-send'); });
+    rows.forEach(function (row, i) {
+      ctx.after(1150 + i * 380, function () {
+        if (!ok()) return;
+        var a = xy(src, hero), b = xy(row, hero), g = document.createElement('div');
+        g.className = 'cc-fly'; g.textContent = $$('td', row)[1].textContent + ' × ' + $('td', row).textContent; hero.appendChild(g);
+        var x0 = a.x - 10, y0 = a.y - 6, x1 = b.x + 2, y1 = b.y - 3, cx = x0, cy = y1;   // down from the Source field, then left along its own (still empty) row
+        tween(ctx, 700, function (p) {
+          if (!ok()) return;
+          var u = 1 - p, x = u * u * x0 + 2 * u * p * cx + p * p * x1, y = u * u * y0 + 2 * u * p * cy + p * p * y1;
+          g.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+          g.style.opacity = p < .8 ? 1 : Math.max(0, (1 - p) / .2);
+        }, eio);
+        ctx.after(580, function () {
+          if (!ok()) return;
+          row.classList.add('is-land');
+          tween(ctx, 420, function (p) { if (ok()) { row.style.opacity = Math.min(1, p * 2); row.style.transform = 'translateX(' + (-14 * (1 - p)).toFixed(2) + 'px)'; } }, eout);
+          var from = run; run += LINES[i];
+          tween(ctx, 420, function (p) { if (ok()) sums(s, Math.round((from + (run - from) * p) * 100) / 100); }, eout);
+          if (i === rows.length - 1) ctx.after(460, function () { if (ok()) { sums(s, TOT); src.classList.remove('is-send'); } });
+        });
+        ctx.after(720, function () { g.remove(); });
+      });
+    });
+  }
+  // Confirm: the window leans in a touch while the stamp lands, then settles (Web Animations: no CSS transition to fight the deck's entrance)
+  function lean(s) {
+    var d = $('.cc-doc', s); if (!live() || !d.animate) return;
+    d.animate([{ scale: '1' }, { scale: '1.03', offset: .45 }, { scale: '1' }], { duration: 1100, easing: 'cubic-bezier(.65,0,.35,1)' });
+  }
   Deck.on('invoice', {
     init: function (s) {
       $('.cc-rail', s).addEventListener('click', function (e) { var b = e.target.closest('button[data-k]'); if (b) Deck.go(Deck.index, +b.dataset.k); });
       $('.cc-b-edit', s).addEventListener('click', function () { shake(s); });
     },
-    step: function (n, ctx, s) { paintInv(s, n); },
-    settle: function (s) { paintInv(s, 3); $('.cc-lockmsg', s).classList.remove('is-shake'); }
+    step: function (n, ctx, s, first) {
+      var was = s._n == null ? -1 : s._n; s._n = n;
+      handDone(s); paintInv(s, n);
+      if (first && n === 0) handOff(s, ctx);
+      else if (n === 1 && was === 0) lean(s);
+    },
+    leave: function (s) { handDone(s); s._n = null; },
+    settle: function (s) { handDone(s); paintInv(s, 3); $('.cc-lockmsg', s).classList.remove('is-shake'); $('.cc-why-x', s).classList.remove('cc-swap'); }
   });
 
   /* ---------------------------------------------------------------- 6 · what Odoo does, what we check: click a list heading to focus it */
