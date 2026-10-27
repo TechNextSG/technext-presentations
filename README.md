@@ -5,6 +5,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Deck | File | Slides |
 |---|---|---|
 | Company profile | `company-profile.html` | 11 |
+| Company profile (short) | `company-profile-short.html` | 5 |
 | Our talent | `technext-talent.html` | 11 |
 | People (the ten people behind the advice: roster by office, one profile each with highlights and every skill grouped, discovery-call close) | `technext-people.html` | 13 |
 | Portfolio: clients and what we built | `portfolio.html` | 10 |
