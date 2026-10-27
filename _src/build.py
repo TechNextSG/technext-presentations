@@ -65,7 +65,7 @@ DECKS = [
              desc="Trusted, reliable, expert, and the people behind it: six kinds of adviser and the first-call question each one asks, where the consultants, developers and AI engineers sit, ten people with their skill groups, a picker that shows who joins for your problems, Listen · Advise · Implement · Stay, and the four rules our advisers keep."),
         dict(slug="technext-people", tags="odoo", title="People", mins=12, pdf="TechNext-People.pdf",
              alt="People cover: meet the people who advise, then deliver.",
-             desc="The ten people behind the advice, by skill: the CEO and the general manager, a senior functional lead, a project manager, two Odoo developers, a business systems analyst, a business developer, a marketing officer and an IT specialist. One profile each with the role, office, highlights and every skill grouped, click a group to focus it, then the discovery-call close."),
+             desc="The ten people behind the advice, by skill: the CEO and the general manager, a senior functional lead, a project manager, two Odoo developers, a functional ERP consultant, a business developer, a marketing officer and an IT developer expert. One profile each with the role, office, highlights and every skill grouped, click a group to focus it, then the discovery-call close."),
         dict(slug="portfolio", tags="odoo websites marketing", title="Portfolio", mins=10, pdf="TechNext-Portfolio.pdf",
              alt="Portfolio cover: the clients TechNext has served.",
              desc="The clients we have served and what we built for each: websites, Odoo proposals and rollouts, social, video and brand work, on a map and client by client."),
