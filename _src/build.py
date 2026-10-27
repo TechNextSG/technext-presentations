@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "82"
+ASSET_V = "84"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -61,11 +61,11 @@ DECKS = [
              alt="Company profile cover: We advise first, then deliver the whole solution.",
              desc="Who TechNext is: why clients trust us and the companies we've worked with, three offices on a live map, the three practices, the Odoo partnership, how an engagement runs and the company details."),
         dict(slug="company-profile-short", tags="odoo ai websites", title="Company profile (short)", mins=6, pdf="TechNext-Company-Profile-Short.pdf",
-             alt="Short company profile cover: TechNext, your expert adviser for business transformation.",
-             desc="TechNext in five slides: the expert adviser for business transformation and the approved figures, what we do (BIR compliance and business transformation), all nineteen services in four practices, stories from four clients we've worked with, and the discovery-call close."),
+             alt="Short company profile cover: We are TechNext, your trusted, reliable and expert adviser.",
+             desc="TechNext in five slides: your trusted, reliable and expert adviser with over 20 years in digital transformation, the three things we do (regulatory compliance for BIR CAS, business process improvement, ERP/CRM end-to-end implementation), all nineteen services in four practices, the companies we helped improve and automate, and the discovery-call close."),
         dict(slug="technext-talent", tags="odoo ai websites", title="Our talent", mins=10, pdf="TechNext-Talent.pdf",
              alt="Our talent cover: the people behind the whole solution.",
-             desc="Trusted, reliable, expert, and the people behind it: six kinds of adviser and the first-call question each one asks, where the consultants, developers and AI engineers sit, ten people with their skill groups, a picker that shows who joins for your problems, Listen Â· Advise Â· Implement Â· Stay, and the four rules our advisers keep."),
+             desc="Trusted, reliable, expert, and the people behind it: six kinds of adviser and the first-call question each one asks, where the consultants, developers and AI engineers sit, ten people with their skill groups, a picker that shows who joins for your problems, Listen Ãƒâ€šÃ‚Â· Advise Ãƒâ€šÃ‚Â· Implement Ãƒâ€šÃ‚Â· Stay, and the four rules our advisers keep."),
         dict(slug="technext-people", tags="odoo", title="People", mins=12, pdf="TechNext-People.pdf",
              alt="People cover: meet the people who advise, then deliver.",
              desc="The ten people behind the advice, by skill: the CEO and the general manager, a senior functional lead, a project manager, two Odoo developers, a functional ERP consultant, a business developer, a marketing officer and an IT developer expert. One profile each with the role, office, highlights and every skill grouped, click a group to focus it, then the discovery-call close."),
@@ -102,7 +102,7 @@ DECKS = [
         dict(slug="jrtech-odoo-erp", tags="odoo", title="JR-Tech Solution", mins=45, pdf="TechNext-JR-Tech-Odoo-ERP.pdf",
              alt="JR-Tech cover: moving JR-Tech onto Odoo ERP.",
              desc="Eleven Odoo apps in three phases, the move from SQL Account to Odoo Accounting with SST and MyInvois, the cut-over runway and go / no-go gate, a narrated invoicing video with chapters, support after go-live, then the 28 accounting and billing questions, marked live in the room."),
-        dict(slug="bhdasia-odoo-scope", tags="odoo", title="BHD Asia Â· HummingBeing", mins=30, pdf="TechNext-BHD-Asia-Implementation-Scope.pdf",
+        dict(slug="bhdasia-odoo-scope", tags="odoo", title="BHD Asia Ãƒâ€šÃ‚Â· HummingBeing", mins=30, pdf="TechNext-BHD-Asia-Implementation-Scope.pdf",
              alt="BHD Asia cover: six workflows, one Odoo.",
              desc="The implementation scope on Odoo Online: six workflows played step by step (event tickets, 1:1 sessions screened once then paid, free bookings, screened sales, waitlists, money and books), the nine go-live modules, phase two as switches, what is decided and settled (books in SGD), then the open items, marked live in the room."),
         dict(slug="hst-medical-website", tags="websites ai", title="HST Medical", mins=40, pdf="TechNext-HST-Medical-Website-Review.pdf",
@@ -134,31 +134,31 @@ DECKS = [
              desc="A discovery deck for TTI Laguna Philippines (manufacturing and import/export, on SAP Business One), built around the 31 December 2026 date: a live countdown, the compliance flow as one camera journey through Odoo, a compressed plan from this week to December, import/export notes for later, questions marked live, and the next step."),
     ]),
     ("Case studies", [
-        dict(slug="case-study-fnb", tags="odoo", title="Case study Â· F&B", mins=15, pdf="TechNext-Case-Study-FnB.pdf",
+        dict(slug="case-study-fnb", tags="odoo", title="Case study Ãƒâ€šÃ‚Â· F&B", mins=15, pdf="TechNext-Case-Study-FnB.pdf",
              alt="F&B case study cover: five outlets, one truth.",
              desc="An industry case study on a composite Singapore F&B group (a central kitchen, five outlets, two delivery apps): the tangled problem (one price rise found 38 days late, four flows that never meet), nine Odoo apps on one database, replenishment from the central kitchen played step by step, every plate costed as it sells, and a four-phase rollout. Sample data."),
-        dict(slug="case-study-medical", tags="odoo", title="Case study Â· Medical", mins=15, pdf="TechNext-Case-Study-Medical.pdf",
+        dict(slug="case-study-medical", tags="odoo", title="Case study Ãƒâ€šÃ‚Â· Medical", mins=15, pdf="TechNext-Case-Study-Medical.pdf",
              alt="Medical case study cover: recall at 9:00, traced by 9:05.",
              desc="An industry case study on a composite Singapore group of six GP and aesthetic clinics that could not trace a recalled vaccine lot, with expired stock written off and panel claims unbilled for months, and how Odoo 20 joins stock, sales and billing: lot traceability in one report, panel claims invoiced every Friday, and a phased rollout. Sample data."),
-        dict(slug="case-study-travel", tags="odoo", title="Case study Â· Travel", mins=15, pdf="TechNext-Case-Study-Travel.pdf",
+        dict(slug="case-study-travel", tags="odoo", title="Case study Ãƒâ€šÃ‚Â· Travel", mins=15, pdf="TechNext-Case-Study-Travel.pdf",
              alt="Travel case study cover: the margin flies home last.",
              desc="An industry case study on a composite Singapore tour operator (group tours to Japan, Korea and Europe plus incentive trips): a price fixed in SGD months ahead, costs in yen, won and euro, pax that change, suppliers paid before guests; every departure as an Odoo project with its own P&L, a booking from enquiry to balance, a yen bill posted and paid with its exchange difference, and a four-stop rollout. Sample data."),
-        dict(slug="case-study-retail", tags="odoo", title="Case study Â· Retail", mins=15, pdf="TechNext-Case-Study-Retail.pdf",
+        dict(slug="case-study-retail", tags="odoo", title="Case study Ãƒâ€šÃ‚Â· Retail", mins=15, pdf="TechNext-Case-Study-Retail.pdf",
              alt="Retail case study cover: right stock, wrong store.",
              desc="An industry case study on a composite Singapore apparel retailer (eight stores, one warehouse, a separate loyalty app): size M sold out in three stores while two sit on dead stock, markdowns that eat the margin and a buy plan that repeats the mistake; the season as one Odoo loop, store-to-store rebalancing step by step, one loyalty card across every store, and a four-phase rollout. Sample data."),
-        dict(slug="case-study-ecommerce", tags="odoo", title="Case study Â· Ecommerce", mins=15, pdf="TechNext-Case-Study-Ecommerce.pdf",
+        dict(slug="case-study-ecommerce", tags="odoo", title="Case study Ãƒâ€šÃ‚Â· Ecommerce", mins=15, pdf="TechNext-Case-Study-Ecommerce.pdf",
              alt="Ecommerce case study cover: four shops, one shelf.",
              desc="An industry case study on a composite Singapore skincare brand selling on its website, Shopee, Lazada and TikTok Shop from one warehouse: the 11.11 knot (900 sold against 600 on the shelf, gift sets that hide their components, payouts that never match the bank), one Odoo stock figure played against hand updates, every payout matched to the bank, and a four-phase rollout. Sample data."),
-        dict(slug="case-study-retail-ecommerce", tags="odoo", title="Case study Â· Retail & Ecommerce", mins=20, pdf="TechNext-Case-Study-Retail-Ecommerce.pdf",
+        dict(slug="case-study-retail-ecommerce", tags="odoo", title="Case study Ãƒâ€šÃ‚Â· Retail & Ecommerce", mins=20, pdf="TechNext-Case-Study-Retail-Ecommerce.pdf",
              alt="Retail and ecommerce case study cover: one customer, every counter.",
              desc="An industry case study on a composite Singapore homeware brand with five stores, a website and two marketplaces, where one customer moves between every channel and the systems don't: paid online and sold at the till, five seams between two businesses; Point of Sale, eCommerce, Inventory, Accounting and CRM on one database, click and collect from a store's live stock, one customer and loyalty card from till to checkout to a corporate deal, every channel in one set of books, and a four-phase rollout. Sample data."),
-        dict(slug="case-study-construction", tags="odoo", title="Case study Â· Construction", mins=15, pdf="TechNext-Case-Study-Construction.pdf",
+        dict(slug="case-study-construction", tags="odoo", title="Case study Ãƒâ€šÃ‚Â· Construction", mins=15, pdf="TechNext-Case-Study-Construction.pdf",
              alt="Construction case study cover: every job green, red at handover.",
              desc="An industry case study on a composite Singapore fit-out and M&E contractor running twelve projects: margins green every month and red at handover (variations on WhatsApp, materials on the wrong job, late subcontractor invoices, forgotten retention), one project's costs in one place, a variation from site to signature, a progress claim from percent complete, and a four-phase rollout. Sample data."),
-        dict(slug="case-study-manufacturing", tags="odoo", title="Case study Â· Manufacturing", mins=15, pdf="TechNext-Case-Study-Manufacturing.pdf",
+        dict(slug="case-study-manufacturing", tags="odoo", title="Case study Ãƒâ€šÃ‚Â· Manufacturing", mins=15, pdf="TechNext-Case-Study-Manufacturing.pdf",
              alt="Manufacturing case study cover: quoted blind, promised late.",
              desc="An industry case study on a composite Singapore precision sheet-metal shop (laser, CNC bending, welding, outsourced coating, 300 part numbers): one breakdown and one late steel sheet make five customers late and a +26% quote ends at -4%; Odoo 20 replans the work centres, keeps the floor on the current revision and quotes from the BoM and routing cost, with a four-phase rollout. Sample data."),
-        dict(slug="case-study-wellness", tags="odoo", title="Case study Â· Health & Wellness", mins=15, pdf="TechNext-Case-Study-Health-Wellness.pdf",
+        dict(slug="case-study-wellness", tags="odoo", title="Case study Ãƒâ€šÃ‚Â· Health & Wellness", mins=15, pdf="TechNext-Case-Study-Health-Wellness.pdf",
              alt="Health & Wellness case study cover: paid today, earned later.",
              desc="An industry case study on a composite Singapore studio and spa group (four pilates and yoga studios, a day spa): money collected up front but earned class by class, S$412,640 owed to members on no report, four leaks from one root; one member record across Odoo apps, a class pack followed from sale to expiry on the books, spa rooms that can't be sold twice, and a four-phase rollout. Sample data."),
     ]),
@@ -413,7 +413,7 @@ def sc_feature(e, kind):
       <div class="bw"><div class="bw-bar"><i></i><i></i><i></i><span class="bw-url">{{{{icon:lock}}}}{_e(e['dom'])}</span></div>
         <div class="bw-view"><img class="scroller" data-src="assets/img/sites/{slug}-d.jpg"{_psrc(slug, "d")} alt="{_e(e['name'])}: the full page" width="900" height="{dh}" style="--travel:{travel}px;--dur:{dur}s"></div></div>
       {phone}
-      <p class="sf-hint">{{{{icon:search}}}}Each page scrolls on its own Â· hover to pause</p>
+      <p class="sf-hint">{{{{icon:search}}}}Each page scrolls on its own Ãƒâ€šÃ‚Â· hover to pause</p>
     </div>
   </div>
   <aside class="notes"><p>{_e(e['what'])}</p></aside>
@@ -533,7 +533,7 @@ def pf_expand(s):
     for c in C:
         tags = " ".join(k for k, v in c["svc"].items() if v)
         cards.append(f'<button type="button" class="pf-c" data-slug="{c["slug"]}" data-svc="{tags}" data-status="{c["status"]}" aria-pressed="false">'
-                     f'<span class="pf-mono" style="--c:{c["c"]}">{c["mono"]}</span><span><b>{_e(c["name"])}</b><small>{_e(c["ind"])} Â· {_e(c["where"])}</small></span></button>')
+                     f'<span class="pf-mono" style="--c:{c["c"]}">{c["mono"]}</span><span><b>{_e(c["name"])}</b><small>{_e(c["ind"])} Ãƒâ€šÃ‚Â· {_e(c["where"])}</small></span></button>')
     s = s.replace("{{pf:cards}}", "\n".join(cards))
     data = [dict(slug=c["slug"], name=c["name"], mono=c["mono"], c=c["c"], ind=c["ind"], where=c["where"], status=PF.STATUS[c["status"]],
                  svc=[lab for k, lab in PF.SERVICES if c["svc"].get(k)], did=c["did"], links=c["links"]) for c in C]

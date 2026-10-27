@@ -26,10 +26,16 @@
         ctx.after(1050 + i * 170, function () { li.classList.add('is-on'); });
         ctx.after(1350 + i * 170, function () { li.classList.add('is-ok'); });
       });
+      // the process column: each manual step flips to automated, top to bottom
+      $$('.cp-proc li', s).forEach(function (li, i) {
+        li.classList.remove('is-auto');
+        ctx.after(1500 + i * 260, function () { li.classList.add('is-auto'); });
+      });
     },
     settle: function (s) {
       $('.cp-forms', s).classList.add('is-run');
       $$('.cp-out li', s).forEach(function (li) { li.classList.add('is-on', 'is-ok'); });
+      $$('.cp-proc li', s).forEach(function (li) { li.classList.add('is-auto'); });
     }
   });
 
@@ -57,36 +63,4 @@
     settle: function (s) { if (!$('.cp-svc button.is-on', s)) pickSvc(s, $('.cp-svc button', s)); $('.cp-say', s).classList.remove('is-swap'); }
   });
 
-  /* ---------------------------------------------------------------- 4 · stories: one client at a time, its site scrolls at reading speed */
-  function pickStory(s, n, play) {
-    $$('.cp-who button', s).forEach(function (b) { var on = +b.dataset.c === n; b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on); });
-    $$('.cp-s', s).forEach(function (a) {
-      var on = +a.dataset.c === n, img = $('.cp-shot img', a);
-      a.classList.toggle('is-on', on);
-      if (img._mv) { img._mv.cancel(); img._mv = null; }
-      if (on && play && img.animate && !Deck.reduce) {
-        var d = Math.min(1200, img.offsetHeight - (img.parentNode.clientHeight - 26));
-        if (d > 0) img._mv = img.animate([{ translate: '0 0' }, { translate: '0 -' + d + 'px' }],
-          { duration: d / 210 * 1000, delay: 900, easing: 'cubic-bezier(.45,0,.55,1)', fill: 'forwards' });
-      }
-    });
-  }
-  Deck.on('stories', {
-    init: function (s) {
-      s.addEventListener('click', function (e) {
-        var b = e.target.closest('.cp-who button'); if (!b) return;
-        s._manual = true; pickStory(s, +b.dataset.c, true);
-      });
-    },
-    enter: function (ctx, s) {
-      var n = 0, count = $$('.cp-s', s).length;
-      s._manual = false; pickStory(s, 0, true);
-      if (!Deck.reduce) ctx.every(7800, function () { if (s._manual) return; n = (n + 1) % count; pickStory(s, n, true); });
-    },
-    leave: function (s) { $$('.cp-shot img', s).forEach(function (img) { if (img._mv) { img._mv.cancel(); img._mv = null; } }); },
-    settle: function (s) {
-      var on = $('.cp-who button.is-on', s);
-      pickStory(s, on ? +on.dataset.c : 0, false);
-    }
-  });
 })();
