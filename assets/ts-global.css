@@ -30,11 +30,11 @@
 .tg-tote.has-any .tg-r{display:grid;grid-template-columns:34px minmax(0,1fr);column-gap:14px;align-items:center;height:56px;margin-bottom:8px;padding:0 14px;border-radius:12px;border:1.5px dashed #BDB9C8;background:transparent}
 .tg-r p{margin:0}
 .tg-r b{display:block;font:700 17px/1.2 var(--f-display);color:var(--bm-muted)}
-.tg-r span{display:block;font:500 15px/1.25 var(--f-body);color:transparent}
+.tg-r p span{display:block;font:500 15px/1.25 var(--f-body);color:transparent}   /* the description only: a bare .tg-r span also hit .tg-ck and undid its centring grid */
 .tg-ck{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:2px dashed #CFCBD6;color:transparent;font-size:16px}
 .tg-tote.has-any .tg-r.is-on{border:1.5px solid var(--bm-ok-line);background:var(--ok-050)}  /* must outrank the empty-slot rule above, or landed rows stay dashed */
 .tg-r.is-on b{color:var(--ink)}
-.tg-r.is-on span{color:var(--body)}
+.tg-r.is-on p span{color:var(--body)}
 .tg-r.is-on .tg-ck{background:var(--ok);border:2px solid var(--ok);color:#fff}
 .tg-done{position:absolute;left:0;right:0;bottom:0;margin:0;height:52px;display:flex;align-items:center;gap:10px;padding:0 20px;background:var(--ok-050);border-top:1px solid var(--bm-ok-line);font:650 15.5px/1.3 var(--f-display);color:var(--ok);opacity:0;transition:opacity .35s}
 .tg-done .ic{flex:none;font-size:19px}
