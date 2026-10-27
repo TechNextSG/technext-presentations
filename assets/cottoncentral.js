@@ -39,7 +39,7 @@
     cert: ['EIS Certification.', 'Completed within six months of the PTI: the system sends the required sales data to the BIR\'s EIS.']
   };
   var DEADLINE = new Date(2026, 11, 31);
-  function daysLeft() { var t = new Date(); t.setHours(0, 0, 0, 0); return Math.max(0, Math.round((DEADLINE - t) / 864e5)); }
+  function daysLeft() { if (window.BIRDAYS) return BIRDAYS.work(); var t = new Date(); t.setHours(0, 0, 0, 0); return Math.max(0, Math.round((DEADLINE - t) / 864e5)); }   // working days (owner, 27 Oct)
   Deck.on('rules', {
     init: function (s) {
       s._show = function (k, quiet) {

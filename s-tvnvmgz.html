@@ -10,9 +10,9 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/fonts.css?v=79">
-<link rel="stylesheet" href="assets/deck.css?v=79">
-<link rel="stylesheet" href="assets/motion.css?v=79">
+<link rel="stylesheet" href="assets/fonts.css?v=81">
+<link rel="stylesheet" href="assets/deck.css?v=81">
+<link rel="stylesheet" href="assets/motion.css?v=81">
 <title>MOL Enterprise Philippines · Odoo and BIR compliance · TechNext</title>
 <meta name="description" content="A discovery deck for MOL Enterprise Philippines (logistics, Autocount subscription ending December 2026): the BIR rules with a live day counter, the compliance flow as one camera journey through Odoo, a calendar that overlaps Odoo with the last Autocount months, Odoo apps for logistics later, questions marked live, and the next step.">
 <meta property="og:type" content="website">
@@ -20,12 +20,13 @@
 <meta property="og:title" content="MOL Enterprise Philippines · Odoo and BIR compliance · TechNext">
 <meta property="og:description" content="A discovery deck for MOL Enterprise Philippines (logistics, Autocount subscription ending December 2026): the BIR rules with a live day counter, the compliance flow as one camera journey through Odoo, a calendar that overlaps Odoo with the last Autocount months, Odoo apps for logistics later, questions marked live, and the next step.">
 <meta property="og:url" content="https://technextsg.github.io/technext-presentations/s-tvnvmgz.html">
-<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/mol-enterprise-odoo-bir-og.jpg?v=79">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/mol-enterprise-odoo-bir-og.jpg?v=81">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/birmove.css?v=79">
-<link rel="stylesheet" href="assets/mol-enterprise.css?v=79">
+<link rel="stylesheet" href="assets/birmove.css?v=81">
+<link rel="stylesheet" href="assets/birpenalty.css?v=81">
+<link rel="stylesheet" href="assets/mol-enterprise.css?v=81">
 </head>
 <body data-label="MOL Enterprise Philippines · BIR" data-shared data-motion="mx">
 <!-- birmove kit: icon + QR templates read by assets/birmove.js (BMK.ico, BMK.qr). Include once per deck with the include token -->
@@ -81,6 +82,12 @@
   <aside class="notes"><p>The rules in plain words. RR 26-2025 sets the date: covered taxpayers issue compliant e-invoices on or before 31 December 2026. RMC 98-2026, issued 22 September 2026, sets the working rules: a Permit to Issue (PTI) before the first e-invoice, and EIS Certification within six months of the PTI. An issued e-invoice can&rsquo;t be deleted or changed: a credit note lowers an amount, a new e-invoice raises it. If the system is down, a BIR-authorised manual invoice is issued, then an e-invoice that refers to it. The system sends the required sales data to the BIR&rsquo;s EIS. Click any dot on the line for its rule; the pin shows today. The counter uses today&rsquo;s date. Note how close this sits to the Autocount expiry: both fall in December 2026. Who is covered: sellers through e-commerce or internet transactions, Large Taxpayers Service, large taxpayers (RA 11976, RR 8-2024), and CAS or CBA users with invoicing software; micro taxpayers are exempt; head office and branches are covered. Click a group to mark it for the accountant to check: we do not decide which group MOL Enterprise is in, their accountant or RDO confirms. General guidance, not tax advice. Source: technext.asia/bir-e-invoicing.</p></aside>
 </section>
 
+<!-- deadline and penalties (27 Oct 2026) -->
+<section class="slide" id="penalty" data-bp data-title="The deadline and the penalties">
+  <aside class="notes"><p>Two things on one slide. Left: the working days left to 31 December, Monday to Friday with Philippine holidays taken out (Proclamation No. 1006), counted live from today, plus the clock to 11:59 pm Manila time on the 31st; click an amber day to name the holiday. This is the time we actually have to set things up with them. Right: the penalties the Tax Code already has, which RR 11-2025 points e-invoicing violations to. Section 264(a): failing or refusing to issue an invoice, a fine of 1,000 to 50,000 pesos and 2 to 4 years. Section 264-A: failing to transmit sales data, 10,000 pesos a day or one-tenth of one percent of annual net income a day, whichever is higher, and permanent closure after 180 days in a year; say clearly that this applies once the BIR switches on electronic sales reporting, which is a separate step it has not started. The BIR has not published a penalty for the 31 December date itself and the Commissioner can still extend it. We are not the BIR and do not decide penalties; their accountant or RDO confirms what applies. No scare talk: the point is to start early.</p></aside>
+</section>
+
+
 <!-- 4 · pipeline: the map -->
 <section class="slide" id="pipe" data-kit="pipe-map" data-group="pipe" data-title="Your compliance flow, in one Odoo">
   <aside class="notes"><p>The camera journey starts zoomed out: the whole compliance flow as one pipeline, six stations: Order, Invoice, EIS, Books, BIR forms, Audit trail. They light up in sequence. Click any station (or the buttons) and the camera flies there; click it again, press Back, or Esc to return. The dashed amber station is the honest one: the BIR&rsquo;s EIS. Odoo has no built-in connection to it and TechNext has not built one, so we assess it with them and quote it separately. Everything lit is part of the Odoo set-up. Press &rarr; to start the journey at the invoice.</p></aside>
@@ -122,14 +129,14 @@
 </section>
 
 </div></main>
-<script src="assets/deck.js?v=79"></script>
-<script src="assets/motion.js?v=79"></script>
-<script src="assets/vendor/motion-11.11.17.js?v=79"></script>
+<script src="assets/deck.js?v=81"></script>
+<script src="assets/motion.js?v=81"></script>
+<script src="assets/vendor/motion-11.11.17.js?v=81"></script>
 <script>
 window.BM = {
   slug: 'mol-enterprise-odoo-bir',
   urgent: false,
-  client: { name: 'MOL Enterprise Philippines', short: 'MOL Enterprise', logo: 'assets/img/clients/mol-enterprise.svg?v=79', accent: '#005396', industry: 'Logistics', system: 'Autocount', need: 'a new ERP and BIR compliance' },
+  client: { name: 'MOL Enterprise Philippines', short: 'MOL Enterprise', logo: 'assets/img/clients/mol-enterprise.svg?v=81', accent: '#005396', industry: 'Logistics', system: 'Autocount', need: 'a new ERP and BIR compliance' },
   cover: {
     h1: 'Autocount ends in December. <span class="hl">Your books carry on.</span>',
     lead: 'The rules, the pipeline and a planned move off Autocount, with Odoo running before December ends.',
@@ -165,7 +172,8 @@ window.BM = {
   close: { h2: 'Let’s keep your books running, <span class="hl">past December.</span>', lead: 'Pick a time for a 30-minute call with an adviser. We recommend what fits, and say why.' }
 };
 </script>
-<script src="assets/birmove.js?v=79"></script>
-<script src="assets/mol-enterprise.js?v=79"></script>
+<script src="assets/birpenalty.js?v=81"></script>
+<script src="assets/birmove.js?v=81"></script>
+<script src="assets/mol-enterprise.js?v=81"></script>
 </body>
 </html>

@@ -296,3 +296,5 @@ body[data-shared] .cc-qg button,body[data-shared] .cc-hy{pointer-events:none}
 .cc-qg button em:empty{display:none}
 .cc-tiles img{object-fit:contain;padding:14px}   /* the whole garment shows, on white */
 .cc-hy{font-size:17px}   /* each guess on one line */
+.tag--dl{background:var(--amber);border-color:var(--amber);color:#1F1F3D;font-weight:700}   /* the deadline countdown on the cover (27 Oct) */
+.tag--dl b{font-variant-numeric:tabular-nums;margin-right:4px}

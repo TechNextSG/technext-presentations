@@ -1,0 +1,47 @@
+/* The deadline-and-penalties slide ([data-bp], assets/birpenalty.js). Plain paper, no fields or washes (owner rule 26 Oct);
+   amber marks holidays and the deadline, red marks the penalties. Content between y 118 and y 790. */
+.bp-h2 .bp-hn{font-variant-numeric:tabular-nums}
+.bp-wrap{position:relative;display:grid;grid-template-columns:600px minmax(0,1fr);gap:56px;margin-top:22px}
+.bp-clock{display:flex;flex-direction:column;gap:12px}
+.bp-big{display:flex;align-items:center;gap:18px}
+.bp-n{font:800 112px/.9 var(--f-display);letter-spacing:-.04em;color:var(--blue-700);font-variant-numeric:tabular-nums;min-width:2ch}
+.bp-big span{display:flex;flex-direction:column;gap:6px}
+.bp-big em{font:800 26px/1.1 var(--f-display);font-style:normal;color:var(--ink)}
+.bp-big small{font:500 16px/1.3 var(--f-body);color:var(--muted)}
+.bp-tick{display:flex;gap:10px}
+.bp-tick p{margin:0;width:86px;padding:8px 0 7px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:center}
+.bp-tick b{display:block;font:800 30px/1 var(--f-display);color:var(--ink);font-variant-numeric:tabular-nums}
+.bp-tick small{display:block;margin-top:4px;font:700 13px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.bp-to{display:flex;align-items:center;gap:8px;margin:0;font:500 15px/1.3 var(--f-body);color:var(--body)}
+.bp-to svg,.bp-who svg,.bp-ill svg,.bp-ic svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bp-grid{display:flex;flex-direction:column;gap:3px;margin-top:0}
+.bp-wh,.bp-wk{display:grid;grid-template-columns:48px repeat(5,72px);gap:6px;align-items:center}
+.bp-wh span{font:700 13px/1 var(--f-display);color:var(--muted);text-align:center}
+.bp-wl{font:700 13px/1 var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.bp-d{height:23px;padding:0;border:1px solid transparent;border-radius:7px;background:none;font:600 13.5px/1 var(--f-body);color:var(--muted);font-variant-numeric:tabular-nums;cursor:default;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.bp-d.is-work{color:var(--blue-700);border-color:var(--blue-100)}
+.bp-d.is-work.is-on{background:var(--blue);border-color:var(--blue);color:#fff}
+.bp-d.is-hol{color:#8A5A00;border:1.5px dashed var(--amber);cursor:pointer}
+.bp-d.is-hol.is-on{background:var(--amber-050)}
+.bp-d.is-dl,.bp-d.is-dl.is-hol,.bp-d.is-dl.is-hol.is-on{color:#fff;background:var(--red);border:1.5px solid var(--red);font-weight:800;cursor:pointer}
+.bp-d.is-today{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ink)}
+.bp-d.is-past,.bp-d.is-after{color:#9A9AAE}
+.bp-d.is-sel{transform:scale(1.12)}
+.bp-d:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.bp-cap{margin:2px 0 0;min-height:20px;font:500 15px/1.3 var(--f-body);color:var(--body)}
+.bp-pen{display:flex;flex-direction:column;gap:12px}
+.bp-card{padding:14px 20px 13px;border:1px solid var(--line);border-left:4px solid var(--red);border-radius:16px;background:#fff;box-shadow:var(--sh-1)}
+.bp-card header{display:flex;align-items:center;gap:10px}
+.bp-ic{display:inline-flex;color:var(--red)}
+.bp-sec{font:700 13px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.bp-card h3{margin:7px 0 2px;font:800 21px/1.2 var(--f-display);color:var(--ink)}
+.bp-amt{margin:0;font:800 34px/1.1 var(--f-display);letter-spacing:-.02em;color:var(--red);font-variant-numeric:tabular-nums}
+.bp-plus{margin:3px 0 0;font:500 16.5px/1.35 var(--f-body);color:var(--ink)}
+.bp-why,.bp-later{margin:7px 0 0;font:500 15px/1.4 var(--f-body);color:var(--body)}
+.bp-later{padding:6px 12px;border-radius:10px;border:1.5px dashed var(--amber);color:#7A4F00}
+.bp-note{margin:0;font:500 15px/1.4 var(--f-body);color:var(--body)}
+.bp-who{display:flex;align-items:center;gap:10px;margin:0;font:600 15px/1.35 var(--f-display);color:var(--ink)}
+.bp-ill{display:flex;align-items:center;gap:8px}
+@media (prefers-reduced-motion:reduce){.bp-d{transition:none}}
+.deck.is-tv .bp-d{transition:none}
+.bp-ill{bottom:68px}   /* clear of the page number, as the kits' own source lines */

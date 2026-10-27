@@ -10,9 +10,9 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/fonts.css?v=79">
-<link rel="stylesheet" href="assets/deck.css?v=79">
-<link rel="stylesheet" href="assets/motion.css?v=79">
+<link rel="stylesheet" href="assets/fonts.css?v=81">
+<link rel="stylesheet" href="assets/deck.css?v=81">
+<link rel="stylesheet" href="assets/motion.css?v=81">
 <title>Laguna Metts Corporation · Odoo and BIR compliance · TechNext</title>
 <meta name="description" content="A discovery deck for Laguna Metts Corporation (manufacturing, on an ERP from Thailand): the BIR rules with a live day counter, the compliance flow as one camera journey through Odoo, a localisation fit table to confirm together, Odoo apps for manufacturing later, questions marked live, and the next step.">
 <meta property="og:type" content="website">
@@ -20,12 +20,13 @@
 <meta property="og:title" content="Laguna Metts Corporation · Odoo and BIR compliance · TechNext">
 <meta property="og:description" content="A discovery deck for Laguna Metts Corporation (manufacturing, on an ERP from Thailand): the BIR rules with a live day counter, the compliance flow as one camera journey through Odoo, a localisation fit table to confirm together, Odoo apps for manufacturing later, questions marked live, and the next step.">
 <meta property="og:url" content="https://technextsg.github.io/technext-presentations/s-avjpkjp.html">
-<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/laguna-metts-odoo-bir-og.jpg?v=79">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/laguna-metts-odoo-bir-og.jpg?v=81">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/birmove.css?v=79">
-<link rel="stylesheet" href="assets/laguna-metts.css?v=79">
+<link rel="stylesheet" href="assets/birmove.css?v=81">
+<link rel="stylesheet" href="assets/birpenalty.css?v=81">
+<link rel="stylesheet" href="assets/laguna-metts.css?v=81">
 </head>
 <body data-label="Laguna Metts Corporation · BIR" data-shared data-motion="mx">
 <!-- birmove kit: icon + QR templates read by assets/birmove.js (BMK.ico, BMK.qr). Include once per deck with the include token -->
@@ -81,6 +82,12 @@
   <aside class="notes"><p>The rules in plain words. RR 26-2025 sets the date: covered taxpayers issue compliant e-invoices on or before 31 December 2026. RMC 98-2026, issued 22 September 2026, sets the working rules: a Permit to Issue (PTI) before the first e-invoice, and EIS Certification within six months of the PTI. An issued e-invoice can&rsquo;t be deleted or changed: a credit note lowers an amount, a new e-invoice raises it. If the system is down, a BIR-authorised manual invoice is issued, then an e-invoice that refers to it. The system sends the required sales data to the BIR&rsquo;s EIS. Click any dot on the line for its rule; the pin shows today. The counter uses today&rsquo;s date. Who is covered: sellers through e-commerce or internet transactions, Large Taxpayers Service, large taxpayers (RA 11976, RR 8-2024), and CAS or CBA users with invoicing software; micro taxpayers are exempt; head office and branches are covered. Click a group to mark it for the accountant to check: we do not decide which group Laguna Metts is in, their accountant or RDO confirms. General guidance, not tax advice. Source: technext.asia/bir-e-invoicing.</p></aside>
 </section>
 
+<!-- deadline and penalties (27 Oct 2026) -->
+<section class="slide" id="penalty" data-bp data-title="The deadline and the penalties">
+  <aside class="notes"><p>Two things on one slide. Left: the working days left to 31 December, Monday to Friday with Philippine holidays taken out (Proclamation No. 1006), counted live from today, plus the clock to 11:59 pm Manila time on the 31st; click an amber day to name the holiday. This is the time we actually have to set things up with them. Right: the penalties the Tax Code already has, which RR 11-2025 points e-invoicing violations to. Section 264(a): failing or refusing to issue an invoice, a fine of 1,000 to 50,000 pesos and 2 to 4 years. Section 264-A: failing to transmit sales data, 10,000 pesos a day or one-tenth of one percent of annual net income a day, whichever is higher, and permanent closure after 180 days in a year; say clearly that this applies once the BIR switches on electronic sales reporting, which is a separate step it has not started. The BIR has not published a penalty for the 31 December date itself and the Commissioner can still extend it. We are not the BIR and do not decide penalties; their accountant or RDO confirms what applies. No scare talk: the point is to start early.</p></aside>
+</section>
+
+
 <!-- 4 · pipeline: the map -->
 <section class="slide" id="pipe" data-kit="pipe-map" data-group="pipe" data-title="Your compliance flow, in one Odoo">
   <aside class="notes"><p>The camera journey starts zoomed out: the whole compliance flow as one pipeline, six stations: Order, Invoice, EIS, Books, BIR forms, Audit trail. They light up in sequence. Click any station (or the buttons) and the camera flies there; click it again, press Back, or Esc to return. The dashed amber station is the honest one: the BIR&rsquo;s EIS. Odoo has no built-in connection to it and TechNext has not built one, so we assess it with them and quote it separately. Everything lit is part of the Odoo set-up. Press &rarr; to start the journey at the invoice.</p></aside>
@@ -122,9 +129,9 @@
 </section>
 
 </div></main>
-<script src="assets/deck.js?v=79"></script>
-<script src="assets/motion.js?v=79"></script>
-<script src="assets/vendor/motion-11.11.17.js?v=79"></script>
+<script src="assets/deck.js?v=81"></script>
+<script src="assets/motion.js?v=81"></script>
+<script src="assets/vendor/motion-11.11.17.js?v=81"></script>
 <script>
 window.BM = {
   slug: 'laguna-metts-odoo-bir',
@@ -156,7 +163,8 @@ window.BM = {
   close: { h2: 'Let’s check the fit, <span class="hl">together.</span>', lead: 'Pick a time for a 30-minute call with an adviser. We recommend what fits, and say why.' }
 };
 </script>
-<script src="assets/birmove.js?v=79"></script>
-<script src="assets/laguna-metts.js?v=79"></script>
+<script src="assets/birpenalty.js?v=81"></script>
+<script src="assets/birmove.js?v=81"></script>
+<script src="assets/laguna-metts.js?v=81"></script>
 </body>
 </html>

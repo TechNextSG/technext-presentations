@@ -7,6 +7,7 @@
 <meta name="description" content="A TechNext discovery deck for Cotton Central, Inc.: the BIR's e-invoicing rules in plain words, who they cover, how orders from cottoncentral.com, Shopee, Lazada, edamama and TikTok become invoices in one Odoo, one invoice issued and corrected, what Odoo does and what we set up, and the questions for the call.">
 {{og:cottoncentral-e-invoicing}}
 <link rel="stylesheet" href="assets/cottoncentral.css?v={{v}}">
+<link rel="stylesheet" href="assets/birpenalty.css?v={{v}}">
 </head>
 <body data-label="Cotton Central · e-invoicing" data-home="./" data-motion="mx" data-cobrand="assets/img/clients/cottoncentral.png?v={{v}}" data-cobrand-white="assets/img/clients/cottoncentral.png?v={{v}}">
 <main class="deck" aria-label="TechNext discovery deck for Cotton Central, Inc.: BIR e-invoicing in Odoo">
@@ -25,7 +26,7 @@
       <button type="button" data-go="channels"><i>03</i>In Odoo</button>
       <button type="button" data-go="questions"><i>04</i>Questions</button>
     </nav>
-    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag">{{icon:calendar}}Discovery call · 27 Oct 2026, 3:00 pm</span></div>
+    <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag">{{icon:calendar}}Discovery call · 27 Oct 2026, 3:00 pm</span><span class="tag tag--dl"><b data-bp-work>41</b> working days to 31 Dec 2026</span></div>
   </div>
   <p class="hint cv-hint" data-in style="--d:1100ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
   <div class="cc-art" aria-hidden="true" data-in data-fx="fade" style="--d:150ms">
@@ -87,7 +88,7 @@
     <h2 class="h-m" data-in style="--d:80ms">From 31 December 2026, <span class="hl">covered sellers e-invoice.</span></h2>
   </div>
   <div class="cc-hero cc-hero--rules">
-    <div class="cc-days" data-in style="--d:260ms"><b class="cc-days-n">66</b><span>days to<br>31 Dec 2026</span></div>
+    <div class="cc-days" data-in style="--d:260ms"><b class="cc-days-n">66</b><span>working days to<br>31 Dec 2026</span></div>
     <div class="cc-tl" data-in style="--d:200ms">
       <div class="cc-tl-line"><i class="cc-tl-fill"></i></div>
       <button type="button" aria-pressed="false" class="cc-tl-n" data-k="rr" style="--x:8%"><i>{{icon:file}}</i><b>RR 26-2025</b><small>sets the deadline</small></button>
@@ -110,6 +111,12 @@
   <p class="illus cc-ill">{{icon:file}}RR 26-2025 · RMC 98-2026 · general guidance, not tax advice: confirm with your accountant or the BIR</p>
   <aside class="notes"><p>The rules in plain words. The day counter sits over 31 December; click any dot on the line. RR 26-2025 set the deadline: covered taxpayers issue compliant e-invoices on or before 31 December 2026. RMC 98-2026, issued 22 September 2026, sets the working rules: a Permit to Issue (PTI) before the first e-invoice, and EIS Certification within six months of the PTI. Four rules matter for day-to-day work: an issued e-invoice can't be deleted or changed; a credit note lowers an amount and a new e-invoice raises it; the system sends the required sales data to the BIR's EIS; and when the system is down, a BIR-authorised manual invoice is issued, then replaced by an e-invoice that refers to it. Below the line, who the rules cover: sellers through e-commerce or internet transactions (whatever their size), Large Taxpayers Service taxpayers, large taxpayers under RA 11976 and RR 8-2024, and CAS or CBA users with invoicing software; micro taxpayers are exempt and the Commissioner may add others. Cotton Central sells online, so the e-commerce group is the one to check, but their accountant or RDO confirms it, not us. The day counter uses today's date. Source: technext.asia/bir-e-invoicing, which cites RR 26-2025, RMC 98-2026 and the BIR advisory of 14 Sep 2026. We are not the BIR; their accountant or RDO has the final word.</p></aside>
 </section>
+
+<!-- deadline and penalties (27 Oct 2026) -->
+<section class="slide" id="penalty" data-bp data-title="The deadline and the penalties">
+  <aside class="notes"><p>Two things on one slide. Left: the working days left to 31 December, Monday to Friday with Philippine holidays taken out (Proclamation No. 1006), counted live from today, plus the clock to 11:59 pm Manila time on the 31st; click an amber day to name the holiday. This is the time we actually have to set things up with them. Right: the penalties the Tax Code already has, which RR 11-2025 points e-invoicing violations to. Section 264(a): failing or refusing to issue an invoice, a fine of 1,000 to 50,000 pesos and 2 to 4 years. Section 264-A: failing to transmit sales data, 10,000 pesos a day or one-tenth of one percent of annual net income a day, whichever is higher, and permanent closure after 180 days in a year; say clearly that this applies once the BIR switches on electronic sales reporting, which is a separate step it has not started. The BIR has not published a penalty for the 31 December date itself and the Commissioner can still extend it. We are not the BIR and do not decide penalties; their accountant or RDO confirms what applies. No scare talk: the point is to start early.</p></aside>
+</section>
+
 
 <!-- 4 · five channels, one set of books -->
 <section class="slide" id="channels" data-title="Five shops, one set of books">
@@ -285,6 +292,7 @@
 </main>
 <script src="assets/deck.js?v={{v}}"></script>
 <script src="assets/motion.js?v={{v}}"></script>
+<script src="assets/birpenalty.js?v={{v}}"></script>
 <script src="assets/cottoncentral.js?v={{v}}"></script>
 </body>
 </html>

@@ -71,7 +71,7 @@
      BMK.drive(st, fn, opts) a spring that calls fn(p), p running 0 -> 1: write your own styles in fn (a stopped control never writes again)
      BMK.stop(st)           stops every stored Motion control of that bag (call in leave)
      BMK.load(key) / BMK.save(key, obj)   sessionStorage under BM.slug (try/catch)
-     BMK.daysLeft()         days from today to 31 Dec 2026
+     BMK.daysLeft()         WORKING days from today to 31 Dec 2026 (window.BIRDAYS, assets/birpenalty.js; calendar days if it is missing)
      BMK.split(h)           word-split a headline you render yourself (motion kit)
      BMK.accent             {hex, ink, lite, tint}
      BMK.extend(kind, {enter(ctx, s), settle(s), leave(s)})   a deck's own code that rides on a kit hook (the kit slide kinds above plus 'close'); called after the kit's own hook body,
@@ -179,7 +179,7 @@
 
   var DEADLINE = new Date(2026, 11, 31), RMCD = new Date(2026, 8, 22);
   function today0() { var t = new Date(); t.setHours(0, 0, 0, 0); return t; }
-  function daysLeft() { return Math.max(0, Math.round((DEADLINE - today0()) / 864e5)); }
+  function daysLeft() { return window.BIRDAYS ? BIRDAYS.work() : Math.max(0, Math.round((DEADLINE - today0()) / 864e5)); }   // owner, 27 Oct: count the days we can work
 
   /* ================================================================ slide registry */
   var S = {};
@@ -232,7 +232,7 @@
       '<p class="hint cv-hint"' + inz(760) + '><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>';
     // the hero, one object top to bottom: their system today -> a line that draws down -> the same six stations as slides 4-7, in miniature, in one Odoo
     h += '<div class="bm-hero" aria-hidden="true">';
-    if (BM.urgent) h += '<div class="bm-cd"><b class="bm-cd-n">' + daysLeft() + '</b><span>days to<small>31 December 2026</small></span></div>';
+    h += '<div class="bm-cd"><b class="bm-cd-n">' + daysLeft() + '</b><span>working days to<small>31 December 2026</small></span></div>';   // every deck (owner, 27 Oct)
     var tline = today; if (tline.toLowerCase().indexOf(sys.toLowerCase()) === 0) { tline = tline.slice(sys.length).replace(/^[\s,:;\u2013\u2014-]+/, ''); tline = tline.charAt(0).toUpperCase() + tline.slice(1); }
     h += '<div class="bm-td"><span class="bm-td-l">Today</span><b>' + esc(sys) + '</b>' + (tline ? '<p>' + esc(tline) + '</p>' : '') + '</div>' +
       '<svg class="bm-wire" viewBox="0 0 24 72" width="24" height="72"><path class="bm-wire-p" d="M12 0 V67" pathLength="1"/><circle class="bm-wire-d" cx="12" cy="67" r="5"/></svg>' +
@@ -348,11 +348,11 @@
   }
   function rulesHTML() {
     var urgent = !!BM.urgent, n = daysLeft();
-    var head = urgent ? '<span class="hl"><span class="bm-hn">' + n + '</span> days</span> to 31 December 2026.' : ((BM.rules && BM.rules.h2) || 'From 31 December 2026, <span class="hl">covered taxpayers e-invoice.</span>');
+    var head = urgent ? '<span class="hl"><span class="bm-hn">' + n + '</span> working days</span> to 31 December 2026.' : ((BM.rules && BM.rules.h2) || 'From 31 December 2026, <span class="hl">covered taxpayers e-invoice.</span>');
     var td = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
     var h = hd('rules', head) +
       '<div class="bm-rl' + (urgent ? ' is-urgent' : '') + '">' +
-      '<div class="bm-leaf"' + inz(180, 'land') + '><span class="bm-leaf-t">31 December 2026</span><b class="bm-days">' + n + '</b><span class="bm-leaf-l">' + (urgent ? 'days left' : 'days to go') + '</span></div>' +
+      '<div class="bm-leaf"' + inz(180, 'land') + '><span class="bm-leaf-t">31 December 2026</span><b class="bm-days">' + n + '</b><span class="bm-leaf-l">' + 'working days left' + '</span></div>' +
       '<div class="bm-tl"' + inz(240) + '><div class="bm-tl-line"><i class="bm-tl-fill" style="--fp:' + Math.round(clamp((todayX() - 7) / 85 * 100, 0, 100)) + '%"></i></div>' +
       '<span class="bm-today" style="--x:' + todayX() + '%"><em>Today · ' + td + '</em></span>';
     NODES.forEach(function (nd) {

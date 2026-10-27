@@ -7,6 +7,7 @@
 <meta name="description" content="A discovery deck for TTI Laguna Philippines (manufacturing and import/export, on SAP Business One), built around the 31 December 2026 date: a live countdown, the compliance flow as one camera journey through Odoo, a compressed plan from this week to December, import/export notes for later, questions marked live, and the next step.">
 {{og:tti-laguna-odoo-bir}}
 <link rel="stylesheet" href="assets/birmove.css?v={{v}}">
+<link rel="stylesheet" href="assets/birpenalty.css?v={{v}}">
 <link rel="stylesheet" href="assets/tti-laguna.css?v={{v}}">
 </head>
 <body data-label="TTI Laguna Philippines · Odoo + BIR" data-home="./" data-motion="mx">
@@ -27,6 +28,12 @@
 <section class="slide" id="rules" data-kit="rules" data-title="The date, and who it covers">
   <aside class="notes"><p>The number is the whole slide, and it is live: it counts the days from today to 31 December 2026. State it calmly. RR 26-2025 sets the date: covered taxpayers issue compliant e-invoices on or before 31 December 2026. RMC 98-2026, issued 22 September 2026, sets the working rules: a Permit to Issue (PTI) before the first e-invoice, and EIS Certification within six months of the PTI. An issued e-invoice can&rsquo;t be deleted or changed: a credit note lowers an amount, a new e-invoice raises it. If the system is down, a BIR-authorised manual invoice is issued, then an e-invoice that refers to it. The system sends the required sales data to the BIR&rsquo;s EIS. Click any dot on the line for its rule; the pin shows today. Who is covered: sellers through e-commerce or internet transactions, Large Taxpayers Service, large taxpayers (RA 11976, RR 8-2024), and CAS or CBA users with invoicing software; micro taxpayers are exempt; head office and branches are covered. Click a group to mark it for the accountant to check: we do not decide which group TTI Laguna is in, their accountant or RDO confirms. General guidance, not tax advice. Source: technext.asia/bir-e-invoicing.</p></aside>
 </section>
+
+<!-- deadline and penalties (27 Oct 2026) -->
+<section class="slide" id="penalty" data-bp data-title="The deadline and the penalties">
+  <aside class="notes"><p>Two things on one slide. Left: the working days left to 31 December, Monday to Friday with Philippine holidays taken out (Proclamation No. 1006), counted live from today, plus the clock to 11:59 pm Manila time on the 31st; click an amber day to name the holiday. This is the time we actually have to set things up with them. Right: the penalties the Tax Code already has, which RR 11-2025 points e-invoicing violations to. Section 264(a): failing or refusing to issue an invoice, a fine of 1,000 to 50,000 pesos and 2 to 4 years. Section 264-A: failing to transmit sales data, 10,000 pesos a day or one-tenth of one percent of annual net income a day, whichever is higher, and permanent closure after 180 days in a year; say clearly that this applies once the BIR switches on electronic sales reporting, which is a separate step it has not started. The BIR has not published a penalty for the 31 December date itself and the Commissioner can still extend it. We are not the BIR and do not decide penalties; their accountant or RDO confirms what applies. No scare talk: the point is to start early.</p></aside>
+</section>
+
 
 <!-- 4 · pipeline: the map -->
 <section class="slide" id="pipe" data-kit="pipe-map" data-group="pipe" data-title="Your compliance flow, in one Odoo">
@@ -111,6 +118,7 @@ window.BM = {
   close: { h2: 'Let’s start now, <span class="hl">with one call.</span>', lead: 'Pick a time for a 30-minute call with an adviser. We recommend what fits, and say why.' }
 };
 </script>
+<script src="assets/birpenalty.js?v={{v}}"></script>
 <script src="assets/birmove.js?v={{v}}"></script>
 <script src="assets/tti-laguna.js?v={{v}}"></script>
 </body>
