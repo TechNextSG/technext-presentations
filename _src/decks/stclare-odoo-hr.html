@@ -4,7 +4,7 @@
 {{head}}
 <link rel="stylesheet" href="assets/motion.css?v={{v}}">
 <title>Proposal for St. Clare College · Timekeeping, attendance and payroll · TechNext</title>
-<meta name="description" content="A TechNext proposal for St. Clare College, Caloocan: timekeeping, attendance and payroll for Basic Education, Senior High and Tertiary on Odoo 20, in three detailed phases, plus a new website designed free.">
+<meta name="description" content="A TechNext proposal for St. Clare College, Caloocan: timekeeping, attendance and payroll for Basic Education, Senior High and Tertiary on Odoo 20, in three detailed phases, plus an optional new website, quoted separately.">
 {{og:stclare-odoo-hr}}
 <link rel="stylesheet" href="assets/stclare.css?v={{v}}">
 </head>
@@ -18,11 +18,11 @@
     <div class="sx-lock" data-in><img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48"><i></i><img class="sx-co" src="assets/img/clients/stclare.png?v={{v}}" alt="St. Clare Online" width="74" height="70"></div>
     <span class="kicker" data-in style="--d:120ms">a proposal for st. clare college</span>
     <h1 class="h-xl sx-h1" data-in style="--d:200ms">Every hour counted, <span class="hl">every peso right.</span></h1>
-    <p class="lead" data-in style="--d:320ms">Timekeeping, attendance and payroll for Basic Education, Senior High and Tertiary, on Odoo 20, in three phases. And a new website, designed free.</p>
+    <p class="lead" data-in style="--d:320ms">Timekeeping, attendance and payroll for Basic Education, Senior High and Tertiary, on Odoo 20, in three phases. And, if you want it, a new website on the same Odoo.</p>
     <nav class="sx-agenda" data-in style="--d:420ms" aria-label="Parts of this proposal">
       <button type="button" data-go="understand"><i>01</i>What we understand</button>
       <button type="button" data-go="phases"><i>02</i>Three phases</button>
-      <button type="button" data-go="website"><i>03</i>Free website</button>
+      <button type="button" data-go="website"><i>03</i>Website</button>
     </nav>
     <div class="cv-tags" data-in style="--d:500ms"><span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span><span class="tag">{{icon:file}}Discussion draft · October 2026</span></div>
   </div>
@@ -45,7 +45,7 @@
     <span class="sx-n sx-n--app" style="left:300px;top:575px;--k:4">{{odoo:hr_holidays:30}}<b>Time Off</b></span>
     <span class="sx-n sx-n--app" style="left:505px;top:575px;--k:5">{{odoo:hr_payroll:30}}<b>Payroll</b></span>
   </div>
-  <aside class="notes"><p>This is a discussion draft for St. Clare College. We start with what is public about the school, then the three phases (timekeeping, attendance, payroll), each in detail, then the website we design for free, and the questions we need answered. Every demo runs on sample data, labelled as such. The agenda buttons jump to each part.</p></aside>
+  <aside class="notes"><p>This is a discussion draft for St. Clare College. We start with what is public about the school, then the three phases (timekeeping, attendance, payroll), each in detail, then the optional website, and the questions we need answered. Every demo runs on sample data, labelled as such. The agenda buttons jump to each part.</p></aside>
 </section>
 
 <!-- 2 · what we understand -->
@@ -117,7 +117,7 @@
       <div class="sx-ac" data-in style="--d:300ms"><span class="sx-ac-h">{{icon:bank}}Pay</span>
         <button type="button" data-k="pay">{{odoo:hr_payroll:40}}<b>Payroll</b></button>
       </div>
-      <div class="sx-ac sx-ac--web" data-in style="--d:360ms"><span class="sx-ac-h">{{icon:globe}}Front door · designed free</span>
+      <div class="sx-ac sx-ac--web" data-in style="--d:360ms"><span class="sx-ac-h">{{icon:globe}}Front door · optional</span>
         <button type="button" data-k="web">{{odoo:website:40}}<b>Website</b></button>
       </div>
       <p class="sx-ag-db" data-in style="--d:420ms">{{icon:database}}<span>One record per teacher: <b>schedule, time-ins, leave and payslips</b> in the same place</span></p>
@@ -215,7 +215,7 @@
     </button>
   </div>
   <div class="sx-web-lane" data-in style="--d:420ms">
-    <span class="sx-wl-h">{{odoo:website:28}}<b>Alongside · free website design</b></span>
+    <span class="sx-wl-h">{{odoo:website:28}}<b>Alongside · optional website design</b></span>
     <span class="sx-wl-bar"><i style="left:0;width:30%">Sitemap and look</i><i style="left:31%;width:38%">Pages built on Odoo Website</i><i style="left:70%;width:30%">Review, then launch</i></span>
     <button type="button" class="sx-wl-go" data-go="website">See the website {{icon:arrow}}</button>
   </div>
@@ -362,12 +362,12 @@
   <aside class="notes"><p>Phase 3 is payroll, and it only starts when attendance is trusted. Odoo 20 adds a basic Philippines payroll package: Form 1601-C items for monthly BIR reporting, the yearly 2316, 1604-C and Alphalist exports, and automatic loan deductions for SSS and Pag-IBIG loans. Switch between full-time and part-time and drag the hours: full-time pay grows with approved overtime, part-time pay with hours taught. All rates and deductions here are samples; St. Clare's own rates, contributions and tax are set up from your current payroll and checked line by line in two parallel cut-offs before the first real pay run. How part-time faculty are paid (per hour, per unit or per load) is one of our questions at the back.</p></aside>
 </section>
 
-<!-- 10 · free website -->
-<section class="slide" id="website" data-title="A new stclareonline.com, designed free">
+<!-- 10 · website (optional, quoted) -->
+<section class="slide" id="website" data-title="A new stclareonline.com, on the same Odoo">
   <div class="sec-head sec-head--row">
     <div>
       <span class="kicker" data-in>and one more thing</span>
-      <h2 class="h-m" data-in style="--d:80ms">A new stclareonline.com, <span class="hl">designed free.</span></h2>
+      <h2 class="h-m" data-in style="--d:80ms">A new stclareonline.com, <span class="hl">on the same Odoo.</span></h2>
     </div>
     <div class="seg sx-ws-seg" data-in style="--d:160ms" role="group" aria-label="Menu"><button type="button" data-v="now" aria-pressed="false">{{icon:menu}}Today's menu</button><button type="button" data-v="new" aria-pressed="true">{{icon:layout}}A proposed sitemap</button></div>
   </div>
@@ -392,10 +392,10 @@
         <li>{{odoo:website:24}}<span><b>On Odoo Website</b>, in the same database</span></li>
         <li>{{icon:pen}}<span><b>Your team edits it</b>, drag and drop</span></li>
       </ul>
-      <p class="sx-ws-free">{{icon:sparkle}}<span>Our design work is <b>free</b> with this project. The site runs on your Odoo subscription.</span></p>
+      <p class="sx-ws-free">{{icon:sparkle}}<span>Website design is <b>optional</b> and quoted in writing on its own. The site runs on your Odoo subscription.</span></p>
     </div>
   </div>
-  <aside class="notes"><p>The website is our gift with the project: we design and build the new stclareonline.com at no charge for our work. It runs on Odoo Website inside the same Odoo subscription, so there is no separate website platform to look after. Toggle Today's menu: twelve items, five of them acronyms a parent has to learn. The proposed sitemap is a starting point for discussion, grouped by who visits: families enrolling, students and parents, the Online Education System, faculty, and the school itself. The faculty corner is also where the old time-in forms are replaced by Odoo. Content stays St. Clare's; we redesign around it.</p></aside>
+  <aside class="notes"><p>The website is an optional add-on: if St. Clare wants it, we design and build the new stclareonline.com under its own written quotation. It runs on Odoo Website inside the same Odoo subscription, so there is no separate website platform to look after. Toggle Today's menu: twelve items, five of them acronyms a parent has to learn. The proposed sitemap is a starting point for discussion, grouped by who visits: families enrolling, students and parents, the Online Education System, faculty, and the school itself. The faculty corner is also where the old time-in forms are replaced by Odoo. Content stays St. Clare's; we redesign around it.</p></aside>
 </section>
 
 <!-- 11 · questions -->
