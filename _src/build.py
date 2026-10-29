@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "86"
+ASSET_V = "88"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -129,6 +129,9 @@ DECKS = [
         dict(slug="laguna-metts-odoo-bir", tags="odoo", title="Laguna Metts Corporation", mins=20, pdf="TechNext-Proposal-Laguna-Metts-Odoo-BIR.pdf",
              alt="Laguna Metts cover: built for Thailand, set up for the BIR.",
              desc="A discovery deck for Laguna Metts Corporation (manufacturing, on an ERP from Thailand): the BIR rules with a live day counter, the compliance flow as one camera journey through Odoo, a localisation fit table to confirm together, Odoo apps for manufacturing later, questions marked live, and the next step."),
+        dict(slug="laguna-metts-proposal", tags="odoo ai", title="Laguna Metts Corporation · Proposal", mins=35, pdf="TechNext-Proposal-Laguna-Metts-Odoo-AI.pdf",
+             alt="Laguna Metts proposal cover: cast for Honda, invoiced for the BIR.",
+             desc="The proposal for Laguna Metts Corporation (aluminium die-casting in the Honda-Metts group, SEPZ Laguna Technopark): the group and its sister plants, the BIR e-invoicing rules with a live day counter and the penalties, the compliance flow through Odoo with zero-rated export invoices, every part traced back to its die and lot, a phased roadmap (a BIR bridge first, then the plant), AI that removes keying, how the investment is built, a mutual action plan and questions marked live."),
         dict(slug="tti-laguna-odoo-bir", tags="odoo", title="TTI Laguna Philippines", mins=20, pdf="TechNext-Proposal-TTI-Laguna-Odoo-BIR.pdf",
              alt="TTI Laguna cover: 31 December is close, let us start now.",
              desc="A discovery deck for TTI Laguna Philippines (manufacturing and import/export, on SAP Business One), built around the 31 December 2026 date: a live countdown, the compliance flow as one camera journey through Odoo, a compressed plan from this week to December, import/export notes for later, questions marked live, and the next step."),

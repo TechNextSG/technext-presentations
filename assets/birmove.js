@@ -28,7 +28,8 @@
      client: {
        name: 'T&S Global Services',               // used in kickers, copy text, nameplate
        short: 'T&S',                              // optional, used in the understand headline
-       logo: 'assets/img/clients/mol-enterprise.svg?v=..',   // MOL only. Others: omit, a type nameplate (Plus Jakarta 800 on a white tile) is drawn
+       logo: 'assets/img/clients/mol-enterprise.svg?v=..',   // MOL, Laguna Metts. Others: omit, a type nameplate (Plus Jakarta 800 on a white tile) is drawn
+       lockup: 'assets/img/clients/laguna-metts.png?v=..',   // optional: the stacked official lock-up for cover + close (logo is then the mark crop for the chrome); lockupH, logoChromeH
        accent: '#4F6D8A',                         // the ONE client accent: track tail, fields (22% tint), highlights
        industry, system, need                     // free text, available to your own slide 8
      },
@@ -186,9 +187,12 @@
   $$('[data-kit]').forEach(function (s) { S[s.getAttribute('data-kit')] = s; });
   function put(s, html) { var f = $('.s-foot', s); if (f) f.insertAdjacentHTML('beforebegin', html); else s.insertAdjacentHTML('beforeend', html); }
   function go(kind) { if (S[kind]) Deck.goId(S[kind].id); }
+  // C.lockup (optional, Laguna Metts): the official stacked lock-up for the cover and close (height C.lockupH, default 132) on a white tile;
+  // C.logo is then the mark-only crop used in the chrome (C.logoChromeH, default 24)
   function plate(sm) {
-    var h = sm === 'chrome' ? 24 : sm ? 40 : 52;
-    return '<span class="bm-plate' + (sm === 'chrome' ? ' bm-plate--chrome' : sm ? ' bm-plate--sm' : '') + '">' + (C.logo ? '<img src="' + esc(C.logo) + '" alt="' + esc(C.name) + '" height="' + h + '" style="height:' + h + 'px;width:auto">' : '<b>' + esc(C.plate || C.name) + '</b>') + '</span>';
+    var lk = C.lockup && sm !== 'chrome', src = lk ? C.lockup : C.logo;
+    var h = lk ? (sm ? Math.round((C.lockupH || 132) * .8) : (C.lockupH || 132)) : sm === 'chrome' ? (C.logoChromeH || 24) : sm ? 40 : 52;
+    return '<span class="bm-plate' + (sm === 'chrome' ? ' bm-plate--chrome' : sm ? ' bm-plate--sm' : '') + (lk ? ' bm-plate--lockup' : '') + '">' + (src ? '<img src="' + esc(src) + '" alt="' + esc(C.name) + '" height="' + h + '" style="height:' + h + 'px;width:auto">' : '<b>' + esc(C.plate || C.name) + '</b>') + '</span>';
   }
   function lockup(sm) {
     return '<img class="cv-logo' + (sm ? ' cv-logo--sm' : '') + '" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="' + (sm ? 190 : 240) + '" height="' + (sm ? 38 : 48) + '"><i></i>' + plate(sm);

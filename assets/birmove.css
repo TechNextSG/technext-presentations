@@ -42,6 +42,8 @@
 .bm-plate--chrome b{font-size:16px;letter-spacing:-.005em}
 .dark .bm-plate--chrome{box-shadow:none}
 .bm-plate--sm b{font-size:20px}
+.bm-plate--lockup{padding:14px 20px;border-radius:18px}
+.bm-plate--chrome:has(img){height:40px;padding:0 10px}
 .bm-lock{display:flex;align-items:center;gap:26px;margin-bottom:36px}
 .bm-lock .cv-logo{margin:0}
 .bm-lock > i{width:1.5px;height:58px;background:rgba(255,255,255,.35)}
