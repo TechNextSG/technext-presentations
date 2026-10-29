@@ -31,7 +31,7 @@ ASSET_V = "90"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
-    "meet": "https://technext.odoo.com/appointment/discovery-call-with-technext-2?invite_token=914012541b1242c1ae832faa66a6efdc&filter_appointment_type_ids=%5B2%5D&",
+    "meet": "https://technext.odoo.com/book/c82cf8a9",
     "whatsapp": "https://wa.me/6588396998",
     "site": "https://technext.asia/",
     "odoo": "https://technext.asia/solutions/odoo-erp",
