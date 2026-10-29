@@ -60,7 +60,7 @@
     att: ['Time', 'Attendances', 'Time-ins stamped by the system: a kiosk at the gate with badge or PIN, or check-in inside Odoo for online classes. Grace periods and overtime rules count lates and extra hours.', 'Phase 2 · attendance'],
     off: ['Time', 'Time Off', 'Leave as a request with a balance. The division head approves, the balance updates itself, and public holidays come from one calendar.', 'Phase 1 · timekeeping'],
     pay: ['Pay', 'Payroll', 'Odoo 20’s Philippine payroll package: payslips from approved time, SSS and Pag-IBIG loan deductions, and BIR 1601-C, 2316, 1604-C and Alphalist from the same payslips.', 'Phase 3 · payroll'],
-    web: ['Front door', 'Website', 'A new stclareonline.com on Odoo Website, in the same database. We design and build it free with this project; your team edits it by drag and drop.', 'Alongside all three phases']
+    web: ['Front door', 'Website', 'A new stclareonline.com on Odoo Website, in the same database. Website design is optional and scoped in a written quotation; your team edits it by drag and drop.', 'Alongside all three phases']
   };
   Deck.on('apps', {
     init: function (s) {

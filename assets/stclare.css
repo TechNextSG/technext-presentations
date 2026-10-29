@@ -1,4 +1,4 @@
-/* Proposal for St. Clare College: timekeeping, attendance and payroll on Odoo 20, plus a free website. Prefix sx-.
+/* Proposal for St. Clare College: timekeeping, attendance and payroll on Odoo 20, plus an optional website (quoted). Prefix sx-.
    Sample data throughout, labelled on each slide. */
 
 :root{--sx-red:#C80000;--sx-red-050:#FCEBEB}
@@ -265,7 +265,7 @@
 .sx-bir span{font:700 12.5px/1 var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:4px}
 .sx-bir i{font:700 13.5px/1 var(--f-display);font-style:normal;padding:7px 11px;border-radius:8px;background:var(--odoo-050);color:var(--odoo)}
 
-/* ---------------------------------------------------------------- 10 · free website */
+/* ---------------------------------------------------------------- 10 · website (optional, quoted) */
 .sx-ws{display:grid;grid-template-columns:250px minmax(0,1fr) 380px;gap:24px;align-items:stretch;height:500px}
 .sx-ws-h{margin:0 0 12px;font:700 13px/1 var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
 .sx-ws-now{padding:18px 18px;border-radius:var(--r-lg);background:var(--alt);border:1px solid var(--line);transition:opacity .45s}
