@@ -893,7 +893,7 @@
     return '<div class="split split--narrow"><div><div class="bm-lock bm-lock--sm"' + inz(0) + '>' + lockup(true) + '</div>' +
       '<span class="kicker"' + inz(80) + '>' + esc(KK.close) + '</span><h2 class="h-xl ct-h bm-ch"' + inz(140) + '>' + CL.h2 + '</h2>' +
       '<p class="lead"' + inz(220) + '>' + esc(CL.lead || '') + '</p>' +
-      '<div class="ct-actions"' + inz(320) + '><a class="btn btn-light" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener">' + ico('calendar') + 'Book a 30-minute call</a><a class="btn btn-ghost" href="mailto:sales@technext.asia">' + ico('mail') + 'sales@technext.asia</a></div>' +
+      '<div class="ct-actions"' + inz(320) + '><a class="btn btn-light" href="https://technext.odoo.com/appointment/discovery-call-with-technext-2?invite_token=914012541b1242c1ae832faa66a6efdc&filter_appointment_type_ids=%5B2%5D&" target="_blank" rel="noopener">' + ico('calendar') + 'Book a 30-minute call</a><a class="btn btn-ghost" href="mailto:sales@technext.asia">' + ico('mail') + 'sales@technext.asia</a></div>' +
       '<div class="ct-links"' + inz(400) + '><a href="https://technext.asia/bir-e-invoicing" target="_blank" rel="noopener">' + ico('globe') + 'technext.asia/bir-e-invoicing</a></div></div>' +
       '<div class="ct-qr"' + inz(300, 'land') + '><div class="ct-qr-card">' + qr() + '<b>Scan to book the call</b><small>A 30-minute call with an adviser, online</small></div></div></div>';
   }
