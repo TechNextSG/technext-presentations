@@ -222,3 +222,6 @@ body[data-shared] .lp-ct-hint{display:none}
 .lp-doc--so .lp-r.is-fill .lp-gh{display:none}
 @media (prefers-reduced-motion:reduce){.lp-sp .pt,.lp-dot,.lp-rd,.lp-st{transition:none!important}}
 .deck.is-tv .lp-sp .pt,.deck.is-tv .lp-dot,.deck.is-tv .lp-rd,.deck.is-tv .lp-st{transition:none!important}
+
+/* short deck: six questions in two columns of three */
+#questions .bm-qs{grid-template-rows:repeat(3,auto)}

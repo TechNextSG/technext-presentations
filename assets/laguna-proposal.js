@@ -21,7 +21,7 @@
   /* ================================================================ 1 · cover */
   (function () {
     var s = sec('cover'); if (!s) return;
-    var AG = [['group', '01', 'Your group'], ['rules', '02', 'The rules'], ['pipe', '03', 'Your pipeline'], ['road', '04', 'The roadmap'], ['close', '05', 'Next steps']];
+    var AG = [['penalty', '01', 'Why now'], ['pipe', '02', 'Your flow in Odoo'], ['road', '03', 'The roadmap'], ['close', '04', 'Next step']];
     var h = '<div class="cv-copy bm-cv lp-cv">' +
       '<div class="bm-lock"' + inz(0) + '><img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48"></div>' +
       K.kick('a proposal for our first meeting', 120) +

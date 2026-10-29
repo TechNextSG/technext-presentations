@@ -10,9 +10,9 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/fonts.css?v=88">
-<link rel="stylesheet" href="assets/deck.css?v=88">
-<link rel="stylesheet" href="assets/motion.css?v=88">
+<link rel="stylesheet" href="assets/fonts.css?v=89">
+<link rel="stylesheet" href="assets/deck.css?v=89">
+<link rel="stylesheet" href="assets/motion.css?v=89">
 <title>Laguna Metts Corporation · Odoo, AI and growth proposal · TechNext</title>
 <meta name="description" content="A proposal for Laguna Metts Corporation: the Honda-Metts group and its sister plants, the BIR e-invoicing rules with a live day counter, the compliance flow through Odoo with zero-rated export invoices, every part traced to its die and lot, a phased roadmap, AI that removes keying, how the investment is built, a mutual action plan and questions marked live.">
 <meta property="og:type" content="website">
@@ -20,13 +20,13 @@
 <meta property="og:title" content="Laguna Metts Corporation · Odoo, AI and growth proposal · TechNext">
 <meta property="og:description" content="A proposal for Laguna Metts Corporation: the Honda-Metts group and its sister plants, the BIR e-invoicing rules with a live day counter, the compliance flow through Odoo with zero-rated export invoices, every part traced to its die and lot, a phased roadmap, AI that removes keying, how the investment is built, a mutual action plan and questions marked live.">
 <meta property="og:url" content="https://technextsg.github.io/technext-presentations/laguna-metts-proposal.html">
-<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/laguna-metts-proposal-og.jpg?v=88">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/laguna-metts-proposal-og.jpg?v=89">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/birmove.css?v=88">
-<link rel="stylesheet" href="assets/birpenalty.css?v=88">
-<link rel="stylesheet" href="assets/laguna-proposal.css?v=88">
+<link rel="stylesheet" href="assets/birmove.css?v=89">
+<link rel="stylesheet" href="assets/birpenalty.css?v=89">
+<link rel="stylesheet" href="assets/laguna-proposal.css?v=89">
 </head>
 <body data-label="Laguna Metts Corporation · Proposal" data-home="./" data-motion="mx">
 <!-- birmove kit: icon + QR templates read by assets/birmove.js (BMK.ico, BMK.qr). Include once per deck with the include token -->
@@ -69,94 +69,54 @@
 
 <!-- 1 · cover (own: laguna-proposal.js) -->
 <section class="slide dark cover" id="cover" data-chrome="none" data-title="Cast for Honda, invoiced for the BIR">
-  <aside class="notes"><p>Welcome Laguna Metts Corporation. This is a proposal built from public sources and our first notes, before a full discovery: every pain point in it is a guess for you to correct. The big card on the right is your official logo beside ours. The counter shows the working days left to 31 December 2026, the e-invoicing date for covered taxpayers. Five parts: your group, the rules, your pipeline in Odoo, the roadmap, next steps; use the buttons to jump. We advise first, then deliver the whole solution.</p></aside>
+  <aside class="notes"><p>Welcome Laguna Metts Corporation. This is a proposal built from public sources and our first notes, before a full discovery: every pain point in it is a guess for you to correct. The big card on the right is your official logo beside ours. The counter shows the working days left to 31 December 2026, the e-invoicing date for covered taxpayers. Eight slides, four parts: why now, your flow in Odoo, the roadmap, the next step; use the buttons to jump. Laguna Metts was set up in Bi&ntilde;an, Laguna in December 1995 and belongs to the Metts group (Kawagoe, Japan; main shareholder Honda Foundry), per metts.co.jp. We advise first, then deliver the whole solution.</p></aside>
 </section>
 
-<!-- 2 · the group (own) -->
-<section class="slide" id="group" data-title="Inside the Honda–Metts group">
-  <aside class="notes"><p>What we know comes from Metts Corporation&rsquo;s own pages (metts.co.jp, checked 27 October 2026): Laguna Metts was set up in Bi&ntilde;an, Laguna in December 1995; Metts is based in Kawagoe, Saitama, founded 1953, with Honda Foundry (Honda Kinzoku Gijutsu) as its main shareholder; the overseas sites are Laguna Metts, Madison Precision Products in Indiana, Metalfino da Amazonia in Brazil and Tesco Componentes in Portugal. Click a plant: each one says what it means for the system (export invoices, currencies, group reports). How much of your business goes to each is for you to tell us. Do not present Metts&rsquo; board as Laguna Metts&rsquo; management.</p></aside>
-</section>
-
-<!-- 3 · what we understand (kit) -->
-<section class="slide" id="heard" data-kit="understand" data-title="What we understand">
-  <aside class="notes"><p>Say it back in three lines: an aluminium die-caster for Honda parts, on a system we understood to come from Thailand, needing invoices and books set up for BIR requirements. The three cards are guesses, not findings: ask which are true and click True or Not us (click again to clear). &ldquo;Not us&rdquo; is a good answer, it tells us where to look. The marks stay while this tab is open.</p></aside>
-</section>
-
-<!-- 4 · the rules (kit) -->
-<section class="slide" id="rules" data-kit="rules" data-title="The rules, and who they cover">
-  <aside class="notes"><p>The rules in plain words. RR 26-2025 sets the date: covered taxpayers issue compliant e-invoices on or before 31 December 2026. RMC 98-2026, issued 22 September 2026, sets the working rules: a Permit to Issue (PTI) before the first e-invoice, and EIS Certification within six months of the PTI. An issued e-invoice can&rsquo;t be deleted or changed. Who is covered: e-commerce sellers, Large Taxpayers Service, large taxpayers, and CAS or CBA users with invoicing software; micro taxpayers are exempt. For a PEZA enterprise like Laguna Metts the group is the open question: published guidance puts PEZA registrants in a later group unless they are Large Taxpayers or CAS users, and zero-rated export invoices are still in scope. Click a group to mark it for the accountant to check: their accountant or RDO confirms which applies, not us. General guidance, not tax advice. Source: technext.asia/bir-e-invoicing.</p></aside>
-</section>
-
-<!-- 5 · deadline and penalties -->
+<!-- 2 · deadline and penalties -->
 <section class="slide" id="penalty" data-bp data-title="The deadline and the penalties">
-  <aside class="notes"><p>Left: the working days left to 31 December, Monday to Friday with Philippine holidays taken out, counted live from today; click an amber day to name the holiday. Right: the penalties the Tax Code already has, which RR 11-2025 points e-invoicing violations to. Section 264(a): failing or refusing to issue an invoice, a fine of 1,000 to 50,000 pesos and 2 to 4 years. Section 264-A: failing to transmit sales data, applies once the BIR switches on electronic sales reporting, a separate step it has not started. The BIR has not published a penalty for the 31 December date itself. We are not the BIR and do not decide penalties; their accountant or RDO confirms what applies. The point is to start early, not to scare.</p></aside>
+  <aside class="notes"><p>Left: the working days left to 31 December, Monday to Friday with Philippine holidays taken out, counted live from today; click an amber day to name the holiday. Right: the penalties the Tax Code already has, which RR 11-2025 points e-invoicing violations to. Section 264(a): failing or refusing to issue an invoice, a fine of 1,000 to 50,000 pesos and 2 to 4 years. Section 264-A: failing to transmit sales data, applies once the BIR switches on electronic sales reporting, a separate step it has not started. The BIR has not published a penalty for the 31 December date itself. We are not the BIR and do not decide penalties; their accountant or RDO confirms what applies. The rules behind the date: RR 26-2025 (compliant e-invoices on or before 31 December 2026 for covered taxpayers) and RMC 98-2026 (a Permit to Issue before the first e-invoice). For a PEZA enterprise the group is the open question, and zero-rated export invoices are still in scope; their accountant or RDO confirms. The point is to start early, not to scare.</p></aside>
 </section>
 
-<!-- 6 · pipeline: the map (kit) -->
+<!-- 3 · pipeline: the map (kit) -->
 <section class="slide" id="pipe" data-kit="pipe-map" data-group="pipe" data-title="Your compliance flow, in one Odoo">
-  <aside class="notes"><p>The whole compliance flow as one pipeline, six stations: Order, Invoice, EIS, Books, BIR forms, Audit trail. Click any station and the camera flies there; click again, Back or Esc to return. The dashed amber station is the BIR&rsquo;s EIS: Odoo has no built-in connection to it and TechNext has not built one, so we assess it with you and quote it separately. Everything lit is part of the Odoo set-up. Press &rarr; to start at the invoice.</p></aside>
+  <aside class="notes"><p>The whole compliance flow as one pipeline, six stations: Order, Invoice, EIS, Books, BIR forms, Audit trail. Click any station and the camera flies there; click again, Back or Esc to return. The dashed amber station is the BIR&rsquo;s EIS: Odoo has no built-in connection to it and TechNext has not built one, so we assess it with you and quote it separately. Everything lit is part of the Odoo set-up: invoices issued once and corrected only by credit note, books for CAS or CBA, and the 2307, SLSP, SAWT, QAP and 2550Q outputs for your accountant to review.</p></aside>
 </section>
 
-<!-- 7 · pipeline: order to invoice (kit) -->
-<section class="slide" id="invoice" data-kit="pipe-invoice" data-group="pipe" data-steps="2" data-title="One invoice, issued once">
-  <aside class="notes"><p>A sample order, the kind a die-caster in the group might invoice: two zero-rated export lines to a sister plant and one local line with 12% VAT. Zero-rated does not mean out of scope: export invoices are still e-invoices, and an invoice in dollars or yen is reported in pesos at the BSP rate of the day (published guidance; their accountant confirms). Step 1: confirm, the invoice takes the next number and locks. Step 2: a return; the posted invoice is not touched, a credit note lowers it. Every name, number and price is a sample.</p></aside>
-</section>
-
-<!-- 8 · pipeline: EIS and the books (kit) -->
-<section class="slide" id="books" data-kit="pipe-books" data-group="pipe" data-title="The EIS we assess, the books we set up">
-  <aside class="notes"><p>First the EIS, dashed and amber on purpose: the BIR&rsquo;s e-invoicing system takes the required sales data, Odoo has no built-in connection to it, and TechNext has not built one; we assess the options with you and quote any connection separately. No software is BIR-accredited, and TechNext is an Odoo Ready Partner, not affiliated with or acting for the BIR. Then the books: every posted entry lands in Odoo&rsquo;s Book of Accounts for CAS and CBA. The business registers its own CAS or CBA at its RDO; we prepare the documentation pack with you and you sign and file it.</p></aside>
-</section>
-
-<!-- 9 · pipeline: BIR forms and the audit trail (kit) -->
-<section class="slide" id="forms" data-kit="pipe-forms" data-group="pipe" data-title="BIR forms and the audit trail">
-  <aside class="notes"><p>From the same books, Odoo 20&rsquo;s Philippine localisation produces the 2307 certificates on supplier bills, SLSP, SAWT and QAP with DAT exports, and the 2550Q VAT summary. Click a form for one line on what it is. These are outputs for your accountant to review; nothing is filed from here. Then the audit trail: who posted, changed or exported what, and when. The lines are sample.</p></aside>
-</section>
-
-<!-- 10 · traceability (own) -->
+<!-- 4 · traceability (own) -->
 <section class="slide" id="trace" data-title="Every part back to its die and lot">
   <aside class="notes"><p>Our guess, to confirm: lot, die and shot data live on paper or in spreadsheets today, and a customer audit means a search. Click Scan the label (or press &rarr;) and follow one sample part back: the delivery, its lot, the work order on a die-cast cell, the die with its shot count against its maintenance limit, and the quality checks. In Odoo that is Inventory with lots, Barcode, Manufacturing, Quality and Maintenance, where a die is the plant&rsquo;s own equipment. Every name and number is a sample. We do not replace Honda&rsquo;s supplier portals and we do not add machine-level MES.</p></aside>
 </section>
 
-<!-- 11 · roadmap (own) -->
+<!-- 5 · roadmap (own) -->
 <section class="slide" id="road" data-title="Compliance first, the plant next">
   <aside class="notes"><p>The order of work. A full Phase 1 cannot land before 31 December, so if Laguna Metts is in the first group we start with a short bridge: Odoo Invoicing for sales invoices, the EIS connection assessed with you, and the PTI filed by you with our help; the BIR&rsquo;s own processing time is outside our control. Then Phase 1 (accounting in several currencies, sales, inventory by lot, quality, barcode), Phase 2 (manufacturing on the die-cast cells, die maintenance by shot count, reports for Metts and PEZA), Phase 3 (AI pilots and a small B2B presence). Click a phase for its apps. Every duration is our estimate and is fixed in the quotation after discovery; nothing here is a promise of a date.</p></aside>
 </section>
 
-<!-- 12 · AI (own) -->
+<!-- 6 · AI (own) -->
 <section class="slide" id="ai" data-title="AI that removes keying">
   <aside class="notes"><p>AI here is not a chatbot. Three narrow pilots, each running on Odoo data after Phases 1 and 2: reading purchase orders and forecasts (PDF or Excel, English or Japanese) into draft sales orders that a person approves; alerts when scrap rates, die shot counts or inspection results drift off trend; and summaries of quality checks for the weekly meeting and customer 8D reports. Click Read the PO to play the first one on a sample. The value depends on the real PO formats you receive, so we test with a few real files first. Each pilot is about six to eight weeks, our estimate.</p></aside>
 </section>
 
-<!-- 13 · how the investment is built (own) -->
-<section class="slide" id="cost" data-title="How the investment is built">
-  <aside class="notes"><p>How the quotation will be built, line by line, before any figure. Use the switch to show what is one-off in year one and what recurs from year two. Odoo Enterprise licences are Odoo&rsquo;s own price, per user per month, paid to Odoo; the user count is set after discovery. The EIS connection is quoted separately because it depends on whether an accredited provider is needed. Not included: VAT, any accredited EIS provider&rsquo;s fees, on-site servers, barcode hardware and travel. The figures come in the quotation after the discovery workshop. Nothing in Odoo is free: our advice is.</p></aside>
-</section>
-
-<!-- 14 · mutual action plan (own) -->
-<section class="slide" id="plan" data-title="The next six weeks, together">
-  <aside class="notes"><p>A mutual plan: five steps, who owns each and when it is done. Week 1, a first meeting to answer the questions at the back. Week 2, a two-hour discovery on accounting, invoicing, inventory and quality, ending in a signed map of how things run today. Week 3, an Odoo demo on your cases: a zero-rated export invoice, dollars and yen, lots. Week 4, an approval brief in English that you can forward to Metts in Japan. Weeks 5 to 6, Phase 1 signed and, if you are in the first group, the PTI filed. Click a step to mark it done; the marks stay while this tab is open.</p></aside>
-</section>
-
-<!-- 15 · questions (kit) -->
+<!-- 7 · questions (kit) -->
 <section class="slide" id="questions" data-kit="questions" data-title="Questions for the meeting">
-  <aside class="notes"><p>Ask these and mark them as you go: one click for answered, two for follow up, three to clear. Copy follow-ups puts the open ones on the clipboard for the minutes. Questions 1 and 3 set the urgency (the group and the PTI); question 2 sets the scope of the move; question 4 sets who we write the approval brief for.</p></aside>
+  <aside class="notes"><p>Ask these and mark them as you go: one click for answered, two for follow up, three to clear. Copy follow-ups puts the open ones on the clipboard for the minutes. Questions 1 and 3 set the urgency (the group and the PTI); question 2 sets the scope of the move; question 4 sets who approves; question 5 sets the traceability scope; question 6 sets the first AI pilot.</p></aside>
 </section>
 
-<!-- 16 · next step (kit) -->
+<!-- 8 · next step (kit) -->
 <section class="slide dark" id="close" data-kit="close" data-chrome="foot" data-title="Next step">
-  <aside class="notes"><p>Thank them. The next step is a 30-minute call with an adviser to book the discovery workshop: we recommend what fits, and say why. The booking link and QR are for that call; sales@technext.asia for anything in between. technext.asia/bir-e-invoicing has the rules and the sources in writing.</p></aside>
+  <aside class="notes"><p>Thank them. The next step is a 30-minute call with an adviser to book the discovery workshop, then a two-hour discovery, a demo on their own cases (a zero-rated export invoice, dollars and yen, lots) and the quotation with figures: we recommend what fits, and say why. The booking link and QR are for that call; sales@technext.asia for anything in between. technext.asia/bir-e-invoicing has the rules and the sources in writing.</p></aside>
 </section>
 
 </div></main>
-<script src="assets/deck.js?v=88"></script>
-<script src="assets/motion.js?v=88"></script>
-<script src="assets/vendor/motion-11.11.17.js?v=88"></script>
+<script src="assets/deck.js?v=89"></script>
+<script src="assets/motion.js?v=89"></script>
+<script src="assets/vendor/motion-11.11.17.js?v=89"></script>
 <script>
 window.BM = {
   slug: 'laguna-metts-proposal',
   urgent: false,
   client: { name: 'Laguna Metts Corporation', short: 'Laguna Metts', accent: '#1B2398',
-    logo: 'assets/img/clients/laguna-metts-mark.png?v=88', lockup: 'assets/img/clients/laguna-metts.png?v=88', logoChromeH: 32, lockupH: 132,
+    logo: 'assets/img/clients/laguna-metts-mark.png?v=89', lockup: 'assets/img/clients/laguna-metts.png?v=89', logoChromeH: 32, lockupH: 132,
     industry: 'Aluminium die-casting', system: 'An ERP from Thailand', need: 'Invoices and books set up for BIR requirements' },
   kickers: { questions: 'for our meeting' },
   understand: {
@@ -165,21 +125,19 @@ window.BM = {
     illus: 'From public sources and our notes · guesses to confirm with you'
   },
   invoice: { orderLabel: 'Sales order', buyer: 'Sample sister plant (export)', lines: [['Die-cast transmission case', 200, 1450, 'zero'], ['Die-cast cylinder head cover', 300, 620, 'zero'], ['Motorcycle crankcase cover (local)', 150, 380]] },
-  questions: { items: [
+  questions: { h2: 'Six questions <span class="hl">we need answered.</span>', items: [
     'Does Laguna Metts hold a CAS permit, or sit under the Large Taxpayers Service?',
     'Which accounting or ERP system runs today, and is it set by Metts?',
     'Has the Permit to Issue (PTI) application started?',
     'Who approves the IT budget: Laguna Metts, or Metts in Japan?',
     'How are die, shot and lot data recorded today: paper, Excel or a system?',
-    'How do Honda and the sister plants send POs and forecasts: portal, PDF or EDI?',
-    'How do sales split between local Honda supply and exports?',
-    'May Laguna Metts take customers outside the group?'
+    'How do Honda and the sister plants send POs and forecasts: portal, PDF or EDI?'
   ] },
   close: { h2: 'Let’s confirm the scope, <span class="hl">together.</span>', lead: 'Pick a time for a 30-minute call with an adviser to book the discovery workshop. We recommend what fits, and say why.' }
 };
 </script>
-<script src="assets/birpenalty.js?v=88"></script>
-<script src="assets/birmove.js?v=88"></script>
-<script src="assets/laguna-proposal.js?v=88"></script>
+<script src="assets/birpenalty.js?v=89"></script>
+<script src="assets/birmove.js?v=89"></script>
+<script src="assets/laguna-proposal.js?v=89"></script>
 </body>
 </html>
