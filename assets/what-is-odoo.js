@@ -197,9 +197,6 @@
     leave: function (s) { $('.od-pulses', s).innerHTML = ''; }
   });
 
-  /* ---------------------------------------------------------------- 6 · walkthrough intro: jump to a step */
-  Deck.on('walk', { init: function (s) { s.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) Deck.goId(b.dataset.go); }); } });
-
   /* ---------------------------------------------------------------- 7-12 · the walkthrough */
   var WT = ['CRM', 'Sales', 'Inventory', 'Invoicing', 'Accounting', 'Reporting'];
   function wtBar(s) {
@@ -391,41 +388,6 @@
       $$('.db-bars i', s).forEach(function (b) { b.style.setProperty('--g', 1); });
       $$('.tr span', s).forEach(function (x) { x.classList.add('is-on'); });
       $('[data-kpi=sales]', s).textContent = 'S$84,300'; $('[data-kpi=cash]', s).textContent = 'S$61,421.60';
-    }
-  });
-
-  /* ---------------------------------------------------------------- 13 · editions */
-  Deck.on('editions', {
-    enter: function (ctx, s) {
-      var ed = $('.ed', s), btns = $$('.ed-seg button', s);
-      function set(d) { ed.classList.toggle('is-diff', d); btns.forEach(function (b) { b.setAttribute('aria-pressed', (b.dataset.ed === 'diff') === d ? 'true' : 'false'); }); }
-      set(false);
-      ctx.on($('.ed-seg', s), 'click', function (e) { var b = e.target.closest('button'); if (b) set(b.dataset.ed === 'diff'); });
-    }
-  });
-
-  /* ---------------------------------------------------------------- 14 · hosting: two answers pick the column */
-  var REC = {
-    online: ['Start on Odoo Online', 'Standard apps and configuration cover most first phases, and it is the simplest and cheapest to run.'],
-    sh: ['Choose Odoo.sh', 'As soon as a requirement needs custom code: a bespoke integration, a module Odoo does not have, or logic Studio cannot express.'],
-    prem: ['Go on-premise', 'Only for a concrete reason, such as a regulator, a group IT policy or existing infrastructure. It moves the whole operations burden to you.']
-  };
-  function hoPaint(s, q, ctx) {
-    var c = q.own ? 'prem' : q.code ? 'sh' : 'online', rec = $('.ho-rec', s);
-    $$('.ho-qq button', s).forEach(function (b) { b.setAttribute('aria-pressed', +b.dataset.v === q[b.dataset.q] ? 'true' : 'false'); });
-    $$('.ho-tbl [data-c]', s).forEach(function (x) { x.classList.toggle('is-rec', x.dataset.c === c); });
-    if (rec._c === c) return; rec._c = c;
-    if (!ctx) { $('[data-ho-rec]', s).textContent = REC[c][0]; $('[data-ho-why]', s).textContent = REC[c][1]; return; }
-    rec.classList.add('is-swap');
-    ctx.after(230, function () { $('[data-ho-rec]', s).textContent = REC[c][0]; $('[data-ho-why]', s).textContent = REC[c][1]; rec.classList.remove('is-swap'); });
-  }
-  Deck.on('hosting', {
-    init: function (s) { hoPaint(s, { code: 0, own: 0 }); },
-    enter: function (ctx, s) {
-      var q = { code: 0, own: 0 }, auto = true, demo = [{ code: 0, own: 0 }, { code: 1, own: 0 }, { code: 1, own: 1 }], k = 0;
-      hoPaint(s, q, ctx);
-      ctx.every(3800, function () { if (!auto) return; k = (k + 1) % demo.length; q = { code: demo[k].code, own: demo[k].own }; hoPaint(s, q, ctx); });
-      ctx.on($('.ho-q', s), 'click', function (e) { var b = e.target.closest('button[data-q]'); if (!b) return; auto = false; q[b.dataset.q] = +b.dataset.v; hoPaint(s, q, ctx); });
     }
   });
 

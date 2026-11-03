@@ -11,7 +11,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Portfolio: clients and what we built | `portfolio.html` | 10 |
 | Service showcase | `service-showcase.html` | 15 |
 | Marketing showcase: live sites, concepts, pitch microsites | `marketing-showcase.html` | 15 |
-| What is Odoo (what's new in Odoo 20, then a lead-to-cash walkthrough) | `what-is-odoo.html` | 17 |
+| What is Odoo (what's new in Odoo 20, then a lead-to-cash walkthrough) | `what-is-odoo.html` | 13 |
 | Odoo Accounting: one live session (Odoo app series) | `odoo-accounting.html` | 13 |
 | Odoo Sales: one live session (Odoo app series) | `odoo-sales.html` | 13 |
 | Odoo CRM: one live session (Odoo app series) | `odoo-crm.html` | 13 |
