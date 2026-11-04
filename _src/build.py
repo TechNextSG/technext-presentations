@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "93"
+ASSET_V = "94"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -80,6 +80,9 @@ DECKS = [
         dict(slug="marketing-showcase", tags="websites marketing", title="Marketing showcase", mins=10, pdf="TechNext-Marketing-Showcase.pdf",
              alt="Marketing showcase cover: websites TechNext has built.",
              desc="Every live website we have built, and the concepts we have mocked up, with each full page scrolling in a browser and on a phone."),
+        dict(slug="bir-cas-process", tags="odoo", title="BIR CAS registration", mins=15, pdf="TechNext-BIR-CAS-Registration-Process.pdf",
+             alt="BIR CAS registration cover: register first, go live second.",
+             desc="BIR CAS registration and compliance in nine slides: register the system first and go live second, what an unregistered system costs (the penalty table and how repeat offences escalate), the process on two desks (yours and the BIR's), the pack to prepare before you file in ORUS, what continues every year, the TechNext Odoo Accounting + CAS package (5 implementation days, 2 users), the investment with the Momentum offer, and the next steps."),
     ]),
     ("Odoo", [
         dict(slug="what-is-odoo", tags="odoo", title="What is Odoo?", mins=8, pdf="What-Is-Odoo.pdf",

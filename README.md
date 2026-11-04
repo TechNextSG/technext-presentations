@@ -12,6 +12,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Service showcase | `service-showcase.html` | 15 |
 | Marketing showcase: live sites, concepts, pitch microsites | `marketing-showcase.html` | 15 |
 | What is Odoo (the short version: the apps, one order from lead to cash, what's new in Odoo 20) | `what-is-odoo.html` | 8 |
+| BIR CAS registration and compliance (register first, go live second; penalties and how repeat offences escalate; the process on two lanes; the pack to prepare; what continues every year; the TechNext Odoo Accounting + CAS package in 5 days for 2 users; investment with the Momentum offer; next steps) | `bir-cas-process.html` | 9 |
 | Odoo Accounting: one live session (Odoo app series) | `odoo-accounting.html` | 13 |
 | Odoo Sales: one live session (Odoo app series) | `odoo-sales.html` | 13 |
 | Odoo CRM: one live session (Odoo app series) | `odoo-crm.html` | 13 |

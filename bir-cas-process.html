@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E4691">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=94">
+<link rel="stylesheet" href="assets/deck.css?v=94">
+<title>BIR CAS registration and compliance | TechNext</title>
+<meta name="description" content="BIR CAS registration and compliance for Philippine businesses: register the system first and go live second, what an unregistered system costs, the process on two desks, the pack to prepare before you file in ORUS, what continues every year, and the TechNext Odoo Accounting + CAS package.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechNext">
+<meta property="og:title" content="BIR CAS registration and compliance | TechNext">
+<meta property="og:description" content="BIR CAS registration and compliance for Philippine businesses: register the system first and go live second, what an unregistered system costs, the process on two desks, the pack to prepare before you file in ORUS, what continues every year, and the TechNext Odoo Accounting + CAS package.">
+<meta property="og:url" content="https://technextsg.github.io/technext-presentations/bir-cas-process.html">
+<meta property="og:image" content="https://technextsg.github.io/technext-presentations/assets/img/thumbs/bir-cas-process-og.jpg?v=94">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/motion.css?v=94">
+<link rel="stylesheet" href="assets/bir-cas-process.css?v=94">
+</head>
+<body data-label="BIR CAS registration" data-home="./" data-motion="mx">
+<main class="deck" aria-label="BIR CAS registration and compliance">
+<div class="stage">
+
+<!-- 1 · cover: the registration ends on your invoice -->
+<section class="slide dark cover" id="cover" data-chrome="none" data-title="BIR CAS registration, step by step">
+  <div class="bc-cv">
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <span class="kicker" data-in style="--d:120ms">a process guide · November 2026</span>
+    <h1 class="h-l bc-h1" data-in style="--d:200ms">BIR CAS registration, <span class="hl">step by step.</span></h1>
+    <p class="lead bc-lead" data-in style="--d:320ms">The process, the audit risks and the penalties for businesses that keep books or issue invoices from software, and how we set Odoo up for BIR requirements.</p>
+    <div class="cv-tags" data-in style="--d:420ms">
+      <span class="tag tag--badge"><img src="assets/img/odoo-ready-partner.png" alt="" width="52" height="25">Odoo Ready Partner</span>
+      <span class="tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>For Philippine taxpayers</span>
+    </div>
+  </div>
+  <div class="bc-cvart" data-in data-fx="land" style="--d:260ms" role="img" aria-label="Sample sales invoice: the registration steps (prepare, apply, BIR evaluation, AC issued) end on the invoice's AC control number line">
+    <div class="bc-mini" aria-hidden="true">
+      <span class="bc-mini-r"><i class="bc-mini-f"></i></span>
+      <ol>
+        <li><span>Prepare</span><i></i></li>
+        <li><span>Apply</span><i></i></li>
+        <li><span>BIR evaluates</span><i></i></li>
+        <li><span>AC issued</span><i></i></li>
+      </ol>
+    </div>
+    <article class="bc-inv" aria-hidden="true">
+      <header>
+        <div><b>Sample Trading Corp.</b><small>VAT-registered · head office</small></div>
+        <div class="bc-inv-no"><em>Sales invoice</em><b>No. 000142</b></div>
+      </header>
+      <table>
+        <tbody>
+          <tr><td>Office chair, mesh back</td><td>4</td><td>₱18,000.00</td></tr>
+          <tr><td>Standing desk, 1.4 m</td><td>1</td><td>₱12,500.00</td></tr>
+        </tbody>
+      </table>
+      <dl>
+        <div><dt>VATable sales</dt><dd>₱27,232.14</dd></div>
+        <div><dt>VAT 12%</dt><dd>₱3,267.86</dd></div>
+        <div class="bc-inv-tot"><dt>Total</dt><dd>₱30,500.00</dd></div>
+      </dl>
+      <footer class="bc-ac">
+        <span class="bc-ac-l">AC control no.</span>
+        <span class="bc-ac-v"><i class="bc-ac-wait">prints here once the BIR issues it</i><i class="bc-ac-ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>on every system-generated invoice</i></span>
+      </footer>
+      <span class="bc-sample">Sample</span>
+    </article>
+  </div>
+  <p class="hint cv-hint" data-in style="--d:1000ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
+  <aside class="notes"><p>This deck walks through registering a Computerized Accounting System with the BIR, from preparation to the obligations that continue every year, then how TechNext sets Odoo up for it.</p><p>The picture on the right is the thesis: the registration ends on your own invoice. Once the BIR issues the Acknowledgement Certificate, its control number prints on every system-generated invoice. The company and figures are a sample.</p><p>Requirements change often, and checklists differ between RDOs. We are not tax advisers: confirm the details with your accountant or RDO.</p></aside>
+</section>
+
+<!-- 2 · what it is, why now: the order switch -->
+<section class="slide" id="what" data-steps="1" data-title="Register first, go live second">
+  <div class="bc-head">
+    <span class="kicker" data-in>what it is · why now</span>
+    <h2 class="h-m" data-in style="--d:80ms">Register the system first, <span class="hl">go live second.</span></h2>
+  </div>
+  <div class="bc-what">
+    <div class="bc-what-l">
+      <p class="bc-p" data-in style="--d:180ms">A Computerized Accounting System (CAS) replaces manual and loose-leaf books. The BIR registers your use of it before it keeps your books or issues your invoices.</p>
+      <dl class="bc-facts">
+        <div data-in style="--d:240ms"><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>Who registers</dt><dd>Businesses that keep books or issue invoices through software</dd></div>
+        <div data-in style="--d:300ms"><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>What you get</dt><dd>An Acknowledgement Certificate (AC) with its control number</dd></div>
+        <div data-in style="--d:360ms"><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Why now</dt><dd>No demo is needed first, and the Ease of Paying Taxes (EOPT) invoice rules count as a major change: a system registered before must update its registration</dd></div>
+      </dl>
+    </div>
+    <div class="bc-order" data-in data-fx="right" style="--d:260ms" data-i>
+      <div class="seg bc-seg" role="group" aria-label="Which comes first">
+        <button type="button" data-k="0" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Register first</button>
+        <button type="button" data-k="1" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Go live first</button>
+      </div>
+      <ol class="bc-track" data-order="reg">
+        <li data-s="file"><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></i><b>Apply</b><small>Online (ORUS) or at your RDO</small></li>
+        <li data-s="ac"><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></i><b>AC issued</b><small>The BIR checks completeness</small></li>
+        <li data-s="live"><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></i><b>Go live</b><small>Books and invoices from the system</small></li>
+        <li data-s="post"><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg></i><b>Post-evaluation</b><small>Later, on the BIR's timing</small></li>
+      </ol>
+      <div class="bc-gap" aria-hidden="true"><span>Everything issued here is unregistered</span></div>
+      <div class="bc-verdict">
+        <p class="bc-v-ok"><b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Your books and invoices count from day one.</b><span>No system demo is needed before go-live. The BIR reviews the system afterwards, so it must match what you registered from the first invoice.</span></p>
+        <p class="bc-v-bad"><b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Invoices from an unregistered system can draw Sec. 264 penalties.</b><span>Books kept on it may also fail the Sec. 232 bookkeeping rules. The next slide shows what that costs.</span></p>
+      </div>
+      <p class="sr-only" aria-live="polite" data-bc-say></p>
+    </div>
+  </div>
+  <aside class="notes"><p>CAS registration is the BIR's way of checking that software-generated books and invoices follow the Tax Code before a business relies on them. Rule of thumb: register first, go live second.</p><p>Press → (or the switch) to show the other order. The PDF and the overview show the recommended order, register first. Going live first means every invoice and book entry made before the Acknowledgement Certificate comes from an unregistered system.</p><p>Since RMC 5-2021 the BIR no longer asks for a system demonstration before go-live; it post-evaluates the system afterwards, on its own timing. That is a reason to be ready from the first invoice, not a reason to wait. We do not promise how long the BIR takes to issue the AC: that is the BIR's call.</p><p>Full legal basis: the Tax Code (NIRC); RR 9-2009; RMC 5-2021 and RMO 9-2021 (the operative CAS rules); RMC 3-2023 (e-books); RR 7-2024 (EOPT invoicing: the new invoice requirements count as a major enhancement, so an existing registration must be updated); RMO 7-2015 (compromise penalties); RA 10963 (TRAIN) and RA 11976 (EOPT). The AC has no expiry date; it stays valid unless revoked. It is not a permit to issue e-invoices (RMC 98-2026).</p></aside>
+</section>
+
+<!-- 3 · audit risks and penalties: table drives the staircase -->
+<section class="slide" id="risks" data-steps="2" data-title="What an unregistered system costs">
+  <div class="bc-head">
+    <span class="kicker" data-in>audit risks · penalties</span>
+    <h2 class="h-m" data-in style="--d:80ms">Each repeat offence <span class="hl">costs more.</span></h2>
+    <p class="bc-sub-lead" data-in style="--d:160ms">An audit or a post-evaluation can surface an unregistered system, and deficiency tax, surcharge and interest come on top.</p>
+  </div>
+  <div class="bc-risk">
+    <div class="bc-tbl" data-in style="--d:220ms" data-i>
+      <table aria-label="Compromise penalties for common CAS violations, BIR RMO 7-2015 Annex A. Choose a row to see how it escalates.">
+        <thead><tr><th scope="col">Violation</th><th scope="col">Tax Code</th><th scope="col">1st offence</th><th scope="col">2nd offence</th></tr></thead>
+        <tbody>
+          <tr data-r="0"><th scope="row"><button type="button" aria-pressed="true">Using unregistered invoices</button></th><td>Sec. 264</td><td>₱20,000</td><td>₱50,000</td></tr>
+          <tr data-r="1"><th scope="row"><button type="button" aria-pressed="false">Unregistered cash register machine</button></th><td>Sec. 264</td><td>₱25,000 / unit</td><td>₱50,000 / unit</td></tr>
+          <tr data-r="2"><th scope="row"><button type="button" aria-pressed="false">Failure to issue invoices</button></th><td>Sec. 264</td><td>₱10,000</td><td>₱20,000</td></tr>
+          <tr data-r="3"><th scope="row"><button type="button" aria-pressed="false">Invoices missing required details</button></th><td>Sec. 264</td><td>₱5,000</td><td>₱10,000</td></tr>
+          <tr data-r="4"><th scope="row"><button type="button" aria-pressed="false">Not producing books when summoned</button></th><td>Sec. 266</td><td>₱10,000</td><td>₱20,000</td></tr>
+          <tr data-r="5"><th scope="row"><button type="button" aria-pressed="false">Failure to keep or preserve records</button></th><td>Secs. 232, 235</td><td colspan="2">₱1,000 to ₱50,000, by gross sales</td></tr>
+          <tr data-r="6"><th scope="row"><button type="button" aria-pressed="false">Keeping two sets of books</button></th><td>Sec. 257</td><td colspan="2" class="bc-nc">Not compromisable: fraud</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bc-stair" data-in data-fx="right" style="--d:300ms">
+      <p class="bc-st-h"><b data-bc-name>Using unregistered invoices</b><small><span data-bc-sec>Sec. 264</span><em class="bc-cue">Choose any row in the table</em></small></p>
+      <ol class="bc-steps">
+        <li class="bc-s1" data-st="0"><span>1st offence</span><b data-bc-v1>₱20,000</b></li>
+        <li class="bc-s2" data-st="1"><span>2nd offence</span><b data-bc-v2>₱50,000</b></li>
+        <li class="bc-s3" data-st="2"><span>3rd and later</span><b>No compromise</b><small>The case can go to court</small></li>
+      </ol>
+      <p class="bc-crim" data-st="2"><span>If prosecuted</span><b data-bc-crim>₱1,000 to ₱50,000 fine and 2 to 4 years</b></p>
+    </div>
+  </div>
+  <p class="sr-only" aria-live="polite" data-bc-live></p>
+  <p class="bc-src" data-in style="--d:400ms">Compromise amounts: BIR RMO 7-2015, Annex A; for Secs. 264 and 266, third and later offences cannot be compromised. Micro and small taxpayers pay 50% of the compromise for invoicing violations (RR 6-2024). Criminal ranges: the Tax Code. Confirm current figures with your accountant or RDO.</p>
+  <aside class="notes"><p>Any of these reviews can surface an unregistered system: the RDO's post-evaluation, an audit under a Letter of Authority, or a compliance verification drive. RMC 5-2021 says violations found at post-evaluation or audit are penalised under RMO 7-2015.</p><p>Click a row (or press →) to build its staircase: for the Sec. 264 and 266 rows the first and second offences can be settled by compromise; from the third offence there is no compromise and the case can go to court. The criminal line is the Tax Code section's own range: Sec. 264(a) is ₱1,000 to ₱50,000 and 2 to 4 years (Annex A misprints it; TRAIN left it unchanged).</p><p>If asked about corporations: the compromise is ₱10,000 or the scheduled amount, whichever is higher, plus ₱5,000 for each responsible officer (Sec. 256). Tax evasion (Sec. 254, as amended by TRAIN) is ₱500,000 to ₱10 million and 6 to 10 years, and is never compromisable.</p><p>Compromise amounts are from the BIR's Revised Schedule of Compromise Penalties, RMO 7-2015 Annex A. Deficiency tax, surcharge and interest are charged on top. Confirm current figures with your accountant or RDO before quoting them to a client.</p></aside>
+</section>
+
+<!-- 4 · the process at a glance: swimlane, clickable steps -->
+<section class="slide" id="process" data-steps="6" data-title="The process at a glance">
+  <div class="bc-head">
+    <span class="kicker" data-in>the process</span>
+    <h2 class="h-m" data-in style="--d:80ms">You file, the BIR decides, <span class="hl">then you go live.</span></h2>
+  </div>
+  <div class="bc-lanes" data-in style="--d:200ms" data-i>
+    <p class="bc-lane-l bc-lane-l--you"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>Your business</p>
+    <p class="bc-lane-l bc-lane-l--bir"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>The BIR</p>
+    <svg class="bc-wire" viewBox="0 0 1176 310" aria-hidden="true">
+      <defs><marker id="bc-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1,1 L8,5 L1,9" fill="none" stroke="#A96B00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <path class="bc-loop" d="M420,182 C420,122 404,100 352,100" marker-end="url(#bc-arr)"/>
+      <g class="bc-segs">
+        <path pathLength="1" d="M106,46 H230"/>
+        <path pathLength="1" d="M274,46 H316 Q336,46 336,66 V186 Q336,206 356,206 H398"/>
+        <path pathLength="1" d="M442,206 H566"/>
+        <path pathLength="1" d="M610,206 H652 Q672,206 672,186 V66 Q672,46 692,46 H734"/>
+        <path pathLength="1" d="M778,46 H902"/>
+        <path pathLength="1" d="M946,46 H988 Q1008,46 1008,66 V186 Q1008,206 1028,206 H1070"/>
+      </g>
+    </svg>
+    <span class="bc-loop-l"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>Incomplete? Resubmit</span>
+    <ol class="bc-st">
+      <li data-k="0" data-lane="you"><button type="button"><i>1</i><b>Prepare</b><small>Documents and samples</small></button></li>
+      <li data-k="1" data-lane="you"><button type="button"><i>2</i><b>Apply</b><small>ORUS, or your RDO</small></button></li>
+      <li data-k="2" data-lane="bir"><button type="button"><i>3</i><b>Evaluate</b><small>Completeness check</small></button></li>
+      <li data-k="3" data-lane="bir"><button type="button"><i>4</i><b>Issue the AC</b><small>With a control number</small></button></li>
+      <li data-k="4" data-lane="you"><button type="button"><i>5</i><b>Go live</b><small>AC no. on invoices</small></button></li>
+      <li data-k="5" data-lane="you"><button type="button"><i>6</i><b>Register e-books</b><small>Each year-end</small></button></li>
+      <li data-k="6" data-lane="bir"><button type="button"><i>7</i><b>Post-evaluate</b><small>Anytime, and in audits</small></button></li>
+    </ol>
+  </div>
+  <div class="bc-say" data-in style="--d:320ms">
+    <p class="bc-say-n"><span data-bc-n>Step 1 of 7</span><em class="bc-who" data-bc-who>You, with TechNext</em></p>
+    <p class="bc-say-t" data-bc-t>Prepare the documents and samples</p>
+    <p class="bc-say-d" data-bc-d>A sworn statement with the system description, sample invoices and books printed from the system, the printed audit trail and the signed technical requirements (Annex B). The next slide is the checklist.</p>
+  </div>
+  <p class="sr-only" aria-live="polite" data-bc-live></p>
+  <aside class="notes"><p>Your steps sit in the top lane, the BIR's in the bottom lane. Press → to walk them, or click a step.</p><p>1 Prepare: the pack on the next slide. 2 Apply online in ORUS, or at your RDO or Large Taxpayers office: your business files it, under your TIN. 3 The RDO (or the Large Taxpayers office) checks it for completeness; if something is missing you fix the gap and resubmit. 4 The BIR issues the Acknowledgement Certificate with its control number. RMC 5-2021 sets three working days once the documents are complete, but the timing is the BIR's: never promise a date. 5 Go live: from then on the system is your official books, and the AC control number prints on system-generated invoices. 6 Register your e-books (a soft copy of the books, on USB, with a transmittal letter) in ORUS within 30 days after every taxable year (RMO 9-2021, RMC 3-2023). 7 The BIR post-evaluates the system against its standards whenever it chooses, and it can be checked again in any audit.</p><p>TechNext's part: we set Odoo up and prepare the samples and outputs with you (steps 1, 5 and 6). We do not file or register on your behalf.</p></aside>
+</section>
+
+<!-- 5 · prepare before you apply: tickable pack -->
+<section class="slide" id="prepare" data-title="Prepare before you apply">
+  <div class="bc-head bc-head--row">
+    <div>
+      <span class="kicker" data-in>before you apply</span>
+      <h2 class="h-m" data-in style="--d:80ms">Six things ready <span class="hl">before you apply.</span></h2>
+    </div>
+    <div class="bc-count" data-in style="--d:160ms" aria-live="polite"><b data-bc-c>0</b><span>of 6 ready</span></div>
+  </div>
+  <ul class="bc-pack" data-in style="--d:220ms" aria-label="Documents for the CAS application">
+    <li><button type="button" aria-pressed="false" data-id="sworn"><i class="bc-tick"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i><b>Sworn statement</b><span>Annex C or E, with the system description (C-1)</span><em class="bc-you">You sign</em></button></li>
+    <li><button type="button" aria-pressed="false" data-id="annexb"><i class="bc-tick"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i><b>Signed technical requirements</b><span>Annex B: how the system meets the BIR's standards</span><em class="bc-you">You sign</em></button></li>
+    <li><button type="button" aria-pressed="false" data-id="inv"><i class="bc-tick"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i><b>Sample invoices</b><span>Printed from the system, with every detail the BIR requires</span><em class="bc-tn">With TechNext</em></button></li>
+    <li><button type="button" aria-pressed="false" data-id="books"><i class="bc-tick"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i><b>Sample books of accounts</b><span>Journals and ledgers printed from the system</span><em class="bc-tn">With TechNext</em></button></li>
+    <li><button type="button" aria-pressed="false" data-id="trail"><i class="bc-tick"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i><b>Printed audit trail</b><span>The system's record of who changed what, and when</span><em class="bc-tn">With TechNext</em></button></li>
+    <li><button type="button" aria-pressed="false" data-id="other"><i class="bc-tick"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i><b>Papers that apply to you</b><span>The licence holder's certification; IDs if a representative files</span><em class="bc-if">If needed</em></button></li>
+  </ul>
+  <div class="bc-pack-f" data-in style="--d:320ms">
+    <p class="bc-ready"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z" fill="currentColor" fill-opacity=".2" stroke="none"/><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span data-bc-ready>Tick each item as it is ready.</span></p>
+    <p class="bc-rdo"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Checklists vary by RDO. Confirm the current list before filing.</p>
+  </div>
+  <aside class="notes"><p>Gather these before applying in ORUS or at the RDO. Tick each item in the room as the client confirms it; the ticks stay for this browser session (print shows the list unticked).</p><p>The list follows the BIR Citizen's Charter (2026 edition): the sworn statement (Annex C or E) with the C-1 system description; sample invoices and sample books printed from the system; the printed audit trail; the signed Annex B technical requirements; and, where they apply, the software licence holder's certification and an authorised representative's IDs. A flowchart, a hardware list or Form 2303 are not on the official list.</p><p>TechNext prepares the system description, the samples and the audit trail with you from your own Odoo. The sworn statement and Annex B are yours to sign. Checklists differ slightly between RDOs and the Large Taxpayers Service, so confirm the list before filing. Your business files the application; we do not file or register on your behalf.</p></aside>
+</section>
+
+<!-- 6 · after go-live: a year on the system -->
+<section class="slide" id="after" data-steps="4" data-title="After go-live, staying compliant">
+  <div class="bc-head">
+    <span class="kicker" data-in>after go-live</span>
+    <h2 class="h-m" data-in style="--d:80ms">Registered once, <span class="hl">kept every year.</span></h2>
+  </div>
+  <ol class="bc-rhythm" data-in style="--d:200ms" data-i>
+    <li data-k="0"><button type="button"><span class="bc-cad">From go-live</span><span class="bc-ob"><b>Books and invoices come from the system</b><small>The AC control number prints on every system invoice, manual books stop, and the setup stays as registered.</small></span><em>You</em></button></li>
+    <li data-k="1"><button type="button"><span class="bc-cad">Every day</span><span class="bc-ob"><b>Keep and back up every record</b><small>Generally for 5 years under the EOPT Act, ready to produce when the BIR asks.</small></span><em>You</em></button></li>
+    <li data-k="2"><button type="button"><span class="bc-cad">Before a change</span><span class="bc-ob"><b>Report it before you use it</b><small>A minor update needs a notice. A major one needs an updated registration first, or the registration has no effect from that date.</small></span><em>You</em></button></li>
+    <li data-k="3" class="bc-rh-key"><button type="button"><span class="bc-cad"><b>30 days</b>after year-end</span><span class="bc-ob"><b>Register your e-books in ORUS</b><small>A soft copy of your books, on USB with a transmittal letter. Odoo exports the books; the registration is yours.</small></span><em>You</em></button></li>
+    <li data-k="4" class="bc-rh-bir"><button type="button"><span class="bc-cad">Anytime</span><span class="bc-ob"><b>The BIR may post-evaluate the system</b><small>On its own timing, and again in any audit. Violations draw RMO 7-2015 penalties.</small></span><em>The BIR</em></button></li>
+  </ol>
+  <p class="sr-only" aria-live="polite" data-bc-live></p>
+  <aside class="notes"><p>Registration is not the end: these obligations continue for as long as the system is in use. Press → to walk the year.</p><p>From day one: the registered system is your official books; the AC control number prints on every system-generated invoice; keep it configured as registered. Every day: retain and back up records, generally for 5 years under the EOPT Act (RA 11976, Sec. 33). Before a change: minor updates need a notice; a major enhancement needs an updated registration before you use it. Use a major upgrade before updating the registration and the registration has no effect from that date, and penalties may also apply (RMC 5-2021). The EOPT invoice changes (RR 7-2024) count as a major enhancement. Anytime: the RDO can post-evaluate the system; violations draw RMO 7-2015 penalties. After every taxable year: register your e-books (a soft copy on USB, with a transmittal letter) in ORUS within 30 days (RMO 9-2021, RMC 3-2023).</p><p>Odoo exports the books for the annual registration; the registration itself is yours.</p></aside>
+</section>
+
+<!-- 7 · the TechNext package: 5 implementation days -->
+<section class="slide" id="package" data-steps="4" data-title="TechNext Odoo Accounting + CAS package">
+  <div class="bc-head">
+    <span class="kicker" data-in>how we help</span>
+    <h2 class="h-m" data-in style="--d:80ms">Odoo Accounting, <span class="hl">set up for BIR requirements.</span></h2>
+  </div>
+  <div class="bc-pkg">
+    <ol class="bc-days" data-in style="--d:220ms" data-i>
+      <li data-k="0"><button type="button"><em>Day 1</em><b>Setup</b><small>Company, 2 users, fiscal year and opening balances</small></button></li>
+      <li data-k="1"><button type="button"><em>Day 2</em><b>PH taxes</b><small>Chart of accounts, VAT and expanded withholding tax</small></button></li>
+      <li data-k="2"><button type="button"><em>Day 3</em><b>Invoices and bills</b><small>Invoice and bill layouts set up for BIR requirements</small></button></li>
+      <li data-k="3"><button type="button"><em>Day 4</em><b>CAS books</b><small>Books of accounts, reports and the e-books export</small></button></li>
+      <li data-k="4"><button type="button"><em>Day 5</em><b>Train and hand over</b><small>Hands-on training for 2 users; your samples and outputs ready</small></button></li>
+    </ol>
+    <div class="bc-inc" data-in data-fx="right" style="--d:300ms">
+      <p class="bc-pkg-id"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="44" height="44" style="width:44px;height:44px" decoding="async"><span><b>Odoo Out-of-the-box Accounting + CAS Package</b><small>TechNext · 5 implementation days · 2 users</small></span></p>
+      <p class="bc-inc-h">What you have after day 5</p>
+      <ul>
+        <li data-day="1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Odoo Accounting configured for the Philippines, with VAT and expanded withholding tax</li>
+        <li data-day="3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Invoices, bills and CAS books set up for BIR requirements, with the e-books export</li>
+        <li data-day="4"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Two users trained, and your samples and outputs ready for the application</li>
+        <li class="bc-inc-no"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Not included: the Odoo subscription, billed separately</li>
+      </ul>
+    </div>
+  </div>
+  <p class="bc-sched" data-in style="--d:380ms"><b>You</b> file your CAS application in ORUS; <b>we</b> set Odoo up and prepare the samples and outputs with you. The five days are our schedule; the BIR sets the timing of its review and the AC.</p>
+  <p class="bc-disc" data-in style="--d:420ms">TechNext is an Odoo Ready Partner. We are not affiliated with, accredited by or acting for the BIR or any government agency, and we do not file or register on your behalf.</p>
+  <aside class="notes"><p>An out-of-the-box Odoo Accounting setup for the Philippines, set up for BIR requirements, delivered in 5 implementation days for 2 users. Each day ends with something the client can see working. Press → to walk the days; the included items light as their day is reached.</p><p>By day 5 the two users are trained and the samples and outputs for the CAS application are printed from their own Odoo. The client files the application in ORUS; the BIR decides the timing of the AC, and the books go live on the system once it is issued. The five days are TechNext's schedule, not a go-live date.</p><p>The Odoo subscription is billed separately. TechNext is an Odoo Ready Partner, not affiliated with or acting for the BIR.</p></aside>
+</section>
+
+<!-- 8 · investment: subscription + implementation + Momentum offer -->
+<section class="slide" id="invest" data-steps="2" data-title="Investment and the Momentum offer">
+  <div class="bc-head">
+    <span class="kicker" data-in>investment</span>
+    <h2 class="h-m" data-in style="--d:80ms">Implementation, <span class="hl">20% off for three days.</span></h2>
+  </div>
+  <div class="bc-inv2">
+    <div class="bc-rcpt" data-in style="--d:200ms">
+      <p class="bc-rc-h">TechNext implementation <small>Odoo Accounting + CAS package</small></p>
+      <dl>
+        <div class="bc-rc-reg"><dt>Regular implementation</dt><dd>₱250,000.00</dd></div>
+        <div class="bc-rc-off" data-st="1"><dt>Momentum discount (20%)</dt><dd>− ₱50,000.00</dd></div>
+        <div class="bc-rc-mom" data-st="2"><dt>Your Momentum price</dt><dd><b data-bc-price>₱200,000.00</b></dd></div>
+      </dl>
+      <div class="bc-valid" data-st="2">
+        <span class="bc-pips" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Valid for <b>3 days</b> from the date of your proposal</span>
+      </div>
+    </div>
+    <div class="bc-sub" data-in data-fx="right" style="--d:300ms">
+      <p class="bc-sub-h"><img class="oi" src="assets/img/odoo/account.svg" alt="" width="32" height="32" style="width:32px;height:32px" decoding="async"><span><b>Odoo subscription</b><small>Custom plan, 2 users, billed separately in US dollars</small></span></p>
+      <p class="bc-y1"><span>Year 1</span><b>USD 321.60</b><small>First-year rate for 2 users</small></p>
+      <dl class="bc-sub-l">
+        <div><dt>Year 2 onward</dt><dd>USD 393.60</dd><small>A year for 2 users, at list price</small></div>
+        <div><dt>First 2 years</dt><dd>USD 715.20</dd><small>Year 1 plus year 2</small></div>
+      </dl>
+    </div>
+  </div>
+  <p class="bc-src" data-in style="--d:400ms">Odoo subscription: Odoo's list prices for the Philippines, Custom plan, per user per month, billed yearly (odoo.com, 4 Nov 2026). It is separate from the implementation price and renews each year.</p>
+  <aside class="notes"><p>Two prices, kept separate. The implementation is TechNext's: regular price ₱250,000.00; the Momentum discount takes 20% off (₱50,000.00), so the Momentum price is ₱200,000.00, valid for 3 days from the proposal date. Press → to build the receipt line by line.</p><p>The Odoo subscription is billed separately and renews each year. At Odoo's Philippine list price for the Custom plan (US$13.40 per user per month for the first 12 months, then US$16.40), 2 users cost USD 321.60 for the first year and USD 393.60 a year from the second year: USD 715.20 for the first two years. If the Standard plan fits, 2 users are USD 174.00, then USD 214.80 a year. Odoo can change its prices: check odoo.com/pricing before quoting.</p><p>The pitch: a quick decision keeps the business moving; the 5 implementation days can start right after acceptance, and the application is filed once the samples are ready. Implementation prices as given for this proposal (approved by the owner, 4 Nov 2026).</p></aside>
+</section>
+
+<!-- 9 · next steps + booking -->
+<section class="slide dark" id="next" data-title="Next steps" data-chrome="foot">
+  <div class="bc-close">
+    <div>
+      <img class="cv-logo cv-logo--sm" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="190" height="38" data-in>
+      <span class="kicker" data-in style="--d:80ms">next steps</span>
+      <h2 class="h-l bc-ct-h" data-in style="--d:140ms">Four steps, <span class="hl">one decision first.</span></h2>
+      <p class="bc-ct-proof" data-in style="--d:200ms">From the advisers behind <b>142 ERP projects</b> for <b>90+ enterprise clients</b>.</p>
+      <ol class="bc-next">
+        <li data-in style="--d:260ms"><b>Accept the Momentum offer</b><span>Within 3 days of the proposal date: 20% off implementation</span></li>
+        <li data-in style="--d:320ms"><b>Start the 5 implementation days</b><span>Setup, taxes, invoices, CAS books and training for 2 users</span></li>
+        <li data-in style="--d:380ms"><b>File your CAS application</b><span>In ORUS, with the samples and outputs we prepared together</span></li>
+        <li data-in style="--d:440ms"><b>Keep it up every year</b><span>E-books after every year-end; changes reported before you use them</span></li>
+      </ol>
+      <div class="ct-links bc-links" data-in style="--d:500ms">
+        <a href="mailto:sales@technext.asia"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>sales@technext.asia</a>
+        <a href="https://technext.asia/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".2" stroke="none"/><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>technext.asia</a>
+      </div>
+    </div>
+    <div class="ct-qr" data-in data-fx="land" style="--d:300ms">
+      <div class="ct-qr-card">
+        <svg aria-hidden="true" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" class="qr"><path class="qr-p" stroke="#1f1f3d" d="M0 0.5h7m1 0h1m1 0h2m1 0h2m3 0h3m1 0h7m-29 1h1m5 0h1m1 0h3m3 0h1m5 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h3m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h3m2 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h3m3 0h4m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m1 0h1m1 0h1m2 0h1m1 0h3m-20 1h1m1 0h2m1 0h3m1 0h1m1 0h2m3 0h3m3 0h1m2 0h1m1 0h2m-28 1h2m4 0h1m2 0h2m1 0h2m1 0h9m3 0h1m-28 1h1m4 0h5m3 0h1m2 0h2m2 0h3m2 0h2m-28 1h5m7 0h5m1 0h1m1 0h1m3 0h1m3 0h1m-29 1h2m4 0h1m1 0h2m1 0h1m3 0h5m5 0h2m-25 1h1m1 0h1m2 0h6m1 0h2m3 0h1m2 0h1m3 0h3m-27 1h1m2 0h2m1 0h4m1 0h1m2 0h4m1 0h4m1 0h3m-29 1h1m1 0h1m4 0h1m1 0h4m2 0h1m4 0h1m3 0h1m2 0h1m-28 1h2m1 0h2m1 0h4m2 0h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m-27 1h5m3 0h2m1 0h1m2 0h2m3 0h2m1 0h1m1 0h3m-28 1h1m1 0h2m2 0h4m1 0h1m1 0h6m1 0h5m1 0h1m-24 1h3m2 0h2m1 0h5m1 0h1m1 0h1m6 0h1m-26 1h2m2 0h2m2 0h1m1 0h4m1 0h3m1 0h7m-19 1h2m2 0h1m3 0h3m1 0h1m3 0h5m-29 1h7m1 0h3m3 0h1m1 0h1m1 0h3m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h2m1 0h5m2 0h1m1 0h1m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h3m5 0h1m2 0h5m1 0h1m-27 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h1m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h6m3 0h2m1 0h2m1 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m3 0h2m1 0h1m6 0h1m3 0h2m1 0h1m-28 1h7m1 0h1m2 0h1m3 0h1m2 0h1m1 0h1m4 0h1m1 0h1"/></svg>
+        <b>Scan to book a call</b>
+        <small>A 30-minute online call with an adviser</small>
+      </div>
+      <a class="btn btn-light bc-book" href="https://technext.odoo.com/book/c82cf8a9" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4H3z" fill="currentColor" fill-opacity=".2" stroke="none"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Book a discovery call</a>
+    </div>
+  </div>
+  <p class="bc-legal" data-in style="--d:600ms">Not tax advice. Based on the Tax Code, RR 9-2009, RMC 5-2021, RMO 9-2021, RMC 3-2023, RR 7-2024, RMO 7-2015, RA 10963 and RA 11976 as read in November 2026; confirm with your accountant or RDO. TechNext is not affiliated with, accredited by or acting for the BIR, and does not file or register for you.</p>
+  <aside class="notes"><p>Close by agreeing owners and dates for each step. Accept the Momentum offer within 3 days; we start the 5 implementation days; the client files the CAS application in ORUS with the samples we prepared together; then the yearly obligations continue.</p><p>The QR code opens our booking page: a 30-minute online discovery call with an adviser. We'll listen, recommend what fits, and say why.</p></aside>
+</section>
+
+</div>
+</main>
+<script src="assets/deck.js?v=94"></script>
+<script src="assets/motion.js?v=94"></script>
+<script src="assets/bir-cas-process.js?v=94"></script>
+</body>
+</html>
