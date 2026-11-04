@@ -4,19 +4,19 @@
 {{head}}
 <link rel="stylesheet" href="assets/motion.css?v={{v}}">
 <title>What Is Odoo</title>
-<meta name="description" content="What is Odoo? One suite of business apps on one database, explained, with a walkthrough of one order from lead to cash. By TechNext, an Odoo Ready Partner in Singapore.">
+<meta name="description" content="What is Odoo? One suite of business apps on one database, the short version: the apps, one order from lead to cash, what's new in Odoo 20. By TechNext, an Odoo Ready Partner in Singapore.">
 {{og:what-is-odoo}}
 <link rel="stylesheet" href="assets/what-is-odoo.css?v={{v}}">
 </head>
 <body data-label="What is Odoo" data-home="./" data-motion="mx">
-<main class="deck" aria-label="What is Odoo: a walkthrough">
+<main class="deck" aria-label="What is Odoo: the short version">
 <div class="stage">
 
 <!-- 1 · cover -->
 <section class="slide dark cover" id="cover" data-chrome="none" data-title="What is Odoo?">
   <div class="cv-copy">
     <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
-    <span class="kicker" data-in style="--d:120ms">a walkthrough</span>
+    <span class="kicker" data-in style="--d:120ms">the short version</span>
     <h1 class="h-xl wo-h1" data-in style="--d:200ms">What is <span class="hl">Odoo?</span></h1>
     <p class="lead" data-in style="--d:320ms">One suite of business apps on one database.</p>
     <div class="cv-tags" data-in style="--d:440ms">
@@ -35,7 +35,7 @@
       <i data-m="appointment">{{odoo:appointment:40}}</i><i data-m="knowledge">{{odoo:knowledge:40}}</i><i data-m="spreadsheet_dashboard">{{odoo:spreadsheet_dashboard:40}}</i><i data-m="ai_app">{{odoo:ai_app:40}}</i>
     </div>
   </div>
-  <aside class="notes"><p>Odoo in one line: a suite of business apps that all share one database. The rest of the deck shows what that means, then walks one order through it.</p></aside>
+  <aside class="notes"><p>Odoo in one line: a suite of business apps that all share one database. Eight slides: the problem, the apps, the one database, one order from lead to cash, what's new in Odoo 20, how we implement, and the next step.</p></aside>
 </section>
 
 <!-- 2 · the problem -->
@@ -118,7 +118,39 @@
   <aside class="notes"><p>Each app writes to the same database, so a confirmed order is instantly a delivery for the warehouse and an invoice for finance. Click through the apps; it cycles on its own.</p><p>If asked what Odoo is: business apps built by Odoo S.A., a software company from Belgium. It started in 2005 as TinyERP, was renamed OpenERP and became Odoo in 2014. Odoo Community is open source; Odoo Enterprise adds apps, hosting options, upgrades and Odoo's support. One major version ships each year; Odoo 20 was presented at Odoo Experience in September 2026.</p></aside>
 </section>
 
-<!-- 5 · new in Odoo 20 -->
+<!-- 5 · one order, lead to cash (one slide in place of the old six-screen walkthrough) -->
+<section class="slide" id="flow" data-title="One order, lead to cash" data-steps="5" data-dur="13000">
+  <div class="sec-head">
+    <span class="kicker" data-in>one order, lead to cash</span>
+    <h2 class="h-m" data-in style="--d:80ms">Each app picks up <span class="hl">where the last one stopped.</span></h2>
+    <p class="lead fl-lead" data-in style="--d:160ms">One order for 20 office chairs, from the first enquiry to cash in the bank.</p>
+  </div>
+  <div class="fl" data-i data-in style="--d:220ms">
+    <div class="fl-card">
+      <span class="fl-sample">Sample</span>
+      <div class="fl-face" data-k="0"><p class="fl-fh">{{odoo:crm:24}}<b>CRM</b></p><p class="fl-ft">Lumen Trading</p><p class="fl-fm"><span class="fl-b">Proposition</span><b>S$6,240.00</b></p></div>
+      <div class="fl-face" data-k="1"><p class="fl-fh">{{odoo:sale:24}}<b>Sales</b></p><p class="fl-ft">S00042</p><p class="fl-fm"><span class="fl-b fl-b--info">Sales Order</span><b>S$6,801.60</b></p></div>
+      <div class="fl-face" data-k="2"><p class="fl-fh">{{odoo:stock:24}}<b>Inventory</b></p><p class="fl-ft">WH/OUT/00017</p><p class="fl-fm"><span class="fl-b fl-b--ok">Done</span><b>20 units</b></p></div>
+      <div class="fl-face" data-k="3"><p class="fl-fh">{{odoo:account:24}}<b>Invoicing</b></p><p class="fl-ft">INV/2026/00042</p><p class="fl-fm"><span class="fl-b fl-b--info">Posted</span><b>S$6,801.60</b></p></div>
+      <div class="fl-face" data-k="4"><p class="fl-fh">{{odoo:accountant:24}}<b>Accounting</b></p><p class="fl-ft">BNK1/2026/00093</p><p class="fl-fm"><span class="fl-b fl-b--ok">Reconciled</span><b>+S$6,801.60</b></p></div>
+      <div class="fl-face" data-k="5"><p class="fl-fh">{{odoo:spreadsheet_dashboard:24}}<b>Dashboards</b></p><p class="fl-ft">Cash received today</p><p class="fl-fm"><span class="fl-b fl-b--ok">Up to date</span><b>+S$6,801.60</b></p></div>
+    </div>
+    <p class="sr-only" aria-live="polite" data-fl-say></p>
+    <div class="fl-rail" aria-hidden="true"><i class="fl-seg"></i><i class="fl-seg"></i><i class="fl-seg"></i><i class="fl-seg"></i><i class="fl-seg"></i></div>
+    <div class="fl-sts" role="group" aria-label="The order, app by app">
+      <button type="button" class="fl-st" data-k="0">{{odoo:crm:64}}<b class="fl-name">CRM</b><span class="fl-rec">Opportunity</span><span class="fl-line">A website enquiry becomes a lead, then a proposal.</span></button>
+      <button type="button" class="fl-st" data-k="1">{{odoo:sale:64}}<b class="fl-name">Sales</b><span class="fl-rec">S00042</span><span class="fl-line">The quotation is priced, sent and confirmed online.</span></button>
+      <button type="button" class="fl-st" data-k="2">{{odoo:stock:64}}<b class="fl-name">Inventory</b><span class="fl-rec">WH/OUT/00017</span><span class="fl-line">The 20 chairs are reserved, picked and shipped.</span></button>
+      <button type="button" class="fl-st" data-k="3">{{odoo:account:64}}<b class="fl-name">Invoicing</b><span class="fl-rec">INV/2026/00042</span><span class="fl-line">The invoice comes from the order. Nothing is re-typed.</span></button>
+      <button type="button" class="fl-st" data-k="4">{{odoo:accountant:64}}<b class="fl-name">Accounting</b><span class="fl-rec">BNK1/2026/00093</span><span class="fl-line">The bank line matches the invoice, which shows Paid.</span></button>
+      <button type="button" class="fl-st" data-k="5">{{odoo:spreadsheet_dashboard:64}}<b class="fl-name">Dashboards</b><span class="fl-rec">Cash received</span><span class="fl-line">Sales, stock and cash are already up to date.</span></button>
+    </div>
+  </div>
+  <p class="illus fl-illus">{{icon:check}}Illustrative sample order · simplified records</p>
+  <aside class="notes"><p>One order in one view: Lumen Trading Pte Ltd wants 20 ergonomic office chairs at S$312.00 each, S$6,240.00 plus 9% GST, S$6,801.60. Press → to move the order to the next app (← goes back), or click an app. The card shows the record each app creates: the opportunity, sales order S00042, delivery WH/OUT/00017, invoice INV/2026/00042, the bank payment BNK1/2026/00093, then the cash on the dashboard. Nobody re-types it; each team opens the same record.</p><p>If asked "do we need all six?": no. Accounting, Sales and Inventory are where most of our clients start; CRM and Dashboards join later on the same database. For detail on one app, offer a demo on the client's own process in the discovery call.</p><p>Short on time: click Dashboards to put the order at the end, then press → to move on.</p></aside>
+</section>
+
+<!-- 6 · new in Odoo 20 -->
 <section class="slide" id="new20" data-title="What's new in Odoo 20">
   <div class="sec-head sec-head--row">
     <div>
@@ -147,9 +179,7 @@
   <aside class="notes"><p>Six changes from the Odoo 20 release notes. Three are new: AI agents, the MCP connector and offline mode. Three change how existing apps work, so check them before upgrading: Field Service moves into Planning, account groups become parent accounts, and Payroll drops work entries. The strip is what changed for Singapore, the Philippines and Vietnam.</p></aside>
 </section>
 
-{{include:walkthrough}}
-
-<!-- 12 · how TechNext implements -->
+<!-- 7 · how TechNext implements -->
 <section class="slide" id="implement" data-title="How TechNext implements Odoo">
   <div class="sec-head">
     <span class="kicker" data-in>with technext</span>
@@ -171,7 +201,7 @@
   <aside class="notes"><p>A typical first phase. The five phases light up in turn; the three rules underneath are how we keep the system easy to run and to upgrade.</p><p>If asked about editions: Odoo Community is open source (LGPLv3), and you host and upgrade it yourself with your partner or IT team. Odoo Enterprise adds apps such as Accounting, Studio, Helpdesk and Sign, a choice of hosting, and Odoo's upgrade service and support, priced per user per month (plans and prices differ by country: check odoo.com/pricing). Most growing companies choose Enterprise.</p><p>If asked where it runs: start on Odoo Online, where standard apps and configuration cover most first phases. Choose Odoo.sh when a requirement needs custom Python modules; go on-premise only for a concrete IT policy or data rule. A database can move later; we plan and test that move on a copy first.</p></aside>
 </section>
 
-<!-- 13 · contact -->
+<!-- 8 · contact -->
 <section class="slide dark" id="contact" data-title="See your process in Odoo" data-chrome="foot">
   <div class="split split--narrow">
     <div>
@@ -196,7 +226,7 @@
       </div>
     </div>
   </div>
-  <aside class="notes"><p>Offer to map the client's own lead-to-cash flow, the same way this walkthrough did.</p></aside>
+  <aside class="notes"><p>Offer to map the client's own lead-to-cash flow, the same way the one-order slide did.</p></aside>
 </section>
 
 </div>

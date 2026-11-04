@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "92"
+ASSET_V = "93"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -82,9 +82,9 @@ DECKS = [
              desc="Every live website we have built, and the concepts we have mocked up, with each full page scrolling in a browser and on a phone."),
     ]),
     ("Odoo", [
-        dict(slug="what-is-odoo", tags="odoo", title="What is Odoo?", mins=12, pdf="What-Is-Odoo.pdf",
+        dict(slug="what-is-odoo", tags="odoo", title="What is Odoo?", mins=8, pdf="What-Is-Odoo.pdf",
              alt="What is Odoo cover: one suite of business apps on one database.",
-             desc="Odoo explained from scratch, what's new in Odoo 20, then one order walked from lead to cash across six Odoo screens: CRM, Sales, Inventory, Invoicing, Accounting and Reporting."),
+             desc="Odoo in eight slides: the problem it solves, the apps, one database, one order from lead to cash on a single slide, what's new in Odoo 20, and how we implement it."),
         dict(slug="odoo-accounting", tags="odoo", title="Odoo Accounting", mins=15, pdf="TechNext-Odoo-Accounting.pdf",
              alt="Odoo Accounting cover: books that keep up with your bank.",
              desc="One live Odoo 20 session on a sample Singapore company: bank lines fetched and matched by rule, a bill read from its PDF, reminders, a batch payment, the GST return checked and validated, the month locked."),
