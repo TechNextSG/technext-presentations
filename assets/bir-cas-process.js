@@ -1,4 +1,4 @@
-/* BIR CAS registration and compliance (9 slides). Prefix bc-.
+/* BIR CAS registration and compliance (8 slides). Prefix bc-.
    Process slides are step-driven (data-steps + the step hook) so a clicker walks them; clicks on items go through
    Deck.go(Deck.index, k) so the keys, the presenter view and the engine stay in step. Every JS-driven slide has a settle
    hook that paints the finished state (print, PDF, overview). Timers only through ctx. */
@@ -199,21 +199,5 @@
     },
     step: function (n, ctx, s) { days(s, n); },
     settle: function (s) { days(s, 4); }
-  });
-
-  /* ---------------------------------------------------------------- 8 · the receipt, line by line (the deck's one spring) */
-  Deck.on('invest', {
-    step: function (n, ctx, s, first) {
-      var r = $('.bc-rcpt', s), price = $('[data-bc-price]', s);
-      r.classList.toggle('is-s1', n >= 1); r.classList.toggle('is-s2', n >= 2); r.classList.remove('is-pop');
-      if (n >= 2 && !first && !Deck.reduce) {
-        void r.offsetWidth; r.classList.add('is-pop');
-        ctx.count(price, 200000, { from: 250000, dur: 900, dec: 2, pre: '₱' });
-      } else price.textContent = '₱200,000.00';
-    },
-    settle: function (s) {
-      var r = $('.bc-rcpt', s); r.classList.add('is-s1', 'is-s2'); r.classList.remove('is-pop');
-      $('[data-bc-price]', s).textContent = '₱200,000.00';
-    }
   });
 })();
