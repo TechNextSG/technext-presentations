@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "95"
+ASSET_V = "96"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -129,6 +129,9 @@ DECKS = [
         dict(slug="mol-enterprise-odoo-bir", tags="odoo", title="MOL Enterprise Philippines", mins=20, pdf="TechNext-Proposal-MOL-Enterprise-Odoo-BIR.pdf",
              alt="MOL Enterprise cover: Autocount ends in December, your books carry on.",
              desc="A discovery deck for MOL Enterprise Philippines (logistics, Autocount subscription ending December 2026): the BIR rules with a live day counter, the compliance flow as one camera journey through Odoo, a calendar that overlaps Odoo with the last Autocount months, Odoo apps for logistics later, questions marked live, and the next step."),
+        dict(slug="mol-enterprise-attendance-fleet", tags="odoo", title="MOL Enterprise · Attendances & Fleet", mins=10, pdf="TechNext-MOL-Enterprise-Attendances-Fleet.pdf",
+             alt="MOL Enterprise cover: who is on shift, which truck is out.",
+             desc="A short deck for MOL Enterprise Philippines on Odoo Attendances and Fleet: a depot kiosk that clocks crews in, a fleet board with each vehicle's driver, odometer and service costs, how both sit on the same employee records, and six questions marked live on the call."),
         dict(slug="laguna-metts-odoo-bir", tags="odoo", title="Laguna Metts Corporation", mins=20, pdf="TechNext-Proposal-Laguna-Metts-Odoo-BIR.pdf",
              alt="Laguna Metts cover: built for Thailand, set up for the BIR.",
              desc="A discovery deck for Laguna Metts Corporation (manufacturing, on an ERP from Thailand): the BIR rules with a live day counter, the compliance flow as one camera journey through Odoo, a localisation fit table to confirm together, Odoo apps for manufacturing later, questions marked live, and the next step."),
