@@ -70,7 +70,7 @@
 .cp-disc{position:absolute;left:120px;right:120px;bottom:104px;margin:0;font-size:16px;line-height:1.45;color:#5E5E75;max-width:none}
 
 /* ---------------------------------------------------------------- 3 · services */
-.cp-svc{display:grid;grid-template-columns:1fr 1.85fr 1fr 1fr;gap:0 36px}
+.cp-svc{display:grid;grid-template-columns:1.85fr 1fr 1fr;gap:0 44px}
 .cp-col h3{display:flex;align-items:center;gap:10px;font:800 21px/1.2 var(--f-display);color:var(--ink);margin:0 0 12px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
 .cp-col h3 .ic{font-size:24px;color:var(--blue)}
 .cp-col h3 small{margin-left:auto;font:700 17px/1 var(--f-display);color:var(--body)}

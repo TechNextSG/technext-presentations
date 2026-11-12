@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "98"
+ASSET_V = "99"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -62,7 +62,7 @@ DECKS = [
              desc="Who TechNext is: why clients trust us and the companies we've worked with, three offices on a live map, the three practices, the Odoo partnership, how an engagement runs and the company details."),
         dict(slug="company-profile-short", tags="odoo ai websites", title="Company profile (short)", mins=6, pdf="TechNext-Company-Profile-Short.pdf",
              alt="Short company profile cover: We are TechNext, your trusted, reliable and expert adviser.",
-             desc="TechNext in five slides: your trusted, reliable and expert adviser (we advise first and install second, for ERP and compliance), the three things we do (regulatory compliance for BIR CAS, business process improvement, ERP/CRM end-to-end implementation), the sixteen services on technext.asia in four practices, the companies we helped improve and automate, and the discovery-call close."),
+             desc="TechNext in five slides: your trusted, reliable and expert adviser (we advise first and install second), the three things we do (business process improvement, ERP/CRM end-to-end implementation, AI and automation), the fourteen services on technext.asia in three practices, the companies we helped improve and automate, and the discovery-call close."),
         dict(slug="technext-talent", tags="odoo ai websites", title="Our talent", mins=10, pdf="TechNext-Talent.pdf",
              alt="Our talent cover: the people behind the whole solution.",
              desc="Trusted, reliable, expert, and the people behind it: six kinds of adviser and the first-call question each one asks, where the consultants, developers and AI engineers sit, ten people with their skill groups, a picker that shows who joins for your problems, Listen · Advise · Implement · Stay, and the four rules our advisers keep."),
