@@ -53,4 +53,31 @@
     },
     settle: function (s) { s.classList.add('is-run'); paint(s, 0, false); }
   });
+
+  /* ---------------------------------------------------------------- 5-7 · service pickers: step through until clicked */
+  function pick(s, b, swap) {
+    $$('.cb-btns button', s).forEach(function (x) { var on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-pressed', String(on)); });
+    var say = $('.cb-say', s), ic = b.querySelector('.ic, img');
+    $('.cb-say-ic', say).innerHTML = ic ? ic.outerHTML : '';
+    $('.cb-say-n', say).textContent = $('b', b).textContent;
+    $('.cb-say-t', say).textContent = b.dataset.t;
+    $('.cb-say-e', say).textContent = b.dataset.e;
+    say.classList.remove('is-swap'); if (swap) { void say.offsetWidth; say.classList.add('is-swap'); }
+  }
+  ['svc-found', 'svc-odoo', 'svc-care'].forEach(function (id) {
+    Deck.on(id, {
+      init: function (s) {
+        s.addEventListener('click', function (e) {
+          var b = e.target.closest('.cb-btns button'); if (!b) return;
+          s._manual = true; $('.cb-say', s).setAttribute('aria-live', 'polite'); pick(s, b, true);
+        });
+      },
+      enter: function (ctx, s) {
+        var all = $$('.cb-btns button', s), i = 0;
+        s._manual = false; $('.cb-say', s).setAttribute('aria-live', 'off'); pick(s, all[0], false);
+        ctx.every(3200, function () { if (s._manual) return; i = (i + 1) % all.length; pick(s, all[i], true); });
+      },
+      settle: function (s) { pick(s, $('.cb-btns button', s), false); }
+    });
+  });
 })();
