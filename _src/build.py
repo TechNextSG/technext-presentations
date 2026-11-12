@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "99"
+ASSET_V = "100"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -75,8 +75,8 @@ DECKS = [
     ]),
     ("What we solve", [
         dict(slug="coaching-business", tags="websites marketing odoo", title="For coaching businesses", mins=10, pdf="TechNext-Coaching-Business.pdf",
-             alt="Coaching businesses cover: You run the sessions. We run the rest.",
-             desc="A short deck for coaching, training and event-led businesses: the six steps every client takes and where they leak (Today / With TechNext), one event published once with the website card, form, assistant and social post keeping up, the four parts we deliver (website and event pages, registrations and contacts on Odoo, marketing, an AI assistant), three service pickers (get found and booked, Odoo apps behind the site, AI and support), an unnamed Singapore coaching group we already run this for, and the discovery-call close."),
+             alt="Coaching businesses cover: You run the sessions. We run the rest. A chat answered at 11:42 pm.",
+             desc="A before / after deck for coaching, training and event-led businesses: six moments every client goes through (gets found, asks a question, registers and pays, the event published once, reminders and feedback, comes back), each shown today by hand and with TechNext side by side across a draggable seam, with the services behind each moment; an unnamed Singapore coaching group we already run this for, and the discovery-call close."),
         dict(slug="service-showcase", tags="odoo ai websites", title="Service showcase", mins=15, pdf="TechNext-Service-Showcase.pdf",
              alt="Service showcase cover: What we solve, and how it works.",
              desc="All fourteen solutions, each shown working: the implementation plan, a live CRM pipeline, multi-company Odoo, integrations with outages, and four AI demos."),

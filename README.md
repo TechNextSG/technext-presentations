@@ -11,7 +11,7 @@ Interactive HTML decks in TechNext branding, plus a launcher page, including cli
 | Portfolio: clients and what we built | `portfolio.html` | 10 |
 | Service showcase | `service-showcase.html` | 15 |
 | Marketing showcase: live sites, concepts, pitch microsites | `marketing-showcase.html` | 15 |
-| For coaching and training businesses (six steps and their gaps, one event published everywhere, four parts we deliver, three service slides: marketing, Odoo apps, AI and care; an anonymous coaching group we run this for, discovery-call close) | `coaching-business.html` | 9 |
+| For coaching and training businesses: before / after split (six moments shown today and with TechNext, a draggable seam, the event status demo, an unnamed coaching group we run this for, discovery-call close) | `coaching-business.html` | 9 |
 | What is Odoo (the short version: the apps, one order from lead to cash, what's new in Odoo 20) | `what-is-odoo.html` | 8 |
 | BIR CAS registration and compliance (register first, go live second; penalties and how repeat offences escalate; the process on two lanes; the pack to prepare; what continues every year; the TechNext Odoo Accounting + CAS package in 5 days for 2 users; next steps) | `bir-cas-process.html` | 8 |
 | Odoo Accounting: one live session (Odoo app series) | `odoo-accounting.html` | 13 |
