@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "96"
+ASSET_V = "97"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -74,6 +74,9 @@ DECKS = [
              desc="The clients we have served and what we built for each: websites, Odoo proposals and rollouts, social, video and brand work, on a map and client by client."),
     ]),
     ("What we solve", [
+        dict(slug="coaching-business", tags="websites marketing odoo", title="For coaching businesses", mins=6, pdf="TechNext-Coaching-Business.pdf",
+             alt="Coaching businesses cover: You run the sessions. We run the rest.",
+             desc="A short deck for coaching, training and event-led businesses: the six steps every client takes and where they leak (Today / With TechNext), one event published once with the website card, form, assistant and social post keeping up, the four parts we deliver (website and event pages, registrations and contacts on Odoo, marketing, an AI assistant), the Singapore coaching group we already run this for, and the discovery-call close."),
         dict(slug="service-showcase", tags="odoo ai websites", title="Service showcase", mins=15, pdf="TechNext-Service-Showcase.pdf",
              alt="Service showcase cover: What we solve, and how it works.",
              desc="All fourteen solutions, each shown working: the implementation plan, a live CRM pipeline, multi-company Odoo, integrations with outages, and four AI demos."),
