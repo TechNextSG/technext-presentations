@@ -6,7 +6,7 @@
 /* ---------------------------------------------------------------- 1 · cover */
 .cb-cv{position:absolute;left:120px;top:100px;width:1000px}
 .cb-logo{height:84px;width:auto;margin-bottom:64px;display:block}
-.cb-h1{font:800 92px/1.04 var(--f-display);letter-spacing:-.03em;color:#fff;margin:0 0 34px;white-space:nowrap}
+.cb-h1{font:800 84px/1.04 var(--f-display);letter-spacing:-.03em;color:#fff;margin:0 0 34px;white-space:nowrap}
 .cb-lead{color:rgba(255,255,255,.86);max-width:700px;font-size:24px;line-height:1.5;margin:0}
 .cb-cvtags{position:absolute;left:120px;bottom:84px;display:flex;gap:12px;flex-wrap:wrap}
 .cb-dev{position:absolute;left:1030px;top:210px;width:450px;height:500px}
@@ -39,7 +39,7 @@
 .cb-svc i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--blue);margin:0 14px;vertical-align:middle}
 
 /* the split, the seam and its labels */
-.cb-split{position:absolute;left:120px;top:214px;width:1360px;height:522px;display:grid;grid-template-columns:50fr 60px 50fr;grid-template-rows:42px 1fr;transition:grid-template-columns .6s var(--mx-soft-land,ease)}
+.cb-split{position:absolute;left:120px;top:232px;width:1360px;height:504px;display:grid;grid-template-columns:50fr 60px 50fr;grid-template-rows:42px 1fr;transition:grid-template-columns .6s var(--mx-soft-land,ease)}
 .cb-split.is-drag{transition:none}
 .cb-split.is-drag .cb-g{transition:none}
 .cb-lab{appearance:none;background:none;border:0;padding:0 0 4px;margin:0;align-self:start;justify-self:start;cursor:pointer;font:800 16px/1.2 var(--f-display);letter-spacing:.12em;text-transform:uppercase;border-bottom:2px solid transparent;transition:border-color .25s}
