@@ -88,7 +88,7 @@
       var l = el('button', 'ak-wl' + (w.dead ? ' ak-wl--dead' : ''), '<b>' + w.date + '</b><small>' + w.name + '</small>');
       l.type = 'button'; l.setAttribute('aria-label', w.date + ': ' + w.name + ', open');
       l.style.left = p.x + 'px';
-      l.style.top = (w.side > 0 ? p.y + (w.d === 32 ? 26 : 14) : p.y - 68) + 'px';
+      l.style.top = (w.side > 0 ? p.y + (w.d === 32 ? 36 : 14) : p.y - 72) + 'px';
       if (w.dead) l.style.marginLeft = '-150px';
       l.addEventListener('click', function (e) { e.stopPropagation(); l.blur(); Deck.goId(w.go[0], w.go[1]); });
       labs.appendChild(l);
@@ -123,7 +123,64 @@
       settle: function (s) { flyPaint(s, LAND); }
     });
   }
-  flyHooks('cover', 0);
+  /* ---------- 1 · cover: stamp the kickoff (step 1), the plane peels off and flies the route ---------- */
+  var cvCtx = null;
+  function cvReset(s) {
+    var d = $('.ak-doc', s); d.classList.remove('is-stamped', 'is-flown'); d.setAttribute('aria-label', 'Stamp the kickoff');
+    s.classList.remove('ak-flying', 'ak-done'); s._akTok = null; flyPaint(s, 0);
+    if (s._akPeel) { s._akPeel.cancel(); s._akPeel = null; }
+  }
+  function cvDone(s) {
+    var d = $('.ak-doc', s); d.classList.add('is-stamped', 'is-flown'); d.setAttribute('aria-label', 'Stamp the kickoff again');
+    s.classList.add('ak-flying', 'ak-done'); s._akTok = null; flyPaint(s, LAND);
+  }
+  function cvStamp(ctx, s) {
+    cvReset(s);
+    if (Deck.reduce || Deck.tv) { cvDone(s); return; }
+    var d = $('.ak-doc', s), pl = $('.ak-doc-plane', s);
+    void d.offsetWidth; d.classList.add('is-stamped'); s.classList.add('ak-done');
+    ctx.after(560, function () {
+      if (!pl.animate) { d.classList.add('is-flown'); return; }
+      var an = pl.animate([
+        { transform: 'rotate(-14deg) translate(0px,0px) scale(1)' },
+        { transform: 'rotate(-6deg) translate(-34px,18px) scale(1.06)', offset: .28 },
+        { transform: 'rotate(-30deg) translate(470px,-300px) scale(1.7)' }
+      ], { duration: 620, easing: 'cubic-bezier(.62,0,.9,.42)', fill: 'forwards' });
+      s._akPeel = an;
+      an.onfinish = function () { d.classList.add('is-flown'); an.cancel(); s._akPeel = null; };
+    });
+    ctx.after(1060, function () {
+      s.classList.add('ak-flying');
+      var tok = {}; s._akTok = tok;
+      ctx.tween(1750, function (p) { if (s._akTok === tok) flyPaint(s, LAND * p); }, 'softInOut');
+    });
+  }
+  function cvTilt(s, e) {
+    var d = $('.ak-doc', s);
+    if (!e) { d.style.setProperty('--rx', '0deg'); d.style.setProperty('--ry', '0deg'); return; }
+    var r = Deck.rect(d), p = Deck.point(e);
+    var x = (p.x - r.left) / r.width - .5, y = (p.y - r.top) / r.height - .5;
+    if (Math.abs(x) > 1.1 || Math.abs(y) > 1.1) { cvTilt(s); return; }
+    d.style.setProperty('--ry', (x * 9).toFixed(2) + 'deg'); d.style.setProperty('--rx', (-y * 7).toFixed(2) + 'deg');
+  }
+  Deck.on('cover', {
+    init: function (s) {
+      flyBuild(s); cvReset(s);
+      var d = $('.ak-doc', s);
+      function act(e) { e.preventDefault(); e.stopPropagation(); if (Deck.slides[Deck.index] !== s) return; if (Deck.step === 0) Deck.go(Deck.index, 1); else if (cvCtx) cvStamp(cvCtx, s); }
+      d.addEventListener('click', act);
+      d.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') act(e); });
+      var fine = window.matchMedia && matchMedia('(pointer:fine)').matches;
+      if (fine) {
+        s.addEventListener('pointermove', function (e) { if (!Deck.reduce && !Deck.tv) cvTilt(s, e); });
+        s.addEventListener('pointerleave', function () { cvTilt(s); });
+      }
+    },
+    enter: function (ctx, s) { cvCtx = ctx; if (Deck.step > 0) cvDone(s); else cvReset(s); },
+    step: function (n, ctx, s, first) { cvCtx = ctx; if (n === 0) cvReset(s); else if (first) cvDone(s); else cvStamp(ctx, s); },
+    leave: function (s) { cvCtx = null; cvTilt(s); },
+    settle: function (s) { cvDone(s); }
+  });
   flyHooks('close', 0.62);
 
   /* ---------- 2 · assume: work-package spotlight ---------- */
