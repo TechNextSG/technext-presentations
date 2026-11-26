@@ -10,6 +10,19 @@
   function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
   function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
+  /* ---------- motion layer: cascades ([data-cas] children land on a wave) and faster headline words ---------- */
+  $$('[data-cas]').forEach(function (c) {
+    var ax = c.getAttribute('data-cas');
+    c.style.setProperty('--ak-d', (c.getAttribute('data-cd') || 220) + 'ms');
+    c.style.setProperty('--ak-g', (c.getAttribute('data-cg') || 40) + 'ms');
+    Array.prototype.forEach.call(c.children, function (k, i) { k.classList.add('ak-x'); if (ax !== 'up') k.setAttribute('data-ax', ax); k.style.setProperty('--i', i); });
+  });
+  $$('.mx-words').forEach(function (h) {
+    var g = /h-xl/.test(h.className) ? 80 : 55, n = h.querySelectorAll('.mx-wi').length, d = parseFloat(h.style.getPropertyValue('--d')) || 0;
+    h.style.setProperty('--wg', g + 'ms');
+    $$('.hl', h).forEach(function (hl) { hl.style.setProperty('--hd', Math.round(d * .85 + n * g + 180) + 'ms'); });
+  });
+
   /* ---------- names typed live (team + comms), shared with RACI and agree ---------- */
   var NKEY = 'ak-atomy-names';
   function nLoad() { try { return JSON.parse(sessionStorage.getItem(NKEY) || '{}'); } catch (e) { return {}; } }
@@ -40,12 +53,12 @@
 
   /* ---------- 1 + 11 · flight path ---------- */
   var WPS = [
-    { d: 0, date: '27 Nov', name: 'Kickoff & mobilization', side: 1 },
-    { d: 7, date: '04 Dec', name: 'Configuration complete', side: -1 },
-    { d: 10, date: '07 Dec', name: 'UAT sign-off', side: 1 },
-    { d: 21, date: '18 Dec', name: 'CAS and EIS documents', side: -1 },
-    { d: 32, date: '29 Dec', name: 'Go-live & handover', side: 1 },
-    { d: 34, date: '31 Dec', name: 'BIR EIS deadline', side: -1, dead: true }
+    { d: 0, date: '27 Nov', name: 'Kickoff & mobilization', side: 1, go: ['gates', 0] },
+    { d: 7, date: '04 Dec', name: 'Configuration complete', side: -1, go: ['gates', 1] },
+    { d: 10, date: '07 Dec', name: 'UAT sign-off', side: 1, go: ['gates', 2] },
+    { d: 21, date: '18 Dec', name: 'CAS and EIS documents', side: -1, go: ['gates', 3] },
+    { d: 32, date: '29 Dec', name: 'Go-live & handover', side: 1, go: ['gates', 4] },
+    { d: 34, date: '31 Dec', name: 'BIR EIS deadline', side: -1, dead: true, go: ['gantt', 0] }
   ];
   var LAND = 32 / 34;
   function fp(t) { return { x: 40 + 1250 * t, y: 205 - 150 * Math.pow(t, 1.6) }; }
@@ -55,9 +68,16 @@
     for (var i = 0; i <= n; i++) { var p = fp(t1 * i / n); d += (i ? ' L' : 'M') + p.x.toFixed(1) + ' ' + p.y.toFixed(1); }
     return d;
   }
+  var FN = 120, FPTS = [], FCUM = [0];
+  (function () { for (var i = 0; i <= FN; i++) FPTS.push(fp(i / FN)); for (var j = 1; j <= FN; j++) FCUM.push(FCUM[j - 1] + Math.hypot(FPTS[j].x - FPTS[j - 1].x, FPTS[j].y - FPTS[j - 1].y)); })();
+  var FLEN = FCUM[FN];
+  function lenAt(t) { var f = Math.max(0, Math.min(1, t)) * FN, i = Math.floor(f); return i >= FN ? FLEN : FCUM[i] + (FCUM[i + 1] - FCUM[i]) * (f - i); }
   function flyBuild(s) {
     var fly = $('.ak-fly', s); if (!fly) return;
-    $('.ak-fly-ghost', fly).setAttribute('d', pathD(1));
+    var d = pathD(1);
+    $('.ak-fly-ghost', fly).setAttribute('d', d);
+    var line = $('.ak-fly-line', fly);
+    line.setAttribute('d', d); line.style.strokeDasharray = FLEN.toFixed(1) + ' ' + (FLEN + 10).toFixed(1);
     var dots = $('.ak-fly-dots', fly), labs = $('.ak-fly-labels', fly);
     WPS.forEach(function (w) {
       var p = fp(w.d / 34);
@@ -65,36 +85,66 @@
       c.setAttribute('cx', p.x); c.setAttribute('cy', p.y); c.setAttribute('r', w.dead ? 8 : 9);
       if (w.dead) c.setAttribute('class', 'ak-dead');
       dots.appendChild(c);
-      var l = el('div', 'ak-wl' + (w.dead ? ' ak-wl--dead' : ''), '<b>' + w.date + '</b><small>' + w.name + '</small>');
+      var l = el('button', 'ak-wl' + (w.dead ? ' ak-wl--dead' : ''), '<b>' + w.date + '</b><small>' + w.name + '</small>');
+      l.type = 'button'; l.setAttribute('aria-label', w.date + ': ' + w.name + ', open');
       l.style.left = p.x + 'px';
-      l.style.top = (w.side > 0 ? p.y + (w.d === 32 ? 30 : 18) : p.y - 64) + 'px';
+      l.style.top = (w.side > 0 ? p.y + (w.d === 32 ? 26 : 14) : p.y - 68) + 'px';
       if (w.dead) l.style.marginLeft = '-150px';
+      l.addEventListener('click', function (e) { e.stopPropagation(); l.blur(); Deck.goId(w.go[0], w.go[1]); });
       labs.appendChild(l);
     });
   }
   function flyPaint(s, t) {
     var fly = $('.ak-fly', s); if (!fly) return;
-    $('.ak-fly-line', fly).setAttribute('d', pathD(Math.max(0.002, t)));
+    $('.ak-fly-line', fly).style.strokeDashoffset = (FLEN - lenAt(Math.max(0.002, t))).toFixed(1);
     var p = fp(t);
-    $('.ak-fly-plane', fly).setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + (p.y - 0).toFixed(1) + ') rotate(' + fpAng(t).toFixed(1) + ') scale(1.5)');
+    $('.ak-fly-plane', fly).setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ') rotate(' + fpAng(t).toFixed(1) + ') scale(1.5)');
     var dots = $$('.ak-fly-dots circle', fly), labs = $$('.ak-wl', fly);
     WPS.forEach(function (w, i) { var on = w.dead || w.d / 34 <= t + 0.001; dots[i].classList.toggle('is-on', on && !w.dead); labs[i].classList.toggle('is-on', on); });
   }
   function flyHooks(id, from) {
+    var cur = null;
+    function fly(ctx, s, wait) {
+      flyPaint(s, from);
+      if (Deck.reduce) { flyPaint(s, LAND); return; }
+      var tok = {}; s._akTok = tok;
+      ctx.after(wait, function () {
+        ctx.tween(from > 0 ? 1300 : 1900, function (p) { if (s._akTok === tok) flyPaint(s, from + (LAND - from) * p); }, 'softInOut');
+      });
+    }
     Deck.on(id, {
-      init: function (s) { flyBuild(s); flyPaint(s, from); },
-      enter: function (ctx, s) {
-        flyPaint(s, from);
-        if (Deck.reduce) { flyPaint(s, LAND); return; }
-        ctx.after(from > 0 ? 500 : 700, function () {
-          ctx.tween(from > 0 ? 1600 : 2600, function (p) { flyPaint(s, from + (LAND - from) * p); }, 'io');
-        });
+      init: function (s) {
+        flyBuild(s); flyPaint(s, from);
+        var r = $('.ak-replay', s);
+        if (r) r.addEventListener('click', function (e) { e.stopPropagation(); if (cur) fly(cur, s, 60); });
       },
+      enter: function (ctx, s) { cur = ctx; fly(ctx, s, from > 0 ? 450 : 520); },
+      leave: function () { cur = null; },
       settle: function (s) { flyPaint(s, LAND); }
     });
   }
   flyHooks('cover', 0);
   flyHooks('close', 0.62);
+
+  /* ---------- 2 · assume: work-package spotlight ---------- */
+  function wpPick(s, i) {
+    $$('.ak-wp-b', s).forEach(function (b, k) { b.setAttribute('aria-pressed', 'false'); if (k === i) { void b.offsetWidth; b.setAttribute('aria-pressed', 'true'); } });
+  }
+  var wpUser = false;
+  Deck.on('assume', {
+    init: function (s) {
+      $$('.ak-wp-b', s).forEach(function (b, i) { b.addEventListener('click', function (e) { e.stopPropagation(); wpUser = true; wpPick(s, i); }); });
+      ['focusin', 'pointerenter'].forEach(function (ev) { $('.ak-wp', s).addEventListener(ev, function () { wpUser = true; }); });
+      wpPick(s, 0);
+    },
+    enter: function (ctx, s) {
+      wpUser = false; $$('.ak-wp-b', s).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+      if (Deck.reduce) { wpPick(s, 0); return; }
+      var k = 0;
+      ctx.after(950, function () { if (wpUser) return; wpPick(s, 0); ctx.every(2300, function () { if (wpUser) return false; k = (k + 1) % 6; wpPick(s, k); }); });
+    },
+    settle: function (s) { wpPick(s, 0); }
+  });
 
   /* ---------- 3 · scope: out of scope -> Change Request path ---------- */
   function crPick(s, b, ctx) {
@@ -124,7 +174,7 @@
       g.setAttribute('aria-current', i === k ? 'step' : 'false');
     });
     var colW = (1360 - 4 * 16) / 5, x = Math.min(k, 4) * (colW + 16) + colW / 2;
-    $('.ak-track', s).style.setProperty('--ak-p', (x / 1360 * 100).toFixed(2) + '%');
+    var tr = $('.ak-track', s); tr.style.setProperty('--ak-s', (x / 1360).toFixed(4)); tr.style.setProperty('--ak-x', x.toFixed(1) + 'px');
   }
   Deck.on('gates', {
     init: function (s) {
@@ -164,13 +214,14 @@
       if (r.bar) {
         var b = el('i', 'ak-bar ' + r.k);
         b.style.left = (330 + dx(r.bar[0])) + 'px'; b.style.width = dx(r.bar[1] + 1 - r.bar[0]) + 'px';
-        b.style.transitionDelay = (i * 70) + 'ms';
+        b.style.transitionDelay = (i * 55) + 'ms';
         row.appendChild(b);
       }
       if (r.ms != null) {
-        var m = el('i', 'ak-ms'); m.style.left = (330 + dx(r.ms + 0.5)) + 'px'; row.appendChild(m);
+        var m = el('i', 'ak-ms'); m.style.left = (330 + dx(r.ms + 0.5)) + 'px'; m.style.transitionDelay = (i * 55 + 320) + 'ms'; row.appendChild(m);
         var ml = el('span', 'ak-ms-l' + (r.left ? ' is-left' : ''), r.msl);
         if (r.left) ml.style.right = (1360 - 330 - dx(r.ms + 0.5) + 18) + 'px'; else ml.style.left = (330 + dx(r.ms + 0.5) + 18) + 'px';
+        ml.style.transitionDelay = (i * 55 + 400) + 'ms';
         row.appendChild(ml);
       }
       rows.appendChild(row);
@@ -182,7 +233,7 @@
     d = Math.max(0, Math.min(DAYS - 1, d));
     var di = Math.floor(d);
     var sc = $('.ak-gc-scrub', s);
-    sc.style.left = dx(d) + 'px';
+    sc.style.transform = 'translateX(' + dx(d).toFixed(1) + 'px)';
     sc.setAttribute('aria-valuenow', di); sc.setAttribute('aria-valuetext', fmt(di, true));
     $('.ak-read-d b', s).textContent = fmt(di, true);
     var on = [];
@@ -227,12 +278,27 @@
   });
 
   /* ---------- 7 · comms ---------- */
-  function cPick(s, b) {
+  var ghosts = [], cUser = false;
+  function cFly(s, b, ch) {
+    var a = Deck.vbox(b, s), t = Deck.vbox(ch, s);
+    var g = el('span', 'ak-ghost', esc(b.textContent));
+    g.style.left = a.x + 'px'; g.style.top = a.y + 'px'; g.style.width = a.w + 'px'; g.style.height = a.h + 'px';
+    s.appendChild(g); ghosts.push(g);
+    var dx = t.cx - a.cx, dy = t.y + 70 - a.cy;
+    var an = g.animate([
+      { transform: 'translate(0px,0px) scale(1)', opacity: 1 },
+      { transform: 'translate(' + (dx * .9).toFixed(1) + 'px,' + (dy * .9).toFixed(1) + 'px) scale(.78)', opacity: 1, offset: .8 },
+      { transform: 'translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px) scale(.6)', opacity: 0 }
+    ], { duration: 460, easing: 'cubic-bezier(.05,.92,.2,1)' });
+    an.onfinish = function () { g.remove(); var gi = ghosts.indexOf(g); if (gi > -1) ghosts.splice(gi, 1); ch.classList.remove('is-hit'); void ch.offsetWidth; ch.classList.add('is-hit'); };
+  }
+  function cPick(s, b, fly) {
     $$('.ak-msg-grid button', s).forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
     var c = b.getAttribute('data-c');
     $$('.ak-chan', s).forEach(function (ch) {
       var on = ch.getAttribute('data-ch') === c;
       ch.classList.toggle('is-on', on);
+      if (on && fly && !Deck.reduce && g_ok()) cFly(s, b, ch);
       var hit = $('.ak-chan-hit', ch);
       if (on) { if (!hit) { hit = el('span', 'ak-chan-hit'); ch.appendChild(hit); } hit.textContent = b.textContent; }
       else if (hit) hit.remove();
@@ -240,14 +306,51 @@
   }
   Deck.on('comms', {
     init: function (s) {
-      $$('.ak-msg-grid button', s).forEach(function (b) { b.addEventListener('click', function () { cPick(s, b); }); });
+      $$('.ak-msg-grid button', s).forEach(function (b) { b.addEventListener('click', function (e) { e.stopPropagation(); cUser = true; cPick(s, b, true); }); });
+      ['focusin', 'pointerenter'].forEach(function (ev) { $('.ak-msg', s).addEventListener(ev, function () { cUser = true; }); });
       cPick(s, $$('.ak-msg-grid button', s)[2]);
       nPaint();
     },
-    enter: function (ctx, s) { nPaint(); },
+    enter: function (ctx, s) {
+      nPaint(); cUser = false;
+      if (Deck.reduce) return;
+      var bs = $$('.ak-msg-grid button', s), order = [0, 2, 6, 3, 7, 5], k = 0;
+      ctx.after(1200, function () { if (cUser) return; cPick(s, bs[order[0]], true); ctx.every(1900, function () { if (cUser) return false; k = (k + 1) % order.length; cPick(s, bs[order[k]], true); }); });
+    },
+    leave: function () { ghosts.forEach(function (g) { g.remove(); }); ghosts = []; },
     settle: function (s) { cPick(s, $$('.ak-msg-grid button', s)[2]); }
   });
-  Deck.on('team', { init: function () { nPaint(); }, enter: function () { nPaint(); }, settle: function () { nPaint(); } });
+  var TCOL = { 'RJ Sarreal': 0, 'Neil Matan': 1, 'Jett Balanza': 2, 'Philip Gallan': 3, 'Kim Byoung Ho': 4 };
+  var TROLE = { 'Pia (Sophia) Cachola-Ang': 'Executive sponsor &amp; escalation', 'Jeric Bulayungan': 'Commercial contact' };
+  function tFill(b) {
+    var t = $('.ak-tally', b); if (t.childNodes.length) return;
+    var p = b.getAttribute('data-p'), c = TCOL[p];
+    if (c == null) { t.innerHTML = '<span class="ak-tl-h">Not on the RACI</span><span class="ak-tl-x">' + (TROLE[p] || '') + '</span>'; return; }
+    var n = { R: 0, A: 0, C: 0, I: 0 };
+    RR.forEach(function (r) { r[1].split(' ')[c].split('/').forEach(function (l) { if (n[l] != null) n[l]++; }); });
+    t.innerHTML = '<span class="ak-tl-h">On the RACI</span>' + ['A', 'R', 'C', 'I'].map(function (l, i) {
+      return '<span class="ak-tl-n' + (l === 'A' ? ' is-a' : '') + '" style="--n:' + i + '"><b>' + n[l] + '</b><i title="' + { A: 'Accountable', R: 'Responsible', C: 'Consulted', I: 'Informed' }[l] + '">' + l + '</i></span>';
+    }).join('');
+  }
+  function tSet(b, on) { tFill(b); b.classList.toggle('is-open', on); b.setAttribute('aria-expanded', String(on)); $('.ak-tally', b).setAttribute('aria-hidden', String(!on)); }
+  var tUser = false;
+  Deck.on('team', {
+    init: function (s) {
+      nPaint();
+      $$('.ak-pc', s).forEach(function (b) { b.addEventListener('click', function (e) { e.stopPropagation(); tUser = true; tSet(b, !b.classList.contains('is-open')); }); });
+    },
+    enter: function (ctx, s) {
+      nPaint(); tUser = false;
+      if (Deck.reduce) return;
+      var rj = $('.ak-pc[data-p="RJ Sarreal"]', s);
+      ctx.after(1500, function () { if (!tUser) tSet(rj, true); });
+      ctx.after(3700, function () { if (!tUser) tSet(rj, false); });
+    },
+    leave: function (s) { $$('.ak-pc', s).forEach(function (b) { tSet(b, false); }); },
+    settle: function (s) { nPaint(); $$('.ak-pc', s).forEach(function (b) { tSet(b, false); }); }
+  });
+
+  function g_ok() { return typeof Element.prototype.animate === 'function'; }
 
   /* ---------- 8 · support ---------- */
   var SLA = [['P1 Critical', '1 hour', '4 hours'], ['P2 High', '2 hours', '1 business day'], ['P3 Medium', '8 hours', 'Next planned fix'], ['P4 Low', '1 business day', 'As agreed']];
@@ -293,6 +396,7 @@
   var RX = { f: '', col: -1, row: -1 };
   (function rBuild() {
     var t = $('.ak-raci'); if (!t) return;
+    t.style.setProperty('--ak-d', '260ms'); t.style.setProperty('--ak-g', '22ms');
     var h = el('div', 'ak-rr ak-rh'); h.setAttribute('role', 'row');
     var h0 = el('div', 'ak-rh-0', 'Deliverable'); h0.setAttribute('role', 'columnheader'); h.appendChild(h0);
     RC.forEach(function (c, i) {
@@ -300,6 +404,7 @@
       var b = el('button', null, '<b' + (c.pm ? ' data-pm' : '') + '>' + esc(c.b) + '</b><small>' + esc(c.s) + '</small>');
       b.type = 'button'; b.setAttribute('data-c', i); b.setAttribute('aria-pressed', 'false');
       w.appendChild(b); h.appendChild(w);
+      w.classList.add('ak-x'); w.setAttribute('data-ax', 'drop'); w.style.setProperty('--i', i);
     });
     t.appendChild(h);
     RR.forEach(function (r, ri) {
@@ -307,10 +412,12 @@
       var dw = el('div', 'ak-rdw'); dw.setAttribute('role', 'rowheader');
       var d = el('button', 'ak-rd', esc(r[0])); d.type = 'button'; d.setAttribute('aria-pressed', 'false');
       dw.appendChild(d); row.appendChild(dw);
+      dw.classList.add('ak-x'); dw.setAttribute('data-ax', 'left'); dw.style.setProperty('--i', ri);
       r[1].split(' ').forEach(function (l, ci) {
         var cell = el('span', null, '<i class="ak-rc' + (l === '–' ? ' is-dash' : '') + '" data-l="' + l + '">' + l + '</i>');
         cell.setAttribute('role', 'cell'); cell.setAttribute('data-col', ci);
         cell.setAttribute('aria-label', RC[ci].b + ': ' + (l === '–' ? 'none' : l));
+        cell.classList.add('ak-x'); cell.setAttribute('data-ax', 'over'); cell.style.setProperty('--i', ri + ci);
         row.appendChild(cell);
       });
       t.appendChild(row);
@@ -337,7 +444,6 @@
       if (Deck.reduce || RX.f || RX.col > -1 || RX.row > -1) return;
       ctx.after(1100, function () { if (RX.f || RX.col > -1 || RX.row > -1) return; RX.f = 'A'; rPaint(s); });
     },
-    leave: function (s) { RX = { f: '', col: -1, row: -1 }; rPaint(s); },
     settle: function (s) { RX = { f: '', col: -1, row: -1 }; rPaint(s); }
   });
 

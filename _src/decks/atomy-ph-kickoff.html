@@ -14,12 +14,12 @@
 <!-- 1 · cover -->
 <section class="slide dark cover" id="cover" data-chrome="none" data-title="Project kickoff: live by 29 December" data-dur="9000">
   <div class="cv-copy ak-cv">
-    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in>
+    <img class="cv-logo" src="assets/img/logo-horizontal-white.png" alt="TechNext" width="240" height="48" data-in data-fx="crash">
     <span class="kicker" data-in style="--d:120ms">project kickoff · Friday 27 November 2026</span>
     <h1 class="h-xl ak-h1" data-in style="--d:200ms">Live by <span class="hl">29 December.</span></h1>
     <p class="lead ak-cv-lead" data-in style="--d:320ms">BIR CAS (Computerized Accounting System) and e-invoicing for ATOMY Philippines, powered by Odoo.</p>
   </div>
-  <div class="ak-lock" data-in data-fx="land" style="--d:260ms">
+  <div class="ak-lock" data-in data-fx="crash" style="--d:300ms">
     <img class="ak-lock-atomy" src="assets/img/clients/atomy-white.svg?v={{v}}" alt="ATOMY" width="300" height="146">
     <div class="ak-lock-who">
       <span>ATOMY Philippine Distribution Trading Inc.</span>
@@ -35,10 +35,11 @@
       <g class="ak-fly-plane"><path d="M-15,-11 L17,-1.5 L-15,11 L-8,1 Z M-8,1 L-3,9 L1,2.2 Z"/></g>
     </svg>
     <div class="ak-fly-labels"></div>
+    <p class="ak-fly-tip">Click a date to jump to it</p>
     <p class="ak-fly-count"><b>32 days</b> kickoff to go-live <span>·</span> go-live <b>2 days</b> before the BIR EIS deadline</p>
   </div>
   <p class="hint cv-hint ak-cv-hint" data-in style="--d:1200ms"><kbd>→</kbd> or click to begin <span class="cv-hint-sep">·</span> <kbd>O</kbd> all slides</p>
-  <aside class="notes"><p>Welcome everyone. This is the formal kickoff of the Odoo Accounting implementation with BIR CAS and EIS compliance for ATOMY Philippines. Kickoff today also closes Milestone 1 (Mobilization) once the project plan is agreed.</p><p>The flight path is the plan in one line: kickoff today, configuration complete 4 Dec, UAT sign-off 7 Dec, CAS and EIS documents 18 Dec, go-live and handover 29 Dec, two days before the 31 Dec BIR e-invoicing deadline.</p></aside>
+  <aside class="notes"><p>Click any date on the flight path to jump to that milestone (31 Dec opens the week-by-week plan).</p><p>Welcome everyone. This is the formal kickoff of the Odoo Accounting implementation with BIR CAS and EIS compliance for ATOMY Philippines. Kickoff today also closes Milestone 1 (Mobilization) once the project plan is agreed.</p><p>The flight path is the plan in one line: kickoff today, configuration complete 4 Dec, UAT sign-off 7 Dec, CAS and EIS documents 18 Dec, go-live and handover 29 Dec, two days before the 31 Dec BIR e-invoicing deadline.</p></aside>
 </section>
 
 <!-- 2 · assumptions -->
@@ -59,15 +60,15 @@
     </div>
     <div class="ak-db-app">{{odoo:account:40}}<span><b>Out of the box Odoo Accounting module</b></span></div>
   </div>
-  <ul class="ak-wp">
-    <li data-in style="--d:260ms"><span class="ak-wp-ic">{{icon:file}}</span><div><b>BIR CAS</b><p>CAS books (GJ, GL, sales, purchase, CRJ, CDJ), Form 2307, SLSP DAT files, audit trail</p></div></li>
-    <li data-in style="--d:320ms"><span class="ak-wp-ic">{{icon:receipt}}</span><div><b>BIR EIS</b><p>E-invoice format, numbering and data, test transmission and go-live via the BIR compliance engine</p></div></li>
-    <li data-in style="--d:380ms"><span class="ak-wp-ic">{{icon:send}}</span><div><b>CAS processing</b><p>CAS registration through ORUS, Permit to Issue E-Invoice application, BIR follow-up</p></div></li>
-    <li data-in style="--d:440ms"><span class="ak-wp-ic">{{icon:calculator}}</span><div><b>End to end accounting implementation</b><p>Accounts Payable, Accounts Receivable and General Ledger · go-live support</p></div></li>
-    <li data-in style="--d:500ms"><span class="ak-wp-ic">{{icon:graduation}}</span><div><b>Training materials</b><p>User manuals and training videos</p></div></li>
-    <li data-in style="--d:560ms"><span class="ak-wp-ic">{{icon:calendar}}</span><div><b>Project management</b><p>Project timeline and milestone tracking · weekly status reporting</p></div></li>
+  <ul class="ak-wp" data-cas="right" data-cd="300" data-cg="55">
+    <li><button type="button" class="ak-wp-b" data-w="0" aria-pressed="false"><span class="ak-wp-ic">{{icon:file}}</span><span class="ak-wp-t"><b>BIR CAS</b><span class="ak-chips"><em>CAS books</em><span class="ak-chip" style="--c:0">GJ</span><span class="ak-chip" style="--c:1">GL</span><span class="ak-chip" style="--c:2">Sales</span><span class="ak-chip" style="--c:3">Purchase</span><span class="ak-chip" style="--c:4">CRJ</span><span class="ak-chip" style="--c:5">CDJ</span><span class="ak-chip" style="--c:6">Form 2307</span><span class="ak-chip" style="--c:7">SLSP DAT files</span><span class="ak-chip" style="--c:8">Audit trail</span></span></span></button></li>
+    <li><button type="button" class="ak-wp-b" data-w="1" aria-pressed="false"><span class="ak-wp-ic">{{icon:receipt}}</span><span class="ak-wp-t"><b>BIR EIS</b><span class="ak-chips"><em>E-invoice</em><span class="ak-chip" style="--c:0">Format</span><span class="ak-chip" style="--c:1">Numbering</span><span class="ak-chip" style="--c:2">Data</span><span class="ak-chip" style="--c:3">Test transmission</span><span class="ak-chip" style="--c:4">Go-live via the BIR compliance engine</span></span></span></button></li>
+    <li><button type="button" class="ak-wp-b" data-w="2" aria-pressed="false"><span class="ak-wp-ic">{{icon:send}}</span><span class="ak-wp-t"><b>CAS processing</b><span class="ak-chips"><em>With the BIR</em><span class="ak-chip" style="--c:0">CAS registration through ORUS</span><span class="ak-chip" style="--c:1">Permit to Issue E-Invoice application</span><span class="ak-chip" style="--c:2">BIR follow-up</span></span></span></button></li>
+    <li><button type="button" class="ak-wp-b" data-w="3" aria-pressed="false"><span class="ak-wp-ic">{{icon:calculator}}</span><span class="ak-wp-t"><b>End to end accounting implementation</b><span class="ak-chips"><em>Modules</em><span class="ak-chip" style="--c:0">Accounts Payable</span><span class="ak-chip" style="--c:1">Accounts Receivable</span><span class="ak-chip" style="--c:2">General Ledger</span><span class="ak-chip" style="--c:3">Go-live support</span></span></span></button></li>
+    <li><button type="button" class="ak-wp-b" data-w="4" aria-pressed="false"><span class="ak-wp-ic">{{icon:graduation}}</span><span class="ak-wp-t"><b>Training materials</b><span class="ak-chips"><em>For your team</em><span class="ak-chip" style="--c:0">User manuals</span><span class="ak-chip" style="--c:1">Training videos</span></span></span></button></li>
+    <li><button type="button" class="ak-wp-b" data-w="5" aria-pressed="false"><span class="ak-wp-ic">{{icon:calendar}}</span><span class="ak-wp-t"><b>Project management</b><span class="ak-chips"><em>Every week</em><span class="ak-chip" style="--c:0">Project timeline and milestone tracking</span><span class="ak-chip" style="--c:1">Weekly status reporting</span></span></span></button></li>
   </ul>
-  <aside class="notes"><p>Press &rarr; three times to build the database: one company, two branches, two users with roles and access rights, all on Odoo Online with the out-of-the-box Accounting module.</p><p>From Annex B.2. Odoo standard features and Philippine localization only; any customization needs a written business case and a Change Request (MSA 3.2).</p></aside>
+  <aside class="notes"><p>Click any work package on the right to spotlight what it delivers.</p><p>Press &rarr; three times to build the database: one company, two branches, two users with roles and access rights, all on Odoo Online with the out-of-the-box Accounting module.</p><p>From Annex B.2. Odoo standard features and Philippine localization only; any customization needs a written business case and a Change Request (MSA 3.2).</p></aside>
 </section>
 
 <!-- 3 · scope -->
@@ -76,9 +77,9 @@
     <span class="kicker" data-in>key deliverables</span>
     <h2 class="h-m" data-in style="--d:80ms">In scope, or a <span class="hl">Change Request.</span></h2>
   </div>
-  <div class="ak-in" data-in style="--d:200ms">
-    <h3 class="ak-col-h"><span class="ak-col-ic ak-col-ic--ok">{{icon:check}}</span>In scope <small>Annex B.2</small></h3>
-    <ul>
+  <div class="ak-in">
+    <h3 class="ak-col-h" data-in style="--d:180ms"><span class="ak-col-ic ak-col-ic--ok">{{icon:check}}</span>In scope <small>Annex B.2</small></h3>
+    <ul data-cas="left" data-cd="260" data-cg="38">
       <li>Best-practice configuration of Odoo modules</li>
       <li>Philippine BIR localization</li>
       <li>Default books of accounts (BIR compliance)</li>
@@ -90,9 +91,9 @@
       <li>Beginning balances: trial balance and open invoices</li>
     </ul>
   </div>
-  <div class="ak-out" data-in style="--d:280ms">
-    <h3 class="ak-col-h"><span class="ak-col-ic ak-col-ic--cr">{{icon:pen}}</span>Out of scope <small>Change Request · tap one</small></h3>
-    <div class="ak-out-list" role="group" aria-label="Out of scope items: tap one to see how it would start">
+  <div class="ak-out">
+    <h3 class="ak-col-h" data-in style="--d:240ms"><span class="ak-col-ic ak-col-ic--cr">{{icon:pen}}</span>Out of scope <small>Change Request · tap one</small></h3>
+    <div class="ak-out-list" data-cas="right" data-cd="320" data-cg="42" role="group" aria-label="Out of scope items: tap one to see how it would start">
       <button type="button" data-o="Customization or custom modules">Customization or custom modules</button>
       <button type="button" data-o="New report and screen customization">New report and screen customization</button>
       <button type="button" data-o="Custom API integration development">Custom API integration development from external or third-party applications</button>
@@ -104,7 +105,7 @@
   </div>
   <div class="ak-cr" data-in style="--d:360ms" aria-live="polite">
     <p class="ak-cr-h">How <b class="ak-cr-item">Customization or custom modules</b> would start</p>
-    <ol class="ak-cr-steps">
+    <ol class="ak-cr-steps" data-cas="drop" data-cd="700" data-cg="70">
       <li><span>1</span>Written business case<small>MSA 3.2</small></li>
       <li><span>2</span>Quoted first</li>
       <li><span>3</span>ATOMY approves in writing<small>MSA 3.3</small></li>
@@ -124,36 +125,36 @@
     <i class="ak-track-fill"></i>
     <svg class="ak-track-plane" viewBox="-20 -14 40 28" width="40" height="28"><path d="M-15,-11 L17,-1.5 L-15,11 L-8,1 Z M-8,1 L-3,9 L1,2.2 Z"/></svg>
   </div>
-  <ol class="ak-gates" role="group" aria-label="Milestones: click one to open it">
-    <li data-in style="--d:240ms"><button type="button" class="ak-gate" data-g="0">
+  <ol class="ak-gates" data-cas="drop" data-cd="240" data-cg="60" role="group" aria-label="Milestones: click one to open it">
+    <li><button type="button" class="ak-gate" data-g="0">
       <span class="ak-g-top"><span class="ak-g-n">1</span><b class="ak-g-d">27 Nov</b></span>
       <b class="ak-g-t">Mobilization</b>
       <span class="ak-g-l">Accepted when</span><span class="ak-g-x">MSA signed, kickoff held, project plan agreed</span>
       <span class="ak-g-l">Deliverable</span><span class="ak-g-x">Project plan</span>
       <span class="ak-g-sig">Sign-off: ATOMY sponsor + TechNext PM</span>
     </button></li>
-    <li data-in style="--d:300ms"><button type="button" class="ak-gate" data-g="1">
+    <li><button type="button" class="ak-gate" data-g="1">
       <span class="ak-g-top"><span class="ak-g-n">2</span><b class="ak-g-d">04 Dec</b></span>
       <b class="ak-g-t">Configuration</b>
       <span class="ak-g-l">Accepted when</span><span class="ak-g-x">Accounting, PH localization and BIR outputs configured; trial data loaded</span>
       <span class="ak-g-l">Deliverable</span><span class="ak-g-x">Configured database, trial migration, BIR output samples</span>
       <span class="ak-g-sig">Sign-off: ATOMY sponsor + TechNext PM</span>
     </button></li>
-    <li data-in style="--d:360ms"><button type="button" class="ak-gate" data-g="2">
+    <li><button type="button" class="ak-gate" data-g="2">
       <span class="ak-g-top"><span class="ak-g-n">3</span><b class="ak-g-d">07 Dec</b></span>
       <b class="ak-g-t">UAT sign-off</b>
       <span class="ak-g-l">Accepted when</span><span class="ak-g-x">UAT passed, incl. test e-invoices and BIR reports</span>
       <span class="ak-g-l">Deliverable</span><span class="ak-g-x">UAT scripts and signed results</span>
       <span class="ak-g-sig">Sign-off: ATOMY sponsor + TechNext PM</span>
     </button></li>
-    <li data-in style="--d:420ms"><button type="button" class="ak-gate" data-g="3">
+    <li><button type="button" class="ak-gate" data-g="3">
       <span class="ak-g-top"><span class="ak-g-n">4</span><b class="ak-g-d">18 Dec</b></span>
       <b class="ak-g-t">CAS / EIS documents</b>
       <span class="ak-g-l">Accepted when</span><span class="ak-g-x">All company and authorization documents available</span>
       <span class="ak-g-l">Deliverable</span><span class="ak-g-x">Accounting &amp; BIR design document</span>
       <span class="ak-g-sig">Sign-off: ATOMY sponsor + TechNext PM</span>
     </button></li>
-    <li data-in style="--d:480ms"><button type="button" class="ak-gate" data-g="4">
+    <li><button type="button" class="ak-gate" data-g="4">
       <span class="ak-g-top"><span class="ak-g-n">5</span><b class="ak-g-d">29 Dec</b></span>
       <b class="ak-g-t">Go-live &amp; handover</b>
       <span class="ak-g-l">Accepted when</span><span class="ak-g-x">First live transactions and e-invoices issued</span>
@@ -194,27 +195,27 @@
     <span class="kicker" data-in>who's who</span>
     <h2 class="h-m" data-in style="--d:80ms">Two teams, <span class="hl">one go-live.</span></h2>
   </div>
-  <div class="ak-tm ak-tm--tn" data-in style="--d:200ms">
-    <h3 class="ak-tm-h"><img src="assets/img/logo-horizontal.png" alt="TechNext" width="150" height="30"><span>TechNext Philippines</span></h3>
-    <ul>
-      <li><span class="ak-av">PC</span><div><b>Pia (Sophia) Cachola-Ang</b><small>General Manager · executive sponsor &amp; escalation</small></div></li>
-      <li><span class="ak-av">RS</span><div><b>RJ Sarreal</b><small>Project Manager · plan, scope, weekly status</small></div></li>
-      <li><span class="ak-av">NM</span><div><b>Neil Matan</b><small>Solutions Architect Manager · finance design &amp; workshops</small></div></li>
-      <li><span class="ak-av">JB</span><div><b>Jett Balanza</b><small>Functional ERP Consultant · config, UAT, training, L1 support</small></div></li>
-      <li><span class="ak-av">PG</span><div><b>Philip Gallan</b><small>Odoo Developer · invoice layouts, imports, exports</small></div></li>
-      <li><span class="ak-av">JB</span><div><b>Jeric Bulayungan</b><small>Business Development · commercial contact</small></div></li>
+  <div class="ak-tm ak-tm--tn">
+    <h3 class="ak-tm-h" data-in style="--d:160ms"><img src="assets/img/logo-horizontal.png" alt="TechNext" width="150" height="30"><span>TechNext Philippines</span></h3>
+    <ul data-cas="up" data-cd="240" data-cg="50">
+      <li class="ak-hasb"><button type="button" class="ak-pc" data-p="Pia (Sophia) Cachola-Ang" aria-expanded="false"><img class="ak-ph" src="assets/img/team/pia-cachola.jpg?v={{v}}" alt="" width="68" height="68"><div><b>Pia (Sophia) Cachola-Ang</b><small>General Manager · executive sponsor &amp; escalation</small></div><span class="ak-tally" aria-hidden="true"></span></button></li>
+      <li class="ak-hasb"><button type="button" class="ak-pc" data-p="RJ Sarreal" aria-expanded="false"><img class="ak-ph" src="assets/img/team/rj-sarreal.jpg?v={{v}}" alt="" width="68" height="68"><div><b>RJ Sarreal</b><small>Project Manager · plan, scope, weekly status</small></div><span class="ak-tally" aria-hidden="true"></span></button></li>
+      <li class="ak-hasb"><button type="button" class="ak-pc" data-p="Neil Matan" aria-expanded="false"><img class="ak-ph" src="assets/img/team/astroneil-matan.jpg?v={{v}}" alt="" width="68" height="68"><div><b>Neil Matan</b><small>Solutions Architect Manager · finance design &amp; workshops</small></div><span class="ak-tally" aria-hidden="true"></span></button></li>
+      <li class="ak-hasb"><button type="button" class="ak-pc" data-p="Jett Balanza" aria-expanded="false"><img class="ak-ph" src="assets/img/team/jett-balanza.jpg?v={{v}}" alt="" width="68" height="68"><div><b>Jett Balanza</b><small>Functional ERP Consultant · config, UAT, training, L1 support</small></div><span class="ak-tally" aria-hidden="true"></span></button></li>
+      <li class="ak-hasb"><button type="button" class="ak-pc" data-p="Philip Gallan" aria-expanded="false"><img class="ak-ph" src="assets/img/team/philip-gallan.jpg?v={{v}}" alt="" width="68" height="68"><div><b>Philip Gallan</b><small>Odoo Developer · invoice layouts, imports, exports</small></div><span class="ak-tally" aria-hidden="true"></span></button></li>
+      <li class="ak-hasb"><button type="button" class="ak-pc" data-p="Jeric Bulayungan" aria-expanded="false"><img class="ak-ph" src="assets/img/team/jeric-bulayungan.jpg?v={{v}}" alt="" width="68" height="68"><div><b>Jeric Bulayungan</b><small>Business Development · commercial contact</small></div><span class="ak-tally" aria-hidden="true"></span></button></li>
     </ul>
   </div>
-  <div class="ak-tm ak-tm--at" data-in style="--d:280ms">
-    <h3 class="ak-tm-h"><img src="assets/img/clients/atomy.svg?v={{v}}" alt="ATOMY" width="62" height="30"><span>ATOMY Philippines</span></h3>
-    <ul>
-      <li><span class="ak-av ak-av--at">KB</span><div><b>Kim Byoung Ho</b><small>Branch Director · project sponsor</small></div></li>
+  <div class="ak-tm ak-tm--at">
+    <h3 class="ak-tm-h" data-in style="--d:220ms"><img src="assets/img/clients/atomy.svg?v={{v}}" alt="ATOMY" width="62" height="30"><span>ATOMY Philippines</span></h3>
+    <ul data-cas="right" data-cd="420" data-cg="60">
+      <li class="ak-hasb"><button type="button" class="ak-pc" data-p="Kim Byoung Ho" aria-expanded="false"><span class="ak-av ak-av--at">KB</span><div><b>Kim Byoung Ho</b><small>Branch Director · project sponsor</small></div><span class="ak-tally" aria-hidden="true"></span></button></li>
       <li class="ak-open"><span class="ak-av ak-av--open">?</span><div><b>Project Manager</b><label class="ak-name" data-i><input type="text" data-n="pm" placeholder="To be named today" aria-label="ATOMY project manager" autocomplete="off" spellcheck="false" maxlength="40"></label></div></li>
       <li class="ak-open"><span class="ak-av ak-av--open">?</span><div><b>Finance &amp; accounting key users</b><label class="ak-name" data-i><input type="text" data-n="users" placeholder="To be named today" aria-label="ATOMY finance and accounting key users" autocomplete="off" spellcheck="false" maxlength="40"></label></div></li>
       <li class="ak-open"><span class="ak-av ak-av--open">?</span><div><b>ATOMY's accountant</b><small>Files CAS with the RDO</small><label class="ak-name" data-i><input type="text" data-n="acct" placeholder="To be named today" aria-label="ATOMY's accountant" autocomplete="off" spellcheck="false" maxlength="40"></label></div></li>
     </ul>
   </div>
-  <aside class="notes"><p>Type ATOMY's names straight into the dashed fields as they are agreed: they carry through to the communication plan, the RACI and the agree-today list (they stay while this tab is open).</p><p>TechNext team from the proposal; signatories from the MSA. ATOMY's project manager and key users are still to be named (Annex B.6): please confirm them today.</p></aside>
+  <aside class="notes"><p>Click a person to see what they own on the RACI (R, A, C, I counts).</p><p>Type ATOMY's names straight into the dashed fields as they are agreed: they carry through to the communication plan, the RACI and the agree-today list (they stay while this tab is open).</p><p>TechNext team from the proposal; signatories from the MSA. ATOMY's project manager and key users are still to be named (Annex B.6): please confirm them today.</p></aside>
 </section>
 
 <!-- 7 · communication plan -->
@@ -225,7 +226,7 @@
   </div>
   <div class="ak-msg" data-in style="--d:200ms">
     <p class="ak-msg-h">What are you sending?</p>
-    <div class="ak-msg-grid" role="group" aria-label="Pick a message to see its channel">
+    <div class="ak-msg-grid" data-cas="pop" data-cd="260" data-cg="32" role="group" aria-label="Pick a message to see its channel">
       <button type="button" data-c="chat">Quick question</button>
       <button type="button" data-c="chat">Day-to-day update</button>
       <button type="button" data-c="mail">Approval</button>
@@ -237,7 +238,7 @@
       <button type="button" data-c="meet">UAT or training session</button>
     </div>
   </div>
-  <div class="ak-ch" data-in style="--d:280ms">
+  <div class="ak-ch" data-cas="drop" data-cd="340" data-cg="70">
     <div class="ak-chan" data-ch="chat">
       <span class="ak-chan-ic">{{icon:chat}}</span>
       <b>Viber or WhatsApp</b>
@@ -258,7 +259,7 @@
       <p>Meetings: design workshops, weekly status calls, UAT and training sessions.</p>
     </div>
   </div>
-  <div class="ak-poc" data-in style="--d:360ms">
+  <div class="ak-poc" data-in style="--d:420ms" data-cas="left" data-cd="520" data-cg="60">
     <div class="ak-poc-r ak-poc-th"><span>Role</span><span>TechNext</span><span>ATOMY Philippines</span></div>
     <div class="ak-poc-r"><span>Point of contact (POC)</span><span><b>RJ Sarreal</b> Project Manager</span><label class="ak-name" data-i><input type="text" data-n="poc" placeholder="To be named today" aria-label="ATOMY point of contact" autocomplete="off" spellcheck="false" maxlength="40"></label></div>
     <div class="ak-poc-r"><span>Change requests</span><span><b>Neil Matan</b> Solutions Architect Manager</span><label class="ak-name" data-i><input type="text" data-n="cr" placeholder="To be named today" aria-label="ATOMY change request contact" autocomplete="off" spellcheck="false" maxlength="40"></label></div>
@@ -273,20 +274,20 @@
     <span class="kicker" data-in>support after go-live</span>
     <h2 class="h-m" data-in style="--d:80ms">After go-live, <span class="hl">three layers of support.</span></h2>
   </div>
-  <div class="ak-lay" data-in style="--d:200ms">
+  <div class="ak-lay" data-cas="left" data-cd="220" data-cg="80">
     <div class="ak-lay-go"><b>29 Dec</b><small>go-live</small></div>
     <div class="ak-layer ak-layer--hc"><span class="ak-layer-ic">{{icon:lifebuoy}}</span><div><small>Hypercare</small><b>2 weeks</b><p>Support on working days after go-live at no extra charge.</p></div></div>
     <div class="ak-layer ak-layer--wr"><span class="ak-layer-ic">{{icon:shield}}</span><div><small>Warranty</small><b>60 days</b><p>Deliverables that don't meet Annex B are fixed free, from acceptance.</p></div></div>
     <div class="ak-layer ak-layer--care"><span class="ak-layer-ic">{{icon:heart}}</span><div><small>TechNext Care</small><b>Optional</b><p>Ongoing support under a separate order form.</p></div></div>
   </div>
-  <div class="ak-sla" data-in style="--d:300ms">
+  <div class="ak-sla" data-cas="up" data-cd="440" data-cg="45">
     <div class="ak-sla-r ak-sla-th"><span>Priority</span><span>Meaning</span><span>Response</span><span>Restore / workaround</span></div>
     <button type="button" class="ak-sla-r" data-p="0"><span><i class="ak-pri">P1</i>Critical</span><span>Odoo down, or invoicing, e-invoicing or month-end close blocked</span><span>1 hour</span><span>4 hours</span></button>
     <button type="button" class="ak-sla-r" data-p="1"><span><i class="ak-pri">P2</i>High</span><span>Key function impaired for many users; costly workaround</span><span>2 hours</span><span>1 business day</span></button>
     <button type="button" class="ak-sla-r" data-p="2"><span><i class="ak-pri">P3</i>Medium</span><span>One user or non-critical function; workaround exists</span><span>8 hours</span><span>Next planned fix</span></button>
     <button type="button" class="ak-sla-r" data-p="3"><span><i class="ak-pri">P4</i>Low</span><span>Questions and how-to requests</span><span>1 business day</span><span>As agreed</span></button>
   </div>
-  <div class="ak-clock" data-in style="--d:360ms" aria-live="polite">
+  <div class="ak-clock" data-in data-fx="crash" style="--d:560ms" aria-live="polite">
     <span class="ak-clock-p">P1 Critical</span>
     <div class="ak-clock-n"><small>Response</small><b data-k="r">1 hour</b></div>
     <div class="ak-clock-n"><small>Restore / workaround</small><b data-k="f">4 hours</b></div>
@@ -319,7 +320,7 @@
     <span class="kicker" data-in>before we close</span>
     <h2 class="h-m" data-in style="--d:80ms">Eight points <span class="hl">to agree today.</span></h2>
   </div>
-  <ol class="ak-q" data-in style="--d:200ms">
+  <ol class="ak-q" data-cas="up" data-cd="220" data-cg="40">
     <li><button type="button" data-q="plan"><span class="ak-q-n">1</span><span class="ak-q-t">Agree the project plan (closes Milestone 1, Mobilization)<em data-v="plan"></em></span><span class="ak-q-s"></span></button></li>
     <li><button type="button" data-q="pm"><span class="ak-q-n">2</span><span class="ak-q-t">Name ATOMY's project manager<em data-v="pm"></em></span><span class="ak-q-s"></span></button></li>
     <li><button type="button" data-q="users"><span class="ak-q-n">3</span><span class="ak-q-t">Name the finance and accounting key users<em data-v="users"></em></span><span class="ak-q-s"></span></button></li>
@@ -331,7 +332,7 @@
   </ol>
   <div class="ak-q-bar" data-in style="--d:320ms">
     <span class="ak-q-c"><b data-c="a">0</b> agreed · <b data-c="f">0</b> follow up</span>
-    <button type="button" class="btn btn-line ak-q-copy">{{icon:file}}<span>Copy for the minutes</span></button>
+    <button type="button" class="btn btn-line ak-q-copy">{{icon:file}}<span role="status" aria-live="polite">Copy for the minutes</span></button>
   </div>
   <aside class="notes"><p>Mark as you go: one click is agreed, two is follow up, three clears. Names typed on the earlier slides show under their point. Copy for the minutes puts the names and the open points on the clipboard.</p></aside>
 </section>
@@ -344,12 +345,12 @@
     <h2 class="h-xl ak-cl-h" data-in style="--d:140ms">Questions, then <span class="hl">live on 29 December.</span></h2>
     <p class="lead" data-in style="--d:220ms">Next: confirm the open points and agree the date of the first design workshop.</p>
   </div>
-  <ul class="ak-cl-people" data-in style="--d:300ms">
-    <li><span class="ak-av">RS</span><div><b>RJ Sarreal</b><small>Project Manager, TechNext</small></div></li>
-    <li><span class="ak-av">NM</span><div><b>Neil Matan</b><small>Solutions Architect Manager · <a href="mailto:astroneil@technext.asia">astroneil@technext.asia</a></small></div></li>
+  <ul class="ak-cl-people" data-cas="right" data-cd="320" data-cg="80">
+    <li><img class="ak-ph" src="assets/img/team/rj-sarreal.jpg?v={{v}}" alt="" width="60" height="60"><div><b>RJ Sarreal</b><small>Project Manager, TechNext</small></div></li>
+    <li><img class="ak-ph" src="assets/img/team/astroneil-matan.jpg?v={{v}}" alt="" width="60" height="60"><div><b>Neil Matan</b><small>Solutions Architect Manager · <a href="mailto:astroneil@technext.asia">astroneil@technext.asia</a></small></div></li>
     <li><span class="ak-av ak-av--at">KB</span><div><b>Kim Byoung Ho</b><small>Branch Director, ATOMY Philippines</small></div></li>
   </ul>
-  <div class="ak-fly ak-fly--end" data-in style="--d:380ms" aria-hidden="true">
+  <div class="ak-fly ak-fly--end" data-in style="--d:380ms">
     <svg class="ak-fly-svg" viewBox="0 0 1360 250" width="1360" height="250">
       <path class="ak-fly-ghost" d=""/>
       <path class="ak-fly-line" d=""/>
@@ -357,6 +358,7 @@
       <g class="ak-fly-plane"><path d="M-15,-11 L17,-1.5 L-15,11 L-8,1 Z M-8,1 L-3,9 L1,2.2 Z"/></g>
     </svg>
     <div class="ak-fly-labels"></div>
+    <button type="button" class="ak-replay">{{icon:send}}<span>Fly it again</span></button>
   </div>
   <aside class="notes"><p>Close with questions, confirm the open points, and agree the date of the first design workshop.</p></aside>
 </section>
