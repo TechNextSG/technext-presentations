@@ -250,7 +250,7 @@
     { n: '3', t: 'UAT', sub: 'Test e-invoices and BIR reports', bar: [14, 14], k: 'k-gate', ms: 14, msl: 'M3 7 Dec', chip: 'UAT sign-off' },
     { n: '4', t: 'CAS / EIS documents', sub: 'Company and authorization docs', bar: [4, 25], k: 'k-docs', ms: 25, msl: 'M4 18 Dec', chip: 'CAS / EIS documents' },
     { t: 'BIR registration support', sub: 'ORUS CAS + e-invoice permit', bar: [25, 36], k: 'k-sup', chip: 'BIR registration support' },
-    { t: 'Training and cut-over', sub: 'Proposed: 3 sessions, go/no-go', bar: [28, 35], k: 'k-sup', chip: 'Training and cut-over' },
+    { t: 'Training and cut-over', sub: 'Proposed: 3 sessions, go/no-go', bar: [28, 35], k: 'k-sup k-prop', chip: 'Training and cut-over' },
     { n: '5', t: 'Go-live and handover', sub: 'First live e-invoices', ms: 36, msl: 'M5 29 Dec', chip: 'M5 Go-live', left: 1 },
     { t: 'Hypercare', sub: 'Mon to Fri, 8:00 to 18:00', bar: [36, 50], k: 'k-hc', chip: 'Hypercare' }
   ];
@@ -262,6 +262,9 @@
     var s = document.getElementById('gantt'); if (!s) return;
     var head = $('.ak-gc-head', s); head.innerHTML = '';
     for (var w = 0; w < 8; w++) head.appendChild(el('span', null, fmt(w * 7)));
+    var grid = el('div', 'ak-gc-grid'); grid.setAttribute('aria-hidden', 'true');
+    for (var g = 1; g < 8; g++) { var gl = el('i'); gl.style.left = (330 + dx(g * 7)) + 'px'; grid.appendChild(gl); }
+    $('.ak-gc', s).insertBefore(grid, $('.ak-gc-rows', s));
     var rows = $('.ak-gc-rows', s);
     ROWS.forEach(function (r, i) {
       var row = el('div', 'ak-gr');
@@ -275,9 +278,10 @@
         row.appendChild(b);
       }
       if (r.ms != null) {
-        var m = el('i', 'ak-ms'); m.style.left = (330 + dx(r.ms + 0.5)) + 'px'; m.style.transitionDelay = (i * 55 + 320) + 'ms'; row.appendChild(m);
-        var ml = el('span', 'ak-ms-l' + (r.left ? ' is-left' : ''), r.msl);
-        if (r.left) ml.style.right = (1360 - 330 - dx(r.ms + 0.5) + 18) + 'px'; else ml.style.left = (330 + dx(r.ms + 0.5) + 18) + 'px';
+        var mx = 330 + (r.bar ? dx(r.bar[1] + 1) : dx(r.ms + 0.5));
+        var m = el('i', 'ak-ms', '<svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2.6 21.4 12 12 21.4 2.6 12Z"/></svg>'); m.style.left = mx + 'px'; m.style.transitionDelay = (i * 55 + 320) + 'ms'; row.appendChild(m);
+        var mp = r.msl.split(' '), ml = el('span', 'ak-ms-l' + (r.left ? ' is-left' : ''), '<b>' + mp[0] + '</b>' + esc(mp.slice(1).join(' ')));
+        if (r.left) ml.style.right = (1360 - mx + 20) + 'px'; else ml.style.left = (mx + 20) + 'px';
         ml.style.transitionDelay = (i * 55 + 400) + 'ms';
         row.appendChild(ml);
       }
@@ -378,7 +382,7 @@
     settle: function (s) { cPick(s, $$('.ak-msg-grid button', s)[2]); }
   });
   var TCOL = { 'RJ Sarreal': 0, 'Neil Matan': 1, 'Jett Balanza': 2, 'Philip Gallan': 3, 'Kim Byoung Ho': 4 };
-  var TROLE = { 'Pia (Sophia) Cachola-Ang': 'Executive sponsor &amp; escalation', 'Jeric Bulayungan': 'Commercial contact' };
+  var TROLE = { 'Pia (Sofia) Cachola-Ang': 'Executive sponsor &amp; escalation', 'Jeric Bulayungan': 'Commercial contact' };
   function tFill(b) {
     var t = $('.ak-tally', b); if (t.childNodes.length) return;
     var p = b.getAttribute('data-p'), c = TCOL[p];
