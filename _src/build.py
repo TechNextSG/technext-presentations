@@ -27,7 +27,7 @@ from mapdots import map_svg  # noqa: E402
 
 ICONS = json.loads((SRC / "icons.json").read_text(encoding="utf-8"))
 APPS = json.loads((ROOT / "assets/apps.json").read_text(encoding="utf-8"))
-ASSET_V = "101"
+ASSET_V = "103"
 BASE = "https://technextsg.github.io/technext-presentations/"
 
 QR = {
@@ -132,6 +132,9 @@ DECKS = [
         dict(slug="mol-enterprise-odoo-bir", tags="odoo", title="MOL Enterprise Philippines", mins=20, pdf="TechNext-Proposal-MOL-Enterprise-Odoo-BIR.pdf",
              alt="MOL Enterprise cover: Autocount ends in December, your books carry on.",
              desc="A discovery deck for MOL Enterprise Philippines (logistics, Autocount subscription ending December 2026): the BIR rules with a live day counter, the compliance flow as one camera journey through Odoo, a calendar that overlaps Odoo with the last Autocount months, Odoo apps for logistics later, questions marked live, and the next step."),
+        dict(slug="atomy-ph-kickoff", tags="odoo", title="ATOMY Philippines · Project kickoff", mins=30, pdf="TechNext-ATOMY-Philippines-Project-Kickoff.pdf",
+             alt="ATOMY Philippines kickoff cover: live by 29 December, with the flight path from kickoff to go-live.",
+             desc="The project kickoff for ATOMY Philippines (27 Nov 2026): Odoo Accounting with BIR CAS books and BIR e-invoicing, as one flight path to go-live on 29 December. Key assumptions, in scope or a Change Request, five signed milestones, a week-by-week plan with a date scrubber, who's who, the communication plan, support after go-live, an interactive RACI and the points to agree today, with ATOMY's names typed in live."),
         dict(slug="mol-enterprise-attendance-fleet", tags="odoo", title="MOL Enterprise · Attendances & Fleet", mins=10, pdf="TechNext-MOL-Enterprise-Attendances-Fleet.pdf",
              alt="MOL Enterprise cover: who is on shift, which truck is out.",
              desc="A short deck for MOL Enterprise Philippines on Odoo Attendances and Fleet: a depot kiosk that clocks crews in, a fleet board with each vehicle's driver, odometer and service costs, how both sit on the same employee records, and six questions marked live on the call."),
